@@ -68,13 +68,13 @@
 
 <p>The takelage devops framework consists of these projects:</p>
 
-<p>| App | Description | | — | ———– | | <em><a href="https://github.com/geospin-takelage/takelage-cli">takelage-cli</a></em> | The takelage command line interface | | <em><a href="https://github.com/geospin-takelage/takelage-dev">takelage-dev</a></em> | The takelage development environment | | <strong><a href="https://github.com/geospin-takelage/takelage-bit">takelage-bit</a></strong> | The takelage <a href="https://github.com/teambit/bit">bit</a> server |</p>
+<p>| App | Description | | — | ———– | | <em><a href="https://github.com/geospin-takelage/takelage-cli">takelage-cli</a></em> | takelage command line interface | | <em><a href="https://github.com/geospin-takelage/takelage-dev">takelage-dev</a></em> | takelage development environment | | <em><a href="https://github.com/geospin-takelage/takelage-bit">takelage-bit</a></em> | takelage <a href="https://github.com/teambit/bit">bit</a> server |</p>
 
 <h2 id="label-Installation">Installation</h2>
 
 <p><em>tau</em> is part of <em>takelage-dev</em>&#39;s docker image but you typically want to install it on the host system as well. Install the takelage gem and its dependencies through the <a href="https://github.com/rubygems/rubygems">gem</a> command line tool:</p>
 
-<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_gem'>gem</span> <span class='id identifier rubyid_install'>install</span> <span class='id identifier rubyid_takelage'>takelage</span> <span class='id identifier rubyid_thor'>thor</span> <span class='id identifier rubyid_fylla'>fylla</span> <span class='id identifier rubyid_logger'>logger</span>
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_gem'>gem</span> <span class='id identifier rubyid_install'>install</span> <span class='id identifier rubyid_takelage'>takelage</span> <span class='id identifier rubyid_thor'>thor</span> <span class='id identifier rubyid_fylla'>fylla</span> <span class='id identifier rubyid_logger'>logger</span> <span class='id identifier rubyid_json'>json</span>
 </code></pre>
 
 <h2 id="label-Commands">Commands</h2>
@@ -124,11 +124,11 @@ docker_image: takelage-mock
 
 <h3 id="label-Bash+Completion">Bash Completion</h3>
 
-<p>Add this to your bash configuration file like <em>~/.bash_profile</em> or <em>~/.bashrc</em>: <code>bash source &lt;(tau completion bash) </code></p>
+<p>Add this to your <a href="https://www.gnu.org/software/bash/manual/html_node/Bash-Startup-Files.html">bash startup files</a>: <code>bash source &lt;(tau completion bash) </code></p>
 </div></div>
 
       <div id="footer">
-  Generated on Mon Mar 23 17:48:27 2020 by
+  Generated on Mon Mar 23 23:22:11 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.24 (ruby-2.6.3).
 </div>
