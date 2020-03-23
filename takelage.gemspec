@@ -21,6 +21,7 @@ Gem::Specification.new do |spec|
   spec.bindir = 'bin'
   spec.executables << 'tau'
   spec.metadata['yard.run'] = 'yard'
+  spec.add_runtime_dependency 'fylla', '~> 0.5'
   spec.add_runtime_dependency 'json', '~> 2.1'
   spec.add_runtime_dependency 'logger', '~> 1.4'
   spec.add_runtime_dependency 'rake', '~> 12.3'

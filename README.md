@@ -29,7 +29,7 @@ through the [gem](https://github.com/rubygems/rubygems)
 command line tool:
 
 ```bash
-gem install takelage thor fylla logger
+gem install takelage thor fylla logger json
 ```
 
 ## Commands
