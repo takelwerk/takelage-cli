@@ -153,7 +153,7 @@ or *tau project*.
 
 ### Bash Completion
 
-Add this to your bash configuration file (e.g. *~/.bash_profile* or *~/.bashrc*):
+Add this to your [bash startup files](https://www.gnu.org/software/bash/manual/html_node/Bash-Startup-Files.html):
 ```bash
 source <(tau completion bash)
 ```

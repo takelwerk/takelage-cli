@@ -9,9 +9,9 @@ module Takelage
     long_desc <<-LONGDESC.gsub("\n", "\x5")
     Print bash completion code
     This command will print bash code which can be parsed to enable auto-completion for the takelage cli.
-    Put the following line in your shell start script like ~/.bashrc or ~/.bash_profile:
+    Add this to your bash startup files:
 
-    source <(takelage completion bash)
+    source <(tau completion bash)
     LONGDESC
     # Print bash completion code.
     def bash
