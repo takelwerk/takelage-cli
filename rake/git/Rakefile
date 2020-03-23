@@ -1,0 +1,10 @@
+cmd_git_tag = "git tag -s -m '%{version}' %{version} && git push --tags"
+
+namespace :git do
+  desc 'Create and push git tag'
+  task :tag do
+    version = File.read "#{File.dirname(__FILE__)}/../../lib/takelage/version"
+    version.chomp!
+    $commands <<  cmd_git_tag % {version: version}
+  end
+end

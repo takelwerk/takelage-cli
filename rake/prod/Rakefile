@@ -1,0 +1,10 @@
+desc 'Build takelage cli ruby gem'
+task :prod => %w(doc:clean
+                 doc:build
+                 doc:commit
+                 features
+                 gem:clean
+                 gem:build
+                 gem:move
+                 gem:push
+                 git:tag)

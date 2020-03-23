@@ -1,0 +1,5 @@
+#!/usr/bin/env ruby
+
+require 'takelage'
+Fylla.load('tau')
+Takelage::CLI.start

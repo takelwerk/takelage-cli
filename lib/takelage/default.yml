@@ -1,0 +1,30 @@
+---
+bit_add_dir: 'bit add --skip-update --id %{id} --main %{dir}/README.bit %{dir}'
+bit_checkout_all: 'bit checkout --ignore-package-json --skip-update -i --all latest'
+bit_export_to_scope: 'bit export --skip-update %{scope}'
+bit_export_all: 'bit export --skip-update'
+bit_import_cid: 'bit import --ignore-package-json --skip-update -p %{dir} %{cid}'
+bit_import_all: 'bit import --skip-update --ignore-package-json -m manual'
+bit_list_remotes: 'bit remote --skip-update'
+bit_scope_root: '/bit'
+bit_scope_list: 'find %{root} -name scope.json'
+bit_scope_new: 'mkdir -p %{root}/%{scope} && cd %{root}/%{scope} && bit init -b'
+bit_scope_remove: 'rm -fr %{root}/%{scope}'
+bit_tag_id: 'bit tag --skip-update --skip-tests %{id}'
+bit_tag_all: 'bit tag --all'
+docker_socket_agent_port: 20000
+docker_socket_agent_ssh_port: 20001
+docker_socket_agent_extra_port: 20002
+docker_socket_agent_browser_port: 20003
+docker_socket_ps: 'sudo ps a -o pid,command'
+docker_socket_gpgconf: 'gpgconf --list-dirs'
+docker_socket_kill: 'sudo kill -SIGTERM %{pid}'
+docker_socket_start: 'sudo socat TCP-LISTEN:%{port},bind=%{host},reuseaddr,fork UNIX-CLIENT:%{path}'
+docker_tag: 'latest'
+info_project_main: 'project.yml'
+info_project_private: 'private/project.yml'
+#bit_remote: 'ssh://bit@bit.example.com:2222:/bit'
+#bit_ssh: 'ssh -p 2222 bit@bit.example.com'
+#docker_image: 'takelage'
+#docker_repo: 'hub.docker.com'
+#docker_tagsurl: 'https://hub.docker.com/v2/repositories/library/takelage/tags'

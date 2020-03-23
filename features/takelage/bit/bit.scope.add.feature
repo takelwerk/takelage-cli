@@ -1,0 +1,40 @@
+@bit
+@bit.scope
+@bit.scope.add
+
+Feature: I can add bit remote scopes to workspaces
+
+  @bit.scope.add.scope
+
+  @after_remove_scope_my_scope
+
+  Scenario: Add bit remote scope
+    Given a file named "~/.takelage.yml" with:
+      """
+      ---
+      bit_remote: 'ssh://bit@host.docker.internal:2022:/bit'
+      bit_ssh: 'ssh -p 2022 bit@host.docker.internal'
+      """
+    And I get the active takelage config
+    And a directory named "bit"
+    And I initialize a bit workspace in "bit"
+    And I cd to "bit"
+    And the list of remote scopes is up-to-date
+    But a remote scope named "my_scope" should not exist
+    And I successfully run `tau-cli bit scope new my_scope`
+    And the list of remote scopes is up-to-date
+    And there is a remote scope named "my_scope"
+    But a local remote scope named "my_scope" in "bit" should not exist
+    When I successfully run `tau-cli bit scope add my_scope`
+    Then there is a local remote scope named "my_scope" in "bit"
+
+  @bit.scope.add.notongitmaster
+
+  Scenario: Fail if not on git master branch
+    And I initialize a git workspace in "."
+    And I switch to the git branch named "my_branch" in "."
+    When I run `tau-cli bit scope add nonexisting_scope`
+    Then the output should contain:
+      """
+      [ERROR] Not on git master branch
+      """
