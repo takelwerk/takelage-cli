@@ -18,7 +18,7 @@ The takelage devops framework consists of these projects:
 | --- | ----------- |
 | *[takelage-cli](https://github.com/geospin-takelage/takelage-cli)* | The takelage command line interface |
 | *[takelage-dev](https://github.com/geospin-takelage/takelage-dev)* | The takelage development environment |
-| **[takelage-bit](https://github.com/geospin-takelage/takelage-bit)** | The takelage [bit](https://github.com/teambit/bit) server | 
+| *[takelage-bit](https://github.com/geospin-takelage/takelage-bit)* | The takelage [bit](https://github.com/teambit/bit) server | 
 
 ## Installation
 
