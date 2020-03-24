@@ -10,8 +10,8 @@ Feature: I can paste a bit component from a bit remote scope
     Given a file named "~/.takelage.yml" with:
       """
       ---
-      bit_remote: 'ssh://bit@host.docker.internal:2022:/bit'
-      bit_ssh: 'ssh -p 2022 bit@host.docker.internal'
+      bit_remote: 'ssh://bit@bitboard-cucumber:222:/bit'
+      bit_ssh: 'ssh -p 222 bit@bitboard-cucumber'
       """
     And I get the active takelage config
     And a directory named "bit"

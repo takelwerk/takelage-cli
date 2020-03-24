@@ -8,8 +8,8 @@ Feature: I can list bit remote scopes
     Given a file named "~/.takelage.yml" with:
       """
       ---
-      bit_remote: 'ssh://bit@host.docker.internal:2022:/bit'
-      bit_ssh: 'ssh -p 2022 bit@host.docker.internal'
+      bit_remote: 'ssh://bit@bitboard-cucumber:222:/bit'
+      bit_ssh: 'ssh -p 222 bit@bitboard-cucumber'
       """
     And I get the active takelage config
     And the list of remote scopes is up-to-date
