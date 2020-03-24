@@ -86,6 +86,7 @@ module DockerContainerModule
         '--detach ' +
         "--env GEOSPIN_PROJECT_BASE_DIR=#{@workdir} " +
         '--env GOOGLE_APPLICATION_CREDENTIALS=/srv/google/default.json ' +
+        "--env TAKELAGE_PROJECT_BASE_DIR=#{@workdir} " +
         "--env TZ=#{@timezone} " +
         "--hostname #{container} " +
         "--name #{container} " +
