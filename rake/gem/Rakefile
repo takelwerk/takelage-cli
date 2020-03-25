@@ -8,6 +8,7 @@ cmd_gem_move = "mkdir -p gem && mv *.gem gem"
 cmd_gem_push = "gem push gem/takelage-#{version}.gem"
 
 namespace :gem do
+
   desc 'Build takelage gem'
   task :build do
     $commands << cmd_gem_build
@@ -27,4 +28,5 @@ namespace :gem do
   task :push do
     $commands << cmd_gem_push
   end
+
 end

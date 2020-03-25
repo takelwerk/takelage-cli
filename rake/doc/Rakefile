@@ -5,6 +5,7 @@ cmd_doc_clean = "rm -fr doc/*"
 cmd_doc_commit = "git add doc && git commit -m 'Update docs'"
 
 namespace :doc do
+
   desc 'Build takelage doc'
   task :build do
     $commands << cmd_doc_build
@@ -19,4 +20,5 @@ namespace :doc do
   task :commit do
     $commands << cmd_doc_commit
   end
+  
 end
