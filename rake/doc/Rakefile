@@ -20,5 +20,5 @@ namespace :doc do
   task :commit do
     $commands << cmd_doc_commit
   end
-  
+
 end
