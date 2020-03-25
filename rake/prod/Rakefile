@@ -6,5 +6,5 @@ task :prod => %w(doc:clean
                  gem:clean
                  gem:build
                  gem:move
-                 gem:push
-                 git:tag)
+                 git:tag
+                 gem:push)
