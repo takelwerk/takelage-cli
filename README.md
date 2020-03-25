@@ -114,6 +114,7 @@ or *tau config*.
 ### Configuration Examples
  
 - You should the following configuration items in your *~/.takelage.yml*:
+
 ```yaml
 ---
 bit_remote: 'ssh://bit@bit.example.com:2222:/bit'
@@ -125,6 +126,7 @@ docker_tagsurl: 'https://hub.example.com/v2/repositories/library/takelage/tags'
 
 - If you want to pin a specific docker tag for one of your projects
 then create an *takelage.yml* file with:
+
 ```yaml
 ---
 docker_tag: '1.2.3'
@@ -132,6 +134,7 @@ docker_tag: '1.2.3'
 
 - The cucumber tests make use of an *~/.takelage.yml*
 to overwrite defaults like:
+
 ```yaml
 ---
 docker_image: takelage-mock
@@ -154,6 +157,30 @@ or *tau project*.
 ### Bash Completion
 
 Add this to your [bash startup files](https://www.gnu.org/software/bash/manual/html_node/Bash-Startup-Files.html):
+
 ```bash
 source <(tau completion bash)
+```
+
+### Software Tests
+
+*takelage-cli* ships with 
+[cucumber](https://github.com/cucumber/cucumber) ruby tests.
+It uses cucumber's 
+[aruba](https://github.com/cucumber/aruba) extension and especially its
+[filesystem](https://relishapp.com/cucumber/aruba/v/0-11-0/docs/filesystem)
+library.
+
+*takelage-cli* deploys a private docker 
+[registry](https://docs.docker.com/registry/deploying/)
+to conduct end-to-end tests of *tau docker* commands.
+The registry exposes port 5005. 
+You need to whitelist it in your host's docker engine configuration: 
+
+```json
+{
+  "insecure-registries": [
+    "host.docker.internal:5005"
+  ]
+}
 ```
