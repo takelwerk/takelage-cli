@@ -3,7 +3,13 @@ Before do
       "mkdir -p #{aruba.config.home_directory} && " +
       "cp /homedir/.takelage.yml #{aruba.config.home_directory}/.takelage.yml" +
       "'"
+  cmd_copy_ssh_config = "bash -c '" +
+      "mkdir -p #{aruba.config.home_directory}/.ssh && " +
+      "cp features/fixtures/takelage-bitboard/config #{aruba.config.home_directory}/.ssh/config && " +
+      "cp features/fixtures/takelage-bitboard/id_rsa.myuser #{aruba.config.home_directory}/.ssh/id_rsa" +
+      "'"
   system cmd_copy_home_config
+  system cmd_copy_ssh_config
 end
 
 # for host.docker.internal see

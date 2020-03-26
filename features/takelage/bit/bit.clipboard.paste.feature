@@ -11,7 +11,7 @@ Feature: I can paste a bit component from a bit remote scope
       """
       ---
       bit_remote: 'ssh://bit@bitboard-cucumber:222:/bit'
-      bit_ssh: 'ssh -p 222 bit@bitboard-cucumber'
+      bit_ssh: 'ssh -F $HOME/.ssh/config -p 222 bit@bitboard-cucumber'
       """
     And I get the active takelage config
     And a directory named "bit"

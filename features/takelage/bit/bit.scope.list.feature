@@ -9,7 +9,7 @@ Feature: I can list bit remote scopes
       """
       ---
       bit_remote: 'ssh://bit@bitboard-cucumber:222:/bit'
-      bit_ssh: 'ssh -p 222 bit@bitboard-cucumber'
+      bit_ssh: 'ssh -F $HOME/.ssh/config -p 222 bit@bitboard-cucumber'
       """
     And I get the active takelage config
     And the list of remote scopes is up-to-date

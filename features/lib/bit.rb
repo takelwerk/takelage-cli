@@ -36,7 +36,7 @@ def _stop_bitboard
 end
 
 def bit_before_all
-  @bitboard_image = 'packer_local/bit-components:dev'
+  @bitboard_image = 'packer_local/takelage-bit:prod'
   @bitboard_name = 'bitboard-cucumber'
   _start_bitboard
 end
