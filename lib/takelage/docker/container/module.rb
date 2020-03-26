@@ -9,6 +9,7 @@ module DockerContainerModule
 
     docker_socket_start
 
+    _create_network @hostname unless _network_check_existing @hostname
     _create_container @hostname unless docker_container_check_existing @hostname
     _run_command_in_container @hostname, command
   end
@@ -19,6 +20,7 @@ module DockerContainerModule
 
     exit false unless configured? %w(docker_repo docker_image docker_tag)
 
+    _create_network @hostname unless _network_check_existing @hostname
     _create_container @hostname unless docker_container_check_existing @hostname
   end
 
@@ -30,6 +32,7 @@ module DockerContainerModule
 
     docker_socket_start
 
+    _create_network @hostname unless _network_check_existing @hostname
     _create_container @hostname unless docker_container_check_existing @hostname
     _enter_container @hostname
   end
@@ -40,8 +43,16 @@ module DockerContainerModule
 
     exit false unless configured? %w(docker_image)
 
+    networks = []
+
     _get_containers.each do |container|
+      name = _get_container_name_by_id container
       _stop_container container
+      networks << name unless networks.include? name
+    end
+
+    networks.each do |network|
+      _remove_network network if _network_check_existing network
     end
   end
 
@@ -51,8 +62,18 @@ module DockerContainerModule
 
     exit false unless configured? %w(docker_image)
 
+    networks = []
+
     _get_containers.each do |container|
-      _stop_container container if docker_container_check_orphaned container
+      if docker_container_check_orphaned container
+        name = _get_container_name_by_id container
+        _stop_container container
+        networks << name unless networks.include? name
+      end
+    end
+
+    networks.each do |network|
+      _remove_network network if _network_check_existing network
     end
   end
 
@@ -90,6 +111,7 @@ module DockerContainerModule
         "--env TZ=#{@timezone} " +
         "--hostname #{container} " +
         "--name #{container} " +
+        "--network #{container} " +
         '--privileged ' +
         '--rm ' +
         '--tty ' +
@@ -108,6 +130,16 @@ module DockerContainerModule
         "--username #{@username}"
 
     run cmd_docker_create
+  end
+
+  # Create docker network.
+  def _create_network(network)
+    log.debug "Create network \"#{network}\""
+
+    cmd_create_network = 'docker network create ' +
+        "#{network}"
+
+    run cmd_create_network
   end
 
   # Enter existing docker container.
@@ -129,6 +161,19 @@ module DockerContainerModule
     run_and_exit cmd_docker_enter
   end
 
+  # Get container name by id.
+  def _get_container_name_by_id container
+    log.debug "Getting name of container #{container}"
+
+    cmd_get_container_name_by_id = 'docker ps ' +
+        "--filter id=#{container} "+
+        '--format "{{.Names}}"'
+
+    stdout_str, stderr_str, status = run_and_check cmd_get_container_name_by_id
+
+    stdout_str.chomp
+  end
+
   # Get all docker containers.
   # @return [Array] list of docker containers
   def _get_containers
@@ -145,14 +190,33 @@ module DockerContainerModule
     stdout_str.split(/\n+/)
   end
 
-  # Remove container.
-  def _stop_container(container)
-    log.debug "Stopping container \"#{container}\""
+  # Check if docker network exists.
+  def _network_check_existing(network)
+    log.debug "Checking if network \"#{network}\" is existing"
 
-    cmd_docker_stop = 'docker stop ' +
-        "#{container}"
+    cmd_docker_network_exist = 'docker network ls ' +
+        '--quiet ' +
+        "--filter name=#{network}"
 
-    run cmd_docker_stop
+    stdout_str, stderr_str, status = run_and_check cmd_docker_network_exist
+
+    if stdout_str.to_s.strip.empty?
+      log.debug "Network \"#{network}\" is not existing"
+      return false
+    end
+
+    log.debug "Network \"#{network}\" is existing"
+    true
+  end
+
+  # Remove docker network.
+  def _remove_network network
+    log.debug "Remove network \"#{network}\""
+
+    cmd_remove_network = 'docker network rm ' +
+        "#{network}"
+
+    run cmd_remove_network
   end
 
   # Enter existing docker container.
@@ -165,5 +229,15 @@ module DockerContainerModule
         "-c 'LANG=en_US.UTF-8 #{command}'"
 
     run_and_exit cmd_docker_run_command
+  end
+
+  # Stop container.
+  def _stop_container(container)
+    log.debug "Stopping container \"#{container}\""
+
+    cmd_docker_stop = 'docker stop ' +
+        "#{container}"
+
+    run cmd_docker_stop
   end
 end
