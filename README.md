@@ -10,7 +10,7 @@ The *takelage-cli* executable *tau* is a
 command line script using the 
 [thor](http://whatisthor.com/) toolkit.
 
-## Ecosystem
+## Framework
 
 The takelage devops framework consists of these projects:
 
@@ -171,8 +171,9 @@ It uses cucumber's
 [filesystem](https://relishapp.com/cucumber/aruba/v/0-11-0/docs/filesystem)
 library.
 
-*takelage-cli* deploys a private docker 
-[registry](https://docs.docker.com/registry/deploying/)
+*takelage-cli* [deploys](https://docs.docker.com/registry/deploying/)
+a private docker 
+[registry](https://hub.docker.com/_/registry)
 to conduct end-to-end tests of *tau docker* commands.
 The registry exposes port 5005. 
 You need to whitelist it in your host's docker engine configuration: 
@@ -184,3 +185,9 @@ You need to whitelist it in your host's docker engine configuration:
   ]
 }
 ```
+
+*takelage-cli* deploys a 
+*[bitboard](https://hub.docker.com/r/takelage/bitboard)*
+server created with 
+*[takelage-bit](https://github.com/geospin-takelage/takelage-bit)*
+to end-to-end test the *tau bit* commands.
