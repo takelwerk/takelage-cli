@@ -64,7 +64,7 @@
 
 <p>The <em>takelage-cli</em> executable <em>tau</em> is a <a href="https://www.ruby-lang.org/">ruby</a> command line script using the <a href="http://whatisthor.com/">thor</a> toolkit.</p>
 
-<h2 id="label-Ecosystem">Ecosystem</h2>
+<h2 id="label-Framework">Framework</h2>
 
 <p>The takelage devops framework consists of these projects:</p>
 
@@ -135,7 +135,7 @@ docker_image: takelage-mock
 
 <p><em>takelage-cli</em> ships with <a href="https://github.com/cucumber/cucumber">cucumber</a> ruby tests. It uses cucumber&#39;s <a href="https://github.com/cucumber/aruba">aruba</a> extension and especially its <a href="https://relishapp.com/cucumber/aruba/v/0-11-0/docs/filesystem">filesystem</a> library.</p>
 
-<p><em>takelage-cli</em> deploys a private docker <a href="https://docs.docker.com/registry/deploying/">registry</a> to conduct end-to-end tests of <em>tau docker</em> commands. The registry exposes port 5005. You need to whitelist it in your host&#39;s docker engine configuration:</p>
+<p><em>takelage-cli</em> <a href="https://docs.docker.com/registry/deploying/">deploys</a> a private docker <a href="https://hub.docker.com/_/registry">registry</a> to conduct end-to-end tests of <em>tau docker</em> commands. The registry exposes port 5005. You need to whitelist it in your host&#39;s docker engine configuration:</p>
 
 <pre class="code ruby"><code class="ruby"><span class='lbrace'>{</span>
   <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>insecure-registries</span><span class='label_end'>&quot;:</span> <span class='lbracket'>[</span>
@@ -143,10 +143,12 @@ docker_image: takelage-mock
   <span class='rbracket'>]</span>
 <span class='rbrace'>}</span>
 </code></pre>
+
+<p><em>takelage-cli</em> deploys a <em><a href="https://hub.docker.com/r/takelage/bitboard">bitboard</a></em> server created with <em><a href="https://github.com/geospin-takelage/takelage-bit">takelage-bit</a></em> to end-to-end test the <em>tau bit</em> commands.</p>
 </div></div>
 
       <div id="footer">
-  Generated on Thu Mar 26 14:23:53 2020 by
+  Generated on Thu Mar 26 16:34:32 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.24 (ruby-2.6.3).
 </div>
