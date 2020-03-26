@@ -9,7 +9,7 @@ module SystemModule
   # Run a command and return the result.
   # @return [Boolean] success of command run
   def run_and_check(command)
-    log.debug "Running command '#{command}'"
+    log.debug "Running command \"#{command}\""
     stdout_str, stderr_str, status = Open3.capture3 command
     return stdout_str, stderr_str, status
   end
@@ -65,7 +65,7 @@ module SystemModule
   # Run a command.
   # @return [String] stdout of command
   def run(command, realtime=false)
-    log.debug "Running command '#{command}'"
+    log.debug "Running command \"#{command}\""
     stdout_str = ''
     stderr_str = ''
     status = ''
@@ -91,13 +91,13 @@ module SystemModule
 
   # Use Kernel#exec to replace the ruby process with a command.
   def run_and_exit(command)
-    log.debug "Running command '#{command}' and exiting afterwards"
+    log.debug "Running command \"#{command}\" and exiting afterwards"
     exec command
   end
 
   # Use Kernel#fork and Kernel#exec to run a command as a background process.
   def run_and_fork(command)
-    log.debug "Running command '#{command}' as a background process"
+    log.debug "Running command \"#{command}\" as a background process"
     job = fork do
       exec command
     end
