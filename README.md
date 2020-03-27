@@ -151,7 +151,7 @@ or *tau project*.
 | Default filename | Config key | Precedence | Description |
 | -------- | ---------- | ---------- | ----------- |
 | *project.yml* | info_project_main | normal | Main project file.  |
-| *ansible/group_vars/private/project.yml* | info_project_private | highest | Private project file. Should be in *.gitignore*. |
+| *private/project.yml* | info_project_private | highest | Private project file. Should be in *.gitignore*. |
 
 ### Bash Completion
 
