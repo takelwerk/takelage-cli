@@ -57,6 +57,7 @@ tau purge | # Alias for tau [docker container purge](features/takelage/docker/do
 tau push | # Alias for tau [bit clipboard push](features/takelage/bit/bit.clipboard.push.feature)
 tau update | # Alias for tau [docker image update](features/takelage/docker/docker.image.update.feature)
 tau version | # Alias for tau [self version](features/takelage/self/self.version.feature)
+tau [bit check workspace](features/takelage/bit/bit.check.workspace.feature) | # Check if a bit workspace exists
 tau [bit clipboard copy](features/takelage/bit/bit.clipboard.copy.feature) [DIR] [SCOPE] | # Copy new [DIR] to [SCOPE]
 tau [bit clipboard paste](features/takelage/bit/bit.clipboard.paste.feature) [COMPONENT] [DIR] | # Paste bit [COMPONENT] into [DIR]
 tau [bit clipboard pull](features/takelage/bit/bit.clipboard.pull.feature) | # Pull all updates for bit components from bit remote scopes
