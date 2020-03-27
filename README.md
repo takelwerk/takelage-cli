@@ -114,15 +114,13 @@ or *tau config*.
 
 ### Configuration Examples
  
-- You should the following configuration items in your *~/.takelage.yml*:
+- You should the following configuration items in your *~/.takelage.yml*
+if you want to use a private bit remote server:
 
 ```yaml
 ---
-bit_remote: 'ssh://bit@bit.example.com:2222:/bit'
-bit_ssh: 'ssh -p 2222 bit@bit.example.com'
-docker_image: 'takelage'
-docker_repo: 'hub.example.com'
-docker_tagsurl: 'https://hub.example.com/v2/repositories/library/takelage/tags'
+bit_remote: 'ssh://bit@bit.example.com:222:/bit'
+bit_ssh: 'ssh -p 222 bit@bit.example.com'
 ```
 
 - If you want to pin a specific docker tag for one of your projects
