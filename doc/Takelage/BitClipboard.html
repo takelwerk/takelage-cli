@@ -93,7 +93,7 @@
   
   <dl>
       <dt>Includes:</dt>
-      <dd><span class='object_link'><a href="../BitClipboardModule.html" title="BitClipboardModule (module)">BitClipboardModule</a></span>, <span class='object_link'><a href="../ConfigModule.html" title="ConfigModule (module)">ConfigModule</a></span>, <span class='object_link'><a href="../GitCheckModule.html" title="GitCheckModule (module)">GitCheckModule</a></span>, <span class='object_link'><a href="../LoggingModule.html" title="LoggingModule (module)">LoggingModule</a></span>, <span class='object_link'><a href="../SystemModule.html" title="SystemModule (module)">SystemModule</a></span></dd>
+      <dd><span class='object_link'><a href="../BitCheckModule.html" title="BitCheckModule (module)">BitCheckModule</a></span>, <span class='object_link'><a href="../BitClipboardModule.html" title="BitClipboardModule (module)">BitClipboardModule</a></span>, <span class='object_link'><a href="../ConfigModule.html" title="ConfigModule (module)">ConfigModule</a></span>, <span class='object_link'><a href="../GitCheckModule.html" title="GitCheckModule (module)">GitCheckModule</a></span>, <span class='object_link'><a href="../LoggingModule.html" title="LoggingModule (module)">LoggingModule</a></span>, <span class='object_link'><a href="../SystemModule.html" title="SystemModule (module)">SystemModule</a></span></dd>
   </dl>
   
   
@@ -253,6 +253,17 @@
   
   
   
+  <h3 class="inherited">Methods included from <span class='object_link'><a href="../BitCheckModule.html" title="BitCheckModule (module)">BitCheckModule</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="../BitCheckModule.html#bit_check_workspace-instance_method" title="BitCheckModule#bit_check_workspace (method)">#bit_check_workspace</a></span></p>
+
+  
+  
+  
+  
+  
+  
+  
+  
   <h3 class="inherited">Methods included from <span class='object_link'><a href="../GitCheckModule.html" title="GitCheckModule (module)">GitCheckModule</a></span></h3>
   <p class="inherited"><span class='object_link'><a href="../GitCheckModule.html#git_check_clean-instance_method" title="GitCheckModule#git_check_clean (method)">#git_check_clean</a></span>, <span class='object_link'><a href="../GitCheckModule.html#git_check_master-instance_method" title="GitCheckModule#git_check_master (method)">#git_check_master</a></span>, <span class='object_link'><a href="../GitCheckModule.html#git_check_workspace-instance_method" title="GitCheckModule#git_check_workspace (method)">#git_check_workspace</a></span></p>
 
@@ -332,12 +343,12 @@
       <pre class="lines">
 
 
-28
 29
-30</pre>
+30
+31</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/takelage/bit/clipboard/cli.rb', line 28</span>
+      <pre class="code"><span class="info file"># File 'lib/takelage/bit/clipboard/cli.rb', line 29</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_copy'>copy</span><span class='lparen'>(</span><span class='id identifier rubyid_dir_or_file'>dir_or_file</span><span class='comma'>,</span> <span class='id identifier rubyid_scope'>scope</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_bit_clipboard_copy'>bit_clipboard_copy</span> <span class='id identifier rubyid_dir_or_file'>dir_or_file</span><span class='comma'>,</span> <span class='id identifier rubyid_scope'>scope</span>
@@ -373,12 +384,12 @@
       <pre class="lines">
 
 
-40
 41
-42</pre>
+42
+43</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/takelage/bit/clipboard/cli.rb', line 40</span>
+      <pre class="code"><span class="info file"># File 'lib/takelage/bit/clipboard/cli.rb', line 41</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_paste'>paste</span><span class='lparen'>(</span><span class='id identifier rubyid_cid'>cid</span><span class='comma'>,</span> <span class='id identifier rubyid_dir'>dir</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_bit_clipboard_paste'>bit_clipboard_paste</span> <span class='id identifier rubyid_cid'>cid</span><span class='comma'>,</span> <span class='id identifier rubyid_dir'>dir</span>
@@ -414,12 +425,12 @@
       <pre class="lines">
 
 
-52
 53
-54</pre>
+54
+55</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/takelage/bit/clipboard/cli.rb', line 52</span>
+      <pre class="code"><span class="info file"># File 'lib/takelage/bit/clipboard/cli.rb', line 53</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_pull'>pull</span>
   <span class='id identifier rubyid_bit_clipboard_pull'>bit_clipboard_pull</span>
@@ -455,12 +466,12 @@
       <pre class="lines">
 
 
-64
 65
-66</pre>
+66
+67</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/takelage/bit/clipboard/cli.rb', line 64</span>
+      <pre class="code"><span class="info file"># File 'lib/takelage/bit/clipboard/cli.rb', line 65</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_push'>push</span>
   <span class='id identifier rubyid_bit_clipboard_push'>bit_clipboard_push</span>
@@ -475,7 +486,7 @@
 </div>
 
       <div id="footer">
-  Generated on Thu Mar 26 21:36:50 2020 by
+  Generated on Fri Mar 27 19:48:28 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.24 (ruby-2.6.3).
 </div>

@@ -93,7 +93,7 @@
   
   <dl>
       <dt>Includes:</dt>
-      <dd><span class='object_link'><a href="../BitScopeModule.html" title="BitScopeModule (module)">BitScopeModule</a></span>, <span class='object_link'><a href="../ConfigModule.html" title="ConfigModule (module)">ConfigModule</a></span>, <span class='object_link'><a href="../GitCheckModule.html" title="GitCheckModule (module)">GitCheckModule</a></span>, <span class='object_link'><a href="../LoggingModule.html" title="LoggingModule (module)">LoggingModule</a></span>, <span class='object_link'><a href="../SystemModule.html" title="SystemModule (module)">SystemModule</a></span></dd>
+      <dd><span class='object_link'><a href="../BitCheckModule.html" title="BitCheckModule (module)">BitCheckModule</a></span>, <span class='object_link'><a href="../BitScopeModule.html" title="BitScopeModule (module)">BitScopeModule</a></span>, <span class='object_link'><a href="../ConfigModule.html" title="ConfigModule (module)">ConfigModule</a></span>, <span class='object_link'><a href="../GitCheckModule.html" title="GitCheckModule (module)">GitCheckModule</a></span>, <span class='object_link'><a href="../LoggingModule.html" title="LoggingModule (module)">LoggingModule</a></span>, <span class='object_link'><a href="../SystemModule.html" title="SystemModule (module)">SystemModule</a></span></dd>
   </dl>
   
   
@@ -229,6 +229,17 @@
   
   
   
+  <h3 class="inherited">Methods included from <span class='object_link'><a href="../BitCheckModule.html" title="BitCheckModule (module)">BitCheckModule</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="../BitCheckModule.html#bit_check_workspace-instance_method" title="BitCheckModule#bit_check_workspace (method)">#bit_check_workspace</a></span></p>
+
+  
+  
+  
+  
+  
+  
+  
+  
   <h3 class="inherited">Methods included from <span class='object_link'><a href="../GitCheckModule.html" title="GitCheckModule (module)">GitCheckModule</a></span></h3>
   <p class="inherited"><span class='object_link'><a href="../GitCheckModule.html#git_check_clean-instance_method" title="GitCheckModule#git_check_clean (method)">#git_check_clean</a></span>, <span class='object_link'><a href="../GitCheckModule.html#git_check_master-instance_method" title="GitCheckModule#git_check_master (method)">#git_check_master</a></span>, <span class='object_link'><a href="../GitCheckModule.html#git_check_workspace-instance_method" title="GitCheckModule#git_check_workspace (method)">#git_check_workspace</a></span></p>
 
@@ -308,13 +319,13 @@
       <pre class="lines">
 
 
-22
 23
 24
-25</pre>
+25
+26</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/takelage/bit/scope/cli.rb', line 22</span>
+      <pre class="code"><span class="info file"># File 'lib/takelage/bit/scope/cli.rb', line 23</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_add'>add</span><span class='lparen'>(</span><span class='id identifier rubyid_scope'>scope</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_exit'>exit</span> <span class='kw'>false</span> <span class='kw'>unless</span> <span class='id identifier rubyid_configured?'>configured?</span> <span class='qwords_beg'>%w(</span><span class='tstring_content'>bit_ssh</span><span class='words_sep'> </span><span class='tstring_content'>bit_remote</span><span class='tstring_end'>)</span></span>
@@ -351,14 +362,14 @@
       <pre class="lines">
 
 
-52
 53
 54
 55
-56</pre>
+56
+57</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/takelage/bit/scope/cli.rb', line 52</span>
+      <pre class="code"><span class="info file"># File 'lib/takelage/bit/scope/cli.rb', line 53</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list'>list</span>
   <span class='id identifier rubyid_exit'>exit</span> <span class='kw'>false</span> <span class='kw'>unless</span> <span class='id identifier rubyid_configured?'>configured?</span> <span class='qwords_beg'>%w(</span><span class='tstring_content'>bit_ssh</span><span class='words_sep'> </span><span class='tstring_content'>bit_remote</span><span class='tstring_end'>)</span></span>
@@ -396,13 +407,13 @@
       <pre class="lines">
 
 
-38
 39
 40
-41</pre>
+41
+42</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/takelage/bit/scope/cli.rb', line 38</span>
+      <pre class="code"><span class="info file"># File 'lib/takelage/bit/scope/cli.rb', line 39</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_scope'>scope</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_exit'>exit</span> <span class='kw'>false</span> <span class='kw'>unless</span> <span class='id identifier rubyid_configured?'>configured?</span> <span class='qwords_beg'>%w(</span><span class='tstring_content'>bit_ssh</span><span class='words_sep'> </span><span class='tstring_content'>bit_remote</span><span class='tstring_end'>)</span></span>
@@ -418,7 +429,7 @@
 </div>
 
       <div id="footer">
-  Generated on Thu Mar 26 21:36:50 2020 by
+  Generated on Fri Mar 27 19:48:28 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.24 (ruby-2.6.3).
 </div>
