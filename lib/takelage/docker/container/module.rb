@@ -163,7 +163,7 @@ module DockerContainerModule
 
   # Get container name by id.
   def _get_container_name_by_id container
-    log.debug "Getting name of container #{container}"
+    log.debug "Getting name of container \"#{container}\""
 
     cmd_get_container_name_by_id = 'docker ps ' +
         "--filter id=#{container} "+
@@ -171,13 +171,17 @@ module DockerContainerModule
 
     stdout_str, stderr_str, status = run_and_check cmd_get_container_name_by_id
 
-    stdout_str.chomp
+    name = stdout_str.chomp
+
+    log.debug "Container #{container} has name \"#{name}\""
+
+    name
   end
 
   # Get all docker containers.
   # @return [Array] list of docker containers
   def _get_containers
-    log.debug "Getting all #{@docker_image} containers"
+    log.debug "Getting all containers of image \"#{@docker_image}\""
 
     cmd_docker_get = 'docker ps ' +
         '--all ' +
