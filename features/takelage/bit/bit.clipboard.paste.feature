@@ -36,8 +36,7 @@ Feature: I can paste a bit component from a bit remote scope
     When I successfully run `tau-cli bit clipboard paste my_scope/my_dir my_dir`
     Then the directory "my_dir" should exist
     And the file "my_dir/my_file" should exist
-
-
+    
   @bit.clipboard.paste.notongitmaster
 
   Scenario: Fail if not on git master branch
