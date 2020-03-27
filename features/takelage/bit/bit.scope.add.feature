@@ -4,11 +4,7 @@
 
 Feature: I can add bit remote scopes to workspaces
 
-  @bit.scope.add.scope
-
-  @after_remove_scope_my_scope
-
-  Scenario: Add bit remote scope
+  Background:
     Given a file named "~/.takelage.yml" with:
       """
       ---
@@ -19,7 +15,12 @@ Feature: I can add bit remote scopes to workspaces
     And a directory named "bit"
     And I initialize a bit workspace in "bit"
     And I cd to "bit"
-    And the list of remote scopes is up-to-date
+
+  @bit.scope.add.scope
+  @after_remove_scope_my_scope
+
+  Scenario: Add bit remote scope
+    Given the list of remote scopes is up-to-date
     But a remote scope named "my_scope" should not exist
     And I successfully run `tau-cli bit scope new my_scope`
     And the list of remote scopes is up-to-date
