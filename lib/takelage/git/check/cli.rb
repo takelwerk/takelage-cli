@@ -1,10 +1,11 @@
 module Takelage
 
-  # takelage docker container check
+  # takelage git check
   class GitCheck < SubCommandBase
 
     include LoggingModule
     include SystemModule
+    include ConfigModule
     include GitCheckModule
 
     #

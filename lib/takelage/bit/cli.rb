@@ -5,9 +5,8 @@ module Takelage
   # takelage bit
   class Bit < SubCommandBase
 
-    include LoggingModule
-    include SystemModule
-    include ConfigModule
+    desc 'check [COMMAND]', 'Check bit state'
+    subcommand 'check', BitCheck
 
     desc 'clipboard [COMMAND]', 'Manage bit clipboard'
     subcommand 'clipboard', BitClipboard

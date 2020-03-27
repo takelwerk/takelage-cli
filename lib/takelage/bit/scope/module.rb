@@ -5,6 +5,11 @@ module BitScopeModule
   def bit_scope_add(scope)
     log.debug "Adding bit remote scope \"#{scope}\" to local workspace"
 
+    unless bit_check_workspace
+      log.error 'No bit workspace'
+      return
+    end
+
     if git_check_workspace
       unless git_check_master
         log.error 'Not on git master branch'

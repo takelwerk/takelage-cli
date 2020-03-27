@@ -5,6 +5,11 @@ module BitClipboardModule
   def bit_clipboard_copy(dir, scope)
     log.debug "Running bit copy \"#{dir}\" to \"#{scope}\""
 
+    unless bit_check_workspace
+      log.error 'No bit workspace'
+      return
+    end
+
     if git_check_workspace
       unless git_check_master
         log.error 'Not on git master branch'
@@ -19,12 +24,30 @@ module BitClipboardModule
 
       log.debug "Adding the directory \"#{dir}\" as a tagged bit component"
 
-      # check if bit remote scope is added to local workspace
-      cmd_bit_list_remotes = config.active['bit_list_remotes']
-      stdout_str, stderr_str, status = run_and_check cmd_bit_list_remotes
-      unless /.*\s+#{scope}\s+.*/m.match? stdout_str
-        log.error "No bit remote scope \"#{scope}\" found in local bit workspace"
-        return
+      bit_dev = config.active['bit_dev']
+
+      # check if scope is a candidate for a bit.dev remote scope
+      if scope.start_with? bit_dev + '.'
+
+        # check if bit.dev remote scope exists
+        cmd_bit_list_scope = config.active['bit_list_scope'] % {scope: scope}
+        stdout_str, stderr_str, status = run_and_check cmd_bit_list_scope
+
+        unless status.exitstatus.zero?
+          log.error "No bit.dev remote scope \"#{scope}\" found"
+          return
+        end
+
+      else
+
+        # check if bit remote scope is added to local workspace
+        cmd_bit_list_remotes = config.active['bit_list_remotes']
+        stdout_str, stderr_str, status = run_and_check cmd_bit_list_remotes
+
+        unless /.*\s+#{scope}\s+.*/m.match? stdout_str
+          log.error "No bit remote scope \"#{scope}\" found in local bit workspace"
+          return
+        end
       end
 
       # check if a README.bit file exists in a subdirectory
@@ -73,6 +96,11 @@ module BitClipboardModule
   def bit_clipboard_paste(cid, dir)
     log.debug "Running bit paste \"#{cid}\" to \"#{dir}\""
 
+    unless bit_check_workspace
+      log.error 'No bit workspace'
+      return
+    end
+
     if git_check_workspace
       unless git_check_master
         log.error 'Not on git master branch'
@@ -96,6 +124,11 @@ module BitClipboardModule
   # Backend method for bit pull.
   def bit_clipboard_pull
     log.debug "Running bit pull"
+
+    unless bit_check_workspace
+      log.error 'No bit workspace'
+      return
+    end
 
     if git_check_workspace
       unless git_check_master
@@ -121,6 +154,11 @@ module BitClipboardModule
   # Backend method for bit push
   def bit_clipboard_push
     log.debug "Running bit push"
+
+    unless bit_check_workspace
+      log.error 'No bit workspace'
+      return
+    end
 
     if git_check_workspace
       unless git_check_master

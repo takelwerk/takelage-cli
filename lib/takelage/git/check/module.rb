@@ -8,9 +8,9 @@ module GitCheckModule
 
     return false unless git_check_workspace
 
-    cmd_git_unstaged = 'git diff --exit-code'
-    cmd_git_uncommitted = 'git diff --cached --exit-code'
-    cmd_git_status = 'git status --porcelain'
+    cmd_git_unstaged = config.active['git_unstaged']
+    cmd_git_uncommitted = config.active['git_uncommitted']
+    cmd_git_status = config.active['git_status']
 
     stdout_str, stderr_str, status_unstaged = run_and_check cmd_git_unstaged
     stdout_str, stderr_str, status_uncommitted = run_and_check cmd_git_uncommitted
@@ -31,7 +31,7 @@ module GitCheckModule
 
     return false unless git_check_workspace
 
-    cmd_get_branch = 'git symbolic-ref HEAD'
+    cmd_get_branch = config.active['git_branch']
     stdout_str, stderr_str, status = run_and_check cmd_get_branch
 
     branch = stdout_str.strip.split('/')[-1]
@@ -46,10 +46,10 @@ module GitCheckModule
   def git_check_workspace
     log.debug 'Check if this is a git workspace'
 
-    cmd_check_git_repo = 'git -C . rev-parse'
-    stdout_str_repo, stderr_str_repo, status_repo = run_and_check cmd_check_git_repo
+    cmd_git_repo = config.active['git_repo']
+    stdout_str_repo, stderr_str_repo, status_repo = run_and_check cmd_git_repo
 
-    cmd_pwd = 'pwd'
+    cmd_pwd = config.active['pwd']
     stdout_str_dir, stderr_str_dir, status_dir = run_and_check cmd_pwd
 
     dir = stdout_str_dir.strip

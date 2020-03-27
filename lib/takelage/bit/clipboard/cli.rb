@@ -9,6 +9,7 @@ module Takelage
     include ConfigModule
     include SystemModule
     include GitCheckModule
+    include BitCheckModule
     include BitClipboardModule
 
     #
