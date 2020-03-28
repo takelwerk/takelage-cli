@@ -66,7 +66,7 @@ module BitClipboardModule
       end
 
       # generate component id from directory name
-      id = _id(File.basename(dir))
+      id = _id(dir)
 
       # get bit add dir command from active config
       cmd_bit_add_dir = config.active['bit_add_dir'] % {id: id, dir: dir}
