@@ -23,6 +23,20 @@ module Takelage
     end
 
     #
+    # docker container check network
+    #
+    desc 'network [NETWORK]', 'Check if docker [NETWORK] is existing'
+    long_desc <<-LONGDESC.gsub("\n", "\x5")
+    Check if docker network is existing
+    This check looks for a network with a given name.
+    If such a network is existing the result is true else false.
+    LONGDESC
+    # Check if docker network is existing.
+    def network(network)
+      exit docker_container_check_network network
+    end
+
+    #
     # docker container check orphaned
     #
     desc 'orphaned [CONTAINER]', 'Check if docker [CONTAINER] is orphaned'

@@ -21,6 +21,26 @@ module DockerContainerCheckModule
     true
   end
 
+  # Backend method for docker container check network.
+  # @return [Boolean] is network existing?
+  def docker_container_check_network(network)
+    log.debug "Checking if network \"#{network}\" is existing"
+
+    cmd_docker_network = 'docker network ls ' +
+        '--quiet ' +
+        "--filter name=#{network}"
+
+    stdout_str, stderr_str, status = run_and_check cmd_docker_network
+
+    if stdout_str.to_s.strip.empty?
+      log.debug "Network \"#{network}\" is not existing"
+      return false
+    end
+
+    log.debug "Network \"#{network}\" is existing"
+    true
+  end
+
   # Backend method for docker container check orphaned.
   # @return [Boolean] is container orphaned?
   def docker_container_check_orphaned(container)

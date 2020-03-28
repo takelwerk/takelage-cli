@@ -29,5 +29,8 @@ Feature: I can purge docker containers
     And I run `tau-cli docker container check orphaned takelage-mock_infinite`
     And the exit status should be 1
     When I successfully run `tau-cli docker container purge`
-    And the docker container "takelage-mock_finite" doesn't exist
-    And I successfully run `tau-cli docker container check exist takelage-mock_infinite`
+    Then the docker container "takelage-mock_finite" doesn't exist
+    And I successfully run `tau-cli docker container check existing takelage-mock_infinite`
+    And I run `tau-cli docker container check network takelage-mock_finite`
+    And the exit status should be 1
+    And I successfully run `tau-cli docker container check network takelage-mock_infinite`

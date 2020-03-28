@@ -9,7 +9,7 @@ module DockerContainerModule
 
     docker_socket_start
 
-    _create_network @hostname unless _network_check_existing @hostname
+    _create_network @hostname unless docker_container_check_network @hostname
     _create_container @hostname unless docker_container_check_existing @hostname
     _run_command_in_container @hostname, command
   end
@@ -20,7 +20,7 @@ module DockerContainerModule
 
     exit false unless configured? %w(docker_repo docker_image docker_tag)
 
-    _create_network @hostname unless _network_check_existing @hostname
+    _create_network @hostname unless docker_container_check_network @hostname
     _create_container @hostname unless docker_container_check_existing @hostname
   end
 
@@ -32,7 +32,7 @@ module DockerContainerModule
 
     docker_socket_start
 
-    _create_network @hostname unless _network_check_existing @hostname
+    _create_network @hostname unless docker_container_check_network @hostname
     _create_container @hostname unless docker_container_check_existing @hostname
     _enter_container @hostname
   end
@@ -52,7 +52,7 @@ module DockerContainerModule
     end
 
     networks.each do |network|
-      _remove_network network if _network_check_existing network
+      _remove_network network if docker_container_check_network network
     end
   end
 
@@ -73,7 +73,7 @@ module DockerContainerModule
     end
 
     networks.each do |network|
-      _remove_network network if _network_check_existing network
+      _remove_network network if docker_container_check_network network
     end
   end
 
@@ -192,25 +192,6 @@ module DockerContainerModule
 
     # convert stdout lines to array and return array
     stdout_str.split(/\n+/)
-  end
-
-  # Check if docker network exists.
-  def _network_check_existing(network)
-    log.debug "Checking if network \"#{network}\" is existing"
-
-    cmd_docker_network_exist = 'docker network ls ' +
-        '--quiet ' +
-        "--filter name=#{network}"
-
-    stdout_str, stderr_str, status = run_and_check cmd_docker_network_exist
-
-    if stdout_str.to_s.strip.empty?
-      log.debug "Network \"#{network}\" is not existing"
-      return false
-    end
-
-    log.debug "Network \"#{network}\" is existing"
-    true
   end
 
   # Remove docker network.

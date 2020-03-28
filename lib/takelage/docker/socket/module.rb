@@ -10,7 +10,7 @@ module DockerSocketModule
     unless cmds_start_socket.empty?
       log.debug 'Request sudo so that subsequent background tasks run without delay'
 
-      cmd_sudo_true = 'sudo true'
+      cmd_sudo_true = config.active['sudo_true']
 
       run cmd_sudo_true
     end

@@ -29,5 +29,9 @@ Feature: I can nuke docker containers
     And I run `tau-cli docker container check orphaned takelage-mock_infinite`
     And the exit status should be 1
     When I successfully run `tau-cli docker container nuke`
-    And the docker container "takelage-mock_finite" doesn't exist
+    Then the docker container "takelage-mock_finite" doesn't exist
     And the docker container "takelage-mock_infinite" doesn't exist
+    And I run `tau-cli docker container check network takelage-mock_finite`
+    And the exit status should be 1
+    And I run `tau-cli docker container check network takelage-mock_infinite`
+    And the exit status should be 1
