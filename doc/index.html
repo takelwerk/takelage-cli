@@ -93,15 +93,12 @@
 
 <h3 id="label-Configuration+Examples">Configuration Examples</h3>
 <ul><li>
-<p>You should the following configuration items in your <em>~/.takelage.yml</em>:</p>
+<p>You should the following configuration items in your <em>~/.takelage.yml</em> if you want to use a private bit remote server:</p>
 </li></ul>
 
 <pre class="code ruby"><code class="ruby">---
-bit_remote: &#39;ssh://bit@bit.example.com:2222:/bit&#39;
-bit_ssh: &#39;ssh -p 2222 bit@bit.example.com&#39;
-docker_image: &#39;takelage&#39;
-docker_repo: &#39;hub.example.com&#39;
-docker_tagsurl: &#39;https://hub.example.com/v2/repositories/library/takelage/tags&#39;
+bit_remote: &#39;ssh://bit@bit.example.com:222:/bit&#39;
+bit_ssh: &#39;ssh -p 222 bit@bit.example.com&#39;
 </code></pre>
 <ul><li>
 <p>If you want to pin a specific docker tag for one of your projects then create an <em>takelage.yml</em> file with:</p>
@@ -122,7 +119,7 @@ docker_image: takelage-mock
 
 <p><em>tau</em> reads two different YAML project files which have different precedences. They are merged to an active configuration during runtime which can be inspected with <em>tau <a href="features/takelage/info/info.project.active.feature">info project active</a></em> or <em>tau project</em>.</p>
 
-<p>| Default filename | Config key | Precedence | Description | | ——– | ———- | ———- | ———– | | <em>project.yml</em> | info_project_main | normal | Main project file. | | <em>ansible/group_vars/private/project.yml</em> | info_project_private | highest | Private project file. Should be in <em>.gitignore</em>. |</p>
+<p>| Default filename | Config key | Precedence | Description | | ——– | ———- | ———- | ———– | | <em>project.yml</em> | info_project_main | normal | Main project file. | | <em>private/project.yml</em> | info_project_private | highest | Private project file. Should be in <em>.gitignore</em>. |</p>
 
 <h3 id="label-Bash+Completion">Bash Completion</h3>
 
@@ -148,7 +145,7 @@ docker_image: takelage-mock
 </div></div>
 
       <div id="footer">
-  Generated on Fri Mar 27 20:04:10 2020 by
+  Generated on Sat Mar 28 01:17:05 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.24 (ruby-2.6.3).
 </div>
