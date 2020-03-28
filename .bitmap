@@ -4,14 +4,14 @@
     "takelage.rake/rake/meta@0.0.1": {
         "files": [
             {
+                "name": "README.bit",
                 "relativePath": "rake/meta/README.bit",
-                "test": false,
-                "name": "README.bit"
+                "test": false
             },
             {
+                "name": "Rakefile",
                 "relativePath": "rake/meta/Rakefile",
-                "test": false,
-                "name": "Rakefile"
+                "test": false
             }
         ],
         "mainFile": "rake/meta/README.bit",
