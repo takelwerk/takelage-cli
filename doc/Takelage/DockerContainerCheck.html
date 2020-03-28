@@ -161,6 +161,30 @@
         <li class="public ">
   <span class="summary_signature">
     
+      <a href="#network-instance_method" title="#network (instance method)">#<strong>network</strong>(network)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Check if docker network is existing.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#orphaned-instance_method" title="#orphaned (instance method)">#<strong>orphaned</strong>(container)  &#x21d2; Object </a>
     
 
@@ -195,7 +219,7 @@
   
   
   <h3 class="inherited">Methods included from <span class='object_link'><a href="../DockerContainerCheckModule.html" title="DockerContainerCheckModule (module)">DockerContainerCheckModule</a></span></h3>
-  <p class="inherited"><span class='object_link'><a href="../DockerContainerCheckModule.html#docker_container_check_existing-instance_method" title="DockerContainerCheckModule#docker_container_check_existing (method)">#docker_container_check_existing</a></span>, <span class='object_link'><a href="../DockerContainerCheckModule.html#docker_container_check_orphaned-instance_method" title="DockerContainerCheckModule#docker_container_check_orphaned (method)">#docker_container_check_orphaned</a></span></p>
+  <p class="inherited"><span class='object_link'><a href="../DockerContainerCheckModule.html#docker_container_check_existing-instance_method" title="DockerContainerCheckModule#docker_container_check_existing (method)">#docker_container_check_existing</a></span>, <span class='object_link'><a href="../DockerContainerCheckModule.html#docker_container_check_network-instance_method" title="DockerContainerCheckModule#docker_container_check_network (method)">#docker_container_check_network</a></span>, <span class='object_link'><a href="../DockerContainerCheckModule.html#docker_container_check_orphaned-instance_method" title="DockerContainerCheckModule#docker_container_check_orphaned (method)">#docker_container_check_orphaned</a></span></p>
 
   
   
@@ -289,6 +313,47 @@
 </div>
     
       <div class="method_details ">
+  <h3 class="signature " id="network-instance_method">
+  
+    #<strong>network</strong>(network)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Check if docker network is existing.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+35
+36
+37</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/takelage/docker/container/check/cli.rb', line 35</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_network'>network</span><span class='lparen'>(</span><span class='id identifier rubyid_network'>network</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_exit'>exit</span> <span class='id identifier rubyid_docker_container_check_network'>docker_container_check_network</span> <span class='id identifier rubyid_network'>network</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
   <h3 class="signature " id="orphaned-instance_method">
   
     #<strong>orphaned</strong>(container)  &#x21d2; <tt>Object</tt> 
@@ -314,12 +379,12 @@
       <pre class="lines">
 
 
-36
-37
-38</pre>
+50
+51
+52</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/takelage/docker/container/check/cli.rb', line 36</span>
+      <pre class="code"><span class="info file"># File 'lib/takelage/docker/container/check/cli.rb', line 50</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_orphaned'>orphaned</span><span class='lparen'>(</span><span class='id identifier rubyid_container'>container</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_exit'>exit</span> <span class='id identifier rubyid_docker_container_check_orphaned'>docker_container_check_orphaned</span> <span class='id identifier rubyid_container'>container</span>
@@ -334,7 +399,7 @@
 </div>
 
       <div id="footer">
-  Generated on Sat Mar 28 01:17:07 2020 by
+  Generated on Sat Mar 28 23:12:50 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.24 (ruby-2.6.3).
 </div>
