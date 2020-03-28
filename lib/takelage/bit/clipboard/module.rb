@@ -84,8 +84,7 @@ module BitClipboardModule
     cmd_bit_export_to_scope = config.active['bit_export_to_scope'] % {scope: scope}
     run cmd_bit_export_to_scope
 
-    # remove node_modules directory
-    _rm_node_modules
+    _remove_bit_artifacts
 
     log.info "Copied directory \"#{dir}\" " +
                  "as bit component \"#{id}\" " +
@@ -112,10 +111,7 @@ module BitClipboardModule
     cmd_bit_import_cid = config.active['bit_import_cid'] % {cid: cid, dir: dir}
     run cmd_bit_import_cid
 
-    # remove node_modules directory
-    _rm_node_modules
-
-    FileUtils.remove_entry_secure("#{dir}/index.bit", force: true)
+    _remove_bit_artifacts
 
     log.info "Pasted bit component \"#{cid}\"" +
                  "to directory \"#{dir}\""
@@ -145,8 +141,7 @@ module BitClipboardModule
     cmd_bit_checkout_all = config.active['bit_checkout_all']
     run cmd_bit_checkout_all
 
-    # remove node_modules directory
-    _rm_node_modules
+    _remove_bit_artifacts
 
     log.info "Pulled bit components"
   end
@@ -175,8 +170,7 @@ module BitClipboardModule
     cmd_bit_export_all = config.active['bit_export_all']
     run cmd_bit_export_all
 
-    # remove node_modules directory
-    _rm_node_modules
+    _remove_bit_artifacts
 
     log.info "Pushed bit components"
   end
@@ -205,8 +199,21 @@ module BitClipboardModule
     id
   end
 
+  # Remove bit artifacts.
+  def _remove_bit_artifacts
+    _remove_node_modules
+    _remove_index_bit
+  end
+
   # Remove node_modules directory.
-  def _rm_node_modules
+  def _remove_node_modules
     FileUtils.remove_entry_secure('node_modules', force: true)
+  end
+
+  # Remove index.bit files recursively.
+  def _remove_index_bit
+    Dir.glob("./**/index.bit").each do |file|
+      FileUtils.remove_entry_secure(file, force: true)
+    end
   end
 end
