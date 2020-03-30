@@ -166,7 +166,7 @@ module DockerContainerModule
     log.debug "Getting name of container \"#{container}\""
 
     cmd_get_container_name_by_id = 'docker ps ' +
-        "--filter id=^#{container}$ " +
+        "--filter id=#{container} " +
         '--format "{{.Names}}"'
 
     stdout_str, stderr_str, status = run_and_check cmd_get_container_name_by_id
