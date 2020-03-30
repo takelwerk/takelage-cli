@@ -28,7 +28,7 @@ module DockerContainerCheckModule
 
     cmd_docker_network = 'docker network ls ' +
         '--quiet ' +
-        "--filter name=#{network}"
+        "--filter name=^#{network}$"
 
     stdout_str, stderr_str, status = run_and_check cmd_docker_network
 
