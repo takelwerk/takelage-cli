@@ -93,7 +93,7 @@
   
   <dl>
       <dt>Includes:</dt>
-      <dd><span class='object_link'><a href="../ConfigModule.html" title="ConfigModule (module)">ConfigModule</a></span>, <span class='object_link'><a href="../DockerContainerCheckModule.html" title="DockerContainerCheckModule (module)">DockerContainerCheckModule</a></span>, <span class='object_link'><a href="../DockerContainerModule.html" title="DockerContainerModule (module)">DockerContainerModule</a></span>, <span class='object_link'><a href="../DockerImageTagCheckModule.html" title="DockerImageTagCheckModule (module)">DockerImageTagCheckModule</a></span>, <span class='object_link'><a href="../DockerImageTagLatestModule.html" title="DockerImageTagLatestModule (module)">DockerImageTagLatestModule</a></span>, <span class='object_link'><a href="../DockerImageTagListModule.html" title="DockerImageTagListModule (module)">DockerImageTagListModule</a></span>, <span class='object_link'><a href="../DockerSocketModule.html" title="DockerSocketModule (module)">DockerSocketModule</a></span>, <span class='object_link'><a href="../LoggingModule.html" title="LoggingModule (module)">LoggingModule</a></span>, <span class='object_link'><a href="../SystemModule.html" title="SystemModule (module)">SystemModule</a></span></dd>
+      <dd><span class='object_link'><a href="../ConfigModule.html" title="ConfigModule (module)">ConfigModule</a></span>, <span class='object_link'><a href="../DockerCheckModule.html" title="DockerCheckModule (module)">DockerCheckModule</a></span>, <span class='object_link'><a href="../DockerContainerCheckModule.html" title="DockerContainerCheckModule (module)">DockerContainerCheckModule</a></span>, <span class='object_link'><a href="../DockerContainerModule.html" title="DockerContainerModule (module)">DockerContainerModule</a></span>, <span class='object_link'><a href="../DockerImageTagCheckModule.html" title="DockerImageTagCheckModule (module)">DockerImageTagCheckModule</a></span>, <span class='object_link'><a href="../DockerImageTagLatestModule.html" title="DockerImageTagLatestModule (module)">DockerImageTagLatestModule</a></span>, <span class='object_link'><a href="../DockerImageTagListModule.html" title="DockerImageTagListModule (module)">DockerImageTagListModule</a></span>, <span class='object_link'><a href="../DockerSocketModule.html" title="DockerSocketModule (module)">DockerSocketModule</a></span>, <span class='object_link'><a href="../LoggingModule.html" title="LoggingModule (module)">LoggingModule</a></span>, <span class='object_link'><a href="../SystemModule.html" title="SystemModule (module)">SystemModule</a></span></dd>
   </dl>
   
   
@@ -358,6 +358,17 @@
   
   
   
+  <h3 class="inherited">Methods included from <span class='object_link'><a href="../DockerCheckModule.html" title="DockerCheckModule (module)">DockerCheckModule</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="../DockerCheckModule.html#docker_check_running-instance_method" title="DockerCheckModule#docker_check_running (method)">#docker_check_running</a></span></p>
+
+  
+  
+  
+  
+  
+  
+  
+  
   <h3 class="inherited">Methods included from <span class='object_link'><a href="../ConfigModule.html" title="ConfigModule (module)">ConfigModule</a></span></h3>
   <p class="inherited"><span class='object_link'><a href="../ConfigModule.html#config-instance_method" title="ConfigModule#config (method)">#config</a></span>, <span class='object_link'><a href="../ConfigModule.html#configured%3F-instance_method" title="ConfigModule#configured? (method)">#configured?</a></span>, <span class='object_link'><a href="../ConfigModule.html#initialize_config-instance_method" title="ConfigModule#initialize_config (method)">#initialize_config</a></span></p>
 
@@ -370,7 +381,7 @@
   
   
   <h3 class="inherited">Methods included from <span class='object_link'><a href="../SystemModule.html" title="SystemModule (module)">SystemModule</a></span></h3>
-  <p class="inherited"><span class='object_link'><a href="../SystemModule.html#hash_to_yaml-instance_method" title="SystemModule#hash_to_yaml (method)">#hash_to_yaml</a></span>, <span class='object_link'><a href="../SystemModule.html#read_yaml_file-instance_method" title="SystemModule#read_yaml_file (method)">#read_yaml_file</a></span>, <span class='object_link'><a href="../SystemModule.html#rm_fr-instance_method" title="SystemModule#rm_fr (method)">#rm_fr</a></span>, <span class='object_link'><a href="../SystemModule.html#run-instance_method" title="SystemModule#run (method)">#run</a></span>, <span class='object_link'><a href="../SystemModule.html#run_and_check-instance_method" title="SystemModule#run_and_check (method)">#run_and_check</a></span>, <span class='object_link'><a href="../SystemModule.html#run_and_exit-instance_method" title="SystemModule#run_and_exit (method)">#run_and_exit</a></span>, <span class='object_link'><a href="../SystemModule.html#run_and_fork-instance_method" title="SystemModule#run_and_fork (method)">#run_and_fork</a></span></p>
+  <p class="inherited"><span class='object_link'><a href="../SystemModule.html#hash_to_yaml-instance_method" title="SystemModule#hash_to_yaml (method)">#hash_to_yaml</a></span>, <span class='object_link'><a href="../SystemModule.html#read_yaml_file-instance_method" title="SystemModule#read_yaml_file (method)">#read_yaml_file</a></span>, <span class='object_link'><a href="../SystemModule.html#rm_fr-instance_method" title="SystemModule#rm_fr (method)">#rm_fr</a></span>, <span class='object_link'><a href="../SystemModule.html#run-instance_method" title="SystemModule#run (method)">#run</a></span>, <span class='object_link'><a href="../SystemModule.html#run_and_exit-instance_method" title="SystemModule#run_and_exit (method)">#run_and_exit</a></span>, <span class='object_link'><a href="../SystemModule.html#run_and_fork-instance_method" title="SystemModule#run_and_fork (method)">#run_and_fork</a></span>, <span class='object_link'><a href="../SystemModule.html#try-instance_method" title="SystemModule#try (method)">#try</a></span></p>
 
   
   
@@ -423,7 +434,6 @@
       <pre class="lines">
 
 
-17
 18
 19
 20
@@ -463,10 +473,11 @@
 54
 55
 56
-57</pre>
+57
+58</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/takelage/docker/container/cli.rb', line 17</span>
+      <pre class="code"><span class="info file"># File 'lib/takelage/docker/container/cli.rb', line 18</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_args'>args</span><span class='op'>=</span><span class='lbracket'>[</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='id identifier rubyid_local_options'>local_options</span><span class='op'>=</span><span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='id identifier rubyid_configuration'>configuration</span><span class='op'>=</span><span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
 
@@ -547,12 +558,12 @@
       <pre class="lines">
 
 
-123
 124
-125</pre>
+125
+126</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/takelage/docker/container/cli.rb', line 123</span>
+      <pre class="code"><span class="info file"># File 'lib/takelage/docker/container/cli.rb', line 124</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_command'>command</span><span class='lparen'>(</span><span class='id identifier rubyid_command'>command</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_docker_container_command'>docker_container_command</span><span class='lparen'>(</span><span class='id identifier rubyid_command'>command</span><span class='rparen'>)</span>
@@ -588,12 +599,12 @@
       <pre class="lines">
 
 
-70
 71
-72</pre>
+72
+73</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/takelage/docker/container/cli.rb', line 70</span>
+      <pre class="code"><span class="info file"># File 'lib/takelage/docker/container/cli.rb', line 71</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_daemon'>daemon</span>
   <span class='id identifier rubyid_docker_container_daemon'>docker_container_daemon</span>
@@ -629,12 +640,12 @@
       <pre class="lines">
 
 
-87
 88
-89</pre>
+89
+90</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/takelage/docker/container/cli.rb', line 87</span>
+      <pre class="code"><span class="info file"># File 'lib/takelage/docker/container/cli.rb', line 88</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_login'>login</span>
   <span class='id identifier rubyid_docker_container_login'>docker_container_login</span>
@@ -670,12 +681,12 @@
       <pre class="lines">
 
 
-99
 100
-101</pre>
+101
+102</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/takelage/docker/container/cli.rb', line 99</span>
+      <pre class="code"><span class="info file"># File 'lib/takelage/docker/container/cli.rb', line 100</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_nuke'>nuke</span>
   <span class='id identifier rubyid_docker_container_nuke'>docker_container_nuke</span>
@@ -711,12 +722,12 @@
       <pre class="lines">
 
 
-111
 112
-113</pre>
+113
+114</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/takelage/docker/container/cli.rb', line 111</span>
+      <pre class="code"><span class="info file"># File 'lib/takelage/docker/container/cli.rb', line 112</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_purge'>purge</span>
   <span class='id identifier rubyid_docker_container_purge'>docker_container_purge</span>
@@ -731,7 +742,7 @@
 </div>
 
       <div id="footer">
-  Generated on Mon Mar 30 16:04:57 2020 by
+  Generated on Tue Mar 31 20:17:40 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.24 (ruby-2.6.3).
 </div>
