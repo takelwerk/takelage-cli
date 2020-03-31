@@ -55,6 +55,7 @@ tau [bit scope add](features/takelage/bit/bit.scope.add.feature) [SCOPE] | Add a
 tau [bit scope list](features/takelage/bit/bit.scope.list.feature) | List bit remote scopes
 tau [bit scope new](features/takelage/bit/bit.scope.new.feature) [SCOPE] | Init a new bit [SCOPE]
 tau [completion bash](features/takelage/completion/completion.bash.feature) | Print bash completion code
+tau [docker check running](features/takelage/docker/docker.check.running.feature) | Check if docker daemon is running
 tau [docker container check existing](features/takelage/docker/docker.container.check.existing.feature) [CONTAINER] | Check if docker [CONTAINER] is existing
 tau [docker container check orphaned](features/takelage/docker/docker.container.check.orphaned.feature) [CONTAINER] | Check if docker [CONTAINER] is orphaned
 tau [docker container check network](features/takelage/docker/docker.container.check.network.feature) [NETWORK] | Check if docker [NETWORK] is existing

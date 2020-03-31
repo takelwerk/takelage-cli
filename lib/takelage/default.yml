@@ -18,6 +18,7 @@ bit_ssh: ''
 bit_tag_id: 'bit tag --skip-update --skip-tests %{id}'
 bit_tag_all: 'bit tag --all'
 docker_image: 'takelage'
+docker_info: 'docker info'
 docker_repo: 'takelage'
 docker_socket_agent_port: 20000
 docker_socket_agent_ssh_port: 20001

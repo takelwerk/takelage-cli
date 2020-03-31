@@ -5,12 +5,13 @@ module Takelage
 
     include LoggingModule
     include SystemModule
+    include ConfigModule
     include DockerCheckModule
 
     #
     # docker check running
     #
-    desc 'running [TAG]', 'Check if docker daemon is running'
+    desc 'running', 'Check if docker daemon is running'
     long_desc <<-LONGDESC.gsub("\n", "\x5")
     Check if docker daemon is running
     LONGDESC
@@ -18,6 +19,5 @@ module Takelage
     def running
       exit docker_check_running
     end
-
   end
 end
