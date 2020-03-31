@@ -213,7 +213,7 @@
 <span class='kw'>def</span> <span class='id identifier rubyid_docker_check_running'>docker_check_running</span>
   <span class='id identifier rubyid_log'>log</span><span class='period'>.</span><span class='id identifier rubyid_debug'>debug</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Check if the docker daemon is running</span><span class='tstring_end'>&quot;</span></span>
 
-  <span class='id identifier rubyid_cmd_docker_info'>cmd_docker_info</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>docker info</span><span class='tstring_end'>&#39;</span></span>
+  <span class='id identifier rubyid_cmd_docker_info'>cmd_docker_info</span> <span class='op'>=</span> <span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_active'>active</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>docker_info</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
 
   <span class='id identifier rubyid_status'>status</span> <span class='op'>=</span> <span class='id identifier rubyid_try'>try</span> <span class='id identifier rubyid_cmd_docker_info'>cmd_docker_info</span>
 
@@ -235,7 +235,7 @@
 </div>
 
       <div id="footer">
-  Generated on Tue Mar 31 20:17:39 2020 by
+  Generated on Tue Mar 31 23:33:01 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.24 (ruby-2.6.3).
 </div>
