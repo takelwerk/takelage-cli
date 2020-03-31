@@ -6,6 +6,8 @@ module DockerImageTagLatestModule
   def docker_image_tag_latest_local
     log.debug "Getting latest local docker image tag"
 
+    exit false unless docker_check_running
+
     tags = docker_image_tag_list_local
 
     tag_latest_local = tags[-1]
@@ -19,6 +21,8 @@ module DockerImageTagLatestModule
   # @return [String] latest remote docker image tag
   def docker_image_tag_latest_remote
     log.debug "Getting latest remote docker image tag"
+
+    exit false unless docker_check_running
 
     tags = docker_image_tag_list_remote
 

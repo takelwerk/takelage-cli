@@ -6,13 +6,13 @@ module DockerImageTagListModule
   def docker_image_tag_list_local
     tags = []
 
-    cmd_docker_images = 'docker images'
+    cmd_docker_images = 'docker images ' +
+        "#{@docker_repo}\/#{@docker_image} " +
+        ' --format "{{.Tag}}"'
 
-    images = run cmd_docker_images
+    stdout_str = run cmd_docker_images
 
-    images.scan(/.*#{@docker_repo}\/#{@docker_image}.*/) do |line|
-      tags << line.split(/\s+/)[1]
-    end
+    tags = stdout_str.split("\n")
 
     tags.sort_by(&Gem::Version.method(:new))
   end

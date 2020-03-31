@@ -31,7 +31,7 @@ module BitClipboardModule
 
         # check if bit.dev remote scope exists
         cmd_bit_list_scope = config.active['bit_list_scope'] % {scope: scope}
-        stdout_str, stderr_str, status = run_and_check cmd_bit_list_scope
+        status = try cmd_bit_list_scope
 
         unless status.exitstatus.zero?
           log.error "No bit.dev remote scope \"#{scope}\" found"

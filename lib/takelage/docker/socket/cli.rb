@@ -6,6 +6,7 @@ module Takelage
     include LoggingModule
     include ConfigModule
     include SystemModule
+    include DockerCheckModule
     include DockerSocketModule
 
     # Initialize docker socket

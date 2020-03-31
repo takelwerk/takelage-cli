@@ -6,14 +6,6 @@ require 'yaml'
 # Interaction with the operating system
 module SystemModule
 
-  # Run a command and return the result.
-  # @return [Boolean] success of command run
-  def run_and_check(command)
-    log.debug "Running command \"#{command}\""
-    stdout_str, stderr_str, status = Open3.capture3 command
-    return stdout_str, stderr_str, status
-  end
-
   # Print hash as yaml.
   def hash_to_yaml(hash)
     if hash == {}
@@ -62,30 +54,12 @@ module SystemModule
     Pathname.new(directory).rmtree
   end
 
-  # Run a command.
+  # Run a command and return the standard output.
   # @return [String] stdout of command
   def run(command, realtime=false)
     log.debug "Running command \"#{command}\""
-    stdout_str = ''
-    stderr_str = ''
-    status = ''
-    exitstatus = -1
-    Open3.popen3 command do |stdin, stdout, stderr, thread|
-      stdout.each do |line|
-        say line if realtime
-        stdout_str += line
-      end
-      stderr_str = stderr
-      status = thread.value
-      exitstatus = thread.value.exitstatus
-    end
-    unless status.success?
-      log.error "Command \"#{command}\" failed!"
-      log.debug "status: #{status}"
-      log.debug "stdout: #{stdout_str}"
-      log.debug "stderr: #{stderr_str}"
-      exit exitstatus
-    end
+    stdout_str, stderr_str, status = Open3.capture3 command
+    log.debug "Command \"#{command}\" has stdout:\"\n#{stdout_str}\""
     stdout_str
   end
 
@@ -104,4 +78,12 @@ module SystemModule
     Process.detach(job)
   end
 
+  # Run a command and return the result.
+  # @return [Boolean] success of command run
+  def try(command)
+    log.debug "Running command \"#{command}\""
+    stdout_str, stderr_str, status = Open3.capture3 command
+    log.debug "Command \"#{command}\" has exit status \"#{status.exitstatus}\""
+    status
+  end
 end

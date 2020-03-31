@@ -5,6 +5,8 @@ module DockerSocketModule
   def docker_socket_start
     log.debug 'Starting sockets for docker container'
 
+    exit false unless docker_check_running
+
     cmds_start_socket = _get_socket_start_commands sockets_up = false
 
     unless cmds_start_socket.empty?
@@ -23,6 +25,8 @@ module DockerSocketModule
   # Backend method for docker socket stop.
   def docker_socket_stop
     log.debug 'Stopping sockets for docker container'
+
+    exit false unless docker_check_running
 
     cmd_ps = config.active['docker_socket_ps']
 

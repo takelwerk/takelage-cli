@@ -6,6 +6,8 @@ module DockerContainerCheckModule
   def docker_container_check_existing(container)
     log.debug "Checking if container \"#{container}\" is existing"
 
+    exit false unless docker_check_running
+
     cmd_docker_existing = 'docker ps ' +
         "--filter name=^#{container}$ " +
         '--quiet'
@@ -26,6 +28,8 @@ module DockerContainerCheckModule
   def docker_container_check_network(network)
     log.debug "Checking if network \"#{network}\" is existing"
 
+    exit false unless docker_check_running
+
     cmd_docker_network = 'docker network ls ' +
         '--quiet ' +
         "--filter name=^#{network}$"
@@ -45,6 +49,8 @@ module DockerContainerCheckModule
   # @return [Boolean] is container orphaned?
   def docker_container_check_orphaned(container)
     log.debug "Check if container \"#{container}\" is orphaned"
+
+    exit false unless docker_check_running
 
     cmd_docker_orphaned = 'docker exec ' +
         '--interactive ' +

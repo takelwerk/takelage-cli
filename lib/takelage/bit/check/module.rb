@@ -7,7 +7,7 @@ module BitCheckModule
     log.debug 'Check if this is a bit workspace'
 
     cmd_bit_repo = config.active['bit_repo']
-    stdout_str_repo, stderr_str_repo, status_repo = run_and_check cmd_bit_repo
+    status_repo = try cmd_bit_repo
 
     cmd_pwd = config.active['pwd']
     stdout_str_dir = run cmd_pwd

@@ -3,6 +3,8 @@ module DockerImageModule
 
   # Backend method for docker image update.
   def docker_image_update
+    exit false unless docker_check_running
+
     exit false unless configured? %w(docker_repo docker_image docker_tagsurl)
 
     tag_latest_remote = docker_image_tag_latest_remote

@@ -6,6 +6,7 @@ module Takelage
     include LoggingModule
     include SystemModule
     include ConfigModule
+    include DockerCheckModule
     include DockerImageTagListModule
     include DockerImageTagCheckModule
 

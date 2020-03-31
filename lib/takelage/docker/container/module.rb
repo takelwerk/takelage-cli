@@ -5,6 +5,8 @@ module DockerContainerModule
   def docker_container_command(command)
     log.debug "Running command in container"
 
+    exit false unless docker_check_running
+
     exit false unless configured? %w(docker_repo docker_image docker_tag)
 
     docker_socket_start
@@ -18,6 +20,8 @@ module DockerContainerModule
   def docker_container_daemon
     log.debug 'Starting docker container as daemon'
 
+    exit false unless docker_check_running
+
     exit false unless configured? %w(docker_repo docker_image docker_tag)
 
     _create_network @hostname unless docker_container_check_network @hostname
@@ -27,6 +31,8 @@ module DockerContainerModule
   # Backend method for docker container login.
   def docker_container_login
     log.debug 'Logging in to docker container'
+
+    exit false unless docker_check_running
 
     exit false unless configured? %w(docker_repo docker_image docker_tag)
 
@@ -40,6 +46,8 @@ module DockerContainerModule
   # Backend method for docker container nuke.
   def docker_container_nuke
     log.debug 'Removing all docker containers'
+
+    exit false unless docker_check_running
 
     exit false unless configured? %w(docker_image)
 
@@ -59,6 +67,8 @@ module DockerContainerModule
   # Backend method for docker container purge.
   def docker_container_purge
     log.debug 'Removing orphaned docker containers'
+
+    exit false unless docker_check_running
 
     exit false unless configured? %w(docker_image)
 

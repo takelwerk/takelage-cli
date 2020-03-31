@@ -3,6 +3,9 @@ module Takelage
   # takelage docker
   class Docker < SubCommandBase
 
+    desc 'check [COMMAND]', 'Check docker'
+    subcommand 'check', DockerCheck
+
     desc 'container [COMMAND]', 'Handle docker container'
     subcommand 'container', DockerContainer
 

@@ -12,8 +12,8 @@ module GitCheckModule
     cmd_git_uncommitted = config.active['git_uncommitted']
     cmd_git_status = config.active['git_status']
 
-    stdout_str, stderr_str, status_unstaged = run_and_check cmd_git_unstaged
-    stdout_str, stderr_str, status_uncommitted = run_and_check cmd_git_uncommitted
+    status_unstaged = try cmd_git_unstaged
+    status_uncommitted = try cmd_git_uncommitted
     stdout_str_status = run cmd_git_status
 
     # only return true if neither unstaged nor uncommitted nor empty files
@@ -47,7 +47,7 @@ module GitCheckModule
     log.debug 'Check if this is a git workspace'
 
     cmd_git_repo = config.active['git_repo']
-    stdout_str_repo, stderr_str_repo, status_repo = run_and_check cmd_git_repo
+    status_repo = try cmd_git_repo
 
     cmd_pwd = config.active['pwd']
     stdout_str_dir = run cmd_pwd
