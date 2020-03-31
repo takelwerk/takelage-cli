@@ -28,7 +28,7 @@ module DockerSocketModule
 
     # get process list
     # assuming format: "pid command"
-    stdout_str, stderr_str, status = run_and_check cmd_ps
+    stdout_str = run cmd_ps
 
     cmds_start_socket = _get_socket_start_commands sockets_up = true
 
@@ -85,7 +85,7 @@ module DockerSocketModule
   # get socket paths
   def _get_socket_paths
     cmd_gpgconf_listdirs = config.active['docker_socket_gpgconf']
-    stdout_str, stderr_str, status = run_and_check cmd_gpgconf_listdirs
+    stdout_str = run cmd_gpgconf_listdirs
 
     stdout_str.split(/\n+/).each do |gpg_path|
       @sockets.each do |socket, socket_config|

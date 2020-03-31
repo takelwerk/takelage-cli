@@ -48,7 +48,7 @@ module BitScopeModule
     cmd_bit_scope_list = config.active['bit_scope_list'] % {root: root}
 
     # run ssh command with scope list command
-    scope_list, stderr, status = run_and_check "#{cmd_bit_ssh} '#{cmd_bit_scope_list}'"
+    scope_list = run "#{cmd_bit_ssh} '#{cmd_bit_scope_list}'"
 
     # remove bit remote root directory from results
     scope_list.gsub!(/#{root}\/*/, '')

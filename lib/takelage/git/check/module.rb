@@ -14,7 +14,7 @@ module GitCheckModule
 
     stdout_str, stderr_str, status_unstaged = run_and_check cmd_git_unstaged
     stdout_str, stderr_str, status_uncommitted = run_and_check cmd_git_uncommitted
-    stdout_str_status, stderr_str, status = run_and_check cmd_git_status
+    stdout_str_status = run cmd_git_status
 
     # only return true if neither unstaged nor uncommitted nor empty files
     sum = status_unstaged.exitstatus +
@@ -32,7 +32,7 @@ module GitCheckModule
     return false unless git_check_workspace
 
     cmd_get_branch = config.active['git_branch']
-    stdout_str, stderr_str, status = run_and_check cmd_get_branch
+    stdout_str = run cmd_get_branch
 
     branch = stdout_str.strip.split('/')[-1]
 
@@ -50,7 +50,7 @@ module GitCheckModule
     stdout_str_repo, stderr_str_repo, status_repo = run_and_check cmd_git_repo
 
     cmd_pwd = config.active['pwd']
-    stdout_str_dir, stderr_str_dir, status_dir = run_and_check cmd_pwd
+    stdout_str_dir = run cmd_pwd
 
     dir = stdout_str_dir.strip
 

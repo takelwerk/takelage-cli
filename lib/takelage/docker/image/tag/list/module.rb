@@ -7,6 +7,7 @@ module DockerImageTagListModule
     tags = []
 
     cmd_docker_images = 'docker images'
+
     images = run cmd_docker_images
 
     images.scan(/.*#{@docker_repo}\/#{@docker_image}.*/) do |line|

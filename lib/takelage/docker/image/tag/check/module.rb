@@ -18,7 +18,7 @@ module DockerImageTagCheckModule
     cmd_docker_images = 'docker images --quiet ' +
         image
 
-    stdout_str, stderr_str, status = run_and_check cmd_docker_images
+    stdout_str = run cmd_docker_images
 
     if stdout_str.to_s.strip.empty?
       log.debug "No local docker image \"#{image}\" found"

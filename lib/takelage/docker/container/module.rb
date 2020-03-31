@@ -169,7 +169,7 @@ module DockerContainerModule
         "--filter id=#{container} " +
         '--format "{{.Names}}"'
 
-    stdout_str, stderr_str, status = run_and_check cmd_get_container_name_by_id
+    stdout_str = run cmd_get_container_name_by_id
 
     name = stdout_str.chomp
 
@@ -188,7 +188,7 @@ module DockerContainerModule
         "--filter name=^#{@docker_image}_ " +
         '--quiet'
 
-    stdout_str, stderr_str, status = run_and_check cmd_docker_get
+    stdout_str = run cmd_docker_get
 
     # convert stdout lines to array and return array
     stdout_str.split(/\n+/)

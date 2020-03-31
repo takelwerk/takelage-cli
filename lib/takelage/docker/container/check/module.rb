@@ -10,7 +10,7 @@ module DockerContainerCheckModule
         "--filter name=^#{container}$ " +
         '--quiet'
 
-    stdout_str, stderr_str, status = run_and_check cmd_docker_existing
+    stdout_str = run cmd_docker_existing
 
     if stdout_str.to_s.strip.empty?
       log.debug "Container \"#{container}\" is not existing"
@@ -30,7 +30,7 @@ module DockerContainerCheckModule
         '--quiet ' +
         "--filter name=^#{network}$"
 
-    stdout_str, stderr_str, status = run_and_check cmd_docker_network
+    stdout_str = run cmd_docker_network
 
     if stdout_str.to_s.strip.empty?
       log.debug "Network \"#{network}\" is not existing"
@@ -51,7 +51,7 @@ module DockerContainerCheckModule
         "#{container} " +
         'ps a'
 
-    stdout_str, stderr_str, status = run_and_check cmd_docker_orphaned
+    stdout_str = run cmd_docker_orphaned
 
     if stdout_str.include? '/loginpoint.py'
       log.debug "Container \"#{container}\" isn't orphaned"

@@ -22,6 +22,11 @@ module DockerImageTagLatestModule
 
     tags = docker_image_tag_list_remote
 
+    if tags.nil?
+      log.debug "No latest docker remote tag"
+      return ''
+    end
+
     tag_latest_remote = tags[-1]
 
     log.debug "Latest docker remote tag: #{tag_latest_remote}"

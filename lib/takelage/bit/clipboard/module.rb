@@ -42,7 +42,7 @@ module BitClipboardModule
 
         # check if bit remote scope is added to local workspace
         cmd_bit_list_remotes = config.active['bit_list_remotes']
-        stdout_str, stderr_str, status = run_and_check cmd_bit_list_remotes
+        stdout_str = run cmd_bit_list_remotes
 
         unless /.*\s+#{scope}\s+.*/m.match? stdout_str
           log.error "No bit remote scope \"#{scope}\" found in local bit workspace"
