@@ -113,7 +113,7 @@ module BitClipboardModule
 
     _remove_bit_artifacts
 
-    log.info "Pasted bit component \"#{cid}\"" +
+    log.info "Pasted bit component \"#{cid}\" " +
                  "to directory \"#{dir}\""
   end
 
