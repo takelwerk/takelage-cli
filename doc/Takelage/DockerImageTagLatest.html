@@ -380,13 +380,19 @@
 
 33
 34
-35</pre>
+35
+36
+37
+38</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/takelage/docker/image/tag/latest/cli.rb', line 33</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_local'>local</span>
-  <span class='id identifier rubyid_say'>say</span> <span class='id identifier rubyid_docker_image_tag_latest_local'>docker_image_tag_latest_local</span>
+  <span class='id identifier rubyid_tag_latest_local'>tag_latest_local</span> <span class='op'>=</span> <span class='id identifier rubyid_docker_image_tag_latest_local'>docker_image_tag_latest_local</span>
+  <span class='id identifier rubyid_exit'>exit</span> <span class='kw'>false</span> <span class='kw'>if</span> <span class='id identifier rubyid_tag_latest_local'>tag_latest_local</span> <span class='op'>==</span> <span class='kw'>false</span>
+  <span class='id identifier rubyid_say'>say</span> <span class='id identifier rubyid_tag_latest_local'>tag_latest_local</span>
+  <span class='kw'>true</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -419,15 +425,21 @@
       <pre class="lines">
 
 
-46
-47
-48</pre>
+49
+50
+51
+52
+53
+54</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/takelage/docker/image/tag/latest/cli.rb', line 46</span>
+      <pre class="code"><span class="info file"># File 'lib/takelage/docker/image/tag/latest/cli.rb', line 49</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_remote'>remote</span>
-  <span class='id identifier rubyid_say'>say</span> <span class='id identifier rubyid_docker_image_tag_latest_remote'>docker_image_tag_latest_remote</span>
+  <span class='id identifier rubyid_tag_latest_remote'>tag_latest_remote</span> <span class='op'>=</span> <span class='id identifier rubyid_docker_image_tag_latest_remote'>docker_image_tag_latest_remote</span>
+  <span class='id identifier rubyid_exit'>exit</span> <span class='kw'>false</span> <span class='kw'>if</span> <span class='id identifier rubyid_tag_latest_remote'>tag_latest_remote</span> <span class='op'>==</span> <span class='kw'>false</span>
+  <span class='id identifier rubyid_say'>say</span> <span class='id identifier rubyid_tag_latest_remote'>tag_latest_remote</span>
+  <span class='kw'>true</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -439,7 +451,7 @@
 </div>
 
       <div id="footer">
-  Generated on Tue Mar 31 23:33:03 2020 by
+  Generated on Wed Apr  1 16:25:52 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.24 (ruby-2.6.3).
 </div>

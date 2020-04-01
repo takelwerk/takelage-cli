@@ -321,15 +321,13 @@
 
 23
 24
-25
-26</pre>
+25</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/takelage/bit/scope/cli.rb', line 23</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_add'>add</span><span class='lparen'>(</span><span class='id identifier rubyid_scope'>scope</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_exit'>exit</span> <span class='kw'>false</span> <span class='kw'>unless</span> <span class='id identifier rubyid_configured?'>configured?</span> <span class='qwords_beg'>%w(</span><span class='tstring_content'>bit_ssh</span><span class='words_sep'> </span><span class='tstring_content'>bit_remote</span><span class='tstring_end'>)</span></span>
-  <span class='id identifier rubyid_bit_scope_add'>bit_scope_add</span> <span class='id identifier rubyid_scope'>scope</span>
+  <span class='id identifier rubyid_exit'>exit</span> <span class='id identifier rubyid_bit_scope_add'>bit_scope_add</span> <span class='id identifier rubyid_scope'>scope</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -362,19 +360,21 @@
       <pre class="lines">
 
 
+51
+52
 53
 54
 55
-56
-57</pre>
+56</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/takelage/bit/scope/cli.rb', line 53</span>
+      <pre class="code"><span class="info file"># File 'lib/takelage/bit/scope/cli.rb', line 51</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list'>list</span>
-  <span class='id identifier rubyid_exit'>exit</span> <span class='kw'>false</span> <span class='kw'>unless</span> <span class='id identifier rubyid_configured?'>configured?</span> <span class='qwords_beg'>%w(</span><span class='tstring_content'>bit_ssh</span><span class='words_sep'> </span><span class='tstring_content'>bit_remote</span><span class='tstring_end'>)</span></span>
   <span class='id identifier rubyid_scopes'>scopes</span> <span class='op'>=</span> <span class='id identifier rubyid_bit_scope_list'>bit_scope_list</span>
+  <span class='id identifier rubyid_exit'>exit</span> <span class='kw'>false</span> <span class='kw'>if</span> <span class='id identifier rubyid_scopes'>scopes</span> <span class='op'>==</span> <span class='kw'>false</span>
   <span class='id identifier rubyid_say'>say</span> <span class='id identifier rubyid_scopes'>scopes</span> <span class='kw'>unless</span> <span class='id identifier rubyid_scopes'>scopes</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='period'>.</span><span class='id identifier rubyid_strip'>strip</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span>
+  <span class='kw'>true</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -407,17 +407,15 @@
       <pre class="lines">
 
 
+38
 39
-40
-41
-42</pre>
+40</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/takelage/bit/scope/cli.rb', line 39</span>
+      <pre class="code"><span class="info file"># File 'lib/takelage/bit/scope/cli.rb', line 38</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_scope'>scope</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_exit'>exit</span> <span class='kw'>false</span> <span class='kw'>unless</span> <span class='id identifier rubyid_configured?'>configured?</span> <span class='qwords_beg'>%w(</span><span class='tstring_content'>bit_ssh</span><span class='words_sep'> </span><span class='tstring_content'>bit_remote</span><span class='tstring_end'>)</span></span>
-  <span class='id identifier rubyid_bit_scope_new'>bit_scope_new</span> <span class='id identifier rubyid_scope'>scope</span>
+  <span class='id identifier rubyid_exit'>exit</span> <span class='id identifier rubyid_bit_scope_new'>bit_scope_new</span> <span class='id identifier rubyid_scope'>scope</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -429,7 +427,7 @@
 </div>
 
       <div id="footer">
-  Generated on Tue Mar 31 23:33:02 2020 by
+  Generated on Wed Apr  1 16:25:52 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.24 (ruby-2.6.3).
 </div>

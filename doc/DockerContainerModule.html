@@ -533,7 +533,7 @@
 
   <span class='kw'>unless</span> <span class='id identifier rubyid_docker_image_tag_check_local'>docker_image_tag_check_local</span> <span class='id identifier rubyid_tag'>tag</span>
     <span class='id identifier rubyid_log'>log</span><span class='period'>.</span><span class='id identifier rubyid_error'>error</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Image \&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_image'>image</span><span class='embexpr_end'>}</span><span class='tstring_content'>\&quot; does not exist</span><span class='tstring_end'>&quot;</span></span>
-    <span class='id identifier rubyid_exit'>exit</span> <span class='kw'>false</span>
+    <span class='kw'>return</span> <span class='kw'>false</span>
   <span class='kw'>end</span>
 
   <span class='id identifier rubyid_entrypoint'>entrypoint</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/entrypoint.py </span><span class='tstring_end'>&#39;</span></span>
@@ -1043,9 +1043,9 @@
 <span class='kw'>def</span> <span class='id identifier rubyid_docker_container_command'>docker_container_command</span><span class='lparen'>(</span><span class='id identifier rubyid_command'>command</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_log'>log</span><span class='period'>.</span><span class='id identifier rubyid_debug'>debug</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Running command in container</span><span class='tstring_end'>&quot;</span></span>
 
-  <span class='id identifier rubyid_exit'>exit</span> <span class='kw'>false</span> <span class='kw'>unless</span> <span class='id identifier rubyid_docker_check_running'>docker_check_running</span>
+  <span class='kw'>return</span> <span class='kw'>false</span> <span class='kw'>unless</span> <span class='id identifier rubyid_docker_check_running'>docker_check_running</span>
 
-  <span class='id identifier rubyid_exit'>exit</span> <span class='kw'>false</span> <span class='kw'>unless</span> <span class='id identifier rubyid_configured?'>configured?</span> <span class='qwords_beg'>%w(</span><span class='tstring_content'>docker_repo</span><span class='words_sep'> </span><span class='tstring_content'>docker_image</span><span class='words_sep'> </span><span class='tstring_content'>docker_tag</span><span class='tstring_end'>)</span></span>
+  <span class='kw'>return</span> <span class='kw'>false</span> <span class='kw'>unless</span> <span class='id identifier rubyid_configured?'>configured?</span> <span class='qwords_beg'>%w(</span><span class='tstring_content'>docker_repo</span><span class='words_sep'> </span><span class='tstring_content'>docker_image</span><span class='words_sep'> </span><span class='tstring_content'>docker_tag</span><span class='tstring_end'>)</span></span>
 
   <span class='id identifier rubyid_docker_socket_start'>docker_socket_start</span>
 
@@ -1101,9 +1101,9 @@
 <span class='kw'>def</span> <span class='id identifier rubyid_docker_container_daemon'>docker_container_daemon</span>
   <span class='id identifier rubyid_log'>log</span><span class='period'>.</span><span class='id identifier rubyid_debug'>debug</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Starting docker container as daemon</span><span class='tstring_end'>&#39;</span></span>
 
-  <span class='id identifier rubyid_exit'>exit</span> <span class='kw'>false</span> <span class='kw'>unless</span> <span class='id identifier rubyid_docker_check_running'>docker_check_running</span>
+  <span class='kw'>return</span> <span class='kw'>false</span> <span class='kw'>unless</span> <span class='id identifier rubyid_docker_check_running'>docker_check_running</span>
 
-  <span class='id identifier rubyid_exit'>exit</span> <span class='kw'>false</span> <span class='kw'>unless</span> <span class='id identifier rubyid_configured?'>configured?</span> <span class='qwords_beg'>%w(</span><span class='tstring_content'>docker_repo</span><span class='words_sep'> </span><span class='tstring_content'>docker_image</span><span class='words_sep'> </span><span class='tstring_content'>docker_tag</span><span class='tstring_end'>)</span></span>
+  <span class='kw'>return</span> <span class='kw'>false</span> <span class='kw'>unless</span> <span class='id identifier rubyid_configured?'>configured?</span> <span class='qwords_beg'>%w(</span><span class='tstring_content'>docker_repo</span><span class='words_sep'> </span><span class='tstring_content'>docker_image</span><span class='words_sep'> </span><span class='tstring_content'>docker_tag</span><span class='tstring_end'>)</span></span>
 
   <span class='id identifier rubyid__create_network'>_create_network</span> <span class='ivar'>@hostname</span> <span class='kw'>unless</span> <span class='id identifier rubyid_docker_container_check_network'>docker_container_check_network</span> <span class='ivar'>@hostname</span>
   <span class='id identifier rubyid__create_container'>_create_container</span> <span class='ivar'>@hostname</span> <span class='kw'>unless</span> <span class='id identifier rubyid_docker_container_check_existing'>docker_container_check_existing</span> <span class='ivar'>@hostname</span>
@@ -1159,9 +1159,9 @@
 <span class='kw'>def</span> <span class='id identifier rubyid_docker_container_login'>docker_container_login</span>
   <span class='id identifier rubyid_log'>log</span><span class='period'>.</span><span class='id identifier rubyid_debug'>debug</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Logging in to docker container</span><span class='tstring_end'>&#39;</span></span>
 
-  <span class='id identifier rubyid_exit'>exit</span> <span class='kw'>false</span> <span class='kw'>unless</span> <span class='id identifier rubyid_docker_check_running'>docker_check_running</span>
+  <span class='kw'>return</span> <span class='kw'>false</span> <span class='kw'>unless</span> <span class='id identifier rubyid_docker_check_running'>docker_check_running</span>
 
-  <span class='id identifier rubyid_exit'>exit</span> <span class='kw'>false</span> <span class='kw'>unless</span> <span class='id identifier rubyid_configured?'>configured?</span> <span class='qwords_beg'>%w(</span><span class='tstring_content'>docker_repo</span><span class='words_sep'> </span><span class='tstring_content'>docker_image</span><span class='words_sep'> </span><span class='tstring_content'>docker_tag</span><span class='tstring_end'>)</span></span>
+  <span class='kw'>return</span> <span class='kw'>false</span> <span class='kw'>unless</span> <span class='id identifier rubyid_configured?'>configured?</span> <span class='qwords_beg'>%w(</span><span class='tstring_content'>docker_repo</span><span class='words_sep'> </span><span class='tstring_content'>docker_image</span><span class='words_sep'> </span><span class='tstring_content'>docker_tag</span><span class='tstring_end'>)</span></span>
 
   <span class='id identifier rubyid_docker_socket_start'>docker_socket_start</span>
 
@@ -1226,9 +1226,9 @@
 <span class='kw'>def</span> <span class='id identifier rubyid_docker_container_nuke'>docker_container_nuke</span>
   <span class='id identifier rubyid_log'>log</span><span class='period'>.</span><span class='id identifier rubyid_debug'>debug</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Removing all docker containers</span><span class='tstring_end'>&#39;</span></span>
 
-  <span class='id identifier rubyid_exit'>exit</span> <span class='kw'>false</span> <span class='kw'>unless</span> <span class='id identifier rubyid_docker_check_running'>docker_check_running</span>
+  <span class='kw'>return</span> <span class='kw'>false</span> <span class='kw'>unless</span> <span class='id identifier rubyid_docker_check_running'>docker_check_running</span>
 
-  <span class='id identifier rubyid_exit'>exit</span> <span class='kw'>false</span> <span class='kw'>unless</span> <span class='id identifier rubyid_configured?'>configured?</span> <span class='qwords_beg'>%w(</span><span class='tstring_content'>docker_image</span><span class='tstring_end'>)</span></span>
+  <span class='kw'>return</span> <span class='kw'>false</span> <span class='kw'>unless</span> <span class='id identifier rubyid_configured?'>configured?</span> <span class='qwords_beg'>%w(</span><span class='tstring_content'>docker_image</span><span class='tstring_end'>)</span></span>
 
   <span class='id identifier rubyid_networks'>networks</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
 
@@ -1301,9 +1301,9 @@
 <span class='kw'>def</span> <span class='id identifier rubyid_docker_container_purge'>docker_container_purge</span>
   <span class='id identifier rubyid_log'>log</span><span class='period'>.</span><span class='id identifier rubyid_debug'>debug</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Removing orphaned docker containers</span><span class='tstring_end'>&#39;</span></span>
 
-  <span class='id identifier rubyid_exit'>exit</span> <span class='kw'>false</span> <span class='kw'>unless</span> <span class='id identifier rubyid_docker_check_running'>docker_check_running</span>
+  <span class='kw'>return</span> <span class='kw'>false</span> <span class='kw'>unless</span> <span class='id identifier rubyid_docker_check_running'>docker_check_running</span>
 
-  <span class='id identifier rubyid_exit'>exit</span> <span class='kw'>false</span> <span class='kw'>unless</span> <span class='id identifier rubyid_configured?'>configured?</span> <span class='qwords_beg'>%w(</span><span class='tstring_content'>docker_image</span><span class='tstring_end'>)</span></span>
+  <span class='kw'>return</span> <span class='kw'>false</span> <span class='kw'>unless</span> <span class='id identifier rubyid_configured?'>configured?</span> <span class='qwords_beg'>%w(</span><span class='tstring_content'>docker_image</span><span class='tstring_end'>)</span></span>
 
   <span class='id identifier rubyid_networks'>networks</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
 
@@ -1329,7 +1329,7 @@
 </div>
 
       <div id="footer">
-  Generated on Tue Mar 31 23:33:02 2020 by
+  Generated on Wed Apr  1 16:25:51 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.24 (ruby-2.6.3).
 </div>

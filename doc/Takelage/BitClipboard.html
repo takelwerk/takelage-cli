@@ -243,7 +243,7 @@
   
   
   <h3 class="inherited">Methods included from <span class='object_link'><a href="../BitClipboardModule.html" title="BitClipboardModule (module)">BitClipboardModule</a></span></h3>
-  <p class="inherited"><span class='object_link'><a href="../BitClipboardModule.html#_id-instance_method" title="BitClipboardModule#_id (method)">#_id</a></span>, <span class='object_link'><a href="../BitClipboardModule.html#_remove_bit_artifacts-instance_method" title="BitClipboardModule#_remove_bit_artifacts (method)">#_remove_bit_artifacts</a></span>, <span class='object_link'><a href="../BitClipboardModule.html#_remove_index_bit-instance_method" title="BitClipboardModule#_remove_index_bit (method)">#_remove_index_bit</a></span>, <span class='object_link'><a href="../BitClipboardModule.html#_remove_node_modules-instance_method" title="BitClipboardModule#_remove_node_modules (method)">#_remove_node_modules</a></span>, <span class='object_link'><a href="../BitClipboardModule.html#bit_clipboard_copy-instance_method" title="BitClipboardModule#bit_clipboard_copy (method)">#bit_clipboard_copy</a></span>, <span class='object_link'><a href="../BitClipboardModule.html#bit_clipboard_paste-instance_method" title="BitClipboardModule#bit_clipboard_paste (method)">#bit_clipboard_paste</a></span>, <span class='object_link'><a href="../BitClipboardModule.html#bit_clipboard_pull-instance_method" title="BitClipboardModule#bit_clipboard_pull (method)">#bit_clipboard_pull</a></span>, <span class='object_link'><a href="../BitClipboardModule.html#bit_clipboard_push-instance_method" title="BitClipboardModule#bit_clipboard_push (method)">#bit_clipboard_push</a></span></p>
+  <p class="inherited"><span class='object_link'><a href="../BitClipboardModule.html#_id-instance_method" title="BitClipboardModule#_id (method)">#_id</a></span>, <span class='object_link'><a href="../BitClipboardModule.html#_remove_bit_artifacts-instance_method" title="BitClipboardModule#_remove_bit_artifacts (method)">#_remove_bit_artifacts</a></span>, <span class='object_link'><a href="../BitClipboardModule.html#_remove_index_bit-instance_method" title="BitClipboardModule#_remove_index_bit (method)">#_remove_index_bit</a></span>, <span class='object_link'><a href="../BitClipboardModule.html#_remove_node_modules-instance_method" title="BitClipboardModule#_remove_node_modules (method)">#_remove_node_modules</a></span>, <span class='object_link'><a href="../BitClipboardModule.html#_remove_package_json-instance_method" title="BitClipboardModule#_remove_package_json (method)">#_remove_package_json</a></span>, <span class='object_link'><a href="../BitClipboardModule.html#bit_clipboard_copy-instance_method" title="BitClipboardModule#bit_clipboard_copy (method)">#bit_clipboard_copy</a></span>, <span class='object_link'><a href="../BitClipboardModule.html#bit_clipboard_paste-instance_method" title="BitClipboardModule#bit_clipboard_paste (method)">#bit_clipboard_paste</a></span>, <span class='object_link'><a href="../BitClipboardModule.html#bit_clipboard_pull-instance_method" title="BitClipboardModule#bit_clipboard_pull (method)">#bit_clipboard_pull</a></span>, <span class='object_link'><a href="../BitClipboardModule.html#bit_clipboard_push-instance_method" title="BitClipboardModule#bit_clipboard_push (method)">#bit_clipboard_push</a></span></p>
 
   
   
@@ -351,7 +351,7 @@
       <pre class="code"><span class="info file"># File 'lib/takelage/bit/clipboard/cli.rb', line 29</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_copy'>copy</span><span class='lparen'>(</span><span class='id identifier rubyid_dir_or_file'>dir_or_file</span><span class='comma'>,</span> <span class='id identifier rubyid_scope'>scope</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_bit_clipboard_copy'>bit_clipboard_copy</span> <span class='id identifier rubyid_dir_or_file'>dir_or_file</span><span class='comma'>,</span> <span class='id identifier rubyid_scope'>scope</span>
+  <span class='id identifier rubyid_exit'>exit</span> <span class='id identifier rubyid_bit_clipboard_copy'>bit_clipboard_copy</span> <span class='id identifier rubyid_dir_or_file'>dir_or_file</span><span class='comma'>,</span> <span class='id identifier rubyid_scope'>scope</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -392,7 +392,7 @@
       <pre class="code"><span class="info file"># File 'lib/takelage/bit/clipboard/cli.rb', line 41</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_paste'>paste</span><span class='lparen'>(</span><span class='id identifier rubyid_cid'>cid</span><span class='comma'>,</span> <span class='id identifier rubyid_dir'>dir</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_bit_clipboard_paste'>bit_clipboard_paste</span> <span class='id identifier rubyid_cid'>cid</span><span class='comma'>,</span> <span class='id identifier rubyid_dir'>dir</span>
+  <span class='id identifier rubyid_exit'>exit</span> <span class='id identifier rubyid_bit_clipboard_paste'>bit_clipboard_paste</span> <span class='id identifier rubyid_cid'>cid</span><span class='comma'>,</span> <span class='id identifier rubyid_dir'>dir</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -433,7 +433,7 @@
       <pre class="code"><span class="info file"># File 'lib/takelage/bit/clipboard/cli.rb', line 53</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_pull'>pull</span>
-  <span class='id identifier rubyid_bit_clipboard_pull'>bit_clipboard_pull</span>
+  <span class='id identifier rubyid_exit'>exit</span> <span class='id identifier rubyid_bit_clipboard_pull'>bit_clipboard_pull</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -474,7 +474,7 @@
       <pre class="code"><span class="info file"># File 'lib/takelage/bit/clipboard/cli.rb', line 65</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_push'>push</span>
-  <span class='id identifier rubyid_bit_clipboard_push'>bit_clipboard_push</span>
+  <span class='id identifier rubyid_exit'>exit</span> <span class='id identifier rubyid_bit_clipboard_push'>bit_clipboard_push</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -486,7 +486,7 @@
 </div>
 
       <div id="footer">
-  Generated on Tue Mar 31 23:33:02 2020 by
+  Generated on Wed Apr  1 16:25:52 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.24 (ruby-2.6.3).
 </div>

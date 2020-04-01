@@ -405,7 +405,7 @@
       <pre class="code"><span class="info file"># File 'lib/takelage/docker/socket/cli.rb', line 46</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_start'>start</span>
-  <span class='id identifier rubyid_docker_socket_start'>docker_socket_start</span>
+  <span class='id identifier rubyid_exit'>exit</span> <span class='id identifier rubyid_docker_socket_start'>docker_socket_start</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -446,7 +446,7 @@
       <pre class="code"><span class="info file"># File 'lib/takelage/docker/socket/cli.rb', line 58</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_stop'>stop</span>
-  <span class='id identifier rubyid_docker_socket_stop'>docker_socket_stop</span>
+  <span class='id identifier rubyid_exit'>exit</span> <span class='id identifier rubyid_docker_socket_stop'>docker_socket_stop</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -458,7 +458,7 @@
 </div>
 
       <div id="footer">
-  Generated on Tue Mar 31 23:33:02 2020 by
+  Generated on Wed Apr  1 16:25:52 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.24 (ruby-2.6.3).
 </div>

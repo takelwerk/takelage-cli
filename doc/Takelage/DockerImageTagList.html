@@ -369,13 +369,19 @@
 
 31
 32
-33</pre>
+33
+34
+35
+36</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/takelage/docker/image/tag/list/cli.rb', line 31</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_local'>local</span>
-  <span class='id identifier rubyid_say'>say</span> <span class='id identifier rubyid_docker_image_tag_list_local'>docker_image_tag_list_local</span>
+  <span class='id identifier rubyid_tag_list_local'>tag_list_local</span> <span class='op'>=</span> <span class='id identifier rubyid_docker_image_tag_list_local'>docker_image_tag_list_local</span>
+  <span class='id identifier rubyid_exit'>exit</span> <span class='kw'>false</span> <span class='kw'>if</span> <span class='id identifier rubyid_tag_list_local'>tag_list_local</span> <span class='op'>==</span> <span class='kw'>false</span>
+  <span class='id identifier rubyid_say'>say</span> <span class='id identifier rubyid_tag_list_local'>tag_list_local</span>
+  <span class='kw'>true</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -408,15 +414,21 @@
       <pre class="lines">
 
 
-43
-44
-45</pre>
+46
+47
+48
+49
+50
+51</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/takelage/docker/image/tag/list/cli.rb', line 43</span>
+      <pre class="code"><span class="info file"># File 'lib/takelage/docker/image/tag/list/cli.rb', line 46</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_remote'>remote</span>
-  <span class='id identifier rubyid_say'>say</span> <span class='id identifier rubyid_docker_image_tag_list_remote'>docker_image_tag_list_remote</span>
+  <span class='id identifier rubyid_tag_list_remote'>tag_list_remote</span> <span class='op'>=</span> <span class='id identifier rubyid_docker_image_tag_list_remote'>docker_image_tag_list_remote</span>
+  <span class='id identifier rubyid_exit'>exit</span> <span class='kw'>false</span> <span class='kw'>if</span> <span class='id identifier rubyid_tag_list_remote'>tag_list_remote</span> <span class='op'>==</span> <span class='kw'>false</span>
+  <span class='id identifier rubyid_say'>say</span> <span class='id identifier rubyid_tag_list_remote'>tag_list_remote</span>
+  <span class='kw'>true</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -428,7 +440,7 @@
 </div>
 
       <div id="footer">
-  Generated on Tue Mar 31 23:33:02 2020 by
+  Generated on Wed Apr  1 16:25:52 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.24 (ruby-2.6.3).
 </div>

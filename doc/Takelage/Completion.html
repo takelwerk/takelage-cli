@@ -218,13 +218,19 @@
 
 17
 18
-19</pre>
+19
+20
+21
+22</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/takelage/completion/cli.rb', line 17</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_bash'>bash</span>
-  <span class='id identifier rubyid_say'>say</span> <span class='const'><span class='object_link'><a href="../Takelage.html" title="Takelage (module)">Takelage</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="CLI.html" title="Takelage::CLI (class)">CLI</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="CLI.html#initialize-instance_method" title="Takelage::CLI#initialize (method)">new</a></span></span><span class='period'>.</span><span class='id identifier rubyid_bash_fylla'><span class='object_link'><a href="CLI.html#bash_fylla-instance_method" title="Takelage::CLI#bash_fylla (method)">bash_fylla</a></span></span>
+  <span class='id identifier rubyid_completion_bash'>completion_bash</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../Takelage.html" title="Takelage (module)">Takelage</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="CLI.html" title="Takelage::CLI (class)">CLI</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="CLI.html#initialize-instance_method" title="Takelage::CLI#initialize (method)">new</a></span></span><span class='period'>.</span><span class='id identifier rubyid_bash_fylla'><span class='object_link'><a href="CLI.html#bash_fylla-instance_method" title="Takelage::CLI#bash_fylla (method)">bash_fylla</a></span></span>
+  <span class='id identifier rubyid_exit'>exit</span> <span class='kw'>false</span> <span class='kw'>if</span> <span class='id identifier rubyid_completion_bash'>completion_bash</span> <span class='op'>==</span> <span class='kw'>false</span>
+  <span class='id identifier rubyid_say'>say</span> <span class='id identifier rubyid_completion_bash'>completion_bash</span>
+  <span class='kw'>true</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -236,7 +242,7 @@
 </div>
 
       <div id="footer">
-  Generated on Tue Mar 31 23:33:02 2020 by
+  Generated on Wed Apr  1 16:25:52 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.24 (ruby-2.6.3).
 </div>
