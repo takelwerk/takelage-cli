@@ -27,7 +27,7 @@ module Takelage
     LONGDESC
     # Copy a file or directory as a bit component to a bit remote scope.
     def copy(dir_or_file, scope)
-      bit_clipboard_copy dir_or_file, scope
+      exit bit_clipboard_copy dir_or_file, scope
     end
 
     #
@@ -39,7 +39,7 @@ module Takelage
     LONGDESC
     # Paste a bit component into a directory.
     def paste(cid, dir)
-      bit_clipboard_paste cid, dir
+      exit bit_clipboard_paste cid, dir
     end
 
     #
@@ -51,7 +51,7 @@ module Takelage
     LONGDESC
     # Pull all updates for bit components from bit remote scopes.
     def pull
-      bit_clipboard_pull
+      exit bit_clipboard_pull
     end
 
     #
@@ -63,7 +63,7 @@ module Takelage
     LONGDESC
     # Push all updates of bit components to bit remote scopes.
     def push
-      bit_clipboard_push
+      exit bit_clipboard_push
     end
   end
 end

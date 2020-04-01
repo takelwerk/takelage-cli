@@ -6,9 +6,9 @@ module DockerImageTagCheckModule
   def docker_image_tag_check_local(tag)
     log.debug "Check if local docker image tag \"#{tag}\" exists"
 
-    exit false unless docker_check_running
+    return false unless docker_check_running
 
-    exit false unless configured? %w(docker_repo docker_image)
+    return false unless configured? %w(docker_repo docker_image)
 
     if tag.to_s.strip.empty?
       log.warn "No local docker image tag specified"
@@ -36,9 +36,9 @@ module DockerImageTagCheckModule
   def docker_image_tag_check_remote(tag)
     log.debug "Check if remote image tag \"#{tag}\" exists"
 
-    exit false unless docker_check_running
+    return false unless docker_check_running
 
-    exit false unless configured? %w(docker_repo docker_image docker_tagsurl)
+    return false unless configured? %w(docker_repo docker_image docker_tagsurl)
 
     if tag .to_s.strip.empty?
       log.warn "No remote docker image tag specified"

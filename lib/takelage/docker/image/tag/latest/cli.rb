@@ -31,7 +31,10 @@ module Takelage
     LONGDESC
     # Print latest local docker image tag.
     def local
-      say docker_image_tag_latest_local
+      tag_latest_local = docker_image_tag_latest_local
+      exit false if tag_latest_local == false
+      say tag_latest_local
+      true
     end
 
     #
@@ -44,7 +47,10 @@ module Takelage
     LONGDESC
     # Print latest remote docker image tag.
     def remote
-      say docker_image_tag_latest_remote
+      tag_latest_remote = docker_image_tag_latest_remote
+      exit false if tag_latest_remote == false
+      say tag_latest_remote
+      true
     end
   end
 end

@@ -44,7 +44,7 @@ module Takelage
     LONGDESC
     # Start sockets for docker container.
     def start
-      docker_socket_start
+      exit docker_socket_start
     end
 
     #
@@ -56,7 +56,7 @@ module Takelage
     LONGDESC
     # Stop sockets for docker container.
     def stop
-      docker_socket_stop
+      exit docker_socket_stop
     end
   end
 end

@@ -26,18 +26,18 @@ module DockerImageTagListModule
       @res = Net::HTTP.get_response URI(@docker_tagsurl)
       unless @res.code.eql? '200'
         log.error "Unable to connect to \"#{@docker_tagsurl}\""
-        return
+        return false
       end
     rescue SocketError => e
       log.debug e
-      exit false
+      return false
     end
 
     begin
       tags = JSON.parse @res.body
     rescue JSON::ParserError
       log.error 'Unable to parse JSON'
-      exit false
+      return false
     end
 
     tags['tags'].sort_by(&Gem::Version.method(:new))

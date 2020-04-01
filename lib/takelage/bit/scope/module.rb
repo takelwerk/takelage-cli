@@ -5,15 +5,17 @@ module BitScopeModule
   def bit_scope_add(scope)
     log.debug "Adding bit remote scope \"#{scope}\" to local workspace"
 
+    return false unless configured? %w(bit_ssh bit_remote)
+
     unless bit_check_workspace
       log.error 'No bit workspace'
-      return
+      return false
     end
 
     if git_check_workspace
       unless git_check_master
         log.error 'Not on git master branch'
-        return
+        return false
       end
     end
 
@@ -22,7 +24,7 @@ module BitScopeModule
     log.debug scope_list
     unless scope_list.include? scope
       log.error "The bit remote bit scope \"#{scope}\" doesn't exist"
-      exit false
+      return false
     end
 
     # get bit remote from active config
@@ -39,6 +41,8 @@ module BitScopeModule
   # @return [String] list of bit scopes
   def bit_scope_list
     log.debug "Listing bit remote scopes"
+
+    return false unless configured? %w(bit_ssh bit_remote)
 
     # get ssh command from active config
     cmd_bit_ssh = config.active['bit_ssh']
@@ -64,11 +68,13 @@ module BitScopeModule
   def bit_scope_new(scope)
     log.debug "Creating new bit remote scope \"#{scope}\""
 
+    return false unless configured? %w(bit_ssh bit_remote)
+
     # check if bit remote scope already exists
     scope_list = bit_scope_list
     if scope_list.include? scope
       log.error "The remote bit scope \"#{scope}\" already exists"
-      exit false
+      return false
     end
 
     # get ssh command from active config

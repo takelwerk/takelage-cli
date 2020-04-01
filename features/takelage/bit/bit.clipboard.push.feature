@@ -50,7 +50,8 @@ Feature: I can push a bit component changes to a bit remote scope
     And I initialize a git workspace in "."
     And I switch to the git branch named "my_branch" in "."
     When I run `tau-cli bit clipboard push`
-    Then the output should contain:
+    Then the exit status should be 1
+    And the output should contain:
       """
       [ERROR] Not on git master branch
       """

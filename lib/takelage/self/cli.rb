@@ -21,7 +21,10 @@ module Takelage
     LONGDESC
     # List all commands.
     def list
-      self_list
+      list = self_list
+      exit false if list == false
+      say list
+      true
     end
 
     #
@@ -31,10 +34,10 @@ module Takelage
     long_desc <<-LONGDESC.gsub("\n", "\x5")
     Print takelage semantic version number
     LONGDESC
-    #Print takelage semantic version number.
-    # @return [String] semantic version number
+    # Print takelage semantic version number.
     def version
       say VERSION
+      true
     end
   end
 end

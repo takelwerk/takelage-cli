@@ -54,7 +54,8 @@ Feature: I can pull bit component changes to a local bit workspace
     And I initialize a git workspace in "."
     And I switch to the git branch named "my_branch" in "."
     When I run `tau-cli bit clipboard pull`
-    Then the output should contain:
+    Then the exit status should be 1
+    And the output should contain:
       """
       [ERROR] Not on git master branch
       """

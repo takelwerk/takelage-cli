@@ -21,6 +21,6 @@ module SelfModule
     thor_list.gsub! /(.*)takelage:c_l_i:(.*)#(.*)/, '\1\2               #\3'
     thor_list.gsub! /.*COMMAND.*\n/, ''
 
-    say thor_list
+    thor_list
   end
 end

@@ -5,9 +5,9 @@ module DockerContainerModule
   def docker_container_command(command)
     log.debug "Running command in container"
 
-    exit false unless docker_check_running
+    return false unless docker_check_running
 
-    exit false unless configured? %w(docker_repo docker_image docker_tag)
+    return false unless configured? %w(docker_repo docker_image docker_tag)
 
     docker_socket_start
 
@@ -20,9 +20,9 @@ module DockerContainerModule
   def docker_container_daemon
     log.debug 'Starting docker container as daemon'
 
-    exit false unless docker_check_running
+    return false unless docker_check_running
 
-    exit false unless configured? %w(docker_repo docker_image docker_tag)
+    return false unless configured? %w(docker_repo docker_image docker_tag)
 
     _create_network @hostname unless docker_container_check_network @hostname
     _create_container @hostname unless docker_container_check_existing @hostname
@@ -32,9 +32,9 @@ module DockerContainerModule
   def docker_container_login
     log.debug 'Logging in to docker container'
 
-    exit false unless docker_check_running
+    return false unless docker_check_running
 
-    exit false unless configured? %w(docker_repo docker_image docker_tag)
+    return false unless configured? %w(docker_repo docker_image docker_tag)
 
     docker_socket_start
 
@@ -47,9 +47,9 @@ module DockerContainerModule
   def docker_container_nuke
     log.debug 'Removing all docker containers'
 
-    exit false unless docker_check_running
+    return false unless docker_check_running
 
-    exit false unless configured? %w(docker_image)
+    return false unless configured? %w(docker_image)
 
     networks = []
 
@@ -68,9 +68,9 @@ module DockerContainerModule
   def docker_container_purge
     log.debug 'Removing orphaned docker containers'
 
-    exit false unless docker_check_running
+    return false unless docker_check_running
 
-    exit false unless configured? %w(docker_image)
+    return false unless configured? %w(docker_image)
 
     networks = []
 
@@ -103,7 +103,7 @@ module DockerContainerModule
 
     unless docker_image_tag_check_local tag
       log.error "Image \"#{image}\" does not exist"
-      exit false
+      return false
     end
 
     entrypoint = '/entrypoint.py '

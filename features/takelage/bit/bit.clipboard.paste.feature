@@ -36,14 +36,29 @@ Feature: I can paste a bit component from a bit remote scope
     When I successfully run `tau-cli bit clipboard paste my_scope/my_dir my_dir`
     Then the directory "my_dir" should exist
     And the file "my_dir/my_file" should exist
-    
+
   @bit.clipboard.paste.notongitmaster
 
   Scenario: Fail if not on git master branch
+    Given the list of remote scopes is up-to-date
+    But a remote scope named "my_scope" should not exist
     And I initialize a git workspace in "."
     And I switch to the git branch named "my_branch" in "."
-    When I run `tau-cli bit clipboard paste nonexisting_scope/nonexisting_dir nonexisting_dir`
-    Then the output should contain:
+    When I run `tau-cli bit clipboard paste my_scope/my_dir my_dir`
+    Then the exit status should be 1
+    And the output should contain:
       """
       [ERROR] Not on git master branch
+      """
+
+  @bit.clipboard.paste.nonexistingcomponent
+
+  Scenario: Fail if bit component does not exist
+    Given the list of remote scopes is up-to-date
+    But a remote scope named "my_scope" should not exist
+    When I run `tau-cli bit clipboard paste my_scope/my_dir my_dir`
+    Then the exit status should be 1
+    And the output should contain:
+      """
+      [ERROR] No remote scope "my_scope"
       """

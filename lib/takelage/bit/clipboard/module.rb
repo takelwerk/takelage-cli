@@ -7,13 +7,13 @@ module BitClipboardModule
 
     unless bit_check_workspace
       log.error 'No bit workspace'
-      return
+      return false
     end
 
     if git_check_workspace
       unless git_check_master
         log.error 'Not on git master branch'
-        return
+        return false
       end
     end
 
@@ -35,7 +35,7 @@ module BitClipboardModule
 
         unless status.exitstatus.zero?
           log.error "No bit.dev remote scope \"#{scope}\" found"
-          return
+          return false
         end
 
       else
@@ -46,7 +46,7 @@ module BitClipboardModule
 
         unless /.*\s+#{scope}\s+.*/m.match? stdout_str
           log.error "No bit remote scope \"#{scope}\" found in local bit workspace"
-          return
+          return false
         end
       end
 
@@ -54,14 +54,14 @@ module BitClipboardModule
       Dir.glob("#{dir}/**/README.bit").each do |file|
         unless file == "#{dir}/README.bit"
           log.error "Nested README.bit file detected"
-          return
+          return false
         end
       end
 
       # touch README.bit if necessary
       readme_bit = "#{dir}/README.bit"
       unless File.file? readme_bit
-        log.warn "Creating \"README.bit\" in \"#{dir}\""
+        log.info "Creating \"README.bit\" in \"#{dir}\""
         File.open(readme_bit, 'w') {}
       end
 
@@ -77,7 +77,7 @@ module BitClipboardModule
       run cmd_bit_tag_id
     else
       log.error "The directory \"#{dir}\" does not exist"
-      return
+      return false
     end
 
     # export component to bit remote scope
@@ -89,6 +89,7 @@ module BitClipboardModule
     log.info "Copied directory \"#{dir}\" " +
                  "as bit component \"#{id}\" " +
                  "to bit remote scope \"#{scope}\""
+    true
   end
 
   # Backend method for bit paste.
@@ -97,14 +98,28 @@ module BitClipboardModule
 
     unless bit_check_workspace
       log.error 'No bit workspace'
-      return
+      return false
     end
 
     if git_check_workspace
       unless git_check_master
         log.error 'Not on git master branch'
-        return
+        return false
       end
+    end
+
+    scope = cid.scan(/([^\/]*).*/).first.first
+
+    log.debug "Checking if scope \"#{scope}\" " +
+                  "has contains component id \"#{cid}\""
+
+    # get components in remote scope
+    cmd_bit_list_scope = config.active['bit_list_scope'] % {scope: scope}
+    bit_list_scope = run cmd_bit_list_scope
+
+    unless bit_list_scope.include? '"id": "' + cid + '",'
+      log.error "No remote scope \"#{scope}\""
+      return false
     end
 
     # paste bit component into directory
@@ -115,6 +130,7 @@ module BitClipboardModule
 
     log.info "Pasted bit component \"#{cid}\" " +
                  "to directory \"#{dir}\""
+    true
   end
 
   # Backend method for bit pull.
@@ -123,13 +139,13 @@ module BitClipboardModule
 
     unless bit_check_workspace
       log.error 'No bit workspace'
-      return
+      return false
     end
 
     if git_check_workspace
       unless git_check_master
         log.error 'Not on git master branch'
-        return
+        return false
       end
     end
 
@@ -144,6 +160,7 @@ module BitClipboardModule
     _remove_bit_artifacts
 
     log.info "Pulled bit components"
+    true
   end
 
   # Backend method for bit push
@@ -152,13 +169,13 @@ module BitClipboardModule
 
     unless bit_check_workspace
       log.error 'No bit workspace'
-      return
+      return false
     end
 
     if git_check_workspace
       unless git_check_master
         log.error 'Not on git master branch'
-        return
+        return false
       end
     end
 
@@ -173,6 +190,7 @@ module BitClipboardModule
     _remove_bit_artifacts
 
     log.info "Pushed bit components"
+    true
   end
 
   # Generate bit component ID.
@@ -203,6 +221,7 @@ module BitClipboardModule
   def _remove_bit_artifacts
     _remove_node_modules
     _remove_index_bit
+    _remove_package_json
   end
 
   # Remove node_modules directory.
@@ -215,5 +234,10 @@ module BitClipboardModule
     Dir.glob("./**/index.bit").each do |file|
       FileUtils.remove_entry_secure(file, force: true)
     end
+  end
+
+  # Remove package.json file.
+  def _remove_package_json
+    FileUtils.remove_entry_secure('package.json', force: true)
   end
 end

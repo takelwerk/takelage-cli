@@ -36,7 +36,7 @@ module Takelage
     LONGDESC
     # Get latest remote docker container.
     def update
-      docker_image_update
+      exit docker_image_update
     end
   end
 end

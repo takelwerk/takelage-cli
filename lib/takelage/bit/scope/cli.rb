@@ -21,8 +21,7 @@ module Takelage
     LONGDESC
     # Add bit remote scope.
     def add(scope)
-      exit false unless configured? %w(bit_ssh bit_remote)
-      bit_scope_add scope
+      exit bit_scope_add scope
     end
 
     #
@@ -37,8 +36,7 @@ module Takelage
     LONGDESC
     # Create new bit remote scope.
     def new(scope)
-      exit false unless configured? %w(bit_ssh bit_remote)
-      bit_scope_new scope
+      exit bit_scope_new scope
     end
 
     #
@@ -51,9 +49,10 @@ module Takelage
     LONGDESC
     # List bit remote scopes.
     def list
-      exit false unless configured? %w(bit_ssh bit_remote)
       scopes = bit_scope_list
+      exit false if scopes == false
       say scopes unless scopes.to_s.strip.empty?
+      true
     end
   end
 end

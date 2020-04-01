@@ -31,7 +31,7 @@ Feature: I can copy a directory as a new tagged bit component
     When I successfully run `tau-cli bit clipboard copy my_dir my_scope`
     Then the output should contain:
       """
-      [WARN] Creating "README.bit" in "my_dir"
+      [INFO] Creating "README.bit" in "my_dir"
       """
     And the file "my_dir/README.bit" should exist
     And the directory "node_modules" should not exist
@@ -65,14 +65,16 @@ Feature: I can copy a directory as a new tagged bit component
     And I successfully run `tau-cli bit scope new my_scope`
     And I successfully run `tau-cli bit scope add my_scope`
     When I run `tau-cli bit clipboard copy my_dir my_scope`
-    Then the output should contain "[ERROR] Nested README.bit file detected"
+    Then the exit status should be 1
+    And the output should contain "[ERROR] Nested README.bit file detected"
 
   @bit.clipboard.copy.file
 
   Scenario: Do not add a file as a new tagged bit component
     Given an empty file named "my_file"
     When I run `tau-cli bit clipboard copy my_file nonexisting_scope`
-    Then the output should contain:
+    Then the exit status should be 1
+    And the output should contain:
       """
       [ERROR] The directory "my_file" does not exist
       """
@@ -83,7 +85,8 @@ Feature: I can copy a directory as a new tagged bit component
     And I initialize a git workspace in "."
     And I switch to the git branch named "my_branch" in "."
     When I run `tau-cli bit clipboard copy nonexisting_dir nonexisting_scope`
-    Then the output should contain:
+    Then the exit status should be 1
+    And the output should contain:
       """
       [ERROR] Not on git master branch
       """

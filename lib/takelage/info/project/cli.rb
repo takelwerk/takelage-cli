@@ -17,7 +17,10 @@ module Takelage
     LONGDESC
     # Print active project info.
     def active
-      say hash_to_yaml(project.active)
+      project_active_yaml = hash_to_yaml(project.active)
+      exit false if project_active_yaml == false
+      say project_active_yaml
+      true
     end
 
     #
@@ -29,7 +32,10 @@ module Takelage
     LONGDESC
     # Print private project info.
     def private
-      say hash_to_yaml(project.private)
+      project_private_yaml = hash_to_yaml(project.private)
+      exit false if project_private_yaml == false
+      say project_private_yaml
+      true
     end
 
     #
@@ -41,7 +47,10 @@ module Takelage
     LONGDESC
     # Print main project info.
     def main
-      say hash_to_yaml(project.main)
+      project_main_yaml = hash_to_yaml(project.main)
+      exit false if project_main_yaml == false
+      say project_main_yaml
+      true
     end
   end
 end

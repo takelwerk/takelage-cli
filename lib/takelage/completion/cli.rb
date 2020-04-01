@@ -15,7 +15,10 @@ module Takelage
     LONGDESC
     # Print bash completion code.
     def bash
-      say Takelage::CLI.new.bash_fylla
+      completion_bash = Takelage::CLI.new.bash_fylla
+      exit false if completion_bash == false
+      say completion_bash
+      true
     end
   end
 end

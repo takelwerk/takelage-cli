@@ -35,7 +35,8 @@ Feature: I can add bit remote scopes to workspaces
     And I initialize a git workspace in "."
     And I switch to the git branch named "my_branch" in "."
     When I run `tau-cli bit scope add nonexisting_scope`
-    Then the output should contain:
+    Then the exit status should be 1
+    And the output should contain:
       """
       [ERROR] Not on git master branch
       """

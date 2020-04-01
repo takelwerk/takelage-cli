@@ -6,7 +6,7 @@ module DockerImageTagLatestModule
   def docker_image_tag_latest_local
     log.debug "Getting latest local docker image tag"
 
-    exit false unless docker_check_running
+    return false unless docker_check_running
 
     tags = docker_image_tag_list_local
 
@@ -22,12 +22,12 @@ module DockerImageTagLatestModule
   def docker_image_tag_latest_remote
     log.debug "Getting latest remote docker image tag"
 
-    exit false unless docker_check_running
+    return false unless docker_check_running
 
     tags = docker_image_tag_list_remote
 
     if tags.nil?
-      log.debug "No latest docker remote tag"
+      log.warn "No latest docker remote tag"
       return ''
     end
 

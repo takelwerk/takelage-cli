@@ -22,7 +22,10 @@ module Takelage
     LONGDESC
     # Print takelage default configuration.
     def default
-      say hash_to_yaml(config.default)
+      config_default_yaml = hash_to_yaml(config.default)
+      exit false if config_default_yaml == false
+      say config_default_yaml
+      true
     end
 
     #
@@ -36,7 +39,10 @@ module Takelage
     LONGDESC
     # Print takelage home config file configuration.
     def home
-      say hash_to_yaml(config.home)
+      config_home_yaml = hash_to_yaml(config.home)
+      exit false if config_home_yaml == false
+      say config_home_yaml
+      true
     end
 
     #
@@ -50,7 +56,10 @@ module Takelage
     LONGDESC
     # Print takelage home config file configuration.
     def project
-      say hash_to_yaml(config.project)
+      config_project_yaml = hash_to_yaml(config.project)
+      exit false if config_project_yaml == false
+      say config_project_yaml
+      true
     end
 
     #
@@ -64,7 +73,10 @@ module Takelage
     LONGDESC
     # Print active takelage configuration.
     def active
-      say hash_to_yaml(config.active)
+      config_active_yaml = hash_to_yaml(config.active)
+      exit false if config_active_yaml == false
+      say config_active_yaml
+      true
     end
   end
 end

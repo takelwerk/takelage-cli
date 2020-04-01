@@ -5,7 +5,7 @@ module DockerSocketModule
   def docker_socket_start
     log.debug 'Starting sockets for docker container'
 
-    exit false unless docker_check_running
+    return false unless docker_check_running
 
     cmds_start_socket = _get_socket_start_commands sockets_up = false
 
@@ -13,25 +13,25 @@ module DockerSocketModule
       log.debug 'Request sudo so that subsequent background tasks run without delay'
 
       cmd_sudo_true = config.active['sudo_true']
-
       run cmd_sudo_true
     end
 
     cmds_start_socket.each do |cmd_start_socket|
       run_and_fork cmd_start_socket
     end
+
+    true
   end
 
   # Backend method for docker socket stop.
   def docker_socket_stop
     log.debug 'Stopping sockets for docker container'
 
-    exit false unless docker_check_running
-
-    cmd_ps = config.active['docker_socket_ps']
+    return false unless docker_check_running
 
     # get process list
     # assuming format: "pid command"
+    cmd_ps = config.active['docker_socket_ps']
     stdout_str = run cmd_ps
 
     cmds_start_socket = _get_socket_start_commands sockets_up = true
@@ -51,11 +51,12 @@ module DockerSocketModule
           log.debug "Killing PID #{pid}"
 
           cmd_kill = config.active['docker_socket_kill'] % {pid: pid}
-
           run cmd_kill
         end
       end
     end
+
+    true
   end
 
   # get socket start commands
