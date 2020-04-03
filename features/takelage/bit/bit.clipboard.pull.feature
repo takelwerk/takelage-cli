@@ -64,9 +64,9 @@ Feature: I can pull bit component changes to a local bit workspace
     And I cd to "other"
     And I successfully run `tau-cli bit scope add my_scope`
     And I successfully run `tau-cli bit clipboard paste my_scope/my_dir my_dir`
+    And I remove the file "my_dir/.gitignore"
     And I cd to "../bit"
     And an empty file named "my_dir/my_file"
-    And I remove the file "my_dir/.gitignore"
     And I successfully run `tau-cli bit clipboard push`
     And I cd to "../other"
     When I successfully run `tau-cli bit clipboard pull`
