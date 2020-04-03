@@ -18,4 +18,4 @@ Feature: I can add a bit remote scopes
     And a remote scope named "my_scope" should not exist
     When I successfully run `tau-cli bit scope new my_scope`
     Then the list of remote scopes is up-to-date
-    And there is a remote scope named "my_scope"
+    And the remote scope "my_scope" should exist

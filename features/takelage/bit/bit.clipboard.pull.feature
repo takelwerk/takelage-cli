@@ -48,6 +48,35 @@ Feature: I can pull bit component changes to a local bit workspace
     When I successfully run `tau-cli bit clipboard pull`
     Then the file "my_dir/my_file" should match /tomato/
 
+  @bit.clipboard.pull.dirwithbitignore
+
+  Scenario: Pull bit component changes to a local bit workspace
+    Given a directory named "my_dir"
+    And an empty file named "my_dir/bitignore"
+    And the list of remote scopes is up-to-date
+    But a remote scope named "my_scope" should not exist
+    And I successfully run `tau-cli bit scope new my_scope`
+    And I successfully run `tau-cli bit scope add my_scope`
+    And I successfully run `tau-cli bit clipboard copy my_dir my_scope`
+    And I cd to ".."
+    And a directory named "other"
+    And I initialize a bit workspace in "other"
+    And I cd to "other"
+    And I successfully run `tau-cli bit scope add my_scope`
+    And I successfully run `tau-cli bit clipboard paste my_scope/my_dir my_dir`
+    And I cd to "../bit"
+    And an empty file named "my_dir/my_file"
+    And I remove the file "my_dir/.gitignore"
+    And I successfully run `tau-cli bit clipboard push`
+    And I cd to "../other"
+    When I successfully run `tau-cli bit clipboard pull`
+    Then the file "my_dir/my_file" should exist
+    And the file "my_dir/bitignore" should exist
+    And the file "my_dir/.gitignore" should contain:
+      """
+      *
+      """
+
   @bit.clipboard.pull.notongitmaster
 
   Scenario: Fail if not on git master branch

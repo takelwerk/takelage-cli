@@ -24,7 +24,7 @@ Feature: I can add bit remote scopes to workspaces
     But a remote scope named "my_scope" should not exist
     And I successfully run `tau-cli bit scope new my_scope`
     And the list of remote scopes is up-to-date
-    And there is a remote scope named "my_scope"
+    And the remote scope "my_scope" should exist
     But a local remote scope named "my_scope" in "bit" should not exist
     When I successfully run `tau-cli bit scope add my_scope`
     Then there is a local remote scope named "my_scope" in "bit"

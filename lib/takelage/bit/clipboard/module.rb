@@ -126,6 +126,7 @@ module BitClipboardModule
     cmd_bit_import_cid = config.active['bit_import_cid'] % {cid: cid, dir: dir}
     run cmd_bit_import_cid
 
+    _handle_bitignore
     _remove_bit_artifacts
 
     log.info "Pasted bit component \"#{cid}\" " +
@@ -157,6 +158,7 @@ module BitClipboardModule
     cmd_bit_checkout_all = config.active['bit_checkout_all']
     run cmd_bit_checkout_all
 
+    _handle_bitignore
     _remove_bit_artifacts
 
     log.info "Pulled bit components"
@@ -193,6 +195,30 @@ module BitClipboardModule
     true
   end
 
+  # Genereate .gitignore if bitignore is present
+  def _handle_bitignore
+    log.debug "Handling bitgnore files"
+
+    # find all bitgnore files
+    Dir.glob("./**/bitignore").each do |file|
+
+      log.debug file
+
+      # get directory of bitignore file
+      dir = File.dirname file
+
+      # build gitignore filepath
+      gitignore = "#{dir}/.gitignore"
+
+      log.debug gitignore
+
+      unless File.exist? gitignore
+        log.debug "Creating \".gitignore\" in \"#{dir}\""
+        File.open(gitignore, 'w') { |gitignore| gitignore.write('*') }
+      end
+    end
+  end
+
   # Generate bit component ID.
   def _id(name)
     id = ''
@@ -219,6 +245,8 @@ module BitClipboardModule
 
   # Remove bit artifacts.
   def _remove_bit_artifacts
+    log.debug "Removing bit artifacts"
+
     _remove_node_modules
     _remove_index_bit
     _remove_package_json
