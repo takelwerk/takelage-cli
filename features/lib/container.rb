@@ -6,13 +6,13 @@ def stop_mock_container
       '&> /dev/null'
   cmd_stop_mock_container_finite = 'tau-cli docker container check existing takelage-mock_finite && ' +
       'docker stop takelage-mock_finite; ' +
-      'tau-cli docker container check network takelage-mock_cucumber && ' +
-      'docker network rm takelage-mock_cucumber ' +
+      'tau-cli docker container check network takelage-mock_finite && ' +
+      'docker network rm takelage-mock_finite ' +
       '&> /dev/null'
   cmd_stop_mock_container_infinite = 'tau-cli docker container check existing takelage-mock_infinite && ' +
       'docker stop takelage-mock_infinite; ' +
-      'tau-cli docker container check network takelage-mock_cucumber && ' +
-      'docker network rm takelage-mock_cucumber ' +
+      'tau-cli docker container check network takelage-mock_infinite && ' +
+      'docker network rm takelage-mock_infinite ' +
       '&> /dev/null'
   system cmd_stop_mock_container_cucumber
   system cmd_stop_mock_container_finite
