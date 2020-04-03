@@ -118,7 +118,7 @@ module BitClipboardModule
     bit_list_scope = run cmd_bit_list_scope
 
     unless bit_list_scope.include? '"id": "' + cid + '",'
-      log.error "No remote scope \"#{scope}\""
+      log.error "No remote component \"#{cid}\""
       return false
     end
 
