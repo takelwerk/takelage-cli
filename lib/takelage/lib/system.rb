@@ -59,7 +59,7 @@ module SystemModule
   def run(command, realtime=false)
     log.debug "Running command \"#{command}\""
     stdout_str, stderr_str, status = Open3.capture3 command
-    log.debug "Command \"#{command}\" has stdout:\"\n#{stdout_str}\""
+    log.debug "Command \"#{command}\" has stdout:\n\"\"\"\n#{stdout_str}\"\"\""
     stdout_str
   end
 
