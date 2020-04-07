@@ -110,7 +110,7 @@ module DockerContainerModule
     volume_dev = ''
     if options[:development]
       entrypoint = '/debug/entrypoint.py --debug '
-      volume_dev = "--volume #{@workdir}/ansible/roles/takel-takelage/files/pyscripts:/debug "
+      volume_dev = "--volume #{@workdir}/#{@docker_debug}:/debug "
     end
 
     cmd_docker_create = 'docker run ' +

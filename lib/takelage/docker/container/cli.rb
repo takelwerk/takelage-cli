@@ -20,6 +20,8 @@ module Takelage
       # initialize thor parent class
       super args, local_options, configuration
 
+      @docker_debug = config.active['docker_debug']
+
       @docker_repo = config.active['docker_repo']
       @docker_image = config.active['docker_image']
       @docker_tag = config.active['docker_tag']
