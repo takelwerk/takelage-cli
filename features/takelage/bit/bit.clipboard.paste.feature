@@ -85,5 +85,5 @@ Feature: I can paste a bit component from a bit remote scope
     Then the exit status should be 1
     And the output should contain:
       """
-      [ERROR] No remote scope "my_scope"
+      [ERROR] No remote component "my_scope/my_dir"
       """
