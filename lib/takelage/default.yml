@@ -9,7 +9,7 @@ bit_import_cid: 'bit import --ignore-package-json --skip-update -p %{dir} %{cid}
 bit_list_remotes: 'bit remote --skip-update'
 bit_list_scope: 'bit list --skip-update --json %{scope}'
 bit_remote: ''
-bit_repo: 'bit status'
+bit_repo: 'bit list'
 bit_scope_root: '/bit'
 bit_scope_list: 'find -L %{root} -name scope.json'
 bit_scope_new: 'mkdir -p %{root}/%{scope} && cd %{root}/%{scope} && bit init -b'
