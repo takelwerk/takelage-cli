@@ -135,7 +135,8 @@ module DockerContainerModule
         "#{image} " +
         entrypoint +
         "--gid #{@gid} " +
-        "--hostsystem #{@hostsystem} " +
+        "--home #{@homedir} " +
+        "--hostsystem macos " +
         "--uid #{@uid} " +
         "--username #{@username}"
 

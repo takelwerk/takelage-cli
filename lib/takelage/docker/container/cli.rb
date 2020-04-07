@@ -32,11 +32,10 @@ module Takelage
       @gid = Etc.getpwnam(@username).gid
       @uid = Etc.getpwnam(@username).uid
 
-      @homedir = ENV['HOME'] ? ENV['HOME'] : ''
+      @homedir = ENV['HOME'] ? ENV['HOME'] : '/tmp'
       @workdir = Dir.getwd
       @hostname = "#{@docker_image}_#{File.basename(@workdir)}"
 
-      @hostsystem = 'macos'
       @timezone = 'Europe/Berlin'
 
       @sockets = {
