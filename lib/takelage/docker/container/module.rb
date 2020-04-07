@@ -136,7 +136,6 @@ module DockerContainerModule
         entrypoint +
         "--gid #{@gid} " +
         "--home #{@homedir} " +
-        "--hostsystem macos " +
         "--uid #{@uid} " +
         "--username #{@username}"
 
