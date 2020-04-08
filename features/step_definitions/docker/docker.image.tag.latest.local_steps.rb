@@ -4,7 +4,7 @@ Given 'I ask docker about the latest local docker image' do
   cmd_docker_images = 'docker images ' +
       " #{docker_repo}/#{docker_image} " +
       ' --format "{{.Tag}}" ' +
-      ' | sort --reverse --version-sort ' +
+      ' | sort --reverse --sort=general-numeric ' +
       ' | head -1'
   @tag_latest_local = `#{cmd_docker_images}`
 end
