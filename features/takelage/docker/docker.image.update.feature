@@ -36,5 +36,7 @@ Feature: I can update locally to the latest remote docker container
     And I push the latest local docker image
     And I remove the latest local docker image
     And I remove the latest local docker image
+    And I remove the latest local docker image
+    And I remove the latest local docker image
     When I successfully run `tau-cli docker image update`
     Then my latest local docker version matches the latest remote docker version
