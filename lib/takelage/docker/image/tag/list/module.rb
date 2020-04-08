@@ -14,7 +14,7 @@ module DockerImageTagListModule
 
     tags = stdout_str.split("\n")
 
-    tags.sort_by(&Gem::Version.method(:new))
+    VersionSorter.sort(tags)
   end
 
   # Backend method for docker image tag list remote.
@@ -40,6 +40,6 @@ module DockerImageTagListModule
       return false
     end
 
-    tags['tags'].sort_by(&Gem::Version.method(:new))
+    VersionSorter.sort(tags['tags'])
   end
 end

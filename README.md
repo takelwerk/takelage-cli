@@ -30,7 +30,7 @@ through the [gem](https://github.com/rubygems/rubygems)
 command line tool:
 
 ```bash
-gem install takelage thor fylla json
+gem install takelage fylla json version_sorter thor
 ```
 
 ## Commands

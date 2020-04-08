@@ -8,6 +8,7 @@ require 'rake'
 require 'socket'
 require 'thor'
 require 'timeout'
+require 'version_sorter'
 require 'yaml'
 
 require_relative 'takelage/lib/logging'
