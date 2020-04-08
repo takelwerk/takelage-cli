@@ -54,5 +54,17 @@ module Takelage
       say scopes unless scopes.to_s.strip.empty?
       true
     end
+
+    #
+    # bit scope login
+    #
+    desc 'login', 'Log in to bit remote server'
+    long_desc <<-LONGDESC.gsub("\n", "\x5")
+    Log in to bit remote server
+    LONGDESC
+    # Log in to bit remote server.
+    def login
+      exit bit_scope_login
+    end
   end
 end

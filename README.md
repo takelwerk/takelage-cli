@@ -53,6 +53,7 @@ tau [bit clipboard pull](features/takelage/bit/bit.clipboard.pull.feature) | Pul
 tau [bit clipboard push](features/takelage/bit/bit.clipboard.push.feature) | Push all updates of bit components to bit remote scopes
 tau [bit scope add](features/takelage/bit/bit.scope.add.feature) [SCOPE] | Add a bit [SCOPE]
 tau [bit scope list](features/takelage/bit/bit.scope.list.feature) | List bit remote scopes
+tau [bit scope login](features/takelage/bit/bit.scope.login.feature) | Log in to bit remote server
 tau [bit scope new](features/takelage/bit/bit.scope.new.feature) [SCOPE] | Init a new bit [SCOPE]
 tau [completion bash](features/takelage/completion/completion.bash.feature) | Print bash completion code
 tau [docker check running](features/takelage/docker/docker.check.running.feature) | Check if docker daemon is running
