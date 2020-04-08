@@ -91,10 +91,10 @@ module DockerContainerModule
   def _create_container(container)
     log.debug "Creating container \"#{container}\""
 
-    if @docker_tag == 'latest'
-      tag = docker_image_tag_latest_local
-    else
+    if docker_image_tag_list_local.include? @docker_tag
       tag = @docker_tag
+    else
+      tag = docker_image_tag_latest_local
     end
 
     image = "#{@docker_repo}/#{@docker_image}:#{tag}"
