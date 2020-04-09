@@ -1,6 +1,6 @@
 ---
 bit_add_dir: 'bit add --skip-update --id %{id} --main %{dir}/README.bit %{dir}'
-bit_checkout_all: 'bit checkout --ignore-package-json --skip-update -i --all latest'
+bit_checkout_all: 'bit checkout --ignore-dist --skip-update --all latest'
 bit_dev: 'takelage'
 bit_export_to_scope: 'bit export --skip-update %{scope}'
 bit_export_all: 'bit export --skip-update --all'
