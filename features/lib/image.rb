@@ -10,8 +10,8 @@ def build_mock_images
       cmd_build_mock_image = 'docker build ' +
           "--build-arg version=#{version} " +
           "--tag #{@image_name}:#{version} " +
-          "features/fixtures/takelage-mock " +
-          '&> /dev/null'
+          'features/fixtures/takelage-mock ' +
+          '>/dev/null 2>&1'
       system cmd_build_mock_image
     end
   end
@@ -21,17 +21,17 @@ def _start_registry
   cmd_start_registry = 'docker run ' +
       '--detach ' +
       "--name #{@registry_name} " +
-      "--publish 5005:5000 " +
+      '--publish 5005:5000 ' +
       '--rm ' +
       "#{@registry_image} " +
-      '&> /dev/null'
+      '>/dev/null 2>&1'
   system cmd_start_registry
 end
 
 def _stop_registry
   cmd_stop_registry = 'docker stop ' +
       "#{@registry_name} " +
-      '&> /dev/null'
+      '>/dev/null 2>&1'
   system cmd_stop_registry
 end
 
