@@ -37,8 +37,8 @@ module BitScopeModule
     log.info "Added bit remote scope \"#{scope}\" to local bit workspace"
   end
 
-  # Backend method for bit scope login.
-  def bit_scope_login
+  # Backend method for bit scope inbit.
+  def bit_scope_inbit
     log.debug "Logging in to bit remote server"
 
     return false unless configured? %w(bit_ssh)
