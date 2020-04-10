@@ -16,6 +16,7 @@ The takelage devops framework consists of these projects:
 
 | App | Description |
 | --- | ----------- |
+| *[takelage-doc](https://github.com/geospin-takelage/takelage-dev)* | takelage documentation |
 | *[takelage-dev](https://github.com/geospin-takelage/takelage-dev)* | takelage development environment |
 | *[takelage-var](https://github.com/geospin-takelage/takelage-var)* | takelage test plugin |
 | *[takelage-cli](https://github.com/geospin-takelage/takelage-cli)* | takelage command line interface |
@@ -30,7 +31,7 @@ through the [gem](https://github.com/rubygems/rubygems)
 command line tool:
 
 ```bash
-gem install takelage fylla json version_sorter thor
+gem install takelage
 ```
 
 ## Commands
