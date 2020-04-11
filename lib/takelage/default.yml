@@ -25,7 +25,7 @@ cmd_docker_container_check_network_docker_network: 'docker network ls --quiet --
 cmd_docker_container_check_orphaned_docker_exec: 'docker exec --interactive %{container} ps a'
 cmd_docker_create_container_docker_run: 'docker run --detach --env GEOSPIN_PROJECT_BASE_DIR=%{workdir} --env GOOGLE_APPLICATION_CREDENTIALS=/srv/google/default.json --env TAKELAGE_DAYNIGHT=%{daynight} --env TAKELAGE_PROJECT_BASE_DIR=%{workdir} --env TZ=%{timezone} --hostname %{container} --name %{container} --network %{container} --privileged --rm --tty --volume %{dockersock}:/var/run/docker.sock --volume %{homedir}/.config/gcloud:/srv/gcloud --volume %{homedir}/.google:/srv/google --volume %{homedir}:/homedir --volume %{workdir}:/project %{volume_dev} --workdir /project %{image} %{entrypoint} --gid %{gid} --home %{homedir} --uid %{uid} --username %{username} %{entrypoint_options}'
 cmd_docker_create_network_docker_network: 'docker network create %{network}'
-cmd_enter_container_docker_exec: 'docker exec --interactive --tty %{container} %{loginpoint} --username %{username}'
+cmd_docker_enter_container_docker_exec: 'docker exec --interactive --tty %{container} %{loginpoint} --username %{username}'
 cmd_docker_get_container_name_by_id: 'docker ps --filter id=%{container} --format "{{.Names}}"'
 cmd_docker_get_containers: 'docker ps --all --filter name=^%{docker_repo}_ --quiet'
 cmd_docker_remove_network: 'docker network rm %{network}'

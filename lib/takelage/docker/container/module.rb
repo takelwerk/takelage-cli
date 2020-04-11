@@ -155,7 +155,7 @@ module DockerContainerModule
     end
 
     cmd_docker_enter =
-        config.active['cmd_enter_container_docker_exec'] % {
+        config.active['cmd_docker_enter_container_docker_exec'] % {
             container: container,
             loginpoint: loginpoint,
             username: @username

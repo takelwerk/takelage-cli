@@ -1,8 +1,8 @@
 When 'I get the takelage docker socket start commands' do
-  cmd_gpgconf_listdirs = @config['docker_socket_gpgconf']
+  cmd_gpgconf_listdirs = @config['cmd_docker_get_socket_paths_docker_socket_gpgconf']
   gpgconf_listdirs = `HOME=#{aruba.config.home_directory} #{cmd_gpgconf_listdirs} | grep agent`
 
-  cmd_socket_start = @config['docker_socket_start']
+  cmd_socket_start = @config['cmd_docker_get_socket_start_commands_docker_socket_start']
 
   @docker_socket_start_commands = []
 

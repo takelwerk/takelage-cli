@@ -5,5 +5,5 @@ end
 
 Then 'the output should contain the bit_remote default' do
   @active_configuration = YAML.load last_command_started.output
-  expect(@active_configuration['bit-remote']).to eq @default_configuration['bit-remote']
+  expect(@active_configuration['bit_remote']).to eq @default_configuration['bit_remote']
 end

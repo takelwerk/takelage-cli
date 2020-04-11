@@ -1,7 +1,7 @@
 Given 'the list of remote scopes is up-to-date' do
   cmd_bit_ssh = @config['bit_ssh']
   root = @config['bit_scope_root']
-  cmd_bit_scope_list = @config['bit_scope_list'] % {root: root}
+  cmd_bit_scope_list = @config['cmd_bit_scope_list_find_scopes'] % {root: root}
   @remote_scopes = `HOME=#{aruba.config.home_directory} && #{cmd_bit_ssh} '#{cmd_bit_scope_list}'`
   @remote_scopes.gsub!(/#{root}\/*/, '')
   @remote_scopes.gsub!(/\/scope.json/, '')
