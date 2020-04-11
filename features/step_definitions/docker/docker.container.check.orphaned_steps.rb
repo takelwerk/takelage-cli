@@ -14,6 +14,7 @@ Given "I daemonize {string} in {string}" do |file, container|
   cmd_daemonize_file = 'docker exec ' +
       '--interactive ' +
       "#{container} " +
-      "#{file} &> /dev/null &"
+      "#{file} "+
+      '>/dev/null 2>&1'
   system cmd_daemonize_file
 end

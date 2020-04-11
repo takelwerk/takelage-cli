@@ -5,7 +5,7 @@ Given "I push the latest local docker image" do
   image = "#{docker_repo}/#{docker_image}:#{tag_latest_local}"
   cmd_docker_push = 'docker push ' +
       "#{image} " +
-      '&> /dev/null'
+      '>/dev/null 2>&1'
   system cmd_docker_push
 end
 
@@ -16,7 +16,7 @@ Given "I remove the latest local docker image" do
   image = "#{docker_repo}/#{docker_image}:#{tag_latest_local}"
   cmd_docker_rmi = 'docker rmi ' +
       "#{image} " +
-      '&> /dev/null'
+      '>/dev/null 2>&1'
   system cmd_docker_rmi
 end
 

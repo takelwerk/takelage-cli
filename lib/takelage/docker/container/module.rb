@@ -113,31 +113,20 @@ module DockerContainerModule
       volume_dev = "--volume #{@workdir}/#{@docker_debug}:/debug "
     end
 
-    cmd_docker_create = 'docker run ' +
-        '--detach ' +
-        "--env GEOSPIN_PROJECT_BASE_DIR=#{@workdir} " +
-        '--env GOOGLE_APPLICATION_CREDENTIALS=/srv/google/default.json ' +
-        "--env TAKELAGE_PROJECT_BASE_DIR=#{@workdir} " +
-        "--env TZ=#{@timezone} " +
-        "--hostname #{container} " +
-        "--name #{container} " +
-        "--network #{container} " +
-        '--privileged ' +
-        '--rm ' +
-        '--tty ' +
-        "--volume #{@dockersock}:/var/run/docker.sock " +
-        "--volume #{@homedir}/.config/gcloud:/srv/gcloud " +
-        "--volume #{@homedir}/.google:/srv/google " +
-        "--volume #{@homedir}:/homedir " +
-        "--volume #{@workdir}:/project " +
-        volume_dev +
-        '--workdir /project ' +
-        "#{image} " +
-        entrypoint +
-        "--gid #{@gid} " +
-        "--home #{@homedir} " +
-        "--uid #{@uid} " +
-        "--username #{@username}"
+    cmd_docker_create =
+        config.active['docker_create'] % {
+            workdir: @workdir,
+            timezone: @timezone,
+            container: container,
+            dockersock: @dockersock,
+            homedir: @homedir,
+            volume_dev: volume_dev,
+            image: image,
+            entrypoint: entrypoint,
+            gid: @gid,
+            uid: @uid,
+            username: @username
+        }
 
     run cmd_docker_create
   end
@@ -146,8 +135,10 @@ module DockerContainerModule
   def _create_network(network)
     log.debug "Create network \"#{network}\""
 
-    cmd_create_network = 'docker network create ' +
-        "#{network}"
+    cmd_create_network =
+        config.active['docker_create_network'] % {
+            network: network
+        }
 
     run cmd_create_network
   end
@@ -161,12 +152,12 @@ module DockerContainerModule
       loginpoint = '/loginpoint.py --debug '
     end
 
-    cmd_docker_enter = 'docker exec ' +
-        '--interactive ' +
-        '--tty ' +
-        "#{container} " +
-        loginpoint +
-        "--username #{@username}"
+    cmd_docker_enter =
+        config.active['docker_enter'] % {
+            container: container,
+            loginpoint: loginpoint,
+            username: @username
+        }
 
     run_and_exit cmd_docker_enter
   end
@@ -175,9 +166,10 @@ module DockerContainerModule
   def _get_container_name_by_id container
     log.debug "Getting name of container \"#{container}\""
 
-    cmd_get_container_name_by_id = 'docker ps ' +
-        "--filter id=#{container} " +
-        '--format "{{.Names}}"'
+    cmd_get_container_name_by_id =
+        config.active['docker_get_container_name_by_id'] % {
+            container: container
+        }
 
     stdout_str = run cmd_get_container_name_by_id
 
@@ -193,10 +185,10 @@ module DockerContainerModule
   def _get_containers
     log.debug "Getting all containers of image \"#{@docker_image}\""
 
-    cmd_docker_get = 'docker ps ' +
-        '--all ' +
-        "--filter name=^#{@docker_image}_ " +
-        '--quiet'
+    cmd_docker_get =
+        config.active['docker_get'] % {
+            docker_image: @docker_image
+        }
 
     stdout_str = run cmd_docker_get
 
@@ -208,8 +200,10 @@ module DockerContainerModule
   def _remove_network network
     log.debug "Remove network \"#{network}\""
 
-    cmd_remove_network = 'docker network rm ' +
-        "#{network}"
+    cmd_remove_network =
+        config.active['docker_remove_network'] % {
+            network: network
+        }
 
     run cmd_remove_network
   end
@@ -218,10 +212,12 @@ module DockerContainerModule
   def _run_command_in_container(container, command)
     log.debug "Running command \"#{command}\" in container \"#{container}\""
 
-    cmd_docker_run_command = 'docker exec ' +
-        "#{container} " +
-        "su #{@username} " +
-        "-c 'LANG=en_US.UTF-8 #{command}'"
+    cmd_docker_run_command =
+        config.active['docker_run_command'] % {
+            container: container,
+            username: @username,
+            command: command
+        }
 
     run_and_exit cmd_docker_run_command
   end
@@ -230,8 +226,10 @@ module DockerContainerModule
   def _stop_container(container)
     log.debug "Stopping container \"#{container}\""
 
-    cmd_docker_stop = 'docker stop ' +
-        "#{container}"
+    cmd_docker_stop =
+        config.active['docker_stop'] % {
+            container: container
+        }
 
     run cmd_docker_stop
   end

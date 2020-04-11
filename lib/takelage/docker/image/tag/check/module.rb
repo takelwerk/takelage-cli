@@ -17,8 +17,10 @@ module DockerImageTagCheckModule
 
     image = "#{@docker_repo}/#{@docker_image}:#{tag}"
 
-    cmd_docker_images = 'docker images --quiet ' +
-        image
+    cmd_docker_images =
+        config.active['docker_images'] % {
+            image: image
+        }
 
     stdout_str = run cmd_docker_images
 

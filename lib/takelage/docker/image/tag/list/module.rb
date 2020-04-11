@@ -6,11 +6,13 @@ module DockerImageTagListModule
   def docker_image_tag_list_local
     tags = []
 
-    cmd_docker_images = 'docker images ' +
-        "#{@docker_repo}\/#{@docker_image} " +
-        ' --format "{{.Tag}}"'
+    cmd_docker_tags =
+        config.active['docker_tags'] % {
+            docker_repo: @docker_repo,
+            docker_image: @docker_image
+        }
 
-    stdout_str = run cmd_docker_images
+    stdout_str = run cmd_docker_tags
 
     tags = stdout_str.split("\n")
 

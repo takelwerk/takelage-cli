@@ -25,7 +25,13 @@ module DockerImageModule
 
     log.info "Updating to docker image \"#{@docker_repo}/#{@docker_image}:#{tag_latest_remote}\""
 
-    cmd_docker_pull_latest = "docker pull #{@docker_repo}/#{@docker_image}:#{tag_latest_remote}"
+    cmd_docker_pull_latest =
+        config.active['docker_pull_latest'] % {
+            docker_repo: @docker_repo,
+            docker_image: @docker_image,
+            tag_latest_remote: tag_latest_remote
+        }
+
     run_and_exit cmd_docker_pull_latest
   end
 end

@@ -8,9 +8,8 @@ module DockerContainerCheckModule
 
     return false unless docker_check_running
 
-    cmd_docker_existing = 'docker ps ' +
-        "--filter name=^#{container}$ " +
-        '--quiet'
+    cmd_docker_existing =
+        config.active['docker_existing'] % {container: container}
 
     stdout_str = run cmd_docker_existing
 
@@ -30,9 +29,8 @@ module DockerContainerCheckModule
 
     return false unless docker_check_running
 
-    cmd_docker_network = 'docker network ls ' +
-        '--quiet ' +
-        "--filter name=^#{network}$"
+    cmd_docker_network =
+        config.active['docker_network'] % {network: network}
 
     stdout_str = run cmd_docker_network
 
@@ -52,10 +50,8 @@ module DockerContainerCheckModule
 
     return false unless docker_check_running
 
-    cmd_docker_orphaned = 'docker exec ' +
-        '--interactive ' +
-        "#{container} " +
-        'ps a'
+    cmd_docker_orphaned =
+        config.active['docker_orphaned'] % {container: container}
 
     stdout_str = run cmd_docker_orphaned
 

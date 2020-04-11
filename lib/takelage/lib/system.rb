@@ -11,7 +11,7 @@ module SystemModule
     if hash == {}
       return nil.to_yaml
     end
-    return hash.to_yaml
+    return hash.to_yaml(options = {:line_width => -1})
   end
 
   # @return [Hash] content of yaml file
