@@ -5,8 +5,6 @@ module DockerImageModule
   def docker_image_update
     return false unless docker_check_running
 
-    return false unless configured? %w(docker_user docker_repo docker_tagsurl)
-
     tag_latest_remote = docker_image_tag_latest_remote
 
     if tag_latest_remote.to_s.strip.empty?

@@ -1,5 +1,5 @@
 def build_mock_images
-  @image_name = "host.docker.internal:5005/takelage-mock"
+  @image_name = "host.docker.internal:5005/takelage-mock/takelage-mock"
   @versions = ['0.0.3', '0.1.0', 'latest', 'prod']
   @versions.each do |version|
     cmd_docker_image = 'docker images ' +

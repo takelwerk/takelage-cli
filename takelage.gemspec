@@ -21,16 +21,17 @@ Gem::Specification.new do |spec|
   spec.bindir = 'bin'
   spec.executables << 'tau'
   spec.metadata['yard.run'] = 'yard'
-  spec.add_runtime_dependency 'fylla', '~> 0.5'
-  spec.add_runtime_dependency 'json', '~> 2.1'
-  spec.add_runtime_dependency 'logger', '~> 1.4'
-  spec.add_runtime_dependency 'rake', '~> 12.3'
-  spec.add_runtime_dependency 'thor', '~> 1.0'
-  spec.add_runtime_dependency 'version_sorter', '~> 2.2'
-  spec.add_development_dependency 'aruba', '~> 1.0'
-  spec.add_development_dependency 'bundler', '~> 1.17'
-  spec.add_development_dependency 'cucumber', '~> 3.1'
-  spec.add_development_dependency 'rake', '~> 12.3'
-  spec.add_development_dependency 'rspec', '~> 3.9'
-  spec.add_development_dependency 'yard', '~> 0.9'
+  spec.add_runtime_dependency 'docker_registry2', ['>= 1.9']
+  spec.add_runtime_dependency 'fylla', ['>= 0.5']
+  spec.add_runtime_dependency 'json', ['>= 2.1']
+  spec.add_runtime_dependency 'logger', ['>= 1.4']
+  spec.add_runtime_dependency 'rake', ['>= 12.3']
+  spec.add_runtime_dependency 'thor', ['>= 1.0']
+  spec.add_runtime_dependency 'version_sorter', ['>= 2.2']
+  spec.add_development_dependency 'aruba', ['>= 1.0']
+  spec.add_development_dependency 'bundler', ['>= 1.17']
+  spec.add_development_dependency 'cucumber', ['>= 3.1']
+  spec.add_development_dependency 'rake', ['>= 12.3']
+  spec.add_development_dependency 'rspec', ['>= 3.9']
+  spec.add_development_dependency 'yard', ['>= 0.9']
 end

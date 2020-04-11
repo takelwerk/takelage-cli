@@ -7,8 +7,6 @@ module DockerContainerModule
 
     return false unless docker_check_running
 
-    return false unless configured? %w(docker_user docker_repo docker_tag)
-
     docker_socket_start
 
     _create_network @hostname unless docker_container_check_network @hostname
@@ -22,8 +20,6 @@ module DockerContainerModule
 
     return false unless docker_check_running
 
-    return false unless configured? %w(docker_user docker_repo docker_tag)
-
     _create_network @hostname unless docker_container_check_network @hostname
     _create_container @hostname unless docker_container_check_existing @hostname
   end
@@ -33,8 +29,6 @@ module DockerContainerModule
     log.debug 'Logging in to docker container'
 
     return false unless docker_check_running
-
-    return false unless configured? %w(docker_user docker_repo docker_tag)
 
     docker_socket_start
 
@@ -48,8 +42,6 @@ module DockerContainerModule
     log.debug 'Removing all docker containers'
 
     return false unless docker_check_running
-
-    return false unless configured? %w(docker_repo)
 
     networks = []
 
@@ -69,8 +61,6 @@ module DockerContainerModule
     log.debug 'Removing orphaned docker containers'
 
     return false unless docker_check_running
-
-    return false unless configured? %w(docker_repo)
 
     networks = []
 

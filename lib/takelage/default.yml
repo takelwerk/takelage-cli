@@ -55,6 +55,6 @@ docker_socket_agent_ssh_port: 20001
 docker_socket_agent_extra_port: 20002
 docker_socket_agent_browser_port: 20003
 docker_tag: 'latest'
-docker_tagsurl: 'https://hub.docker.com/v2/repositories/takelage/takelage/tags'
+docker_registry: 'https://registry.hub.docker.com'
 info_project_main: 'project.yml'
 info_project_private: 'private/project.yml'

@@ -17,7 +17,7 @@ module Takelage
 
       @docker_user = config.active['docker_user']
       @docker_repo = config.active['docker_repo']
-      @docker_tagsurl = config.active['docker_tagsurl']
+      @docker_registry = config.active['docker_registry']
     end
 
     #

@@ -22,25 +22,17 @@ module DockerImageTagListModule
   # Backend method for docker image tag list remote.
   # @return [Array] remote docker image tags
   def docker_image_tag_list_remote
-    log.debug "Getting docker remote tags from \"#{@docker_tagsurl}\""
+    log.debug "Getting docker remote tags " +
+                  "of \"#{@docker_user}/#{@docker_repo}\" " +
+                  "from \"#{@docker_registry}\""
 
-    begin
-      @res = Net::HTTP.get_response URI(@docker_tagsurl)
-      unless @res.code.eql? '200'
-        log.error "Unable to connect to \"#{@docker_tagsurl}\""
-        return false
-      end
-    rescue SocketError => e
-      log.debug e
-      return false
-    end
+    registry = DockerRegistry2.connect(@docker_registry)
 
-    begin
-      tags = JSON.parse @res.body
-    rescue JSON::ParserError
-      log.error 'Unable to parse JSON'
-      return false
-    end
+    log.debug ("Connected to registry \"#{@docker_registry}\"")
+
+    user = File.basename @docker_user
+
+    tags = registry.tags("#{user}/#{@docker_repo}")
 
     VersionSorter.sort(tags['tags'])
   end
