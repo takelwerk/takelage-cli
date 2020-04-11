@@ -118,14 +118,23 @@ or *tau config*.
 | *takelage.yml* | highest | Project-specific configuration file next to your main Rakefile. Some projects need special configuration. |
 
 ### Configuration Examples
- 
-- You should the following configuration items in your *~/.takelage.yml*
+
+- You should add the following configuration items in your *~/.takelage.yml*
 if you want to use a private bit remote server:
 
 ```yaml
 ---
 bit_remote: 'ssh://bit@bit.example.com:222:/bit'
 bit_ssh: 'ssh -p 222 bit@bit.example.com'
+```
+
+- By default, takelage uses bright prompt colors which are best viewed on a
+dark background. If you prefer a light background (or want less bright colors)
+you can add an option to your *~/.takelage.yml*:
+
+```yaml
+---
+docker_daynight: 'day'
 ```
 
 - If you want to pin a specific docker tag for one of your projects
@@ -143,6 +152,8 @@ to overwrite defaults like:
 ---
 docker_repo: takelage-mock
 ```
+
+Furthermore, every external command can be reconfigured.
 
 ### Project Files
 
