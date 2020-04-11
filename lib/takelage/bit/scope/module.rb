@@ -63,7 +63,7 @@ module BitScopeModule
 
     # prepare scope list command
     root =
-        config.active['bit_scope_root']
+        config.active['bit_root']
 
     cmd_bit_scope_list =
         config.active['cmd_bit_scope_list_find_scopes'] % {
@@ -102,7 +102,7 @@ module BitScopeModule
 
     # prepare scope list command
     root =
-        config.active['bit_scope_root']
+        config.active['bit_root']
 
     cmd_bit_scope_new =
         config.active['cmd_bit_scope_new_bit_init'] % {

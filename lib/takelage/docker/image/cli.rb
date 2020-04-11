@@ -19,6 +19,7 @@ module Takelage
 
       @docker_user = config.active['docker_user']
       @docker_repo = config.active['docker_repo']
+      @docker_registry = config.active['docker_registry']
     end
 
     desc 'tag [COMMAND]', 'Handle docker image tags'

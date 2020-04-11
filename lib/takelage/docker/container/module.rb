@@ -104,9 +104,8 @@ module DockerContainerModule
     end
 
     cmd_docker_create =
-        config.active['cmd_docker_create_container_docker_run'] % {
+        config.active['cmd_docker_container_create'] % {
             workdir: @workdir,
-            daynight: @daynight,
             timezone: @timezone,
             container: container,
             dockersock: @dockersock,
@@ -128,7 +127,7 @@ module DockerContainerModule
     log.debug "Create network \"#{network}\""
 
     cmd_create_network =
-        config.active['cmd_docker_create_network_docker_network'] % {
+        config.active['cmd_docker_container_create_network'] % {
             network: network
         }
 
@@ -145,7 +144,7 @@ module DockerContainerModule
     end
 
     cmd_docker_enter =
-        config.active['cmd_docker_enter_container_docker_exec'] % {
+        config.active['cmd_docker_container_enter_container'] % {
             container: container,
             loginpoint: loginpoint,
             username: @username
@@ -159,7 +158,7 @@ module DockerContainerModule
     log.debug "Getting name of container \"#{container}\""
 
     cmd_get_container_name_by_id =
-        config.active['cmd_docker_get_container_name_by_id'] % {
+        config.active['cmd_docker_container_get_container_name'] % {
             container: container
         }
 
@@ -178,7 +177,7 @@ module DockerContainerModule
     log.debug "Getting all containers of image \"#{@docker_repo}\""
 
     cmd_docker_get =
-        config.active['cmd_docker_get_containers'] % {
+        config.active['cmd_docker_container_get_containers'] % {
             docker_repo: @docker_repo
         }
 
@@ -193,7 +192,7 @@ module DockerContainerModule
     log.debug "Remove network \"#{network}\""
 
     cmd_remove_network =
-        config.active['cmd_docker_remove_network'] % {
+        config.active['cmd_docker_container_remove_network'] % {
             network: network
         }
 
@@ -205,7 +204,7 @@ module DockerContainerModule
     log.debug "Running command \"#{command}\" in container \"#{container}\""
 
     cmd_docker_run_command =
-        config.active['cmd_docker_run_command_in_container'] % {
+        config.active['cmd_docker_container_docker_exec'] % {
             container: container,
             username: @username,
             command: command
@@ -219,7 +218,7 @@ module DockerContainerModule
     log.debug "Stopping container \"#{container}\""
 
     cmd_docker_stop =
-        config.active['cmd_docker_stop_container'] % {
+        config.active['cmd_docker_container_stop_container'] % {
             container: container
         }
 

@@ -76,7 +76,7 @@ module DockerSocketModule
     # loop over sockets
     @sockets.each do |socket, socket_config|
       cmd_start_socket =
-          config.active['cmd_docker_get_socket_start_commands_docker_socket_start'] % {
+          config.active['cmd_docker_socket_get_socket_socat'] % {
           host: socket_config[:host],
           port: socket_config[:port],
           path: socket_config[:path],
@@ -99,7 +99,7 @@ module DockerSocketModule
   # get socket paths
   def _get_socket_paths
     cmd_gpgconf_listdirs =
-        config.active['cmd_docker_get_socket_paths_docker_socket_gpgconf']
+        config.active['cmd_docker_socket_get_socket_gpgconf']
 
     stdout_str = run cmd_gpgconf_listdirs
 
