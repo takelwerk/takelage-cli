@@ -28,7 +28,8 @@ module BitScopeModule
     end
 
     # get bit remote from active config
-    bit_remote = config.active['bit_remote']
+    bit_remote =
+        config.active['bit_remote']
 
     # prepare scope add command
     cmd_bit_scope_add = "bit remote add #{bit_remote}/#{scope}"
@@ -43,7 +44,9 @@ module BitScopeModule
 
     return false unless configured? %w(bit_ssh)
 
-    cmd_bit_scope_login = config.active['bit_ssh']
+    cmd_bit_scope_login =
+        config.active['bit_ssh']
+
     run_and_exit cmd_bit_scope_login
   end
 
@@ -55,11 +58,17 @@ module BitScopeModule
     return false unless configured? %w(bit_ssh bit_remote)
 
     # get ssh command from active config
-    cmd_bit_ssh = config.active['bit_ssh']
+    cmd_bit_ssh =
+        config.active['bit_ssh']
 
     # prepare scope list command
-    root = config.active['bit_scope_root']
-    cmd_bit_scope_list = config.active['bit_scope_list'] % {root: root}
+    root =
+        config.active['bit_scope_root']
+
+    cmd_bit_scope_list =
+        config.active['cmd_bit_scope_list_find_scopes'] % {
+            root: root
+        }
 
     # run ssh command with scope list command
     scope_list = run "#{cmd_bit_ssh} '#{cmd_bit_scope_list}'"
@@ -88,11 +97,17 @@ module BitScopeModule
     end
 
     # get ssh command from active config
-    cmd_bit_ssh = config.active['bit_ssh']
+    cmd_bit_ssh =
+        config.active['bit_ssh']
 
     # prepare scope list command
-    root = config.active['bit_scope_root']
-    cmd_bit_scope_new = config.active['bit_scope_new'] % {scope: scope, root: root}
+    root =
+        config.active['bit_scope_root']
+
+    cmd_bit_scope_new =
+        config.active['cmd_bit_scope_new_bit_init'] % {
+            scope: scope, root: root
+        }
 
     # run ssh command with scope new command
     run "#{cmd_bit_ssh} '#{cmd_bit_scope_new}'"

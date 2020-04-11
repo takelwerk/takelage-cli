@@ -6,7 +6,8 @@ module DockerCheckModule
   def docker_check_running
     log.debug "Check if the docker daemon is running"
 
-    cmd_docker_info = config.active['docker_info']
+    cmd_docker_info =
+        config.active['cmd_docker_check_running_docker_info']
 
     status = try cmd_docker_info
 

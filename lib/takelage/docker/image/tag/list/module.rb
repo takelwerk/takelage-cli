@@ -7,7 +7,7 @@ module DockerImageTagListModule
     tags = []
 
     cmd_docker_tags =
-        config.active['docker_tags'] % {
+        config.active['cmd_docker_image_tag_list_local_docker_images'] % {
             docker_user: @docker_user,
             docker_repo: @docker_repo
         }

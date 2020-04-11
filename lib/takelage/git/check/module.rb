@@ -8,9 +8,14 @@ module GitCheckModule
 
     return false unless git_check_workspace
 
-    cmd_git_unstaged = config.active['git_unstaged']
-    cmd_git_uncommitted = config.active['git_uncommitted']
-    cmd_git_status = config.active['git_status']
+    cmd_git_unstaged =
+        config.active['cmd_git_check_clean_git_unstaged']
+
+    cmd_git_uncommitted =
+        config.active['cmd_git_check_clean_git_uncommitted']
+
+    cmd_git_status =
+        config.active['cmd_git_check_clean_git_status']
 
     status_unstaged = try cmd_git_unstaged
     status_uncommitted = try cmd_git_uncommitted
@@ -31,7 +36,9 @@ module GitCheckModule
 
     return false unless git_check_workspace
 
-    cmd_get_branch = config.active['git_branch']
+    cmd_get_branch =
+        config.active['cmd_git_check_master_git_branch']
+
     stdout_str = run cmd_get_branch
 
     branch = stdout_str.strip.split('/')[-1]
@@ -46,10 +53,14 @@ module GitCheckModule
   def git_check_workspace
     log.debug 'Check if this is a git workspace'
 
-    cmd_git_repo = config.active['git_repo']
+    cmd_git_repo =
+        config.active['cmd_git_check_workspace_git_repo']
+
     status_repo = try cmd_git_repo
 
-    cmd_pwd = config.active['pwd']
+    cmd_pwd =
+        config.active['cmd_git_check_workspace_pwd']
+
     stdout_str_dir = run cmd_pwd
 
     dir = stdout_str_dir.strip

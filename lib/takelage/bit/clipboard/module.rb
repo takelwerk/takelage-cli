@@ -24,13 +24,18 @@ module BitClipboardModule
 
       log.debug "Adding the directory \"#{dir}\" as a tagged bit component"
 
-      bit_dev = config.active['bit_dev']
+      bit_dev =
+          config.active['bit_dev_user']
 
       # check if scope is a candidate for a bit.dev remote scope
       if scope.start_with? bit_dev + '.'
 
         # check if bit.dev remote scope exists
-        cmd_bit_list_scope = config.active['bit_list_scope'] % {scope: scope}
+        cmd_bit_list_scope =
+            config.active['cmd_bit_clipboard_copy_bit_list_scope'] % {
+                scope: scope
+            }
+
         status = try cmd_bit_list_scope
 
         unless status.exitstatus.zero?
@@ -41,7 +46,9 @@ module BitClipboardModule
       else
 
         # check if bit remote scope is added to local workspace
-        cmd_bit_list_remotes = config.active['bit_list_remotes']
+        cmd_bit_list_remotes =
+            config.active['cmd_bit_clipboard_copy_bit_list_remotes']
+
         stdout_str = run cmd_bit_list_remotes
 
         unless /.*\s+#{scope}\s+.*/m.match? stdout_str
@@ -69,19 +76,32 @@ module BitClipboardModule
       id = _id(dir)
 
       # get bit add dir command from active config
-      cmd_bit_add_dir = config.active['bit_add_dir'] % {id: id, dir: dir}
+      cmd_bit_add_dir =
+          config.active['cmd_bit_clipboard_copy_bit_add_dir'] % {
+              id: id, dir: dir
+          }
+
       run cmd_bit_add_dir
 
       # get bit tag dir command from active config
-      cmd_bit_tag_id = config.active['bit_tag_id'] % {id: id}
+      cmd_bit_tag_id =
+          config.active['cmd_bit_clipboard_copy_bit_tag_id'] % {
+              id: id
+          }
+
       run cmd_bit_tag_id
+
     else
       log.error "The directory \"#{dir}\" does not exist"
       return false
     end
 
     # export component to bit remote scope
-    cmd_bit_export_to_scope = config.active['bit_export_to_scope'] % {scope: scope}
+    cmd_bit_export_to_scope =
+        config.active['cmd_bit_clipboard_copy_bit_export_to_scope'] % {
+            scope: scope
+        }
+
     run cmd_bit_export_to_scope
 
     _remove_bit_artifacts
@@ -114,7 +134,11 @@ module BitClipboardModule
                   "has contains component id \"#{cid}\""
 
     # get components in remote scope
-    cmd_bit_list_scope = config.active['bit_list_scope'] % {scope: scope}
+    cmd_bit_list_scope =
+        config.active['cmd_bit_clipboard_paste_bit_list_scope'] % {
+            scope: scope
+        }
+
     bit_list_scope = run cmd_bit_list_scope
 
     unless bit_list_scope.include? '"id": "' + cid + '",'
@@ -123,7 +147,11 @@ module BitClipboardModule
     end
 
     # paste bit component into directory
-    cmd_bit_import_cid = config.active['bit_import_cid'] % {cid: cid, dir: dir}
+    cmd_bit_import_cid =
+        config.active['cmd_bit_clipboard_paste_bit_import_cid'] % {
+            cid: cid, dir: dir
+        }
+
     run cmd_bit_import_cid
 
     _handle_bitignore
@@ -151,11 +179,15 @@ module BitClipboardModule
     end
 
     # import components into workspace
-    cmd_bit_import_all = config.active['bit_import_all']
+    cmd_bit_import_all =
+        config.active['cmd_bit_clipboard_pull_bit_import_all']
+
     run cmd_bit_import_all
 
     # checkout components and merge them
-    cmd_bit_checkout_all = config.active['bit_checkout_all']
+    cmd_bit_checkout_all =
+        config.active['cmd_bit_clipboard_pull_bit_checkout_all']
+
     run cmd_bit_checkout_all
 
     _handle_bitignore
@@ -182,11 +214,15 @@ module BitClipboardModule
     end
 
     # tag all components
-    cmd_bit_tag_all = config.active['bit_tag_all']
+    cmd_bit_tag_all =
+        config.active['cmd_bit_clipboard_push_bit_tag_all']
+
     run cmd_bit_tag_all
 
     # export components
-    cmd_bit_export_all = config.active['bit_export_all']
+    cmd_bit_export_all =
+        config.active['cmd_bit_clipboard_push_bit_export_all']
+
     run cmd_bit_export_all
 
     _remove_bit_artifacts

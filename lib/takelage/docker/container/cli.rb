@@ -26,6 +26,10 @@ module Takelage
       @docker_repo = config.active['docker_repo']
       @docker_tag = config.active['docker_tag']
 
+      @entrypoint_options = config.active['docker_entrypoint_options']
+
+      @daynight = config.active['docker_daynight']
+
       @dockersock = '/var/run/docker.sock'
 
       @username = ENV['USER'] ? ENV['USER'] : 'username'

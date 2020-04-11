@@ -18,7 +18,7 @@ module DockerImageTagCheckModule
     image = "#{@docker_user}/#{@docker_repo}:#{tag}"
 
     cmd_docker_images =
-        config.active['docker_images'] % {
+        config.active['cmd_docker_image_tag_check_local_docker_images'] % {
             image: image
         }
 

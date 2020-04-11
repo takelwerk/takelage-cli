@@ -12,7 +12,9 @@ module DockerSocketModule
     unless cmds_start_socket.empty?
       log.debug 'Request sudo so that subsequent background tasks run without delay'
 
-      cmd_sudo_true = config.active['sudo_true']
+      cmd_sudo_true =
+          config.active['cmd_docker_socket_start_sudo_true']
+
       run cmd_sudo_true
     end
 
@@ -31,7 +33,9 @@ module DockerSocketModule
 
     # get process list
     # assuming format: "pid command"
-    cmd_ps = config.active['docker_socket_ps']
+    cmd_ps =
+        config.active['cmd_docker_socket_stop_docker_socket_ps']
+
     stdout_str = run cmd_ps
 
     cmds_start_socket = _get_socket_start_commands sockets_up = true
@@ -50,7 +54,11 @@ module DockerSocketModule
         if command == cmd_start_socket
           log.debug "Killing PID #{pid}"
 
-          cmd_kill = config.active['docker_socket_kill'] % {pid: pid}
+          cmd_kill =
+              config.active['cmd_docker_socket_stop_docker_socket_kill'] % {
+                  pid: pid
+              }
+
           run cmd_kill
         end
       end
@@ -67,7 +75,8 @@ module DockerSocketModule
 
     # loop over sockets
     @sockets.each do |socket, socket_config|
-      cmd_start_socket = config.active['docker_socket_start'] % {
+      cmd_start_socket =
+          config.active['cmd_docker_get_socket_start_commands_docker_socket_start'] % {
           host: socket_config[:host],
           port: socket_config[:port],
           path: socket_config[:path],
@@ -89,7 +98,9 @@ module DockerSocketModule
 
   # get socket paths
   def _get_socket_paths
-    cmd_gpgconf_listdirs = config.active['docker_socket_gpgconf']
+    cmd_gpgconf_listdirs =
+        config.active['cmd_docker_get_socket_paths_docker_socket_gpgconf']
+
     stdout_str = run cmd_gpgconf_listdirs
 
     stdout_str.split(/\n+/).each do |gpg_path|
