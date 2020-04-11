@@ -93,12 +93,19 @@
 
 <h3 id="label-Configuration+Examples">Configuration Examples</h3>
 <ul><li>
-<p>You should the following configuration items in your <em>~/.takelage.yml</em> if you want to use a private bit remote server:</p>
+<p>You should add the following configuration items in your <em>~/.takelage.yml</em> if you want to use a private bit remote server:</p>
 </li></ul>
 
 <pre class="code ruby"><code class="ruby">---
 bit_remote: &#39;ssh://bit@bit.example.com:222:/bit&#39;
 bit_ssh: &#39;ssh -p 222 bit@bit.example.com&#39;
+</code></pre>
+<ul><li>
+<p>By default, takelage uses bright prompt colors which are best viewed on a dark background. If you prefer a light background (or want less bright colors) you can add an option to your <em>~/.takelage.yml</em>:</p>
+</li></ul>
+
+<pre class="code ruby"><code class="ruby">---
+docker_daynight: &#39;day&#39;
 </code></pre>
 <ul><li>
 <p>If you want to pin a specific docker tag for one of your projects then create an <em>takelage.yml</em> file with:</p>
@@ -114,6 +121,8 @@ docker_tag: &#39;1.2.3&#39;
 <pre class="code ruby"><code class="ruby">---
 docker_repo: takelage-mock
 </code></pre>
+
+<p>Furthermore, every external command can be reconfigured.</p>
 
 <h3 id="label-Project+Files">Project Files</h3>
 
@@ -145,7 +154,7 @@ docker_repo: takelage-mock
 </div></div>
 
       <div id="footer">
-  Generated on Sat Apr 11 12:36:15 2020 by
+  Generated on Sat Apr 11 18:21:17 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.24 (ruby-2.6.3).
 </div>

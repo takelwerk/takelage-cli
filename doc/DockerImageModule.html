@@ -202,17 +202,13 @@
 31
 32
 33
-34
-35
-36</pre>
+34</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/takelage/docker/image/module.rb', line 5</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_docker_image_update'>docker_image_update</span>
   <span class='kw'>return</span> <span class='kw'>false</span> <span class='kw'>unless</span> <span class='id identifier rubyid_docker_check_running'>docker_check_running</span>
-
-  <span class='kw'>return</span> <span class='kw'>false</span> <span class='kw'>unless</span> <span class='id identifier rubyid_configured?'>configured?</span> <span class='qwords_beg'>%w(</span><span class='tstring_content'>docker_user</span><span class='words_sep'> </span><span class='tstring_content'>docker_repo</span><span class='words_sep'> </span><span class='tstring_content'>docker_tagsurl</span><span class='tstring_end'>)</span></span>
 
   <span class='id identifier rubyid_tag_latest_remote'>tag_latest_remote</span> <span class='op'>=</span> <span class='id identifier rubyid_docker_image_tag_latest_remote'>docker_image_tag_latest_remote</span>
 
@@ -251,7 +247,7 @@
 </div>
 
       <div id="footer">
-  Generated on Sat Apr 11 12:36:16 2020 by
+  Generated on Sat Apr 11 18:21:17 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.24 (ruby-2.6.3).
 </div>
