@@ -16,8 +16,8 @@ module Takelage
       # initialize thor parent class
       super args, local_options, configuration
 
+      @docker_user = config.active['docker_user']
       @docker_repo = config.active['docker_repo']
-      @docker_image = config.active['docker_image']
       @docker_tagsurl = config.active['docker_tagsurl']
     end
 

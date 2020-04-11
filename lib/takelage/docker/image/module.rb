@@ -5,7 +5,7 @@ module DockerImageModule
   def docker_image_update
     return false unless docker_check_running
 
-    return false unless configured? %w(docker_repo docker_image docker_tagsurl)
+    return false unless configured? %w(docker_user docker_repo docker_tagsurl)
 
     tag_latest_remote = docker_image_tag_latest_remote
 
@@ -23,12 +23,12 @@ module DockerImageModule
       end
     end
 
-    log.info "Updating to docker image \"#{@docker_repo}/#{@docker_image}:#{tag_latest_remote}\""
+    log.info "Updating to docker image \"#{@docker_user}/#{@docker_repo}:#{tag_latest_remote}\""
 
     cmd_docker_pull_latest =
         config.active['docker_pull_latest'] % {
+            docker_user: @docker_user,
             docker_repo: @docker_repo,
-            docker_image: @docker_image,
             tag_latest_remote: tag_latest_remote
         }
 

@@ -22,8 +22,8 @@ module Takelage
 
       @docker_debug = config.active['docker_debug']
 
+      @docker_user = config.active['docker_user']
       @docker_repo = config.active['docker_repo']
-      @docker_image = config.active['docker_image']
       @docker_tag = config.active['docker_tag']
 
       @dockersock = '/var/run/docker.sock'
@@ -34,7 +34,7 @@ module Takelage
 
       @homedir = ENV['HOME'] ? ENV['HOME'] : '/tmp'
       @workdir = Dir.getwd
-      @hostname = "#{@docker_image}_#{File.basename(@workdir)}"
+      @hostname = "#{@docker_repo}_#{File.basename(@workdir)}"
 
       @timezone = 'Europe/Berlin'
 

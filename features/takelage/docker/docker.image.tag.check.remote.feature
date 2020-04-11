@@ -12,8 +12,8 @@ Feature: I can check a remote docker tag
     Given a file named "~/.takelage.yml" with:
       """
       ---
-      docker_image: takelage-mock
-      docker_repo: host.docker.internal:5005
+      docker_user: host.docker.internal:5005
+      docker_repo: takelage-mock
       docker_tagsurl: http://host.docker.internal:5005/v2/takelage-mock/tags/list
       """
     And I get the active takelage config
@@ -25,8 +25,8 @@ Feature: I can check a remote docker tag
     Given a file named "~/.takelage.yml" with:
       """
       ---
-      docker_image: takelage-mock
-      docker_repo: host.docker.internal:5005
+      docker_user: host.docker.internal:5005
+      docker_repo: takelage-mock
       docker_tagsurl: http://host.docker.internal:5005/v2/takelage-mock/tags/list
       """
     When I run `tau-cli docker image tag check remote 0.2.0`

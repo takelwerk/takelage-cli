@@ -1,8 +1,8 @@
 Given "I push the latest local docker image" do
+  docker_user = @config['docker_user']
   docker_repo = @config['docker_repo']
-  docker_image = @config['docker_image']
   tag_latest_local = `HOME=#{aruba.config.home_directory} tau-cli docker image tag latest local`
-  image = "#{docker_repo}/#{docker_image}:#{tag_latest_local}"
+  image = "#{docker_user}/#{docker_repo}:#{tag_latest_local}"
   cmd_docker_push = 'docker push ' +
       "#{image} " +
       '>/dev/null 2>&1'
@@ -10,10 +10,10 @@ Given "I push the latest local docker image" do
 end
 
 Given "I remove the latest local docker image" do
+  docker_user = @config['docker_user']
   docker_repo = @config['docker_repo']
-  docker_image = @config['docker_image']
   tag_latest_local = `HOME=#{aruba.config.home_directory} tau-cli docker image tag latest local`
-  image = "#{docker_repo}/#{docker_image}:#{tag_latest_local}"
+  image = "#{docker_user}/#{docker_repo}:#{tag_latest_local}"
   cmd_docker_rmi = 'docker rmi ' +
       "#{image} " +
       '>/dev/null 2>&1'

@@ -11,8 +11,8 @@ Feature: I can nuke docker containers
     Given a file named "~/.takelage.yml" with:
       """
       ---
-      docker_image: takelage-mock
-      docker_repo: host.docker.internal:5005
+      docker_user: host.docker.internal:5005
+      docker_repo: takelage-mock
       """
     And I get the active takelage config
     And a directory named "finite"

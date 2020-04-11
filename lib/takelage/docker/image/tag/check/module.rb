@@ -8,14 +8,14 @@ module DockerImageTagCheckModule
 
     return false unless docker_check_running
 
-    return false unless configured? %w(docker_repo docker_image)
+    return false unless configured? %w(docker_user docker_repo)
 
     if tag.to_s.strip.empty?
       log.warn "No local docker image tag specified"
       return false
     end
 
-    image = "#{@docker_repo}/#{@docker_image}:#{tag}"
+    image = "#{@docker_user}/#{@docker_repo}:#{tag}"
 
     cmd_docker_images =
         config.active['docker_images'] % {
@@ -40,14 +40,14 @@ module DockerImageTagCheckModule
 
     return false unless docker_check_running
 
-    return false unless configured? %w(docker_repo docker_image docker_tagsurl)
+    return false unless configured? %w(docker_user docker_repo docker_tagsurl)
 
     if tag .to_s.strip.empty?
       log.warn "No remote docker image tag specified"
       return false
     end
 
-    image = "#{@docker_repo}/#{@docker_image}:#{tag}"
+    image = "#{@docker_user}/#{@docker_repo}:#{tag}"
 
     tags = docker_image_tag_list_remote
 

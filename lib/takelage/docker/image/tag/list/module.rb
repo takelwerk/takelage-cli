@@ -8,8 +8,8 @@ module DockerImageTagListModule
 
     cmd_docker_tags =
         config.active['docker_tags'] % {
-            docker_repo: @docker_repo,
-            docker_image: @docker_image
+            docker_user: @docker_user,
+            docker_repo: @docker_repo
         }
 
     stdout_str = run cmd_docker_tags

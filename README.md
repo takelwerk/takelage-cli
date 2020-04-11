@@ -141,7 +141,7 @@ to overwrite defaults like:
 
 ```yaml
 ---
-docker_image: takelage-mock
+docker_repo: takelage-mock
 ```
 
 ### Project Files

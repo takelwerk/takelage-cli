@@ -7,7 +7,7 @@ module DockerContainerModule
 
     return false unless docker_check_running
 
-    return false unless configured? %w(docker_repo docker_image docker_tag)
+    return false unless configured? %w(docker_user docker_repo docker_tag)
 
     docker_socket_start
 
@@ -22,7 +22,7 @@ module DockerContainerModule
 
     return false unless docker_check_running
 
-    return false unless configured? %w(docker_repo docker_image docker_tag)
+    return false unless configured? %w(docker_user docker_repo docker_tag)
 
     _create_network @hostname unless docker_container_check_network @hostname
     _create_container @hostname unless docker_container_check_existing @hostname
@@ -34,7 +34,7 @@ module DockerContainerModule
 
     return false unless docker_check_running
 
-    return false unless configured? %w(docker_repo docker_image docker_tag)
+    return false unless configured? %w(docker_user docker_repo docker_tag)
 
     docker_socket_start
 
@@ -49,7 +49,7 @@ module DockerContainerModule
 
     return false unless docker_check_running
 
-    return false unless configured? %w(docker_image)
+    return false unless configured? %w(docker_repo)
 
     networks = []
 
@@ -70,7 +70,7 @@ module DockerContainerModule
 
     return false unless docker_check_running
 
-    return false unless configured? %w(docker_image)
+    return false unless configured? %w(docker_repo)
 
     networks = []
 
@@ -97,7 +97,7 @@ module DockerContainerModule
       tag = docker_image_tag_latest_local
     end
 
-    image = "#{@docker_repo}/#{@docker_image}:#{tag}"
+    image = "#{@docker_user}/#{@docker_repo}:#{tag}"
 
     log.debug "Using docker image \"#{image}\""
 
@@ -183,11 +183,11 @@ module DockerContainerModule
   # Get all docker containers.
   # @return [Array] list of docker containers
   def _get_containers
-    log.debug "Getting all containers of image \"#{@docker_image}\""
+    log.debug "Getting all containers of image \"#{@docker_repo}\""
 
     cmd_docker_get =
         config.active['docker_get'] % {
-            docker_image: @docker_image
+            docker_repo: @docker_repo
         }
 
     stdout_str = run cmd_docker_get

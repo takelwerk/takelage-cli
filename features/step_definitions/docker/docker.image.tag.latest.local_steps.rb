@@ -1,8 +1,8 @@
 Given 'I ask docker about the latest local docker image' do
+  docker_user = @config['docker_user']
   docker_repo = @config['docker_repo']
-  docker_image = @config['docker_image']
   cmd_docker_images = 'docker images ' +
-      " #{docker_repo}/#{docker_image} " +
+      " #{docker_user}/#{docker_repo} " +
       ' --format "{{.Tag}}" ' +
       ' | sort --reverse --sort=general-numeric ' +
       ' | head -1'
