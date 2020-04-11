@@ -278,7 +278,8 @@
 35
 36
 37
-38</pre>
+38
+39</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/takelage/bit/scope/module.rb', line 5</span>
@@ -309,7 +310,8 @@
   <span class='kw'>end</span>
 
   <span class='comment'># get bit remote from active config
-</span>  <span class='id identifier rubyid_bit_remote'>bit_remote</span> <span class='op'>=</span> <span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_active'>active</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>bit_remote</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
+</span>  <span class='id identifier rubyid_bit_remote'>bit_remote</span> <span class='op'>=</span>
+      <span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_active'>active</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>bit_remote</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
 
   <span class='comment'># prepare scope add command
 </span>  <span class='id identifier rubyid_cmd_bit_scope_add'>cmd_bit_scope_add</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>bit remote add </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_bit_remote'>bit_remote</span><span class='embexpr_end'>}</span><span class='tstring_content'>/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_scope'>scope</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span>
@@ -348,24 +350,28 @@
       <pre class="lines">
 
 
-41
 42
 43
 44
 45
 46
 47
-48</pre>
+48
+49
+50
+51</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/takelage/bit/scope/module.rb', line 41</span>
+      <pre class="code"><span class="info file"># File 'lib/takelage/bit/scope/module.rb', line 42</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_bit_scope_inbit'>bit_scope_inbit</span>
   <span class='id identifier rubyid_log'>log</span><span class='period'>.</span><span class='id identifier rubyid_debug'>debug</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Logging in to bit remote server</span><span class='tstring_end'>&quot;</span></span>
 
   <span class='kw'>return</span> <span class='kw'>false</span> <span class='kw'>unless</span> <span class='id identifier rubyid_configured?'>configured?</span> <span class='qwords_beg'>%w(</span><span class='tstring_content'>bit_ssh</span><span class='tstring_end'>)</span></span>
 
-  <span class='id identifier rubyid_cmd_bit_scope_login'>cmd_bit_scope_login</span> <span class='op'>=</span> <span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_active'>active</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>bit_ssh</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_cmd_bit_scope_login'>cmd_bit_scope_login</span> <span class='op'>=</span>
+      <span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_active'>active</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>bit_ssh</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
+
   <span class='id identifier rubyid_run_and_exit'>run_and_exit</span> <span class='id identifier rubyid_cmd_bit_scope_login'>cmd_bit_scope_login</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -417,9 +423,6 @@
       <pre class="lines">
 
 
-52
-53
-54
 55
 56
 57
@@ -439,10 +442,19 @@
 71
 72
 73
-74</pre>
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/takelage/bit/scope/module.rb', line 52</span>
+      <pre class="code"><span class="info file"># File 'lib/takelage/bit/scope/module.rb', line 55</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_bit_scope_list'>bit_scope_list</span>
   <span class='id identifier rubyid_log'>log</span><span class='period'>.</span><span class='id identifier rubyid_debug'>debug</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Listing bit remote scopes</span><span class='tstring_end'>&quot;</span></span>
@@ -450,11 +462,17 @@
   <span class='kw'>return</span> <span class='kw'>false</span> <span class='kw'>unless</span> <span class='id identifier rubyid_configured?'>configured?</span> <span class='qwords_beg'>%w(</span><span class='tstring_content'>bit_ssh</span><span class='words_sep'> </span><span class='tstring_content'>bit_remote</span><span class='tstring_end'>)</span></span>
 
   <span class='comment'># get ssh command from active config
-</span>  <span class='id identifier rubyid_cmd_bit_ssh'>cmd_bit_ssh</span> <span class='op'>=</span> <span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_active'>active</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>bit_ssh</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
+</span>  <span class='id identifier rubyid_cmd_bit_ssh'>cmd_bit_ssh</span> <span class='op'>=</span>
+      <span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_active'>active</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>bit_ssh</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
 
   <span class='comment'># prepare scope list command
-</span>  <span class='id identifier rubyid_root'><span class='object_link'><a href="top-level-namespace.html" title="Top Level Namespace (root)">root</a></span></span> <span class='op'>=</span> <span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_active'>active</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>bit_scope_root</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
-  <span class='id identifier rubyid_cmd_bit_scope_list'>cmd_bit_scope_list</span> <span class='op'>=</span> <span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_active'>active</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>bit_scope_list</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span> <span class='op'>%</span> <span class='lbrace'>{</span><span class='label'>root:</span> <span class='id identifier rubyid_root'><span class='object_link'><a href="top-level-namespace.html" title="Top Level Namespace (root)">root</a></span></span><span class='rbrace'>}</span>
+</span>  <span class='id identifier rubyid_root'><span class='object_link'><a href="top-level-namespace.html" title="Top Level Namespace (root)">root</a></span></span> <span class='op'>=</span>
+      <span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_active'>active</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>bit_scope_root</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
+
+  <span class='id identifier rubyid_cmd_bit_scope_list'>cmd_bit_scope_list</span> <span class='op'>=</span>
+      <span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_active'>active</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>cmd_bit_scope_list_find_scopes</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span> <span class='op'>%</span> <span class='lbrace'>{</span>
+          <span class='label'>root:</span> <span class='id identifier rubyid_root'><span class='object_link'><a href="top-level-namespace.html" title="Top Level Namespace (root)">root</a></span></span>
+      <span class='rbrace'>}</span>
 
   <span class='comment'># run ssh command with scope list command
 </span>  <span class='id identifier rubyid_scope_list'>scope_list</span> <span class='op'>=</span> <span class='id identifier rubyid_run'>run</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_cmd_bit_ssh'>cmd_bit_ssh</span><span class='embexpr_end'>}</span><span class='tstring_content'> &#39;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_cmd_bit_scope_list'>cmd_bit_scope_list</span><span class='embexpr_end'>}</span><span class='tstring_content'>&#39;</span><span class='tstring_end'>&quot;</span></span>
@@ -516,15 +534,6 @@
       <pre class="lines">
 
 
-78
-79
-80
-81
-82
-83
-84
-85
-86
 87
 88
 89
@@ -539,10 +548,25 @@
 98
 99
 100
-101</pre>
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/takelage/bit/scope/module.rb', line 78</span>
+      <pre class="code"><span class="info file"># File 'lib/takelage/bit/scope/module.rb', line 87</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_bit_scope_new'>bit_scope_new</span><span class='lparen'>(</span><span class='id identifier rubyid_scope'>scope</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_log'>log</span><span class='period'>.</span><span class='id identifier rubyid_debug'>debug</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Creating new bit remote scope \&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_scope'>scope</span><span class='embexpr_end'>}</span><span class='tstring_content'>\&quot;</span><span class='tstring_end'>&quot;</span></span>
@@ -557,11 +581,17 @@
   <span class='kw'>end</span>
 
   <span class='comment'># get ssh command from active config
-</span>  <span class='id identifier rubyid_cmd_bit_ssh'>cmd_bit_ssh</span> <span class='op'>=</span> <span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_active'>active</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>bit_ssh</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
+</span>  <span class='id identifier rubyid_cmd_bit_ssh'>cmd_bit_ssh</span> <span class='op'>=</span>
+      <span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_active'>active</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>bit_ssh</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
 
   <span class='comment'># prepare scope list command
-</span>  <span class='id identifier rubyid_root'><span class='object_link'><a href="top-level-namespace.html" title="Top Level Namespace (root)">root</a></span></span> <span class='op'>=</span> <span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_active'>active</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>bit_scope_root</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
-  <span class='id identifier rubyid_cmd_bit_scope_new'>cmd_bit_scope_new</span> <span class='op'>=</span> <span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_active'>active</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>bit_scope_new</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span> <span class='op'>%</span> <span class='lbrace'>{</span><span class='label'>scope:</span> <span class='id identifier rubyid_scope'>scope</span><span class='comma'>,</span> <span class='label'>root:</span> <span class='id identifier rubyid_root'><span class='object_link'><a href="top-level-namespace.html" title="Top Level Namespace (root)">root</a></span></span><span class='rbrace'>}</span>
+</span>  <span class='id identifier rubyid_root'><span class='object_link'><a href="top-level-namespace.html" title="Top Level Namespace (root)">root</a></span></span> <span class='op'>=</span>
+      <span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_active'>active</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>bit_scope_root</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
+
+  <span class='id identifier rubyid_cmd_bit_scope_new'>cmd_bit_scope_new</span> <span class='op'>=</span>
+      <span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_active'>active</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>cmd_bit_scope_new_bit_init</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span> <span class='op'>%</span> <span class='lbrace'>{</span>
+          <span class='label'>scope:</span> <span class='id identifier rubyid_scope'>scope</span><span class='comma'>,</span> <span class='label'>root:</span> <span class='id identifier rubyid_root'><span class='object_link'><a href="top-level-namespace.html" title="Top Level Namespace (root)">root</a></span></span>
+      <span class='rbrace'>}</span>
 
   <span class='comment'># run ssh command with scope new command
 </span>  <span class='id identifier rubyid_run'>run</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_cmd_bit_ssh'>cmd_bit_ssh</span><span class='embexpr_end'>}</span><span class='tstring_content'> &#39;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_cmd_bit_scope_new'>cmd_bit_scope_new</span><span class='embexpr_end'>}</span><span class='tstring_content'>&#39;</span><span class='tstring_end'>&quot;</span></span>
@@ -578,7 +608,7 @@
 </div>
 
       <div id="footer">
-  Generated on Sat Apr 11 01:00:01 2020 by
+  Generated on Sat Apr 11 10:51:07 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.24 (ruby-2.6.3).
 </div>
