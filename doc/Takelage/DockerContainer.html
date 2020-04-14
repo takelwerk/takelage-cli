@@ -472,7 +472,8 @@
 43
 44
 45
-46</pre>
+46
+47</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/takelage/docker/container/cli.rb', line 19</span>
@@ -486,6 +487,7 @@
 
   <span class='ivar'>@docker_user</span> <span class='op'>=</span> <span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_active'>active</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>docker_user</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
   <span class='ivar'>@docker_repo</span> <span class='op'>=</span> <span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_active'>active</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>docker_repo</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
+  <span class='ivar'>@docker_registry</span> <span class='op'>=</span> <span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_active'>active</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>docker_registry</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
   <span class='ivar'>@docker_tag</span> <span class='op'>=</span> <span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_active'>active</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>docker_tag</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
 
   <span class='ivar'>@entrypoint_options</span> <span class='op'>=</span> <span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_active'>active</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>docker_entrypoint_options</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
@@ -543,12 +545,12 @@
       <pre class="lines">
 
 
-112
 113
-114</pre>
+114
+115</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/takelage/docker/container/cli.rb', line 112</span>
+      <pre class="code"><span class="info file"># File 'lib/takelage/docker/container/cli.rb', line 113</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_command'>command</span><span class='lparen'>(</span><span class='id identifier rubyid_command'>command</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_docker_container_command'>docker_container_command</span><span class='lparen'>(</span><span class='id identifier rubyid_command'>command</span><span class='rparen'>)</span>
@@ -584,12 +586,12 @@
       <pre class="lines">
 
 
-59
 60
-61</pre>
+61
+62</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/takelage/docker/container/cli.rb', line 59</span>
+      <pre class="code"><span class="info file"># File 'lib/takelage/docker/container/cli.rb', line 60</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_daemon'>daemon</span>
   <span class='id identifier rubyid_docker_container_daemon'>docker_container_daemon</span>
@@ -625,12 +627,12 @@
       <pre class="lines">
 
 
-76
 77
-78</pre>
+78
+79</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/takelage/docker/container/cli.rb', line 76</span>
+      <pre class="code"><span class="info file"># File 'lib/takelage/docker/container/cli.rb', line 77</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_login'>login</span>
   <span class='id identifier rubyid_docker_container_login'>docker_container_login</span>
@@ -666,12 +668,12 @@
       <pre class="lines">
 
 
-88
 89
-90</pre>
+90
+91</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/takelage/docker/container/cli.rb', line 88</span>
+      <pre class="code"><span class="info file"># File 'lib/takelage/docker/container/cli.rb', line 89</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_nuke'>nuke</span>
   <span class='id identifier rubyid_docker_container_nuke'>docker_container_nuke</span>
@@ -707,12 +709,12 @@
       <pre class="lines">
 
 
-100
 101
-102</pre>
+102
+103</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/takelage/docker/container/cli.rb', line 100</span>
+      <pre class="code"><span class="info file"># File 'lib/takelage/docker/container/cli.rb', line 101</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_purge'>purge</span>
   <span class='id identifier rubyid_docker_container_purge'>docker_container_purge</span>
@@ -727,7 +729,7 @@
 </div>
 
       <div id="footer">
-  Generated on Tue Apr 14 17:12:39 2020 by
+  Generated on Tue Apr 14 22:08:39 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.24 (ruby-2.6.3).
 </div>
