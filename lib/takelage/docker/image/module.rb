@@ -15,9 +15,13 @@ module DockerImageModule
     tag_latest_local = docker_image_tag_latest_local
 
     unless tag_latest_local.to_s.strip.empty?
-      if Gem::Version.new(tag_latest_local) >= Gem::Version.new(tag_latest_remote)
-        log.info 'Already up to date.'
-        return false
+      begin
+        if Gem::Version.new(tag_latest_local) >= Gem::Version.new(tag_latest_remote)
+          log.info 'Already up to date.'
+          return false
+        end
+      rescue ArgumentError
+        log.debug "Cannot compare \"#{tag_latest_local}\" and \"#{tag_latest_remote}\""
       end
     end
 
