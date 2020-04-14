@@ -93,7 +93,7 @@
   
   <dl>
       <dt>Includes:</dt>
-      <dd><span class='object_link'><a href="../ConfigModule.html" title="ConfigModule (module)">ConfigModule</a></span>, <span class='object_link'><a href="../DockerCheckModule.html" title="DockerCheckModule (module)">DockerCheckModule</a></span>, <span class='object_link'><a href="../DockerContainerCheckModule.html" title="DockerContainerCheckModule (module)">DockerContainerCheckModule</a></span>, <span class='object_link'><a href="../DockerContainerModule.html" title="DockerContainerModule (module)">DockerContainerModule</a></span>, <span class='object_link'><a href="../DockerImageTagCheckModule.html" title="DockerImageTagCheckModule (module)">DockerImageTagCheckModule</a></span>, <span class='object_link'><a href="../DockerImageTagLatestModule.html" title="DockerImageTagLatestModule (module)">DockerImageTagLatestModule</a></span>, <span class='object_link'><a href="../DockerImageTagListModule.html" title="DockerImageTagListModule (module)">DockerImageTagListModule</a></span>, <span class='object_link'><a href="../DockerSocketModule.html" title="DockerSocketModule (module)">DockerSocketModule</a></span>, <span class='object_link'><a href="../LoggingModule.html" title="LoggingModule (module)">LoggingModule</a></span>, <span class='object_link'><a href="../SystemModule.html" title="SystemModule (module)">SystemModule</a></span></dd>
+      <dd><span class='object_link'><a href="../ConfigModule.html" title="ConfigModule (module)">ConfigModule</a></span>, <span class='object_link'><a href="../DockerCheckModule.html" title="DockerCheckModule (module)">DockerCheckModule</a></span>, <span class='object_link'><a href="../DockerContainerCheckModule.html" title="DockerContainerCheckModule (module)">DockerContainerCheckModule</a></span>, <span class='object_link'><a href="../DockerContainerModule.html" title="DockerContainerModule (module)">DockerContainerModule</a></span>, <span class='object_link'><a href="../DockerImageCheckModule.html" title="DockerImageCheckModule (module)">DockerImageCheckModule</a></span>, <span class='object_link'><a href="../DockerImageTagCheckModule.html" title="DockerImageTagCheckModule (module)">DockerImageTagCheckModule</a></span>, <span class='object_link'><a href="../DockerImageTagLatestModule.html" title="DockerImageTagLatestModule (module)">DockerImageTagLatestModule</a></span>, <span class='object_link'><a href="../DockerImageTagListModule.html" title="DockerImageTagListModule (module)">DockerImageTagListModule</a></span>, <span class='object_link'><a href="../DockerSocketModule.html" title="DockerSocketModule (module)">DockerSocketModule</a></span>, <span class='object_link'><a href="../LoggingModule.html" title="LoggingModule (module)">LoggingModule</a></span>, <span class='object_link'><a href="../SystemModule.html" title="SystemModule (module)">SystemModule</a></span></dd>
   </dl>
   
   
@@ -202,7 +202,7 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Initialize takelage docker container.</p>
+<p>Initialize docker container.</p>
 </div></span>
   
 </li>
@@ -293,7 +293,18 @@
   
   
   <h3 class="inherited">Methods included from <span class='object_link'><a href="../DockerSocketModule.html" title="DockerSocketModule (module)">DockerSocketModule</a></span></h3>
-  <p class="inherited"><span class='object_link'><a href="../DockerSocketModule.html#_get_socket_paths-instance_method" title="DockerSocketModule#_get_socket_paths (method)">#_get_socket_paths</a></span>, <span class='object_link'><a href="../DockerSocketModule.html#_get_socket_start_commands-instance_method" title="DockerSocketModule#_get_socket_start_commands (method)">#_get_socket_start_commands</a></span>, <span class='object_link'><a href="../DockerSocketModule.html#_socket_up%3F-instance_method" title="DockerSocketModule#_socket_up? (method)">#_socket_up?</a></span>, <span class='object_link'><a href="../DockerSocketModule.html#docker_socket_start-instance_method" title="DockerSocketModule#docker_socket_start (method)">#docker_socket_start</a></span>, <span class='object_link'><a href="../DockerSocketModule.html#docker_socket_stop-instance_method" title="DockerSocketModule#docker_socket_stop (method)">#docker_socket_stop</a></span></p>
+  <p class="inherited"><span class='object_link'><a href="../DockerSocketModule.html#_get_socket_start_commands-instance_method" title="DockerSocketModule#_get_socket_start_commands (method)">#_get_socket_start_commands</a></span>, <span class='object_link'><a href="../DockerSocketModule.html#_socket_up%3F-instance_method" title="DockerSocketModule#_socket_up? (method)">#_socket_up?</a></span>, <span class='object_link'><a href="../DockerSocketModule.html#docker_socket_host-instance_method" title="DockerSocketModule#docker_socket_host (method)">#docker_socket_host</a></span>, <span class='object_link'><a href="../DockerSocketModule.html#docker_socket_scheme-instance_method" title="DockerSocketModule#docker_socket_scheme (method)">#docker_socket_scheme</a></span>, <span class='object_link'><a href="../DockerSocketModule.html#docker_socket_start-instance_method" title="DockerSocketModule#docker_socket_start (method)">#docker_socket_start</a></span>, <span class='object_link'><a href="../DockerSocketModule.html#docker_socket_stop-instance_method" title="DockerSocketModule#docker_socket_stop (method)">#docker_socket_stop</a></span></p>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods included from <span class='object_link'><a href="../DockerImageCheckModule.html" title="DockerImageCheckModule (module)">DockerImageCheckModule</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="../DockerImageCheckModule.html#docker_image_check_outdated-instance_method" title="DockerImageCheckModule#docker_image_check_outdated (method)">#docker_image_check_outdated</a></span></p>
 
   
   
@@ -420,7 +431,7 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Initialize takelage docker container</p>
+<p>Initialize docker container</p>
 
 
   </div>
@@ -434,7 +445,6 @@
       <pre class="lines">
 
 
-18
 19
 20
 21
@@ -462,25 +472,10 @@
 43
 44
 45
-46
-47
-48
-49
-50
-51
-52
-53
-54
-55
-56
-57
-58
-59
-60
-61</pre>
+46</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/takelage/docker/container/cli.rb', line 18</span>
+      <pre class="code"><span class="info file"># File 'lib/takelage/docker/container/cli.rb', line 19</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_args'>args</span><span class='op'>=</span><span class='lbracket'>[</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='id identifier rubyid_local_options'>local_options</span><span class='op'>=</span><span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='id identifier rubyid_configuration'>configuration</span><span class='op'>=</span><span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
 
@@ -507,24 +502,8 @@
 
   <span class='ivar'>@timezone</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Europe/Berlin</span><span class='tstring_end'>&#39;</span></span>
 
-  <span class='ivar'>@sockets</span> <span class='op'>=</span> <span class='lbrace'>{</span>
-      <span class='symbol'>:&#39;agent-socket&#39;</span> <span class='op'>=&gt;</span> <span class='lbrace'>{</span>
-          <span class='symbol'>:path</span> <span class='op'>=&gt;</span> <span class='kw'>nil</span><span class='comma'>,</span>
-          <span class='symbol'>:host</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>127.0.0.1</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
-          <span class='symbol'>:port</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_active'>active</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>docker_socket_agent_port</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span><span class='rbrace'>}</span><span class='comma'>,</span>
-      <span class='symbol'>:&#39;agent-ssh-socket&#39;</span> <span class='op'>=&gt;</span> <span class='lbrace'>{</span>
-          <span class='symbol'>:path</span> <span class='op'>=&gt;</span> <span class='kw'>nil</span><span class='comma'>,</span>
-          <span class='symbol'>:host</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>127.0.0.1</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
-          <span class='symbol'>:port</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_active'>active</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>docker_socket_agent_ssh_port</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span><span class='rbrace'>}</span><span class='comma'>,</span>
-      <span class='symbol'>:&#39;agent-extra-socket&#39;</span> <span class='op'>=&gt;</span> <span class='lbrace'>{</span>
-          <span class='symbol'>:path</span> <span class='op'>=&gt;</span> <span class='kw'>nil</span><span class='comma'>,</span>
-          <span class='symbol'>:host</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>127.0.0.1</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
-          <span class='symbol'>:port</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_active'>active</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>docker_socket_agent_extra_port</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span><span class='rbrace'>}</span><span class='comma'>,</span>
-      <span class='symbol'>:&#39;agent-browser-socket&#39;</span> <span class='op'>=&gt;</span> <span class='lbrace'>{</span>
-          <span class='symbol'>:path</span> <span class='op'>=&gt;</span> <span class='kw'>nil</span><span class='comma'>,</span>
-          <span class='symbol'>:host</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>127.0.0.1</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
-          <span class='symbol'>:port</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_active'>active</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>docker_socket_agent_browser_port</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span><span class='rbrace'>}</span><span class='rbrace'>}</span>
-  <span class='id identifier rubyid__get_socket_paths'>_get_socket_paths</span>
+  <span class='ivar'>@socket_host</span> <span class='op'>=</span> <span class='id identifier rubyid_docker_socket_host'>docker_socket_host</span>
+  <span class='ivar'>@sockets</span> <span class='op'>=</span> <span class='id identifier rubyid_docker_socket_scheme'>docker_socket_scheme</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -564,12 +543,12 @@
       <pre class="lines">
 
 
-127
-128
-129</pre>
+112
+113
+114</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/takelage/docker/container/cli.rb', line 127</span>
+      <pre class="code"><span class="info file"># File 'lib/takelage/docker/container/cli.rb', line 112</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_command'>command</span><span class='lparen'>(</span><span class='id identifier rubyid_command'>command</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_docker_container_command'>docker_container_command</span><span class='lparen'>(</span><span class='id identifier rubyid_command'>command</span><span class='rparen'>)</span>
@@ -605,12 +584,12 @@
       <pre class="lines">
 
 
-74
-75
-76</pre>
+59
+60
+61</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/takelage/docker/container/cli.rb', line 74</span>
+      <pre class="code"><span class="info file"># File 'lib/takelage/docker/container/cli.rb', line 59</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_daemon'>daemon</span>
   <span class='id identifier rubyid_docker_container_daemon'>docker_container_daemon</span>
@@ -646,12 +625,12 @@
       <pre class="lines">
 
 
-91
-92
-93</pre>
+76
+77
+78</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/takelage/docker/container/cli.rb', line 91</span>
+      <pre class="code"><span class="info file"># File 'lib/takelage/docker/container/cli.rb', line 76</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_login'>login</span>
   <span class='id identifier rubyid_docker_container_login'>docker_container_login</span>
@@ -687,12 +666,12 @@
       <pre class="lines">
 
 
-103
-104
-105</pre>
+88
+89
+90</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/takelage/docker/container/cli.rb', line 103</span>
+      <pre class="code"><span class="info file"># File 'lib/takelage/docker/container/cli.rb', line 88</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_nuke'>nuke</span>
   <span class='id identifier rubyid_docker_container_nuke'>docker_container_nuke</span>
@@ -728,12 +707,12 @@
       <pre class="lines">
 
 
-115
-116
-117</pre>
+100
+101
+102</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/takelage/docker/container/cli.rb', line 115</span>
+      <pre class="code"><span class="info file"># File 'lib/takelage/docker/container/cli.rb', line 100</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_purge'>purge</span>
   <span class='id identifier rubyid_docker_container_purge'>docker_container_purge</span>
@@ -748,7 +727,7 @@
 </div>
 
       <div id="footer">
-  Generated on Sat Apr 11 21:58:01 2020 by
+  Generated on Tue Apr 14 17:12:39 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.24 (ruby-2.6.3).
 </div>
