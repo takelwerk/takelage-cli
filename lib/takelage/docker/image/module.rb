@@ -18,7 +18,7 @@ module DockerImageModule
       begin
         if Gem::Version.new(tag_latest_local) >= Gem::Version.new(tag_latest_remote)
           log.info 'Already up to date.'
-          return false
+          return true
         end
       rescue ArgumentError
         log.debug "Cannot compare \"#{tag_latest_local}\" and \"#{tag_latest_remote}\""

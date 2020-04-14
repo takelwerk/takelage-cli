@@ -90,6 +90,9 @@ module Takelage
       # Initialize global singleton project
       initialize_project
 
+      # prepare for the worst
+      @docker_daemon_running = false
+
       # fylla bash completion code
       @bash_fylla = Fylla.bash_completion self
     end
