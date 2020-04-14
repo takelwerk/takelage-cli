@@ -23,7 +23,7 @@ cmd_docker_check_running_docker_info: 'docker info'
 cmd_docker_container_check_existing_docker_ps: 'docker ps --filter name=^%{container}$ --quiet'
 cmd_docker_container_check_network_docker_network: 'docker network ls --quiet --filter name=^%{network}$'
 cmd_docker_container_check_orphaned_docker_exec: 'docker exec --interactive %{container} ps a'
-cmd_docker_container_create: 'docker run --detach --env GOOGLE_APPLICATION_CREDENTIALS=/srv/google/default.json --env TAKELAGE_PROJECT_BASE_DIR=%{workdir} --env TZ=%{timezone} --hostname %{container} --name %{container} --network %{container} --privileged --rm --tty --volume %{dockersock}:/var/run/docker.sock --volume %{homedir}/.config/gcloud:/srv/gcloud --volume %{homedir}/.google:/srv/google --volume %{homedir}:/homedir --volume %{workdir}:/project %{volume_dev} --workdir /project %{image} %{entrypoint} --gid %{gid} --home %{homedir} --uid %{uid} --username %{username} %{entrypoint_options}'
+cmd_docker_container_create: 'docker run %{addhost} --detach --env GOOGLE_APPLICATION_CREDENTIALS=/srv/google/default.json --env TAKELAGE_PROJECT_BASE_DIR=%{workdir} --env TZ=%{timezone} --hostname %{container} --name %{container} --network %{container} --privileged --rm --tty --volume %{dockersock}:/var/run/docker.sock --volume %{homedir}/.config/gcloud:/srv/gcloud --volume %{homedir}/.google:/srv/google --volume %{homedir}:/homedir --volume %{workdir}:/project %{volume_dev} --workdir /project %{image} %{entrypoint} --gid %{gid} --home %{homedir} --uid %{uid} --username %{username} %{entrypoint_options}'
 cmd_docker_container_create_network: 'docker network create %{network}'
 cmd_docker_container_enter_container: 'docker exec --interactive --tty %{container} %{loginpoint} --username %{username}'
 cmd_docker_container_get_container_name: 'docker ps --filter id=%{container} --format "{{.Names}}"'
@@ -36,8 +36,9 @@ cmd_docker_image_tag_list_local_docker_images: 'docker images %{docker_user}\/%{
 cmd_docker_image_update_docker_pull_latest: 'docker pull %{docker_user}/%{docker_repo}:%{tag_latest_remote}'
 cmd_docker_socket_stop_docker_socket_ps: 'sudo ps a -o pid,command'
 cmd_docker_socket_stop_docker_socket_kill: 'sudo kill -SIGTERM %{pid}'
-cmd_docker_socket_get_socket_socat: 'sudo socat TCP-LISTEN:%{port},bind=%{host},reuseaddr,fork UNIX-CLIENT:%{path}'
-cmd_docker_socket_get_socket_gpgconf: 'gpgconf --list-dirs'
+cmd_docker_socket_get_start: 'sudo socat TCP-LISTEN:%{port},bind=%{host},reuseaddr,fork UNIX-CLIENT:%{path}'
+cmd_docker_socket_config_agent_socket_path: 'gpgconf --list-dirs agent-socket'
+cmd_docker_socket_config_agent_ssh_socket_path: 'gpgconf --list-dirs agent-ssh-socket'
 cmd_docker_socket_start_sudo_true: 'sudo true'
 cmd_git_check_clean_git_unstaged: 'git diff --exit-code'
 cmd_git_check_clean_git_uncommitted: 'git diff --cached --exit-code'
@@ -49,10 +50,8 @@ docker_debug: 'ansible/roles/takel-takelage/files/pyscripts'
 docker_entrypoint_options: ''
 docker_registry: 'https://registry.hub.docker.com'
 docker_repo: 'takelage'
-docker_socket_agent_port: 20000
-docker_socket_agent_ssh_port: 20001
-docker_socket_agent_extra_port: 20002
-docker_socket_agent_browser_port: 20003
+docker_socket_agent_socket_port: 20000
+docker_socket_agent_ssh_socket_port: 20001
 docker_tag: 'latest'
 docker_user: 'takelage'
 info_project_main: 'project.yml'

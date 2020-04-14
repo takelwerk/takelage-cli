@@ -30,6 +30,15 @@ module DockerContainerModule
 
     return false unless docker_check_running
 
+    unless @docker_tag == 'latest'
+      outdated = docker_image_check_outdated @docker_tag
+      if outdated
+        tag_latest_remote = docker_image_tag_latest_remote
+        say "Your takelage version \"#{@docker_tag}\" is outdated"
+        say "A new takelage version \"#{tag_latest_remote}\" is available"
+      end
+    end
+
     docker_socket_start
 
     _create_network @hostname unless docker_container_check_network @hostname
@@ -96,6 +105,10 @@ module DockerContainerModule
       return false
     end
 
+    unless @socket_host == '127.0.0.1'
+      addhost = "--add-host host.docker.internal:#{@socket_host}"
+    end
+
     entrypoint = '/entrypoint.py '
     volume_dev = ''
     if options[:development]
@@ -105,6 +118,7 @@ module DockerContainerModule
 
     cmd_docker_create =
         config.active['cmd_docker_container_create'] % {
+            addhost: addhost,
             workdir: @workdir,
             timezone: @timezone,
             container: container,

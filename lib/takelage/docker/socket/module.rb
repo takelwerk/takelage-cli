@@ -1,6 +1,67 @@
 # takelage docker socket module
 module DockerSocketModule
 
+  # Backend method for docker socket scheme.
+  def docker_socket_scheme
+    log.debug 'Getting docker socket scheme'
+
+    cmd_agent_socket_path =
+        config.active['cmd_docker_socket_config_agent_socket_path']
+
+    agent_socket_path = run cmd_agent_socket_path
+    agent_socket_path.chomp!
+
+    agent_socket_port =
+        config.active['docker_socket_agent_socket_port']
+
+    cmd_agent_ssh_socket_path =
+        config.active['cmd_docker_socket_config_agent_ssh_socket_path']
+
+    agent_ssh_socket_path = run cmd_agent_ssh_socket_path
+    agent_ssh_socket_path.chomp!
+
+    agent_ssh_socket_port =
+        config.active['docker_socket_agent_ssh_socket_port']
+
+    socket_scheme = {
+        'agent-socket' => {
+            'path' => agent_socket_path,
+            'host' => @socket_host,
+            'port' => agent_socket_port
+        },
+        'agent-ssh-socket' => {
+            'path' => agent_ssh_socket_path,
+            'host' => @socket_host,
+            'port' => agent_ssh_socket_port
+        }
+    }
+
+    log.debug "Docker socket scheme is \n\"\"\"\n#{hash_to_yaml socket_scheme}\"\"\""
+
+    socket_scheme
+  end
+
+  # Backend method for docker socket host.
+  def docker_socket_host
+    log.debug 'Getting docker socket host ip address'
+
+    socket_host = '127.0.0.1'
+
+    addr_infos = Socket.getifaddrs
+
+    # if interface docker0 exists (== linux host)
+    # then return the ip address
+    addr_infos.each do |addr_info|
+      if addr_info.name == 'docker0'
+        socket_host = addr_info.addr.ip_address if addr_info.addr.ipv4?
+      end
+    end
+
+    log.debug "Docker socket host ip address is \"#{socket_host}\""
+
+    socket_host
+  end
+
   # Backend method for docker socket start.
   def docker_socket_start
     log.debug 'Starting sockets for docker container'
@@ -76,11 +137,11 @@ module DockerSocketModule
     # loop over sockets
     @sockets.each do |socket, socket_config|
       cmd_start_socket =
-          config.active['cmd_docker_socket_get_socket_socat'] % {
-          host: socket_config[:host],
-          port: socket_config[:port],
-          path: socket_config[:path],
-      }
+          config.active['cmd_docker_socket_get_start'] % {
+              port: socket_config['port'],
+              host: socket_config['host'],
+              path: socket_config['path'],
+          }
 
       if sockets_up
         if _socket_up? socket, socket_config
@@ -96,29 +157,12 @@ module DockerSocketModule
     cmds_start_socket
   end
 
-  # get socket paths
-  def _get_socket_paths
-    cmd_gpgconf_listdirs =
-        config.active['cmd_docker_socket_get_socket_gpgconf']
-
-    stdout_str = run cmd_gpgconf_listdirs
-
-    stdout_str.split(/\n+/).each do |gpg_path|
-      @sockets.each do |socket, socket_config|
-        gpg_socket = gpg_path.split(':')
-        if gpg_socket[0] == socket.to_s
-          @sockets[socket][:path] = gpg_socket[1]
-        end
-      end
-    end
-  end
-
   # check if a socket is available
   # but trying to connect to it via TCP
   def _socket_up? socket, socket_config
-    host = socket_config[:host]
-    port = socket_config[:port]
-    path = socket_config[:path]
+    host = socket_config['host']
+    port = socket_config['port']
+    path = socket_config['path']
 
     error_message = "failed to connect to " +
         "socket \"#{socket}\" " +

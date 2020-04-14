@@ -4,8 +4,8 @@ module Takelage
   class DockerSocket < SubCommandBase
 
     include LoggingModule
-    include ConfigModule
     include SystemModule
+    include ConfigModule
     include DockerCheckModule
     include DockerSocketModule
 
@@ -15,24 +15,34 @@ module Takelage
       # initialize thor parent class
       super args, local_options, configuration
 
-      @sockets = {
-          :'agent-socket' => {
-              :path => nil,
-              :host => '127.0.0.1',
-              :port => config.active['docker_socket_agent_port']},
-          :'agent-ssh-socket' => {
-              :path => nil,
-              :host => '127.0.0.1',
-              :port => config.active['docker_socket_agent_ssh_port']},
-          :'agent-extra-socket' => {
-              :path => nil,
-              :host => '127.0.0.1',
-              :port => config.active['docker_socket_agent_extra_port']},
-          :'agent-browser-socket' => {
-              :path => nil,
-              :host => '127.0.0.1',
-              :port => config.active['docker_socket_agent_browser_port']}}
-      _get_socket_paths
+      @socket_host = docker_socket_host
+      @sockets = docker_socket_scheme
+    end
+
+    #
+    # docker socket host
+    #
+    desc 'host', 'Print docker socket host ip address'
+    long_desc <<-LONGDESC.gsub("\n", "\x5")
+    Print docker socket host ip address
+    LONGDESC
+    # Print docker socket host ip address.
+    def host
+      say @socket_host
+      true
+    end
+
+    #
+    # docker socket scheme
+    #
+    desc 'scheme', 'Print docker socket scheme'
+    long_desc <<-LONGDESC.gsub("\n", "\x5")
+    Print docker socket scheme
+    LONGDESC
+    # Print docker socket scheme.
+    def scheme
+      say hash_to_yaml(@sockets)
+      true
     end
 
     #

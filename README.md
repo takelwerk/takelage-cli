@@ -53,19 +53,20 @@ tau [bit clipboard paste](features/takelage/bit/bit.clipboard.paste.feature) [CO
 tau [bit clipboard pull](features/takelage/bit/bit.clipboard.pull.feature) | Pull all updates for bit components from bit remote scopes
 tau [bit clipboard push](features/takelage/bit/bit.clipboard.push.feature) | Push all updates of bit components to bit remote scopes
 tau [bit scope add](features/takelage/bit/bit.scope.add.feature) [SCOPE] | Add a bit [SCOPE]
-tau [bit scope list](features/takelage/bit/bit.scope.list.feature) | List bit remote scopes
 tau [bit scope inbit](features/takelage/bit/bit.scope.inbit.feature) | Log in to bit remote server
+tau [bit scope list](features/takelage/bit/bit.scope.list.feature) | List bit remote scopes
 tau [bit scope new](features/takelage/bit/bit.scope.new.feature) [SCOPE] | Init a new bit [SCOPE]
 tau [completion bash](features/takelage/completion/completion.bash.feature) | Print bash completion code
 tau [docker check running](features/takelage/docker/docker.check.running.feature) | Check if docker daemon is running
 tau [docker container check existing](features/takelage/docker/docker.container.check.existing.feature) [CONTAINER] | Check if docker [CONTAINER] is existing
-tau [docker container check orphaned](features/takelage/docker/docker.container.check.orphaned.feature) [CONTAINER] | Check if docker [CONTAINER] is orphaned
 tau [docker container check network](features/takelage/docker/docker.container.check.network.feature) [NETWORK] | Check if docker [NETWORK] is existing
+tau [docker container check orphaned](features/takelage/docker/docker.container.check.orphaned.feature) [CONTAINER] | Check if docker [CONTAINER] is orphaned
 tau [docker container command](features/takelage/docker/docker.container.command.feature) [CMD] | Run [CMD] in a docker container
 tau [docker container daemon](features/takelage/docker/docker.container.daemon.feature) | Run docker container in daemon mode
 tau [docker container login](features/takelage/docker/docker.container.login.feature) | Log in to latest local docker container
 tau [docker container nuke](features/takelage/docker/docker.container.nuke.feature) | Remove all docker containers
 tau [docker container purge](features/takelage/docker/docker.container.purge.feature) | Remove orphaned docker containers
+tau [docker image check outdated](features/takelage/docker/docker.image.check.outdated.feature) | Check if a docker image is outdated
 tau [docker image tag check local](features/takelage/docker/docker.image.tag.check.local.feature) [TAG] | Check if local docker image [TAG] exists
 tau [docker image tag check remote](features/takelage/docker/docker.image.tag.check.remote.feature) [TAG] | Check if remote docker image [TAG] exists
 tau [docker image tag latest local](features/takelage/docker/docker.image.tag.latest.local.feature) | Print latest local docker image tag
@@ -73,14 +74,16 @@ tau [docker image tag latest remote](features/takelage/docker/docker.image.tag.l
 tau [docker image tag list local](features/takelage/docker/docker.image.tag.list.local.feature) | Print local docker image tags
 tau [docker image tag list remote](features/takelage/docker/docker.image.tag.list.remote.feature) | Print remote docker image tags
 tau [docker image update](features/takelage/docker/docker.image.update.feature) | Get latest remote docker container
+tau [docker socket host](features/takelage/docker/docker.socket.host.feature) | Print docker socket host ip address
+tau [docker socket scheme](features/takelage/docker/docker.socket.scheme.feature) | Print docker socket scheme
 tau [docker socket start](features/takelage/docker/docker.socket.start.feature) | Start sockets for docker container
 tau [docker socket stop](features/takelage/docker/docker.socket.stop.feature) | Stop sockets for docker container
 tau [git check clean](features/takelage/git/git.check.clean.feature) | Check if the git workspace is clean
 tau [git check master](features/takelage/git/git.check.master.feature) | Check if we are on the git master branch
 tau [git check workspace](features/takelage/git/git.check.workspace.feature) | Check if a git workspace exists
 tau [info project active](features/takelage/info/info.project.active.feature) | Print active project info
-tau [info project private](features/takelage/info/info.project.private.feature) | Print private project info
 tau [info project main](features/takelage/info/info.project.main.feature) | Print main project info
+tau [info project private](features/takelage/info/info.project.private.feature) | Print private project info
 tau [self config active](features/takelage/self/self.config.active.feature) | Print active takelage configuration
 tau [self config default](features/takelage/self/self.config.default.feature) | Print takelage default configuration
 tau [self config home](features/takelage/self/self.config.home.feature) | Print takelage home config file configuration

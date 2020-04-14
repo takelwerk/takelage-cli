@@ -22,6 +22,9 @@ module Takelage
       @docker_registry = config.active['docker_registry']
     end
 
+    desc 'check [COMMAND]', 'Check docker image'
+    subcommand 'check', DockerImageCheck
+
     desc 'tag [COMMAND]', 'Handle docker image tags'
     subcommand 'tag', DockerImageTag
 
