@@ -25,6 +25,7 @@ module Takelage
 
       @docker_user = config.active['docker_user']
       @docker_repo = config.active['docker_repo']
+      @docker_registry = config.active['docker_registry']
       @docker_tag = config.active['docker_tag']
 
       @entrypoint_options = config.active['docker_entrypoint_options']
