@@ -1,0 +1,10 @@
+cmd_foo_bar = "echo 'Hello world!'"
+
+namespace :foo do
+
+  desc 'Make bar'
+  task :bar do
+    $commands << cmd_foo_bar
+  end
+
+end
