@@ -276,7 +276,7 @@ module BitClipboardModule
 
   # Remove bit artifacts.
   def _remove_bit_artifacts
-    log.rndebug "Removing bit artifacts"
+    log.debug "Removing bit artifacts"
 
     # Remove node_modules directory.
     FileUtils.remove_entry_secure('node_modules', force: true)
