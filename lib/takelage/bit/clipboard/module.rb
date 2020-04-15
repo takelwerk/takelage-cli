@@ -95,6 +95,7 @@ module BitClipboardModule
     run cmd_bit_export_to_scope
 
     _remove_bit_artifacts
+    _sync_workspace
 
     log.info "Copied directory \"#{dir}\" " +
                  "as bit component \"#{id}\" " +
@@ -136,6 +137,7 @@ module BitClipboardModule
 
     _handle_bitignore
     _remove_bit_artifacts
+    _sync_workspace
 
     log.info "Pasted bit component \"#{cid}\" " +
                  "to directory \"#{dir}\""
@@ -162,6 +164,7 @@ module BitClipboardModule
 
     _handle_bitignore
     _remove_bit_artifacts
+    _sync_workspace
 
     log.info "Pulled bit components"
     true
@@ -186,6 +189,7 @@ module BitClipboardModule
     run cmd_bit_export_all
 
     _remove_bit_artifacts
+    _sync_workspace
 
     log.info "Pushed bit components"
     true
@@ -239,7 +243,7 @@ module BitClipboardModule
     id
   end
 
-  # Prepare workspace for bit clipboard
+  # Prepare workspace for bit clipboard.
   def _prepare_workspace
     unless bit_check_workspace
       log.error 'No bit workspace'
@@ -288,5 +292,40 @@ module BitClipboardModule
 
     # Remove package.json file.
     FileUtils.remove_entry_secure('package.json', force: true)
+  end
+
+  # Sync workspace with upstream.
+  def _sync_workspace
+    log.debug "Syncing git workspace"
+
+    rakefile, path = Rake.application.find_rakefile_location
+    bitmap = "#{path}/.bitmap"
+
+    log.debug "Adding \"#{bitmap}\" to git"
+
+    cmd_bit_clipboard_git_add =
+        config.active['cmd_bit_clipboard_git_add'] % {
+            file: bitmap
+        }
+
+    run cmd_bit_clipboard_git_add
+
+    message = "Update .bitmap"
+
+    log.debug "Committing \"#{bitmap}\" to git"
+
+    cmd_bit_clipboard_git_commit =
+        config.active['cmd_bit_clipboard_git_commit'] % {
+            message: message
+        }
+
+    run cmd_bit_clipboard_git_commit
+
+    log.debug "Pushing master branch to origin"
+
+    cmd_bit_clipboard_git_push =
+        config.active['cmd_bit_clipboard_git_push']
+
+    run cmd_bit_clipboard_git_push
   end
 end
