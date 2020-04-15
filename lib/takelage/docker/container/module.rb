@@ -10,7 +10,10 @@ module DockerContainerModule
     docker_socket_start
 
     _create_network @hostname unless docker_container_check_network @hostname
-    _create_container @hostname unless docker_container_check_existing @hostname
+
+    container_created = true
+    container_created = _create_container @hostname unless docker_container_check_existing @hostname
+    return false unless container_created
     _run_command_in_container @hostname, command
   end
 
@@ -21,7 +24,10 @@ module DockerContainerModule
     return false unless docker_check_running
 
     _create_network @hostname unless docker_container_check_network @hostname
-    _create_container @hostname unless docker_container_check_existing @hostname
+
+    container_created = true
+    container_created = _create_container @hostname unless docker_container_check_existing @hostname
+    return false unless container_created
   end
 
   # Backend method for docker container login.
@@ -34,15 +40,19 @@ module DockerContainerModule
       outdated = docker_image_check_outdated @docker_tag
       if outdated
         tag_latest_remote = docker_image_tag_latest_remote
-        say "Your takelage version \"#{@docker_tag}\" is outdated"
-        say "A new takelage version \"#{tag_latest_remote}\" is available"
+        log.warn "takelage version \"#{@docker_tag}\" is outdated"
+        log.warn "takelage version \"#{tag_latest_remote}\" is available"
       end
     end
 
     docker_socket_start
 
     _create_network @hostname unless docker_container_check_network @hostname
-    _create_container @hostname unless docker_container_check_existing @hostname
+
+    container_created = true
+    container_created = _create_container @hostname unless docker_container_check_existing @hostname
+    return false unless container_created
+
     _enter_container @hostname
   end
 
@@ -90,17 +100,16 @@ module DockerContainerModule
   def _create_container(container)
     log.debug "Creating container \"#{container}\""
 
-    if docker_image_tag_list_local.include? @docker_tag
-      tag = @docker_tag
-    else
-      tag = docker_image_tag_latest_local
-    end
+    image = "#{@docker_user}/#{@docker_repo}:#{@docker_tag}"
 
-    image = "#{@docker_user}/#{@docker_repo}:#{tag}"
+    unless docker_image_tag_list_local.include? @docker_tag
+      log.error "No local image \"#{image}\" available"
+      return false
+    end
 
     log.debug "Using docker image \"#{image}\""
 
-    unless docker_image_tag_check_local tag
+    unless docker_image_tag_check_local @docker_tag
       log.error "Image \"#{image}\" does not exist"
       return false
     end
@@ -134,6 +143,7 @@ module DockerContainerModule
         }
 
     run cmd_docker_create
+    true
   end
 
   # Create docker network.

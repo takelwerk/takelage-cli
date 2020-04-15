@@ -47,7 +47,7 @@ module DockerImageTagCheckModule
 
     tags = docker_image_tag_list_remote
 
-    unless tags.include? tag
+    unless tags != false and tags.include? tag
       log.debug "No remote docker image \"#{image}\" found"
       return false
     end
