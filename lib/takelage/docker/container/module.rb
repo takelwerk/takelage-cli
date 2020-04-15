@@ -40,8 +40,8 @@ module DockerContainerModule
       outdated = docker_image_check_outdated @docker_tag
       if outdated
         tag_latest_remote = docker_image_tag_latest_remote
-        log.warn "takelage version \"#{@docker_tag}\" is outdated"
-        log.warn "takelage version \"#{tag_latest_remote}\" is available"
+        log.warn "#{@docker_user}/#{@docker_repo}:#{@docker_tag} is outdated"
+        log.warn "#{@docker_user}/#{@docker_repo}:#{tag_latest_remote} is available"
       end
     end
 
@@ -61,6 +61,12 @@ module DockerContainerModule
     log.debug 'Removing all docker containers'
 
     return false unless docker_check_running
+
+    if ENV['HOSTNAME'].start_with? "#{@docker_repo_}"
+      log.error "Please run \"tau nuke\" outside of #{@docker_repo} containers"
+      log.info "Run \"tau purge\" to remove orphaned #{@docker_repo} containers"
+      return false
+    end
 
     networks = []
 
