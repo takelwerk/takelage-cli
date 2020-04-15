@@ -5,17 +5,7 @@ module BitClipboardModule
   def bit_clipboard_copy(dir, scope)
     log.debug "Running bit copy \"#{dir}\" to \"#{scope}\""
 
-    unless bit_check_workspace
-      log.error 'No bit workspace'
-      return false
-    end
-
-    if git_check_workspace
-      unless git_check_master
-        log.error 'Not on git master branch'
-        return false
-      end
-    end
+    return false unless _prepare_workspace
 
     if File.directory? dir
 
@@ -116,17 +106,7 @@ module BitClipboardModule
   def bit_clipboard_paste(cid, dir)
     log.debug "Running bit paste \"#{cid}\" to \"#{dir}\""
 
-    unless bit_check_workspace
-      log.error 'No bit workspace'
-      return false
-    end
-
-    if git_check_workspace
-      unless git_check_master
-        log.error 'Not on git master branch'
-        return false
-      end
-    end
+    return false unless _prepare_workspace
 
     scope = cid.scan(/([^\/]*).*/).first.first
 
@@ -166,17 +146,7 @@ module BitClipboardModule
   def bit_clipboard_pull
     log.debug "Running bit pull"
 
-    unless bit_check_workspace
-      log.error 'No bit workspace'
-      return false
-    end
-
-    if git_check_workspace
-      unless git_check_master
-        log.error 'Not on git master branch'
-        return false
-      end
-    end
+    return false unless _prepare_workspace
 
     # import components into workspace
     cmd_bit_import_all =
@@ -201,17 +171,7 @@ module BitClipboardModule
   def bit_clipboard_push
     log.debug "Running bit push"
 
-    unless bit_check_workspace
-      log.error 'No bit workspace'
-      return false
-    end
-
-    if git_check_workspace
-      unless git_check_master
-        log.error 'Not on git master branch'
-        return false
-      end
-    end
+    return false unless _prepare_workspace
 
     # tag all components
     cmd_bit_tag_all =
@@ -279,29 +239,54 @@ module BitClipboardModule
     id
   end
 
+  # Prepare workspace for bit clipboard
+  def _prepare_workspace
+    unless bit_check_workspace
+      log.error 'No bit workspace'
+      return false
+    end
+
+    if git_check_workspace
+
+      unless git_check_master
+        log.error 'Not on git master branch'
+        return false
+      end
+
+      unless git_check_clean
+        log.error 'No clean git workspace'
+        return false
+      end
+
+      log.debug "Updating git workspace"
+      cmd_bit_clipboard_git_pull =
+          config.active['cmd_bit_clipboard_git_pull']
+
+      result_git_pull = check cmd_bit_clipboard_git_pull
+
+      unless result_git_pull
+        log.error "Unable to update git workspace"
+        return false
+      end
+
+    end
+
+    true
+  end
+
   # Remove bit artifacts.
   def _remove_bit_artifacts
-    log.debug "Removing bit artifacts"
+    log.rndebug "Removing bit artifacts"
 
-    _remove_node_modules
-    _remove_index_bit
-    _remove_package_json
-  end
-
-  # Remove node_modules directory.
-  def _remove_node_modules
+    # Remove node_modules directory.
     FileUtils.remove_entry_secure('node_modules', force: true)
-  end
 
-  # Remove index.bit files recursively.
-  def _remove_index_bit
+    # Remove index.bit files recursively.
     Dir.glob("./**/index.bit").each do |file|
       FileUtils.remove_entry_secure(file, force: true)
     end
-  end
 
-  # Remove package.json file.
-  def _remove_package_json
+    # Remove package.json file.
     FileUtils.remove_entry_secure('package.json', force: true)
   end
 end
