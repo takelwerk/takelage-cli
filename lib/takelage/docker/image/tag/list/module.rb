@@ -26,13 +26,14 @@ module DockerImageTagListModule
                   "of \"#{@docker_user}/#{@docker_repo}\" " +
                   "from \"#{@docker_registry}\""
 
-    registry = DockerRegistry2.connect(@docker_registry)
-
-    log.debug ("Connected to registry \"#{@docker_registry}\"")
-
     user = File.basename @docker_user
-
-    tags = registry.tags("#{user}/#{@docker_repo}")
+    begin
+      registry = DockerRegistry2.connect(@docker_registry)
+      tags = registry.tags("#{user}/#{@docker_repo}")
+    rescue RestClient::Exceptions::OpenTimeout
+      log.error "Timeout while connecting to \"#{@docker_registry}\""
+      return false
+    end
 
     VersionSorter.sort(tags['tags'])
   end
