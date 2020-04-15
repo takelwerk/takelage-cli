@@ -1266,7 +1266,7 @@
 
   <span class='kw'>return</span> <span class='kw'>false</span> <span class='kw'>unless</span> <span class='id identifier rubyid_docker_check_running'>docker_check_running</span>
 
-  <span class='kw'>if</span> <span class='const'>ENV</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>HOSTNAME</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_start_with?'>start_with?</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='ivar'>@docker_repo_</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>if</span> <span class='const'>ENV</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>HOSTNAME</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_start_with?'>start_with?</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='ivar'>@docker_repo</span><span class='embexpr_end'>}</span><span class='tstring_content'>_</span><span class='tstring_end'>&quot;</span></span>
     <span class='id identifier rubyid_log'>log</span><span class='period'>.</span><span class='id identifier rubyid_error'>error</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Please run \&quot;tau nuke\&quot; outside of </span><span class='embexpr_beg'>#{</span><span class='ivar'>@docker_repo</span><span class='embexpr_end'>}</span><span class='tstring_content'> containers</span><span class='tstring_end'>&quot;</span></span>
     <span class='id identifier rubyid_log'>log</span><span class='period'>.</span><span class='id identifier rubyid_info'>info</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Run \&quot;tau purge\&quot; to remove orphaned </span><span class='embexpr_beg'>#{</span><span class='ivar'>@docker_repo</span><span class='embexpr_end'>}</span><span class='tstring_content'> containers</span><span class='tstring_end'>&quot;</span></span>
     <span class='kw'>return</span> <span class='kw'>false</span>
@@ -1367,7 +1367,7 @@
 </div>
 
       <div id="footer">
-  Generated on Thu Apr 16 00:12:14 2020 by
+  Generated on Thu Apr 16 01:33:59 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.24 (ruby-2.6.3).
 </div>
