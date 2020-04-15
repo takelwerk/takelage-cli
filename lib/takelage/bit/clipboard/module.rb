@@ -262,7 +262,7 @@ module BitClipboardModule
       cmd_bit_clipboard_git_pull =
           config.active['cmd_bit_clipboard_git_pull']
 
-      result_git_pull = check cmd_bit_clipboard_git_pull
+      result_git_pull = try cmd_bit_clipboard_git_pull
 
       unless result_git_pull
         log.error "Unable to update git workspace"
