@@ -1,4 +1,4 @@
-cmd_foo_bar = "echo 'Hello world!'"
+cmd_foo_bar = "echo 'Hello world!!'"
 
 namespace :foo do
 
