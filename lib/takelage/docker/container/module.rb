@@ -62,7 +62,8 @@ module DockerContainerModule
 
     return false unless docker_check_running
 
-    if ENV['HOSTNAME'].start_with? "#{@docker_repo}_"
+    hostname = ENV['HOSTNAME'] || ''
+    if hostname.start_with? "#{@docker_repo}_"
       log.error "Please run \"tau nuke\" outside of #{@docker_repo} containers"
       log.info "Run \"tau purge\" to remove orphaned #{@docker_repo} containers"
       return false
