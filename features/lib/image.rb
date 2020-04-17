@@ -1,20 +1,25 @@
 def build_mock_images
-  @image_name = "host.docker.internal:5005/takelage-mock/takelage-mock"
-  @versions = ['0.0.3', '0.1.0', 'latest', 'prod']
-  @versions.each do |version|
+  image_name = "host.docker.internal:5005/takelage-mock/takelage-mock"
+  versions = %w[0.0.3 0.1.0 prod]
+  versions.each do |version|
     cmd_docker_image = 'docker images ' +
         '--quiet ' +
-        "#{@image_name}:#{version}"
+        "#{image_name}:#{version}"
     docker_image = `#{cmd_docker_image}`
     if docker_image.to_s.empty?
       cmd_build_mock_image = 'docker build ' +
           "--build-arg version=#{version} " +
-          "--tag #{@image_name}:#{version} " +
+          "--tag #{image_name}:#{version} " +
           'features/fixtures/takelage-mock ' +
           '>/dev/null 2>&1'
       system cmd_build_mock_image
     end
   end
+  cmd_tag_mock_latest = 'docker tag ' +
+      "#{image_name}:0.1.0 " +
+      "#{image_name}:latest " +
+      '>/dev/null 2>&1'
+  system cmd_tag_mock_latest
 end
 
 def _start_registry

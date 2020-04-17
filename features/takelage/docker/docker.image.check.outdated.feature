@@ -28,7 +28,7 @@ Feature: I can check if a pinned image version is outdated
       docker_registry: http://host.docker.internal:5005
       docker_tag: latest
       """
-    When I run `tau-cli docker image check outdated -l debug`
+    When I run `tau-cli docker image check outdated`
     Then the exit status should be 1
 
   Scenario: Check an up-to-date docker tag version
@@ -40,7 +40,7 @@ Feature: I can check if a pinned image version is outdated
       docker_registry: http://host.docker.internal:5005
       docker_tag: 0.1.0
       """
-    When I run `tau-cli docker image check outdated -l debug`
+    When I run `tau-cli docker image check outdated`
     Then the exit status should be 1
 
   Scenario: Check an outdated docker tag version
@@ -52,5 +52,5 @@ Feature: I can check if a pinned image version is outdated
       docker_registry: http://host.docker.internal:5005
       docker_tag: 0.0.3
       """
-    When I run `tau-cli docker image check outdated -l debug`
+    When I run `tau-cli docker image check outdated`
     Then the exit status should be 0
