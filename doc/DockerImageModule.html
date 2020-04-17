@@ -195,18 +195,7 @@
 24
 25
 26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38</pre>
+27</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/takelage/docker/image/module.rb', line 5</span>
@@ -214,36 +203,25 @@
 <span class='kw'>def</span> <span class='id identifier rubyid_docker_image_update'>docker_image_update</span>
   <span class='kw'>return</span> <span class='kw'>false</span> <span class='kw'>unless</span> <span class='id identifier rubyid_docker_check_running'>docker_check_running</span>
 
-  <span class='id identifier rubyid_tag_latest_remote'>tag_latest_remote</span> <span class='op'>=</span> <span class='id identifier rubyid_docker_image_tag_latest_remote'>docker_image_tag_latest_remote</span>
+  <span class='id identifier rubyid_tags_remote'>tags_remote</span> <span class='op'>=</span> <span class='id identifier rubyid_docker_image_tag_list_remote'>docker_image_tag_list_remote</span>
 
-  <span class='kw'>if</span> <span class='id identifier rubyid_tag_latest_remote'>tag_latest_remote</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='period'>.</span><span class='id identifier rubyid_strip'>strip</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span>
-    <span class='id identifier rubyid_log'>log</span><span class='period'>.</span><span class='id identifier rubyid_error'>error</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Unable to get latest remote tag</span><span class='tstring_end'>&quot;</span></span>
-    <span class='kw'>return</span> <span class='kw'>false</span>
+  <span class='kw'>if</span> <span class='id identifier rubyid_tags_remote'>tags_remote</span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>latest</span><span class='tstring_end'>&#39;</span></span>
+    <span class='id identifier rubyid_tag'>tag</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>latest</span><span class='tstring_end'>&#39;</span></span>
+  <span class='kw'>else</span>
+    <span class='id identifier rubyid_tag'>tag</span> <span class='op'>=</span> <span class='id identifier rubyid_docker_image_tag_latest_remote'>docker_image_tag_latest_remote</span>
   <span class='kw'>end</span>
-
-  <span class='id identifier rubyid_tag_latest_local'>tag_latest_local</span> <span class='op'>=</span> <span class='id identifier rubyid_docker_image_tag_latest_local'>docker_image_tag_latest_local</span>
-
-  <span class='kw'>unless</span> <span class='id identifier rubyid_tag_latest_local'>tag_latest_local</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='period'>.</span><span class='id identifier rubyid_strip'>strip</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span>
-    <span class='kw'>begin</span>
-      <span class='kw'>if</span> <span class='const'>Gem</span><span class='op'>::</span><span class='const'>Version</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_tag_latest_local'>tag_latest_local</span><span class='rparen'>)</span> <span class='op'>&gt;=</span> <span class='const'>Gem</span><span class='op'>::</span><span class='const'>Version</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_tag_latest_remote'>tag_latest_remote</span><span class='rparen'>)</span>
-        <span class='id identifier rubyid_log'>log</span><span class='period'>.</span><span class='id identifier rubyid_info'>info</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Already up to date.</span><span class='tstring_end'>&#39;</span></span>
-        <span class='kw'>return</span> <span class='kw'>true</span>
-      <span class='kw'>end</span>
-    <span class='kw'>rescue</span> <span class='const'>ArgumentError</span>
-      <span class='id identifier rubyid_log'>log</span><span class='period'>.</span><span class='id identifier rubyid_debug'>debug</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Cannot compare \&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_tag_latest_local'>tag_latest_local</span><span class='embexpr_end'>}</span><span class='tstring_content'>\&quot; and \&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_tag_latest_remote'>tag_latest_remote</span><span class='embexpr_end'>}</span><span class='tstring_content'>\&quot;</span><span class='tstring_end'>&quot;</span></span>
-    <span class='kw'>end</span>
-  <span class='kw'>end</span>
-
-  <span class='id identifier rubyid_log'>log</span><span class='period'>.</span><span class='id identifier rubyid_info'>info</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Updating to docker image \&quot;</span><span class='embexpr_beg'>#{</span><span class='ivar'>@docker_user</span><span class='embexpr_end'>}</span><span class='tstring_content'>/</span><span class='embexpr_beg'>#{</span><span class='ivar'>@docker_repo</span><span class='embexpr_end'>}</span><span class='tstring_content'>:</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_tag_latest_remote'>tag_latest_remote</span><span class='embexpr_end'>}</span><span class='tstring_content'>\&quot;</span><span class='tstring_end'>&quot;</span></span>
 
   <span class='id identifier rubyid_cmd_docker_pull_latest'>cmd_docker_pull_latest</span> <span class='op'>=</span>
       <span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_active'>active</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>cmd_docker_image_update_docker_pull_latest</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span> <span class='op'>%</span> <span class='lbrace'>{</span>
           <span class='label'>docker_user:</span> <span class='ivar'>@docker_user</span><span class='comma'>,</span>
           <span class='label'>docker_repo:</span> <span class='ivar'>@docker_repo</span><span class='comma'>,</span>
-          <span class='label'>tag_latest_remote:</span> <span class='id identifier rubyid_tag_latest_remote'>tag_latest_remote</span>
+          <span class='label'>tag_latest_remote:</span> <span class='id identifier rubyid_tag'>tag</span>
       <span class='rbrace'>}</span>
 
-  <span class='id identifier rubyid_run_and_exit'>run_and_exit</span> <span class='id identifier rubyid_cmd_docker_pull_latest'>cmd_docker_pull_latest</span>
+  <span class='id identifier rubyid_cmd_docker_remove_dangling'>cmd_docker_remove_dangling</span> <span class='op'>=</span>
+      <span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_active'>active</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>cmd_docker_image_update_docker_remove_dangling</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
+
+  <span class='id identifier rubyid_run_and_exit'>run_and_exit</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_cmd_docker_pull_latest'>cmd_docker_pull_latest</span><span class='embexpr_end'>}</span><span class='tstring_content'> &amp;&amp; </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_cmd_docker_remove_dangling'>cmd_docker_remove_dangling</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -255,7 +233,7 @@
 </div>
 
       <div id="footer">
-  Generated on Thu Apr 16 01:33:59 2020 by
+  Generated on Fri Apr 17 02:00:18 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.24 (ruby-2.6.3).
 </div>
