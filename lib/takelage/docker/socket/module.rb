@@ -12,7 +12,7 @@ module DockerSocketModule
     agent_socket_path.chomp!
 
     agent_socket_port =
-        config.active['docker_socket_agent_socket_port']
+        config.active['docker_socket_gpg_agent_port']
 
     cmd_agent_ssh_socket_path =
         config.active['cmd_docker_socket_config_agent_ssh_socket_path']
@@ -21,7 +21,7 @@ module DockerSocketModule
     agent_ssh_socket_path.chomp!
 
     agent_ssh_socket_port =
-        config.active['docker_socket_agent_ssh_socket_port']
+        config.active['docker_socket_gpg_ssh_agent_port']
 
     socket_scheme = {
         'agent-socket' => {

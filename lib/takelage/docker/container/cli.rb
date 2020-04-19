@@ -28,9 +28,12 @@ module Takelage
       @docker_registry = config.active['docker_registry']
       @docker_tag = config.active['docker_tag']
 
+      @dockersock = '/var/run/docker.sock'
+
       @entrypoint_options = config.active['docker_entrypoint_options']
 
-      @dockersock = '/var/run/docker.sock'
+      @gpg_agent_port = config.active['docker_socket_gpg_agent_port']
+      @gpg_ssh_agent_port = config.active['docker_socket_gpg_ssh_agent_port']
 
       @username = ENV['USER'] ? ENV['USER'] : 'username'
       @gid = Etc.getpwnam(@username).gid

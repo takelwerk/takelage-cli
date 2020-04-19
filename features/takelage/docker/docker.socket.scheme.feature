@@ -10,8 +10,8 @@ Feature: I can print the socket scheme
     And a file named "~/.takelage.yml" with:
       """
       ---
-      docker_socket_agent_socket_port: 11111
-      docker_socket_agent_ssh_socket_port: 22222
+      docker_socket_gpg_agent_port: 11111
+      docker_socket_gpg_ssh_agent_port: 22222
       """
     And I get the active takelage config
     When I successfully run `tau-cli docker socket scheme`

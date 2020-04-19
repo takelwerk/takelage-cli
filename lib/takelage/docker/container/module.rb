@@ -146,6 +146,8 @@ module DockerContainerModule
             gid: @gid,
             uid: @uid,
             username: @username,
+            gpg_agent_port: @gpg_agent_port,
+            gpg_ssh_agent_port: @gpg_ssh_agent_port,
             entrypoint_options: @entrypoint_options
         }
 
