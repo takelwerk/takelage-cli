@@ -7,16 +7,16 @@ cmd_doc_commit = 'git add doc && git commit -m "Update docs"'
 namespace :doc do
   desc 'Build takelage doc'
   task :build do
-    $commands << cmd_doc_build
+    @commands << cmd_doc_build
   end
 
   desc 'Clean takelage doc'
   task :clean do
-    $commands << cmd_doc_clean
+    @commands << cmd_doc_clean
   end
 
   desc 'Commit takelage doc'
   task :commit do
-    $commands << cmd_doc_commit
+    @commands << cmd_doc_commit
   end
 end

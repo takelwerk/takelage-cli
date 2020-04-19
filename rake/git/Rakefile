@@ -5,6 +5,6 @@ namespace :git do
   task :tag do
     version = File.read "#{File.dirname(__FILE__)}/../../lib/takelage/version"
     version.chomp!
-    $commands << format(cmd_git_tag, version: version)
+    @commands << format(cmd_git_tag, version: version)
   end
 end

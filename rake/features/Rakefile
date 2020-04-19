@@ -8,5 +8,5 @@ cmd_takelage_features = 'cucumber features ' \
 desc 'cucumber behavior tests'
 task :features, :tags do |_, args|
   tags = args[:tags] ? "--tags #{args[:tags]}" : ''
-  $commands << "#{cmd_takelage_features} #{tags}"
+  @commands << "#{cmd_takelage_features} #{tags}"
 end

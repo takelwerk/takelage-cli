@@ -2,17 +2,17 @@ require 'English'
 require 'rake'
 require 'yaml'
 
-$project = YAML.safe_load `tau project`
-$base_dir = ENV['TAKELAGE_PROJECT_BASE_DIR'] || "/tmp/#{$project['name']}"
+@project = YAML.safe_load `tau project`
+@base_dir = ENV['TAKELAGE_PROJECT_BASE_DIR'] || "/tmp/#{@project['name']}"
 
-# Add run=dry to see shell $commands
+# Add run=dry to see shell @commands
 # Example: rake stage run=dry
 
 #####################################################################
 # Variables
 
 # The tasks will add shell commands to this empty global array
-$commands = []
+@commands = []
 
 #####################################################################
 # Default task
@@ -38,7 +38,7 @@ dry_run = ENV['run'] == 'dry'
 # then print commands
 # else run commands
 task :finally do
-  $commands.each do |command|
+  @commands.each do |command|
     if dry_run
       puts command
     else

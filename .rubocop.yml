@@ -1,7 +1,2 @@
-GlobalVars:
-  AllowedVariables:
-    - $base_dir
-    - $commands
-    - $project
 Style/FrozenStringLiteralComment:
   Enabled: false
