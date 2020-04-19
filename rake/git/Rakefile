@@ -1,4 +1,4 @@
-cmd_git_tag = "git tag -s -m '%<version>s' <%version>s && git push --tags"
+cmd_git_tag = "git tag -s -m '%<version>s' %<version>s && git push --tags"
 
 namespace :git do
   desc 'Create and push git tag'
