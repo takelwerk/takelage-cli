@@ -149,7 +149,7 @@ module DockerContainerModule
             username: @username,
             gpg_agent_port: @gpg_agent_port,
             gpg_ssh_agent_port: @gpg_ssh_agent_port,
-            exta: @entrypoint_extra,
+            extra: @entrypoint_extra,
             entrypoint_options: @entrypoint_options
         }
 

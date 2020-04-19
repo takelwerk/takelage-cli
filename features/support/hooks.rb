@@ -1,7 +1,7 @@
 Before do
   cmd_copy_home_config = "bash -c '" +
       "mkdir -p #{aruba.config.home_directory} && " +
-      "cp /homedir/.takelage.yml #{aruba.config.home_directory}/.takelage.yml" +
+      "cp /hostdir/.takelage.yml #{aruba.config.home_directory}/.takelage.yml" +
       "'"
   cmd_copy_ssh_config = "bash -c '" +
       "mkdir -p #{aruba.config.home_directory}/.ssh && " +
