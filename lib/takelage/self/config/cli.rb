@@ -1,8 +1,6 @@
 module Takelage
-
   # takelage bit
   class SelfConfig < SubCommandBase
-
     include LoggingModule
     include SystemModule
     include ConfigModule
@@ -34,7 +32,7 @@ module Takelage
     desc 'home', 'Print takelage home config file configuration'
     long_desc <<-LONGDESC.gsub("\n", "\x5")
     Print takelage home config file configuration
-    This command will print the configuration read from the takelage 
+    This command will print the configuration read from the takelage
     configuration file in your home directory ~/.takelage.yml).
     LONGDESC
     # Print takelage home config file configuration.
@@ -51,7 +49,7 @@ module Takelage
     desc 'project', 'Print takelage project config file configuration'
     long_desc <<-LONGDESC.gsub("\n", "\x5")
     Print takelage project config file configuration
-    This command will print the configuration read from the takelage 
+    This command will print the configuration read from the takelage
     configuration file .takelage.yml in your home directory).
     LONGDESC
     # Print takelage home config file configuration.
@@ -68,7 +66,7 @@ module Takelage
     desc 'active', 'Print active takelage configuration'
     long_desc <<-LONGDESC.gsub("\n", "\x5")
     Print active takelage configuration
-    This command will print the configuration read from the takelage 
+    This command will print the configuration read from the takelage
     configuration file (which is by default ~/.takelage.yml).
     LONGDESC
     # Print active takelage configuration.

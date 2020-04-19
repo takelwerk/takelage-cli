@@ -1,9 +1,7 @@
 # takelage project module
 module ProjectModule
-
   # takelage config class.
   class TakelageProject
-
     include LoggingModule
     include SystemModule
     include ConfigModule
@@ -22,21 +20,20 @@ module ProjectModule
 
   # Initialze project
   def initialize_project
-
-    rakefile, path = Rake.application.find_rakefile_location
+    _rakefile, path = Rake.application.find_rakefile_location
 
     main_file = "#{path}/#{@@project.config.active['info_project_main']}"
     private_file = "#{path}/#{@@project.config.active['info_project_private']}"
 
     # read main project info
     if File.exist? main_file
-      @@project.main = read_yaml_file(main_file) || Hash.new
+      @@project.main = read_yaml_file(main_file) || {}
       @@project.main = @@project.main.sort.to_h
     end
 
     # read private project info
     if File.exist? private_file
-      @@project.private = read_yaml_file(private_file) || Hash.new
+      @@project.private = read_yaml_file(private_file) || {}
       @@project.private = @@project.private.sort.to_h
     end
 

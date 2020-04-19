@@ -1,11 +1,9 @@
 module Takelage
-
   # semantic version number
   VERSION = (File.read "#{File.dirname(__FILE__)}/../version").chomp
 
   # takelage self
   class Self < SubCommandBase
-
     include LoggingModule
     include SelfModule
 

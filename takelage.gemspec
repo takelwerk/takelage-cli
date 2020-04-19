@@ -1,6 +1,6 @@
 require 'rake'
 
-lib = File.expand_path('../lib', __FILE__)
+lib = File.expand_path('lib', __dir__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
 version = File.read 'lib/takelage/version'
@@ -11,8 +11,9 @@ Gem::Specification.new do |spec|
   spec.version = version
   spec.authors = ['Geospin']
   spec.email = ['takelage@geospin.de']
-  spec.summary = %q{takelage devops workflow cli}
-  spec.description = %q{tau is a thor command line script to tame the takelage devops workflow}
+  spec.summary = 'takelage devops workflow cli'
+  spec.description = 'tau is a thor command line script ' \
+                     'to tame the takelage devops workflow'
   spec.homepage = 'https://github.com/geospin-takelage/takelage-cli'
   spec.license = 'GPL-3.0'
   spec.files = FileList['LICENSE',

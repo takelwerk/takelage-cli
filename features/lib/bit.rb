@@ -1,18 +1,18 @@
 def _start_bitboard
-  cmd_start_bitboard = 'docker run ' +
-      '--detach ' +
-      "--name #{@bitboard_name} " +
-      "--network #{@bitboard_name} " +
-      '--privileged ' +
-      '--rm ' +
-      "#{@bitboard_image} " +
+  cmd_start_bitboard = 'docker run ' \
+      '--detach ' \
+      "--name #{@bitboard_name} " \
+      "--network #{@bitboard_name} " \
+      '--privileged ' \
+      '--rm ' \
+      "#{@bitboard_image} " \
       '>/dev/null 2>&1'
-  cmd_create_network = 'docker network create ' +
-      "#{@bitboard_name} " +
+  cmd_create_network = 'docker network create ' \
+      "#{@bitboard_name} " \
       '>/dev/null 2>&1'
-  cmd_connect_network = 'docker network connect ' +
-      "#{@bitboard_name} " +
-      "#{ENV['HOSTNAME']} " +
+  cmd_connect_network = 'docker network connect ' \
+      "#{@bitboard_name} " \
+      "#{ENV['HOSTNAME']} " \
       '>/dev/null 2>&1'
   system cmd_create_network
   system cmd_start_bitboard
@@ -20,15 +20,15 @@ def _start_bitboard
 end
 
 def _stop_bitboard
-  cmd_disconnect_network = 'docker network disconnect ' +
-      "#{@bitboard_name} " +
-      "#{ENV['HOSTNAME']} " +
+  cmd_disconnect_network = 'docker network disconnect ' \
+      "#{@bitboard_name} " \
+      "#{ENV['HOSTNAME']} " \
       '>/dev/null 2>&1'
-  cmd_remove_network = 'docker network rm ' +
-      "#{@bitboard_name} " +
+  cmd_remove_network = 'docker network rm ' \
+      "#{@bitboard_name} " \
       '>/dev/null 2>&1'
-  cmd_stop_bitboard = 'docker stop ' +
-      "#{@bitboard_name} " +
+  cmd_stop_bitboard = 'docker stop ' \
+      "#{@bitboard_name} " \
       '>/dev/null 2>&1'
   system cmd_disconnect_network
   system cmd_stop_bitboard

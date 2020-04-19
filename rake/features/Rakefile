@@ -1,12 +1,12 @@
 require 'cucumber'
 require 'cucumber/rake/task'
 
-cmd_takelage_features = "cucumber features " +
-    "--require features " +
-    "--format pretty"
+cmd_takelage_features = 'cucumber features ' \
+    '--require features ' \
+    '--format pretty'
 
 desc 'cucumber behavior tests'
-task :features, :tags do |t, args|
+task :features, :tags do |_, args|
   tags = args[:tags] ? "--tags #{args[:tags]}" : ''
   $commands << "#{cmd_takelage_features} #{tags}"
 end
