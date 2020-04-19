@@ -134,7 +134,6 @@ module DockerContainerModule
 
     cmd_docker_create =
         config.active['cmd_docker_container_create'] % {
-            addhost: addhost,
             workdir: @workdir,
             timezone: @timezone,
             container: container,
@@ -142,12 +141,15 @@ module DockerContainerModule
             homedir: @homedir,
             volume_dev: volume_dev,
             image: image,
+            addhost: addhost,
+            dockerrun_options: @dockerrun_options,
             entrypoint: entrypoint,
             gid: @gid,
             uid: @uid,
             username: @username,
             gpg_agent_port: @gpg_agent_port,
             gpg_ssh_agent_port: @gpg_ssh_agent_port,
+            exta: @entrypoint_extra,
             entrypoint_options: @entrypoint_options
         }
 

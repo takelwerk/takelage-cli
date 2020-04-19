@@ -30,6 +30,9 @@ module Takelage
 
       @dockersock = '/var/run/docker.sock'
 
+      @dockerrun_options = config.active['docker_run_options']
+
+      @entrypoint_extra = config.active['docker_entrypoint_extra']
       @entrypoint_options = config.active['docker_entrypoint_options']
 
       @gpg_agent_port = config.active['docker_socket_gpg_agent_port']
