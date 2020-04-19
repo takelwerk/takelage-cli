@@ -510,7 +510,9 @@
 153
 154
 155
-156</pre>
+156
+157
+158</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/takelage/docker/container/module.rb', line 107</span>
@@ -545,7 +547,6 @@
 
   <span class='id identifier rubyid_cmd_docker_create'>cmd_docker_create</span> <span class='op'>=</span>
       <span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_active'>active</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>cmd_docker_container_create</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span> <span class='op'>%</span> <span class='lbrace'>{</span>
-          <span class='label'>addhost:</span> <span class='id identifier rubyid_addhost'>addhost</span><span class='comma'>,</span>
           <span class='label'>workdir:</span> <span class='ivar'>@workdir</span><span class='comma'>,</span>
           <span class='label'>timezone:</span> <span class='ivar'>@timezone</span><span class='comma'>,</span>
           <span class='label'>container:</span> <span class='id identifier rubyid_container'>container</span><span class='comma'>,</span>
@@ -553,12 +554,15 @@
           <span class='label'>homedir:</span> <span class='ivar'>@homedir</span><span class='comma'>,</span>
           <span class='label'>volume_dev:</span> <span class='id identifier rubyid_volume_dev'>volume_dev</span><span class='comma'>,</span>
           <span class='label'>image:</span> <span class='id identifier rubyid_image'>image</span><span class='comma'>,</span>
+          <span class='label'>addhost:</span> <span class='id identifier rubyid_addhost'>addhost</span><span class='comma'>,</span>
+          <span class='label'>dockerrun_options:</span> <span class='ivar'>@dockerrun_options</span><span class='comma'>,</span>
           <span class='label'>entrypoint:</span> <span class='id identifier rubyid_entrypoint'>entrypoint</span><span class='comma'>,</span>
           <span class='label'>gid:</span> <span class='ivar'>@gid</span><span class='comma'>,</span>
           <span class='label'>uid:</span> <span class='ivar'>@uid</span><span class='comma'>,</span>
           <span class='label'>username:</span> <span class='ivar'>@username</span><span class='comma'>,</span>
           <span class='label'>gpg_agent_port:</span> <span class='ivar'>@gpg_agent_port</span><span class='comma'>,</span>
           <span class='label'>gpg_ssh_agent_port:</span> <span class='ivar'>@gpg_ssh_agent_port</span><span class='comma'>,</span>
+          <span class='label'>exta:</span> <span class='ivar'>@entrypoint_extra</span><span class='comma'>,</span>
           <span class='label'>entrypoint_options:</span> <span class='ivar'>@entrypoint_options</span>
       <span class='rbrace'>}</span>
 
@@ -596,8 +600,6 @@
       <pre class="lines">
 
 
-159
-160
 161
 162
 163
@@ -605,10 +607,12 @@
 165
 166
 167
-168</pre>
+168
+169
+170</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/takelage/docker/container/module.rb', line 159</span>
+      <pre class="code"><span class="info file"># File 'lib/takelage/docker/container/module.rb', line 161</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid__create_network'>_create_network</span><span class='lparen'>(</span><span class='id identifier rubyid_network'>network</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_log'>log</span><span class='period'>.</span><span class='id identifier rubyid_debug'>debug</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Create network \&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_network'>network</span><span class='embexpr_end'>}</span><span class='tstring_content'>\&quot;</span><span class='tstring_end'>&quot;</span></span>
@@ -651,8 +655,6 @@
       <pre class="lines">
 
 
-171
-172
 173
 174
 175
@@ -667,10 +669,12 @@
 184
 185
 186
-187</pre>
+187
+188
+189</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/takelage/docker/container/module.rb', line 171</span>
+      <pre class="code"><span class="info file"># File 'lib/takelage/docker/container/module.rb', line 173</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid__enter_container'>_enter_container</span><span class='lparen'>(</span><span class='id identifier rubyid_container'>container</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_log'>log</span><span class='period'>.</span><span class='id identifier rubyid_debug'>debug</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Entering container \&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_container'>container</span><span class='embexpr_end'>}</span><span class='tstring_content'>\&quot;</span><span class='tstring_end'>&quot;</span></span>
@@ -720,8 +724,6 @@
       <pre class="lines">
 
 
-190
-191
 192
 193
 194
@@ -735,10 +737,12 @@
 202
 203
 204
-205</pre>
+205
+206
+207</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/takelage/docker/container/module.rb', line 190</span>
+      <pre class="code"><span class="info file"># File 'lib/takelage/docker/container/module.rb', line 192</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid__get_container_name_by_id'>_get_container_name_by_id</span> <span class='id identifier rubyid_container'>container</span>
   <span class='id identifier rubyid_log'>log</span><span class='period'>.</span><span class='id identifier rubyid_debug'>debug</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Getting name of container \&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_container'>container</span><span class='embexpr_end'>}</span><span class='tstring_content'>\&quot;</span><span class='tstring_end'>&quot;</span></span>
@@ -805,8 +809,6 @@
       <pre class="lines">
 
 
-209
-210
 211
 212
 213
@@ -817,10 +819,12 @@
 218
 219
 220
-221</pre>
+221
+222
+223</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/takelage/docker/container/module.rb', line 209</span>
+      <pre class="code"><span class="info file"># File 'lib/takelage/docker/container/module.rb', line 211</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid__get_containers'>_get_containers</span>
   <span class='id identifier rubyid_log'>log</span><span class='period'>.</span><span class='id identifier rubyid_debug'>debug</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Getting all containers of image \&quot;</span><span class='embexpr_beg'>#{</span><span class='ivar'>@docker_repo</span><span class='embexpr_end'>}</span><span class='tstring_content'>\&quot;</span><span class='tstring_end'>&quot;</span></span>
@@ -866,8 +870,6 @@
       <pre class="lines">
 
 
-224
-225
 226
 227
 228
@@ -875,10 +877,12 @@
 230
 231
 232
-233</pre>
+233
+234
+235</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/takelage/docker/container/module.rb', line 224</span>
+      <pre class="code"><span class="info file"># File 'lib/takelage/docker/container/module.rb', line 226</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid__remove_network'>_remove_network</span> <span class='id identifier rubyid_network'>network</span>
   <span class='id identifier rubyid_log'>log</span><span class='period'>.</span><span class='id identifier rubyid_debug'>debug</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Remove network \&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_network'>network</span><span class='embexpr_end'>}</span><span class='tstring_content'>\&quot;</span><span class='tstring_end'>&quot;</span></span>
@@ -921,8 +925,6 @@
       <pre class="lines">
 
 
-236
-237
 238
 239
 240
@@ -932,10 +934,12 @@
 244
 245
 246
-247</pre>
+247
+248
+249</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/takelage/docker/container/module.rb', line 236</span>
+      <pre class="code"><span class="info file"># File 'lib/takelage/docker/container/module.rb', line 238</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid__run_command_in_container'>_run_command_in_container</span><span class='lparen'>(</span><span class='id identifier rubyid_container'>container</span><span class='comma'>,</span> <span class='id identifier rubyid_command'>command</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_log'>log</span><span class='period'>.</span><span class='id identifier rubyid_debug'>debug</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Running command \&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_command'>command</span><span class='embexpr_end'>}</span><span class='tstring_content'>\&quot; in container \&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_container'>container</span><span class='embexpr_end'>}</span><span class='tstring_content'>\&quot;</span><span class='tstring_end'>&quot;</span></span>
@@ -980,8 +984,6 @@
       <pre class="lines">
 
 
-250
-251
 252
 253
 254
@@ -989,10 +991,12 @@
 256
 257
 258
-259</pre>
+259
+260
+261</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/takelage/docker/container/module.rb', line 250</span>
+      <pre class="code"><span class="info file"># File 'lib/takelage/docker/container/module.rb', line 252</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid__stop_container'>_stop_container</span><span class='lparen'>(</span><span class='id identifier rubyid_container'>container</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_log'>log</span><span class='period'>.</span><span class='id identifier rubyid_debug'>debug</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Stopping container \&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_container'>container</span><span class='embexpr_end'>}</span><span class='tstring_content'>\&quot;</span><span class='tstring_end'>&quot;</span></span>
@@ -1373,7 +1377,7 @@
 </div>
 
       <div id="footer">
-  Generated on Sun Apr 19 02:07:37 2020 by
+  Generated on Sun Apr 19 13:54:05 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.24 (ruby-2.6.3).
 </div>
