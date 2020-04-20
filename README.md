@@ -103,6 +103,8 @@ tau push | Alias for tau [bit clipboard push](features/takelage/bit/bit.clipboar
 tau update | Alias for tau [docker image update](features/takelage/docker/docker.image.update.feature)
 tau version | Alias for tau [self version](features/takelage/self/self.version.feature)
 
+**Warning: *tau update* will call *docker image prune* and remove all dangling images!**
+
 ## Configuration
 
 ### Configuration Files
