@@ -1,10 +1,11 @@
+# frozen_string_literal: true
+
 require 'pathname'
 require 'open3'
 require 'yaml'
 
 # Interaction with the operating system
 module SystemModule
-  # Print hash as yaml.
   def hash_to_yaml(hash)
     return nil.to_yaml if hash == {}
 
@@ -12,36 +13,14 @@ module SystemModule
   end
 
   # @return [Hash] content of yaml file
-  # rubocop:disable Metrics/MethodLength
   def read_yaml_file(file)
     log.debug "Reading YAML file \"#{file}\""
+    return nil unless _file_exists? file
+    return nil unless _file_read file
+    return nil unless _parse_yaml @content_yaml
 
-    # Check file existence
-    unless File.exist? file
-      log.debug "File \"#{file}\" doesn't exist"
-      return nil
-    end
-
-    # Read file
-    begin
-      content_yaml = File.read file
-    rescue SystemCallError
-      log.debug "Unable to read file \"#{file}\""
-      return nil
-    end
-
-    # Parse YAML
-    begin
-      content = YAML.safe_load content_yaml
-    rescue Psych::SyntaxError
-      log.debug "Invalid YAML file \"#{file}\""
-      log.debug "Try: yamllint #{file}"
-      return nil
-    end
-
-    content
+    @content
   end
-  # rubocop:enable Metrics/MethodLength
 
   # Remove directory tree.
   def rm_fr(directory)
@@ -84,5 +63,39 @@ module SystemModule
     _, _, status = Open3.capture3 command
     log.debug "Command \"#{command}\" has exit status \"#{status.exitstatus}\""
     status
+  end
+
+  private
+
+  # Check if file exists.
+  def _file_exists?(file)
+    unless File.exist? file
+      log.debug "File \"#{file}\" doesn't exist"
+      return false
+    end
+    true
+  end
+
+  # Read YAML file.
+  def _file_read(file)
+    begin
+      @content_yaml = File.read file
+    rescue SystemCallError
+      log.debug "Unable to read file \"#{file}\""
+      return false
+    end
+    true
+  end
+
+  # Parse YAML file.
+  def _parse_yaml(content_yaml)
+    begin
+      @content = YAML.safe_load content_yaml
+    rescue Psych::SyntaxError
+      log.debug "Invalid YAML file \"#{file}\""
+      log.debug "Try: yamllint #{file}"
+      return false
+    end
+    true
   end
 end

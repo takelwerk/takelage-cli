@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Given 'I ask docker about the latest remote docker image' do
   docker_user = @config['docker_user']
   user = File.basename docker_user

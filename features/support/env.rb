@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'aruba/cucumber'
 require 'json'
 require_relative '../lib/bit'

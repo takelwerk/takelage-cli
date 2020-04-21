@@ -1,6 +1,7 @@
+# frozen_string_literal: true
+
 # takelage docker container check module
 module DockerContainerCheckModule
-
   # Backend method for docker container check existing.
   # @return [Boolean] is container existing?
   def docker_container_check_existing(container)

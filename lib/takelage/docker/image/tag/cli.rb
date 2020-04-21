@@ -1,8 +1,8 @@
-module Takelage
+# frozen_string_literal: true
 
+module Takelage
   # takelage docker image tag
   class DockerImageTag < SubCommandBase
-
     desc 'check [COMMAND]', 'Check docker image tag'
     subcommand 'check', DockerImageTagCheck
 
@@ -11,6 +11,5 @@ module Takelage
 
     desc 'list [COMMAND]', 'Print local or remote docker image tags'
     subcommand 'list', DockerImageTagList
-
   end
 end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Given 'I create my user in the docker container' do
   user = `whoami`
   cmd_create_user = 'docker exec ' \

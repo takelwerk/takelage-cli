@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Given 'I initialize a bit workspace in {string}' do |dir|
   cmd_bit_reporting_false = "bash -c '" \
       "HOME=#{aruba.config.home_directory} bit config --skip-update set analytics_reporting false && " \

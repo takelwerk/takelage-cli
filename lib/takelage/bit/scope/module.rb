@@ -1,6 +1,7 @@
+# frozen_string_literal: true
+
 # takelage bit scope module
 module BitScopeModule
-
   # Backend method for bit scope add.
   def bit_scope_add(scope)
     log.debug "Adding bit remote scope \"#{scope}\" to local workspace"
@@ -40,7 +41,7 @@ module BitScopeModule
 
   # Backend method for bit scope inbit.
   def bit_scope_inbit
-    log.debug "Logging in to bit remote server"
+    log.debug 'Logging in to bit remote server'
 
     return false unless configured? %w(bit_ssh)
 
@@ -53,7 +54,7 @@ module BitScopeModule
   # Backend method for bit scope list.
   # @return [String] list of bit scopes
   def bit_scope_list
-    log.debug "Listing bit remote scopes"
+    log.debug 'Listing bit remote scopes'
 
     return false unless configured? %w(bit_ssh bit_remote)
 

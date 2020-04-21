@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Then 'the gpg sockets are stopped' do
   cmd_processes = 'ps a -o command'
   processes = `#{cmd_processes}`

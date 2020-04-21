@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'docker_registry2'
 require 'etc'
 require 'fileutils'
@@ -5,6 +7,7 @@ require 'fylla'
 require 'json'
 require 'logger'
 require 'rake'
+require 'singleton'
 require 'socket'
 require 'thor'
 require 'timeout'

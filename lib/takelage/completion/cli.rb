@@ -1,8 +1,8 @@
-module Takelage
+# frozen_string_literal: true
 
+module Takelage
   # takelage completion
   class Completion < SubCommandBase
-
     include LoggingModule
 
     desc 'bash', 'Print bash completion code'

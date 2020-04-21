@@ -1,8 +1,8 @@
-module Takelage
+# frozen_string_literal: true
 
+module Takelage
   # takelage docker container
   class DockerContainer < SubCommandBase
-
     include LoggingModule
     include SystemModule
     include ConfigModule
@@ -17,7 +17,6 @@ module Takelage
 
     # Initialize docker container
     def initialize(args=[], local_options={}, configuration={})
-
       # initialize thor parent class
       super args, local_options, configuration
 

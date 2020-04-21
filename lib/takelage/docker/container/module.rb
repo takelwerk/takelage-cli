@@ -1,9 +1,10 @@
+# frozen_string_literal: true
+
 # takelage docker container module
 module DockerContainerModule
-
   # Backend method for docker container run.
   def docker_container_command(command)
-    log.debug "Running command in container"
+    log.debug 'Running command in container'
 
     return false unless docker_check_running
 
@@ -103,6 +104,8 @@ module DockerContainerModule
     end
   end
 
+  private
+
   # Create docker container.
   def _create_container(container)
     log.debug "Creating container \"#{container}\""
@@ -111,6 +114,7 @@ module DockerContainerModule
 
     unless docker_image_tag_list_local.include? @docker_tag
       log.error "No local image \"#{image}\" available"
+      log.info "Try: docker pull #{image}"
       return false
     end
 

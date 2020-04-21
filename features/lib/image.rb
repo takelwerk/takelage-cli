@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 def build_mock_images
-  image_name = "host.docker.internal:5005/takelage-mock/takelage-mock"
+  image_name = 'host.docker.internal:5005/takelage-mock/takelage-mock'
   versions = %w[0.0.3 0.1.0 prod]
   versions.each do |version|
     cmd_docker_image = 'docker images ' \

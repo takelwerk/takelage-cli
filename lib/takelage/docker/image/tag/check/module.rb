@@ -1,6 +1,7 @@
+# frozen_string_literal: true
+
 # takelage docker image tag check module
 module DockerImageTagCheckModule
-
   # Backend method for docker image check tag local.
   # @return [Boolean] does local docker image tag exist?
   def docker_image_tag_check_local(tag)
@@ -9,7 +10,7 @@ module DockerImageTagCheckModule
     return false unless docker_check_running
 
     if tag.to_s.strip.empty?
-      log.warn "No local docker image tag specified"
+      log.warn 'No local docker image tag specified'
       return false
     end
 
@@ -39,7 +40,7 @@ module DockerImageTagCheckModule
     return false unless docker_check_running
 
     if tag .to_s.strip.empty?
-      log.warn "No remote docker image tag specified"
+      log.warn 'No remote docker image tag specified'
       return false
     end
 

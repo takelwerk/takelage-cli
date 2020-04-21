@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rake'
 
 lib = File.expand_path('lib', __dir__)

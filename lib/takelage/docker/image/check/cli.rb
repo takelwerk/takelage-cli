@@ -1,8 +1,8 @@
-module Takelage
+# frozen_string_literal: true
 
+module Takelage
   # takelage docker image check
   class DockerImageCheck < SubCommandBase
-
     include LoggingModule
     include SystemModule
     include ConfigModule
@@ -13,7 +13,6 @@ module Takelage
 
     # Initialize takelage docker image check
     def initialize(args = [], local_options = {}, configuration = {})
-
       # initialize thor parent class
       super args, local_options, configuration
 

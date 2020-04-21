@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 def _start_bitboard
   cmd_start_bitboard = 'docker run ' \
       '--detach ' \

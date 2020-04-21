@@ -1,4 +1,6 @@
-Given "I infinitize {string} in {string}" do |file, container|
+# frozen_string_literal: true
+
+Given 'I infinitize {string} in {string}' do |file, container|
   cmd_infinitize_file = 'docker cp ' \
       'features/fixtures/takelage-mock/infinite.sh ' \
       "#{container}:#{file}"
@@ -10,7 +12,7 @@ Given "I infinitize {string} in {string}" do |file, container|
   system cmd_change_permissions
 end
 
-Given "I daemonize {string} in {string}" do |file, container|
+Given 'I daemonize {string} in {string}' do |file, container|
   cmd_daemonize_file = 'docker exec ' \
       '--interactive ' \
       "#{container} " \

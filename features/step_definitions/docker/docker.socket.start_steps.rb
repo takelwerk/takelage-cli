@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 When 'I get the takelage docker socket start commands' do
   cmd_gpgconf_listdirs = @config['cmd_docker_get_socket_paths_docker_socket_gpgconf']
   gpgconf_listdirs = `HOME=#{aruba.config.home_directory} #{cmd_gpgconf_listdirs} | grep agent`

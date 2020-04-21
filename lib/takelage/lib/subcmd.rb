@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Thor with subcommands that work correctly with help
 class SubCommandBase < Thor
   # Set the subcommand banner

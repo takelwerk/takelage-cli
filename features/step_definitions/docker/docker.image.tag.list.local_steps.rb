@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Given 'I ask docker about the local docker images' do
   docker_user = @config['docker_user']
   docker_repo = @config['docker_repo']

@@ -1,7 +1,6 @@
-require 'pathname'
+# frozen_string_literal: true
 
 module Takelage
-
   # takelage bit
   class Bit < SubCommandBase
 

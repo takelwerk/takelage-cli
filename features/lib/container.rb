@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 def stop_mock_container
   cmd_stop_mock_container_cucumber = 'tau-cli docker container check existing takelage-mock_cucumber && ' \
       'docker stop takelage-mock_cucumber; ' \

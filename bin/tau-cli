@@ -1,4 +1,5 @@
 #!/bin/bash
+# frozen_string_literal: true
 
 get_script_dir () {
      SOURCE="${BASH_SOURCE[0]}"

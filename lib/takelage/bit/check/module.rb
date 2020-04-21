@@ -1,6 +1,7 @@
+# frozen_string_literal: true
+
 # takelage bit check module
 module BitCheckModule
-
   # Backend method for bit check workspace.
   # @return [Boolean] is this a bit workspace?
   def bit_check_workspace

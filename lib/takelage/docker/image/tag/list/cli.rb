@@ -1,8 +1,8 @@
-module Takelage
+# frozen_string_literal: true
 
+module Takelage
   # takelage docker image tag list
   class DockerImageTagList < SubCommandBase
-
     include LoggingModule
     include SystemModule
     include ConfigModule
@@ -11,7 +11,6 @@ module Takelage
 
     # Initialize takelage docker image tag list
     def initialize(args = [], local_options = {}, configuration = {})
-
       # initialize thor parent class
       super args, local_options, configuration
 

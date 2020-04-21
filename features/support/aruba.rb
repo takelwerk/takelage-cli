@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Aruba.configure do |config|
   config.home_directory = '/tmp/fake_home'
   config.working_directory = '../tmp/cucumber'

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Given "the docker container {string} doesn't exist" do |container|
   cmd_docker_existing = 'docker ps ' \
       '--all ' \

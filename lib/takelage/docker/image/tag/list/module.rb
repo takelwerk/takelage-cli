@@ -1,6 +1,7 @@
+# frozen_string_literal: true
+
 # takelage docker image tag list module
 module DockerImageTagListModule
-
   # Backend method for docker image tag list local.
   # @return [Array] local docker image tags
   def docker_image_tag_list_local
@@ -22,8 +23,8 @@ module DockerImageTagListModule
   # Backend method for docker image tag list remote.
   # @return [Array] remote docker image tags
   def docker_image_tag_list_remote
-    log.debug "Getting docker remote tags " +
-                  "of \"#{@docker_user}/#{@docker_repo}\" " +
+    log.debug 'Getting docker remote tags ' \
+                  "of \"#{@docker_user}/#{@docker_repo}\" " \
                   "from \"#{@docker_registry}\""
 
     user = File.basename @docker_user

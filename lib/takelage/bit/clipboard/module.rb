@@ -1,6 +1,7 @@
+# frozen_string_literal: true
+
 # takelage bit clipboard module
 module BitClipboardModule
-
   # Backend method for bit copy.
   def bit_clipboard_copy(dir, scope)
     log.debug "Running bit copy \"#{dir}\" to \"#{scope}\""
@@ -50,7 +51,7 @@ module BitClipboardModule
       # check if a README.bit file exists in a subdirectory
       Dir.glob("#{dir}/**/README.bit").each do |file|
         unless file == "#{dir}/README.bit"
-          log.error "Nested README.bit file detected"
+          log.error 'Nested README.bit file detected'
           return false
         end
       end
@@ -146,7 +147,7 @@ module BitClipboardModule
 
   # Backend method for bit pull.
   def bit_clipboard_pull
-    log.debug "Running bit pull"
+    log.debug 'Running bit pull'
 
     return false unless _prepare_workspace
 
@@ -166,13 +167,13 @@ module BitClipboardModule
     _remove_bit_artifacts
     _sync_workspace
 
-    log.info "Pulled bit components"
+    log.info 'Pulled bit components'
     true
   end
 
   # Backend method for bit push
   def bit_clipboard_push
-    log.debug "Running bit push"
+    log.debug 'Running bit push'
 
     return false unless _prepare_workspace
 
@@ -191,16 +192,18 @@ module BitClipboardModule
     _remove_bit_artifacts
     _sync_workspace
 
-    log.info "Pushed bit components"
+    log.info 'Pushed bit components'
     true
   end
 
+  private
+
   # Genereate .gitignore if bitignore is present
   def _handle_bitignore
-    log.debug "Handling bitgnore files"
+    log.debug 'Handling bitgnore files'
 
     # find all bitgnore files
-    Dir.glob("./**/bitignore").each do |file|
+    Dir.glob('./**/bitignore').each do |file|
 
       log.debug file
 
@@ -262,14 +265,14 @@ module BitClipboardModule
         return false
       end
 
-      log.debug "Updating git workspace"
+      log.debug 'Updating git workspace'
       cmd_bit_clipboard_git_pull =
           config.active['cmd_bit_clipboard_git_pull']
 
       result_git_pull = try cmd_bit_clipboard_git_pull
 
       unless result_git_pull
-        log.error "Unable to update git workspace"
+        log.error 'Unable to update git workspace'
         return false
       end
 
@@ -280,13 +283,13 @@ module BitClipboardModule
 
   # Remove bit artifacts.
   def _remove_bit_artifacts
-    log.debug "Removing bit artifacts"
+    log.debug 'Removing bit artifacts'
 
     # Remove node_modules directory.
     FileUtils.remove_entry_secure('node_modules', force: true)
 
     # Remove index.bit files recursively.
-    Dir.glob("./**/index.bit").each do |file|
+    Dir.glob('./**/index.bit').each do |file|
       FileUtils.remove_entry_secure(file, force: true)
     end
 
@@ -296,7 +299,7 @@ module BitClipboardModule
 
   # Sync workspace with upstream.
   def _sync_workspace
-    log.debug "Syncing git workspace"
+    log.debug 'Syncing git workspace'
 
     rakefile, path = Rake.application.find_rakefile_location
     bitmap = "#{path}/.bitmap"
@@ -310,7 +313,7 @@ module BitClipboardModule
 
     run cmd_bit_clipboard_git_add
 
-    message = "Update .bitmap"
+    message = 'Update .bitmap'
 
     log.debug "Committing \"#{bitmap}\" to git"
 
@@ -321,7 +324,7 @@ module BitClipboardModule
 
     run cmd_bit_clipboard_git_commit
 
-    log.debug "Pushing master branch to origin"
+    log.debug 'Pushing master branch to origin'
 
     cmd_bit_clipboard_git_push =
         config.active['cmd_bit_clipboard_git_push']

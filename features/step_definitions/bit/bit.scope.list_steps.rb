@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Given 'the list of remote scopes is up-to-date' do
   cmd_bit_ssh = @config['bit_ssh']
   root = @config['bit_root']

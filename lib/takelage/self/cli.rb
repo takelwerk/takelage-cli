@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Takelage
   # semantic version number
   VERSION = (File.read "#{File.dirname(__FILE__)}/../version").chomp

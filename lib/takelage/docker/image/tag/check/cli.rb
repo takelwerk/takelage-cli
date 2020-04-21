@@ -1,8 +1,8 @@
-module Takelage
+# frozen_string_literal: true
 
+module Takelage
   # takelage docker image tag check
   class DockerImageTagCheck < SubCommandBase
-
     include LoggingModule
     include SystemModule
     include ConfigModule

@@ -1,4 +1,6 @@
-Given "I push the local docker image {string}" do |tag|
+# frozen_string_literal: true
+
+Given 'I push the local docker image {string}' do |tag|
   docker_user = @config['docker_user']
   docker_repo = @config['docker_repo']
   image = "#{docker_user}/#{docker_repo}:#{tag}"
@@ -8,7 +10,7 @@ Given "I push the local docker image {string}" do |tag|
   system cmd_docker_push
 end
 
-Given "I remove the local docker image {string}" do |tag|
+Given 'I remove the local docker image {string}' do |tag|
   docker_user = @config['docker_user']
   docker_repo = @config['docker_repo']
   image = "#{docker_user}/#{docker_repo}:#{tag}"
@@ -59,7 +61,7 @@ Given 'I remove all local docker images' do
   end
 end
 
-Given "I remove all local docker images but not {string}" do |tag|
+Given 'I remove all local docker images but not {string}' do |tag|
   docker_user = @config['docker_user']
   docker_repo = @config['docker_repo']
   tags_local_json = `HOME=#{aruba.config.home_directory} tau-cli docker image tag list local`.chomp
@@ -74,7 +76,7 @@ Given "I remove all local docker images but not {string}" do |tag|
   end
 end
 
-Then "my latest local docker version should be {string}" do |tag|
+Then 'my latest local docker version should be {string}' do |tag|
   tag_latest_local = `HOME=#{aruba.config.home_directory} tau-cli docker image tag latest local`.chomp
   expect(tag_latest_local).to eq 'latest'
 end

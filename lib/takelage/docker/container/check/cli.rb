@@ -1,8 +1,8 @@
-module Takelage
+# frozen_string_literal: true
 
+module Takelage
   # takelage docker container check
   class DockerContainerCheck < SubCommandBase
-
     include LoggingModule
     include SystemModule
     include ConfigModule

@@ -1,10 +1,8 @@
-require 'pathname'
+# frozen_string_literal: true
 
 module Takelage
-
   # takelage bit
   class BitClipboard < SubCommandBase
-
     include LoggingModule
     include ConfigModule
     include SystemModule

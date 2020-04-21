@@ -1,42 +1,19 @@
+# frozen_string_literal: true
+
 # takelage docker socket module
 module DockerSocketModule
-
   # Backend method for docker socket scheme.
   def docker_socket_scheme
     log.debug 'Getting docker socket scheme'
 
-    cmd_agent_socket_path =
-        config.active['cmd_docker_socket_config_agent_socket_path']
+    gpg_path = _socket_get_agent_socket_path
+    gpg_port = config.active['docker_socket_gpg_agent_port']
+    ssh_path = _socket_get_agent_ssh_socket_path
+    ssh_port = config.active['docker_socket_gpg_ssh_agent_port']
 
-    agent_socket_path = run cmd_agent_socket_path
-    agent_socket_path.chomp!
-
-    agent_socket_port =
-        config.active['docker_socket_gpg_agent_port']
-
-    cmd_agent_ssh_socket_path =
-        config.active['cmd_docker_socket_config_agent_ssh_socket_path']
-
-    agent_ssh_socket_path = run cmd_agent_ssh_socket_path
-    agent_ssh_socket_path.chomp!
-
-    agent_ssh_socket_port =
-        config.active['docker_socket_gpg_ssh_agent_port']
-
-    socket_scheme = {
-        'agent-socket' => {
-            'path' => agent_socket_path,
-            'host' => @socket_host,
-            'port' => agent_socket_port
-        },
-        'agent-ssh-socket' => {
-            'path' => agent_ssh_socket_path,
-            'host' => @socket_host,
-            'port' => agent_ssh_socket_port
-        }
-    }
-
-    log.debug "Docker socket scheme is \n\"\"\"\n#{hash_to_yaml socket_scheme}\"\"\""
+    socket_scheme = _socket_get_scheme gpg_path, gpg_port, ssh_path, ssh_port
+    log.debug 'Docker socket scheme is ' \
+      "\n\"\"\"\n#{hash_to_yaml socket_scheme}\"\"\""
 
     socket_scheme
   end
@@ -68,16 +45,11 @@ module DockerSocketModule
 
     return false unless docker_check_running
 
-    cmds_start_socket = _get_socket_start_commands sockets_up = false
+    cmds_start_socket = _get_socket_start_commands 'start'
 
-    unless cmds_start_socket.empty?
-      log.debug 'Request sudo so that subsequent background tasks run without delay'
+    return true unless cmds_start_socket.empty?
 
-      cmd_sudo_true =
-          config.active['cmd_docker_socket_start_sudo_true']
-
-      run cmd_sudo_true
-    end
+    _socket_get_sudo
 
     cmds_start_socket.each do |cmd_start_socket|
       run_and_fork cmd_start_socket
@@ -95,61 +67,62 @@ module DockerSocketModule
     # get process list
     # assuming format: "pid command"
     cmd_ps =
-        config.active['cmd_docker_socket_stop_docker_socket_ps']
+      config.active['cmd_docker_socket_stop_docker_socket_ps']
 
     stdout_str = run cmd_ps
 
-    cmds_start_socket = _get_socket_start_commands sockets_up = true
-
     # loop over process list
     stdout_str.split(/\n+/).each do |process|
-
-      # split processes in process id and process command
-      pid_command = process.strip.split(/ /, 2)
-      pid = pid_command[0]
-      command = pid_command[1]
-
-      # loop over socket start commands
-      cmds_start_socket.each do |cmd_start_socket|
-
-        if command == cmd_start_socket
-          log.debug "Killing PID #{pid}"
-
-          cmd_kill =
-              config.active['cmd_docker_socket_stop_docker_socket_kill'] % {
-                  pid: pid
-              }
-
-          run cmd_kill
-        end
-      end
+      _socket_stop_process process
     end
 
     true
   end
 
-  # get socket start commands
+  private
+
+  # Get gpg agent socket path.
+  def _socket_get_agent_socket_path
+    cmd_agent_socket_path =
+      config.active['cmd_docker_socket_config_agent_socket_path']
+    (run cmd_agent_socket_path).chomp
+  end
+
+  # Get gpg ssh agent socket path.
+  def _socket_get_agent_ssh_socket_path
+    cmd_agent_ssh_socket_path =
+      config.active['cmd_docker_socket_config_agent_ssh_socket_path']
+    (run cmd_agent_ssh_socket_path).chomp
+  end
+
+  # Create socket scheme.
+  def _socket_get_scheme(gpg_path, gpg_port, ssh_path, ssh_port)
+    { 'agent-socket' => { 'path' => gpg_path,
+                          'host' => @socket_host,
+                          'port' => gpg_port },
+      'agent-ssh-socket' => { 'path' => ssh_path,
+                              'host' => @socket_host,
+                              'port' => ssh_port } }
+  end
+
+  # Get socket start commands.
   # sockets_up is a boolean which defines if the sockets need to be up
   # to be included in the resulting array of socket start commands
-  def _get_socket_start_commands sockets_up
+  def _get_socket_start_commands(mode)
     cmds_start_socket = []
 
     # loop over sockets
     @sockets.each do |socket, socket_config|
-      cmd_start_socket =
-          config.active['cmd_docker_socket_get_start'] % {
-              port: socket_config['port'],
-              host: socket_config['host'],
-              path: socket_config['path'],
-          }
-
-      if sockets_up
-        if _socket_up? socket, socket_config
-          cmds_start_socket << cmd_start_socket
+      host = socket_config['host']
+      port = socket_config['port']
+      path = socket_config['path']
+      if mode == 'start'
+        if _socket_up? socket, host, port, path
+          cmds_start_socket.push _socket_get_cmd_start_socket(host, port, path)
         end
       else
-        unless _socket_up? socket, socket_config
-          cmds_start_socket << cmd_start_socket
+        unless _socket_up? socket, host, port, path
+          cmds_start_socket.push _socket_get_cmd_start_socket(host, port, path)
         end
       end
     end
@@ -157,41 +130,89 @@ module DockerSocketModule
     cmds_start_socket
   end
 
-  # check if a socket is available
-  # but trying to connect to it via TCP
-  def _socket_up? socket, socket_config
-    host = socket_config['host']
-    port = socket_config['port']
-    path = socket_config['path']
+  # Get socket start command.
+  def _socket_get_cmd_start_socket(host, port, path)
+    config.active['cmd_docker_socket_get_start'] % {
+      host: host,
+      port: port,
+      path: path
+    }
+  end
 
-    error_message = "failed to connect to " +
-        "socket \"#{socket}\" " +
-        "using host \"#{host}\", " +
-        "port \"#{port}\", " +
-        "path \"#{path}\""
+  # Check if a socket is available by trying to connect to it via TCP
+  def _socket_up?(socket, host, port, path)
 
-    # check if socket is available
+    error_message = _socket_get_error_message socket, host, port, path
+
     begin
-      Timeout::timeout(1) do
-        begin
-          s = TCPSocket.new host, port
-          s.close
-          log.debug "Socket \"#{socket}\" available"
-          return true
-        rescue Errno::ECONNREFUSED
-          log.debug "Connection refused: #{error_message}"
-          return false
-        rescue Errno::EHOSTUNREACH
-          log.debug "Host unreachable: #{error_message}"
-          return false
-        rescue SocketError
-          log.debug "Socket error: #{error_message}"
-          return false
-        end
+      Timeout.timeout(1) do
+        return false unless _socket_test socket, host, port, error_message
       end
     rescue Timeout::Error
       log.debug "Timeout: #{error_message}"
-      return false
+      false
+    end
+  end
+
+  # Create error message.
+  def _socket_get_error_message(socket, host, port, path)
+    'failed to connect to ' \
+        "socket \"#{socket}\" " \
+        "using host \"#{host}\", " \
+        "port \"#{port}\", " \
+        "path \"#{path}\""
+  end
+
+  # Test socket.
+  def _socket_test(socket, host, port, error_message)
+    begin
+      s = TCPSocket.new host, port
+      s.close
+      log.debug "Socket \"#{socket}\" available"
+      true
+    rescue Errno::ECONNREFUSED
+      log.debug "Connection refused: #{error_message}"
+    rescue Errno::EHOSTUNREACH
+      log.debug "Host unreachable: #{error_message}"
+    rescue SocketError
+      log.debug "Socket error: #{error_message}"
+    end
+    false
+  end
+
+  # Kill process.
+  def _socket_kill_pid
+    log.debug "Killing PID #{pid}"
+    cmd_kill =
+      config.active['cmd_docker_socket_stop_docker_socket_kill'].format(
+        pid: pid
+      )
+    run cmd_kill
+  end
+
+  # Get sudo.
+  def _socket_get_sudo
+    log.debug 'Request sudo so that ' \
+      'subsequent background tasks run without delay'
+    cmd_sudo_true =
+      config.active['cmd_docker_socket_start_sudo_true']
+    run cmd_sudo_true
+  end
+
+  # Stop process.
+  def _socket_stop_process(process)
+    # split processes in process id and process command
+    pid_command = process.strip.split(/ /, 2)
+    pid = pid_command[0]
+    command = pid_command[1]
+
+    cmds_start_socket = _get_socket_start_commands 'stop'
+
+    # loop over socket start commands
+    cmds_start_socket.each do |cmd_start_socket|
+      next unless command == cmd_start_socket
+
+      _socket_kill pid
     end
   end
 end

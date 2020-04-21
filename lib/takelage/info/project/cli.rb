@@ -1,8 +1,8 @@
-module Takelage
+# frozen_string_literal: true
 
+module Takelage
   # takelage info project
   class InfoProject < SubCommandBase
-
     include LoggingModule
     include SystemModule
     include ConfigModule

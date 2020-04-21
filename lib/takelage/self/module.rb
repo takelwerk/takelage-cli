@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # takelage self
 module SelfModule
   # Backend method for config self.

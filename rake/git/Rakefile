@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 cmd_git_tag = "git tag -s -m '%<version>s' %<version>s && git push --tags"
 
 namespace :git do
