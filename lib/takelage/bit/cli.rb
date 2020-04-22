@@ -3,7 +3,6 @@
 module Takelage
   # takelage bit
   class Bit < SubCommandBase
-
     desc 'check [COMMAND]', 'Check bit state'
     subcommand 'check', BitCheck
 

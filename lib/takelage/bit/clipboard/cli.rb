@@ -18,7 +18,7 @@ module Takelage
     Copy a directory as a bit component to a bit remote scope
     This command will add a directory as a bit component and tag it.
     The id of the component will be created from the directory name.
-    The directory needs to contain a README.bit file 
+    The directory needs to contain a README.bit file
     or else a new README.bit file will be created.
     The README.bit will be the main file of the component which must not be deleted.
     The tagged bit component will be exported to a bit remote scope.

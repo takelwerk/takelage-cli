@@ -41,14 +41,7 @@ module BitScopeModule
     cmd_bit_ssh =
       config.active['bit_ssh']
 
-    # prepare scope list command
-    root =
-      config.active['bit_root']
-
-    cmd_bit_scope_list = format(
-      config.active['cmd_bit_scope_list_find_scopes'],
-      root: root
-    )
+    cmd_bit_scope_list = _bit_scope_list_cmd
 
     # run ssh command with scope list command
     scope_list = run "#{cmd_bit_ssh} '#{cmd_bit_scope_list}'"
@@ -69,27 +62,12 @@ module BitScopeModule
 
     return false unless configured? %w[bit_ssh bit_remote]
 
-    # check if bit remote scope already exists
-    scope_list = bit_scope_list
-    if scope_list.include? scope
-      log.error "The remote bit scope \"#{scope}\" already exists"
-      return false
-    end
+    return false if _bit_scope_exists? scope
 
-    # get ssh command from active config
     cmd_bit_ssh = config.active['bit_ssh']
 
-    # prepare scope list command
-    root = config.active['bit_root']
+    cmd_bit_scope_new = _bit_scope_new_cmd
 
-    cmd_bit_scope_new =
-      format(
-        config.active['cmd_bit_scope_new_bit_init'],
-        scope: scope,
-        root: root
-      )
-
-    # run ssh command with scope new command
     run "#{cmd_bit_ssh} '#{cmd_bit_scope_new}'"
 
     log.info "Created new bit remote scope \"#{scope}\""
@@ -110,5 +88,36 @@ module BitScopeModule
 
     log.error 'Not on git master branch'
     false
+  end
+
+  # Prepare bit scope list command.
+  def _bit_scope_list_cmd
+    root =
+      config.active['bit_root']
+
+    format(
+      config.active['cmd_bit_scope_list_find_scopes'],
+      root: root
+    )
+  end
+
+  # Check if bit scope already exists.
+  def _bit_scope_exists?(scope)
+    scope_list = bit_scope_list
+    return false unless scope_list.include? scope
+
+    log.error "The remote bit scope \"#{scope}\" already exists"
+    false
+  end
+
+  # Prepare bit scope new command.
+  def _bit_scope_new_cmd
+    root = config.active['bit_root']
+
+    format(
+      config.active['cmd_bit_scope_new_bit_init'],
+      scope: scope,
+      root: root
+    )
   end
 end

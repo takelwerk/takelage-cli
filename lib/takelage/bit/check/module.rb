@@ -7,23 +7,31 @@ module BitCheckModule
   def bit_check_workspace
     log.debug 'Check if this is a bit workspace'
 
+    status_repo = _bit_check_workspace_bit_repo
+    return true if status_repo.exitstatus.zero?
+
+    dir = _bit_check_workspace_dir
+    log.debug "No bit workspace found in \"#{dir}\""
+    false
+  end
+
+  private
+
+  # Check bit repo.
+  def _bit_check_workspace_bit_repo
     cmd_bit_repo =
-        config.active['cmd_bit_check_workspace_bit_list']
+      config.active['cmd_bit_check_workspace_bit_list']
 
-    status_repo = try cmd_bit_repo
+    try cmd_bit_repo
+  end
 
+  # Get current working directory.
+  def _bit_check_workspace_dir
     cmd_pwd =
-        config.active['cmd_bit_check_workspace_pwd']
+      config.active['cmd_bit_check_workspace_pwd']
 
     stdout_str_dir = run cmd_pwd
 
-    dir = stdout_str_dir.strip
-
-    unless status_repo.exitstatus.zero?
-      log.debug "No bit workspace found in \"#{dir}\""
-      return false
-    end
-
-    true
+    stdout_str_dir.strip
   end
 end
