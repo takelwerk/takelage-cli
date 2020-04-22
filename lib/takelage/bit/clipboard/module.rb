@@ -27,7 +27,7 @@ module BitClipboardModule
 
     return false unless _bit_clipboard_cid_exists? cid
 
-    _bit_clipboard_import_cid cid
+    _bit_clipboard_import_cid cid, dir
     _handle_bitignore
     _bit_clipbpard_remove_bit_artifacts
     _bit_clipboard_sync_workspace
@@ -75,14 +75,18 @@ module BitClipboardModule
 
     return false unless _bit_clipboard_copy_dir_scope_exists scope
 
+    puts "$$$$$$$$$$$$"
+
     return false if _bit_clipboard_readme_bit_exists_in_subdir dir
+
+    puts "***************"
 
     id = _id(dir)
 
-    _bit_clipboard_touch_readme_bit
-    _bit_clipboard_add_dir dir
+    _bit_clipboard_touch_readme_bit dir
+    _bit_clipboard_add_dir id, dir
     _bit_clipboard_tag_dir id
-    _bit_clipboard_export_to_scope
+    _bit_clipboard_export_to_scope scope
     _bit_clipbpard_remove_bit_artifacts
     _bit_clipboard_sync_workspace
 
@@ -111,7 +115,7 @@ module BitClipboardModule
   end
 
   # touch README.bit if necessary
-  def _bit_clipboard_touch_readme_bit
+  def _bit_clipboard_touch_readme_bit(dir)
     readme_bit = "#{dir}/README.bit"
     return if File.file? readme_bit
 
@@ -124,11 +128,11 @@ module BitClipboardModule
     Dir.glob("#{dir}/**/README.bit").each do |file|
       unless file == "#{dir}/README.bit"
         log.error 'Nested README.bit file detected'
-        return false
+        return true
       end
     end
 
-    true
+    false
   end
 
   # Check if bit scope exists
@@ -230,7 +234,7 @@ module BitClipboardModule
     log.debug "Checking if scope \"#{scope}\" " \
                 "contains component id \"#{cid}\""
 
-    bit_list_scope = _bit_clipboard_cid_exists_list_scope
+    bit_list_scope = _bit_clipboard_cid_exists_list_scope scope
 
     return true unless bit_list_scope.include? '"id": "' + cid + '",'
 
@@ -255,10 +259,11 @@ module BitClipboardModule
   end
 
   # bit tag dir
-  def _bit_clipboard_add_dir(dir)
+  def _bit_clipboard_add_dir(id, dir)
     cmd_bit_add_dir = format(
       config.active['cmd_bit_clipboard_copy_bit_add_dir'],
-      id: id, dir: dir
+      id: id,
+      dir: dir
     )
 
     run cmd_bit_add_dir
@@ -275,7 +280,7 @@ module BitClipboardModule
   end
 
   # bit export component to bit remote scope
-  def _bit_clipboard_export_to_scope
+  def _bit_clipboard_export_to_scope(scope)
     cmd_bit_export_to_scope = format(
       config.active['cmd_bit_clipboard_copy_bit_export_to_scope'],
       scope: scope
@@ -285,7 +290,7 @@ module BitClipboardModule
   end
 
   # paste bit component into directory
-  def _bit_clipboard_import_cid(cid)
+  def _bit_clipboard_import_cid(cid, dir)
     cmd_bit_import_cid = format(
       config.active['cmd_bit_clipboard_paste_bit_import_cid'],
       cid: cid,
@@ -331,17 +336,17 @@ module BitClipboardModule
   def _bit_clipboard_sync_workspace
     log.debug 'Syncing git workspace'
 
-    _bit_clipboard_git_add
-    _bit_clipboard_git_commit
+    _rakefile, path = Rake.application.find_rakefile_location
+    bitmap = "#{path}/.bitmap"
+
+    _bit_clipboard_git_add bitmap
+    _bit_clipboard_git_commit bitmap
     _bit_clipboard_git_push
   end
 
   # git add .bitmap
-  def _bit_clipboard_git_add
+  def _bit_clipboard_git_add(bitmap)
     log.debug "Adding \"#{bitmap}\" to git"
-
-    _rakefile, path = Rake.application.find_rakefile_location
-    bitmap = "#{path}/.bitmap"
 
     cmd_bit_clipboard_git_add = format(
       config.active['cmd_bit_clipboard_git_add'],
@@ -351,7 +356,7 @@ module BitClipboardModule
   end
 
   # git commit -m "Update .bitmap"
-  def _bit_clipboard_git_commit
+  def _bit_clipboard_git_commit(bitmap)
     message = 'Update .bitmap'
 
     log.debug "Committing \"#{bitmap}\" to git"
@@ -389,7 +394,7 @@ module BitClipboardModule
   end
 
   # get components in remote scope
-  def _bit_clipboard_cid_exists_list_scope
+  def _bit_clipboard_cid_exists_list_scope(scope)
     cmd_bit_list_scope = format(
       config.active['cmd_bit_clipboard_paste_bit_list_scope'],
       scope: scope

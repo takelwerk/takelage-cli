@@ -41,7 +41,9 @@ module BitScopeModule
     cmd_bit_ssh =
       config.active['bit_ssh']
 
-    cmd_bit_scope_list = _bit_scope_list_cmd
+    root = config.active['bit_root']
+
+    cmd_bit_scope_list = _bit_scope_list_cmd root
 
     # run ssh command with scope list command
     scope_list = run "#{cmd_bit_ssh} '#{cmd_bit_scope_list}'"
@@ -66,7 +68,7 @@ module BitScopeModule
 
     cmd_bit_ssh = config.active['bit_ssh']
 
-    cmd_bit_scope_new = _bit_scope_new_cmd
+    cmd_bit_scope_new = _bit_scope_new_cmd scope
 
     run "#{cmd_bit_ssh} '#{cmd_bit_scope_new}'"
 
@@ -91,10 +93,7 @@ module BitScopeModule
   end
 
   # Prepare bit scope list command.
-  def _bit_scope_list_cmd
-    root =
-      config.active['bit_root']
-
+  def _bit_scope_list_cmd(root)
     format(
       config.active['cmd_bit_scope_list_find_scopes'],
       root: root
@@ -111,7 +110,7 @@ module BitScopeModule
   end
 
   # Prepare bit scope new command.
-  def _bit_scope_new_cmd
+  def _bit_scope_new_cmd(scope)
     root = config.active['bit_root']
 
     format(
