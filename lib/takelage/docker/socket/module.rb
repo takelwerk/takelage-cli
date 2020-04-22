@@ -132,10 +132,8 @@ module DockerSocketModule
       unless _socket_up? socket, host, port, path
         return _socket_get_cmd_start_socket(host, port, path)
       end
-    else
-      if _socket_up? socket, host, port, path
-        return _socket_get_cmd_start_socket(host, port, path)
-      end
+    elsif _socket_up? socket, host, port, path
+      return _socket_get_cmd_start_socket(host, port, path)
     end
     nil
   end
@@ -193,7 +191,7 @@ module DockerSocketModule
   # rubocop:enable Metrics/MethodLength
 
   # Kill process.
-  def _socket_kill_pid pid
+  def _socket_kill_pid(pid)
     log.debug "Killing PID #{pid}"
     cmd_kill =
       format(
