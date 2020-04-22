@@ -57,7 +57,7 @@ module DockerContainerModule
 
     return false unless docker_check_running
 
-    return false if _docker_container_harakiri
+    return false if _docker_container_harakiri?
 
     networks = _docker_container_kill_containers
 
@@ -189,13 +189,13 @@ module DockerContainerModule
   end
 
   # Check if we are running tau nuke inside a takelage container
-  def _docker_container_harakiri
+  def _docker_container_harakiri?
     hostname = ENV['HOSTNAME'] || ''
-    return true unless hostname.start_with? "#{@docker_repo}_"
+    return false unless hostname.start_with? "#{@docker_repo}_"
 
     log.error "Please run \"tau nuke\" outside of #{@docker_repo} containers"
     log.info "Run \"tau purge\" to remove orphaned #{@docker_repo} containers"
-    false
+    true
   end
 
   # Get container name by id.
