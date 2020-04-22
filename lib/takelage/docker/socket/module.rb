@@ -116,34 +116,41 @@ module DockerSocketModule
       host = socket_config['host']
       port = socket_config['port']
       path = socket_config['path']
-      if mode == 'start'
-        if _socket_up? socket, host, port, path
-          cmds_start_socket.push _socket_get_cmd_start_socket(host, port, path)
-        end
-      else
-        unless _socket_up? socket, host, port, path
-          cmds_start_socket.push _socket_get_cmd_start_socket(host, port, path)
-        end
-      end
+
+      cmd = _get_socket_start_command mode, socket, host, port, path
+      cmds_start_socket.push cmd if cmd
     end
 
     cmds_start_socket
   end
 
+  # Get socket start command
+  def _get_socket_start_command(mode, socket, host, port, path)
+    if mode == 'start'
+      if _socket_up? socket, host, port, path
+        return _socket_get_cmd_start_socket(host, port, path)
+      end
+    else
+      unless _socket_up? socket, host, port, path
+        return _socket_get_cmd_start_socket(host, port, path)
+      end
+    end
+    nil
+  end
+
   # Get socket start command.
   def _socket_get_cmd_start_socket(host, port, path)
-    config.active['cmd_docker_socket_get_start'] % {
+    format(
+      config.active['cmd_docker_socket_get_start'],
       host: host,
       port: port,
       path: path
-    }
+    )
   end
 
   # Check if a socket is available by trying to connect to it via TCP
   def _socket_up?(socket, host, port, path)
-
     error_message = _socket_get_error_message socket, host, port, path
-
     begin
       Timeout.timeout(1) do
         return false unless _socket_test socket, host, port, error_message
@@ -164,6 +171,7 @@ module DockerSocketModule
   end
 
   # Test socket.
+  # rubocop:disable Metrics/MethodLength
   def _socket_test(socket, host, port, error_message)
     begin
       s = TCPSocket.new host, port
@@ -179,6 +187,8 @@ module DockerSocketModule
     end
     false
   end
+
+  # rubocop:enable Metrics/MethodLength
 
   # Kill process.
   def _socket_kill_pid

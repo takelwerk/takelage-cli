@@ -27,6 +27,6 @@ end
 After '@after_remove_scope_my_scope' do
   cmd_bit_ssh = @config['bit_ssh']
   root = @config['bit_root']
-  cmd_bit_scope_remove = @config['cmd_bit_scope_remove_scope'].format(root: root, scope: 'my_scope')
+  cmd_bit_scope_remove = format(@config['cmd_bit_scope_remove_scope'], root: root, scope: 'my_scope')
   system "HOME=#{aruba.config.home_directory} && #{cmd_bit_ssh} '#{cmd_bit_scope_remove}'"
 end

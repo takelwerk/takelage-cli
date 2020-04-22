@@ -27,7 +27,7 @@ module DockerContainerCheckModule
 
   # Backend method for docker container check network.
   # @return [Boolean] is network existing?
-  def docker_container_check_network(network)
+  def _check_network(network)
     log.debug "Checking if network \"#{network}\" is existing"
 
     return false unless docker_check_running

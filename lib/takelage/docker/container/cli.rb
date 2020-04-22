@@ -16,7 +16,7 @@ module Takelage
     include DockerSocketModule
 
     # Initialize docker container
-    def initialize(args=[], local_options={}, configuration={})
+    def initialize(args = [], local_options = {}, configuration = {})
       # initialize thor parent class
       super args, local_options, configuration
 

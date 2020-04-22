@@ -27,7 +27,7 @@ module DockerImageTagLatestModule
 
     tags = docker_image_tag_list_remote
 
-    if tags == false or tags.nil?
+    if tags == false || tags.nil?
       log.warn 'No latest docker remote tag'
       return ''
     end
