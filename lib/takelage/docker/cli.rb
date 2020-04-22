@@ -1,10 +1,8 @@
 # frozen_string_literal: true
 
 module Takelage
-
   # takelage docker
   class Docker < SubCommandBase
-
     desc 'check [COMMAND]', 'Check docker'
     subcommand 'check', DockerCheck
 
@@ -16,6 +14,5 @@ module Takelage
 
     desc 'socket [COMMAND]', 'Handle sockets for docker containers'
     subcommand 'socket', DockerSocket
-
   end
 end

@@ -16,6 +16,8 @@ module Takelage
     include DockerSocketModule
 
     # Initialize docker container
+    # rubocop:disable Metrics/MethodLength
+    # rubocop:disable Metrics/AbcSize
     def initialize(args = [], local_options = {}, configuration = {})
       # initialize thor parent class
       super args, local_options, configuration
@@ -37,11 +39,11 @@ module Takelage
       @gpg_agent_port = config.active['docker_socket_gpg_agent_port']
       @gpg_ssh_agent_port = config.active['docker_socket_gpg_ssh_agent_port']
 
-      @username = ENV['USER'] ? ENV['USER'] : 'username'
+      @username = ENV['USER'] || 'username'
       @gid = Etc.getpwnam(@username).gid
       @uid = Etc.getpwnam(@username).uid
 
-      @homedir = ENV['HOME'] ? ENV['HOME'] : '/tmp'
+      @homedir = ENV['HOME'] || '/tmp'
       @workdir = Dir.getwd
       @hostname = "#{@docker_repo}_#{File.basename(@workdir)}"
 
@@ -50,6 +52,8 @@ module Takelage
       @socket_host = docker_socket_host
       @sockets = docker_socket_scheme
     end
+    # rubocop:enable Metrics/AbcSize
+    # rubocop:enable Metrics/MethodLength
 
     desc 'check [COMMAND]', 'Check docker container'
     subcommand 'check', DockerContainerCheck
@@ -70,10 +74,10 @@ module Takelage
     # docker container login
     #
     option :development,
-           :aliases => 'd',
-           :type => :boolean,
-           :default => false,
-           :desc => 'Log in to docker container in debug mode'
+           aliases: 'd',
+           type: :boolean,
+           default: false,
+           desc: 'Log in to docker container in debug mode'
     desc 'login', 'Log in to latest local docker container'
     long_desc <<-LONGDESC.gsub("\n", "\x5")
     Log in to latest local docker container

@@ -48,7 +48,9 @@ module DockerContainerModule
       return false unless _docker_container_create_container @hostname
     end
 
-    _docker_container_enter_container @hostname
+    cmd_enter_container = _docker_container_enter_container @hostname
+
+    run_and_exit cmd_enter_container
   end
 
   # Backend method for docker container nuke.
@@ -59,7 +61,7 @@ module DockerContainerModule
 
     return false if _docker_container_harakiri?
 
-    networks = _docker_container_kill_containers
+    networks = _docker_container_kill_existing_containers
 
     networks.each do |network|
       _docker_container_remove_network network if _check_network network
@@ -72,15 +74,7 @@ module DockerContainerModule
 
     return false unless docker_check_running
 
-    networks = []
-
-    _docker_container_get_containers.each do |container|
-      next unless docker_container_check_orphaned container
-
-      name = _docker_container_get_container_name_by_id container
-      _docker_container_stop_container container
-      networks << name unless networks.include? name
-    end
+    networks = _docker_container_kill_orphaned_containers
 
     networks.each do |network|
       _docker_container_remove_network network if _check_network network
@@ -102,23 +96,15 @@ module DockerContainerModule
   end
 
   # Create docker container.
+  # rubocop:disable Metrics/MethodLength
   def _docker_container_create_container(container)
     log.debug "Creating container \"#{container}\""
 
     image = "#{@docker_user}/#{@docker_repo}:#{@docker_tag}"
 
-    unless docker_image_tag_list_local.include? @docker_tag
-      log.error "No local image \"#{image}\" available"
-      log.info "Try: docker pull #{image}"
-      return false
-    end
+    return false unless _docker_container_image_available? image
 
     log.debug "Using docker image \"#{image}\""
-
-    unless docker_image_tag_check_local @docker_tag
-      log.error "Image \"#{image}\" does not exist"
-      return false
-    end
 
     unless @socket_host == '127.0.0.1'
       addhost = "--add-host host.docker.internal:#{@socket_host}"
@@ -127,7 +113,7 @@ module DockerContainerModule
     entrypoint = '/entrypoint.py '
     volume_dev = ''
     if options[:development]
-      entrypoint = '/debug/entrypoint.py --debug '
+      entrypoint += ' --debug '
       volume_dev = "--volume #{@workdir}/#{@docker_debug}:/debug "
     end
 
@@ -156,6 +142,16 @@ module DockerContainerModule
     run cmd_docker_create
     true
   end
+  # rubocop:enable Metrics/MethodLength
+
+  # Check if docker image is available
+  def _docker_container_image_available?(image)
+    return true if docker_image_tag_list_local.include? @docker_tag
+
+    log.error "No local image \"#{image}\" available"
+    log.info "Try: docker pull #{image}"
+    false
+  end
 
   # Create docker network.
   def _docker_container_create_network(network)
@@ -174,18 +170,15 @@ module DockerContainerModule
   def _docker_container_enter_container(container)
     log.debug "Entering container \"#{container}\""
 
-    loginpoint = '/loginpoint.py '
-    loginpoint = '/loginpoint.py --debug ' if options[:development]
+    loginpoint = '/loginpoint.py'
+    loginpoint += ' --debug ' if options[:development]
 
-    cmd_docker_enter =
-      format(
-        config.active['cmd_docker_container_enter_container'],
-        container: container,
-        loginpoint: loginpoint,
-        username: @username
-      )
-
-    run_and_exit cmd_docker_enter
+    format(
+      config.active['cmd_docker_container_enter_container'],
+      container: container,
+      loginpoint: loginpoint,
+      username: @username
+    )
   end
 
   # Check if we are running tau nuke inside a takelage container
@@ -234,10 +227,24 @@ module DockerContainerModule
     stdout_str.split(/\n+/)
   end
 
-  # Kill docker containers and return list of networks
-  def _docker_container_kill_containers
+  # Kill all docker containers and return list of networks
+  def _docker_container_kill_existing_containers
     networks = []
     _docker_container_get_containers.each do |container|
+      name = _docker_container_get_container_name_by_id container
+      _docker_container_stop_container container
+      networks << name unless networks.include? name
+    end
+    networks
+  end
+
+  # Kill orphaned docker containers and return list of networks
+  def _docker_container_kill_orphaned_containers
+    networks = []
+
+    _docker_container_get_containers.each do |container|
+      next unless docker_container_check_orphaned container
+
       name = _docker_container_get_container_name_by_id container
       _docker_container_stop_container container
       networks << name unless networks.include? name

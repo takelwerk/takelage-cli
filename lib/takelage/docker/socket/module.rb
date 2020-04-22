@@ -194,7 +194,8 @@ module DockerSocketModule
   def _socket_kill_pid
     log.debug "Killing PID #{pid}"
     cmd_kill =
-      config.active['cmd_docker_socket_stop_docker_socket_kill'].format(
+      format(
+        config.active['cmd_docker_socket_stop_docker_socket_kill'],
         pid: pid
       )
     run cmd_kill

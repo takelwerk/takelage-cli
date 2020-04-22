@@ -10,9 +10,10 @@ module DockerContainerCheckModule
     return false unless docker_check_running
 
     cmd_docker_existing =
-        config.active['cmd_docker_container_check_existing_docker_ps'] % {
-            container: container
-        }
+      format(
+        config.active['cmd_docker_container_check_existing_docker_ps'],
+        container: container
+      )
 
     stdout_str = run cmd_docker_existing
 
@@ -33,9 +34,10 @@ module DockerContainerCheckModule
     return false unless docker_check_running
 
     cmd_docker_network =
-        config.active['cmd_docker_container_check_network_docker_network'] % {
-            network: network
-        }
+      format(
+        config.active['cmd_docker_container_check_network_docker_network'],
+        network: network
+      )
 
     stdout_str = run cmd_docker_network
 
@@ -56,9 +58,10 @@ module DockerContainerCheckModule
     return false unless docker_check_running
 
     cmd_docker_orphaned =
-        config.active['cmd_docker_container_check_orphaned_docker_exec'] % {
-            container: container
-        }
+      format(
+        config.active['cmd_docker_container_check_orphaned_docker_exec'],
+        container: container
+      )
 
     stdout_str = run cmd_docker_orphaned
 
