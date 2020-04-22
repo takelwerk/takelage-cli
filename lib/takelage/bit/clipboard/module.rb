@@ -232,11 +232,11 @@ module BitClipboardModule
     scope = cid.scan(%r{([^/]*).*}).first.first
 
     log.debug "Checking if scope \"#{scope}\" " \
-                "contains component id \"#{cid}\""
+              "contains component id \"#{cid}\""
 
     bit_list_scope = _bit_clipboard_cid_exists_list_scope scope
 
-    return true unless bit_list_scope.include? '"id": "' + cid + '",'
+    return true if bit_list_scope.include? '"id": "' + cid + '",'
 
     log.error "No remote component \"#{cid}\""
     false

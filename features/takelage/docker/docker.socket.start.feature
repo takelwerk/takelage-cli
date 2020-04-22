@@ -2,8 +2,6 @@
 @docker.socket
 @docker.socket.start
 
-@announce-stdout
-
 Feature: I can start gpg sockets
 
   Scenario: Start gpg sockets

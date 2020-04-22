@@ -28,7 +28,7 @@ Feature: I can copy a directory as a new tagged bit component
     But a remote scope named "my_scope" should not exist
     And I successfully run `tau-cli bit scope new my_scope`
     And I successfully run `tau-cli bit scope add my_scope`
-    When I successfully run `tau-cli bit clipboard copy my_dir my_scope -l debug`
+    When I successfully run `tau-cli bit clipboard copy my_dir my_scope`
     Then the output should contain:
       """
       [INFO] Creating "README.bit" in "my_dir"
