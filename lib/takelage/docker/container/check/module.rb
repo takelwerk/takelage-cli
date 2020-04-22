@@ -9,13 +9,7 @@ module DockerContainerCheckModule
 
     return false unless docker_check_running
 
-    cmd_docker_existing =
-      format(
-        config.active['cmd_docker_container_check_existing_docker_ps'],
-        container: container
-      )
-
-    stdout_str = run cmd_docker_existing
+    stdout_str = run _docker_container_cmd_check_existing
 
     if stdout_str.to_s.strip.empty?
       log.debug "Container \"#{container}\" is not existing"
@@ -28,18 +22,12 @@ module DockerContainerCheckModule
 
   # Backend method for docker container check network.
   # @return [Boolean] is network existing?
-  def _check_network(network)
+  def docker_container_check_network(network)
     log.debug "Checking if network \"#{network}\" is existing"
 
     return false unless docker_check_running
 
-    cmd_docker_network =
-      format(
-        config.active['cmd_docker_container_check_network_docker_network'],
-        network: network
-      )
-
-    stdout_str = run cmd_docker_network
+    stdout_str = run _docker_container_cmd_check_network
 
     if stdout_str.to_s.strip.empty?
       log.debug "Network \"#{network}\" is not existing"
@@ -57,13 +45,7 @@ module DockerContainerCheckModule
 
     return false unless docker_check_running
 
-    cmd_docker_orphaned =
-      format(
-        config.active['cmd_docker_container_check_orphaned_docker_exec'],
-        container: container
-      )
-
-    stdout_str = run cmd_docker_orphaned
+    stdout_str = run _docker_container_cmd_check_orphaned
 
     if stdout_str.include? '/loginpoint.py'
       log.debug "Container \"#{container}\" isn't orphaned"
@@ -72,5 +54,28 @@ module DockerContainerCheckModule
 
     log.debug "Container \"#{container}\" is orphaned"
     true
+  end
+
+  private
+
+  def _docker_container_cmd_check_existing
+    format(
+      config.active['cmd_docker_container_check_existing_docker_ps'],
+      container: container
+    )
+  end
+
+  def _docker_container_cmd_check_network
+    format(
+      config.active['cmd_docker_container_check_network_docker_network'],
+      network: network
+    )
+  end
+
+  def _docker_container_cmd_check_orphaned
+    format(
+      config.active['cmd_docker_container_check_orphaned_docker_exec'],
+      container: container
+    )
   end
 end

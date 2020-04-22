@@ -10,7 +10,7 @@ module DockerContainerModule
 
     docker_socket_start
 
-    _docker_container_create_network @hostname unless _check_network @hostname
+    _create_network @hostname unless docker_container_check_network @hostname
 
     unless docker_container_check_existing @hostname
       return false unless _docker_container_create_container @hostname
@@ -25,7 +25,7 @@ module DockerContainerModule
 
     return false unless docker_check_running
 
-    _docker_container_create_network @hostname unless _check_network @hostname
+    _create_network @hostname unless docker_container_check_network @hostname
 
     unless docker_container_check_existing @hostname
       return false unless _docker_container_create_container @hostname
@@ -42,7 +42,7 @@ module DockerContainerModule
 
     _docker_container_login_check_outdated
     docker_socket_start
-    _docker_container_create_network @hostname unless _check_network @hostname
+    _create_network @hostname unless docker_container_check_network @hostname
 
     unless docker_container_check_existing @hostname
       return false unless _docker_container_create_container @hostname
@@ -64,7 +64,7 @@ module DockerContainerModule
     networks = _docker_container_kill_existing_containers
 
     networks.each do |network|
-      _docker_container_remove_network network if _check_network network
+      _remove_network network if docker_container_check_network network
     end
   end
 
@@ -77,7 +77,7 @@ module DockerContainerModule
     networks = _docker_container_kill_orphaned_containers
 
     networks.each do |network|
-      _docker_container_remove_network network if _check_network network
+      _remove_network network if docker_container_check_network network
     end
   end
 
@@ -154,7 +154,7 @@ module DockerContainerModule
   end
 
   # Create docker network.
-  def _docker_container_create_network(network)
+  def _create_network(network)
     log.debug "Create network \"#{network}\""
 
     cmd_create_network =
@@ -253,7 +253,7 @@ module DockerContainerModule
   end
 
   # Remove docker network.
-  def _docker_container_remove_network(network)
+  def _remove_network(network)
     log.debug "Remove network \"#{network}\""
 
     cmd_remove_network =

@@ -34,7 +34,7 @@ module Takelage
     LONGDESC
     # Check if docker network is existing.
     def network(network)
-      exit _check_network network
+      exit docker_container_check_network network
     end
 
     #

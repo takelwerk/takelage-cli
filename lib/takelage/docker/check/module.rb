@@ -9,10 +9,7 @@ module DockerCheckModule
 
     log.debug 'Check if the docker daemon is running'
 
-    cmd_docker_info =
-        config.active['cmd_docker_check_running_docker_info']
-
-    status = try cmd_docker_info
+    status = try config.active['cmd_docker_check_running_docker_info']
 
     unless status.exitstatus.zero?
       log.error 'The docker daemon is not running'
