@@ -6,12 +6,15 @@ require 'yaml'
 
 # Interaction with the operating system
 module SystemModule
+  # Convert hash to yaml.
+  # @return [String] yaml of hash
   def hash_to_yaml(hash)
     return nil.to_yaml if hash == {}
 
     hash.to_yaml({ line_width: -1 })
   end
 
+  # Read yaml file.
   # @return [Hash] content of yaml file
   def read_yaml_file(file)
     log.debug "Reading YAML file \"#{file}\""
@@ -76,7 +79,7 @@ module SystemModule
     true
   end
 
-  # Read YAML file.
+  # Read yaml file.
   def _file_read(file)
     begin
       @content_yaml = File.read file
@@ -87,7 +90,7 @@ module SystemModule
     true
   end
 
-  # Parse YAML file.
+  # Parse yaml file.
   def _parse_yaml(content_yaml)
     begin
       @content = YAML.safe_load content_yaml

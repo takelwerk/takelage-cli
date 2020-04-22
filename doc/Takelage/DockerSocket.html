@@ -269,7 +269,7 @@
   
   
   <h3 class="inherited">Methods included from <span class='object_link'><a href="../DockerSocketModule.html" title="DockerSocketModule (module)">DockerSocketModule</a></span></h3>
-  <p class="inherited"><span class='object_link'><a href="../DockerSocketModule.html#_get_socket_start_commands-instance_method" title="DockerSocketModule#_get_socket_start_commands (method)">#_get_socket_start_commands</a></span>, <span class='object_link'><a href="../DockerSocketModule.html#_socket_up%3F-instance_method" title="DockerSocketModule#_socket_up? (method)">#_socket_up?</a></span>, <span class='object_link'><a href="../DockerSocketModule.html#docker_socket_host-instance_method" title="DockerSocketModule#docker_socket_host (method)">#docker_socket_host</a></span>, <span class='object_link'><a href="../DockerSocketModule.html#docker_socket_scheme-instance_method" title="DockerSocketModule#docker_socket_scheme (method)">#docker_socket_scheme</a></span>, <span class='object_link'><a href="../DockerSocketModule.html#docker_socket_start-instance_method" title="DockerSocketModule#docker_socket_start (method)">#docker_socket_start</a></span>, <span class='object_link'><a href="../DockerSocketModule.html#docker_socket_stop-instance_method" title="DockerSocketModule#docker_socket_stop (method)">#docker_socket_stop</a></span></p>
+  <p class="inherited"><span class='object_link'><a href="../DockerSocketModule.html#docker_socket_host-instance_method" title="DockerSocketModule#docker_socket_host (method)">#docker_socket_host</a></span>, <span class='object_link'><a href="../DockerSocketModule.html#docker_socket_scheme-instance_method" title="DockerSocketModule#docker_socket_scheme (method)">#docker_socket_scheme</a></span>, <span class='object_link'><a href="../DockerSocketModule.html#docker_socket_start-instance_method" title="DockerSocketModule#docker_socket_start (method)">#docker_socket_start</a></span>, <span class='object_link'><a href="../DockerSocketModule.html#docker_socket_stop-instance_method" title="DockerSocketModule#docker_socket_stop (method)">#docker_socket_stop</a></span></p>
 
   
   
@@ -361,14 +361,12 @@
 16
 17
 18
-19
-20</pre>
+19</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/takelage/docker/socket/cli.rb', line 13</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_args'>args</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='id identifier rubyid_local_options'>local_options</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='id identifier rubyid_configuration'>configuration</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
-
   <span class='comment'># initialize thor parent class
 </span>  <span class='kw'>super</span> <span class='id identifier rubyid_args'>args</span><span class='comma'>,</span> <span class='id identifier rubyid_local_options'>local_options</span><span class='comma'>,</span> <span class='id identifier rubyid_configuration'>configuration</span>
 
@@ -413,13 +411,13 @@
       <pre class="lines">
 
 
+29
 30
 31
-32
-33</pre>
+32</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/takelage/docker/socket/cli.rb', line 30</span>
+      <pre class="code"><span class="info file"># File 'lib/takelage/docker/socket/cli.rb', line 29</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_host'>host</span>
   <span class='id identifier rubyid_say'>say</span> <span class='ivar'>@socket_host</span>
@@ -456,13 +454,13 @@
       <pre class="lines">
 
 
+42
 43
 44
-45
-46</pre>
+45</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/takelage/docker/socket/cli.rb', line 43</span>
+      <pre class="code"><span class="info file"># File 'lib/takelage/docker/socket/cli.rb', line 42</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_scheme'>scheme</span>
   <span class='id identifier rubyid_say'>say</span> <span class='id identifier rubyid_hash_to_yaml'>hash_to_yaml</span><span class='lparen'>(</span><span class='ivar'>@sockets</span><span class='rparen'>)</span>
@@ -499,12 +497,12 @@
       <pre class="lines">
 
 
+55
 56
-57
-58</pre>
+57</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/takelage/docker/socket/cli.rb', line 56</span>
+      <pre class="code"><span class="info file"># File 'lib/takelage/docker/socket/cli.rb', line 55</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_start'>start</span>
   <span class='id identifier rubyid_exit'>exit</span> <span class='id identifier rubyid_docker_socket_start'>docker_socket_start</span>
@@ -540,12 +538,12 @@
       <pre class="lines">
 
 
+67
 68
-69
-70</pre>
+69</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/takelage/docker/socket/cli.rb', line 68</span>
+      <pre class="code"><span class="info file"># File 'lib/takelage/docker/socket/cli.rb', line 67</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_stop'>stop</span>
   <span class='id identifier rubyid_exit'>exit</span> <span class='id identifier rubyid_docker_socket_stop'>docker_socket_stop</span>
@@ -560,7 +558,7 @@
 </div>
 
       <div id="footer">
-  Generated on Mon Apr 20 00:22:42 2020 by
+  Generated on Thu Apr 23 01:06:35 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.24 (ruby-2.6.3).
 </div>

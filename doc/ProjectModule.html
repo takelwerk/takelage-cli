@@ -110,33 +110,6 @@
   
 </p>
 
-  
-    <h2>
-      Constant Summary
-      <small><a href="#" class="constants_summary_toggle">collapse</a></small>
-    </h2>
-
-    <dl class="constants">
-      
-        <dt id="project-classvariable" class="">@@project =
-          <div class="docstring">
-  <div class="discussion">
-    
-<p>Global singleton config</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-
-</div>
-        </dt>
-        <dd><pre class="code"><span class='const'><span class='object_link'><a href="ProjectModule/TakelageProject.html" title="ProjectModule::TakelageProject (class)">TakelageProject</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="ProjectModule/TakelageProject.html#initialize-instance_method" title="ProjectModule::TakelageProject#initialize (method)">new</a></span></span></pre></dd>
-      
-    </dl>
-  
-
 
 
 
@@ -238,59 +211,15 @@
 23
 24
 25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41
-42
-43
-44
-45
-46
-47
-48</pre>
+26</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/takelage/lib/project.rb', line 22</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize_project'>initialize_project</span>
-  <span class='id identifier rubyid__rakefile'>_rakefile</span><span class='comma'>,</span> <span class='id identifier rubyid_path'>path</span> <span class='op'>=</span> <span class='const'>Rake</span><span class='period'>.</span><span class='id identifier rubyid_application'>application</span><span class='period'>.</span><span class='id identifier rubyid_find_rakefile_location'>find_rakefile_location</span>
-
-  <span class='id identifier rubyid_main_file'>main_file</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_path'>path</span><span class='embexpr_end'>}</span><span class='tstring_content'>/</span><span class='embexpr_beg'>#{</span><span class='cvar'>@@project</span><span class='period'>.</span><span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_active'>active</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>info_project_main</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span>
-  <span class='id identifier rubyid_private_file'>private_file</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_path'>path</span><span class='embexpr_end'>}</span><span class='tstring_content'>/</span><span class='embexpr_beg'>#{</span><span class='cvar'>@@project</span><span class='period'>.</span><span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_active'>active</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>info_project_private</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span>
-
-  <span class='comment'># read main project info
-</span>  <span class='kw'>if</span> <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_exist?'>exist?</span> <span class='id identifier rubyid_main_file'>main_file</span>
-    <span class='cvar'>@@project</span><span class='period'>.</span><span class='id identifier rubyid_main'>main</span> <span class='op'>=</span> <span class='id identifier rubyid_read_yaml_file'>read_yaml_file</span><span class='lparen'>(</span><span class='id identifier rubyid_main_file'>main_file</span><span class='rparen'>)</span> <span class='op'>||</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
-    <span class='cvar'>@@project</span><span class='period'>.</span><span class='id identifier rubyid_main'>main</span> <span class='op'>=</span> <span class='cvar'>@@project</span><span class='period'>.</span><span class='id identifier rubyid_main'>main</span><span class='period'>.</span><span class='id identifier rubyid_sort'>sort</span><span class='period'>.</span><span class='id identifier rubyid_to_h'>to_h</span>
-  <span class='kw'>end</span>
-
-  <span class='comment'># read private project info
-</span>  <span class='kw'>if</span> <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_exist?'>exist?</span> <span class='id identifier rubyid_private_file'>private_file</span>
-    <span class='cvar'>@@project</span><span class='period'>.</span><span class='id identifier rubyid_private'>private</span> <span class='op'>=</span> <span class='id identifier rubyid_read_yaml_file'>read_yaml_file</span><span class='lparen'>(</span><span class='id identifier rubyid_private_file'>private_file</span><span class='rparen'>)</span> <span class='op'>||</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
-    <span class='cvar'>@@project</span><span class='period'>.</span><span class='id identifier rubyid_private'>private</span> <span class='op'>=</span> <span class='cvar'>@@project</span><span class='period'>.</span><span class='id identifier rubyid_private'>private</span><span class='period'>.</span><span class='id identifier rubyid_sort'>sort</span><span class='period'>.</span><span class='id identifier rubyid_to_h'>to_h</span>
-  <span class='kw'>end</span>
-
-  <span class='comment'># make a clone or else we&#39;ll change the original hash
-</span>  <span class='id identifier rubyid_main'>main</span> <span class='op'>=</span> <span class='cvar'>@@project</span><span class='period'>.</span><span class='id identifier rubyid_main'>main</span><span class='period'>.</span><span class='id identifier rubyid_clone'>clone</span>
-  <span class='id identifier rubyid_private'>private</span> <span class='op'>=</span> <span class='cvar'>@@project</span><span class='period'>.</span><span class='id identifier rubyid_private'>private</span><span class='period'>.</span><span class='id identifier rubyid_clone'>clone</span>
-
-  <span class='comment'># merge main and private to active
-</span>  <span class='comment'># private wins against main
-</span>  <span class='cvar'>@@project</span><span class='period'>.</span><span class='id identifier rubyid_active'>active</span> <span class='op'>=</span> <span class='id identifier rubyid_main'>main</span><span class='period'>.</span><span class='id identifier rubyid_merge!'>merge!</span><span class='lparen'>(</span><span class='id identifier rubyid_private'>private</span><span class='rparen'>)</span>
-  <span class='cvar'>@@project</span><span class='period'>.</span><span class='id identifier rubyid_active'>active</span> <span class='op'>=</span> <span class='cvar'>@@project</span><span class='period'>.</span><span class='id identifier rubyid_active'>active</span><span class='period'>.</span><span class='id identifier rubyid_sort'>sort</span><span class='period'>.</span><span class='id identifier rubyid_to_h'>to_h</span>
+  <span class='const'><span class='object_link'><a href="ProjectModule/TakelageProject.html" title="ProjectModule::TakelageProject (class)">TakelageProject</a></span></span><span class='period'>.</span><span class='id identifier rubyid_instance'>instance</span><span class='period'>.</span><span class='id identifier rubyid_main'>main</span> <span class='op'>=</span> <span class='id identifier rubyid__project_read_main'>_project_read_main</span>
+  <span class='const'><span class='object_link'><a href="ProjectModule/TakelageProject.html" title="ProjectModule::TakelageProject (class)">TakelageProject</a></span></span><span class='period'>.</span><span class='id identifier rubyid_instance'>instance</span><span class='period'>.</span><span class='id identifier rubyid_private'>private</span> <span class='op'>=</span> <span class='id identifier rubyid__project_read_private'>_project_read_private</span>
+  <span class='const'><span class='object_link'><a href="ProjectModule/TakelageProject.html" title="ProjectModule::TakelageProject (class)">TakelageProject</a></span></span><span class='period'>.</span><span class='id identifier rubyid_instance'>instance</span><span class='period'>.</span><span class='id identifier rubyid_active'>active</span> <span class='op'>=</span> <span class='id identifier rubyid__project_merge_active'>_project_merge_active</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -341,15 +270,15 @@
       <pre class="lines">
 
 
-51
-52
-53</pre>
+29
+30
+31</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/takelage/lib/project.rb', line 51</span>
+      <pre class="code"><span class="info file"># File 'lib/takelage/lib/project.rb', line 29</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_project'>project</span>
-  <span class='cvar'>@@project</span>
+  <span class='const'><span class='object_link'><a href="ProjectModule/TakelageProject.html" title="ProjectModule::TakelageProject (class)">TakelageProject</a></span></span><span class='period'>.</span><span class='id identifier rubyid_instance'>instance</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -361,7 +290,7 @@
 </div>
 
       <div id="footer">
-  Generated on Mon Apr 20 00:22:41 2020 by
+  Generated on Thu Apr 23 01:06:34 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.24 (ruby-2.6.3).
 </div>

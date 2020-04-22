@@ -117,198 +117,6 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#_create_container-instance_method" title="#_create_container (instance method)">#<strong>_create_container</strong>(container)  &#x21d2; Object </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'>
-<p>Create docker container.</p>
-</div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#_create_network-instance_method" title="#_create_network (instance method)">#<strong>_create_network</strong>(network)  &#x21d2; Object </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'>
-<p>Create docker network.</p>
-</div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#_enter_container-instance_method" title="#_enter_container (instance method)">#<strong>_enter_container</strong>(container)  &#x21d2; Object </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'>
-<p>Enter existing docker container.</p>
-</div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#_get_container_name_by_id-instance_method" title="#_get_container_name_by_id (instance method)">#<strong>_get_container_name_by_id</strong>(container)  &#x21d2; Object </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'>
-<p>Get container name by id.</p>
-</div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#_get_containers-instance_method" title="#_get_containers (instance method)">#<strong>_get_containers</strong>  &#x21d2; Array </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'>
-<p>Get all docker containers.</p>
-</div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#_remove_network-instance_method" title="#_remove_network (instance method)">#<strong>_remove_network</strong>(network)  &#x21d2; Object </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'>
-<p>Remove docker network.</p>
-</div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#_run_command_in_container-instance_method" title="#_run_command_in_container (instance method)">#<strong>_run_command_in_container</strong>(container, command)  &#x21d2; Object </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'>
-<p>Enter existing docker container.</p>
-</div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#_stop_container-instance_method" title="#_stop_container (instance method)">#<strong>_stop_container</strong>(container)  &#x21d2; Object </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'>
-<p>Stop container.</p>
-</div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
       <a href="#docker_container_command-instance_method" title="#docker_container_command (instance method)">#<strong>docker_container_command</strong>(command)  &#x21d2; Object </a>
     
 
@@ -436,585 +244,7 @@
 
     
       <div class="method_details first">
-  <h3 class="signature first" id="_create_container-instance_method">
-  
-    #<strong>_create_container</strong>(container)  &#x21d2; <tt>Object</tt> 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    
-<p>Create docker container.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-107
-108
-109
-110
-111
-112
-113
-114
-115
-116
-117
-118
-119
-120
-121
-122
-123
-124
-125
-126
-127
-128
-129
-130
-131
-132
-133
-134
-135
-136
-137
-138
-139
-140
-141
-142
-143
-144
-145
-146
-147
-148
-149
-150
-151
-152
-153
-154
-155
-156
-157
-158</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/takelage/docker/container/module.rb', line 107</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid__create_container'>_create_container</span><span class='lparen'>(</span><span class='id identifier rubyid_container'>container</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_log'>log</span><span class='period'>.</span><span class='id identifier rubyid_debug'>debug</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Creating container \&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_container'>container</span><span class='embexpr_end'>}</span><span class='tstring_content'>\&quot;</span><span class='tstring_end'>&quot;</span></span>
-
-  <span class='id identifier rubyid_image'>image</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='ivar'>@docker_user</span><span class='embexpr_end'>}</span><span class='tstring_content'>/</span><span class='embexpr_beg'>#{</span><span class='ivar'>@docker_repo</span><span class='embexpr_end'>}</span><span class='tstring_content'>:</span><span class='embexpr_beg'>#{</span><span class='ivar'>@docker_tag</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span>
-
-  <span class='kw'>unless</span> <span class='id identifier rubyid_docker_image_tag_list_local'>docker_image_tag_list_local</span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span> <span class='ivar'>@docker_tag</span>
-    <span class='id identifier rubyid_log'>log</span><span class='period'>.</span><span class='id identifier rubyid_error'>error</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>No local image \&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_image'>image</span><span class='embexpr_end'>}</span><span class='tstring_content'>\&quot; available</span><span class='tstring_end'>&quot;</span></span>
-    <span class='kw'>return</span> <span class='kw'>false</span>
-  <span class='kw'>end</span>
-
-  <span class='id identifier rubyid_log'>log</span><span class='period'>.</span><span class='id identifier rubyid_debug'>debug</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Using docker image \&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_image'>image</span><span class='embexpr_end'>}</span><span class='tstring_content'>\&quot;</span><span class='tstring_end'>&quot;</span></span>
-
-  <span class='kw'>unless</span> <span class='id identifier rubyid_docker_image_tag_check_local'>docker_image_tag_check_local</span> <span class='ivar'>@docker_tag</span>
-    <span class='id identifier rubyid_log'>log</span><span class='period'>.</span><span class='id identifier rubyid_error'>error</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Image \&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_image'>image</span><span class='embexpr_end'>}</span><span class='tstring_content'>\&quot; does not exist</span><span class='tstring_end'>&quot;</span></span>
-    <span class='kw'>return</span> <span class='kw'>false</span>
-  <span class='kw'>end</span>
-
-  <span class='kw'>unless</span> <span class='ivar'>@socket_host</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>127.0.0.1</span><span class='tstring_end'>&#39;</span></span>
-    <span class='id identifier rubyid_addhost'>addhost</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>--add-host host.docker.internal:</span><span class='embexpr_beg'>#{</span><span class='ivar'>@socket_host</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span>
-  <span class='kw'>end</span>
-
-  <span class='id identifier rubyid_entrypoint'>entrypoint</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/entrypoint.py </span><span class='tstring_end'>&#39;</span></span>
-  <span class='id identifier rubyid_volume_dev'>volume_dev</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_end'>&#39;</span></span>
-  <span class='kw'>if</span> <span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:development</span><span class='rbracket'>]</span>
-    <span class='id identifier rubyid_entrypoint'>entrypoint</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/debug/entrypoint.py --debug </span><span class='tstring_end'>&#39;</span></span>
-    <span class='id identifier rubyid_volume_dev'>volume_dev</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>--volume </span><span class='embexpr_beg'>#{</span><span class='ivar'>@workdir</span><span class='embexpr_end'>}</span><span class='tstring_content'>/</span><span class='embexpr_beg'>#{</span><span class='ivar'>@docker_debug</span><span class='embexpr_end'>}</span><span class='tstring_content'>:/debug </span><span class='tstring_end'>&quot;</span></span>
-  <span class='kw'>end</span>
-
-  <span class='id identifier rubyid_cmd_docker_create'>cmd_docker_create</span> <span class='op'>=</span>
-      <span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_active'>active</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>cmd_docker_container_create</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span> <span class='op'>%</span> <span class='lbrace'>{</span>
-          <span class='label'>workdir:</span> <span class='ivar'>@workdir</span><span class='comma'>,</span>
-          <span class='label'>timezone:</span> <span class='ivar'>@timezone</span><span class='comma'>,</span>
-          <span class='label'>container:</span> <span class='id identifier rubyid_container'>container</span><span class='comma'>,</span>
-          <span class='label'>dockersock:</span> <span class='ivar'>@dockersock</span><span class='comma'>,</span>
-          <span class='label'>homedir:</span> <span class='ivar'>@homedir</span><span class='comma'>,</span>
-          <span class='label'>volume_dev:</span> <span class='id identifier rubyid_volume_dev'>volume_dev</span><span class='comma'>,</span>
-          <span class='label'>image:</span> <span class='id identifier rubyid_image'>image</span><span class='comma'>,</span>
-          <span class='label'>addhost:</span> <span class='id identifier rubyid_addhost'>addhost</span><span class='comma'>,</span>
-          <span class='label'>dockerrun_options:</span> <span class='ivar'>@dockerrun_options</span><span class='comma'>,</span>
-          <span class='label'>entrypoint:</span> <span class='id identifier rubyid_entrypoint'>entrypoint</span><span class='comma'>,</span>
-          <span class='label'>gid:</span> <span class='ivar'>@gid</span><span class='comma'>,</span>
-          <span class='label'>uid:</span> <span class='ivar'>@uid</span><span class='comma'>,</span>
-          <span class='label'>username:</span> <span class='ivar'>@username</span><span class='comma'>,</span>
-          <span class='label'>gpg_agent_port:</span> <span class='ivar'>@gpg_agent_port</span><span class='comma'>,</span>
-          <span class='label'>gpg_ssh_agent_port:</span> <span class='ivar'>@gpg_ssh_agent_port</span><span class='comma'>,</span>
-          <span class='label'>extra:</span> <span class='ivar'>@entrypoint_extra</span><span class='comma'>,</span>
-          <span class='label'>entrypoint_options:</span> <span class='ivar'>@entrypoint_options</span>
-      <span class='rbrace'>}</span>
-
-  <span class='id identifier rubyid_run'>run</span> <span class='id identifier rubyid_cmd_docker_create'>cmd_docker_create</span>
-  <span class='kw'>true</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="_create_network-instance_method">
-  
-    #<strong>_create_network</strong>(network)  &#x21d2; <tt>Object</tt> 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    
-<p>Create docker network.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-161
-162
-163
-164
-165
-166
-167
-168
-169
-170</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/takelage/docker/container/module.rb', line 161</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid__create_network'>_create_network</span><span class='lparen'>(</span><span class='id identifier rubyid_network'>network</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_log'>log</span><span class='period'>.</span><span class='id identifier rubyid_debug'>debug</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Create network \&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_network'>network</span><span class='embexpr_end'>}</span><span class='tstring_content'>\&quot;</span><span class='tstring_end'>&quot;</span></span>
-
-  <span class='id identifier rubyid_cmd_create_network'>cmd_create_network</span> <span class='op'>=</span>
-      <span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_active'>active</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>cmd_docker_container_create_network</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span> <span class='op'>%</span> <span class='lbrace'>{</span>
-          <span class='label'>network:</span> <span class='id identifier rubyid_network'>network</span>
-      <span class='rbrace'>}</span>
-
-  <span class='id identifier rubyid_run'>run</span> <span class='id identifier rubyid_cmd_create_network'>cmd_create_network</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="_enter_container-instance_method">
-  
-    #<strong>_enter_container</strong>(container)  &#x21d2; <tt>Object</tt> 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    
-<p>Enter existing docker container.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-173
-174
-175
-176
-177
-178
-179
-180
-181
-182
-183
-184
-185
-186
-187
-188
-189</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/takelage/docker/container/module.rb', line 173</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid__enter_container'>_enter_container</span><span class='lparen'>(</span><span class='id identifier rubyid_container'>container</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_log'>log</span><span class='period'>.</span><span class='id identifier rubyid_debug'>debug</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Entering container \&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_container'>container</span><span class='embexpr_end'>}</span><span class='tstring_content'>\&quot;</span><span class='tstring_end'>&quot;</span></span>
-
-  <span class='id identifier rubyid_loginpoint'>loginpoint</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/loginpoint.py </span><span class='tstring_end'>&#39;</span></span>
-  <span class='kw'>if</span> <span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:development</span><span class='rbracket'>]</span>
-    <span class='id identifier rubyid_loginpoint'>loginpoint</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>/loginpoint.py --debug </span><span class='tstring_end'>&#39;</span></span>
-  <span class='kw'>end</span>
-
-  <span class='id identifier rubyid_cmd_docker_enter'>cmd_docker_enter</span> <span class='op'>=</span>
-      <span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_active'>active</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>cmd_docker_container_enter_container</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span> <span class='op'>%</span> <span class='lbrace'>{</span>
-          <span class='label'>container:</span> <span class='id identifier rubyid_container'>container</span><span class='comma'>,</span>
-          <span class='label'>loginpoint:</span> <span class='id identifier rubyid_loginpoint'>loginpoint</span><span class='comma'>,</span>
-          <span class='label'>username:</span> <span class='ivar'>@username</span>
-      <span class='rbrace'>}</span>
-
-  <span class='id identifier rubyid_run_and_exit'>run_and_exit</span> <span class='id identifier rubyid_cmd_docker_enter'>cmd_docker_enter</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="_get_container_name_by_id-instance_method">
-  
-    #<strong>_get_container_name_by_id</strong>(container)  &#x21d2; <tt>Object</tt> 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    
-<p>Get container name by id.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-192
-193
-194
-195
-196
-197
-198
-199
-200
-201
-202
-203
-204
-205
-206
-207</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/takelage/docker/container/module.rb', line 192</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid__get_container_name_by_id'>_get_container_name_by_id</span> <span class='id identifier rubyid_container'>container</span>
-  <span class='id identifier rubyid_log'>log</span><span class='period'>.</span><span class='id identifier rubyid_debug'>debug</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Getting name of container \&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_container'>container</span><span class='embexpr_end'>}</span><span class='tstring_content'>\&quot;</span><span class='tstring_end'>&quot;</span></span>
-
-  <span class='id identifier rubyid_cmd_get_container_name_by_id'>cmd_get_container_name_by_id</span> <span class='op'>=</span>
-      <span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_active'>active</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>cmd_docker_container_get_container_name</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span> <span class='op'>%</span> <span class='lbrace'>{</span>
-          <span class='label'>container:</span> <span class='id identifier rubyid_container'>container</span>
-      <span class='rbrace'>}</span>
-
-  <span class='id identifier rubyid_stdout_str'>stdout_str</span> <span class='op'>=</span> <span class='id identifier rubyid_run'>run</span> <span class='id identifier rubyid_cmd_get_container_name_by_id'>cmd_get_container_name_by_id</span>
-
-  <span class='id identifier rubyid_name'>name</span> <span class='op'>=</span> <span class='id identifier rubyid_stdout_str'>stdout_str</span><span class='period'>.</span><span class='id identifier rubyid_chomp'>chomp</span>
-
-  <span class='id identifier rubyid_log'>log</span><span class='period'>.</span><span class='id identifier rubyid_debug'>debug</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Container </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_container'>container</span><span class='embexpr_end'>}</span><span class='tstring_content'> has name \&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_name'>name</span><span class='embexpr_end'>}</span><span class='tstring_content'>\&quot;</span><span class='tstring_end'>&quot;</span></span>
-
-  <span class='id identifier rubyid_name'>name</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="_get_containers-instance_method">
-  
-    #<strong>_get_containers</strong>  &#x21d2; <tt>Array</tt> 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    
-<p>Get all docker containers.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-<p class="tag_title">Returns:</p>
-<ul class="return">
-  
-    <li>
-      
-      
-        <span class='type'>(<tt>Array</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'>
-<p>list of docker containers</p>
-</div>
-      
-    </li>
-  
-</ul>
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-211
-212
-213
-214
-215
-216
-217
-218
-219
-220
-221
-222
-223</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/takelage/docker/container/module.rb', line 211</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid__get_containers'>_get_containers</span>
-  <span class='id identifier rubyid_log'>log</span><span class='period'>.</span><span class='id identifier rubyid_debug'>debug</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Getting all containers of image \&quot;</span><span class='embexpr_beg'>#{</span><span class='ivar'>@docker_repo</span><span class='embexpr_end'>}</span><span class='tstring_content'>\&quot;</span><span class='tstring_end'>&quot;</span></span>
-
-  <span class='id identifier rubyid_cmd_docker_get'>cmd_docker_get</span> <span class='op'>=</span>
-      <span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_active'>active</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>cmd_docker_container_get_containers</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span> <span class='op'>%</span> <span class='lbrace'>{</span>
-          <span class='label'>docker_repo:</span> <span class='ivar'>@docker_repo</span>
-      <span class='rbrace'>}</span>
-
-  <span class='id identifier rubyid_stdout_str'>stdout_str</span> <span class='op'>=</span> <span class='id identifier rubyid_run'>run</span> <span class='id identifier rubyid_cmd_docker_get'>cmd_docker_get</span>
-
-  <span class='comment'># convert stdout lines to array and return array
-</span>  <span class='id identifier rubyid_stdout_str'>stdout_str</span><span class='period'>.</span><span class='id identifier rubyid_split'>split</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>\n+</span><span class='regexp_end'>/</span></span><span class='rparen'>)</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="_remove_network-instance_method">
-  
-    #<strong>_remove_network</strong>(network)  &#x21d2; <tt>Object</tt> 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    
-<p>Remove docker network.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-226
-227
-228
-229
-230
-231
-232
-233
-234
-235</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/takelage/docker/container/module.rb', line 226</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid__remove_network'>_remove_network</span> <span class='id identifier rubyid_network'>network</span>
-  <span class='id identifier rubyid_log'>log</span><span class='period'>.</span><span class='id identifier rubyid_debug'>debug</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Remove network \&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_network'>network</span><span class='embexpr_end'>}</span><span class='tstring_content'>\&quot;</span><span class='tstring_end'>&quot;</span></span>
-
-  <span class='id identifier rubyid_cmd_remove_network'>cmd_remove_network</span> <span class='op'>=</span>
-      <span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_active'>active</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>cmd_docker_container_remove_network</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span> <span class='op'>%</span> <span class='lbrace'>{</span>
-          <span class='label'>network:</span> <span class='id identifier rubyid_network'>network</span>
-      <span class='rbrace'>}</span>
-
-  <span class='id identifier rubyid_run'>run</span> <span class='id identifier rubyid_cmd_remove_network'>cmd_remove_network</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="_run_command_in_container-instance_method">
-  
-    #<strong>_run_command_in_container</strong>(container, command)  &#x21d2; <tt>Object</tt> 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    
-<p>Enter existing docker container.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-238
-239
-240
-241
-242
-243
-244
-245
-246
-247
-248
-249</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/takelage/docker/container/module.rb', line 238</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid__run_command_in_container'>_run_command_in_container</span><span class='lparen'>(</span><span class='id identifier rubyid_container'>container</span><span class='comma'>,</span> <span class='id identifier rubyid_command'>command</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_log'>log</span><span class='period'>.</span><span class='id identifier rubyid_debug'>debug</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Running command \&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_command'>command</span><span class='embexpr_end'>}</span><span class='tstring_content'>\&quot; in container \&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_container'>container</span><span class='embexpr_end'>}</span><span class='tstring_content'>\&quot;</span><span class='tstring_end'>&quot;</span></span>
-
-  <span class='id identifier rubyid_cmd_docker_run_command'>cmd_docker_run_command</span> <span class='op'>=</span>
-      <span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_active'>active</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>cmd_docker_container_docker_exec</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span> <span class='op'>%</span> <span class='lbrace'>{</span>
-          <span class='label'>container:</span> <span class='id identifier rubyid_container'>container</span><span class='comma'>,</span>
-          <span class='label'>username:</span> <span class='ivar'>@username</span><span class='comma'>,</span>
-          <span class='label'>command:</span> <span class='id identifier rubyid_command'>command</span>
-      <span class='rbrace'>}</span>
-
-  <span class='id identifier rubyid_run_and_exit'>run_and_exit</span> <span class='id identifier rubyid_cmd_docker_run_command'>cmd_docker_run_command</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="_stop_container-instance_method">
-  
-    #<strong>_stop_container</strong>(container)  &#x21d2; <tt>Object</tt> 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    
-<p>Stop container.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-252
-253
-254
-255
-256
-257
-258
-259
-260
-261</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/takelage/docker/container/module.rb', line 252</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid__stop_container'>_stop_container</span><span class='lparen'>(</span><span class='id identifier rubyid_container'>container</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_log'>log</span><span class='period'>.</span><span class='id identifier rubyid_debug'>debug</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Stopping container \&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_container'>container</span><span class='embexpr_end'>}</span><span class='tstring_content'>\&quot;</span><span class='tstring_end'>&quot;</span></span>
-
-  <span class='id identifier rubyid_cmd_docker_stop'>cmd_docker_stop</span> <span class='op'>=</span>
-      <span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_active'>active</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>cmd_docker_container_stop_container</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span> <span class='op'>%</span> <span class='lbrace'>{</span>
-          <span class='label'>container:</span> <span class='id identifier rubyid_container'>container</span>
-      <span class='rbrace'>}</span>
-
-  <span class='id identifier rubyid_run'>run</span> <span class='id identifier rubyid_cmd_docker_stop'>cmd_docker_stop</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="docker_container_command-instance_method">
+  <h3 class="signature first" id="docker_container_command-instance_method">
   
     #<strong>docker_container_command</strong>(command)  &#x21d2; <tt>Object</tt> 
   
@@ -1039,7 +269,6 @@
       <pre class="lines">
 
 
-5
 6
 7
 8
@@ -1052,13 +281,15 @@
 15
 16
 17
-18</pre>
+18
+19
+20</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/takelage/docker/container/module.rb', line 5</span>
+      <pre class="code"><span class="info file"># File 'lib/takelage/docker/container/module.rb', line 6</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_docker_container_command'>docker_container_command</span><span class='lparen'>(</span><span class='id identifier rubyid_command'>command</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_log'>log</span><span class='period'>.</span><span class='id identifier rubyid_debug'>debug</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Running command in container</span><span class='tstring_end'>&quot;</span></span>
+  <span class='id identifier rubyid_log'>log</span><span class='period'>.</span><span class='id identifier rubyid_debug'>debug</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Running command in container</span><span class='tstring_end'>&#39;</span></span>
 
   <span class='kw'>return</span> <span class='kw'>false</span> <span class='kw'>unless</span> <span class='id identifier rubyid_docker_check_running'>docker_check_running</span>
 
@@ -1066,9 +297,10 @@
 
   <span class='id identifier rubyid__create_network'>_create_network</span> <span class='ivar'>@hostname</span> <span class='kw'>unless</span> <span class='id identifier rubyid_docker_container_check_network'>docker_container_check_network</span> <span class='ivar'>@hostname</span>
 
-  <span class='id identifier rubyid_container_created'>container_created</span> <span class='op'>=</span> <span class='kw'>true</span>
-  <span class='id identifier rubyid_container_created'>container_created</span> <span class='op'>=</span> <span class='id identifier rubyid__create_container'>_create_container</span> <span class='ivar'>@hostname</span> <span class='kw'>unless</span> <span class='id identifier rubyid_docker_container_check_existing'>docker_container_check_existing</span> <span class='ivar'>@hostname</span>
-  <span class='kw'>return</span> <span class='kw'>false</span> <span class='kw'>unless</span> <span class='id identifier rubyid_container_created'>container_created</span>
+  <span class='kw'>unless</span> <span class='id identifier rubyid_docker_container_check_existing'>docker_container_check_existing</span> <span class='ivar'>@hostname</span>
+    <span class='kw'>return</span> <span class='kw'>false</span> <span class='kw'>unless</span> <span class='id identifier rubyid__docker_container_create_container'>_docker_container_create_container</span> <span class='ivar'>@hostname</span>
+  <span class='kw'>end</span>
+
   <span class='id identifier rubyid__run_command_in_container'>_run_command_in_container</span> <span class='ivar'>@hostname</span><span class='comma'>,</span> <span class='id identifier rubyid_command'>command</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -1102,8 +334,6 @@
       <pre class="lines">
 
 
-21
-22
 23
 24
 25
@@ -1112,10 +342,14 @@
 28
 29
 30
-31</pre>
+31
+32
+33
+34
+35</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/takelage/docker/container/module.rb', line 21</span>
+      <pre class="code"><span class="info file"># File 'lib/takelage/docker/container/module.rb', line 23</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_docker_container_daemon'>docker_container_daemon</span>
   <span class='id identifier rubyid_log'>log</span><span class='period'>.</span><span class='id identifier rubyid_debug'>debug</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Starting docker container as daemon</span><span class='tstring_end'>&#39;</span></span>
@@ -1124,9 +358,11 @@
 
   <span class='id identifier rubyid__create_network'>_create_network</span> <span class='ivar'>@hostname</span> <span class='kw'>unless</span> <span class='id identifier rubyid_docker_container_check_network'>docker_container_check_network</span> <span class='ivar'>@hostname</span>
 
-  <span class='id identifier rubyid_container_created'>container_created</span> <span class='op'>=</span> <span class='kw'>true</span>
-  <span class='id identifier rubyid_container_created'>container_created</span> <span class='op'>=</span> <span class='id identifier rubyid__create_container'>_create_container</span> <span class='ivar'>@hostname</span> <span class='kw'>unless</span> <span class='id identifier rubyid_docker_container_check_existing'>docker_container_check_existing</span> <span class='ivar'>@hostname</span>
-  <span class='kw'>return</span> <span class='kw'>false</span> <span class='kw'>unless</span> <span class='id identifier rubyid_container_created'>container_created</span>
+  <span class='kw'>unless</span> <span class='id identifier rubyid_docker_container_check_existing'>docker_container_check_existing</span> <span class='ivar'>@hostname</span>
+    <span class='kw'>return</span> <span class='kw'>false</span> <span class='kw'>unless</span> <span class='id identifier rubyid__docker_container_create_container'>_docker_container_create_container</span> <span class='ivar'>@hostname</span>
+  <span class='kw'>end</span>
+
+  <span class='kw'>true</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1159,10 +395,6 @@
       <pre class="lines">
 
 
-34
-35
-36
-37
 38
 39
 40
@@ -1179,37 +411,27 @@
 51
 52
 53
-54
-55
-56
-57</pre>
+54</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/takelage/docker/container/module.rb', line 34</span>
+      <pre class="code"><span class="info file"># File 'lib/takelage/docker/container/module.rb', line 38</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_docker_container_login'>docker_container_login</span>
   <span class='id identifier rubyid_log'>log</span><span class='period'>.</span><span class='id identifier rubyid_debug'>debug</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Logging in to docker container</span><span class='tstring_end'>&#39;</span></span>
 
   <span class='kw'>return</span> <span class='kw'>false</span> <span class='kw'>unless</span> <span class='id identifier rubyid_docker_check_running'>docker_check_running</span>
 
-  <span class='kw'>unless</span> <span class='ivar'>@docker_tag</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>latest</span><span class='tstring_end'>&#39;</span></span>
-    <span class='id identifier rubyid_outdated'>outdated</span> <span class='op'>=</span> <span class='id identifier rubyid_docker_image_check_outdated'>docker_image_check_outdated</span> <span class='ivar'>@docker_tag</span>
-    <span class='kw'>if</span> <span class='id identifier rubyid_outdated'>outdated</span>
-      <span class='id identifier rubyid_tag_latest_remote'>tag_latest_remote</span> <span class='op'>=</span> <span class='id identifier rubyid_docker_image_tag_latest_remote'>docker_image_tag_latest_remote</span>
-      <span class='id identifier rubyid_log'>log</span><span class='period'>.</span><span class='id identifier rubyid_warn'>warn</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='ivar'>@docker_user</span><span class='embexpr_end'>}</span><span class='tstring_content'>/</span><span class='embexpr_beg'>#{</span><span class='ivar'>@docker_repo</span><span class='embexpr_end'>}</span><span class='tstring_content'>:</span><span class='embexpr_beg'>#{</span><span class='ivar'>@docker_tag</span><span class='embexpr_end'>}</span><span class='tstring_content'> is outdated</span><span class='tstring_end'>&quot;</span></span>
-      <span class='id identifier rubyid_log'>log</span><span class='period'>.</span><span class='id identifier rubyid_warn'>warn</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='ivar'>@docker_user</span><span class='embexpr_end'>}</span><span class='tstring_content'>/</span><span class='embexpr_beg'>#{</span><span class='ivar'>@docker_repo</span><span class='embexpr_end'>}</span><span class='tstring_content'>:</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_tag_latest_remote'>tag_latest_remote</span><span class='embexpr_end'>}</span><span class='tstring_content'> is available</span><span class='tstring_end'>&quot;</span></span>
-    <span class='kw'>end</span>
-  <span class='kw'>end</span>
-
+  <span class='id identifier rubyid__docker_container_login_check_outdated'>_docker_container_login_check_outdated</span>
   <span class='id identifier rubyid_docker_socket_start'>docker_socket_start</span>
-
   <span class='id identifier rubyid__create_network'>_create_network</span> <span class='ivar'>@hostname</span> <span class='kw'>unless</span> <span class='id identifier rubyid_docker_container_check_network'>docker_container_check_network</span> <span class='ivar'>@hostname</span>
 
-  <span class='id identifier rubyid_container_created'>container_created</span> <span class='op'>=</span> <span class='kw'>true</span>
-  <span class='id identifier rubyid_container_created'>container_created</span> <span class='op'>=</span> <span class='id identifier rubyid__create_container'>_create_container</span> <span class='ivar'>@hostname</span> <span class='kw'>unless</span> <span class='id identifier rubyid_docker_container_check_existing'>docker_container_check_existing</span> <span class='ivar'>@hostname</span>
-  <span class='kw'>return</span> <span class='kw'>false</span> <span class='kw'>unless</span> <span class='id identifier rubyid_container_created'>container_created</span>
+  <span class='kw'>unless</span> <span class='id identifier rubyid_docker_container_check_existing'>docker_container_check_existing</span> <span class='ivar'>@hostname</span>
+    <span class='kw'>return</span> <span class='kw'>false</span> <span class='kw'>unless</span> <span class='id identifier rubyid__docker_container_create_container'>_docker_container_create_container</span> <span class='ivar'>@hostname</span>
+  <span class='kw'>end</span>
 
-  <span class='id identifier rubyid__enter_container'>_enter_container</span> <span class='ivar'>@hostname</span>
+  <span class='id identifier rubyid_cmd_enter_container'>cmd_enter_container</span> <span class='op'>=</span> <span class='id identifier rubyid__docker_container_enter_container'>_docker_container_enter_container</span> <span class='ivar'>@hostname</span>
+
+  <span class='id identifier rubyid_run_and_exit'>run_and_exit</span> <span class='id identifier rubyid_cmd_enter_container'>cmd_enter_container</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1242,6 +464,9 @@
       <pre class="lines">
 
 
+57
+58
+59
 60
 61
 62
@@ -1251,44 +476,19 @@
 66
 67
 68
-69
-70
-71
-72
-73
-74
-75
-76
-77
-78
-79
-80
-81
-82
-83</pre>
+69</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/takelage/docker/container/module.rb', line 60</span>
+      <pre class="code"><span class="info file"># File 'lib/takelage/docker/container/module.rb', line 57</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_docker_container_nuke'>docker_container_nuke</span>
   <span class='id identifier rubyid_log'>log</span><span class='period'>.</span><span class='id identifier rubyid_debug'>debug</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Removing all docker containers</span><span class='tstring_end'>&#39;</span></span>
 
   <span class='kw'>return</span> <span class='kw'>false</span> <span class='kw'>unless</span> <span class='id identifier rubyid_docker_check_running'>docker_check_running</span>
 
-  <span class='id identifier rubyid_hostname'>hostname</span> <span class='op'>=</span> <span class='const'>ENV</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>HOSTNAME</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span> <span class='op'>||</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_end'>&#39;</span></span>
-  <span class='kw'>if</span> <span class='id identifier rubyid_hostname'>hostname</span><span class='period'>.</span><span class='id identifier rubyid_start_with?'>start_with?</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='ivar'>@docker_repo</span><span class='embexpr_end'>}</span><span class='tstring_content'>_</span><span class='tstring_end'>&quot;</span></span>
-    <span class='id identifier rubyid_log'>log</span><span class='period'>.</span><span class='id identifier rubyid_error'>error</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Please run \&quot;tau nuke\&quot; outside of </span><span class='embexpr_beg'>#{</span><span class='ivar'>@docker_repo</span><span class='embexpr_end'>}</span><span class='tstring_content'> containers</span><span class='tstring_end'>&quot;</span></span>
-    <span class='id identifier rubyid_log'>log</span><span class='period'>.</span><span class='id identifier rubyid_info'>info</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Run \&quot;tau purge\&quot; to remove orphaned </span><span class='embexpr_beg'>#{</span><span class='ivar'>@docker_repo</span><span class='embexpr_end'>}</span><span class='tstring_content'> containers</span><span class='tstring_end'>&quot;</span></span>
-    <span class='kw'>return</span> <span class='kw'>false</span>
-  <span class='kw'>end</span>
+  <span class='kw'>return</span> <span class='kw'>false</span> <span class='kw'>if</span> <span class='id identifier rubyid__docker_container_harakiri?'>_docker_container_harakiri?</span>
 
-  <span class='id identifier rubyid_networks'>networks</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
-
-  <span class='id identifier rubyid__get_containers'>_get_containers</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_container'>container</span><span class='op'>|</span>
-    <span class='id identifier rubyid_name'>name</span> <span class='op'>=</span> <span class='id identifier rubyid__get_container_name_by_id'>_get_container_name_by_id</span> <span class='id identifier rubyid_container'>container</span>
-    <span class='id identifier rubyid__stop_container'>_stop_container</span> <span class='id identifier rubyid_container'>container</span>
-    <span class='id identifier rubyid_networks'>networks</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_name'>name</span> <span class='kw'>unless</span> <span class='id identifier rubyid_networks'>networks</span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span> <span class='id identifier rubyid_name'>name</span>
-  <span class='kw'>end</span>
+  <span class='id identifier rubyid_networks'>networks</span> <span class='op'>=</span> <span class='id identifier rubyid__docker_container_kill_existing_containers'>_docker_container_kill_existing_containers</span>
 
   <span class='id identifier rubyid_networks'>networks</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_network'>network</span><span class='op'>|</span>
     <span class='id identifier rubyid__remove_network'>_remove_network</span> <span class='id identifier rubyid_network'>network</span> <span class='kw'>if</span> <span class='id identifier rubyid_docker_container_check_network'>docker_container_check_network</span> <span class='id identifier rubyid_network'>network</span>
@@ -1325,43 +525,27 @@
       <pre class="lines">
 
 
-86
-87
-88
-89
-90
-91
-92
-93
-94
-95
-96
-97
-98
-99
-100
-101
-102
-103
-104</pre>
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/takelage/docker/container/module.rb', line 86</span>
+      <pre class="code"><span class="info file"># File 'lib/takelage/docker/container/module.rb', line 72</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_docker_container_purge'>docker_container_purge</span>
   <span class='id identifier rubyid_log'>log</span><span class='period'>.</span><span class='id identifier rubyid_debug'>debug</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Removing orphaned docker containers</span><span class='tstring_end'>&#39;</span></span>
 
   <span class='kw'>return</span> <span class='kw'>false</span> <span class='kw'>unless</span> <span class='id identifier rubyid_docker_check_running'>docker_check_running</span>
 
-  <span class='id identifier rubyid_networks'>networks</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
-
-  <span class='id identifier rubyid__get_containers'>_get_containers</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_container'>container</span><span class='op'>|</span>
-    <span class='kw'>if</span> <span class='id identifier rubyid_docker_container_check_orphaned'>docker_container_check_orphaned</span> <span class='id identifier rubyid_container'>container</span>
-      <span class='id identifier rubyid_name'>name</span> <span class='op'>=</span> <span class='id identifier rubyid__get_container_name_by_id'>_get_container_name_by_id</span> <span class='id identifier rubyid_container'>container</span>
-      <span class='id identifier rubyid__stop_container'>_stop_container</span> <span class='id identifier rubyid_container'>container</span>
-      <span class='id identifier rubyid_networks'>networks</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_name'>name</span> <span class='kw'>unless</span> <span class='id identifier rubyid_networks'>networks</span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span> <span class='id identifier rubyid_name'>name</span>
-    <span class='kw'>end</span>
-  <span class='kw'>end</span>
+  <span class='id identifier rubyid_networks'>networks</span> <span class='op'>=</span> <span class='id identifier rubyid__docker_container_kill_orphaned_containers'>_docker_container_kill_orphaned_containers</span>
 
   <span class='id identifier rubyid_networks'>networks</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_network'>network</span><span class='op'>|</span>
     <span class='id identifier rubyid__remove_network'>_remove_network</span> <span class='id identifier rubyid_network'>network</span> <span class='kw'>if</span> <span class='id identifier rubyid_docker_container_check_network'>docker_container_check_network</span> <span class='id identifier rubyid_network'>network</span>
@@ -1377,7 +561,7 @@
 </div>
 
       <div id="footer">
-  Generated on Mon Apr 20 00:22:41 2020 by
+  Generated on Thu Apr 23 01:06:34 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.24 (ruby-2.6.3).
 </div>

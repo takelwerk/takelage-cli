@@ -1,0 +1,8 @@
+# frozen_string_literal: true
+
+cmd_lint = 'rubocop --parallel'
+
+desc 'Run linter'
+task :lint do
+  @commands << cmd_lint
+end

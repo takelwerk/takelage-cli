@@ -99,33 +99,16 @@
 <div class="tags">
   
 
-</div>
+</div><h2>Defined Under Namespace</h2>
+<p class="children">
   
-    <h2>
-      Constant Summary
-      <small><a href="#" class="constants_summary_toggle">collapse</a></small>
-    </h2>
-
-    <dl class="constants">
-      
-        <dt id="log-classvariable" class="">@@log =
-          <div class="docstring">
-  <div class="discussion">
     
-<p>Global singleton logger</p>
-
-
-  </div>
-</div>
-<div class="tags">
   
-
-</div>
-        </dt>
-        <dd><pre class="code"><span class='const'>Logger</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='const'>STDOUT</span><span class='rparen'>)</span></pre></dd>
-      
-    </dl>
+    
+      <strong class="classes">Classes:</strong> <span class='object_link'><a href="LoggingModule/TakelageLogger.html" title="LoggingModule::TakelageLogger (class)">TakelageLogger</a></span>
+    
   
+</p>
 
 
 
@@ -224,43 +207,21 @@
       <pre class="lines">
 
 
-8
-9
-10
-11
-12
-13
-14
-15
-16
 17
 18
 19
 20
 21
-22
-23
-24</pre>
+22</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/takelage/lib/logging.rb', line 8</span>
+      <pre class="code"><span class="info file"># File 'lib/takelage/lib/logging.rb', line 17</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize_logging'>initialize_logging</span><span class='lparen'>(</span><span class='id identifier rubyid_loglevel'>loglevel</span><span class='rparen'>)</span>
-
-  <span class='comment'># logger: format
-</span>  <span class='id identifier rubyid_log'>log</span><span class='period'>.</span><span class='id identifier rubyid_formatter'>formatter</span> <span class='op'>=</span> <span class='id identifier rubyid_proc'>proc</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_severity'>severity</span><span class='comma'>,</span> <span class='id identifier rubyid_datetime'>datetime</span><span class='comma'>,</span> <span class='id identifier rubyid_progname'>progname</span><span class='comma'>,</span> <span class='id identifier rubyid_msg'>msg</span><span class='op'>|</span>
-    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>[</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_severity'>severity</span><span class='embexpr_end'>}</span><span class='tstring_content'>] </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_msg'>msg</span><span class='embexpr_end'>}</span><span class='tstring_content'>\n</span><span class='tstring_end'>&quot;</span></span>
-  <span class='kw'>end</span>
-
-  <span class='comment'># logger: level
-</span>  <span class='kw'>if</span> <span class='qwords_beg'>%w(</span><span class='tstring_content'>FATAL</span><span class='words_sep'> </span><span class='tstring_content'>ERROR</span><span class='words_sep'> </span><span class='tstring_content'>WARN</span><span class='words_sep'> </span><span class='tstring_content'>INFO</span><span class='words_sep'> </span><span class='tstring_content'>DEBUG</span><span class='tstring_end'>)</span></span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span> <span class='id identifier rubyid_loglevel'>loglevel</span>
-    <span class='id identifier rubyid_log'>log</span><span class='period'>.</span><span class='id identifier rubyid_level'>level</span> <span class='op'>=</span> <span class='id identifier rubyid_loglevel'>loglevel</span>
-    <span class='id identifier rubyid_log'>log</span><span class='period'>.</span><span class='id identifier rubyid_debug'>debug</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Using loglevel </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_loglevel'>loglevel</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span>
-  <span class='kw'>else</span>
-    <span class='id identifier rubyid_log'>log</span><span class='period'>.</span><span class='id identifier rubyid_level'>level</span> <span class='op'>=</span> <span class='const'>Logger</span><span class='op'>::</span><span class='const'>INFO</span>
-    <span class='id identifier rubyid_log'>log</span><span class='period'>.</span><span class='id identifier rubyid_error'>error</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>The parameter &quot;loglevel&quot; must be one of FATAL, ERROR, WARN, INFO, DEBUG</span><span class='tstring_end'>&#39;</span></span>
-    <span class='id identifier rubyid_log'>log</span><span class='period'>.</span><span class='id identifier rubyid_info'>info</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Using loglevel INFO</span><span class='tstring_end'>&#39;</span></span>
-  <span class='kw'>end</span>
+  <span class='const'><span class='object_link'><a href="LoggingModule/TakelageLogger.html" title="LoggingModule::TakelageLogger (class)">TakelageLogger</a></span></span><span class='period'>.</span><span class='id identifier rubyid_instance'>instance</span><span class='period'>.</span><span class='id identifier rubyid_logger'>logger</span><span class='period'>.</span><span class='id identifier rubyid_formatter'>formatter</span> <span class='op'>=</span> <span class='id identifier rubyid__logging_get_log_format'>_logging_get_log_format</span>
+  <span class='id identifier rubyid_log_level_in_use'>log_level_in_use</span> <span class='op'>=</span> <span class='id identifier rubyid__logging_get_log_level'>_logging_get_log_level</span> <span class='id identifier rubyid_loglevel'>loglevel</span>
+  <span class='const'><span class='object_link'><a href="LoggingModule/TakelageLogger.html" title="LoggingModule::TakelageLogger (class)">TakelageLogger</a></span></span><span class='period'>.</span><span class='id identifier rubyid_instance'>instance</span><span class='period'>.</span><span class='id identifier rubyid_logger'>logger</span><span class='period'>.</span><span class='id identifier rubyid_level'>level</span> <span class='op'>=</span> <span class='id identifier rubyid_log_level_in_use'>log_level_in_use</span>
+  <span class='const'><span class='object_link'><a href="LoggingModule/TakelageLogger.html" title="LoggingModule::TakelageLogger (class)">TakelageLogger</a></span></span><span class='period'>.</span><span class='id identifier rubyid_instance'>instance</span><span class='period'>.</span><span class='id identifier rubyid_logger'>logger</span><span class='period'>.</span><span class='id identifier rubyid_debug'>debug</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Using loglevel </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_log_level_in_use'>log_level_in_use</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -311,15 +272,15 @@
       <pre class="lines">
 
 
-27
-28
-29</pre>
+25
+26
+27</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/takelage/lib/logging.rb', line 27</span>
+      <pre class="code"><span class="info file"># File 'lib/takelage/lib/logging.rb', line 25</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_log'>log</span>
-  <span class='cvar'>@@log</span>
+  <span class='const'><span class='object_link'><a href="LoggingModule/TakelageLogger.html" title="LoggingModule::TakelageLogger (class)">TakelageLogger</a></span></span><span class='period'>.</span><span class='id identifier rubyid_instance'>instance</span><span class='period'>.</span><span class='id identifier rubyid_logger'>logger</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -331,7 +292,7 @@
 </div>
 
       <div id="footer">
-  Generated on Mon Apr 20 00:22:41 2020 by
+  Generated on Thu Apr 23 01:06:34 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.24 (ruby-2.6.3).
 </div>

@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
 desc 'Build takelage cli ruby gem'
-task prod: %w[doc:clean
+task prod: %w[lint
+              doc:clean
               doc:build
               doc:commit
               features
