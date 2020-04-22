@@ -25,7 +25,7 @@ Given 'I push the latest local docker image' do
   docker_repo = @config['docker_repo']
   cmd_tag_latest_local = "HOME=#{aruba.config.home_directory} " \
     'tau-cli docker image tag latest local'
-  tag_latest_local = `#{cmd_tag_latest_local}`
+  tag_latest_local = `#{cmd_tag_latest_local}`.chomp
   image = "#{docker_user}/#{docker_repo}:#{tag_latest_local}"
   cmd_docker_push = 'docker push ' \
       "#{image} " \
@@ -38,7 +38,7 @@ Given 'I remove the latest local docker image' do
   docker_repo = @config['docker_repo']
   cmd_tag_latest_local = "HOME=#{aruba.config.home_directory} " \
     'tau-cli docker image tag latest local'
-  tag_latest_local = `#{cmd_tag_latest_local}`
+  tag_latest_local = `#{cmd_tag_latest_local}`.chomp
   image = "#{docker_user}/#{docker_repo}:#{tag_latest_local}"
   cmd_docker_rmi = 'docker rmi ' \
       "#{image} " \
@@ -88,6 +88,6 @@ end
 Then 'my latest local docker version should be {string}' do |tag|
   cmd_tag_latest_local = "HOME=#{aruba.config.home_directory} " \
     'tau-cli docker image tag latest local'
-  tag_latest_local = `#{cmd_tag_latest_local}`
-  expect(tag_latest_local).to eq tag
+  tag_latest_local = `#{cmd_tag_latest_local}`.chomp
+  expect(tag).to eq tag_latest_local
 end

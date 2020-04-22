@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# rubocop:disable Metrics/BlockLength
 When 'I get the takelage docker socket start commands' do
   cmd_agent_socket_path =
     @config['cmd_docker_socket_config_agent_socket_path']
@@ -33,7 +34,8 @@ When 'I get the takelage docker socket start commands' do
     )
   )
 end
-
+# rubocop:enable Metrics/BlockLength
+#
 Then 'the gpg sockets are started' do
   cmd_processes = 'ps a -o command'
   processes = `#{cmd_processes}`

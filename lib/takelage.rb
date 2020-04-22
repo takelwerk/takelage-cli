@@ -57,13 +57,10 @@ require_relative 'takelage/self/config/cli'
 require_relative 'takelage/self/module'
 require_relative 'takelage/self/cli'
 
-
 # Facilitate the takelage devops workflow.
 module Takelage
-
   # takelage
   class CLI < Thor
-
     include LoggingModule
     include SystemModule
     include ConfigModule
@@ -75,12 +72,11 @@ module Takelage
     attr_reader :bash_fylla
 
     option :loglevel,
-           :aliases => 'l',
-           :default => 'INFO',
-           :desc => 'One of: FATAL, ERROR, WARN, INFO, DEBUG'
+           aliases: 'l',
+           default: 'INFO',
+           desc: 'One of: FATAL, ERROR, WARN, INFO, DEBUG'
     # Initialize takelage cli.
     def initialize(args = [], local_options = {}, configuration = {})
-
       # Initialize thor parent class
       super args, local_options, configuration
 
