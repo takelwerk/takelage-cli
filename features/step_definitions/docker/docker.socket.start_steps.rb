@@ -1,31 +1,37 @@
 # frozen_string_literal: true
 
 When 'I get the takelage docker socket start commands' do
-  cmd_gpgconf_listdirs = @config['cmd_docker_get_socket_paths_docker_socket_gpgconf']
-  gpgconf_listdirs = `HOME=#{aruba.config.home_directory} #{cmd_gpgconf_listdirs} | grep agent`
+  cmd_agent_socket_path =
+    @config['cmd_docker_socket_config_agent_socket_path']
+  cmd_get_agent_socket_path = "HOME=#{aruba.config.home_directory} " \
+    "#{cmd_agent_socket_path}"
+  agent_socket_path = `#{cmd_get_agent_socket_path}`
 
-  cmd_socket_start = @config['cmd_docker_get_socket_start_commands_docker_socket_start']
+  cmd_agent_ssh_socket_path =
+    @config['cmd_docker_socket_config_agent_ssh_socket_path']
+  cmd_get_agent_ssh_socket_path = "HOME=#{aruba.config.home_directory} " \
+    "#{cmd_agent_ssh_socket_path}"
+  agent_ssh_socket_path = `#{cmd_get_agent_ssh_socket_path}`
+
+  cmd_socket_start = @config['cmd_docker_socket_get_start']
 
   @docker_socket_start_commands = []
-
-  gpgconf_listdirs.split("\n").each do |line|
-    key_value = line.split(':')
-    key = key_value[0]
-    path = key_value[1]
-    case key
-    when 'agent-socket'
-      port = @config['docker_socket_agent_port']
-    when 'agent-ssh-socket'
-      port = @config['docker_socket_agent_ssh_port']
-    when 'agent-extra-socket'
-      port = @config['docker_socket_agent_extra_port']
-    when 'agent-browser-socket'
-      port = @config['docker_socket_agent_browser_port']
-    end
-    @docker_socket_start_commands << cmd_socket_start % {port: port,
-                                    host: '127.0.0.1',
-                                    path: path}
-  end
+  @docker_socket_start_commands.push(
+    format(
+      cmd_socket_start,
+      port: @config['docker_socket_gpg_agent_port'],
+      host: '127.0.0.1',
+      path: agent_socket_path
+    )
+  )
+  @docker_socket_start_commands.push(
+    format(
+      cmd_socket_start,
+      port: @config['docker_socket_gpg_ssh_agent_port'],
+      host: '127.0.0.1',
+      path: agent_ssh_socket_path
+    )
+  )
 end
 
 Then 'the gpg sockets are started' do

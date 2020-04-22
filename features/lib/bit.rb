@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# rubocop:disable Metrics/MethodLength
 def _start_bitboard
   cmd_start_bitboard = 'docker run ' \
       '--detach ' \
@@ -20,7 +21,9 @@ def _start_bitboard
   system cmd_start_bitboard
   system cmd_connect_network
 end
+# rubocop:enable Metrics/MethodLength
 
+# rubocop:disable Metrics/MethodLength
 def _stop_bitboard
   cmd_disconnect_network = 'docker network disconnect ' \
       "#{@bitboard_name} " \
@@ -36,6 +39,7 @@ def _stop_bitboard
   system cmd_stop_bitboard
   system cmd_remove_network
 end
+# rubocop:enable Metrics/MethodLength
 
 def bit_before_all
   @bitboard_image = 'takelage/bitboard'

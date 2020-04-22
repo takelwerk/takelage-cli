@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# rubocop:disable Metrics/MethodLength
 def build_mock_images
   image_name = 'host.docker.internal:5005/takelage-mock/takelage-mock'
   versions = %w[0.0.3 0.1.0 prod]
@@ -8,14 +9,14 @@ def build_mock_images
         '--quiet ' \
         "#{image_name}:#{version}"
     docker_image = `#{cmd_docker_image}`
-    if docker_image.to_s.empty?
-      cmd_build_mock_image = 'docker build ' \
+    next unless docker_image.to_s.empty?
+
+    cmd_build_mock_image = 'docker build ' \
           "--build-arg version=#{version} " \
           "--tag #{image_name}:#{version} " \
           'features/fixtures/takelage-mock ' \
           '>/dev/null 2>&1'
-      system cmd_build_mock_image
-    end
+    system cmd_build_mock_image
   end
   cmd_tag_mock_latest = 'docker tag ' \
       "#{image_name}:0.1.0 " \
@@ -23,6 +24,8 @@ def build_mock_images
       '>/dev/null 2>&1'
   system cmd_tag_mock_latest
 end
+
+# rubocop:enable Metrics/MethodLength
 
 def _start_registry
   cmd_start_registry = 'docker run ' \

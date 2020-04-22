@@ -9,3 +9,7 @@ Feature: I can log debug messages
   Scenario: Loglevel INFO does not print debug log messages
     When I successfully run `tau-cli -l info`
     Then the output should not contain "[DEBUG]"
+
+  Scenario: No explicit loglevel not print debug log messages
+    When I successfully run `tau-cli`
+    Then the output should not contain "[DEBUG]"

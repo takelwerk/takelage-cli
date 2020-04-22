@@ -5,7 +5,6 @@
 @before_build_mock_images
 @after_stop_mock_container
 
-@announce-stdout
 Feature: I can nuke docker containers
 
   Scenario: Nuke docker containers
@@ -29,7 +28,7 @@ Feature: I can nuke docker containers
     And I daemonize "/loginpoint.py" in "takelage-mock_infinite"
     And I run `tau-cli docker container check orphaned takelage-mock_infinite`
     And the exit status should be 1
-    When I successfully run `tau-cli docker container nuke -l debug`
+    When I successfully run `tau-cli docker container nuke`
     Then the docker container "takelage-mock_finite" doesn't exist
     And the docker container "takelage-mock_infinite" doesn't exist
     And I run `tau-cli docker container check network takelage-mock_finite`

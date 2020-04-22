@@ -47,7 +47,7 @@ module DockerSocketModule
 
     cmds_start_socket = _get_socket_start_commands 'start'
 
-    return true unless cmds_start_socket.empty?
+    return true if cmds_start_socket.empty?
 
     _socket_get_sudo
 
@@ -71,9 +71,11 @@ module DockerSocketModule
 
     stdout_str = run cmd_ps
 
+    cmds_start_socket = _get_socket_start_commands 'stop'
+
     # loop over process list
     stdout_str.split(/\n+/).each do |process|
-      _socket_stop_process process
+      _socket_stop_process process, cmds_start_socket
     end
 
     true
@@ -127,11 +129,11 @@ module DockerSocketModule
   # Get socket start command
   def _get_socket_start_command(mode, socket, host, port, path)
     if mode == 'start'
-      if _socket_up? socket, host, port, path
+      unless _socket_up? socket, host, port, path
         return _socket_get_cmd_start_socket(host, port, path)
       end
     else
-      unless _socket_up? socket, host, port, path
+      if _socket_up? socket, host, port, path
         return _socket_get_cmd_start_socket(host, port, path)
       end
     end
@@ -153,7 +155,7 @@ module DockerSocketModule
     error_message = _socket_get_error_message socket, host, port, path
     begin
       Timeout.timeout(1) do
-        return false unless _socket_test socket, host, port, error_message
+        _socket_reachable? socket, host, port, error_message
       end
     rescue Timeout::Error
       log.debug "Timeout: #{error_message}"
@@ -172,12 +174,12 @@ module DockerSocketModule
 
   # Test socket.
   # rubocop:disable Metrics/MethodLength
-  def _socket_test(socket, host, port, error_message)
+  def _socket_reachable?(socket, host, port, error_message)
     begin
       s = TCPSocket.new host, port
       s.close
-      log.debug "Socket \"#{socket}\" available"
-      true
+      log.debug "Socket \"#{socket}\" up"
+      return true
     rescue Errno::ECONNREFUSED
       log.debug "Connection refused: #{error_message}"
     rescue Errno::EHOSTUNREACH
@@ -191,7 +193,7 @@ module DockerSocketModule
   # rubocop:enable Metrics/MethodLength
 
   # Kill process.
-  def _socket_kill_pid
+  def _socket_kill_pid pid
     log.debug "Killing PID #{pid}"
     cmd_kill =
       format(
@@ -211,19 +213,17 @@ module DockerSocketModule
   end
 
   # Stop process.
-  def _socket_stop_process(process)
+  def _socket_stop_process(process, cmds_start_socket)
     # split processes in process id and process command
     pid_command = process.strip.split(/ /, 2)
     pid = pid_command[0]
     command = pid_command[1]
 
-    cmds_start_socket = _get_socket_start_commands 'stop'
-
     # loop over socket start commands
     cmds_start_socket.each do |cmd_start_socket|
       next unless command == cmd_start_socket
 
-      _socket_kill pid
+      _socket_kill_pid pid
     end
   end
 end

@@ -10,8 +10,12 @@ Before do
       "cp features/fixtures/takelage-bitboard/config #{aruba.config.home_directory}/.ssh/config && " \
       "cp features/fixtures/takelage-bitboard/id_rsa.myuser #{aruba.config.home_directory}/.ssh/id_rsa" \
       "'"
+  cmd_creating_gnupg_dir = "bash -c '" \
+      "mkdir -p #{aruba.config.home_directory}/.gnupg" \
+      "'"
   system cmd_copy_home_config
   system cmd_copy_ssh_config
+  system cmd_creating_gnupg_dir
 end
 
 # for host.docker.internal see

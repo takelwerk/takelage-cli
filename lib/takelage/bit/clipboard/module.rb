@@ -6,7 +6,7 @@ module BitClipboardModule
   def bit_clipboard_copy(dir, scope)
     log.debug "Running bit copy \"#{dir}\" to \"#{scope}\""
 
-    return false unless _prepare_workspace
+    return false unless _bit_clipboard_prepare_workspace
 
     if File.directory? dir
 
@@ -108,7 +108,7 @@ module BitClipboardModule
   def bit_clipboard_paste(cid, dir)
     log.debug "Running bit paste \"#{cid}\" to \"#{dir}\""
 
-    return false unless _prepare_workspace
+    return false unless _bit_clipboard_prepare_workspace
 
     scope = cid.scan(/([^\/]*).*/).first.first
 
@@ -149,7 +149,7 @@ module BitClipboardModule
   def bit_clipboard_pull
     log.debug 'Running bit pull'
 
-    return false unless _prepare_workspace
+    return false unless _bit_clipboard_prepare_workspace
 
     # import components into workspace
     cmd_bit_import_all =
@@ -175,7 +175,7 @@ module BitClipboardModule
   def bit_clipboard_push
     log.debug 'Running bit push'
 
-    return false unless _prepare_workspace
+    return false unless _bit_clipboard_prepare_workspace
 
     # tag all components
     cmd_bit_tag_all =
@@ -247,7 +247,7 @@ module BitClipboardModule
   end
 
   # Prepare workspace for bit clipboard.
-  def _prepare_workspace
+  def _bit_clipboard_prepare_workspace
     unless bit_check_workspace
       log.error 'No bit workspace'
       return false

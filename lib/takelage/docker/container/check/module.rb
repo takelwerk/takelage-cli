@@ -9,7 +9,7 @@ module DockerContainerCheckModule
 
     return false unless docker_check_running
 
-    stdout_str = run _docker_container_cmd_check_existing
+    stdout_str = run _docker_container_cmd_check_existing container
 
     if stdout_str.to_s.strip.empty?
       log.debug "Container \"#{container}\" is not existing"
@@ -27,7 +27,7 @@ module DockerContainerCheckModule
 
     return false unless docker_check_running
 
-    stdout_str = run _docker_container_cmd_check_network
+    stdout_str = run _docker_container_cmd_check_network network
 
     if stdout_str.to_s.strip.empty?
       log.debug "Network \"#{network}\" is not existing"
@@ -45,7 +45,7 @@ module DockerContainerCheckModule
 
     return false unless docker_check_running
 
-    stdout_str = run _docker_container_cmd_check_orphaned
+    stdout_str = run _docker_container_cmd_check_orphaned container
 
     if stdout_str.include? '/loginpoint.py'
       log.debug "Container \"#{container}\" isn't orphaned"
@@ -58,21 +58,21 @@ module DockerContainerCheckModule
 
   private
 
-  def _docker_container_cmd_check_existing
+  def _docker_container_cmd_check_existing(container)
     format(
       config.active['cmd_docker_container_check_existing_docker_ps'],
       container: container
     )
   end
 
-  def _docker_container_cmd_check_network
+  def _docker_container_cmd_check_network(network)
     format(
       config.active['cmd_docker_container_check_network_docker_network'],
       network: network
     )
   end
 
-  def _docker_container_cmd_check_orphaned
+  def _docker_container_cmd_check_orphaned(container)
     format(
       config.active['cmd_docker_container_check_orphaned_docker_exec'],
       container: container
