@@ -75,11 +75,7 @@ module BitClipboardModule
 
     return false unless _bit_clipboard_copy_dir_scope_exists scope
 
-    puts "$$$$$$$$$$$$"
-
     return false if _bit_clipboard_readme_bit_exists_in_subdir dir
-
-    puts "***************"
 
     id = _id(dir)
 
