@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-# takelage docker check module
-module DockerCheckModule
+# takelage docker check running
+module DockerCheckRunning
   # Backend method for docker check running.
   # @return [Boolean] is the docker daemon running?
   def docker_check_running

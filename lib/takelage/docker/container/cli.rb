@@ -6,14 +6,22 @@ module Takelage
     include LoggingModule
     include SystemModule
     include ConfigModule
-    include DockerCheckModule
-    include DockerContainerCheckModule
-    include DockerContainerModule
+    include DockerCheckRunning
+    include DockerContainerCheckExisting
+    include DockerContainerCheckNetwork
+    include DockerContainerCheckOrphaned
+    include DockerContainerLib
+    include DockerContainerCommand
+    include DockerContainerDaemon
+    include DockerContainerLogin
+    include DockerContainerNuke
+    include DockerContainerPurge
     include DockerImageTagLatestModule
     include DockerImageTagListModule
     include DockerImageTagCheckModule
     include DockerImageCheckModule
     include DockerSocketLib
+    include DockerSocketHost
     include DockerSocketStart
 
     # Initialize docker container
@@ -58,6 +66,18 @@ module Takelage
 
     desc 'check [COMMAND]', 'Check docker container'
     subcommand 'check', DockerContainerCheck
+
+    #
+    # docker container command
+    #
+    desc 'command [CMD]', 'Run [CMD] in a docker container'
+    long_desc <<-LONGDESC.gsub("\n", "\x5")
+    Run command in docker container
+    LONGDESC
+    # Run command in docker container.
+    def command(command)
+      docker_container_command(command)
+    end
 
     #
     # docker container daemon
@@ -110,18 +130,6 @@ module Takelage
     # Remove orphaned docker containers.
     def purge
       docker_container_purge
-    end
-
-    #
-    # docker container run
-    #
-    desc 'command [CMD]', 'Run [CMD] in a docker container'
-    long_desc <<-LONGDESC.gsub("\n", "\x5")
-    Run command in docker container
-    LONGDESC
-    # Run command in docker container.
-    def command(command)
-      docker_container_command(command)
     end
   end
 end
