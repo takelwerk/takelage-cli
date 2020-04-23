@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-# takelage docker image check module
-module DockerImageCheckModule
+# takelage docker image check outdated
+module DockerImageCheckOutdated
   # Backend method for docker image check outdated.
   # @return [Boolean] is docker image tag older than latest remote image tag?
   def docker_image_check_outdated(tag)

@@ -7,7 +7,8 @@ module Takelage
     include SystemModule
     include ConfigModule
     include DockerCheckRunning
-    include DockerImageTagListModule
+    include DockerImageTagListLocal
+    include DockerImageTagListRemote
 
     # Initialize takelage docker image tag list
     def initialize(args = [], local_options = {}, configuration = {})

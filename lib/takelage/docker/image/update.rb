@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-# takelage docker image module
-module DockerImageModule
+# takelage docker image uppdate
+module DockerImageUpdate
   # Backend method for docker image update.
   def docker_image_update
     return false unless docker_check_running

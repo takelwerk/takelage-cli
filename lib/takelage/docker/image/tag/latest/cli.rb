@@ -7,8 +7,10 @@ module Takelage
     include SystemModule
     include ConfigModule
     include DockerCheckRunning
-    include DockerImageTagListModule
-    include DockerImageTagLatestModule
+    include DockerImageTagListLocal
+    include DockerImageTagListRemote
+    include DockerImageTagLatestLocal
+    include DockerImageTagLatestRemote
 
     # Initialize takelage docker image tag latest
     def initialize(args = [], local_options = {}, configuration = {})

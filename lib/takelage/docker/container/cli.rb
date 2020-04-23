@@ -16,10 +16,10 @@ module Takelage
     include DockerContainerLogin
     include DockerContainerNuke
     include DockerContainerPurge
-    include DockerImageTagLatestModule
-    include DockerImageTagListModule
-    include DockerImageTagCheckModule
-    include DockerImageCheckModule
+    include DockerImageTagLatestLocal
+    include DockerImageTagListLocal
+    include DockerImageTagCheckLocal
+    include DockerImageCheckOutdated
     include DockerSocketLib
     include DockerSocketHost
     include DockerSocketScheme
