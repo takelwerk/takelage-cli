@@ -8,7 +8,10 @@ module Takelage
     include ConfigModule
     include GitCheckModule
     include BitCheckModule
-    include BitScopeModule
+    include BitScopeAdd
+    include BitScopeInbit
+    include BitScopeList
+    include BitScopeNew
 
     #
     # bit scope add
