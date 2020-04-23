@@ -22,6 +22,7 @@ module Takelage
     include DockerImageCheckModule
     include DockerSocketLib
     include DockerSocketHost
+    include DockerSocketScheme
     include DockerSocketStart
 
     # Initialize docker container

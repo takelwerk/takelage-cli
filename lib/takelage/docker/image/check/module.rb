@@ -4,7 +4,6 @@
 module DockerImageCheckModule
   # Backend method for docker image check outdated.
   # @return [Boolean] is docker image tag older than latest remote image tag?
-  # rubocop:disable Style/RedundantSort
   def docker_image_check_outdated(tag)
     log.debug "Check if docker image version \"#{tag}\" is outdated"
 
@@ -14,14 +13,14 @@ module DockerImageCheckModule
 
     tag_latest_remote = docker_image_tag_latest_remote
     tags = [tag, docker_image_tag_latest_remote]
+    # rubocop:disable Style/RedundantSort
     outdated = (tag != VersionSorter.sort(tags).last)
+    # rubocop:enable Style/RedundantSort
 
     _docker_outdated_log_info tag, tag_latest_remote if outdated
 
     outdated
   end
-
-  # rubocop:enable Style/RedundantSort
 
   private
 
