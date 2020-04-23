@@ -7,7 +7,7 @@ module Takelage
   # takelage self
   class Self < SubCommandBase
     include LoggingModule
-    include SelfModule
+    include SelfList
 
     desc 'config [COMMAND]', 'Manage takelage configuration'
     subcommand 'config', SelfConfig

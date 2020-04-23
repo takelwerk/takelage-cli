@@ -7,8 +7,12 @@ module Takelage
     include ConfigModule
     include SystemModule
     include GitCheckModule
-    include BitCheckModule
-    include BitClipboardModule
+    include BitCheckWorkspace
+    include BitClipboardLib
+    include BitClipboardCopy
+    include BitClipboardPaste
+    include BitClipboardPull
+    include BitClipboardPush
 
     #
     # bit copy

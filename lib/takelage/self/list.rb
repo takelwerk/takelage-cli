@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-# takelage self
-module SelfModule
+# takelage self list
+module SelfList
   # Backend method for config self.
   def self_list
     # use Thorfile which requires relative takelage.rb
