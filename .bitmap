@@ -19,5 +19,23 @@
         "origin": "AUTHORED",
         "exported": true
     },
+    "takelage.rake/rake/rubylint@0.0.1": {
+        "files": [
+            {
+                "relativePath": "rake/rubylint/README.bit",
+                "test": false,
+                "name": "README.bit"
+            },
+            {
+                "relativePath": "rake/rubylint/Rakefile",
+                "test": false,
+                "name": "Rakefile"
+            }
+        ],
+        "mainFile": "rake/rubylint/README.bit",
+        "trackDir": "rake/rubylint",
+        "origin": "AUTHORED",
+        "exported": true
+    },
     "version": "14.7.6"
 }
