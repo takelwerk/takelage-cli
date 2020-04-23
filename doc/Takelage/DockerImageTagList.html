@@ -93,7 +93,7 @@
   
   <dl>
       <dt>Includes:</dt>
-      <dd><span class='object_link'><a href="../ConfigModule.html" title="ConfigModule (module)">ConfigModule</a></span>, <span class='object_link'><a href="../DockerCheckRunning.html" title="DockerCheckRunning (module)">DockerCheckRunning</a></span>, <span class='object_link'><a href="../DockerImageTagListModule.html" title="DockerImageTagListModule (module)">DockerImageTagListModule</a></span>, <span class='object_link'><a href="../LoggingModule.html" title="LoggingModule (module)">LoggingModule</a></span>, <span class='object_link'><a href="../SystemModule.html" title="SystemModule (module)">SystemModule</a></span></dd>
+      <dd><span class='object_link'><a href="../ConfigModule.html" title="ConfigModule (module)">ConfigModule</a></span>, <span class='object_link'><a href="../DockerCheckRunning.html" title="DockerCheckRunning (module)">DockerCheckRunning</a></span>, <span class='object_link'><a href="../DockerImageTagListLocal.html" title="DockerImageTagListLocal (module)">DockerImageTagListLocal</a></span>, <span class='object_link'><a href="../DockerImageTagListRemote.html" title="DockerImageTagListRemote (module)">DockerImageTagListRemote</a></span>, <span class='object_link'><a href="../LoggingModule.html" title="LoggingModule (module)">LoggingModule</a></span>, <span class='object_link'><a href="../SystemModule.html" title="SystemModule (module)">SystemModule</a></span></dd>
   </dl>
   
   
@@ -220,8 +220,19 @@
   
   
   
-  <h3 class="inherited">Methods included from <span class='object_link'><a href="../DockerImageTagListModule.html" title="DockerImageTagListModule (module)">DockerImageTagListModule</a></span></h3>
-  <p class="inherited"><span class='object_link'><a href="../DockerImageTagListModule.html#docker_image_tag_list_local-instance_method" title="DockerImageTagListModule#docker_image_tag_list_local (method)">#docker_image_tag_list_local</a></span>, <span class='object_link'><a href="../DockerImageTagListModule.html#docker_image_tag_list_remote-instance_method" title="DockerImageTagListModule#docker_image_tag_list_remote (method)">#docker_image_tag_list_remote</a></span></p>
+  <h3 class="inherited">Methods included from <span class='object_link'><a href="../DockerImageTagListRemote.html" title="DockerImageTagListRemote (module)">DockerImageTagListRemote</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="../DockerImageTagListRemote.html#docker_image_tag_list_remote-instance_method" title="DockerImageTagListRemote#docker_image_tag_list_remote (method)">#docker_image_tag_list_remote</a></span></p>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods included from <span class='object_link'><a href="../DockerImageTagListLocal.html" title="DockerImageTagListLocal (module)">DockerImageTagListLocal</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="../DockerImageTagListLocal.html#docker_image_tag_list_local-instance_method" title="DockerImageTagListLocal#docker_image_tag_list_local (method)">#docker_image_tag_list_local</a></span></p>
 
   
   
@@ -307,17 +318,17 @@
       <pre class="lines">
 
 
-13
 14
 15
 16
 17
 18
 19
-20</pre>
+20
+21</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/takelage/docker/image/tag/list/cli.rb', line 13</span>
+      <pre class="code"><span class="info file"># File 'lib/takelage/docker/image/tag/list/cli.rb', line 14</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_args'>args</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='id identifier rubyid_local_options'>local_options</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='id identifier rubyid_configuration'>configuration</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='comment'># initialize thor parent class
@@ -365,15 +376,15 @@
       <pre class="lines">
 
 
-30
 31
 32
 33
 34
-35</pre>
+35
+36</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/takelage/docker/image/tag/list/cli.rb', line 30</span>
+      <pre class="code"><span class="info file"># File 'lib/takelage/docker/image/tag/list/cli.rb', line 31</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_local'>local</span>
   <span class='id identifier rubyid_tag_list_local'>tag_list_local</span> <span class='op'>=</span> <span class='id identifier rubyid_docker_image_tag_list_local'>docker_image_tag_list_local</span>
@@ -412,15 +423,15 @@
       <pre class="lines">
 
 
-45
 46
 47
 48
 49
-50</pre>
+50
+51</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/takelage/docker/image/tag/list/cli.rb', line 45</span>
+      <pre class="code"><span class="info file"># File 'lib/takelage/docker/image/tag/list/cli.rb', line 46</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_remote'>remote</span>
   <span class='id identifier rubyid_tag_list_remote'>tag_list_remote</span> <span class='op'>=</span> <span class='id identifier rubyid_docker_image_tag_list_remote'>docker_image_tag_list_remote</span>
@@ -438,7 +449,7 @@
 </div>
 
       <div id="footer">
-  Generated on Thu Apr 23 14:46:17 2020 by
+  Generated on Thu Apr 23 16:22:35 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.24 (ruby-2.6.3).
 </div>

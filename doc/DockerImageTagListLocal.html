@@ -4,7 +4,7 @@
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>
-  Module: DockerImageTagListModule
+  Module: DockerImageTagListLocal
   
     &mdash; Documentation by YARD 0.9.24
   
@@ -15,7 +15,7 @@
   <link rel="stylesheet" href="css/common.css" type="text/css" />
 
 <script type="text/javascript">
-  pathId = "DockerImageTagListModule";
+  pathId = "DockerImageTagListLocal";
   relpath = '';
 </script>
 
@@ -39,7 +39,7 @@
     <a href="_index.html">Index (D)</a> &raquo;
     
     
-    <span class="title">DockerImageTagListModule</span>
+    <span class="title">DockerImageTagListLocal</span>
   
 </div>
 
@@ -59,7 +59,7 @@
         <div class="clear"></div>
       </div>
 
-      <div id="content"><h1>Module: DockerImageTagListModule
+      <div id="content"><h1>Module: DockerImageTagListLocal
   
   
   
@@ -76,14 +76,14 @@
   
   <dl>
     <dt>Included in:</dt>
-    <dd><span class='object_link'><a href="Takelage/DockerContainer.html" title="Takelage::DockerContainer (class)">Takelage::DockerContainer</a></span>, <span class='object_link'><a href="Takelage/DockerImage.html" title="Takelage::DockerImage (class)">Takelage::DockerImage</a></span>, <span class='object_link'><a href="Takelage/DockerImageCheck.html" title="Takelage::DockerImageCheck (class)">Takelage::DockerImageCheck</a></span>, <span class='object_link'><a href="Takelage/DockerImageTagCheck.html" title="Takelage::DockerImageTagCheck (class)">Takelage::DockerImageTagCheck</a></span>, <span class='object_link'><a href="Takelage/DockerImageTagLatest.html" title="Takelage::DockerImageTagLatest (class)">Takelage::DockerImageTagLatest</a></span>, <span class='object_link'><a href="Takelage/DockerImageTagList.html" title="Takelage::DockerImageTagList (class)">Takelage::DockerImageTagList</a></span></dd>
+    <dd><span class='object_link'><a href="Takelage/DockerContainer.html" title="Takelage::DockerContainer (class)">Takelage::DockerContainer</a></span>, <span class='object_link'><a href="Takelage/DockerImageTagLatest.html" title="Takelage::DockerImageTagLatest (class)">Takelage::DockerImageTagLatest</a></span>, <span class='object_link'><a href="Takelage/DockerImageTagList.html" title="Takelage::DockerImageTagList (class)">Takelage::DockerImageTagList</a></span></dd>
   </dl>
   
 
   
   <dl>
     <dt>Defined in:</dt>
-    <dd>lib/takelage/docker/image/tag/list/module.rb</dd>
+    <dd>lib/takelage/docker/image/tag/list/local.rb</dd>
   </dl>
   
 </div>
@@ -91,7 +91,7 @@
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
     
-<p>takelage docker image tag list module</p>
+<p>takelage docker image tag list local</p>
 
 
   </div>
@@ -133,30 +133,6 @@
   
     <span class="summary_desc"><div class='inline'>
 <p>Backend method for docker image tag list local.</p>
-</div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#docker_image_tag_list_remote-instance_method" title="#docker_image_tag_list_remote (instance method)">#<strong>docker_image_tag_list_remote</strong>  &#x21d2; Array </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'>
-<p>Backend method for docker image tag list remote.</p>
 </div></span>
   
 </li>
@@ -229,7 +205,7 @@
 18</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/takelage/docker/image/tag/list/module.rb', line 7</span>
+      <pre class="code"><span class="info file"># File 'lib/takelage/docker/image/tag/list/local.rb', line 7</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_docker_image_tag_list_local'>docker_image_tag_list_local</span>
   <span class='id identifier rubyid_cmd_docker_tags'>cmd_docker_tags</span> <span class='op'>=</span>
@@ -248,77 +224,12 @@
 </table>
 </div>
     
-      <div class="method_details ">
-  <h3 class="signature " id="docker_image_tag_list_remote-instance_method">
-  
-    #<strong>docker_image_tag_list_remote</strong>  &#x21d2; <tt>Array</tt> 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    
-<p>Backend method for docker image tag list remote.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-<p class="tag_title">Returns:</p>
-<ul class="return">
-  
-    <li>
-      
-      
-        <span class='type'>(<tt>Array</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'>
-<p>remote docker image tags</p>
-</div>
-      
-    </li>
-  
-</ul>
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-22
-23
-24
-25
-26
-27</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/takelage/docker/image/tag/list/module.rb', line 22</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_docker_image_tag_list_remote'>docker_image_tag_list_remote</span>
-  <span class='id identifier rubyid_log'>log</span><span class='period'>.</span><span class='id identifier rubyid_debug'>debug</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Getting docker remote tags </span><span class='tstring_end'>&#39;</span></span> \
-    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>of \&quot;</span><span class='embexpr_beg'>#{</span><span class='ivar'>@docker_user</span><span class='embexpr_end'>}</span><span class='tstring_content'>/</span><span class='embexpr_beg'>#{</span><span class='ivar'>@docker_repo</span><span class='embexpr_end'>}</span><span class='tstring_content'>\&quot; </span><span class='tstring_end'>&quot;</span></span> \
-    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>from \&quot;</span><span class='embexpr_beg'>#{</span><span class='ivar'>@docker_registry</span><span class='embexpr_end'>}</span><span class='tstring_content'>\&quot;</span><span class='tstring_end'>&quot;</span></span>
-  <span class='id identifier rubyid__docker_image_tag_list_remote_tags'>_docker_image_tag_list_remote_tags</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
   </div>
 
 </div>
 
       <div id="footer">
-  Generated on Thu Apr 23 14:46:15 2020 by
+  Generated on Thu Apr 23 16:22:34 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.24 (ruby-2.6.3).
 </div>
