@@ -5,30 +5,31 @@ module BitClipboardLib
   private
 
   # Prepare workspace for bit clipboard.
-  # rubocop:disable Metrics/MethodLength
   def _bit_clipboard_lib_prepare_workspace
     unless bit_check_workspace
       log.error 'No bit workspace'
       return false
     end
 
-    if git_check_workspace
-      unless git_check_master
-        log.error 'Not on git master branch'
-        return false
-      end
+    return true unless git_check_workspace
 
-      unless git_check_clean
-        log.error 'No clean git workspace'
-        return false
-      end
+    _bit_clipboard_lib_prepare_git_workspace
+  end
 
-      return _bit_clipboard_lib_git_pull
+  # Prepare git workspace for bit clipboard.
+  def _bit_clipboard_lib_prepare_git_workspace
+    unless git_check_master
+      log.error 'Not on git master branch'
+      return false
     end
 
-    true
+    unless git_check_clean
+      log.error 'No clean git workspace'
+      return false
+    end
+
+    _bit_clipboard_lib_git_pull
   end
-  # rubocop:enable Metrics/MethodLength
 
   # Remove bit artifacts.
   def _bit_clipbpard_lib_remove_bit_artifacts
