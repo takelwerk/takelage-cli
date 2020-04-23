@@ -93,7 +93,7 @@
   
   <dl>
       <dt>Includes:</dt>
-      <dd><span class='object_link'><a href="../ConfigModule.html" title="ConfigModule (module)">ConfigModule</a></span>, <span class='object_link'><a href="../DockerCheckModule.html" title="DockerCheckModule (module)">DockerCheckModule</a></span>, <span class='object_link'><a href="../DockerContainerCheckModule.html" title="DockerContainerCheckModule (module)">DockerContainerCheckModule</a></span>, <span class='object_link'><a href="../DockerContainerModule.html" title="DockerContainerModule (module)">DockerContainerModule</a></span>, <span class='object_link'><a href="../DockerImageCheckModule.html" title="DockerImageCheckModule (module)">DockerImageCheckModule</a></span>, <span class='object_link'><a href="../DockerImageTagCheckModule.html" title="DockerImageTagCheckModule (module)">DockerImageTagCheckModule</a></span>, <span class='object_link'><a href="../DockerImageTagLatestModule.html" title="DockerImageTagLatestModule (module)">DockerImageTagLatestModule</a></span>, <span class='object_link'><a href="../DockerImageTagListModule.html" title="DockerImageTagListModule (module)">DockerImageTagListModule</a></span>, <span class='object_link'><a href="../DockerSocketModule.html" title="DockerSocketModule (module)">DockerSocketModule</a></span>, <span class='object_link'><a href="../LoggingModule.html" title="LoggingModule (module)">LoggingModule</a></span>, <span class='object_link'><a href="../SystemModule.html" title="SystemModule (module)">SystemModule</a></span></dd>
+      <dd><span class='object_link'><a href="../ConfigModule.html" title="ConfigModule (module)">ConfigModule</a></span>, <span class='object_link'><a href="../DockerCheckRunning.html" title="DockerCheckRunning (module)">DockerCheckRunning</a></span>, <span class='object_link'><a href="../DockerContainerCheckExisting.html" title="DockerContainerCheckExisting (module)">DockerContainerCheckExisting</a></span>, <span class='object_link'><a href="../DockerContainerCheckNetwork.html" title="DockerContainerCheckNetwork (module)">DockerContainerCheckNetwork</a></span>, <span class='object_link'><a href="../DockerContainerCheckOrphaned.html" title="DockerContainerCheckOrphaned (module)">DockerContainerCheckOrphaned</a></span>, <span class='object_link'><a href="../DockerContainerCommand.html" title="DockerContainerCommand (module)">DockerContainerCommand</a></span>, <span class='object_link'><a href="../DockerContainerDaemon.html" title="DockerContainerDaemon (module)">DockerContainerDaemon</a></span>, <span class='object_link'><a href="../DockerContainerLib.html" title="DockerContainerLib (module)">DockerContainerLib</a></span>, <span class='object_link'><a href="../DockerContainerLogin.html" title="DockerContainerLogin (module)">DockerContainerLogin</a></span>, <span class='object_link'><a href="../DockerContainerNuke.html" title="DockerContainerNuke (module)">DockerContainerNuke</a></span>, <span class='object_link'><a href="../DockerContainerPurge.html" title="DockerContainerPurge (module)">DockerContainerPurge</a></span>, <span class='object_link'><a href="../DockerImageCheckModule.html" title="DockerImageCheckModule (module)">DockerImageCheckModule</a></span>, <span class='object_link'><a href="../DockerImageTagCheckModule.html" title="DockerImageTagCheckModule (module)">DockerImageTagCheckModule</a></span>, <span class='object_link'><a href="../DockerImageTagLatestModule.html" title="DockerImageTagLatestModule (module)">DockerImageTagLatestModule</a></span>, <span class='object_link'><a href="../DockerImageTagListModule.html" title="DockerImageTagListModule (module)">DockerImageTagListModule</a></span>, <span class='object_link'><a href="../DockerSocketHost.html" title="DockerSocketHost (module)">DockerSocketHost</a></span>, <span class='object_link'><a href="../DockerSocketLib.html" title="DockerSocketLib (module)">DockerSocketLib</a></span>, <span class='object_link'><a href="../DockerSocketScheme.html" title="DockerSocketScheme (module)">DockerSocketScheme</a></span>, <span class='object_link'><a href="../DockerSocketStart.html" title="DockerSocketStart (module)">DockerSocketStart</a></span>, <span class='object_link'><a href="../LoggingModule.html" title="LoggingModule (module)">LoggingModule</a></span>, <span class='object_link'><a href="../SystemModule.html" title="SystemModule (module)">SystemModule</a></span></dd>
   </dl>
   
   
@@ -292,9 +292,37 @@
   
   
   
-  <h3 class="inherited">Methods included from <span class='object_link'><a href="../DockerSocketModule.html" title="DockerSocketModule (module)">DockerSocketModule</a></span></h3>
-  <p class="inherited"><span class='object_link'><a href="../DockerSocketModule.html#docker_socket_host-instance_method" title="DockerSocketModule#docker_socket_host (method)">#docker_socket_host</a></span>, <span class='object_link'><a href="../DockerSocketModule.html#docker_socket_scheme-instance_method" title="DockerSocketModule#docker_socket_scheme (method)">#docker_socket_scheme</a></span>, <span class='object_link'><a href="../DockerSocketModule.html#docker_socket_start-instance_method" title="DockerSocketModule#docker_socket_start (method)">#docker_socket_start</a></span>, <span class='object_link'><a href="../DockerSocketModule.html#docker_socket_stop-instance_method" title="DockerSocketModule#docker_socket_stop (method)">#docker_socket_stop</a></span></p>
+  <h3 class="inherited">Methods included from <span class='object_link'><a href="../DockerSocketStart.html" title="DockerSocketStart (module)">DockerSocketStart</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="../DockerSocketStart.html#docker_socket_start-instance_method" title="DockerSocketStart#docker_socket_start (method)">#docker_socket_start</a></span></p>
 
+  
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods included from <span class='object_link'><a href="../DockerSocketScheme.html" title="DockerSocketScheme (module)">DockerSocketScheme</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="../DockerSocketScheme.html#docker_socket_scheme-instance_method" title="DockerSocketScheme#docker_socket_scheme (method)">#docker_socket_scheme</a></span></p>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods included from <span class='object_link'><a href="../DockerSocketHost.html" title="DockerSocketHost (module)">DockerSocketHost</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="../DockerSocketHost.html#docker_socket_host-instance_method" title="DockerSocketHost#docker_socket_host (method)">#docker_socket_host</a></span></p>
+
+  
+  
+  
+  
+  
+  
   
   
   
@@ -347,8 +375,8 @@
   
   
   
-  <h3 class="inherited">Methods included from <span class='object_link'><a href="../DockerContainerModule.html" title="DockerContainerModule (module)">DockerContainerModule</a></span></h3>
-  <p class="inherited"><span class='object_link'><a href="../DockerContainerModule.html#docker_container_command-instance_method" title="DockerContainerModule#docker_container_command (method)">#docker_container_command</a></span>, <span class='object_link'><a href="../DockerContainerModule.html#docker_container_daemon-instance_method" title="DockerContainerModule#docker_container_daemon (method)">#docker_container_daemon</a></span>, <span class='object_link'><a href="../DockerContainerModule.html#docker_container_login-instance_method" title="DockerContainerModule#docker_container_login (method)">#docker_container_login</a></span>, <span class='object_link'><a href="../DockerContainerModule.html#docker_container_nuke-instance_method" title="DockerContainerModule#docker_container_nuke (method)">#docker_container_nuke</a></span>, <span class='object_link'><a href="../DockerContainerModule.html#docker_container_purge-instance_method" title="DockerContainerModule#docker_container_purge (method)">#docker_container_purge</a></span></p>
+  <h3 class="inherited">Methods included from <span class='object_link'><a href="../DockerContainerPurge.html" title="DockerContainerPurge (module)">DockerContainerPurge</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="../DockerContainerPurge.html#docker_container_purge-instance_method" title="DockerContainerPurge#docker_container_purge (method)">#docker_container_purge</a></span></p>
 
   
   
@@ -358,8 +386,8 @@
   
   
   
-  <h3 class="inherited">Methods included from <span class='object_link'><a href="../DockerContainerCheckModule.html" title="DockerContainerCheckModule (module)">DockerContainerCheckModule</a></span></h3>
-  <p class="inherited"><span class='object_link'><a href="../DockerContainerCheckModule.html#docker_container_check_existing-instance_method" title="DockerContainerCheckModule#docker_container_check_existing (method)">#docker_container_check_existing</a></span>, <span class='object_link'><a href="../DockerContainerCheckModule.html#docker_container_check_network-instance_method" title="DockerContainerCheckModule#docker_container_check_network (method)">#docker_container_check_network</a></span>, <span class='object_link'><a href="../DockerContainerCheckModule.html#docker_container_check_orphaned-instance_method" title="DockerContainerCheckModule#docker_container_check_orphaned (method)">#docker_container_check_orphaned</a></span></p>
+  <h3 class="inherited">Methods included from <span class='object_link'><a href="../DockerContainerNuke.html" title="DockerContainerNuke (module)">DockerContainerNuke</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="../DockerContainerNuke.html#docker_container_nuke-instance_method" title="DockerContainerNuke#docker_container_nuke (method)">#docker_container_nuke</a></span></p>
 
   
   
@@ -369,8 +397,80 @@
   
   
   
-  <h3 class="inherited">Methods included from <span class='object_link'><a href="../DockerCheckModule.html" title="DockerCheckModule (module)">DockerCheckModule</a></span></h3>
-  <p class="inherited"><span class='object_link'><a href="../DockerCheckModule.html#docker_check_running-instance_method" title="DockerCheckModule#docker_check_running (method)">#docker_check_running</a></span></p>
+  <h3 class="inherited">Methods included from <span class='object_link'><a href="../DockerContainerLogin.html" title="DockerContainerLogin (module)">DockerContainerLogin</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="../DockerContainerLogin.html#docker_container_login-instance_method" title="DockerContainerLogin#docker_container_login (method)">#docker_container_login</a></span></p>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods included from <span class='object_link'><a href="../DockerContainerDaemon.html" title="DockerContainerDaemon (module)">DockerContainerDaemon</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="../DockerContainerDaemon.html#docker_container_daemon-instance_method" title="DockerContainerDaemon#docker_container_daemon (method)">#docker_container_daemon</a></span></p>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods included from <span class='object_link'><a href="../DockerContainerCommand.html" title="DockerContainerCommand (module)">DockerContainerCommand</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="../DockerContainerCommand.html#docker_container_command-instance_method" title="DockerContainerCommand#docker_container_command (method)">#docker_container_command</a></span></p>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods included from <span class='object_link'><a href="../DockerContainerCheckOrphaned.html" title="DockerContainerCheckOrphaned (module)">DockerContainerCheckOrphaned</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="../DockerContainerCheckOrphaned.html#docker_container_check_orphaned-instance_method" title="DockerContainerCheckOrphaned#docker_container_check_orphaned (method)">#docker_container_check_orphaned</a></span></p>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods included from <span class='object_link'><a href="../DockerContainerCheckNetwork.html" title="DockerContainerCheckNetwork (module)">DockerContainerCheckNetwork</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="../DockerContainerCheckNetwork.html#docker_container_check_network-instance_method" title="DockerContainerCheckNetwork#docker_container_check_network (method)">#docker_container_check_network</a></span></p>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods included from <span class='object_link'><a href="../DockerContainerCheckExisting.html" title="DockerContainerCheckExisting (module)">DockerContainerCheckExisting</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="../DockerContainerCheckExisting.html#docker_container_check_existing-instance_method" title="DockerContainerCheckExisting#docker_container_check_existing (method)">#docker_container_check_existing</a></span></p>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods included from <span class='object_link'><a href="../DockerCheckRunning.html" title="DockerCheckRunning (module)">DockerCheckRunning</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="../DockerCheckRunning.html#docker_check_running-instance_method" title="DockerCheckRunning#docker_check_running (method)">#docker_check_running</a></span></p>
 
   
   
@@ -445,16 +545,6 @@
       <pre class="lines">
 
 
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
 31
 32
 33
@@ -478,10 +568,20 @@
 51
 52
 53
-54</pre>
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/takelage/docker/container/cli.rb', line 21</span>
+      <pre class="code"><span class="info file"># File 'lib/takelage/docker/container/cli.rb', line 31</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_args'>args</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='id identifier rubyid_local_options'>local_options</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='id identifier rubyid_configuration'>configuration</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='comment'># initialize thor parent class
@@ -555,12 +655,12 @@
       <pre class="lines">
 
 
-122
-123
-124</pre>
+79
+80
+81</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/takelage/docker/container/cli.rb', line 122</span>
+      <pre class="code"><span class="info file"># File 'lib/takelage/docker/container/cli.rb', line 79</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_command'>command</span><span class='lparen'>(</span><span class='id identifier rubyid_command'>command</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_docker_container_command'>docker_container_command</span><span class='lparen'>(</span><span class='id identifier rubyid_command'>command</span><span class='rparen'>)</span>
@@ -596,12 +696,12 @@
       <pre class="lines">
 
 
-69
-70
-71</pre>
+91
+92
+93</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/takelage/docker/container/cli.rb', line 69</span>
+      <pre class="code"><span class="info file"># File 'lib/takelage/docker/container/cli.rb', line 91</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_daemon'>daemon</span>
   <span class='id identifier rubyid_docker_container_daemon'>docker_container_daemon</span>
@@ -637,12 +737,12 @@
       <pre class="lines">
 
 
-86
-87
-88</pre>
+108
+109
+110</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/takelage/docker/container/cli.rb', line 86</span>
+      <pre class="code"><span class="info file"># File 'lib/takelage/docker/container/cli.rb', line 108</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_login'>login</span>
   <span class='id identifier rubyid_docker_container_login'>docker_container_login</span>
@@ -678,12 +778,12 @@
       <pre class="lines">
 
 
-98
-99
-100</pre>
+120
+121
+122</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/takelage/docker/container/cli.rb', line 98</span>
+      <pre class="code"><span class="info file"># File 'lib/takelage/docker/container/cli.rb', line 120</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_nuke'>nuke</span>
   <span class='id identifier rubyid_docker_container_nuke'>docker_container_nuke</span>
@@ -719,12 +819,12 @@
       <pre class="lines">
 
 
-110
-111
-112</pre>
+132
+133
+134</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/takelage/docker/container/cli.rb', line 110</span>
+      <pre class="code"><span class="info file"># File 'lib/takelage/docker/container/cli.rb', line 132</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_purge'>purge</span>
   <span class='id identifier rubyid_docker_container_purge'>docker_container_purge</span>
@@ -739,7 +839,7 @@
 </div>
 
       <div id="footer">
-  Generated on Thu Apr 23 01:07:12 2020 by
+  Generated on Thu Apr 23 14:46:16 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.24 (ruby-2.6.3).
 </div>
