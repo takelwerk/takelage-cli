@@ -5,8 +5,7 @@
 Feature: I can print the socket scheme
 
   Scenario: Print the socket scheme
-    Given I run `ip link show dev docker0`
-    And the exit status should be 1
+    Given I delete a network device named "docker0"
     And a file named "~/.takelage.yml" with:
       """
       ---
