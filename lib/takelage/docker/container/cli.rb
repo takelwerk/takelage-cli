@@ -13,7 +13,8 @@ module Takelage
     include DockerImageTagListModule
     include DockerImageTagCheckModule
     include DockerImageCheckModule
-    include DockerSocketModule
+    include DockerSocketLib
+    include DockerSocketStart
 
     # Initialize docker container
     # rubocop:disable Metrics/MethodLength

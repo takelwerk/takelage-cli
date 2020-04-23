@@ -7,7 +7,11 @@ module Takelage
     include SystemModule
     include ConfigModule
     include DockerCheckModule
-    include DockerSocketModule
+    include DockerSocketLib
+    include DockerSocketHost
+    include DockerSocketScheme
+    include DockerSocketStart
+    include DockerSocketStop
 
     # Initialize docker socket
     def initialize(args = [], local_options = {}, configuration = {})

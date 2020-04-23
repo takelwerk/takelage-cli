@@ -6,7 +6,9 @@ module Takelage
     include LoggingModule
     include SystemModule
     include ConfigModule
-    include GitCheckModule
+    include GitCheckClean
+    include GitCheckMaster
+    include GitCheckWorkspace
 
     #
     # git check clean
