@@ -50,6 +50,7 @@ module DockerContainerLib
 
   # Create docker container.
   # rubocop:disable Metrics/MethodLength
+  # rubocop:disable Metrics/AbcSize
   def _docker_container_lib_create_container(container)
     log.debug "Creating container \"#{container}\""
 
@@ -63,37 +64,38 @@ module DockerContainerLib
       addhost = "--add-host host.docker.internal:#{@socket_host}"
     end
 
+    docker_debug = config.active['docker_debug']
     entrypoint = '/entrypoint.py '
     volume_dev = ''
     if options[:development]
       entrypoint += ' --debug '
-      volume_dev = "--volume #{@workdir}/#{@docker_debug}:/debug "
+      volume_dev = "--volume #{@workdir}/#{docker_debug}:/debug "
     end
 
     cmd_docker_create = format(
       config.active['cmd_docker_container_create'],
       workdir: @workdir,
-      timezone: @timezone,
+      timezone: 'Europe/Berlin',
       container: container,
-      dockersock: @dockersock,
-      homedir: @homedir,
+      dockersock: '/var/run/docker.sock',
+      homedir: ENV['HOME'] || '/tmp',
       volume_dev: volume_dev,
       image: image,
       addhost: addhost,
-      dockerrun_options: @dockerrun_options,
+      dockerrun_options: config.active['docker_run_options'],
       entrypoint: entrypoint,
-      gid: @gid,
-      uid: @uid,
+      uid: Etc.getpwnam(@username).uid,
+      gid: Etc.getpwnam(@username).gid,
       username: @username,
-      gpg_agent_port: @gpg_agent_port,
-      gpg_ssh_agent_port: @gpg_ssh_agent_port,
-      extra: @entrypoint_extra,
-      entrypoint_options: @entrypoint_options
+      gpg_agent_port: config.active['docker_socket_gpg_agent_port'],
+      gpg_ssh_agent_port: config.active['docker_socket_gpg_ssh_agent_port'],
+      extra: config.active['docker_entrypoint_extra'],
+      entrypoint_options: config.active['docker_entrypoint_options']
     )
 
     try cmd_docker_create
   end
-
+  # rubocop:enable Metrics/AbcSize
   # rubocop:enable Metrics/MethodLength
 
   # Check if docker image is available

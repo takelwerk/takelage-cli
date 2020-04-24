@@ -26,35 +26,22 @@ module Takelage
     include DockerSocketStart
 
     # Initialize docker container
-    # rubocop:disable Metrics/MethodLength
     # rubocop:disable Metrics/AbcSize
     def initialize(args = [], local_options = {}, configuration = {})
       # initialize thor parent class
       super args, local_options, configuration
 
-      @docker_debug = config.active['docker_debug']
       @docker_user = config.active['docker_user']
       @docker_repo = config.active['docker_repo']
       @docker_tag = config.active['docker_tag']
       @docker_registry = config.active['docker_registry']
-      @dockersock = '/var/run/docker.sock'
-      @dockerrun_options = config.active['docker_run_options']
-      @entrypoint_extra = config.active['docker_entrypoint_extra']
-      @entrypoint_options = config.active['docker_entrypoint_options']
-      @gpg_agent_port = config.active['docker_socket_gpg_agent_port']
-      @gpg_ssh_agent_port = config.active['docker_socket_gpg_ssh_agent_port']
-      @socket_host = docker_socket_host
-      @sockets = docker_socket_scheme
       @username = ENV['USER'] || 'noname'
-      @uid = Etc.getpwnam(@username).uid
-      @gid = Etc.getpwnam(@username).gid
-      @homedir = ENV['HOME'] || '/tmp'
       @workdir = Dir.getwd
       @hostname = "#{@docker_repo}_#{File.basename(@workdir)}"
-      @timezone = 'Europe/Berlin'
+      @socket_host = docker_socket_host
+      @sockets = docker_socket_scheme
     end
     # rubocop:enable Metrics/AbcSize
-    # rubocop:enable Metrics/MethodLength
 
     desc 'check [COMMAND]', 'Check docker container'
     subcommand 'check', DockerContainerCheck
