@@ -35,7 +35,7 @@ def _build_mock_image_version(image_name, version)
   cmd_build_mock_image = 'docker build ' \
           "--build-arg version=#{version} " \
           "--tag #{image_name}:#{version} " \
-          'features/fixtures/takelage-mock ' \
+          'features/cucumber/fixtures/takelage-mock ' \
           '>/dev/null 2>&1'
   system cmd_build_mock_image
 end

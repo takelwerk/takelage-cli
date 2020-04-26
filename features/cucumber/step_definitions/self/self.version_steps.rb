@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 Given 'I read the takelage version from the version file' do
-  version_file = "#{File.dirname(__FILE__)}/../../../lib/takelage/version"
+  version_file = "#{File.dirname(__FILE__)}/../../../../lib/takelage/version"
   @takelage_version_number = (File.read version_file).chomp
 end
 
