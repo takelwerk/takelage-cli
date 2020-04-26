@@ -4,7 +4,7 @@ require 'rake'
 
 cmd_doc_build = 'yardoc --template-path ./yard'
 cmd_doc_clean = 'rm -fr doc/*'
-cmd_doc_commit = 'tau git check clean || git add doc && git commit -m "Update docs"'
+cmd_doc_commit = 'tau git check clean || (git add doc && git commit -m "Update docs")'
 
 namespace :doc do
   desc 'Build takelage doc'
