@@ -2,7 +2,7 @@
 
 require 'rake'
 
-cmd_doc_build = 'yard'
+cmd_doc_build = 'yardoc --template-path ./'
 cmd_doc_clean = 'rm -fr doc/*'
 cmd_doc_commit = 'git add doc && git commit -m "Update docs"'
 
