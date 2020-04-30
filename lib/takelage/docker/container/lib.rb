@@ -74,23 +74,24 @@ module DockerContainerLib
 
     cmd_docker_create = format(
       config.active['cmd_docker_container_create'],
-      workdir: @workdir,
-      timezone: 'Europe/Berlin',
-      container: container,
-      dockersock: '/var/run/docker.sock',
-      homedir: ENV['HOME'] || '/tmp',
-      volume_dev: volume_dev,
-      image: image,
       addhost: addhost,
+      container: container,
       dockerrun_options: config.active['docker_run_options'],
+      dockersock: '/var/run/docker.sock',
       entrypoint: entrypoint,
-      uid: Etc.getpwnam(@username).uid,
+      entrypoint_options: config.active['docker_entrypoint_options'],
+      extra: config.active['docker_entrypoint_extra'],
       gid: Etc.getpwnam(@username).gid,
-      username: @username,
       gpg_agent_port: config.active['docker_socket_gpg_agent_port'],
       gpg_ssh_agent_port: config.active['docker_socket_gpg_ssh_agent_port'],
-      extra: config.active['docker_entrypoint_extra'],
-      entrypoint_options: config.active['docker_entrypoint_options']
+      homedir: ENV['HOME'] || '/tmp',
+      image: image,
+      shmsize: config.active['docker_shm_size'],
+      timezone: 'Europe/Berlin',
+      uid: Etc.getpwnam(@username).uid,
+      username: @username,
+      volume_dev: volume_dev,
+      workdir: @workdir
     )
 
     try cmd_docker_create
