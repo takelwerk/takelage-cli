@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 # takelage docker container lib
+# rubocop:disable Metrics/ModuleLength
 module DockerContainerLib
   private
 
@@ -150,3 +151,4 @@ module DockerContainerLib
     run cmd_docker_stop
   end
 end
+# rubocop:enable Metrics/ModuleLength
