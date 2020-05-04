@@ -2,9 +2,9 @@
 
 require 'aruba/cucumber'
 require 'json'
-require_relative '../lib/bit'
-require_relative '../lib/container'
-require_relative '../lib/image'
+require_relative 'bit'
+require_relative 'container'
+require_relative 'image'
 ENV['PATH'] = '/project/bin' + File::PATH_SEPARATOR + ENV['PATH']
 
 # BeforeAll hook

@@ -2,7 +2,7 @@
 
 Given 'I infinitize {string} in {string}' do |file, container|
   cmd_infinitize_file = 'docker cp ' \
-      'features/cucumber/fixtures/takelage-mock/infinite.sh ' \
+      'features/cucumber/support/fixtures/takelage-mock/infinite.sh ' \
       "#{container}:#{file}"
   cmd_change_permissions = 'docker exec ' \
       '--interactive ' \

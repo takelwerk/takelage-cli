@@ -8,9 +8,9 @@ Before do
       "'"
   cmd_copy_ssh_config = "bash -c '" \
       "mkdir -p #{aruba.config.home_directory}/.ssh && " \
-      'cp features/cucumber/fixtures/takelage-bitboard/config ' \
+      'cp features/cucumber/support/fixtures/takelage-bitboard/config ' \
       "#{aruba.config.home_directory}/.ssh/config && " \
-      'cp features/cucumber/fixtures/takelage-bitboard/id_rsa.myuser ' \
+      'cp features/cucumber/support/fixtures/takelage-bitboard/id_rsa.myuser ' \
       "#{aruba.config.home_directory}/.ssh/id_rsa" \
       "'"
   cmd_creating_gnupg_dir = "bash -c '" \
