@@ -15,7 +15,7 @@ module Takelage
     include DockerContainerDaemon
     include DockerContainerLogin
     include DockerContainerNuke
-    include DockerContainerPurge
+    include DockerContainerPrune
     include DockerImageTagLatestLocal
     include DockerImageTagListLocal
     include DockerImageTagCheckLocal
@@ -100,15 +100,15 @@ module Takelage
     end
 
     #
-    # docker container purge
+    # docker container prune
     #
-    desc 'purge', 'Remove orphaned docker containers'
+    desc 'prune', 'Remove orphaned docker containers'
     long_desc <<-LONGDESC.gsub("\n", "\x5")
     Remove orphaned docker containers
     LONGDESC
     # Remove orphaned docker containers.
-    def purge
-      docker_container_purge
+    def prune
+      docker_container_prune
     end
   end
 end

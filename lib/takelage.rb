@@ -71,7 +71,7 @@ require_relative 'takelage/docker/container/command'
 require_relative 'takelage/docker/container/daemon'
 require_relative 'takelage/docker/container/login'
 require_relative 'takelage/docker/container/nuke'
-require_relative 'takelage/docker/container/purge'
+require_relative 'takelage/docker/container/prune'
 require_relative 'takelage/docker/container/cli'
 require_relative 'takelage/docker/cli'
 require_relative 'takelage/info/project/cli'
@@ -193,10 +193,10 @@ module Takelage
       Takelage::BitClipboard.new.pull
     end
 
-    desc 'purge', 'Alias for tau docker container purge'
-    # takelage purge: {takelage::DockerContainer#purge}
-    def purge
-      Takelage::DockerContainer.new.purge
+    desc 'prune', 'Alias for tau docker container prune'
+    # takelage prune: {takelage::DockerContainer#prune}
+    def prune
+      Takelage::DockerContainer.new.prune
     end
 
     desc 'push', 'Alias for tau bit clipboard push'

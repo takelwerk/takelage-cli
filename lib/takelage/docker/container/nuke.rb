@@ -22,7 +22,7 @@ module DockerContainerNuke
     return false unless hostname.start_with? "#{@docker_repo}_"
 
     log.error "Please run \"tau nuke\" outside of #{@docker_repo} containers"
-    log.info "Run \"tau purge\" to remove orphaned #{@docker_repo} containers"
+    log.info "Run \"tau prune\" to remove orphaned #{@docker_repo} containers"
     true
   end
 
