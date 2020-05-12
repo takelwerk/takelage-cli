@@ -11,7 +11,6 @@ module BitClipboardPaste
     return false unless _bit_clipboard_paste_cid_exists? cid
 
     _bit_clipboard_paste_import_cid cid, dir
-    _bit_clipboard_lib_handle_bitignore
     _bit_clipbpard_lib_remove_bit_artifacts
     _bit_clipboard_lib_sync_workspace
 

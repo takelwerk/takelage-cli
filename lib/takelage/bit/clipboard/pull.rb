@@ -10,7 +10,6 @@ module BitClipboardPull
 
     _bit_clipboard_pull_import_all
     _bit_clipboard_pull_checkout_all
-    _bit_clipboard_lib_handle_bitignore
     _bit_clipbpard_lib_remove_bit_artifacts
     _bit_clipboard_lib_sync_workspace
 

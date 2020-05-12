@@ -106,25 +106,6 @@ module BitClipboardLib
     false
   end
 
-  # Genereate .gitignore if bitignore is present
-  def _bit_clipboard_lib_handle_bitignore
-    log.debug 'Handling bitgnore files'
-
-    # find all bitgnore files
-    Dir.glob('./**/bitignore').each do |file|
-      # get directory of bitignore file
-      dir = File.dirname file
-
-      # build gitignore filepath
-      gitignore_file = "#{dir}/.gitignore"
-
-      unless File.exist? gitignore_file
-        log.debug "Creating \".gitignore\" in \"#{dir}\""
-        File.open(gitignore_file, 'w') { |gitignore| gitignore.write('*') }
-      end
-    end
-  end
-
   # Generate bit component ID.
   def _bit_clipboard_lib_id(name)
     id = ''
