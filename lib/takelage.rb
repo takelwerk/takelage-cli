@@ -70,7 +70,7 @@ require_relative 'takelage/docker/container/lib'
 require_relative 'takelage/docker/container/command'
 require_relative 'takelage/docker/container/daemon'
 require_relative 'takelage/docker/container/login'
-require_relative 'takelage/docker/container/nuke'
+require_relative 'takelage/docker/container/clean'
 require_relative 'takelage/docker/container/prune'
 require_relative 'takelage/docker/container/cli'
 require_relative 'takelage/docker/cli'
@@ -175,10 +175,10 @@ module Takelage
       Takelage::Self.new.list
     end
 
-    desc 'nuke', 'Alias for tau docker container nuke'
-    # takelage nuke: {takelage::DockerContainer#nuke}
-    def nuke
-      Takelage::DockerContainer.new.nuke
+    desc 'clean', 'Alias for tau docker container clean'
+    # takelage clean: {takelage::DockerContainer#clean}
+    def clean
+      Takelage::DockerContainer.new.clean
     end
 
     desc 'paste [COMPONENT] [DIR]', 'Alias for tau bit clipboard paste'

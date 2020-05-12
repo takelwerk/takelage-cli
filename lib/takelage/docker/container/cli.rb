@@ -14,7 +14,7 @@ module Takelage
     include DockerContainerCommand
     include DockerContainerDaemon
     include DockerContainerLogin
-    include DockerContainerNuke
+    include DockerContainerClean
     include DockerContainerPrune
     include DockerImageTagLatestLocal
     include DockerImageTagListLocal
@@ -88,15 +88,15 @@ module Takelage
     end
 
     #
-    # docker container nuke
+    # docker container clean
     #
-    desc 'nuke', 'Remove all docker containers'
+    desc 'clean', 'Remove all docker containers'
     long_desc <<-LONGDESC.gsub("\n", "\x5")
     Remove all docker containers
     LONGDESC
     # Remove all docker containers.
-    def nuke
-      docker_container_nuke
+    def clean
+      docker_container_clean
     end
 
     #

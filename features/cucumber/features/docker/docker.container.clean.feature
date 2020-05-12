@@ -1,13 +1,13 @@
 @docker
 @docker.container
-@docker.container.nuke
+@docker.container.clean
 
 @before_build_mock_images
 @after_stop_mock_container
 
-Feature: I can nuke docker containers
+Feature: I can clean docker containers
 
-  Scenario: Nuke docker containers
+  Scenario: Clean docker containers
     Given a file named "~/.takelage.yml" with:
       """
       ---
@@ -28,7 +28,7 @@ Feature: I can nuke docker containers
     And I daemonize "/loginpoint.py" in "takelage-mock_infinite"
     And I run `tau-cli docker container check orphaned takelage-mock_infinite`
     And the exit status should be 1
-    When I successfully run `tau-cli docker container nuke`
+    When I successfully run `tau-cli docker container clean`
     Then the docker container "takelage-mock_finite" doesn't exist
     And the docker container "takelage-mock_infinite" doesn't exist
     And I run `tau-cli docker container check network takelage-mock_finite`

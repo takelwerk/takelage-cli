@@ -64,7 +64,7 @@ tau [docker container check orphaned](features/takelage/docker/docker.container.
 tau [docker container command](features/takelage/docker/docker.container.command.feature) [CMD] | Run [CMD] in a docker container
 tau [docker container daemon](features/takelage/docker/docker.container.daemon.feature) | Run docker container in daemon mode
 tau [docker container login](features/takelage/docker/docker.container.login.feature) | Log in to latest local docker container
-tau [docker container nuke](features/takelage/docker/docker.container.nuke.feature) | Remove all docker containers
+tau [docker container clean](features/takelage/docker/docker.container.clean.feature) | Remove all docker containers
 tau [docker container prune](features/takelage/docker/docker.container.prune.feature) | Remove orphaned docker containers
 tau [docker image check outdated](features/takelage/docker/docker.image.check.outdated.feature) | Check if a docker image is outdated
 tau [docker image tag check local](features/takelage/docker/docker.image.tag.check.local.feature) [TAG] | Check if local docker image [TAG] exists
@@ -94,7 +94,7 @@ tau config | Alias for tau [self config active](features/takelage/self/self.conf
 tau copy [DIR] [SCOPE] | Alias for tau [bit clipboard copy](features/takelage/bit/bit.clipboard.copy.feature)
 tau list | Alias for tau [self list](features/takelage/self/self.list.feature)
 tau login | Alias for tau [docker container login](features/takelage/docker/docker.container.login.feature)
-tau nuke | Alias for tau [docker container nuke](features/takelage/docker/docker.container.nuke.feature)
+tau clean | Alias for tau [docker container clean](features/takelage/docker/docker.container.clean.feature)
 tau paste [COMPONENT] [DIR] | Alias for tau [bit clipboard paste](features/takelage/bit/bit.clipboard.paste.feature)
 tau project | Alias for tau [info project active](features/takelage/info/info.project.active.feature)
 tau pull | Alias for tau [bit clipboard pull](features/takelage/bit/bit.clipboard.pull.feature)
