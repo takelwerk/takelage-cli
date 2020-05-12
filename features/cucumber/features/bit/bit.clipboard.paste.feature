@@ -37,31 +37,6 @@ Feature: I can paste a bit component from a bit remote scope
     Then the directory "my_dir" should exist
     And the file "my_dir/my_file" should exist
 
-  @bit.clipboard.paste.dirwithbitignore
-
-  Scenario: Paste a bit component from a bit remote scope with bitignore file
-    Given a directory named "my_dir"
-    And an empty file named "my_dir/my_file"
-    And an empty file named "my_dir/bitignore"
-    And the list of remote scopes is up-to-date
-    But a remote scope named "my_scope" should not exist
-    And I successfully run `tau-cli bit scope new my_scope`
-    And I successfully run `tau-cli bit scope add my_scope`
-    And I successfully run `tau-cli bit clipboard copy my_dir my_scope`
-    And I cd to ".."
-    And a directory named "other"
-    And I initialize a bit workspace in "other"
-    And I cd to "other"
-    And I successfully run `tau-cli bit scope add my_scope`
-    When I successfully run `tau-cli bit clipboard paste my_scope/my_dir my_dir`
-    Then the directory "my_dir" should exist
-    And the file "my_dir/my_file" should exist
-    And the file "my_dir/bitignore" should exist
-    And the file "my_dir/.gitignore" should contain:
-      """
-      *
-      """
-
   @bit.clipboard.paste.notongitmaster
 
   Scenario: Fail if not on git master branch
