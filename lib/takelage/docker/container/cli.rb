@@ -73,7 +73,7 @@ module Takelage
     #
     # docker container login
     #
-    option :development,
+    option :debug,
            aliases: 'd',
            type: :boolean,
            default: false,
