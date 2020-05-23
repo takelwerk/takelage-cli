@@ -69,7 +69,7 @@ module DockerContainerLib
     entrypoint = '/entrypoint.py '
     volume_dev = ''
     if options[:development]
-      entrypoint += ' --debug '
+      entrypoint = '/debug/entrypoint.py --debug '
       volume_dev = "--volume #{@workdir}/#{docker_debug}:/debug "
     end
 

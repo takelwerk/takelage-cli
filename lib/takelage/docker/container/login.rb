@@ -34,7 +34,7 @@ module DockerContainerLogin
     log.debug "Entering container \"#{container}\""
 
     loginpoint = '/loginpoint.py'
-    loginpoint += ' --debug ' if options[:development]
+    loginpoint = '/debug/loginpoint.py --debug ' if options[:development]
 
     format(
       config.active['cmd_docker_container_enter_container'],
