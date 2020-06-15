@@ -38,15 +38,32 @@ module ConfigModule
   def configured?(config_keys)
     @configured = true
     config_keys.each do |config_key|
-      unless TakelageConfig.instance.active.key? config_key
-        log.error "Please configure \"#{config_key}\""
-        @configured = false
-      end
+      next unless _check_key_defined? config_key
+      next unless _check_key_set? config_key
     end
     @configured
   end
 
   private
+
+  # Check if config key is defined.
+  def _check_key_defined?(config_key)
+    return true if TakelageConfig.instance.active.key? config_key
+
+    log.error "Undefined config key. Please configure \"#{config_key}\""
+    @configured = false
+    false
+  end
+
+  # Check if config key is nil or empty
+  def _check_key_set?(config_key)
+    takel_config_key = TakelageConfig.instance.active[config_key]
+    return true unless takel_config_key.nil? || takel_config_key.empty?
+
+    log.error "Unset config key. Please configure \"#{config_key}\""
+    @configured = false
+    false
+  end
 
   # Read default config file in lib.
   def _config_read_default
