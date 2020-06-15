@@ -47,6 +47,18 @@ module Takelage
     subcommand 'check', DockerContainerCheck
 
     #
+    # docker container clean
+    #
+    desc 'clean', 'Remove all docker containers'
+    long_desc <<-LONGDESC.gsub("\n", "\x5")
+    Remove all docker containers
+    LONGDESC
+    # Remove all docker containers.
+    def clean
+      docker_container_clean
+    end
+
+    #
     # docker container command
     #
     desc 'command [CMD]', 'Run [CMD] in a docker container'
@@ -85,18 +97,6 @@ module Takelage
     # Log in to latest local docker container.
     def login
       docker_container_login
-    end
-
-    #
-    # docker container clean
-    #
-    desc 'clean', 'Remove all docker containers'
-    long_desc <<-LONGDESC.gsub("\n", "\x5")
-    Remove all docker containers
-    LONGDESC
-    # Remove all docker containers.
-    def clean
-      docker_container_clean
     end
 
     #

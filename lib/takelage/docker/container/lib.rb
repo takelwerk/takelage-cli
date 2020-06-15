@@ -77,7 +77,7 @@ module DockerContainerLib
       config.active['cmd_docker_container_create'],
       addhost: addhost,
       container: container,
-      dockerrun_options: config.active['docker_run_options'],
+      docker_run_options: config.active['docker_run_options'],
       dockersock: '/var/run/docker.sock',
       entrypoint: entrypoint,
       entrypoint_options: config.active['docker_entrypoint_options'],
