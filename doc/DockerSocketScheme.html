@@ -181,12 +181,7 @@
 11
 12
 13
-14
-15
-16
-17
-18
-19</pre>
+14</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/takelage/docker/socket/scheme.rb', line 6</span>
@@ -194,14 +189,9 @@
 <span class='kw'>def</span> <span class='id identifier rubyid_docker_socket_scheme'>docker_socket_scheme</span>
   <span class='id identifier rubyid_log'>log</span><span class='period'>.</span><span class='id identifier rubyid_debug'>debug</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Getting docker socket scheme</span><span class='tstring_end'>&#39;</span></span>
 
-  <span class='id identifier rubyid_gpg_path'>gpg_path</span> <span class='op'>=</span> <span class='id identifier rubyid__socket_get_agent_socket_path'>_socket_get_agent_socket_path</span>
-  <span class='id identifier rubyid_gpg_port'>gpg_port</span> <span class='op'>=</span> <span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_active'>active</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>docker_socket_gpg_agent_port</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
-  <span class='id identifier rubyid_ssh_path'>ssh_path</span> <span class='op'>=</span> <span class='id identifier rubyid__socket_get_agent_ssh_socket_path'>_socket_get_agent_ssh_socket_path</span>
-  <span class='id identifier rubyid_ssh_port'>ssh_port</span> <span class='op'>=</span> <span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_active'>active</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>docker_socket_gpg_ssh_agent_port</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_socket_scheme'>socket_scheme</span> <span class='op'>=</span> <span class='id identifier rubyid__socket_get_scheme'>_socket_get_scheme</span> <span class='id identifier rubyid__socket_get_config'>_socket_get_config</span>
 
-  <span class='id identifier rubyid_socket_scheme'>socket_scheme</span> <span class='op'>=</span> <span class='id identifier rubyid__socket_get_scheme'>_socket_get_scheme</span> <span class='id identifier rubyid_gpg_path'>gpg_path</span><span class='comma'>,</span> <span class='id identifier rubyid_gpg_port'>gpg_port</span><span class='comma'>,</span> <span class='id identifier rubyid_ssh_path'>ssh_path</span><span class='comma'>,</span> <span class='id identifier rubyid_ssh_port'>ssh_port</span>
-  <span class='id identifier rubyid_log'>log</span><span class='period'>.</span><span class='id identifier rubyid_debug'>debug</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Docker socket scheme is </span><span class='tstring_end'>&#39;</span></span> \
-    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\n\&quot;\&quot;\&quot;\n</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_hash_to_yaml'>hash_to_yaml</span> <span class='id identifier rubyid_socket_scheme'>socket_scheme</span><span class='embexpr_end'>}</span><span class='tstring_content'>\&quot;\&quot;\&quot;</span><span class='tstring_end'>&quot;</span></span>
+  <span class='id identifier rubyid_log'>log</span><span class='period'>.</span><span class='id identifier rubyid_debug'>debug</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Docker socket scheme is \n\&quot;\&quot;\&quot;\n</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_hash_to_yaml'>hash_to_yaml</span> <span class='id identifier rubyid_socket_scheme'>socket_scheme</span><span class='embexpr_end'>}</span><span class='tstring_content'>\&quot;\&quot;\&quot;</span><span class='tstring_end'>&quot;</span></span>
 
   <span class='id identifier rubyid_socket_scheme'>socket_scheme</span>
 <span class='kw'>end</span></pre>
