@@ -83,7 +83,7 @@ module DockerContainerLib
       addhost: addhost,
       container: container,
       docker_run_options: config.active['docker_run_options'],
-      dockersock: '/var/run/docker.sock',
+      docker_daemon_port: config.active['docker_socket_docker_daemon_port'],
       entrypoint: entrypoint,
       entrypoint_options: config.active['docker_entrypoint_options'],
       extra: config.active['docker_entrypoint_extra'],
