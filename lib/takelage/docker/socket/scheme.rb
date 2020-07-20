@@ -16,18 +16,20 @@ module DockerSocketScheme
   private
 
   # Get docker socket config.
+  # rubocop:disable Metrics/AbcSize
   def _socket_get_config
-    socket_config = []
+    cfg = []
 
-    socket_config['docker_path'] = _socket_get_docker_daemon_path
-    socket_config['docker_port'] = config.active['docker_socket_docker_daemon_port']
-    socket_config['gpg_path'] = _socket_get_agent_socket_path
-    socket_config['gpg_port'] = config.active['docker_socket_gpg_agent_port']
-    socket_config['ssh_path'] = _socket_get_agent_ssh_socket_path
-    socket_config['ssh_port'] = config.active['docker_socket_gpg_ssh_agent_port']
+    cfg['docker_path'] = _socket_get_docker_daemon_path.to_s
+    cfg['docker_port'] = config.active['docker_socket_docker_daemon_port'].to_s
+    cfg['gpg_path'] = _socket_get_agent_socket_path.to_s
+    cfg['gpg_port'] = config.active['docker_socket_gpg_agent_port'].to_s
+    cfg['ssh_path'] = _socket_get_agent_ssh_socket_path.to_s
+    cfg['ssh_port'] = config.active['docker_socket_gpg_ssh_agent_port'].to_s
 
-    socket_config
+    cfg
   end
+  # rubocop:enable Metrics/AbcSize
 
   # Get docker socket path.
   def _socket_get_docker_daemon_path
