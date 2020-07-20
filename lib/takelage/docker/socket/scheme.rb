@@ -25,7 +25,7 @@ module DockerSocketScheme
       'ssh_path' => _socket_get_agent_ssh_socket_path,
       'ssh_port' => config.active['docker_socket_gpg_ssh_agent_port']
     }
-    
+
     socket_config
   end
 
