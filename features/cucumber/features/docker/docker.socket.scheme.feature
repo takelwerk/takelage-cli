@@ -17,11 +17,15 @@ Feature: I can print the socket scheme
     Then the output should contain:
     """
     ---
-    agent-socket:
+    docker-daemon:
+      path: "/var/run/docker.sock"
+      host: 127.0.0.1
+      port: 17873
+    gpg-agent:
       path: "/tmp/fake_home/.gnupg/S.gpg-agent"
       host: 127.0.0.1
       port: 11111
-    agent-ssh-socket:
+    gpg-ssh-agent:
       path: "/tmp/fake_home/.gnupg/S.gpg-agent.ssh"
       host: 127.0.0.1
       port: 22222

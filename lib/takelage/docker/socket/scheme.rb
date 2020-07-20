@@ -56,7 +56,7 @@ module DockerSocketScheme
       'gpg-agent' => { 'path' => socket_config['gpg_path'],
                        'host' => @socket_host,
                        'port' => socket_config['gpg_port'] },
-      'gpg-agent-ssh' => { 'path' => socket_config['ssh_path'],
+      'gpg-ssh-agent' => { 'path' => socket_config['ssh_path'],
                            'host' => @socket_host,
                            'port' => socket_config['ssh_port'] } }
   end
