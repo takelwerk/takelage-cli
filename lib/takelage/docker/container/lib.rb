@@ -2,6 +2,7 @@
 
 # takelage docker container lib
 # rubocop:disable Metrics/ModuleLength
+# rubocop:disable Style/IfUnlessModifier
 module DockerContainerLib
   private
 
@@ -151,4 +152,5 @@ module DockerContainerLib
     run cmd_docker_stop
   end
 end
+# rubocop:enable Style/IfUnlessModifier
 # rubocop:enable Metrics/ModuleLength
