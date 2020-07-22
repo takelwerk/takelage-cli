@@ -6,7 +6,6 @@ module DockerContainerLib
   private
 
   # Create docker container and network.
-  # rubocop:disable Style/IfUnlessModifier
   def _docker_container_lib_create_net_and_ctr(name)
     unless docker_container_check_network name
       _docker_container_lib_create_network name
@@ -16,10 +15,8 @@ module DockerContainerLib
 
     _docker_container_lib_create_container name
   end
-  # rubocop:enable Style/IfUnlessModifier
 
   # Remove docker networks.
-  # rubocop:disable Style/IfUnlessModifier
   def _docker_container_lib_remove_networks(networks)
     networks.each do |network|
       if docker_container_check_network network
@@ -27,7 +24,6 @@ module DockerContainerLib
       end
     end
   end
-  # rubocop:enable Style/IfUnlessModifier
 
   # Create docker network.
   def _docker_container_lib_create_network(network)
@@ -56,7 +52,6 @@ module DockerContainerLib
   # Create docker container.
   # rubocop:disable Metrics/MethodLength
   # rubocop:disable Metrics/AbcSize
-  # rubocop:disable Style/IfUnlessModifier
   def _docker_container_lib_create_container(container)
     log.debug "Creating container \"#{container}\""
 
@@ -83,7 +78,7 @@ module DockerContainerLib
       addhost: addhost,
       container: container,
       docker_run_options: config.active['docker_run_options'],
-      docker_daemon_port: config.active['docker_socket_docker_daemon_port'],
+      dockersock: '/var/run/docker.sock',
       entrypoint: entrypoint,
       entrypoint_options: config.active['docker_entrypoint_options'],
       extra: config.active['docker_entrypoint_extra'],
@@ -102,7 +97,6 @@ module DockerContainerLib
 
     try cmd_docker_create
   end
-  # rubocop:enable Style/IfUnlessModifier
   # rubocop:enable Metrics/AbcSize
   # rubocop:enable Metrics/MethodLength
 
