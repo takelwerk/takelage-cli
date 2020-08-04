@@ -60,6 +60,8 @@ module DockerContainerLib
   def _docker_container_lib_create_container(container)
     log.debug "Creating container \"#{container}\""
 
+    return false if _docker_container_lib_check_matrjoschka
+
     image = "#{@docker_user}/#{@docker_repo}:#{@docker_tag}"
 
     return false unless _docker_container_lib_image_available? image
@@ -105,6 +107,11 @@ module DockerContainerLib
   # rubocop:enable Style/IfUnlessModifier
   # rubocop:enable Metrics/AbcSize
   # rubocop:enable Metrics/MethodLength
+
+  # Check if we are already inside a takelage container
+  def _docker_container_lib_check_matrjoschka
+    return ENV['HOSTNAME'].start_with? @docker_repo
+  end
 
   # Check if docker image is available
   def _docker_container_lib_image_available?(image)
