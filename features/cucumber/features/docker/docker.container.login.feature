@@ -14,7 +14,7 @@ Feature: I can log in to a docker container
       docker_repo: takelage-mock
       """
     And I get the active takelage config
-    When I successfully run `unbuffer tau-cli docker container login`
+    When I successfully run `env -u TAKELAGE_PROJECT_BASE_DIR unbuffer tau-cli docker container login`
     Then the output should contain exactly "Running /loginpoint.py"
 
   Scenario: Do not log in to a takelage container from within a takelage container
