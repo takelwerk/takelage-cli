@@ -14,7 +14,7 @@ module DockerContainerLib
 
     return true if docker_container_check_existing name
 
-    return _docker_container_lib_create_container name
+    _docker_container_lib_create_container name
   end
 
   # Remove docker networks.
@@ -107,7 +107,7 @@ module DockerContainerLib
   def _docker_container_lib_check_matrjoschka
     return false unless ENV['HOSTNAME'].start_with? @docker_repo
 
-    log.error "You cannot log in to takelage from within takelage"
+    log.error 'You cannot log in to takelage from within takelage'
     false
   end
 
