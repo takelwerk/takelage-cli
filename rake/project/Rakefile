@@ -1,0 +1,15 @@
+# frozen_string_literal: true
+
+namespace :project do
+  desc 'Build takelage cli ruby gem'
+  task prod: %w[rubylint
+                doc:clean
+                doc:build
+                doc:commit
+                features
+                gem:clean
+                gem:build
+                gem:move
+                git:tag
+                gem:push]
+end
