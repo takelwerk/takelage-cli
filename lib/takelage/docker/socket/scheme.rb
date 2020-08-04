@@ -6,33 +6,19 @@ module DockerSocketScheme
   def docker_socket_scheme
     log.debug 'Getting docker socket scheme'
 
-    socket_scheme = _socket_get_scheme _socket_get_config
+    gpg_path = _socket_get_agent_socket_path
+    gpg_port = config.active['docker_socket_gpg_agent_port']
+    ssh_path = _socket_get_agent_ssh_socket_path
+    ssh_port = config.active['docker_socket_gpg_ssh_agent_port']
 
-    log.debug "Docker socket scheme is \n\"\"\"\n#{hash_to_yaml socket_scheme}\"\"\""
+    socket_scheme = _socket_get_scheme gpg_path, gpg_port, ssh_path, ssh_port
+    log.debug 'Docker socket scheme is ' \
+      "\n\"\"\"\n#{hash_to_yaml socket_scheme}\"\"\""
 
     socket_scheme
   end
 
   private
-
-  # Get docker socket config.
-  def _socket_get_config
-    socket_config = {
-      'docker_path' => _socket_get_docker_daemon_path,
-      'docker_port' => config.active['docker_socket_docker_daemon_port'],
-      'gpg_path' => _socket_get_agent_socket_path,
-      'gpg_port' => config.active['docker_socket_gpg_agent_port'],
-      'ssh_path' => _socket_get_agent_ssh_socket_path,
-      'ssh_port' => config.active['docker_socket_gpg_ssh_agent_port']
-    }
-
-    socket_config
-  end
-
-  # Get docker socket path.
-  def _socket_get_docker_daemon_path
-    '/var/run/docker.sock'
-  end
 
   # Get gpg agent socket path.
   def _socket_get_agent_socket_path
@@ -49,15 +35,12 @@ module DockerSocketScheme
   end
 
   # Create socket scheme.
-  def _socket_get_scheme(socket_config)
-    { 'docker-daemon' => { 'path' => socket_config['docker_path'],
-                           'host' => @socket_host,
-                           'port' => socket_config['docker_port'] },
-      'gpg-agent' => { 'path' => socket_config['gpg_path'],
-                       'host' => @socket_host,
-                       'port' => socket_config['gpg_port'] },
-      'gpg-ssh-agent' => { 'path' => socket_config['ssh_path'],
-                           'host' => @socket_host,
-                           'port' => socket_config['ssh_port'] } }
+  def _socket_get_scheme(gpg_path, gpg_port, ssh_path, ssh_port)
+    { 'agent-socket' => { 'path' => gpg_path,
+                          'host' => @socket_host,
+                          'port' => gpg_port },
+      'agent-ssh-socket' => { 'path' => ssh_path,
+                              'host' => @socket_host,
+                              'port' => ssh_port } }
   end
 end
