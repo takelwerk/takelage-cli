@@ -25,7 +25,7 @@ Feature: I can log in to a docker container
       docker_repo: takelage
       """
     And I get the active takelage config
-    When I successfully run `unbuffer tau-cli docker container login -l debug`
+    When I successfully run `env -u TAKELAGE_PROJECT_BASE_DIR unbuffer tau-cli docker container login -l debug`
     Then the output should contain:
       """
       [ERROR] You cannot log in to takelage from within takelage

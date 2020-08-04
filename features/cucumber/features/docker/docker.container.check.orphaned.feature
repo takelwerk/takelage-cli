@@ -18,13 +18,13 @@ Feature: I can check if a docker container is orphaned
     And I get the active takelage config
 
   Scenario: Check that an orphaned docker container is orphaned
-    Given I successfully run `unbuffer tau-cli login`
+    Given I successfully run `env -u TAKELAGE_PROJECT_BASE_DIR unbuffer tau-cli login`
     And I successfully run `tau-cli docker container check existing takelage-mock_cucumber`
     When I run `tau-cli docker container check orphaned takelage-mock_cucumber`
     Then the exit status should be 0
 
   Scenario: Check that a non-orphaned docker container isn't orphaned
-    Given I successfully run `unbuffer tau-cli login`
+    Given I successfully run `env -u TAKELAGE_PROJECT_BASE_DIR unbuffer tau-cli login`
     And I infinitize "/loginpoint.py" in "takelage-mock_cucumber"
     And I daemonize "/loginpoint.py" in "takelage-mock_cucumber"
     When I run `tau-cli docker container check orphaned takelage-mock_cucumber`

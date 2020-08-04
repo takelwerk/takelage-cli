@@ -14,7 +14,7 @@ Feature: I can run a command in a docker container
       docker_repo: takelage-mock
       """
     And I get the active takelage config
-    And I successfully run `unbuffer tau-cli docker container login`
+    And I successfully run `env -u TAKELAGE_PROJECT_BASE_DIR unbuffer tau-cli docker container login`
     And I create my user in the docker container
     When I successfully run `unbuffer tau-cli docker container command pwd`
     Then the output should contain "/project"

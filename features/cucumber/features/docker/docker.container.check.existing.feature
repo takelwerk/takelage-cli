@@ -17,7 +17,7 @@ Feature: I can check if a docker container is existing
     And I get the active takelage config
 
   Scenario: Check that an existing docker container is existing
-    Given I successfully run `unbuffer tau-cli docker container login`
+    Given I successfully run `env -u TAKELAGE_PROJECT_BASE_DIR unbuffer tau-cli docker container login`
     When I run `tau-cli docker container check existing takelage-mock_cucumber`
     Then the exit status should be 0
 
