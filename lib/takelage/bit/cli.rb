@@ -9,6 +9,9 @@ module Takelage
     desc 'clipboard [COMMAND]', 'Manage bit clipboard'
     subcommand 'clipboard', BitClipboard
 
+    desc 'require [COMMAND]', 'Manage bit requirements'
+    subcommand 'require', BitRequire
+
     desc 'scope [COMMAND]', 'Manage bit scopes'
     subcommand 'scope', BitScope
   end

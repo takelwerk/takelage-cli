@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Takelage
-  # takelage bit
+  # takelage bit clipboard
   class BitClipboard < SubCommandBase
     include LoggingModule
     include ConfigModule

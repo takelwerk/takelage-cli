@@ -1,73 +1,38 @@
 # frozen_string_literal: true
 
 module Takelage
-  # takelage bit
-  class BitClipboard < SubCommandBase
+  # takelage bit requiere
+  class BitRequire < SubCommandBase
     include LoggingModule
     include ConfigModule
     include SystemModule
-    include GitCheckClean
-    include GitCheckMaster
-    include GitCheckWorkspace
-    include BitCheckWorkspace
     include BitClipboardLib
-    include BitClipboardCopy
     include BitClipboardPaste
-    include BitClipboardPull
-    include BitClipboardPush
+    include BitRequireExport
+    include BitRequireImport
 
     #
-    # bit copy
+    # bit require export
     #
-    desc 'copy [DIR] [SCOPE]', 'Copy new [DIR] to [SCOPE]'
+    desc 'export', 'Create requirements file with bit components.'
     long_desc <<-LONGDESC.gsub("\n", "\x5")
-    Copy a directory as a bit component to a bit remote scope
-    This command will add a directory as a bit component and tag it.
-    The id of the component will be created from the directory name.
-    The directory needs to contain a README.bit file
-    or else a new README.bit file will be created.
-    The README.bit will be the main file of the component which must not be deleted.
-    The tagged bit component will be exported to a bit remote scope.
+    Create requirements file with bit components
     LONGDESC
-    # Copy a file or directory as a bit component to a bit remote scope.
-    def copy(dir_or_file, scope)
-      exit bit_clipboard_copy dir_or_file, scope
+    # Create requirements file with bit components.
+    def export
+      exit bit_require_export
     end
-
+    
     #
-    # bit paste
+    # bit require import
     #
-    desc 'paste [COMPONENT] [DIR]', 'Paste bit [COMPONENT] into [DIR]'
+    desc 'import', 'Import bit components from a requirements file.'
     long_desc <<-LONGDESC.gsub("\n", "\x5")
-    Paste a bit component into a directory
+    Import bit components from a requirements file
     LONGDESC
-    # Paste a bit component into a directory.
-    def paste(cid, dir)
-      exit bit_clipboard_paste cid, dir
-    end
-
-    #
-    # bit pull
-    #
-    desc 'pull', 'Pull all updates for bit components from bit remote scopes'
-    long_desc <<-LONGDESC.gsub("\n", "\x5")
-    Pull all updates for bit components from bit remote scopes
-    LONGDESC
-    # Pull all updates for bit components from bit remote scopes.
-    def pull
-      exit bit_clipboard_pull
-    end
-
-    #
-    # bit push
-    #
-    desc 'push', 'Push all updates of bit components to bit remote scopes'
-    long_desc <<-LONGDESC.gsub("\n", "\x5")
-    Push all updates of bit components to bit remote scopes
-    LONGDESC
-    # Push all updates of bit components to bit remote scopes.
-    def push
-      exit bit_clipboard_push
+    # Import bit components from a requirements file.
+    def import
+      exit bit_require_import
     end
   end
 end
