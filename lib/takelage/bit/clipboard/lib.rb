@@ -52,29 +52,28 @@ module BitClipboardLib
     log.debug 'Syncing git workspace'
 
     _rakefile, path = Rake.application.find_rakefile_location
-    bitmap = "#{path}/.bitmap"
+    file = "#{path}/.bitmap"
+    message = 'Update .bitmap'
 
-    _bit_clipboard_lib_git_add bitmap
-    _bit_clipboard_lib_git_commit bitmap
+    _bit_clipboard_lib_git_add file
+    _bit_clipboard_lib_git_commit message
     _bit_clipboard_lib_git_push
   end
 
   # git add .bitmap
-  def _bit_clipboard_lib_git_add(bitmap)
-    log.debug "Adding \"#{bitmap}\" to git"
+  def _bit_clipboard_lib_git_add(file)
+    log.debug "Adding \"#{file}\" to git"
 
     cmd_bit_clipboard_git_add = format(
       config.active['cmd_bit_clipboard_git_add'],
-      file: bitmap
+      file: file
     )
     run cmd_bit_clipboard_git_add
   end
 
   # git commit -m "Update .bitmap"
-  def _bit_clipboard_lib_git_commit(bitmap)
-    message = 'Update .bitmap'
-
-    log.debug "Committing \"#{bitmap}\" to git"
+  def _bit_clipboard_lib_git_commit(message)
+    log.debug "Committing to git with message \"#{message}\""
 
     cmd_bit_clipboard_git_commit = format(
       config.active['cmd_bit_clipboard_git_commit'],

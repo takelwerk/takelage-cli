@@ -1,9 +1,32 @@
 # frozen_string_literal: true
 
 Given 'I initialize a git workspace in {string}' do |dir|
-  cmd_bit_init_workspace = "bash -c '" \
+  cmd_git_init_workspace = "bash -c '" \
       "git init #{aruba.config.working_directory}/#{dir} " \
       '&> /dev/null' \
       "'"
-  system cmd_bit_init_workspace
+  cmd_git_author = "bash -c '" \
+      'git config --global user.name "Cucumber" ' \
+      '&> /dev/null' \
+      "'"
+  cmd_git_email = "bash -c '" \
+      'git config --global user.email "cucumber@example.com" ' \
+      '&> /dev/null' \
+      "'"
+  system cmd_git_init_workspace
+  system cmd_git_author
+  system cmd_git_email
+end
+
+Given 'I commit everything to git' do
+  cmd_git_add = "bash -c '" \
+      'git add --all ' \
+      '&> /dev/null' \
+      "'"
+  cmd_git_commit = "bash -c '" \
+      'git commit --message "Cucumber feature test commit" ' \
+      '&> /dev/null' \
+      "'"
+  system cmd_git_add
+  system cmd_git_commit
 end
