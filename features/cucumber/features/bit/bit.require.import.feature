@@ -43,7 +43,7 @@ Feature: I can import bit components from a requirements file
         my_scope:
           - name: my_dir
       """
-    And I commit everything to git
+    And I commit everything in "project" to git
     When I successfully run `tau-cli bit require import -l debug`
     Then the directory "my_dir" should exist
     And the file "my_dir/my_file" should exist

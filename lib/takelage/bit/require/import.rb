@@ -65,12 +65,10 @@ module BitRequireImport
 
   # Add bit scopes to workspace
   def _bit_require_import_add_scopes(scopes)
-    scopes.each do |scope|
-
-
-      bit_scope_add
+    scopes.each do |scope, components|
       log.debug "scope"
       log.debug scope
+      bit_scope_add scope unless _bit_clipboard_bit_dev_scope_exists scope
     end
   end
 
