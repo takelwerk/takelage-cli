@@ -22,13 +22,17 @@ Feature: I can import bit components from a requirements file
     And I successfully run `tau-cli bit scope new my_scope`
     And I successfully run `tau-cli bit scope add my_scope`
     And I successfully run `tau-cli bit clipboard copy my_dir my_scope`
+    And the list of remote scopes is up-to-date
+    And the remote scope "my_scope" should exist
     And I cd to ".."
     And a directory named "project"
+    And I initialize a git workspace in "project"
     And I initialize a bit workspace in "project"
     And I cd to "project"
     And I successfully run `tau-cli bit scope add my_scope`
 
   @bit.require.import.onebitcomponent
+  @announce-stdout
 
   Scenario: Import one bit component from an implicit requirements file
             with implicit path
@@ -36,9 +40,10 @@ Feature: I can import bit components from a requirements file
       """
       ---
       scopes:
-        - my_scope:
+        my_scope:
           - name: my_dir
       """
-    When I successfully run `tau-cli bit require import`
+    And I commit everything to git
+    When I successfully run `tau-cli bit require import -l debug`
     Then the directory "my_dir" should exist
     And the file "my_dir/my_file" should exist
