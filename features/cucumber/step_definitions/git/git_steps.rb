@@ -18,13 +18,15 @@ Given 'I initialize a git workspace in {string}' do |dir|
   system cmd_git_email
 end
 
-Given 'I commit everything to git' do
+Given 'I commit everything in {string} to git' do |dir|
   cmd_git_add = "bash -c '" \
-      'git add --all ' \
+      "git -C #{aruba.config.working_directory}/#{dir} " \
+      " add --all " \
       '&> /dev/null' \
       "'"
   cmd_git_commit = "bash -c '" \
-      'git commit --message "Cucumber feature test commit" ' \
+      "git -C #{aruba.config.working_directory}/#{dir} " \
+      "commit --message 'Cucumber feature test commit' " \
       '&> /dev/null' \
       "'"
   system cmd_git_add

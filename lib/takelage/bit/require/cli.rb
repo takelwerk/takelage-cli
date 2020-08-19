@@ -12,6 +12,7 @@ module Takelage
     include BitCheckWorkspace
     include BitScopeAdd
     include BitClipboardLib
+    include BitClipboardCopy
     include BitClipboardPaste
     include BitRequireLib
     include BitRequireExport
