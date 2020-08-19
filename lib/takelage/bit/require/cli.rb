@@ -6,10 +6,23 @@ module Takelage
     include LoggingModule
     include ConfigModule
     include SystemModule
+    include GitCheckClean
+    include GitCheckMaster
+    include GitCheckWorkspace
+    include BitCheckWorkspace
     include BitClipboardLib
-    include BitClipboardPaste
+    # include BitClipboardPaste
+    include BitRequireLib
     include BitRequireExport
     include BitRequireImport
+
+    # Initialize bit require
+    def initialize(args = [], local_options = {}, configuration = {})
+      # initialize thor parent class
+      super args, local_options, configuration
+
+      @bit_require_file = config.active['bit_require_file']
+    end
 
     #
     # bit require export

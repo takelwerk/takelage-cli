@@ -1,6 +1,7 @@
 ---
 bit_dev_user: 'takelage'
 bit_remote: ''
+bit_require_file: 'bitrequire.yml'
 bit_root: '/bit'
 bit_ssh: ''
 cmd_bit_check_workspace_bit_list: 'bit list'
