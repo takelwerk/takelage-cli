@@ -31,11 +31,10 @@ Feature: I can import bit components from a requirements file
     And I cd to "project"
     And I successfully run `tau-cli bit scope add my_scope`
 
-  @bit.require.import.onebitcomponent
-  @announce-stdout
+  @bit.require.import.implicitpath
+  @after_remove_scope_my_scope
 
-  Scenario: Import one bit component from an implicit requirements file
-            with implicit path
+  Scenario: Import a bit component with implicit path
     Given a file named "bitrequire.yml" with:
       """
       ---
@@ -44,6 +43,23 @@ Feature: I can import bit components from a requirements file
           - name: my_dir
       """
     And I commit everything in "project" to git
-    When I successfully run `tau-cli bit require import -l debug`
+    When I successfully run `tau-cli bit require import`
     Then the directory "my_dir" should exist
     And the file "my_dir/my_file" should exist
+
+  @bit.require.import.explicitpath
+  @after_remove_scope_my_scope
+
+  Scenario: Import a bit component with implicit path
+    Given a file named "bitrequire.yml" with:
+      """
+      ---
+      scopes:
+        my_scope:
+          - name: my_dir
+            path: my_other_dir
+      """
+    And I commit everything in "project" to git
+    When I successfully run `tau-cli bit require import`
+    Then the directory "my_other_dir" should exist
+    And the file "my_other_dir/my_file" should exist
