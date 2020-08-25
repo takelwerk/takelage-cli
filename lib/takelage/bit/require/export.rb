@@ -22,16 +22,18 @@ module BitRequireExport
     JSON.parse bit_list
   end
 
-  #
+  # Create contents of bitrequire yaml file.
+  # rubocop:disable Metrics/AbcSize
   def _bit_require_export_get_bitrequire_yml(components)
     bitrequire = {}
     components.each do |component|
       scope = component['id'].clone.gsub!(%r{/.*}, '')
       name = component['id'].clone.gsub!(%r{#{scope}/}, '')
-      bitrequire['scopes'] = {"#{scope}" => []} if bitrequire['scopes'].nil?
-      bitrequire['scopes'] = {"#{scope}" => []} unless bitrequire['scopes'].key? scope
-      bitrequire['scopes']["#{scope}"] << {'name' => "#{name}"}
+      bitrequire['scopes'] = { scope => [] } if bitrequire['scopes'].nil?
+      bitrequire['scopes'] = { scope => [] } unless bitrequire['scopes'].key? scope
+      bitrequire['scopes'][scope] << { 'name' => name }
     end
     hash_to_yaml bitrequire
   end
+  # rubocop:enable Metrics/AbcSize
 end

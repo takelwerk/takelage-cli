@@ -39,7 +39,7 @@ module Takelage
       say bit_require_yml
       true
     end
-    
+
     #
     # bit require import
     #
