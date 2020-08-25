@@ -2,7 +2,7 @@
 
 # takelage bit clipboard push
 module BitClipboardPush
-  # Backend method for bit push
+  # Backend method for bit push.
   def bit_clipboard_push
     log.debug 'Running bit push'
 
@@ -19,7 +19,7 @@ module BitClipboardPush
 
   private
 
-  # bit tag all components
+  # bit tag all components.
   def _bit_clipboard_push_tag_all
     cmd_bit_tag_all =
       config.active['cmd_bit_clipboard_push_bit_tag_all']
@@ -27,7 +27,7 @@ module BitClipboardPush
     run cmd_bit_tag_all
   end
 
-  # bit export components
+  # bit export components.
   def _bit_clipboard_push_export_all
     cmd_bit_export_all =
       config.active['cmd_bit_clipboard_push_bit_export_all']

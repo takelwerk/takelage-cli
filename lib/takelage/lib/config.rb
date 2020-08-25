@@ -55,7 +55,7 @@ module ConfigModule
     false
   end
 
-  # Check if config key is nil or empty
+  # Check if config key is nil or empty.
   def _check_key_set?(config_key)
     takel_config_key = TakelageConfig.instance.active[config_key]
     return true unless takel_config_key.nil? || takel_config_key.empty?
@@ -99,7 +99,7 @@ module ConfigModule
     project_yaml.sort.to_h
   end
 
-  # Merge active config
+  # Merge active config.
   def _config_merge_active
     # make a clone or else we'll change the original hash
     default = TakelageConfig.instance.default.clone

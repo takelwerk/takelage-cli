@@ -60,7 +60,7 @@ module BitClipboardLib
     _bit_clipboard_lib_git_push
   end
 
-  # git add .bitmap
+  # git add .bitmap.
   def _bit_clipboard_lib_git_add(file)
     log.debug "Adding \"#{file}\" to git"
 
@@ -71,7 +71,7 @@ module BitClipboardLib
     run cmd_bit_clipboard_git_add
   end
 
-  # git commit -m "Update .bitmap"
+  # git commit -m "Update .bitmap".
   def _bit_clipboard_lib_git_commit(message)
     log.debug "Committing to git with message \"#{message}\""
 
@@ -83,7 +83,7 @@ module BitClipboardLib
     run cmd_bit_clipboard_git_commit
   end
 
-  # git push origin master
+  # git push origin master.
   def _bit_clipboard_lib_git_push
     log.debug 'Pushing master branch to origin'
 
@@ -93,7 +93,7 @@ module BitClipboardLib
     run cmd_bit_clipboard_git_push
   end
 
-  # git pull
+  # git pull.
   def _bit_clipboard_lib_git_pull
     log.debug 'Updating git workspace'
     cmd_bit_clipboard_git_pull =

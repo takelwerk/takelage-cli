@@ -16,7 +16,7 @@ module DockerContainerClean
 
   private
 
-  # Check if we are running tau clean inside a takelage container
+  # Check if we are running tau clean inside a takelage container.
   def _docker_container_clean_harakiri?
     hostname = ENV['HOSTNAME'] || ''
     return false unless hostname.start_with? "#{@docker_repo}_"
@@ -26,7 +26,7 @@ module DockerContainerClean
     true
   end
 
-  # Kill all docker containers and return list of networks
+  # Kill all docker containers and return list of networks.
   def _docker_container_clean_kill_existing_containers
     networks = []
     _docker_container_lib_get_containers.each do |container|

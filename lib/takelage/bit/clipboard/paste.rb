@@ -20,7 +20,7 @@ module BitClipboardPaste
 
   private
 
-  # paste bit component into directory
+  # paste bit component into directory.
   def _bit_clipboard_paste_import_cid(cid, dir)
     cmd_bit_import_cid = format(
       config.active['cmd_bit_clipboard_paste_bit_import_cid'],
@@ -31,6 +31,7 @@ module BitClipboardPaste
     run cmd_bit_import_cid
   end
 
+  # Check if remote component exists.
   def _bit_clipboard_paste_cid_exists?(cid)
     scope = cid.scan(%r{([^/]*).*}).first.first
 
@@ -45,7 +46,7 @@ module BitClipboardPaste
     false
   end
 
-  # get components in remote scope
+  # Get components in remote scope.
   def _bit_clipboard_paste_cid_exists_list_scope(scope)
     cmd_bit_list_scope = format(
       config.active['cmd_bit_clipboard_paste_bit_list_scope'],

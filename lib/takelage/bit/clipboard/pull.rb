@@ -19,7 +19,7 @@ module BitClipboardPull
 
   private
 
-  # bit import components into workspace
+  # bit import components into workspace.
   def _bit_clipboard_pull_import_all
     cmd_bit_import_all =
       config.active['cmd_bit_clipboard_pull_bit_import_all']
@@ -27,7 +27,7 @@ module BitClipboardPull
     run cmd_bit_import_all
   end
 
-  # checkout components and merge them
+  # Checkout components and merge them.
   def _bit_clipboard_pull_checkout_all
     cmd_bit_checkout_all =
       config.active['cmd_bit_clipboard_pull_bit_checkout_all']

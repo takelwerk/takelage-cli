@@ -1,8 +1,8 @@
 @bit
 @bit.require
-@bit.require.import
+@bit.require.export
 
-Feature: I can import bit components from a requirements file
+Feature: I can export bit components to a requirements file
 
   Background:
     Given a file named "~/.takelage.yml" with:
@@ -30,12 +30,7 @@ Feature: I can import bit components from a requirements file
     And I initialize a bit workspace in "project"
     And I cd to "project"
     And I successfully run `tau-cli bit scope add my_scope`
-
-  @bit.require.import.implicitpath
-  @after_remove_scope_my_scope
-
-  Scenario: Import a bit component with implicit path
-    Given a file named "bitrequire.yml" with:
+    And a file named "bitrequire.yml" with:
       """
       ---
       scopes:
@@ -43,23 +38,18 @@ Feature: I can import bit components from a requirements file
         - name: my_dir
       """
     And I commit everything in "project" to git
-    When I successfully run `tau-cli bit require import`
-    Then the directory "my_dir" should exist
-    And the file "my_dir/my_file" should exist
+    And I successfully run `tau-cli bit require import`
 
-  @bit.require.import.explicitpath
+  @bit.require.export.createrequirementsfile
   @after_remove_scope_my_scope
 
-  Scenario: Import a bit component with implicit path
-    Given a file named "bitrequire.yml" with:
+  Scenario: I can create a bit requirements file
+
+    When I successfully run `tau-cli bit require export`
+    Then the output should contain:
       """
       ---
       scopes:
         my_scope:
         - name: my_dir
-          path: my_other_dir
       """
-    And I commit everything in "project" to git
-    When I successfully run `tau-cli bit require import`
-    Then the directory "my_other_dir" should exist
-    And the file "my_other_dir/my_file" should exist

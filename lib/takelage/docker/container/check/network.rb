@@ -22,6 +22,7 @@ module DockerContainerCheckNetwork
 
   private
 
+  # Prepare command to check if docker network exists.
   def _docker_container_cmd_check_network(network)
     format(
       config.active['cmd_docker_container_check_network_docker_network'],

@@ -22,6 +22,7 @@ module DockerContainerCheckOrphaned
 
   private
 
+  # Format command to check if docker container is orphaned.
   def _docker_container_cmd_check_orphaned(container)
     format(
       config.active['cmd_docker_container_check_orphaned_docker_exec'],

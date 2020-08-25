@@ -23,7 +23,7 @@ module DockerSocketLib
     cmds_start_socket
   end
 
-  # Get socket start command
+  # Get socket start command.
   def _docker_socket_lib_get_start_cmd(mode, socket, host, port, path)
     if mode == 'start'
       unless _docker_socket_lib_socket_up? socket, host, port, path
@@ -45,7 +45,7 @@ module DockerSocketLib
     )
   end
 
-  # Check if a socket is available by trying to connect to it via TCP
+  # Check if a socket is available by trying to connect to it via TCP.
   def _docker_socket_lib_socket_up?(socket, host, port, path)
     error_message = _docker_socket_lib_error_msg socket, host, port, path
     begin
