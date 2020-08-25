@@ -22,6 +22,7 @@ module DockerContainerCheckExisting
 
   private
 
+  # Format command to check if docker container exists.
   def _docker_container_cmd_check_existing(container)
     format(
       config.active['cmd_docker_container_check_existing_docker_ps'],

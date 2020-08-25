@@ -8,7 +8,7 @@ module BitRequireImport
 
     return false unless _bit_clipboard_lib_prepare_workspace
 
-    return false unless _bit_require_lib_check_require_file
+    return false unless _bit_require_import_check_require_file_exists
 
     scopes = _bit_require_import_get_scopes_and_components
     return false unless scopes
@@ -23,6 +23,14 @@ module BitRequireImport
 
   private
 
+  # Check if a bit requirements file exists.
+  def _bit_require_import_check_require_file_exists
+    return true if File.exist? @bit_require_file
+
+    log.error "No #{@bit_require_file} file found"
+    false
+  end
+
   # Get scopes and components from requirements file.
   def _bit_require_import_get_scopes_and_components
     bit_require = read_yaml_file(@bit_require_file)
@@ -32,7 +40,7 @@ module BitRequireImport
     false
   end
 
-  # Get flat components array
+  # Get flat components array.
   def _bit_require_import_get_components(scopes)
     components_all = []
     scopes.each do |scope, components|
@@ -63,14 +71,14 @@ module BitRequireImport
     scope_components
   end
 
-  # Add bit scopes to workspace
+  # Add bit scopes to workspace.
   def _bit_require_import_add_scopes(scopes)
     scopes.each do |scope, components|
       bit_scope_add scope unless _bit_clipboard_bit_dev_scope_exists scope
     end
   end
 
-  # Pasting bit components
+  # Paste bit components.
   def _bit_require_import_paste_components(components)
     _rakefile, path = Rake.application.find_rakefile_location
     components.each do |component|

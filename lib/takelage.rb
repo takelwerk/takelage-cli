@@ -38,7 +38,6 @@ require_relative 'takelage/bit/clipboard/paste'
 require_relative 'takelage/bit/clipboard/pull'
 require_relative 'takelage/bit/clipboard/push'
 require_relative 'takelage/bit/clipboard/cli'
-require_relative 'takelage/bit/require/lib'
 require_relative 'takelage/bit/require/export'
 require_relative 'takelage/bit/require/import'
 require_relative 'takelage/bit/require/cli'
@@ -116,7 +115,7 @@ module Takelage
       # Initialize global singleton project
       initialize_project
 
-      # prepare for the worst
+      # Prepare for the worst
       @docker_daemon_running = false
 
       # fylla bash completion code

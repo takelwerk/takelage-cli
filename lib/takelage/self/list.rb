@@ -20,6 +20,7 @@ module SelfList
 
   private
 
+  # Manipulate output of thor list command.
   def _manipulate_output_(thor_list)
     thor_list.gsub!("takelage\n", '')
     thor_list.gsub!("------\n", '')

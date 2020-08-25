@@ -9,7 +9,7 @@ module BitScopeList
 
     return false unless configured? %w[bit_ssh bit_remote]
 
-    # get ssh command from active config
+    # get ssh command from active config.
     cmd_bit_ssh =
       config.active['bit_ssh']
 
@@ -17,7 +17,7 @@ module BitScopeList
 
     cmd_bit_scope_list = _bit_scope_list_cmd root
 
-    # run ssh command with scope list command
+    # run ssh command with scope list command.
     scope_list = run "#{cmd_bit_ssh} '#{cmd_bit_scope_list}'"
 
     # remove bit remote root directory from results

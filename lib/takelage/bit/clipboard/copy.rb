@@ -43,7 +43,7 @@ module BitClipboardCopy
   end
   # rubocop:enable Metrics/MethodLength
 
-  # touch README.bit if necessary
+  # Touch README.bit if necessary.
   def _bit_clipboard_copy_touch_readme_bit(dir)
     readme_bit = "#{dir}/README.bit"
     return if File.file? readme_bit
@@ -52,7 +52,7 @@ module BitClipboardCopy
     File.open(readme_bit, 'w') {}
   end
 
-  # check if a README.bit file exists in a subdirectory
+  # Check if a README.bit file exists in a subdirectory.
   def _bit_clipboard_copy_readme_bit_exists_in_subdir?(dir)
     Dir.glob("#{dir}/**/README.bit").each do |file|
       unless file == "#{dir}/README.bit"
@@ -64,7 +64,7 @@ module BitClipboardCopy
     false
   end
 
-  # Check if bit scope exists
+  # Check if bit scope exists.
   def _bit_clipboard_copy_dir_scope_exists?(scope)
     bit_dev = config.active['bit_dev_user']
 
@@ -78,7 +78,7 @@ module BitClipboardCopy
     true
   end
 
-  # check if bit.dev remote scope exists
+  # Check if bit.dev remote scope exists.
   def _bit_clipboard_bit_dev_scope_exists(scope)
     cmd_bit_list_scope = format(
       config.active['cmd_bit_clipboard_copy_bit_list_scope'],
@@ -93,7 +93,7 @@ module BitClipboardCopy
     false
   end
 
-  # check if bit remote scope is added to local workspace
+  # Check if bit remote scope is added to local workspace.
   def _bit_clipboard_custom_scope_exists(scope)
     cmd_bit_list_remotes =
       config.active['cmd_bit_clipboard_copy_bit_list_remotes']
@@ -107,7 +107,7 @@ module BitClipboardCopy
     false
   end
 
-  # bit tag dir
+  # bit tag dir.
   def _bit_clipboard_copy_add_dir(id, dir)
     cmd_bit_add_dir = format(
       config.active['cmd_bit_clipboard_copy_bit_add_dir'],
@@ -118,7 +118,7 @@ module BitClipboardCopy
     run cmd_bit_add_dir
   end
 
-  # bit tag dir
+  # bit tag dir.
   def _bit_clipboard_copy_tag_dir(id)
     cmd_bit_tag_id = format(
       config.active['cmd_bit_clipboard_copy_bit_tag_id'],
@@ -128,7 +128,7 @@ module BitClipboardCopy
     run cmd_bit_tag_id
   end
 
-  # bit export component to bit remote scope
+  # bit export component to bit remote scope.
   def _bit_clipboard_copy_export_to_scope(scope)
     cmd_bit_export_to_scope = format(
       config.active['cmd_bit_clipboard_copy_bit_export_to_scope'],

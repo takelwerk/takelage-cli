@@ -14,7 +14,6 @@ module Takelage
     include BitClipboardLib
     include BitClipboardCopy
     include BitClipboardPaste
-    include BitRequireLib
     include BitRequireExport
     include BitRequireImport
 
@@ -35,17 +34,20 @@ module Takelage
     LONGDESC
     # Create requirements file with bit components.
     def export
-      exit bit_require_export
+      bit_require_yml = bit_require_export
+      exit false if bit_require_yml == false
+      say bit_require_yml
+      true
     end
     
     #
     # bit require import
     #
-    desc 'import', 'Import bit components from a requirements file.'
+    desc 'import', 'Import bit components from requirements file.'
     long_desc <<-LONGDESC.gsub("\n", "\x5")
-    Import bit components from a requirements file
+    Import bit components from requirements file
     LONGDESC
-    # Import bit components from a requirements file.
+    # Import bit components from requirements file.
     def import
       exit bit_require_import
     end

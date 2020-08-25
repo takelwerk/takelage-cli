@@ -28,12 +28,14 @@ module LoggingModule
 
   private
 
+  # Get log format.
   def _logging_get_log_format
     proc do |severity, _datetime, _progname, msg|
       "[#{severity}] #{msg}\n"
     end
   end
 
+  # Get log level.
   def _logging_get_log_level(loglevel)
     if %w[FATAL ERROR WARN INFO DEBUG].include? loglevel
       loglevel

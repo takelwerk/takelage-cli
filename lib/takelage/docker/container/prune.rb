@@ -14,7 +14,7 @@ module DockerContainerPrune
 
   private
 
-  # Kill orphaned docker containers and return list of networks
+  # Kill orphaned docker containers and return list of networks.
   def _docker_container_prune_kill_orphaned_containers
     networks = []
 
