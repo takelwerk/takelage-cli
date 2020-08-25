@@ -56,7 +56,7 @@ module BitRequireImport
   def _bit_require_import_get_scope_components(scope, components)
     scope_components = []
     components.each do |component|
-      return false unless _bit_require_import_check_component component
+      return false unless _bit_require_import_check_component_valid component
 
       name = component['name']
       path = name
@@ -68,7 +68,7 @@ module BitRequireImport
   end
 
   # Check if there are bit components
-  def _bit_require_import_check_component(component)
+  def _bit_require_import_check_component_valid(component)
     return true unless component.class == Hash && component.key?(:name)
 
     log.error "No component in #{scope}"
@@ -86,10 +86,25 @@ module BitRequireImport
   def _bit_require_import_paste_components(components)
     _rakefile, path = Rake.application.find_rakefile_location
     components.each do |component|
+      next if _bit_require_import_check_component_exists component, path
+
       return false unless _bit_require_import_paste_component component
 
       _bit_require_import_commit_component component, path
     end
+    true
+  end
+
+  # Check if there are bit components
+  def _bit_require_import_check_component_exists(component, path)
+    scope = component[:scope]
+    cid = component[:name]
+    dir = component[:path]
+    dest = "#{path}/#{dir}"
+    cids = _bit_require_lib_get_components_ids
+    return false unless cids.include? "#{scope}/#{cid}"
+
+    log.warn "Skipping existing bit component \"#{scope}/#{cid}\" with path \"#{dest}\""
     true
   end
 
