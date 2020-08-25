@@ -56,7 +56,7 @@ module BitRequireImport
   def _bit_require_import_get_scope_components(scope, components)
     scope_components = []
     components.each do |component|
-      return false unless _bit_require_import_check_components
+      return false unless _bit_require_import_check_component component
 
       name = component['name']
       path = name
@@ -68,7 +68,7 @@ module BitRequireImport
   end
 
   # Check if there are bit components
-  def _bit_require_import_check_components
+  def _bit_require_import_check_components(component)
     return true unless component.class == Hash && component.key?(:name)
 
     log.error "No component in #{scope}"
