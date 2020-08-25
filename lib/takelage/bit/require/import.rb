@@ -81,13 +81,10 @@ module BitRequireImport
       return false unless pasted
 
       dest = "#{path}/#{dir}"
-      message = "Adding bit component \"#{cid}\" to path \"#{dest}\""
+      message = "Add bit component \"#{scope}/#{cid}\" to path \"#{dest}\""
       _bit_clipboard_lib_git_add dest
       _bit_clipboard_lib_git_commit message
     end
     true
   end
 end
-
-
-
