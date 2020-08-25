@@ -48,8 +48,8 @@ module BitRequireImport
   def _bit_require_import_get_scope_components(scope, components)
     scope_components = []
     components.each do |component|
-      unless component.has_key? 'name'
-        log.error "No component in #{scope_name}"
+      unless component.class == Hash and component.has_key? 'name'
+        log.error "No component in #{scope}"
         return false
       end
 
@@ -66,8 +66,6 @@ module BitRequireImport
   # Add bit scopes to workspace
   def _bit_require_import_add_scopes(scopes)
     scopes.each do |scope, components|
-      log.debug "scope"
-      log.debug scope
       bit_scope_add scope unless _bit_clipboard_bit_dev_scope_exists scope
     end
   end
@@ -76,9 +74,10 @@ module BitRequireImport
   def _bit_require_import_paste_components(components)
     _rakefile, path = Rake.application.find_rakefile_location
     components.each do |component|
+      scope = component[:scope]
       cid = component[:name]
       dir = component[:path]
-      pasted = bit_clipboard_paste cid, dir
+      pasted = bit_clipboard_paste "#{scope}/#{cid}", dir
       return false unless pasted
 
       dest = "#{path}/#{dir}"
