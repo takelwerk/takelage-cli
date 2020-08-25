@@ -4,7 +4,7 @@
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>
-  Module: BitClipboardPush
+  Module: BitRequireExport
   
     &mdash; Documentation by YARD 0.9.25
   
@@ -15,7 +15,7 @@
   <link rel="stylesheet" href="css/common.css" type="text/css" />
 
 <script type="text/javascript">
-  pathId = "BitClipboardPush";
+  pathId = "BitRequireExport";
   relpath = '';
 </script>
 
@@ -39,7 +39,7 @@
     <a href="_index.html">Index (B)</a> &raquo;
     
     
-    <span class="title">BitClipboardPush</span>
+    <span class="title">BitRequireExport</span>
   
 </div>
 
@@ -59,7 +59,7 @@
         <div class="clear"></div>
       </div>
 
-      <div id="content"><h1>Module: BitClipboardPush
+      <div id="content"><h1>Module: BitRequireExport
   
   
   
@@ -76,14 +76,14 @@
   
   <dl>
     <dt>Included in:</dt>
-    <dd><span class='object_link'><a href="Takelage/BitClipboard.html" title="Takelage::BitClipboard (class)">Takelage::BitClipboard</a></span></dd>
+    <dd><span class='object_link'><a href="Takelage/BitRequire.html" title="Takelage::BitRequire (class)">Takelage::BitRequire</a></span></dd>
   </dl>
   
 
   
   <dl>
     <dt>Defined in:</dt>
-    <dd>lib/takelage/bit/clipboard/push.rb</dd>
+    <dd>lib/takelage/bit/require/export.rb</dd>
   </dl>
   
 </div>
@@ -91,7 +91,7 @@
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
     
-<p>takelage bit clipboard push</p>
+<p>takelage bit require export</p>
 
 
   </div>
@@ -117,7 +117,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#bit_clipboard_push-instance_method" title="#bit_clipboard_push (instance method)">#<strong>bit_clipboard_push</strong>  &#x21d2; Object </a>
+      <a href="#bit_require_export-instance_method" title="#bit_require_export (instance method)">#<strong>bit_require_export</strong>  &#x21d2; Object </a>
     
 
     
@@ -132,7 +132,7 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Backend method for bit push.</p>
+<p>Backend method for bit require export.</p>
 </div></span>
   
 </li>
@@ -148,9 +148,9 @@
 
     
       <div class="method_details first">
-  <h3 class="signature first" id="bit_clipboard_push-instance_method">
+  <h3 class="signature first" id="bit_require_export-instance_method">
   
-    #<strong>bit_clipboard_push</strong>  &#x21d2; <tt>Object</tt> 
+    #<strong>bit_require_export</strong>  &#x21d2; <tt>Object</tt> 
   
 
   
@@ -159,7 +159,7 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Backend method for bit push.</p>
+<p>Backend method for bit require export.</p>
 
 
   </div>
@@ -181,27 +181,19 @@
 11
 12
 13
-14
-15
-16
-17
-18</pre>
+14</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/takelage/bit/clipboard/push.rb', line 6</span>
+      <pre class="code"><span class="info file"># File 'lib/takelage/bit/require/export.rb', line 6</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_bit_clipboard_push'>bit_clipboard_push</span>
-  <span class='id identifier rubyid_log'>log</span><span class='period'>.</span><span class='id identifier rubyid_debug'>debug</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Running bit push</span><span class='tstring_end'>&#39;</span></span>
+<span class='kw'>def</span> <span class='id identifier rubyid_bit_require_export'>bit_require_export</span>
+  <span class='id identifier rubyid_log'>log</span><span class='period'>.</span><span class='id identifier rubyid_debug'>debug</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Running bit require export</span><span class='tstring_end'>&#39;</span></span>
 
-  <span class='kw'>return</span> <span class='kw'>false</span> <span class='kw'>unless</span> <span class='id identifier rubyid__bit_clipboard_lib_prepare_workspace'>_bit_clipboard_lib_prepare_workspace</span>
+  <span class='id identifier rubyid_components'>components</span> <span class='op'>=</span> <span class='id identifier rubyid__bit_require_export_get_components'>_bit_require_export_get_components</span>
+  <span class='id identifier rubyid_bitrequire_yml'>bitrequire_yml</span> <span class='op'>=</span> <span class='id identifier rubyid__bit_require_export_get_bitrequire_yml'>_bit_require_export_get_bitrequire_yml</span> <span class='id identifier rubyid_components'>components</span>
 
-  <span class='id identifier rubyid__bit_clipboard_push_tag_all'>_bit_clipboard_push_tag_all</span>
-  <span class='id identifier rubyid__bit_clipboard_push_export_all'>_bit_clipboard_push_export_all</span>
-  <span class='id identifier rubyid__bit_clipbpard_lib_remove_bit_artifacts'>_bit_clipbpard_lib_remove_bit_artifacts</span>
-  <span class='id identifier rubyid__bit_clipboard_lib_sync_workspace'>_bit_clipboard_lib_sync_workspace</span>
-
-  <span class='id identifier rubyid_log'>log</span><span class='period'>.</span><span class='id identifier rubyid_info'>info</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Pushed bit components</span><span class='tstring_end'>&#39;</span></span>
-  <span class='kw'>true</span>
+  <span class='id identifier rubyid_log'>log</span><span class='period'>.</span><span class='id identifier rubyid_debug'>debug</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>bitrequire.yml of this project:\n</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_bitrequire_yml'>bitrequire_yml</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span>
+  <span class='id identifier rubyid_bitrequire_yml'>bitrequire_yml</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
