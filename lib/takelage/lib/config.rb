@@ -19,6 +19,7 @@ module ConfigModule
   end
 
   # Initialze config
+  # rubocop:disable Metrics/AbcSize
   def initialize_config
     log.debug "takelage version: #{Takelage::VERSION}"
     log.debug "Current working directory: #{Dir.pwd}"
@@ -28,6 +29,7 @@ module ConfigModule
     TakelageConfig.instance.project = _config_read_project
     TakelageConfig.instance.active = _config_merge_active
   end
+  # rubocop:enable Metrics/AbcSize
 
   # @return [Object] global singleton config
   def config

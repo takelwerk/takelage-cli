@@ -21,7 +21,7 @@ end
 Given 'I commit everything in {string} to git' do |dir|
   cmd_git_add = "bash -c '" \
       "git -C #{aruba.config.working_directory}/#{dir} " \
-      " add --all " \
+      ' add --all ' \
       '&> /dev/null' \
       "'"
   cmd_git_commit = "bash -c '" \
