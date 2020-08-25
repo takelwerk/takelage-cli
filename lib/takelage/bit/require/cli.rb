@@ -14,6 +14,7 @@ module Takelage
     include BitClipboardLib
     include BitClipboardCopy
     include BitClipboardPaste
+    include BitRequireLib
     include BitRequireExport
     include BitRequireImport
 

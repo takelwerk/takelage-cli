@@ -6,7 +6,7 @@ module BitRequireExport
   def bit_require_export
     log.debug 'Running bit require export'
 
-    components = _bit_require_export_get_components
+    components = _bit_require_lib_get_components
     bitrequire_yml = _bit_require_export_get_bitrequire_yml components
 
     log.debug "bitrequire.yml of this project:\n#{bitrequire_yml}"
@@ -14,13 +14,6 @@ module BitRequireExport
   end
 
   private
-
-  # Get bit components.
-  def _bit_require_export_get_components
-    cmd_bit_list = config.active['cmd_bit_require_export_bit_list']
-    bit_list = run cmd_bit_list
-    JSON.parse bit_list
-  end
 
   # Create contents of bitrequire yaml file.
   # rubocop:disable Metrics/AbcSize
