@@ -56,11 +56,11 @@ module BitRequireImport
   def _bit_require_import_get_scope_components(scope, components)
     scope_components = []
     components.each do |component|
-      return false unless _bit_require_import_check_component_valid component
+      return false unless _bit_require_import_check_component_valid component, scope
 
       name = component['name']
       path = name
-      path = component['path'] if component.key?(:path)
+      path = component['path'] if component.key?('path')
       scope_components << { name: name, path: path, scope: scope }
       log.debug "Identified bit component \"#{name}\" with path \"#{path}\" in scope \"#{scope}\""
     end
@@ -68,8 +68,8 @@ module BitRequireImport
   end
 
   # Check if there are bit components
-  def _bit_require_import_check_component_valid(component)
-    return true unless component.class == Hash && component.key?(:name)
+  def _bit_require_import_check_component_valid(component, scope)
+    return true if (component.class == Hash) && component.key?('name')
 
     log.error "No component in #{scope}"
     false
@@ -113,10 +113,7 @@ module BitRequireImport
     scope = component[:scope]
     cid = component[:name]
     dir = component[:path]
-    pasted = bit_clipboard_paste "#{scope}/#{cid}", dir
-    return false unless pasted
-
-    true
+    bit_clipboard_paste "#{scope}/#{cid}", dir
   end
 
   # Commit a bit component

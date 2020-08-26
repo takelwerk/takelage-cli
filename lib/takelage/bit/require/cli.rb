@@ -10,6 +10,7 @@ module Takelage
     include GitCheckMaster
     include GitCheckWorkspace
     include BitCheckWorkspace
+    include BitScopeList
     include BitScopeAdd
     include BitClipboardLib
     include BitClipboardCopy
