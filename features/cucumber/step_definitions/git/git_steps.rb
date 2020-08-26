@@ -27,6 +27,7 @@ Given 'I commit everything in {string} to git' do |dir|
   cmd_git_commit = "bash -c '" \
       "git -C #{aruba.config.working_directory}/#{dir} " \
       "commit --message 'Cucumber feature test commit' " \
+      '--quiet ' \
       '&> /dev/null' \
       "'"
   system cmd_git_add
