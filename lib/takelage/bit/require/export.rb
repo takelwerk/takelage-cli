@@ -23,7 +23,7 @@ module BitRequireExport
       scope = component['id'].clone.gsub!(%r{/.*}, '')
       name = component['id'].clone.gsub!(%r{#{scope}/}, '')
       bitrequire['scopes'] = { scope => [] } if bitrequire['scopes'].nil?
-      bitrequire['scopes'] = { scope => [] } unless bitrequire['scopes'].key? scope
+      bitrequire['scopes'][scope] = [] unless bitrequire['scopes'].key? scope
       bitrequire['scopes'][scope] << { 'name' => name }
     end
     hash_to_yaml bitrequire
