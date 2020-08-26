@@ -25,6 +25,7 @@ Feature: I can export bit components to a requirements file
     And the list of remote scopes is up-to-date
     And the remote scope "my_scope" should exist
     And I cd to ".."
+    And there is a bit component named "my_dir" in the remote scope named "my_scope" in "export"
     And a directory named "project"
     And I initialize a git workspace in "project"
     And I initialize a bit workspace in "project"
@@ -37,6 +38,7 @@ Feature: I can export bit components to a requirements file
         my_scope:
         - name: my_dir
       """
+    And an empty file named "Rakefile"
     And I commit everything in "project" to git
     And I successfully run `tau-cli bit require import`
 

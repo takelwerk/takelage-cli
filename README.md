@@ -52,7 +52,7 @@ tau [bit clipboard copy](features/takelage/bit/bit.clipboard.copy.feature) [DIR]
 tau [bit clipboard paste](features/takelage/bit/bit.clipboard.paste.feature) [COMPONENT] [DIR] | Paste bit [COMPONENT] into [DIR]
 tau [bit clipboard pull](features/takelage/bit/bit.clipboard.pull.feature) | Pull all updates for bit components from bit remote scopes
 tau [bit clipboard push](features/takelage/bit/bit.clipboard.push.feature) | Push all updates of bit components to bit remote scopes
-tau [bit require export](features/takelage/bit/bit.require.export.feature) | Create requirements file with bit components
+tau [bit require export](features/takelage/bit/bit.require.export.feature) | Show requirements file of bit components
 tau [bit require import](features/takelage/bit/bit.require.import.feature) | Import bit components from requirements file
 tau [bit scope add](features/takelage/bit/bit.scope.add.feature) [SCOPE] | Add a bit [SCOPE]
 tau [bit scope inbit](features/takelage/bit/bit.scope.inbit.feature) | Log in to bit remote server
