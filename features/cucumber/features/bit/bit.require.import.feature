@@ -52,7 +52,7 @@ Feature: I can import bit components from a requirements file
   @bit.require.import.explicitpath
   @after_remove_scope_my_scope
 
-  Scenario: Import a bit component with implicit path
+  Scenario: Import a bit component with explicit path
     Given a file named "bitrequire.yml" with:
       """
       ---
@@ -66,3 +66,25 @@ Feature: I can import bit components from a requirements file
     When I successfully run `tau-cli bit require import`
     Then the directory "my_other_dir" should exist
     And the file "my_other_dir/my_file" should exist
+
+  @bit.require.import.idempotent
+  @after_remove_scope_my_scope
+
+  Scenario: Do not import a bit component twice
+    Given a file named "bitrequire.yml" with:
+      """
+      ---
+      scopes:
+        my_scope:
+        - name: my_dir
+      """
+    And an empty file named "Rakefile"
+    And I commit everything in "project" to git
+    And I successfully run `tau-cli bit require import`
+    When I successfully run `tau-cli bit require import`
+    Then the directory "my_dir" should exist
+    And the file "my_dir/my_file" should exist
+    And the output should contain:
+      """
+      [WARN] Skipping existing bit component "my_scope/my_dir" with path "/tmp/cucumber/project/my_dir"
+      """
