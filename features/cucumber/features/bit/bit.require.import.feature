@@ -81,6 +81,7 @@ Feature: I can import bit components from a requirements file
     And an empty file named "Rakefile"
     And I commit everything in "project" to git
     And I successfully run `tau-cli bit require import`
+    And I commit everything in "project" to git
     When I successfully run `tau-cli bit require import`
     Then the directory "my_dir" should exist
     And the file "my_dir/my_file" should exist
