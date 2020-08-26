@@ -93,7 +93,7 @@
   
   <dl>
       <dt>Includes:</dt>
-      <dd><span class='object_link'><a href="../BitCheckWorkspace.html" title="BitCheckWorkspace (module)">BitCheckWorkspace</a></span>, <span class='object_link'><a href="../BitClipboardCopy.html" title="BitClipboardCopy (module)">BitClipboardCopy</a></span>, <span class='object_link'><a href="../BitClipboardLib.html" title="BitClipboardLib (module)">BitClipboardLib</a></span>, <span class='object_link'><a href="../BitClipboardPaste.html" title="BitClipboardPaste (module)">BitClipboardPaste</a></span>, <span class='object_link'><a href="../BitRequireExport.html" title="BitRequireExport (module)">BitRequireExport</a></span>, <span class='object_link'><a href="../BitRequireImport.html" title="BitRequireImport (module)">BitRequireImport</a></span>, <span class='object_link'><a href="../BitScopeAdd.html" title="BitScopeAdd (module)">BitScopeAdd</a></span>, <span class='object_link'><a href="../ConfigModule.html" title="ConfigModule (module)">ConfigModule</a></span>, <span class='object_link'><a href="../GitCheckClean.html" title="GitCheckClean (module)">GitCheckClean</a></span>, <span class='object_link'><a href="../GitCheckMaster.html" title="GitCheckMaster (module)">GitCheckMaster</a></span>, <span class='object_link'><a href="../GitCheckWorkspace.html" title="GitCheckWorkspace (module)">GitCheckWorkspace</a></span>, <span class='object_link'><a href="../LoggingModule.html" title="LoggingModule (module)">LoggingModule</a></span>, <span class='object_link'><a href="../SystemModule.html" title="SystemModule (module)">SystemModule</a></span></dd>
+      <dd><span class='object_link'><a href="../BitCheckWorkspace.html" title="BitCheckWorkspace (module)">BitCheckWorkspace</a></span>, <span class='object_link'><a href="../BitClipboardCopy.html" title="BitClipboardCopy (module)">BitClipboardCopy</a></span>, <span class='object_link'><a href="../BitClipboardLib.html" title="BitClipboardLib (module)">BitClipboardLib</a></span>, <span class='object_link'><a href="../BitClipboardPaste.html" title="BitClipboardPaste (module)">BitClipboardPaste</a></span>, <span class='object_link'><a href="../BitRequireExport.html" title="BitRequireExport (module)">BitRequireExport</a></span>, <span class='object_link'><a href="../BitRequireImport.html" title="BitRequireImport (module)">BitRequireImport</a></span>, <span class='object_link'><a href="../BitRequireLib.html" title="BitRequireLib (module)">BitRequireLib</a></span>, <span class='object_link'><a href="../BitScopeAdd.html" title="BitScopeAdd (module)">BitScopeAdd</a></span>, <span class='object_link'><a href="../BitScopeList.html" title="BitScopeList (module)">BitScopeList</a></span>, <span class='object_link'><a href="../ConfigModule.html" title="ConfigModule (module)">ConfigModule</a></span>, <span class='object_link'><a href="../GitCheckClean.html" title="GitCheckClean (module)">GitCheckClean</a></span>, <span class='object_link'><a href="../GitCheckMaster.html" title="GitCheckMaster (module)">GitCheckMaster</a></span>, <span class='object_link'><a href="../GitCheckWorkspace.html" title="GitCheckWorkspace (module)">GitCheckWorkspace</a></span>, <span class='object_link'><a href="../LoggingModule.html" title="LoggingModule (module)">LoggingModule</a></span>, <span class='object_link'><a href="../SystemModule.html" title="SystemModule (module)">SystemModule</a></span></dd>
   </dl>
   
   
@@ -242,6 +242,12 @@
   
   
   
+  
+  
+  
+  
+  
+  
   <h3 class="inherited">Methods included from <span class='object_link'><a href="../BitClipboardPaste.html" title="BitClipboardPaste (module)">BitClipboardPaste</a></span></h3>
   <p class="inherited"><span class='object_link'><a href="../BitClipboardPaste.html#bit_clipboard_paste-instance_method" title="BitClipboardPaste#bit_clipboard_paste (method)">#bit_clipboard_paste</a></span></p>
 
@@ -272,6 +278,17 @@
   
   <h3 class="inherited">Methods included from <span class='object_link'><a href="../BitScopeAdd.html" title="BitScopeAdd (module)">BitScopeAdd</a></span></h3>
   <p class="inherited"><span class='object_link'><a href="../BitScopeAdd.html#bit_scope_add-instance_method" title="BitScopeAdd#bit_scope_add (method)">#bit_scope_add</a></span></p>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods included from <span class='object_link'><a href="../BitScopeList.html" title="BitScopeList (module)">BitScopeList</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="../BitScopeList.html#bit_scope_list-instance_method" title="BitScopeList#bit_scope_list (method)">#bit_scope_list</a></span></p>
 
   
   
@@ -390,15 +407,15 @@
       <pre class="lines">
 
 
-21
-22
 23
 24
 25
-26</pre>
+26
+27
+28</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/takelage/bit/require/cli.rb', line 21</span>
+      <pre class="code"><span class="info file"># File 'lib/takelage/bit/require/cli.rb', line 23</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_args'>args</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='id identifier rubyid_local_options'>local_options</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='id identifier rubyid_configuration'>configuration</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='comment'># initialize thor parent class
@@ -444,15 +461,15 @@
       <pre class="lines">
 
 
-36
-37
 38
 39
 40
-41</pre>
+41
+42
+43</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/takelage/bit/require/cli.rb', line 36</span>
+      <pre class="code"><span class="info file"># File 'lib/takelage/bit/require/cli.rb', line 38</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_export'>export</span>
   <span class='id identifier rubyid_bit_require_yml'>bit_require_yml</span> <span class='op'>=</span> <span class='id identifier rubyid_bit_require_export'>bit_require_export</span>
@@ -491,12 +508,12 @@
       <pre class="lines">
 
 
-51
-52
-53</pre>
+53
+54
+55</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/takelage/bit/require/cli.rb', line 51</span>
+      <pre class="code"><span class="info file"># File 'lib/takelage/bit/require/cli.rb', line 53</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_import'>import</span>
   <span class='id identifier rubyid_exit'>exit</span> <span class='id identifier rubyid_bit_require_import'>bit_require_import</span>
