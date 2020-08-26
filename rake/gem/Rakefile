@@ -8,6 +8,7 @@ cmd_gem_build = 'SOURCE_DATE_EPOCH=1575849432 gem build takelage'
 cmd_gem_clean = "rm -f *.gem gem/takelage-#{version}.gem"
 cmd_gem_move = 'mkdir -p gem && mv *.gem gem'
 cmd_gem_push = "gem push gem/takelage-#{version}.gem"
+cmd_gem_signin = 'gem signin'
 
 namespace :gem do
   desc 'Build takelage gem'
@@ -28,5 +29,10 @@ namespace :gem do
   desc 'Push takelage gem to rubygems.org'
   task :push do
     @commands << cmd_gem_push
+  end
+
+  desc 'Sign in to rubygems.org'
+  task :signin do
+    @commands << cmd_gem_signin
   end
 end

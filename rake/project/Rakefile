@@ -2,7 +2,8 @@
 
 namespace :project do
   desc 'Build takelage cli ruby gem'
-  task prod: %w[rubylint
+  task prod: %w[gem:signin
+                rubylint
                 doc:clean
                 doc:build
                 doc:commit
