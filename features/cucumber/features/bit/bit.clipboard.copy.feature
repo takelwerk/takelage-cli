@@ -17,6 +17,7 @@ Feature: I can copy a directory as a new tagged bit component
     And a directory named "bit"
     And I initialize a bit workspace in "bit"
     And I cd to "bit"
+    And an empty file named "Rakefile"
 
   @bit.clipboard.copy.dir
   @bit.clipboard.copy.dir.noreadmebit
