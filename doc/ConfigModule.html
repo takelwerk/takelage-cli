@@ -249,12 +249,12 @@
       <pre class="lines">
 
 
+38
 39
-40
-41</pre>
+40</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/takelage/lib/config.rb', line 39</span>
+      <pre class="code"><span class="info file"># File 'lib/takelage/lib/config.rb', line 38</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_config'>config</span>
   <span class='const'><span class='object_link'><a href="ConfigModule/TakelageConfig.html" title="ConfigModule::TakelageConfig (class)">TakelageConfig</a></span></span><span class='period'>.</span><span class='id identifier rubyid_instance'>instance</span>
@@ -308,17 +308,17 @@
       <pre class="lines">
 
 
+43
 44
 45
 46
 47
 48
 49
-50
-51</pre>
+50</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/takelage/lib/config.rb', line 44</span>
+      <pre class="code"><span class="info file"># File 'lib/takelage/lib/config.rb', line 43</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_configured?'>configured?</span><span class='lparen'>(</span><span class='id identifier rubyid_config_keys'>config_keys</span><span class='rparen'>)</span>
   <span class='ivar'>@configured</span> <span class='op'>=</span> <span class='kw'>true</span>
@@ -359,6 +359,7 @@
       <pre class="lines">
 
 
+23
 24
 25
 26
@@ -369,18 +370,17 @@
 31
 32
 33
-34
-35</pre>
+34</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/takelage/lib/config.rb', line 24</span>
+      <pre class="code"><span class="info file"># File 'lib/takelage/lib/config.rb', line 23</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize_config'>initialize_config</span>
   <span class='id identifier rubyid_project_root_dir'>project_root_dir</span> <span class='op'>=</span> <span class='id identifier rubyid__get_project_root_dir'>_get_project_root_dir</span>
 
   <span class='id identifier rubyid_log'>log</span><span class='period'>.</span><span class='id identifier rubyid_debug'>debug</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>takelage version: </span><span class='embexpr_beg'>#{</span><span class='const'><span class='object_link'><a href="Takelage.html" title="Takelage (module)">Takelage</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Takelage.html#VERSION-constant" title="Takelage::VERSION (constant)">VERSION</a></span></span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span>
   <span class='id identifier rubyid_log'>log</span><span class='period'>.</span><span class='id identifier rubyid_debug'>debug</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Current working directory: </span><span class='embexpr_beg'>#{</span><span class='const'>Dir</span><span class='period'>.</span><span class='id identifier rubyid_pwd'>pwd</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span>
-  <span class='id identifier rubyid_log'>log</span><span class='period'>.</span><span class='id identifier rubyid_debug'>debug</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Project root directory: </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_project_root_dir'>project_root_dir</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span>
+  <span class='id identifier rubyid_log'>log</span><span class='period'>.</span><span class='id identifier rubyid_debug'>debug</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Project root directory: </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_project_root_dir'>project_root_dir</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>unless</span> <span class='id identifier rubyid_project_root_dir'>project_root_dir</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span>
 
   <span class='const'><span class='object_link'><a href="ConfigModule/TakelageConfig.html" title="ConfigModule::TakelageConfig (class)">TakelageConfig</a></span></span><span class='period'>.</span><span class='id identifier rubyid_instance'>instance</span><span class='period'>.</span><span class='id identifier rubyid_default'>default</span> <span class='op'>=</span> <span class='id identifier rubyid__config_read_default'>_config_read_default</span> <span class='id identifier rubyid_project_root_dir'>project_root_dir</span>
   <span class='const'><span class='object_link'><a href="ConfigModule/TakelageConfig.html" title="ConfigModule::TakelageConfig (class)">TakelageConfig</a></span></span><span class='period'>.</span><span class='id identifier rubyid_instance'>instance</span><span class='period'>.</span><span class='id identifier rubyid_home'>home</span> <span class='op'>=</span> <span class='id identifier rubyid__config_read_home'>_config_read_home</span>

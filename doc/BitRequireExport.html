@@ -181,13 +181,17 @@
 11
 12
 13
-14</pre>
+14
+15
+16</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/takelage/bit/require/export.rb', line 6</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_bit_require_export'>bit_require_export</span>
   <span class='id identifier rubyid_log'>log</span><span class='period'>.</span><span class='id identifier rubyid_debug'>debug</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Running bit require export</span><span class='tstring_end'>&#39;</span></span>
+
+  <span class='kw'>return</span> <span class='kw'>false</span> <span class='kw'>unless</span> <span class='id identifier rubyid_configured?'>configured?</span> <span class='qwords_beg'>%w[</span><span class='tstring_content'>project_root_dir</span><span class='tstring_end'>]</span></span>
 
   <span class='id identifier rubyid_components'>components</span> <span class='op'>=</span> <span class='id identifier rubyid__bit_require_lib_get_components'>_bit_require_lib_get_components</span>
   <span class='id identifier rubyid_bitrequire_yml'>bitrequire_yml</span> <span class='op'>=</span> <span class='id identifier rubyid__bit_require_export_get_bitrequire_yml'>_bit_require_export_get_bitrequire_yml</span> <span class='id identifier rubyid_components'>components</span>
