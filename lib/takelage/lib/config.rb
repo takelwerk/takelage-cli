@@ -74,7 +74,7 @@ module ConfigModule
   def _config_read_default(project_root_dir)
     default_file = File.expand_path("#{File.dirname(__FILE__)}/../default.yml")
 
-    return {project_root_dir: project_root_dir} unless File.exist? default_file
+    return { project_root_dir: project_root_dir } unless File.exist? default_file
 
     default_yaml = read_yaml_file(default_file) || {}
 
