@@ -185,13 +185,17 @@
 15
 16
 17
-18</pre>
+18
+19
+20</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/takelage/bit/clipboard/pull.rb', line 6</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_bit_clipboard_pull'>bit_clipboard_pull</span>
   <span class='id identifier rubyid_log'>log</span><span class='period'>.</span><span class='id identifier rubyid_debug'>debug</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Running bit pull</span><span class='tstring_end'>&#39;</span></span>
+
+  <span class='kw'>return</span> <span class='kw'>false</span> <span class='kw'>unless</span> <span class='id identifier rubyid_configured?'>configured?</span> <span class='qwords_beg'>%w[</span><span class='tstring_content'>project_root_dir</span><span class='tstring_end'>]</span></span>
 
   <span class='kw'>return</span> <span class='kw'>false</span> <span class='kw'>unless</span> <span class='id identifier rubyid__bit_clipboard_lib_prepare_workspace'>_bit_clipboard_lib_prepare_workspace</span>
 
