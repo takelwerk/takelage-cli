@@ -55,3 +55,17 @@ Feature: I can export bit components to a requirements file
         my_scope:
         - name: my_dir
       """
+
+  @bit.require.export.missingrakefile
+  @after_remove_scope_my_scope
+
+  Scenario: I get an error message if there is no Rakefile
+
+    Given the file "Rakefile" should exist
+    And I commit everything in "project" to git
+    When I run `tau-cli bit require export`
+    Then the exit status should be 1
+    And the output should contain:
+      """
+      [ERROR] No "Rakefile" found. Cannot determine project root directory.
+      """

@@ -51,7 +51,8 @@ module BitClipboardLib
   def _bit_clipboard_lib_sync_workspace
     log.debug 'Syncing git workspace'
 
-    _rakefile, path = Rake.application.find_rakefile_location
+    path = config.active['project_root_dir']
+
     file = "#{path}/.bitmap"
     message = 'Update .bitmap'
 
