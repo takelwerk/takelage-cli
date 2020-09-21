@@ -8,25 +8,29 @@ module ConfigModule
     include LoggingModule
     include SystemModule
 
-    attr_accessor :active, :default, :home, :project
+    attr_accessor :active, :default, :home, :project, :project_root_dir
 
     def initialize
       @active = {}
       @default = {}
       @home = {}
       @project = {}
+      @project_root_dir = ''
     end
   end
 
   # Initialze config
   # rubocop:disable Metrics/AbcSize
   def initialize_config
+    project_root_dir = _get_project_root_dir
+
     log.debug "takelage version: #{Takelage::VERSION}"
     log.debug "Current working directory: #{Dir.pwd}"
+    log.debug "Project root directory: #{project_root_dir}"
 
-    TakelageConfig.instance.default = _config_read_default
+    TakelageConfig.instance.default = _config_read_default project_root_dir
     TakelageConfig.instance.home = _config_read_home
-    TakelageConfig.instance.project = _config_read_project
+    TakelageConfig.instance.project = _config_read_project project_root_dir
     TakelageConfig.instance.active = _config_merge_active
   end
   # rubocop:enable Metrics/AbcSize
@@ -68,12 +72,14 @@ module ConfigModule
   end
 
   # Read default config file in lib.
-  def _config_read_default
+  def _config_read_default(project_root_dir)
     default_file = File.expand_path("#{File.dirname(__FILE__)}/../default.yml")
 
     return {} unless File.exist? default_file
 
     default_yaml = read_yaml_file(default_file) || {}
+
+    default_yaml['project_root_dir'] = project_root_dir
 
     default_yaml.sort.to_h
   end
@@ -89,10 +95,9 @@ module ConfigModule
     home_yaml.sort.to_h
   end
 
-  # Read custom config file next to Rakefile.
-  def _config_read_project
-    _rakefile, path = Rake.application.find_rakefile_location
-    project_file = "#{path}/takelage.yml"
+  # Read custom config file in project root.
+  def _config_read_project(project_root_dir)
+    project_file = "#{project_root_dir}/takelage.yml"
 
     return {} unless File.exist? project_file
 
@@ -112,5 +117,14 @@ module ConfigModule
     # project wins against home wins against default
     project_over_home = home.merge!(project)
     default.merge!(project_over_home).sort.to_h
+  end
+
+  # Get project root directory.
+  # @return [String] project root directory
+  def _get_project_root_dir
+    _rakefile, path = Rake.application.find_rakefile_location
+    return path unless path.nil?
+    log.error "No \"Rakefile\" found. Cannot determine project root directory."
+    exit false
   end
 end

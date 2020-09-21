@@ -34,7 +34,7 @@ module ProjectModule
 
   # Read main YAML file.
   def _project_read_main
-    _rakefile, @path = Rake.application.find_rakefile_location
+    @path = TakelageProject.instance.config.active['project_root_dir']
     main_file = "#{@path}/" \
         "#{TakelageProject.instance.config.active['info_project_main']}"
 
@@ -45,7 +45,7 @@ module ProjectModule
 
   # Read private YAML file.
   def _project_read_private
-    _rakefile, @path = Rake.application.find_rakefile_location
+    @path = TakelageProject.instance.config.active['project_root_dir']
     private_file = "#{@path}/" \
         "#{TakelageProject.instance.config.active['info_project_private']}"
 

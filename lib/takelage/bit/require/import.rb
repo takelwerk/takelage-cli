@@ -84,7 +84,7 @@ module BitRequireImport
 
   # Paste bit components.
   def _bit_require_import_paste_components(components)
-    _rakefile, path = Rake.application.find_rakefile_location
+    path = config.active['project_root_dir']
     components.each do |component|
       next if _bit_require_import_check_component_exists component, path
 
