@@ -124,7 +124,8 @@ module ConfigModule
   def _get_project_root_dir
     _rakefile, path = Rake.application.find_rakefile_location
     return path unless path.nil?
-    log.error "No \"Rakefile\" found. Cannot determine project root directory."
+
+    log.error 'No "Rakefile" found. Cannot determine project root directory.'
     exit false
   end
 end
