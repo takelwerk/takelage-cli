@@ -65,7 +65,11 @@ module ConfigModule
     takel_config_key = TakelageConfig.instance.active[config_key]
     return true unless takel_config_key.nil? || takel_config_key.empty?
 
-    log.error "Unset config key. Please configure \"#{config_key}\""
+    if config_key == 'project_root_dir'
+      log.error 'Please create a "Rakefile" in the project root directory'
+    else
+      log.error "Unset config key. Please configure \"#{config_key}\""
+    end
     @configured = false
     false
   end

@@ -17,6 +17,7 @@ Feature: I can paste a bit component from a bit remote scope
     And a directory named "bit"
     And I initialize a bit workspace in "bit"
     And I cd to "bit"
+    And an empty file named "Rakefile"
 
   @bit.clipboard.paste.dir
 
