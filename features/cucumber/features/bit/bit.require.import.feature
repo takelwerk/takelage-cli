@@ -15,6 +15,7 @@ Feature: I can import bit components from a requirements file
     And a directory named "export"
     And I initialize a bit workspace in "export"
     And I cd to "export"
+    And an empty file named "Rakefile"
     And a directory named "my_dir"
     And an empty file named "my_dir/my_file"
     And the list of remote scopes is up-to-date
