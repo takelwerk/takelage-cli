@@ -6,6 +6,8 @@ module BitClipboardPull
   def bit_clipboard_pull
     log.debug 'Running bit pull'
 
+    return false unless configured? %w[project_root_dir]
+
     return false unless _bit_clipboard_lib_prepare_workspace
 
     _bit_clipboard_pull_import_all

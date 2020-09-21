@@ -8,14 +8,13 @@ module ConfigModule
     include LoggingModule
     include SystemModule
 
-    attr_accessor :active, :default, :home, :project, :project_root_dir
+    attr_accessor :active, :default, :home, :project
 
     def initialize
       @active = {}
       @default = {}
       @home = {}
       @project = {}
-      @project_root_dir = ''
     end
   end
 
@@ -26,7 +25,7 @@ module ConfigModule
 
     log.debug "takelage version: #{Takelage::VERSION}"
     log.debug "Current working directory: #{Dir.pwd}"
-    log.debug "Project root directory: #{project_root_dir}"
+    log.debug "Project root directory: #{project_root_dir}" unless project_root_dir.empty?
 
     TakelageConfig.instance.default = _config_read_default project_root_dir
     TakelageConfig.instance.home = _config_read_home
@@ -75,7 +74,7 @@ module ConfigModule
   def _config_read_default(project_root_dir)
     default_file = File.expand_path("#{File.dirname(__FILE__)}/../default.yml")
 
-    return {} unless File.exist? default_file
+    return {project_root_dir: project_root_dir} unless File.exist? default_file
 
     default_yaml = read_yaml_file(default_file) || {}
 
@@ -125,7 +124,7 @@ module ConfigModule
     _rakefile, path = Rake.application.find_rakefile_location
     return path unless path.nil?
 
-    log.error 'No "Rakefile" found. Cannot determine project root directory.'
-    exit false
+    log.debug 'No "Rakefile" found. Cannot determine project root directory.'
+    ''
   end
 end

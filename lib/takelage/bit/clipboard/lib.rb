@@ -52,7 +52,6 @@ module BitClipboardLib
     log.debug 'Syncing git workspace'
 
     path = config.active['project_root_dir']
-
     file = "#{path}/.bitmap"
     message = 'Update .bitmap'
 

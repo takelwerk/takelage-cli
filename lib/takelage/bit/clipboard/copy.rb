@@ -9,6 +9,8 @@ module BitClipboardCopy
 
     log.debug "Running bit copy \"#{dir}\" to \"#{scope}\""
 
+    return false unless configured? %w[project_root_dir]
+
     return false unless _bit_clipboard_lib_prepare_workspace
 
     unless File.directory? dir

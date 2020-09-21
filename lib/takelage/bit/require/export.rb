@@ -6,6 +6,8 @@ module BitRequireExport
   def bit_require_export
     log.debug 'Running bit require export'
 
+    return false unless configured? %w[project_root_dir]
+
     components = _bit_require_lib_get_components
     bitrequire_yml = _bit_require_export_get_bitrequire_yml components
 
