@@ -41,6 +41,7 @@ Feature: I can push a bit component changes to a bit remote scope
     And a directory named "other"
     And I initialize a bit workspace in "other"
     And I cd to "other"
+    And an empty file named "Rakefile"
     And I successfully run `tau-cli bit scope add my_scope`
     And I successfully run `tau-cli bit clipboard paste my_scope/my_dir my_dir`
     Then the file "my_dir/my_file" should match /tomato/
