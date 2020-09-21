@@ -33,6 +33,7 @@ Feature: I can paste a bit component from a bit remote scope
     And a directory named "other"
     And I initialize a bit workspace in "other"
     And I cd to "other"
+    And an empty file named "Rakefile"
     And I successfully run `tau-cli bit scope add my_scope`
     When I successfully run `tau-cli bit clipboard paste my_scope/my_dir my_dir`
     Then the directory "my_dir" should exist

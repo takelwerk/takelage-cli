@@ -17,6 +17,7 @@ Feature: I can pull bit component changes to a local bit workspace
     And a directory named "bit"
     And I initialize a bit workspace in "bit"
     And I cd to "bit"
+    And an empty file named "Rakefile"
 
   @bit.clipboard.pull.dir
 
@@ -35,6 +36,7 @@ Feature: I can pull bit component changes to a local bit workspace
     And a directory named "other"
     And I initialize a bit workspace in "other"
     And I cd to "other"
+    And an empty file named "Rakefile"
     And I successfully run `tau-cli bit scope add my_scope`
     And I successfully run `tau-cli bit clipboard paste my_scope/my_dir my_dir`
     And I cd to "../bit"
@@ -52,6 +54,7 @@ Feature: I can pull bit component changes to a local bit workspace
 
   Scenario: Fail if not on git master branch
     And I initialize a git workspace in "."
+    And an empty file named "Rakefile"
     And I switch to the git branch named "my_branch" in "."
     When I run `tau-cli bit clipboard pull`
     Then the exit status should be 1
