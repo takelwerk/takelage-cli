@@ -6,6 +6,8 @@ module BitClipboardPaste
   def bit_clipboard_paste(cid, dir)
     log.debug "Running bit paste \"#{cid}\" to \"#{dir}\""
 
+    return false unless configured? %w[project_root_dir]
+
     return false unless _bit_clipboard_lib_prepare_workspace
 
     return false unless _bit_clipboard_paste_cid_exists? cid

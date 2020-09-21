@@ -15,6 +15,7 @@ Feature: I can export bit components to a requirements file
     And a directory named "export"
     And I initialize a bit workspace in "export"
     And I cd to "export"
+    And an empty file named "Rakefile"
     And a directory named "my_dir"
     And an empty file named "my_dir/my_file"
     And the list of remote scopes is up-to-date
@@ -30,6 +31,7 @@ Feature: I can export bit components to a requirements file
     And I initialize a git workspace in "project"
     And I initialize a bit workspace in "project"
     And I cd to "project"
+    And an empty file named "Rakefile"
     And I successfully run `tau-cli bit scope add my_scope`
     And a file named "bitrequire.yml" with:
       """
@@ -38,7 +40,6 @@ Feature: I can export bit components to a requirements file
         my_scope:
         - name: my_dir
       """
-    And an empty file named "Rakefile"
     And I commit everything in "project" to git
     And I successfully run `tau-cli bit require import`
 
@@ -61,11 +62,11 @@ Feature: I can export bit components to a requirements file
 
   Scenario: I get an error message if there is no Rakefile
 
-    Given the file "Rakefile" should exist
+    Given I remove the file "Rakefile"
     And I commit everything in "project" to git
-    When I run `tau-cli bit require export`
-    Then the exit status should be 1
-    And the output should contain:
+    When I run `tau-cli bit require export -l debug`
+    Then the output should contain:
       """
-      [ERROR] No "Rakefile" found. Cannot determine project root directory.
+      [DEBUG] No "Rakefile" found. Cannot determine project root directory.
       """
+    And the exit status should be 1

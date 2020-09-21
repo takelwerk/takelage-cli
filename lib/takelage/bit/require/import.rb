@@ -6,6 +6,8 @@ module BitRequireImport
   def bit_require_import
     log.debug 'Running bit require import'
 
+    return false unless configured? %w[project_root_dir]
+
     return false unless _bit_clipboard_lib_prepare_workspace
 
     return false unless _bit_require_import_check_require_file_exists
@@ -85,6 +87,8 @@ module BitRequireImport
   # Paste bit components.
   def _bit_require_import_paste_components(components)
     path = config.active['project_root_dir']
+    return false if path.empty?
+
     components.each do |component|
       next if _bit_require_import_check_component_exists component, path
 

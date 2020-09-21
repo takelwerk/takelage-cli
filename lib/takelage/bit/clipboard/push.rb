@@ -6,6 +6,8 @@ module BitClipboardPush
   def bit_clipboard_push
     log.debug 'Running bit push'
 
+    return false unless configured? %w[project_root_dir]
+
     return false unless _bit_clipboard_lib_prepare_workspace
 
     _bit_clipboard_push_tag_all
