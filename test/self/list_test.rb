@@ -16,12 +16,13 @@ class SelfListTest < Minitest::Test
       tau self version                                 # Print takelage semantic version number
       tau version                                      # Alias for tau self version
     }
-    @self = Takelage::Self.new
+    @self_list = Object.new
+    @self_list.extend(SelfList)
   end
 
   def test_it_manipulates_output_of_thor_list
-    @self.stub :_get_thor_list_, @thor_list do
-      list_output = @self.self_list
+    @self_list.stub :_get_thor_list_, @thor_list do
+      list_output = @self_list.self_list
       assert_equal @expected_output, list_output
     end
   end
