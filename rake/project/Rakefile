@@ -4,10 +4,11 @@ namespace :project do
   desc 'Build takelage cli ruby gem'
   task prod: %w[gem:signin
                 rubylint
+                test
+                features
                 doc:clean
                 doc:build
                 doc:commit
-                features
                 gem:clean
                 gem:build
                 gem:move
