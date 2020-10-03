@@ -10,6 +10,7 @@ module SelfList
 
   private
 
+  # Get output of thor list command.
   def _get_thor_list_
     # use Thorfile which requires relative takelage.rb
     thorfile_dir = "#{File.dirname(__FILE__)}/../"
