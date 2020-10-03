@@ -20,7 +20,7 @@ class SelfListTest < Minitest::Test
     @self_list.extend(SelfList)
   end
 
-  def test_it_manipulates_output_of_thor_list
+  def test_that_it_manipulates_output_of_thor_list
     @self_list.stub :_get_thor_list_, @thor_list do
       list_output = @self_list.self_list
       assert_equal @expected_output, list_output
