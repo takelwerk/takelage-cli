@@ -4,6 +4,13 @@
 module SelfList
   # Backend method for config self.
   def self_list
+    thor_list = _get_thor_list_
+    _manipulate_output_(thor_list)
+  end
+
+  private
+
+  def _get_thor_list_
     # use Thorfile which requires relative takelage.rb
     thorfile_dir = "#{File.dirname(__FILE__)}/../"
 
@@ -12,13 +19,10 @@ module SelfList
         "cd #{thorfile_dir} && " \
         'thor list' \
         "'"
-    thor_list = `#{cmd_thor_list}`
 
-    # manipulate thor list output
-    _manipulate_output_(thor_list)
+    # call thor list command
+    `#{cmd_thor_list}`
   end
-
-  private
 
   # Manipulate output of thor list command.
   def _manipulate_output_(thor_list)
