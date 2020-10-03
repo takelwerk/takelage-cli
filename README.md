@@ -186,8 +186,11 @@ source <(tau completion bash)
 
 ### Software Tests
 
+*takelage-cli* uses
+[minitest](https://github.com/seattlerb/minitest) unit tests.
+
 *takelage-cli* ships with 
-[cucumber](https://github.com/cucumber/cucumber) ruby tests.
+[cucumber](https://github.com/cucumber/cucumber) ruby system tests.
 It uses cucumber's 
 [aruba](https://github.com/cucumber/aruba) extension and especially its
 [filesystem](https://relishapp.com/cucumber/aruba/v/0-11-0/docs/filesystem)
