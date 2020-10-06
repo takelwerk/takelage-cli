@@ -2,8 +2,6 @@
 @info.project
 @info.project.pass
 
-@announce-stdout
-
 Feature: I can resolve a pass call in the main project file
 
   Scenario: Print main project info
