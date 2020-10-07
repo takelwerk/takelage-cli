@@ -9,7 +9,6 @@ class ConfigTest < Minitest::Test
     @config.extend(SystemModule)
     @config.extend(ConfigModule)
     @config.log.level = Logger::FATAL
-    @config.initialize_config
   end
 
   def test_that_it_detects_configured_key

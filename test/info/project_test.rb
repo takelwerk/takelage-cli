@@ -5,11 +5,7 @@ require "test_helper"
 class InfoProjectTest < Minitest::Test
   def setup
     @project = Object.new
-    @project.extend(LoggingModule)
-    @project.extend(SystemModule)
-    @project.extend(ConfigModule)
     @project.extend(ProjectModule)
-    @project.log.level = Logger::FATAL
   end
 
   def test_that_project_private_beats_main
