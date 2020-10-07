@@ -3,6 +3,7 @@
 Before do
   cmd_copy_home_config = "bash -c '" \
       "mkdir -p #{aruba.config.home_directory} && " \
+      'test -f /hostdir/.takelage.yml && ' \
       'cp /hostdir/.takelage.yml ' \
       "#{aruba.config.home_directory}/.takelage.yml" \
       "'"
@@ -13,12 +14,19 @@ Before do
       'cp features/cucumber/support/fixtures/takelage-bitboard/id_rsa.myuser ' \
       "#{aruba.config.home_directory}/.ssh/id_rsa" \
       "'"
-  cmd_creating_gnupg_dir = "bash -c '" \
-      "mkdir -p #{aruba.config.home_directory}/.gnupg" \
+  cmd_copy_gopass_gpg_tar_gz = "bash -c '" \
+      "cp features/cucumber/support/fixtures/gopass-gpg/gopass-gpg.tar.gz " \
+      "#{aruba.config.home_directory}" \
+      "'"
+  cmd_tar_extract_gopass_gpg_tar_gz = "bash -c '" \
+      "cd #{aruba.config.home_directory} && " \
+      "tar xvfz gopass-gpg.tar.gz " \
+      '&> /dev/null' \
       "'"
   system cmd_copy_home_config
   system cmd_copy_ssh_config
-  system cmd_creating_gnupg_dir
+  system cmd_copy_gopass_gpg_tar_gz
+  system cmd_tar_extract_gopass_gpg_tar_gz
 end
 
 # for host.docker.internal see
