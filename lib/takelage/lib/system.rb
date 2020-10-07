@@ -106,8 +106,10 @@ module SystemModule
   def _parse_erb(file, content_erb)
     begin
       @content_yaml = ERB.new(content_erb).result
-    rescue => e
-      log.debug "Invalid ERB in YAML file \"#{file}\": \"#{e.message}\""
+    rescue StandardError => e
+      log.debug e.class
+      log.debug "Invalid ERB in YAML file \"#{file}\". " \
+        "#{e.class}: \"#{e.message}\""
       return false
     end
     true
