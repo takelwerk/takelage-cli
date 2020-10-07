@@ -3,4 +3,6 @@
 require "test_helper"
 
 class InfoProjectTest < Minitest::Test
+  
+
 end
