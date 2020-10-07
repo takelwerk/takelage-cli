@@ -4,8 +4,7 @@
 module SelfList
   # Backend method for config self.
   def self_list
-    thor_list = _get_thor_list_
-    _manipulate_output_(thor_list)
+    _manipulate_output_(_get_thor_list_)
   end
 
   private
@@ -27,10 +26,10 @@ module SelfList
 
   # Manipulate output of thor list command.
   def _manipulate_output_(thor_list)
-    thor_list.gsub!("takelage\n", '')
-    thor_list.gsub!("------\n", '')
-    thor_list.gsub!('thor ', 'tau ')
-    thor_list.gsub!(/(.*)takelage:c_l_i:(.*)#(.*)/, '\1\2               #\3')
-    thor_list.gsub!(/.*COMMAND.*\n/, '')
+    tau_list = thor_list.gsub("takelage\n", '')
+    tau_list.gsub!("------\n", '')
+    tau_list.gsub!('thor ', 'tau ')
+    tau_list.gsub!(/(.*)takelage:c_l_i:(.*)#(.*)/, '\1\2               #\3')
+    tau_list.gsub!(/.*COMMAND.*\n/, '')
   end
 end

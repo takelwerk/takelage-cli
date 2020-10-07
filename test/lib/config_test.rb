@@ -5,9 +5,9 @@ require "test_helper"
 class ConfigTest < Minitest::Test
   def setup
     @config = Object.new
-    @config.extend(ConfigModule)
     @config.extend(LoggingModule)
     @config.extend(SystemModule)
+    @config.extend(ConfigModule)
     @config.log.level = Logger::FATAL
     @config.initialize_config
   end
