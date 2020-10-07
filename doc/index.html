@@ -141,7 +141,9 @@ docker_repo: takelage-mock
 
 <h3 id="label-Software+Tests">Software Tests</h3>
 
-<p><em>takelage-cli</em> ships with <a href="https://github.com/cucumber/cucumber">cucumber</a> ruby tests. It uses cucumber&#39;s <a href="https://github.com/cucumber/aruba">aruba</a> extension and especially its <a href="https://relishapp.com/cucumber/aruba/v/0-11-0/docs/filesystem">filesystem</a> library.</p>
+<p><em>takelage-cli</em> uses <a href="https://github.com/seattlerb/minitest">minitest</a> unit tests.</p>
+
+<p><em>takelage-cli</em> ships with <a href="https://github.com/cucumber/cucumber">cucumber</a> ruby system tests. It uses cucumber&#39;s <a href="https://github.com/cucumber/aruba">aruba</a> extension and especially its <a href="https://relishapp.com/cucumber/aruba/v/0-11-0/docs/filesystem">filesystem</a> library.</p>
 
 <p><em>takelage-cli</em> <a href="https://docs.docker.com/registry/deploying/">deploys</a> a private docker <a href="https://hub.docker.com/_/registry">registry</a> to conduct end-to-end tests of <em>tau docker</em> commands. The registry exposes port 5005. You need to whitelist it in your host&#39;s docker engine configuration:</p>
 
