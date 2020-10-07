@@ -47,7 +47,8 @@ def copy_ssh_config
       'cp features/cucumber/support/fixtures/takelage-bitboard/config ' \
       "#{aruba.config.home_directory}/.ssh/config && " \
       'cp features/cucumber/support/fixtures/takelage-bitboard/id_rsa.myuser ' \
-      "#{aruba.config.home_directory}/.ssh/id_rsa" \
+      "#{aruba.config.home_directory}/.ssh/id_rsa && " \
+      "chmod 600 #{aruba.config.home_directory}/.ssh/id_rsa" \
       "'"
   system cmd_copy_ssh_config
 end
