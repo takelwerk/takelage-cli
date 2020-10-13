@@ -16,10 +16,4 @@ class InfoProjectTest < Minitest::Test
       end
     end
   end
-
-  def test_that_gopass_secrets_are_resolved
-    @project.stub :_project_read_main, {'my_secret_var' => 'pass(my_project/my_secret_key)'} do
-      assert_equal 'my_secret_value', @project.project.active['my_secret_var']
-    end
-  end
 end
