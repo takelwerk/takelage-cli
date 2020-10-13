@@ -20,7 +20,19 @@ module SystemModule
     log.debug "Reading YAML file \"#{file}\""
     return nil unless _file_exists? file
     return nil unless _file_read file
-    return nil unless _parse_yaml @content_yaml
+    return nil unless _parse_yaml file, @content_file
+
+    @content
+  end
+
+  # Read yaml file with erb templates.
+  # @return [Hash] content of yaml file
+  def read_yaml_erb_file(file)
+    log.debug "Reading YAML ERB file \"#{file}\""
+    return nil unless _file_exists? file
+    return nil unless _file_read file
+    return nil unless _parse_erb file, @content_file
+    return nil unless _parse_yaml file, @content_yaml
 
     @content
   end
@@ -82,7 +94,7 @@ module SystemModule
   # Read yaml file.
   def _file_read(file)
     begin
-      @content_yaml = File.read file
+      @content_file = File.read file
     rescue SystemCallError
       log.debug "Unable to read file \"#{file}\""
       return false
@@ -90,8 +102,21 @@ module SystemModule
     true
   end
 
+  # Parse erb file.
+  def _parse_erb(file, content_erb)
+    begin
+      @content_yaml = ERB.new(content_erb).result
+    rescue StandardError => e
+      log.debug e.class
+      log.debug "Invalid ERB in YAML file \"#{file}\". " \
+        "#{e.class}: \"#{e.message}\""
+      return false
+    end
+    true
+  end
+
   # Parse yaml file.
-  def _parse_yaml(content_yaml)
+  def _parse_yaml(file, content_yaml)
     begin
       @content = YAML.safe_load content_yaml
     rescue Psych::SyntaxError

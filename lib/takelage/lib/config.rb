@@ -93,9 +93,7 @@ module ConfigModule
 
     return {} unless File.exist? home_file
 
-    home_yaml = read_yaml_file(home_file) || {}
-
-    home_yaml.sort.to_h
+    (read_yaml_file(home_file) || {}).sort.to_h
   end
 
   # Read custom config file in project root.
@@ -104,9 +102,7 @@ module ConfigModule
 
     return {} unless File.exist? project_file
 
-    project_yaml = read_yaml_file(project_file) || {}
-
-    project_yaml.sort.to_h
+    (read_yaml_file(project_file) || {}).sort.to_h
   end
 
   # Merge active config.

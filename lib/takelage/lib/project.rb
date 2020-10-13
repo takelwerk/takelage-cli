@@ -20,8 +20,8 @@ module ProjectModule
 
   # Initialze project
   def initialize_project
-    TakelageProject.instance.main = _resolve_pass(_project_read_main)
-    TakelageProject.instance.private = _resolve_pass(_project_read_private)
+    TakelageProject.instance.main = _project_read_main
+    TakelageProject.instance.private = _project_read_private
     TakelageProject.instance.active = _project_merge_active
   end
 
@@ -32,16 +32,6 @@ module ProjectModule
 
   private
 
-  # Resolve pass variables.
-  def _resolve_pass(project_unresolved)
-    project_unresolved.each do |key, value|
-      puts
-      puts key
-      puts value
-    end
-    project_unresolved
-  end
-
   # Read main YAML file.
   def _project_read_main
     path = TakelageProject.instance.config.active['project_root_dir']
@@ -50,7 +40,7 @@ module ProjectModule
 
     return {} unless File.exist? main_file
 
-    read_yaml_file(main_file).sort.to_h || {}
+    (read_yaml_erb_file(main_file) || {}).sort.to_h
   end
 
   # Read private YAML file.
@@ -61,7 +51,7 @@ module ProjectModule
 
     return {} unless File.exist? private_file
 
-    private_yaml = read_yaml_file(private_file) || {}
+    private_yaml = read_yaml_erb_file(private_file) || {}
 
     private_yaml.sort.to_h
   end

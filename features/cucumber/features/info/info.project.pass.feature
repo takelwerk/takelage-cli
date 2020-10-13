@@ -8,7 +8,7 @@ Feature: I can resolve a pass call in the main project file
     Given a file named "project.yml" with:
       """
       ---
-      my_secret_var: pass(my_project/my_secret_key)
+      my_secret_var: <% `pass my_project/my_secret_key` %>
       """
     And an empty file named "Rakefile"
     When I successfully run `tau-cli info project main`
