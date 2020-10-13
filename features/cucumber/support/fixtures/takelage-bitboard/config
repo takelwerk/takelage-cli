@@ -1,5 +1,6 @@
 Host *
-    IdentityFile ~/.ssh/id_rsa
+    IdentityFile /tmp/fake_home/.ssh/id_rsa
+    IdentitiesOnly yes
     StrictHostKeyChecking no
     UserKnownHostsFile /dev/null
     LogLevel QUIET
