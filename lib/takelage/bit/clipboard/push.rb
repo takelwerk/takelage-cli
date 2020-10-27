@@ -14,8 +14,7 @@ module BitClipboardPush
     _bit_clipboard_push_export_all
     _bit_clipbpard_lib_remove_bit_artifacts
     _bit_clipboard_lib_sync_workspace
-
-    log.info 'Pushed bit components'
+    _bit_clipboard_lib_bit_status
     true
   end
 

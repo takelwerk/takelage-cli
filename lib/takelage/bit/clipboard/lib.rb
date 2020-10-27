@@ -4,6 +4,14 @@
 module BitClipboardLib
   private
 
+  # Run bit status.
+  def _bit_clipboard_lib_bit_status
+    log.debug 'Running bit status'
+
+    cmd_bit_status = config.active['cmd_bit_clipboard_lib_bit_status']
+    run cmd_bit_status
+  end
+
   # Prepare workspace for bit clipboard.
   def _bit_clipboard_lib_prepare_workspace
     unless bit_check_workspace

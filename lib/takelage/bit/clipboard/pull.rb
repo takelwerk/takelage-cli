@@ -14,8 +14,7 @@ module BitClipboardPull
     _bit_clipboard_pull_checkout_all
     _bit_clipbpard_lib_remove_bit_artifacts
     _bit_clipboard_lib_sync_workspace
-
-    log.info 'Pulled bit components'
+    _bit_clipboard_lib_bit_status
     true
   end
 
