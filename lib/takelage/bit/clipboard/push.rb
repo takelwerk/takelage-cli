@@ -15,7 +15,6 @@ module BitClipboardPush
     _bit_clipbpard_lib_remove_bit_artifacts
     _bit_clipboard_lib_sync_workspace
     _bit_clipboard_lib_bit_status
-    true
   end
 
   private

@@ -9,7 +9,7 @@ module BitClipboardLib
     log.debug 'Running bit status'
 
     cmd_bit_status = config.active['cmd_bit_clipboard_lib_bit_status']
-    run cmd_bit_status
+    run_and_exit cmd_bit_status
   end
 
   # Prepare workspace for bit clipboard.
