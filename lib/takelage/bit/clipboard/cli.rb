@@ -55,7 +55,7 @@ module Takelage
     LONGDESC
     # Pull all updates for bit components from bit remote scopes.
     def pull
-      bit_clipboard_pull
+      exit bit_clipboard_pull
     end
 
     #
@@ -67,7 +67,7 @@ module Takelage
     LONGDESC
     # Push all updates of bit components to bit remote scopes.
     def push
-      bit_clipboard_push
+      exit bit_clipboard_push
     end
   end
 end
