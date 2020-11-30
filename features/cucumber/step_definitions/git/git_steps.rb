@@ -2,7 +2,7 @@
 
 Given 'I initialize a git workspace in {string}' do |dir|
   cmd_git_init_workspace = "bash -c '" \
-      "git init #{aruba.config.working_directory}/#{dir} " \
+      "git init --initial-branch=main #{aruba.config.working_directory}/#{dir} " \
       '&> /dev/null' \
       "'"
   cmd_git_author = "bash -c '" \
