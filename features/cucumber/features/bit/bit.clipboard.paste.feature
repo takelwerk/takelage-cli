@@ -39,9 +39,9 @@ Feature: I can paste a bit component from a bit remote scope
     Then the directory "my_dir" should exist
     And the file "my_dir/my_file" should exist
 
-  @bit.clipboard.paste.notongitmaster
+  @bit.clipboard.paste.notongitmain
 
-  Scenario: Fail if not on git master branch
+  Scenario: Fail if not on git main branch
     Given the list of remote scopes is up-to-date
     But a remote scope named "my_scope" should not exist
     And I initialize a git workspace in "."
@@ -50,7 +50,7 @@ Feature: I can paste a bit component from a bit remote scope
     Then the exit status should be 1
     And the output should contain:
       """
-      [ERROR] Not on git master branch
+      [ERROR] Not on git main branch
       """
 
   @bit.clipboard.paste.nonexistingcomponent

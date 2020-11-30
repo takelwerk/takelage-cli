@@ -81,7 +81,7 @@ tau [docker socket scheme](features/cucumber/features/docker/docker.socket.schem
 tau [docker socket start](features/cucumber/features/docker/docker.socket.start.feature) | Start sockets for docker container
 tau [docker socket stop](features/cucumber/features/docker/docker.socket.stop.feature) | Stop sockets for docker container
 tau [git check clean](features/cucumber/features/git/git.check.clean.feature) | Check if the git workspace is clean
-tau [git check master](features/cucumber/features/git/git.check.master.feature) | Check if we are on the git master branch
+tau [git check main](features/cucumber/features/git/git.check.main.feature) | Check if we are on the git main branch
 tau [git check workspace](features/cucumber/features/git/git.check.workspace.feature) | Check if a git workspace exists
 tau [info project active](features/cucumber/features/info/info.project.active.feature) | Print active project info
 tau [info project main](features/cucumber/features/info/info.project.main.feature) | Print main project info

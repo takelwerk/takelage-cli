@@ -26,8 +26,8 @@ module BitClipboardLib
 
   # Prepare git workspace for bit clipboard.
   def _bit_clipboard_lib_prepare_git_workspace
-    unless git_check_master
-      log.error 'Not on git master branch'
+    unless git_check_main
+      log.error 'Not on git main branch'
       return false
     end
 
@@ -91,12 +91,14 @@ module BitClipboardLib
     run cmd_bit_clipboard_git_commit
   end
 
-  # git push origin master.
+  # git push origin main.
   def _bit_clipboard_lib_git_push
-    log.debug 'Pushing master branch to origin'
+    log.debug 'Pushing main branch to origin'
 
-    cmd_bit_clipboard_git_push =
-      config.active['cmd_bit_clipboard_git_push']
+    cmd_bit_clipboard_git_push = format(
+        config.active['cmd_bit_clipboard_git_push'],
+        main: config.active['git_main_branch']
+    )
 
     run cmd_bit_clipboard_git_push
   end
@@ -104,8 +106,10 @@ module BitClipboardLib
   # git pull.
   def _bit_clipboard_lib_git_pull
     log.debug 'Updating git workspace'
-    cmd_bit_clipboard_git_pull =
-      config.active['cmd_bit_clipboard_git_pull']
+    cmd_bit_clipboard_git_pull = format(
+      config.active['cmd_bit_clipboard_git_pull'],
+      main: config.active['git_main_branch']
+    )
 
     return true if try cmd_bit_clipboard_git_pull
 

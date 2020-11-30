@@ -28,9 +28,9 @@ module BitScopeAdd
 
     return true unless git_check_workspace
 
-    return true if git_check_master
+    return true if git_check_main
 
-    log.error 'Not on git master branch'
+    log.error 'Not on git main branch'
     false
   end
 

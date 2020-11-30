@@ -80,14 +80,14 @@ Feature: I can copy a directory as a new tagged bit component
       [ERROR] The directory "my_file" does not exist
       """
 
-  @bit.clipboard.copy.notongitmaster
+  @bit.clipboard.copy.notongitmain
 
-  Scenario: Fail if not on git master branch
+  Scenario: Fail if not on git main branch
     And I initialize a git workspace in "."
     And I switch to the git branch named "my_branch" in "."
     When I run `tau-cli bit clipboard copy nonexisting_dir nonexisting_scope`
     Then the exit status should be 1
     And the output should contain:
       """
-      [ERROR] Not on git master branch
+      [ERROR] Not on git main branch
       """
