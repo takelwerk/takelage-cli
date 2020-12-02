@@ -71,7 +71,7 @@ module BitRequireImport
 
   # Check if there are bit components
   def _bit_require_import_check_component_valid(component, scope)
-    return true if (component.class == Hash) && component.key?('name')
+    return true if component.instance_of?(Hash) && component.key?('name')
 
     log.error "No component in #{scope}"
     false

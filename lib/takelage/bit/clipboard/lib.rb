@@ -96,8 +96,8 @@ module BitClipboardLib
     log.debug 'Pushing main branch to origin'
 
     cmd_bit_clipboard_git_push = format(
-        config.active['cmd_bit_clipboard_git_push'],
-        main: config.active['git_main_branch']
+      config.active['cmd_bit_clipboard_git_push'],
+      main: config.active['git_main_branch']
     )
 
     run cmd_bit_clipboard_git_push

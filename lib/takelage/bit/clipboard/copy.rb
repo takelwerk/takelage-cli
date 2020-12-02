@@ -71,7 +71,7 @@ module BitClipboardCopy
     bit_dev = config.active['bit_dev_user']
 
     # check if scope is a candidate for a bit.dev remote scope
-    if scope.start_with? bit_dev + '.'
+    if scope.start_with? "#{bit_dev}."
       return false unless _bit_clipboard_bit_dev_scope_exists scope
     else
       return false unless _bit_clipboard_custom_scope_exists scope
