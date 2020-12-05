@@ -9,12 +9,13 @@ module ProjectModule
     include SystemModule
     include ConfigModule
 
-    attr_accessor :active, :private, :main
+    attr_accessor :active, :private, :main, :dir
 
     def initialize
       @active = {}
       @private = {}
       @main = {}
+      @dir = {}
     end
   end
 
@@ -23,6 +24,8 @@ module ProjectModule
     TakelageProject.instance.main = _project_read_main
     TakelageProject.instance.private = _project_read_private
     TakelageProject.instance.active = _project_merge_active
+    TakelageProject.instance.dir =
+      TakelageProject.instance.config.active['project_root_dir']
   end
 
   # @return [Object] global singleton project
@@ -34,8 +37,7 @@ module ProjectModule
 
   # Read main YAML file.
   def _project_read_main
-    path = TakelageProject.instance.config.active['project_root_dir']
-    main_file = "#{path}/" \
+    main_file = "#{TakelageProject.instance.dir}/" \
         "#{TakelageProject.instance.config.active['info_project_main']}"
 
     return {} unless File.exist? main_file
@@ -45,8 +47,7 @@ module ProjectModule
 
   # Read private YAML file.
   def _project_read_private
-    path = TakelageProject.instance.config.active['project_root_dir']
-    private_file = "#{path}/" \
+    private_file = "#{TakelageProject.instance.dir}/" \
         "#{TakelageProject.instance.config.active['info_project_private']}"
 
     return {} unless File.exist? private_file
