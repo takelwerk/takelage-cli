@@ -37,7 +37,8 @@ module ProjectModule
 
   # Read main YAML file.
   def _project_read_main
-    main_file = "#{TakelageProject.instance.dir}/" \
+    dir = TakelageProject.instance.config.active['project_root_dir']
+    main_file = "#{dir}/" \
         "#{TakelageProject.instance.config.active['info_project_main']}"
 
     return {} unless File.exist? main_file
@@ -47,7 +48,8 @@ module ProjectModule
 
   # Read private YAML file.
   def _project_read_private
-    private_file = "#{TakelageProject.instance.dir}/" \
+    dir = TakelageProject.instance.config.active['project_root_dir']
+    private_file = "#{dir}/" \
         "#{TakelageProject.instance.config.active['info_project_private']}"
 
     return {} unless File.exist? private_file
