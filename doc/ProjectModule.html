@@ -207,19 +207,23 @@
       <pre class="lines">
 
 
-22
 23
 24
 25
-26</pre>
+26
+27
+28
+29</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/takelage/lib/project.rb', line 22</span>
+      <pre class="code"><span class="info file"># File 'lib/takelage/lib/project.rb', line 23</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize_project'>initialize_project</span>
   <span class='const'><span class='object_link'><a href="ProjectModule/TakelageProject.html" title="ProjectModule::TakelageProject (class)">TakelageProject</a></span></span><span class='period'>.</span><span class='id identifier rubyid_instance'>instance</span><span class='period'>.</span><span class='id identifier rubyid_main'>main</span> <span class='op'>=</span> <span class='id identifier rubyid__project_read_main'>_project_read_main</span>
   <span class='const'><span class='object_link'><a href="ProjectModule/TakelageProject.html" title="ProjectModule::TakelageProject (class)">TakelageProject</a></span></span><span class='period'>.</span><span class='id identifier rubyid_instance'>instance</span><span class='period'>.</span><span class='id identifier rubyid_private'>private</span> <span class='op'>=</span> <span class='id identifier rubyid__project_read_private'>_project_read_private</span>
   <span class='const'><span class='object_link'><a href="ProjectModule/TakelageProject.html" title="ProjectModule::TakelageProject (class)">TakelageProject</a></span></span><span class='period'>.</span><span class='id identifier rubyid_instance'>instance</span><span class='period'>.</span><span class='id identifier rubyid_active'>active</span> <span class='op'>=</span> <span class='id identifier rubyid__project_merge_active'>_project_merge_active</span>
+  <span class='const'><span class='object_link'><a href="ProjectModule/TakelageProject.html" title="ProjectModule::TakelageProject (class)">TakelageProject</a></span></span><span class='period'>.</span><span class='id identifier rubyid_instance'>instance</span><span class='period'>.</span><span class='id identifier rubyid_dir'>dir</span> <span class='op'>=</span>
+    <span class='const'><span class='object_link'><a href="ProjectModule/TakelageProject.html" title="ProjectModule::TakelageProject (class)">TakelageProject</a></span></span><span class='period'>.</span><span class='id identifier rubyid_instance'>instance</span><span class='period'>.</span><span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_active'>active</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>project_root_dir</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -270,12 +274,12 @@
       <pre class="lines">
 
 
-29
-30
-31</pre>
+32
+33
+34</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/takelage/lib/project.rb', line 29</span>
+      <pre class="code"><span class="info file"># File 'lib/takelage/lib/project.rb', line 32</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_project'>project</span>
   <span class='const'><span class='object_link'><a href="ProjectModule/TakelageProject.html" title="ProjectModule::TakelageProject (class)">TakelageProject</a></span></span><span class='period'>.</span><span class='id identifier rubyid_instance'>instance</span>
