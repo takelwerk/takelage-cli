@@ -84,6 +84,7 @@ tau [git check clean](features/cucumber/features/git/git.check.clean.feature) | 
 tau [git check main](features/cucumber/features/git/git.check.main.feature) | Check if we are on the git main branch
 tau [git check workspace](features/cucumber/features/git/git.check.workspace.feature) | Check if a git workspace exists
 tau [info project active](features/cucumber/features/info/info.project.active.feature) | Print active project info
+tau [info project dir](features/cucumber/features/info/info.project.dir.feature) | Print project root directory
 tau [info project main](features/cucumber/features/info/info.project.main.feature) | Print main project info
 tau [info project private](features/cucumber/features/info/info.project.private.feature) | Print private project info
 tau [self config active](features/cucumber/features/self/self.config.active.feature) | Print active takelage configuration
