@@ -20,17 +20,17 @@ module Takelage
     def running
       exit docker_check_daemon
     end
-  end
 
-  #
-  # docker check socat
-  #
-  desc 'socat', 'Check if socat command is available'
-  long_desc <<-LONGDESC.gsub("\n", "\x5")
-  Check if socat command is available
-  LONGDESC
-  # Check if socat command is available.
-  def running
-    exit docker_check_socat
+    #
+    # docker check socat
+    #
+    desc 'socat', 'Check if socat command is available'
+    long_desc <<-LONGDESC.gsub("\n", "\x5")
+    Check if socat command is available
+    LONGDESC
+    # Check if socat command is available.
+    def running
+      exit docker_check_socat
+    end
   end
 end
