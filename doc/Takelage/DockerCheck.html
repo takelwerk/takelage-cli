@@ -93,7 +93,7 @@
   
   <dl>
       <dt>Includes:</dt>
-      <dd><span class='object_link'><a href="../ConfigModule.html" title="ConfigModule (module)">ConfigModule</a></span>, <span class='object_link'><a href="../DockerCheckRunning.html" title="DockerCheckRunning (module)">DockerCheckRunning</a></span>, <span class='object_link'><a href="../LoggingModule.html" title="LoggingModule (module)">LoggingModule</a></span>, <span class='object_link'><a href="../SystemModule.html" title="SystemModule (module)">SystemModule</a></span></dd>
+      <dd><span class='object_link'><a href="../ConfigModule.html" title="ConfigModule (module)">ConfigModule</a></span>, <span class='object_link'><a href="../DockerCheckDaemon.html" title="DockerCheckDaemon (module)">DockerCheckDaemon</a></span>, <span class='object_link'><a href="../DockerCheckSocat.html" title="DockerCheckSocat (module)">DockerCheckSocat</a></span>, <span class='object_link'><a href="../LoggingModule.html" title="LoggingModule (module)">LoggingModule</a></span>, <span class='object_link'><a href="../SystemModule.html" title="SystemModule (module)">SystemModule</a></span></dd>
   </dl>
   
   
@@ -137,7 +137,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#running-instance_method" title="#running (instance method)">#<strong>running</strong>  &#x21d2; Object </a>
+      <a href="#daemon-instance_method" title="#daemon (instance method)">#<strong>daemon</strong>  &#x21d2; Object </a>
     
 
     
@@ -158,6 +158,30 @@
 </li>
 
       
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#socat-instance_method" title="#socat (instance method)">#<strong>socat</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Check if socat command is available.</p>
+</div></span>
+  
+</li>
+
+      
     </ul>
   
 
@@ -170,8 +194,19 @@
   
   
   
-  <h3 class="inherited">Methods included from <span class='object_link'><a href="../DockerCheckRunning.html" title="DockerCheckRunning (module)">DockerCheckRunning</a></span></h3>
-  <p class="inherited"><span class='object_link'><a href="../DockerCheckRunning.html#docker_check_running-instance_method" title="DockerCheckRunning#docker_check_running (method)">#docker_check_running</a></span></p>
+  <h3 class="inherited">Methods included from <span class='object_link'><a href="../DockerCheckSocat.html" title="DockerCheckSocat (module)">DockerCheckSocat</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="../DockerCheckSocat.html#docker_check_socat-instance_method" title="DockerCheckSocat#docker_check_socat (method)">#docker_check_socat</a></span></p>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods included from <span class='object_link'><a href="../DockerCheckDaemon.html" title="DockerCheckDaemon (module)">DockerCheckDaemon</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="../DockerCheckDaemon.html#docker_check_daemon-instance_method" title="DockerCheckDaemon#docker_check_daemon (method)">#docker_check_daemon</a></span></p>
 
   
   
@@ -224,9 +259,9 @@
 
     
       <div class="method_details first">
-  <h3 class="signature first" id="running-instance_method">
+  <h3 class="signature first" id="daemon-instance_method">
   
-    #<strong>running</strong>  &#x21d2; <tt>Object</tt> 
+    #<strong>daemon</strong>  &#x21d2; <tt>Object</tt> 
   
 
   
@@ -249,15 +284,56 @@
       <pre class="lines">
 
 
-19
 20
-21</pre>
+21
+22</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/takelage/docker/check/cli.rb', line 19</span>
+      <pre class="code"><span class="info file"># File 'lib/takelage/docker/check/cli.rb', line 20</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_running'>running</span>
-  <span class='id identifier rubyid_exit'>exit</span> <span class='id identifier rubyid_docker_check_running'>docker_check_running</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_daemon'>daemon</span>
+  <span class='id identifier rubyid_exit'>exit</span> <span class='id identifier rubyid_docker_check_daemon'>docker_check_daemon</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="socat-instance_method">
+  
+    #<strong>socat</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Check if socat command is available.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+32
+33
+34</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/takelage/docker/check/cli.rb', line 32</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_socat'>socat</span>
+  <span class='id identifier rubyid_exit'>exit</span> <span class='id identifier rubyid_docker_check_socat'>docker_check_socat</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>

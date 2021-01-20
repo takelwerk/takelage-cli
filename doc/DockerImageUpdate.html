@@ -188,7 +188,7 @@
       <pre class="code"><span class="info file"># File 'lib/takelage/docker/image/update.rb', line 6</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_docker_image_update'>docker_image_update</span>
-  <span class='kw'>return</span> <span class='kw'>false</span> <span class='kw'>unless</span> <span class='id identifier rubyid_docker_check_running'>docker_check_running</span>
+  <span class='kw'>return</span> <span class='kw'>false</span> <span class='kw'>unless</span> <span class='id identifier rubyid_docker_check_daemon'>docker_check_daemon</span>
 
   <span class='id identifier rubyid_cmd_docker_pull_latest'>cmd_docker_pull_latest</span> <span class='op'>=</span> <span class='id identifier rubyid__docker_image_update_cmd_docker_pull_latest'>_docker_image_update_cmd_docker_pull_latest</span>
 

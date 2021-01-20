@@ -93,7 +93,7 @@
   
   <dl>
       <dt>Includes:</dt>
-      <dd><span class='object_link'><a href="../ConfigModule.html" title="ConfigModule (module)">ConfigModule</a></span>, <span class='object_link'><a href="../DockerCheckRunning.html" title="DockerCheckRunning (module)">DockerCheckRunning</a></span>, <span class='object_link'><a href="../DockerContainerCheckExisting.html" title="DockerContainerCheckExisting (module)">DockerContainerCheckExisting</a></span>, <span class='object_link'><a href="../DockerContainerCheckNetwork.html" title="DockerContainerCheckNetwork (module)">DockerContainerCheckNetwork</a></span>, <span class='object_link'><a href="../DockerContainerCheckOrphaned.html" title="DockerContainerCheckOrphaned (module)">DockerContainerCheckOrphaned</a></span>, <span class='object_link'><a href="../LoggingModule.html" title="LoggingModule (module)">LoggingModule</a></span>, <span class='object_link'><a href="../SystemModule.html" title="SystemModule (module)">SystemModule</a></span></dd>
+      <dd><span class='object_link'><a href="../ConfigModule.html" title="ConfigModule (module)">ConfigModule</a></span>, <span class='object_link'><a href="../DockerCheckDaemon.html" title="DockerCheckDaemon (module)">DockerCheckDaemon</a></span>, <span class='object_link'><a href="../DockerCheckSocat.html" title="DockerCheckSocat (module)">DockerCheckSocat</a></span>, <span class='object_link'><a href="../DockerContainerCheckExisting.html" title="DockerContainerCheckExisting (module)">DockerContainerCheckExisting</a></span>, <span class='object_link'><a href="../DockerContainerCheckNetwork.html" title="DockerContainerCheckNetwork (module)">DockerContainerCheckNetwork</a></span>, <span class='object_link'><a href="../DockerContainerCheckOrphaned.html" title="DockerContainerCheckOrphaned (module)">DockerContainerCheckOrphaned</a></span>, <span class='object_link'><a href="../LoggingModule.html" title="LoggingModule (module)">LoggingModule</a></span>, <span class='object_link'><a href="../SystemModule.html" title="SystemModule (module)">SystemModule</a></span></dd>
   </dl>
   
   
@@ -251,8 +251,19 @@
   
   
   
-  <h3 class="inherited">Methods included from <span class='object_link'><a href="../DockerCheckRunning.html" title="DockerCheckRunning (module)">DockerCheckRunning</a></span></h3>
-  <p class="inherited"><span class='object_link'><a href="../DockerCheckRunning.html#docker_check_running-instance_method" title="DockerCheckRunning#docker_check_running (method)">#docker_check_running</a></span></p>
+  <h3 class="inherited">Methods included from <span class='object_link'><a href="../DockerCheckSocat.html" title="DockerCheckSocat (module)">DockerCheckSocat</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="../DockerCheckSocat.html#docker_check_socat-instance_method" title="DockerCheckSocat#docker_check_socat (method)">#docker_check_socat</a></span></p>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods included from <span class='object_link'><a href="../DockerCheckDaemon.html" title="DockerCheckDaemon (module)">DockerCheckDaemon</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="../DockerCheckDaemon.html#docker_check_daemon-instance_method" title="DockerCheckDaemon#docker_check_daemon (method)">#docker_check_daemon</a></span></p>
 
   
   
@@ -330,12 +341,12 @@
       <pre class="lines">
 
 
-24
 25
-26</pre>
+26
+27</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/takelage/docker/container/check/cli.rb', line 24</span>
+      <pre class="code"><span class="info file"># File 'lib/takelage/docker/container/check/cli.rb', line 25</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_existing'>existing</span><span class='lparen'>(</span><span class='id identifier rubyid_container'>container</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_exit'>exit</span> <span class='id identifier rubyid_docker_container_check_existing'>docker_container_check_existing</span> <span class='id identifier rubyid_container'>container</span>
@@ -371,12 +382,12 @@
       <pre class="lines">
 
 
-38
 39
-40</pre>
+40
+41</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/takelage/docker/container/check/cli.rb', line 38</span>
+      <pre class="code"><span class="info file"># File 'lib/takelage/docker/container/check/cli.rb', line 39</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_network'>network</span><span class='lparen'>(</span><span class='id identifier rubyid_network'>network</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_exit'>exit</span> <span class='id identifier rubyid_docker_container_check_network'>docker_container_check_network</span> <span class='id identifier rubyid_network'>network</span>
@@ -412,12 +423,12 @@
       <pre class="lines">
 
 
-53
 54
-55</pre>
+55
+56</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/takelage/docker/container/check/cli.rb', line 53</span>
+      <pre class="code"><span class="info file"># File 'lib/takelage/docker/container/check/cli.rb', line 54</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_orphaned'>orphaned</span><span class='lparen'>(</span><span class='id identifier rubyid_container'>container</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_exit'>exit</span> <span class='id identifier rubyid_docker_container_check_orphaned'>docker_container_check_orphaned</span> <span class='id identifier rubyid_container'>container</span>
