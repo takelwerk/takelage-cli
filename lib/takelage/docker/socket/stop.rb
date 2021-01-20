@@ -12,8 +12,7 @@ module DockerSocketStop
 
     # get process list
     # assuming format: "pid command"
-    cmd_ps =
-      config.active['cmd_docker_socket_stop_docker_socket_ps']
+    cmd_ps = config.active['cmd_docker_socket_stop_docker_socket_ps']
 
     stdout_str = run cmd_ps
 
