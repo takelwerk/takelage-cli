@@ -15,18 +15,18 @@ Feature: I can update to the latest remote docker image
       docker_registry: http://host.docker.internal:5005
       """
     And I get the active takelage config
-    And I push the local docker image "latest"
+    And I push the docker image "latest"
 
-  @docker.image.update.nolocalimageexists
+  @docker.image.update.noimageexists
 
   Scenario: Download latest remote docker image if no local image available
     Given I remove all local docker images
     When I successfully run `tau-cli docker image update`
-    Then my latest local docker version should be "latest"
+    Then my latest local docker image should be "latest"
 
   @docker.image.update.onlylatestimageexists
 
   Scenario: Download latest remote docker image if no local image available
     Given I remove all local docker images but not "latest"
     When I successfully run `tau-cli docker image update`
-    Then my latest local docker version should be "latest"
+    Then my latest local docker image should be "latest"

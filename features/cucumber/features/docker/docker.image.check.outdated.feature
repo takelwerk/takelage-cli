@@ -17,7 +17,7 @@ Feature: I can check if a pinned image version is outdated
       docker_registry: http://host.docker.internal:5005
       """
     And I get the active takelage config
-    And I push the latest local docker image
+    And I push the latest docker image
 
   @docker.image.check.outdated.latest
 

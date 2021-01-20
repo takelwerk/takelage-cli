@@ -2,13 +2,12 @@
 @docker.image
 @docker.image.tag
 @docker.image.tag.list
-@docker.image.tag.list.local
 
 @before_build_mock_images
 
-Feature: I can list the tags of local docker images
+Feature: I can list the tags of docker images
 
-  Scenario: List the tags of local docker images
+  Scenario: List the tags of docker images
     Given a file named "~/.takelage.yml" with:
       """
       ---
@@ -17,6 +16,6 @@ Feature: I can list the tags of local docker images
       docker_registry: http://host.docker.internal:5005
       """
     And I get the active takelage config
-    And I ask docker about the local docker images
-    When I successfully run `tau-cli docker image tag list local`
-    Then the list of local images match
+    And I ask docker about the docker images
+    When I successfully run `tau-cli docker image tag list`
+    Then the list of images match
