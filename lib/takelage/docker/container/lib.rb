@@ -115,7 +115,7 @@ module DockerContainerLib
 
   # Check if docker image is available
   def _docker_container_lib_image_available?(image)
-    return true if docker_image_tag_list_local.include? @docker_tag
+    return true if docker_image_tag_list.include? @docker_tag
 
     log.error "No local image \"#{image}\" available"
     log.info "Try: docker pull #{image}"

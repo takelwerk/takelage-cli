@@ -16,10 +16,9 @@ module Takelage
     include DockerContainerLogin
     include DockerContainerClean
     include DockerContainerPrune
-    include DockerImageTagLatestLocal
-    include DockerImageTagListLocal
-    include DockerImageTagCheckLocal
-    include DockerImageCheckOutdated
+    include DockerImageTagLatest
+    include DockerImageTagList
+    include DockerImageTagCheck
     include DockerSocketLib
     include DockerSocketHost
     include DockerSocketScheme

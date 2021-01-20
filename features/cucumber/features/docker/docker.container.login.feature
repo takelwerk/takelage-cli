@@ -12,6 +12,7 @@ Feature: I can log in to a docker container
       ---
       docker_user: host.docker.internal:5005/takelage-mock
       docker_repo: takelage-mock
+      docker_tag: prod
       """
     And I get the active takelage config
     When I successfully run `env -u TAKELAGE_PROJECT_BASE_DIR unbuffer tau-cli docker container login`

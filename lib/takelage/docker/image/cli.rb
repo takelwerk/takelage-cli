@@ -7,8 +7,6 @@ module Takelage
     include SystemModule
     include ConfigModule
     include DockerCheckRunning
-    include DockerImageTagListRemote
-    include DockerImageTagLatestRemote
     include DockerImageUpdate
 
     # Initialize takelage docker image
@@ -20,9 +18,6 @@ module Takelage
       @docker_repo = config.active['docker_repo']
       @docker_registry = config.active['docker_registry']
     end
-
-    desc 'check [COMMAND]', 'Check docker image'
-    subcommand 'check', DockerImageCheck
 
     desc 'tag [COMMAND]', 'Handle docker image tags'
     subcommand 'tag', DockerImageTag
