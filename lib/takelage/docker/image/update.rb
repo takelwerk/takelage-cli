@@ -4,7 +4,7 @@
 module DockerImageUpdate
   # Backend method for docker image update.
   def docker_image_update
-    return false unless docker_check_running
+    return false unless docker_check_daemon
 
     cmd_docker_pull_latest = _docker_image_update_cmd_docker_pull_latest
 

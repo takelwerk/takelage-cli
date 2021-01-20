@@ -7,7 +7,7 @@ module DockerImageTagCheck
   def docker_image_tag_check(tag)
     log.debug "Check if docker image tag \"#{tag}\" exists"
 
-    return false unless docker_check_running
+    return false unless docker_check_daemon
 
     if tag.to_s.strip.empty?
       log.warn 'No docker image tag specified'

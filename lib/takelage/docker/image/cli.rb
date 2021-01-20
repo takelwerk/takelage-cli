@@ -6,7 +6,7 @@ module Takelage
     include LoggingModule
     include SystemModule
     include ConfigModule
-    include DockerCheckRunning
+    include DockerCheckDaemon
     include DockerImageUpdate
 
     # Initialize takelage docker image

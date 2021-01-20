@@ -6,7 +6,7 @@ module DockerContainerClean
   def docker_container_clean
     log.debug 'Removing all docker containers'
 
-    return false unless docker_check_running
+    return false unless docker_check_daemon
 
     return false if _docker_container_clean_harakiri?
 

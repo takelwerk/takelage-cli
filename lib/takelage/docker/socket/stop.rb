@@ -6,7 +6,9 @@ module DockerSocketStop
   def docker_socket_stop
     log.debug 'Stopping sockets for docker container'
 
-    return false unless docker_check_running
+    return false unless docker_check_daemon
+
+    return false unless docker_check_socat
 
     # get process list
     # assuming format: "pid command"

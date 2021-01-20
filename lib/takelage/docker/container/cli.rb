@@ -6,7 +6,7 @@ module Takelage
     include LoggingModule
     include SystemModule
     include ConfigModule
-    include DockerCheckRunning
+    include DockerCheckDaemon
     include DockerContainerCheckExisting
     include DockerContainerCheckNetwork
     include DockerContainerCheckOrphaned

@@ -43,7 +43,8 @@ require_relative 'takelage/bit/require/import'
 require_relative 'takelage/bit/require/cli'
 require_relative 'takelage/bit/cli'
 require_relative 'takelage/completion/cli'
-require_relative 'takelage/docker/check/running'
+require_relative 'takelage/docker/check/daemon'
+require_relative 'takelage/docker/check/socat'
 require_relative 'takelage/docker/check/cli'
 require_relative 'takelage/docker/socket/lib'
 require_relative 'takelage/docker/socket/host'
@@ -107,8 +108,9 @@ module Takelage
       # Initialize global singleton project
       initialize_project
 
-      # Prepare for the worst
+      # Set defaults
       @docker_daemon_running = false
+      @socat_command_available = false
 
       # fylla bash completion code
       @bash_fylla = Fylla.bash_completion self

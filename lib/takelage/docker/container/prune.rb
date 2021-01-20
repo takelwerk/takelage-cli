@@ -6,7 +6,7 @@ module DockerContainerPrune
   def docker_container_prune
     log.debug 'Removing orphaned docker containers'
 
-    return false unless docker_check_running
+    return false unless docker_check_daemon
 
     networks = _docker_container_prune_kill_orphaned_containers
     _docker_container_lib_remove_networks networks

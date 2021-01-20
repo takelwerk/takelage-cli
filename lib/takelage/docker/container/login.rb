@@ -6,7 +6,7 @@ module DockerContainerLogin
   def docker_container_login
     log.debug 'Logging in to docker container'
 
-    return false unless docker_check_running
+    return false unless docker_check_daemon
 
     docker_socket_start
     return false unless _docker_container_lib_create_net_and_ctr @hostname

@@ -7,7 +7,7 @@ module DockerContainerCheckExisting
   def docker_container_check_existing(container)
     log.debug "Checking if container \"#{container}\" is existing"
 
-    return false unless docker_check_running
+    return false unless docker_check_daemon
 
     stdout_str = run _docker_container_cmd_check_existing container
 

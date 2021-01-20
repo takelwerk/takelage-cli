@@ -7,7 +7,7 @@ module DockerImageTagLatest
   def docker_image_tag_latest
     log.debug 'Getting latest docker image tag'
 
-    return false unless docker_check_running
+    return false unless docker_check_daemon
 
     tags = docker_image_tag_list
 

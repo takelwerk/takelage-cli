@@ -6,7 +6,9 @@ module DockerSocketStart
   def docker_socket_start
     log.debug 'Starting sockets for docker container'
 
-    return false unless docker_check_running
+    return false unless docker_check_daemon
+
+    return false unless docker_check_socat
 
     cmds_start_socket = _docker_socket_lib_get_socket_start_commands 'start'
 
