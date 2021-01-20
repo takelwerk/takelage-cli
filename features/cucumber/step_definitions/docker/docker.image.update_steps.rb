@@ -85,7 +85,7 @@ Given 'I remove all docker images but not {string}' do |excpetion_tag|
   end
 end
 
-Then 'my latest local docker image should be {string}' do |tag|
+Then 'my latest docker image should be {string}' do |tag|
   cmd_tag_latest = "HOME=#{aruba.config.home_directory} " \
     'tau-cli docker image tag latest'
   tag_latest = `#{cmd_tag_latest}`.chomp

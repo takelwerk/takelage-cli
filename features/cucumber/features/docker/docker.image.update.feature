@@ -20,13 +20,13 @@ Feature: I can update to the latest remote docker image
   @docker.image.update.noimageexists
 
   Scenario: Download latest remote docker image if no local image available
-    Given I remove all local docker images
+    Given I remove all docker images
     When I successfully run `tau-cli docker image update`
-    Then my latest local docker image should be "latest"
+    Then my latest docker image should be "latest"
 
   @docker.image.update.onlylatestimageexists
 
   Scenario: Download latest remote docker image if no local image available
-    Given I remove all local docker images but not "latest"
+    Given I remove all docker images but not "latest"
     When I successfully run `tau-cli docker image update`
-    Then my latest local docker image should be "latest"
+    Then my latest docker image should be "latest"
