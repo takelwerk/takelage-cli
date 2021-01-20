@@ -182,12 +182,7 @@
 12
 13
 14
-15
-16
-17
-18
-19
-20</pre>
+15</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/takelage/docker/image/update.rb', line 6</span>
@@ -195,12 +190,7 @@
 <span class='kw'>def</span> <span class='id identifier rubyid_docker_image_update'>docker_image_update</span>
   <span class='kw'>return</span> <span class='kw'>false</span> <span class='kw'>unless</span> <span class='id identifier rubyid_docker_check_running'>docker_check_running</span>
 
-  <span class='id identifier rubyid_tags_remote'>tags_remote</span> <span class='op'>=</span> <span class='id identifier rubyid_docker_image_tag_list_remote'>docker_image_tag_list_remote</span>
-
-  <span class='id identifier rubyid_tag'>tag</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>latest</span><span class='tstring_end'>&#39;</span></span>
-  <span class='id identifier rubyid_tag'>tag</span> <span class='op'>=</span> <span class='id identifier rubyid_docker_image_tag_latest_remote'>docker_image_tag_latest_remote</span> <span class='kw'>unless</span> <span class='id identifier rubyid_tags_remote'>tags_remote</span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>latest</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
-
-  <span class='id identifier rubyid_cmd_docker_pull_latest'>cmd_docker_pull_latest</span> <span class='op'>=</span> <span class='id identifier rubyid__docker_image_update_cmd_docker_pull_latest'>_docker_image_update_cmd_docker_pull_latest</span> <span class='id identifier rubyid_tag'>tag</span>
+  <span class='id identifier rubyid_cmd_docker_pull_latest'>cmd_docker_pull_latest</span> <span class='op'>=</span> <span class='id identifier rubyid__docker_image_update_cmd_docker_pull_latest'>_docker_image_update_cmd_docker_pull_latest</span>
 
   <span class='id identifier rubyid_cmd_docker_remove_dangling'>cmd_docker_remove_dangling</span> <span class='op'>=</span>
     <span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_active'>active</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>cmd_docker_image_update_docker_remove_dangling</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
