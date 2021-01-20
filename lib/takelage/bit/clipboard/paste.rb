@@ -42,7 +42,7 @@ module BitClipboardPaste
 
     bit_list_scope = _bit_clipboard_paste_cid_exists_list_scope scope
 
-    return true if bit_list_scope.include? '"id": "' + cid + '",'
+    return true if bit_list_scope.include? "\"id\": \"#{cid}\","
 
     log.error "No remote component \"#{cid}\""
     false

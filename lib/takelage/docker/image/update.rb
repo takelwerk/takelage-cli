@@ -21,7 +21,7 @@ module DockerImageUpdate
     format(
       config.active['cmd_docker_image_update_docker_pull_latest'],
       docker_user: @docker_user,
-      docker_repo: @docker_repo,
+      docker_repo: @docker_repo
     )
   end
 end

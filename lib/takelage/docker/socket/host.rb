@@ -13,9 +13,9 @@ module DockerSocketHost
     # if interface docker0 exists (== linux host)
     # then return the ip address
     addr_infos.each do |addr_info|
-      if addr_info.name == 'docker0'
-        socket_host = addr_info.addr.ip_address if addr_info.addr.ipv4?
-      end
+      next unless (addr_info.name == 'docker0') && addr_info.addr.ipv4?
+
+      socket_host = addr_info.addr.ip_address
     end
 
     log.debug "Docker socket host ip address is \"#{socket_host}\""
