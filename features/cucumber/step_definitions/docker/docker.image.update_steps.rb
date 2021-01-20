@@ -67,7 +67,7 @@ Given 'I remove all docker images' do
   end
 end
 
-Given 'I remove all docker images but not {string}' do |tag|
+Given 'I remove all docker images but not {string}' do |excpetion_tag|
   docker_user = @config['docker_user']
   docker_repo = @config['docker_repo']
   cmd_tags_json = "HOME=#{aruba.config.home_directory} " \
@@ -75,7 +75,7 @@ Given 'I remove all docker images but not {string}' do |tag|
   tags_json = `#{cmd_tags_json}`.chomp
   tags = JSON.parse tags_json
   tags.each do |tag|
-    next if tag == tag
+    next if tag == excpetion_tag
 
     image = "#{docker_user}/#{docker_repo}:#{tag}"
     cmd_docker_rmi = 'docker rmi ' \
