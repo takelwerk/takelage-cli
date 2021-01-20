@@ -17,7 +17,7 @@ module Takelage
     Check if docker daemon is running
     LONGDESC
     # Check if docker daemon is running.
-    def running
+    def daemon
       exit docker_check_daemon
     end
 
@@ -29,7 +29,7 @@ module Takelage
     Check if socat command is available
     LONGDESC
     # Check if socat command is available.
-    def running
+    def socat
       exit docker_check_socat
     end
   end
