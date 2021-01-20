@@ -7,7 +7,7 @@ module Takelage
     include SystemModule
     include ConfigModule
     include GitCheckClean
-    include GitCheckMaster
+    include GitCheckMain
     include GitCheckWorkspace
 
     #
@@ -23,15 +23,15 @@ module Takelage
     end
 
     #
-    # git check master
+    # git check main
     #
-    desc 'master', 'Check if we are on the git master branch'
+    desc 'main', 'Check if we are on the git main branch'
     long_desc <<-LONGDESC.gsub("\n", "\x5")
-    Check if we are on the git master branch
+    Check if we are on the git main branch
     LONGDESC
-    # Check if we are on the git master branch.
-    def master
-      exit git_check_master
+    # Check if we are on the git main branch.
+    def main
+      exit git_check_main
     end
 
     #

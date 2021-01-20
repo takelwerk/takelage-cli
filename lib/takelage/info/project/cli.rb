@@ -52,5 +52,18 @@ module Takelage
       say project_main_yaml
       true
     end
+
+    #
+    # info project dir
+    #
+    desc 'dir', 'Print project root directory'
+    long_desc <<-LONGDESC.gsub("\n", "\x5")
+    Print project root directory
+    LONGDESC
+    # Print project root directory.
+    def dir
+      say project.dir
+      true
+    end
   end
 end

@@ -50,9 +50,9 @@ Feature: I can pull bit component changes to a local bit workspace
     When I successfully run `tau-cli bit clipboard pull`
     Then the file "my_dir/my_file" should match /tomato/
 
-  @bit.clipboard.pull.notongitmaster
+  @bit.clipboard.pull.notongitmain
 
-  Scenario: Fail if not on git master branch
+  Scenario: Fail if not on git main branch
     And I initialize a git workspace in "."
     And an empty file named "Rakefile"
     And I switch to the git branch named "my_branch" in "."
@@ -60,5 +60,5 @@ Feature: I can pull bit component changes to a local bit workspace
     Then the exit status should be 1
     And the output should contain:
       """
-      [ERROR] Not on git master branch
+      [ERROR] Not on git main branch
       """

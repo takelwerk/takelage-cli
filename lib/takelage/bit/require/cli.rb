@@ -7,7 +7,7 @@ module Takelage
     include ConfigModule
     include SystemModule
     include GitCheckClean
-    include GitCheckMaster
+    include GitCheckMain
     include GitCheckWorkspace
     include BitCheckWorkspace
     include BitScopeList

@@ -29,14 +29,14 @@ Feature: I can add bit remote scopes to workspaces
     When I successfully run `tau-cli bit scope add my_scope`
     Then there is a local remote scope named "my_scope" in "bit"
 
-  @bit.scope.add.notongitmaster
+  @bit.scope.add.notongitmain
 
-  Scenario: Fail if not on git master branch
+  Scenario: Fail if not on git main branch
     And I initialize a git workspace in "."
     And I switch to the git branch named "my_branch" in "."
     When I run `tau-cli bit scope add nonexisting_scope`
     Then the exit status should be 1
     And the output should contain:
       """
-      [ERROR] Not on git master branch
+      [ERROR] Not on git main branch
       """
