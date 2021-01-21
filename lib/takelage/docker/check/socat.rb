@@ -12,7 +12,7 @@ module DockerCheckSocat
     status = try config.active['cmd_docker_check_socat_which_socat']
 
     unless status.exitstatus.zero?
-      log.error 'The socat command is not available'
+      log.debug 'The socat command is not available'
       return false
     end
 
