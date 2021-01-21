@@ -125,6 +125,9 @@ or *tau config*.
 | *~/.takelage.yml* | normal | User-wide configuration file in your home directory. This is your normal custom configuration file. |
 | *takelage.yml* | highest | Project-specific configuration file next to your main Rakefile. Some projects need special configuration. |
 
+Please remember that a project directory is identified by the main
+[Rakefile](Rakefile).
+
 ### Configuration Examples
 
 - You should add the following configuration items in your *~/.takelage.yml*
