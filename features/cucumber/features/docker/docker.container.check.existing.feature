@@ -18,7 +18,7 @@ Feature: I can check if a docker container is existing
 
   Scenario: Check that an existing docker container is existing
     Given I successfully run `env -u TAKELAGE_PROJECT_BASE_DIR unbuffer tau-cli docker container login`
-    When I run `tau-cli docker container check existing takelage-mock_cucumber`
+    When I run `tau-cli docker container check existing takelage-mock_cucumber_xinot-syzof`
     Then the exit status should be 0
 
   Scenario: Check that a non-existing docker container is not existing

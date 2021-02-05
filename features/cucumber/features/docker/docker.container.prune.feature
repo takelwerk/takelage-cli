@@ -19,18 +19,18 @@ Feature: I can prune docker containers
     And a directory named "infinite"
     And I cd to "finite"
     And I successfully run `env -u TAKELAGE_PROJECT_BASE_DIR unbuffer tau-cli login`
-    And I successfully run `tau-cli docker container check exist takelage-mock_finite`
-    And I successfully run `tau-cli docker container check orphaned takelage-mock_finite`
+    And I successfully run `tau-cli docker container check exist takelage-mock_finite_xucih-zavis`
+    And I successfully run `tau-cli docker container check orphaned takelage-mock_finite_xucih-zavis`
     And I cd to "../infinite"
     And I successfully run `env -u TAKELAGE_PROJECT_BASE_DIR unbuffer tau-cli login`
-    And I successfully run `tau-cli docker container check exist takelage-mock_infinite`
-    And I infinitize "/loginpoint.py" in "takelage-mock_infinite"
-    And I daemonize "/loginpoint.py" in "takelage-mock_infinite"
-    And I run `tau-cli docker container check orphaned takelage-mock_infinite`
+    And I successfully run `tau-cli docker container check exist takelage-mock_infinite_xesoz-nivyr`
+    And I infinitize "/loginpoint.py" in "takelage-mock_infinite_xesoz-nivyr"
+    And I daemonize "/loginpoint.py" in "takelage-mock_infinite_xesoz-nivyr"
+    And I run `tau-cli docker container check orphaned takelage-mock_infinite_xesoz-nivyr`
     And the exit status should be 1
     When I successfully run `tau-cli docker container prune`
-    Then the docker container "takelage-mock_finite" doesn't exist
-    And I successfully run `tau-cli docker container check existing takelage-mock_infinite`
-    And I run `tau-cli docker container check network takelage-mock_finite`
+    Then the docker container "takelage-mock_finite_xucih-zavis" doesn't exist
+    And I successfully run `tau-cli docker container check existing takelage-mock_infinite_xesoz-nivyr`
+    And I run `tau-cli docker container check network takelage-mock_finite_xucih-zavis`
     And the exit status should be 1
-    And I successfully run `tau-cli docker container check network takelage-mock_infinite`
+    And I successfully run `tau-cli docker container check network takelage-mock_infinite_xesoz-nivyr`
