@@ -59,22 +59,19 @@ tau [bit scope inbit](features/cucumber/features/bit/bit.scope.inbit.feature) | 
 tau [bit scope list](features/cucumber/features/bit/bit.scope.list.feature) | List bit remote scopes
 tau [bit scope new](features/cucumber/features/bit/bit.scope.new.feature) [SCOPE] | Init a new bit [SCOPE]
 tau [completion bash](features/cucumber/features/completion/completion.bash.feature) | Print bash completion code
-tau [docker check running](features/cucumber/features/docker/docker.check.running.feature) | Check if docker daemon is running
+tau [docker check daemon](features/cucumber/features/docker/docker.check.daemon.feature) | Check if docker daemon is running
+tau [docker check socat](features/cucumber/features/docker/docker.check.socat.feature) | Check if socat command is available
 tau [docker container check existing](features/cucumber/features/docker/docker.container.check.existing.feature) [CONTAINER] | Check if docker [CONTAINER] is existing
 tau [docker container check network](features/cucumber/features/docker/docker.container.check.network.feature) [NETWORK] | Check if docker [NETWORK] is existing
 tau [docker container check orphaned](features/cucumber/features/docker/docker.container.check.orphaned.feature) [CONTAINER] | Check if docker [CONTAINER] is orphaned
+tau [docker container clean](features/cucumber/features/docker/docker.container.clean.feature) | Remove all docker containers
 tau [docker container command](features/cucumber/features/docker/docker.container.command.feature) [CMD] | Run [CMD] in a docker container
 tau [docker container daemon](features/cucumber/features/docker/docker.container.daemon.feature) | Run docker container in daemon mode
 tau [docker container login](features/cucumber/features/docker/docker.container.login.feature) | Log in to latest local docker container
-tau [docker container clean](features/cucumber/features/docker/docker.container.clean.feature) | Remove all docker containers
 tau [docker container prune](features/cucumber/features/docker/docker.container.prune.feature) | Remove orphaned docker containers
-tau [docker image check outdated](features/cucumber/features/docker/docker.image.check.outdated.feature) | Check if a docker image is outdated
-tau [docker image tag check local](features/cucumber/features/docker/docker.image.tag.check.local.feature) [TAG] | Check if local docker image [TAG] exists
-tau [docker image tag check remote](features/cucumber/features/docker/docker.image.tag.check.remote.feature) [TAG] | Check if remote docker image [TAG] exists
-tau [docker image tag latest local](features/cucumber/features/docker/docker.image.tag.latest.local.feature) | Print latest local docker image tag
-tau [docker image tag latest remote](features/cucumber/features/docker/docker.image.tag.latest.remote.feature) | Print latest remote docker image tag
-tau [docker image tag list local](features/cucumber/features/docker/docker.image.tag.list.local.feature) | Print local docker image tags
-tau [docker image tag list remote](features/cucumber/features/docker/docker.image.tag.list.remote.feature) | Print remote docker image tags
+tau [docker image tag check](features/cucumber/features/docker/docker.image.tag.check.feature) [TAG] | Check if local docker image [TAG] exists
+tau [docker image tag latest](features/cucumber/features/docker/docker.image.tag.latest.feature) | Print latest local docker image tag
+tau [docker image tag list](features/cucumber/features/docker/docker.image.tag.list.feature) | Print local docker image tags
 tau [docker image update](features/cucumber/features/docker/docker.image.update.feature) | Get latest remote docker container
 tau [docker socket host](features/cucumber/features/docker/docker.socket.host.feature) | Print docker socket host ip address
 tau [docker socket scheme](features/cucumber/features/docker/docker.socket.scheme.feature) | Print docker socket scheme
@@ -93,15 +90,15 @@ tau [self config home](features/cucumber/features/self/self.config.home.feature)
 tau [self config project](features/cucumber/features/self/self.config.project.feature) | Print takelage project config file configuration
 tau [self list](features/cucumber/features/self/self.list.feature) | List all commands
 tau [self version](features/cucumber/features/self/self.version.feature) | Print tau semantic version number
+tau clean | Alias for tau [docker container clean](features/cucumber/features/docker/docker.container.clean.feature)
 tau config | Alias for tau [self config active](features/cucumber/features/self/self.config.active.feature)
 tau copy [DIR] [SCOPE] | Alias for tau [bit clipboard copy](features/cucumber/features/bit/bit.clipboard.copy.feature)
 tau list | Alias for tau [self list](features/cucumber/features/self/self.list.feature)
 tau login | Alias for tau [docker container login](features/cucumber/features/docker/docker.container.login.feature)
-tau clean | Alias for tau [docker container clean](features/cucumber/features/docker/docker.container.clean.feature)
 tau paste [COMPONENT] [DIR] | Alias for tau [bit clipboard paste](features/cucumber/features/bit/bit.clipboard.paste.feature)
 tau project | Alias for tau [info project active](features/cucumber/features/info/info.project.active.feature)
-tau pull | Alias for tau [bit clipboard pull](features/cucumber/features/bit/bit.clipboard.pull.feature)
 tau prune | Alias for tau [docker container prune](features/cucumber/features/docker/docker.container.prune.feature)
+tau pull | Alias for tau [bit clipboard pull](features/cucumber/features/bit/bit.clipboard.pull.feature)
 tau push | Alias for tau [bit clipboard push](features/cucumber/features/bit/bit.clipboard.push.feature)
 tau update | Alias for tau [docker image update](features/cucumber/features/docker/docker.image.update.feature)
 tau version | Alias for tau [self version](features/cucumber/features/self/self.version.feature)
