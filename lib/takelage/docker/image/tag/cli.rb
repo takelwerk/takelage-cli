@@ -37,7 +37,7 @@ module Takelage
     #
     # docker image tag latest
     #
-    desc 'list', 'Print latest docker image tag'
+    desc 'latest', 'Print latest docker image tag'
     long_desc <<-LONGDESC.gsub("\n", "\x5")
     Print latest docker image tag
     Print the tag of the docker image with the highest tag.
