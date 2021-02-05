@@ -7,7 +7,7 @@
 
 Feature: I can print the latest docker tag
 
-  Scenario: Print the latest docker tag
+  Background:
     Given a file named "~/.takelage.yml" with:
       """
       ---
@@ -16,6 +16,10 @@ Feature: I can print the latest docker tag
       docker_registry: http://host.docker.internal:5005
       """
     And I get the active takelage config
-    And I ask docker about the latest docker image
-    When I successfully run `tau-cli docker image tag latest`
-    Then the images match
+
+  Scenario: Print the docker tag "latest"
+    Then my latest docker image should be "latest"
+
+  Scenario: Print the latest numerical docker tag
+    Given I remove the latest docker image
+    Then my latest docker image should be "0.1.0"
