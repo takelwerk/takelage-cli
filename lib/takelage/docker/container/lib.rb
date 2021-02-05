@@ -6,6 +6,7 @@
 module DockerContainerLib
   private
 
+  # Create unique docker hostname
   def _docker_container_lib_hostname
     relative_name = "#{@docker_repo}_#{File.basename(@workdir)}"
     absolute_name = "#{@docker_repo}_#{@workdir}"
