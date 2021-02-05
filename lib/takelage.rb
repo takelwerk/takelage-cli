@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'etc'
+require 'digest/bubblebabble'
 require 'fileutils'
 require 'fylla'
 require 'json'

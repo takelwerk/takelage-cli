@@ -37,7 +37,7 @@ module Takelage
       @docker_registry = config.active['docker_registry']
       @username = ENV['USER'] || 'noname'
       @workdir = Dir.getwd
-      @hostname = "#{@docker_repo}_#{File.basename(@workdir)}"
+      @hostname = _docker_container_lib_hostname
       @socket_host = docker_socket_host
       @sockets = docker_socket_scheme
     end

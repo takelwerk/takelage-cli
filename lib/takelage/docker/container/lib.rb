@@ -6,6 +6,13 @@
 module DockerContainerLib
   private
 
+  def _docker_container_lib_hostname
+    relative_name = "#{@docker_repo}_#{File.basename(@workdir)}"
+    absolute_name = "#{@docker_repo}_#{@workdir}"
+    digest = Digest::SHA256.bubblebabble absolute_name
+    "#{relative_name}_#{digest[0..10]}"
+  end
+
   # Create docker container and network.
   def _docker_container_lib_create_net_and_ctr(name)
     return false if _docker_container_lib_check_matrjoschka
