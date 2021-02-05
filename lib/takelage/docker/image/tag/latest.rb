@@ -11,7 +11,11 @@ module DockerImageTagLatest
 
     tags = docker_image_tag_list
 
-    tag_latest = tags[-1]
+    tag_latest = if tags.include? 'latest'
+                   'latest'
+                 else
+                   tags[-1]
+                 end
 
     log.debug "Latest docker tag: #{tag_latest}"
 
