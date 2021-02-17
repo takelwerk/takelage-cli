@@ -1,0 +1,71 @@
+name: Test project
+
+on:
+  push: # REMOVE ME
+  schedule: # run daily at 1 pm CET
+    - cron:  '0 2 * * *'
+  workflow_dispatch: # allow manual trigger
+
+jobs:
+  test-project:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v2
+
+      - name: Install prerequisites
+        run: sudo apt-get install --yes socat
+
+      - name: Configure gnupg and ssh on the host
+        run: |
+          mkdir $HOME/.ssh
+          echo "AddKeysToAgent yes" > $HOME/.ssh/config
+          mkdir $HOME/.gnupg
+          echo "batch" > $HOME/.gnupg/gpg-agent.conf
+          echo "enable-ssh-support" >> $HOME/.gnupg/gpg-agent.conf
+
+      - name: Add bitboard ssh key to agent
+        run: |
+          gpg-connect-agent updatestartuptty /bye
+          export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
+          chmod 600 features/cucumber/support/fixtures/takelage-bitboard/id_rsa.myuser
+          ssh-add features/cucumber/support/fixtures/takelage-bitboard/id_rsa.myuser
+          ssh-add -L
+
+      - name: Set up ruby
+        uses: ruby/setup-ruby@v1.61.1
+        with:
+          ruby-version: 2.7
+
+      - name: Install tau
+        run: gem install takelage
+
+      - name: Configure tau
+        run: |
+          echo "docker_entrypoint_options: --no-git --no-gopass" >> $HOME/.takelage.yml
+          cat $HOME/.takelage.yml
+
+#      - name: Configure docker daemon
+#        run: |
+#          echo '{ "insecure-registries": [ "host.docker.internal:5005" ] }' > /tmp/daemon.json
+#          sudo mv /tmp/daemon.json /etc/docker/daemon.json
+#          sudo systemctl restart docker.service
+
+      - name: Pull takelage image
+        run: tau update
+
+      - name: Start an instance of takelage and run cucumber features
+        run: |
+          tau docker container daemon
+          tau docker container command "SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket) /usr/local/rvm/wrappers/default/cucumber features/cucumber --require features --format pretty --tags 'not @docker.image.update and not @docker.socket.start'"
+# two problems left:
+#          tau docker container command "rake features:cucumber[@docker.image.update]"
+#          tau docker container command "rake features:cucumber[@docker.socket.start]"
+# this should be the final line:
+#          tau docker container command "SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket) rake features"
+
+      - name: Lint ruby
+        run: tau docker container command "rake rubylint"
+
+      - name: Run unit tests
+        run: tau docker container command "rake test"

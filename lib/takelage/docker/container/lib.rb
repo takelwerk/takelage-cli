@@ -118,6 +118,10 @@ module DockerContainerLib
     return false unless ENV.keys.include? 'TAKELAGE_PROJECT_BASE_DIR'
 
     log.error 'You cannot log in to takelage from within takelage'
+
+    # wait or the github workflow will fail
+    sleep 1
+
     true
   end
 
