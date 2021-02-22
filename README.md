@@ -1,4 +1,4 @@
-![takelage image](https://github.com/geospin-takelage/takelage-cli/actions/workflows/build_test_project_nightly.yml/badge.svg)
+![takelage image](https://github.com/geospin-takelage/takelage-cli/actions/workflows/test_project_nightly.yml/badge.svg)
 
 # takelage-cli
 
