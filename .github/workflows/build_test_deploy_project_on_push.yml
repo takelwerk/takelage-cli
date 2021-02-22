@@ -12,8 +12,8 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v2
 
-      - name: Create pypi config file
-        run: 'echo -e "---\n:rubygems_api_key: = ${{ secrets.RUBYGEMS_API_KEY }}" > credentials'
+      - name: Create rubygems credentials file
+        run: 'echo -e "---\n:rubygems_api_key: ${{ secrets.RUBYGEMS_API_KEY }}" > credentials'
 
       - name: Install prerequisites
         run: sudo apt-get install --yes socat
@@ -59,14 +59,20 @@ jobs:
       - name: Start an instance of takelage
         run: tau docker container daemon
 
+      - name: Move rubygems credentials file
+        run: |
+          tau docker container command "mkdir $HOME/.gem"
+          tau docker container command "mv /project/credentials $HOME/.gem/credentials"
+          tau docker container command "chmod 0600 $HOME/.gem/credentials"
+
       - name: Lint ruby
         run: tau docker container command "rake rubylint"
 
       - name: Run unit tests
         run: tau docker container command "rake test"
 
-#      - name: Run cucumber features
-#        run: tau docker container command "SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket) rake features"
+      - name: Run cucumber features
+        run: tau docker container command "SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket) rake features"
 
       - name: Clean docs
         run: tau docker container command "rake doc:clean"
