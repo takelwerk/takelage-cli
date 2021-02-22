@@ -57,6 +57,9 @@ jobs:
       - name: Start an instance of takelage
         run: tau docker container daemon
 
+      - name: Setup Debug Session
+        uses: csexton/debugger-action@master
+
       - name: Run cucumber features
         run: |
           tau docker container command "rake features:cucumber[@docker.socket.start]"
