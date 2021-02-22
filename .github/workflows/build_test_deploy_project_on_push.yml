@@ -90,5 +90,8 @@ jobs:
       - name: Move gem
         run: tau docker container command "rake gem:move"
 
+      - name: Setup Debug Session
+        uses: csexton/debugger-action@master
+
       - name: Push gem
         run: tau docker container command "rake gem:push"
