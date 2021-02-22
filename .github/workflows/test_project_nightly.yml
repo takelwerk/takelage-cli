@@ -57,13 +57,8 @@ jobs:
       - name: Start an instance of takelage
         run: tau docker container daemon
 
-      - name: Setup Debug Session
-        uses: csexton/debugger-action@master
-
       - name: Run cucumber features
-        run: |
-          tau docker container command "rake features:cucumber[@docker.socket.start]"
-#          tau docker container command "SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket) rake features"
+        run: tau docker container command "SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket) rake features"
 
       - name: Lint ruby
         run: tau docker container command "rake rubylint"

@@ -19,7 +19,7 @@ When 'I get the takelage docker socket start commands' do
 end
 
 Then 'the gpg sockets are started' do
-  cmd_processes = 'ps a -o command'
+  cmd_processes = 'ps ax -o command'
   processes = `#{cmd_processes}`
 
   @docker_socket_start_commands.each do |command|
