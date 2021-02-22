@@ -65,14 +65,20 @@ jobs:
       - name: Run unit tests
         run: tau docker container command "rake test"
 
-      - name: Run cucumber features
-        run: tau docker container command "SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket) rake features"
+#      - name: Run cucumber features
+#        run: tau docker container command "SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket) rake features"
 
       - name: Clean docs
         run: tau docker container command "rake doc:clean"
 
       - name: Build docs
         run: tau docker container command "rake doc:build"
+
+      - name: Commit docs
+        uses: EndBug/add-and-commit@v7
+        with:
+          add: 'doc'
+          message: 'GitHub workflow'
 
       - name: Commit docs
         uses: swinton/commit@v2.x
