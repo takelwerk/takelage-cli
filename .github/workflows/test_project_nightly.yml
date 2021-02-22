@@ -1,7 +1,6 @@
 name: Test project
 
 on:
-  push: # REMOVE ME
   schedule: # run daily at 1 pm CET
     - cron:  '0 2 * * *'
   workflow_dispatch: # allow manual trigger
@@ -57,11 +56,11 @@ jobs:
       - name: Start an instance of takelage
         run: tau docker container daemon
 
-      - name: Run cucumber features
-        run: tau docker container command "SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket) rake features"
-
       - name: Lint ruby
         run: tau docker container command "rake rubylint"
 
       - name: Run unit tests
         run: tau docker container command "rake test"
+
+      - name: Run cucumber features
+        run: tau docker container command "SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket) rake features"

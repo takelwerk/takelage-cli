@@ -32,7 +32,9 @@ jobs:
           export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
           chmod 600 features/cucumber/support/fixtures/takelage-bitboard/id_rsa.myuser
           ssh-add features/cucumber/support/fixtures/takelage-bitboard/id_rsa.myuser
-          ssh-add -L
+
+      - name: Add host.docker.internal to /etc/hosts
+        run: echo "127.0.0.1 host.docker.internal" | sudo tee --append /etc/hosts
 
       - name: Set up ruby
         uses: ruby/setup-ruby@v1.61.1
@@ -43,34 +45,42 @@ jobs:
         run: gem install takelage
 
       - name: Configure tau
-        run: |
-          echo "docker_entrypoint_options: --no-git --no-gopass" >> $HOME/.takelage.yml
-          cat $HOME/.takelage.yml
+        run: 'echo "docker_entrypoint_options: --no-git --no-gopass" >> $HOME/.takelage.yml'
 
-      #      - name: Configure docker daemon
-      #        run: |
-      #          echo '{ "insecure-registries": [ "host.docker.internal:5005" ] }' > /tmp/daemon.json
-      #          sudo mv /tmp/daemon.json /etc/docker/daemon.json
-      #          sudo systemctl restart docker.service
+      - name: Configure docker daemon
+        run: |
+          echo '{ "cgroup-parent": "/actions_job", "insecure-registries": [ "host.docker.internal:5005" ] }' > /tmp/daemon.json
+          sudo mv /tmp/daemon.json /etc/docker/daemon.json
+          sudo systemctl restart docker.service
 
       - name: Pull takelage image
         run: tau update
 
-      - name: Start an instance of takelage and run cucumber features
-        run: |
-          tau docker container daemon
-          tau docker container command "SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket) rake features"
-
-      - name: Move rubygems credentials file
-        run: |
-          tau docker container command "mkdir -p $HOME/.gem"
-          tau docker container command "mv /project/credentials $HOME/.gem"
+      - name: Start an instance of takelage
+        run: tau docker container daemon
 
       - name: Lint ruby
         run: tau docker container command "rake rubylint"
 
       - name: Run unit tests
         run: tau docker container command "rake test"
+
+      - name: Run cucumber features
+        run: tau docker container command "SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket) rake features"
+
+      - name: Clean docs
+        run: tau docker container command "rake doc:clean"
+
+      - name: Build docs
+        run: tau docker container command "rake doc:build"
+
+      - name: Commit docs
+        uses: swinton/commit@v2.x
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          files: doc
+          commit-message: Update docs
 
       - name: Clean gems
         run: tau docker container command "gem:clean"
