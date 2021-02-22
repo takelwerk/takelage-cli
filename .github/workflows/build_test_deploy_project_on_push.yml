@@ -82,13 +82,13 @@ jobs:
           branch: main
 
       - name: Clean gems
-        run: tau docker container command "gem:clean"
+        run: tau docker container command "rake gem:clean"
 
       - name: Build gem
-        run: tau docker container command "gem:build"
+        run: tau docker container command "rake gem:build"
 
       - name: Move gem
-        run: tau docker container command "gem:move"
+        run: tau docker container command "rake gem:move"
 
       - name: Push gem
-        run: tau docker container command "gem:push"
+        run: tau docker container command "rake gem:push"
