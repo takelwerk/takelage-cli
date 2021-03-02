@@ -7,8 +7,13 @@ module InfoStatusGPG
   def info_status_gpg
     log.debug 'Check gpg status'
 
-    unless _info_status_gpg_status
-      log.error 'GPG is not available'
+    unless _info_status_gpg_keys
+      log.error 'GPG keys are not available'
+      return false
+    end
+
+    unless _info_status_gpg_agent
+      log.error 'GPG agent is not available'
       return false
     end
 
@@ -18,10 +23,13 @@ module InfoStatusGPG
 
   private
 
-  def _info_status_gpg_status
-    status_agent = try config.active['cmd_info_status_gpg_agent']
+  def _info_status_gpg_keys
     status_keys = try config.active['cmd_info_status_gpg_keys']
+    status_keys.exitstatus.zero?
+  end
 
-    status_agent.exitstatus.zero? && status_keys.exitstatus.zero?
+  def _info_status_gpg_agent
+    status_agent = try config.active['cmd_info_status_gpg_agent']
+    status_agent.exitstatus.zero?
   end
 end

@@ -25,6 +25,11 @@ Feature: I can check if gpg is available
     And I get the active takelage config
     When I run `tau-cli info status gpg`
     Then the exit status should be 1
+    And the output should contain:
+      """
+      [ERROR] GPG agent is not available
+      """
+
 
   Scenario: Check that the gpg keys are available
     Given a file named "~/.takelage.yml" with:
@@ -36,3 +41,7 @@ Feature: I can check if gpg is available
     And I get the active takelage config
     When I run `tau-cli info status gpg`
     Then the exit status should be 1
+    And the output should contain:
+      """
+      [ERROR] GPG keys are not available
+      """
