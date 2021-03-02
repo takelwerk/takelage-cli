@@ -6,10 +6,12 @@ module Takelage
     include LoggingModule
     include SystemModule
     include ConfigModule
+    include DockerSocketScheme
     include InfoStatusLib
     include InfoStatusGit
     include InfoStatusGopass
     include InfoStatusGPG
+    include InfoStatusSSH
 
     #
     # info status git
@@ -45,6 +47,18 @@ module Takelage
     # Check gpg status info.
     def gpg
       exit info_status_gpg
+    end
+
+    #
+    # info status ssh
+    #
+    desc 'ssh', 'Check ssh status info'
+    long_desc <<-LONGDESC.gsub("\n", "\x5")
+    Check ssh status info
+    LONGDESC
+    # Check ssh status info.
+    def ssh
+      exit info_status_ssh
     end
   end
 end
