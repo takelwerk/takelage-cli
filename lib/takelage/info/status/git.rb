@@ -9,25 +9,27 @@ module InfoStatusGit
   def info_status_git
     log.debug 'Check git status'
 
-    projectroot = config.active['project_root_dir']
+    root = config.active['project_root_dir']
 
-    if projectroot.strip.empty?
+    if root.strip.empty?
       log.error 'Cannot determine project root directory'
       log.info 'Is there a Rakefile in the project root directory?'
       return false
     end
 
-    if _info_status_git_name.strip.empty?
+    if _info_status_lib_git_name(root).strip.empty?
       log.error 'git config user.name is not available'
       return false
     end
 
-    if _info_status_git_email.strip.empty?
+    if _info_status_lib_git_email(root).strip.empty?
       log.error 'git config user.email is not available'
       return false
     end
 
-    unless _info_status_git_signingkey_available.exitstatus.zero?
+    key = _info_status_lib_git_signingkey(root)
+
+    unless _info_status_lib_git_key_available(key).exitstatus.zero?
       log.error 'git config user.signingkey is not available'
       return false
     end
@@ -37,42 +39,4 @@ module InfoStatusGit
   end
   # rubocop:enable Metrics/AbcSize
   # rubocop:enable Metrics/MethodLength
-
-  private
-
-  def _info_status_git_name
-    cmd_git_name =
-      format(
-        config.active['cmd_info_status_git_name'],
-        projectroot: config.active['project_root_dir']
-      )
-    run cmd_git_name
-  end
-
-  def _info_status_git_email
-    cmd_git_email =
-      format(
-        config.active['cmd_info_status_git_email'],
-        projectroot: config.active['project_root_dir']
-      )
-    run cmd_git_email
-  end
-
-  def _info_status_git_signingkey
-    cmd_git_signingkey =
-      format(
-        config.active['cmd_info_status_git_signingkey'],
-        projectroot: config.active['project_root_dir']
-      )
-    run cmd_git_signingkey
-  end
-
-  def _info_status_git_signingkey_available
-    cmd_git_signingkey_available =
-      format(
-        config.active['cmd_info_status_git_key_available'],
-        key: _info_status_git_signingkey
-      )
-    try cmd_git_signingkey_available
-  end
 end

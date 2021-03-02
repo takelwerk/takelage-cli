@@ -6,7 +6,9 @@ module Takelage
     include LoggingModule
     include SystemModule
     include ConfigModule
+    include InfoStatusLib
     include InfoStatusGit
+    include InfoStatusGopass
     include InfoStatusGPG
 
     #
@@ -19,6 +21,18 @@ module Takelage
     # Check git status info.
     def git
       exit info_status_git
+    end
+
+    #
+    # info status gopass
+    #
+    desc 'gopass', 'Check gopass status info'
+    long_desc <<-LONGDESC.gsub("\n", "\x5")
+    Check gopass status info
+    LONGDESC
+    # Check gopass status info.
+    def gopass
+      exit info_status_gopass
     end
 
     #

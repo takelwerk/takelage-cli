@@ -25,11 +25,13 @@ module InfoStatusGPG
 
   private
 
+  # Check gpg keys
   def _info_status_gpg_keys
     status_keys = try config.active['cmd_info_status_gpg_keys']
     status_keys.exitstatus.zero?
   end
 
+  # Check gpg agent
   def _info_status_gpg_agent
     status_agent = try config.active['cmd_info_status_gpg_agent']
     status_agent.exitstatus.zero?

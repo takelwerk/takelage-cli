@@ -8,10 +8,10 @@ Feature: I can check if git is available
     Given a file named "~/.takelage.yml" with:
       """
       ---
-      cmd_info_status_git_name: echo name
-      cmd_info_status_git_email: echo email
-      cmd_info_status_git_signingkey: echo signingkey
-      cmd_info_status_git_key_available: $(exit 0)
+      cmd_info_status_lib_git_name: echo name
+      cmd_info_status_lib_git_email: echo email
+      cmd_info_status_lib_git_signingkey: echo signingkey
+      cmd_info_status_lib_git_key_available: $(exit 0)
       """
     And I get the active takelage config
     And an empty file named "Rakefile"
@@ -31,10 +31,10 @@ Feature: I can check if git is available
     Given a file named "~/.takelage.yml" with:
       """
       ---
-      cmd_info_status_git_name: echo
-      cmd_info_status_git_email: echo email
-      cmd_info_status_git_signingkey: echo signingkey
-      cmd_info_status_git_key_available: $(exit 0)
+      cmd_info_status_lib_git_name: echo
+      cmd_info_status_lib_git_email: echo email
+      cmd_info_status_lib_git_signingkey: echo signingkey
+      cmd_info_status_lib_git_key_available: $(exit 0)
       """
     And I get the active takelage config
     And an empty file named "Rakefile"
@@ -49,10 +49,10 @@ Feature: I can check if git is available
     Given a file named "~/.takelage.yml" with:
       """
       ---
-      cmd_info_status_git_name: echo name
-      cmd_info_status_git_email: echo
-      cmd_info_status_git_signingkey: echo signingkey
-      cmd_info_status_git_key_available: $(exit 0)
+      cmd_info_status_lib_git_name: echo name
+      cmd_info_status_lib_git_email: echo
+      cmd_info_status_lib_git_signingkey: echo signingkey
+      cmd_info_status_lib_git_key_available: $(exit 0)
       """
     And I get the active takelage config
     And an empty file named "Rakefile"
@@ -67,10 +67,10 @@ Feature: I can check if git is available
     Given a file named "~/.takelage.yml" with:
       """
       ---
-      cmd_info_status_git_name: echo name
-      cmd_info_status_git_email: echo email
-      cmd_info_status_git_signingkey: echo signingkey
-      cmd_info_status_git_key_available: $(exit 1)
+      cmd_info_status_lib_git_name: echo name
+      cmd_info_status_lib_git_email: echo email
+      cmd_info_status_lib_git_signingkey: echo signingkey
+      cmd_info_status_lib_git_key_available: $(exit 1)
       """
     And I get the active takelage config
     And an empty file named "Rakefile"
