@@ -10,9 +10,6 @@ module InfoStatusSSH
 
     ssh_socket_path = _socket_get_agent_ssh_socket_path
 
-    log.debug ssh_socket_path
-    log.debug ENV['SSH_AUTH_SOCK']
-
     unless ENV['SSH_AUTH_SOCK'] == ssh_socket_path
       log.error 'gpg ssh socket is misconfigured'
       return false

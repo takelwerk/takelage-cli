@@ -4,6 +4,7 @@
 module InfoStatusGopass
   # Backend method for info status gopass.
   # @return [Boolean] is gopass available?
+  # rubocop:disable Metrics/MethodLength
   def info_status_gopass
     log.debug 'Check gopass status'
 
@@ -24,6 +25,7 @@ module InfoStatusGopass
     log.debug 'gopass is available'
     true
   end
+  # rubocop:enable Metrics/MethodLength
 
   private
 

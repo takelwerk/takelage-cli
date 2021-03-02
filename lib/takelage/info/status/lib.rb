@@ -43,5 +43,4 @@ module InfoStatusLib
       )
     try cmd_git_key_available
   end
-
 end
