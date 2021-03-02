@@ -74,7 +74,7 @@ Feature: I can check if git is available
       """
     And I get the active takelage config
     And an empty file named "Rakefile"
-    When I run `tau-cli info status git -l debug`
+    When I run `tau-cli info status git`
     Then the exit status should be 1
     And the output should contain:
       """

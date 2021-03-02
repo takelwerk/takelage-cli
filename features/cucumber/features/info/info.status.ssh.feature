@@ -1,7 +1,7 @@
 @info
 @info.status
 @info.status.ssh
-#@announce-stdout
+
 Feature: I can check if ssh is available
 
   Scenario: Check that ssh is available
@@ -12,7 +12,7 @@ Feature: I can check if ssh is available
       cmd_info_status_ssh_keys: $(exit 0)
       """
     And I get the active takelage config
-    When I run `env SSH_AUTH_SOCK='/tmp' tau-cli info status ssh -l debug`
+    When I run `env SSH_AUTH_SOCK='/tmp' tau-cli info status ssh`
     Then the exit status should be 0
 
   Scenario: Check that the ssh socket is well configured
