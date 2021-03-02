@@ -4,7 +4,7 @@
 
 Feature: I can check if gpg is available
 
-  Scenario: Check that the gpg is available
+  Scenario: Check that gpg is available
     Given a file named "~/.takelage.yml" with:
       """
       ---
@@ -27,9 +27,8 @@ Feature: I can check if gpg is available
     Then the exit status should be 1
     And the output should contain:
       """
-      [ERROR] GPG agent is not available
+      [ERROR] gpg agent is not available
       """
-
 
   Scenario: Check that the gpg keys are available
     Given a file named "~/.takelage.yml" with:
@@ -43,5 +42,5 @@ Feature: I can check if gpg is available
     Then the exit status should be 1
     And the output should contain:
       """
-      [ERROR] GPG keys are not available
+      [ERROR] gpg keys are not available
       """

@@ -6,16 +6,29 @@ module Takelage
     include LoggingModule
     include SystemModule
     include ConfigModule
+    include InfoStatusGit
     include InfoStatusGPG
+
+    #
+    # info status git
+    #
+    desc 'git', 'Check git status info'
+    long_desc <<-LONGDESC.gsub("\n", "\x5")
+    Check git status info
+    LONGDESC
+    # Check git status info.
+    def git
+      exit info_status_git
+    end
 
     #
     # info status gpg
     #
-    desc 'gpg', 'Print gpg status info'
+    desc 'gpg', 'Check gpg status info'
     long_desc <<-LONGDESC.gsub("\n", "\x5")
-    Print gpg status info
+    Check gpg status info
     LONGDESC
-    # Print gpg status info.
+    # Check gpg status info.
     def gpg
       exit info_status_gpg
     end

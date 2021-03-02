@@ -20,7 +20,10 @@ module GitCheckWorkspace
   # Get git repository status.
   def _git_check_workspace_get_status_repo
     cmd_git_repo =
-      config.active['cmd_git_check_workspace_git_repo']
+      format(
+        config.active['cmd_git_check_workspace_git_repo'],
+        projectroot: config.active['project_root_dir']
+      )
     try cmd_git_repo
   end
 
