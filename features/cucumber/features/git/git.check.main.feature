@@ -1,7 +1,7 @@
 @git
 @git.check
 @git.check.main
-
+@announce-stdout
 Feature: I can check if I am on the git main branch
 
   Background:
