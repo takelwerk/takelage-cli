@@ -21,8 +21,6 @@ module InfoStatusSSH
       return false
     end
 
-
-
     unless _info_status_ssh_keys
       log.error 'ssh keys are not available'
       return false
