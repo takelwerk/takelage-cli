@@ -93,7 +93,7 @@
   
   <dl>
       <dt>Includes:</dt>
-      <dd><span class='object_link'><a href="../ConfigModule.html" title="ConfigModule (module)">ConfigModule</a></span>, <span class='object_link'><a href="../DockerSocketScheme.html" title="DockerSocketScheme (module)">DockerSocketScheme</a></span>, <span class='object_link'><a href="../InfoStatusGPG.html" title="InfoStatusGPG (module)">InfoStatusGPG</a></span>, <span class='object_link'><a href="../InfoStatusGit.html" title="InfoStatusGit (module)">InfoStatusGit</a></span>, <span class='object_link'><a href="../InfoStatusGopass.html" title="InfoStatusGopass (module)">InfoStatusGopass</a></span>, <span class='object_link'><a href="../InfoStatusHeader.html" title="InfoStatusHeader (module)">InfoStatusHeader</a></span>, <span class='object_link'><a href="../InfoStatusLib.html" title="InfoStatusLib (module)">InfoStatusLib</a></span>, <span class='object_link'><a href="../InfoStatusSSH.html" title="InfoStatusSSH (module)">InfoStatusSSH</a></span>, <span class='object_link'><a href="../LoggingModule.html" title="LoggingModule (module)">LoggingModule</a></span>, <span class='object_link'><a href="../SystemModule.html" title="SystemModule (module)">SystemModule</a></span></dd>
+      <dd><span class='object_link'><a href="../ConfigModule.html" title="ConfigModule (module)">ConfigModule</a></span>, <span class='object_link'><a href="../DockerSocketScheme.html" title="DockerSocketScheme (module)">DockerSocketScheme</a></span>, <span class='object_link'><a href="../GitCheckWorkspace.html" title="GitCheckWorkspace (module)">GitCheckWorkspace</a></span>, <span class='object_link'><a href="../InfoStatusGPG.html" title="InfoStatusGPG (module)">InfoStatusGPG</a></span>, <span class='object_link'><a href="../InfoStatusGit.html" title="InfoStatusGit (module)">InfoStatusGit</a></span>, <span class='object_link'><a href="../InfoStatusGopass.html" title="InfoStatusGopass (module)">InfoStatusGopass</a></span>, <span class='object_link'><a href="../InfoStatusHeader.html" title="InfoStatusHeader (module)">InfoStatusHeader</a></span>, <span class='object_link'><a href="../InfoStatusLib.html" title="InfoStatusLib (module)">InfoStatusLib</a></span>, <span class='object_link'><a href="../InfoStatusSSH.html" title="InfoStatusSSH (module)">InfoStatusSSH</a></span>, <span class='object_link'><a href="../LoggingModule.html" title="LoggingModule (module)">LoggingModule</a></span>, <span class='object_link'><a href="../SystemModule.html" title="SystemModule (module)">SystemModule</a></span></dd>
   </dl>
   
   
@@ -327,6 +327,17 @@
   
   
   
+  <h3 class="inherited">Methods included from <span class='object_link'><a href="../GitCheckWorkspace.html" title="GitCheckWorkspace (module)">GitCheckWorkspace</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="../GitCheckWorkspace.html#git_check_workspace-instance_method" title="GitCheckWorkspace#git_check_workspace (method)">#git_check_workspace</a></span></p>
+
+  
+  
+  
+  
+  
+  
+  
+  
   <h3 class="inherited">Methods included from <span class='object_link'><a href="../DockerSocketScheme.html" title="DockerSocketScheme (module)">DockerSocketScheme</a></span></h3>
   <p class="inherited"><span class='object_link'><a href="../DockerSocketScheme.html#docker_socket_scheme-instance_method" title="DockerSocketScheme#docker_socket_scheme (method)">#docker_socket_scheme</a></span></p>
 
@@ -406,12 +417,12 @@
       <pre class="lines">
 
 
-25
 26
-27</pre>
+27
+28</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/takelage/info/status/cli.rb', line 25</span>
+      <pre class="code"><span class="info file"># File 'lib/takelage/info/status/cli.rb', line 26</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_git'>git</span>
   <span class='id identifier rubyid_exit'>exit</span> <span class='id identifier rubyid_info_status_git'>info_status_git</span>
@@ -447,12 +458,12 @@
       <pre class="lines">
 
 
-37
 38
-39</pre>
+39
+40</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/takelage/info/status/cli.rb', line 37</span>
+      <pre class="code"><span class="info file"># File 'lib/takelage/info/status/cli.rb', line 38</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_gopass'>gopass</span>
   <span class='id identifier rubyid_exit'>exit</span> <span class='id identifier rubyid_info_status_gopass'>info_status_gopass</span>
@@ -488,12 +499,12 @@
       <pre class="lines">
 
 
-49
 50
-51</pre>
+51
+52</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/takelage/info/status/cli.rb', line 49</span>
+      <pre class="code"><span class="info file"># File 'lib/takelage/info/status/cli.rb', line 50</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_gpg'>gpg</span>
   <span class='id identifier rubyid_exit'>exit</span> <span class='id identifier rubyid_info_status_gpg'>info_status_gpg</span>
@@ -529,12 +540,12 @@
       <pre class="lines">
 
 
-61
 62
-63</pre>
+63
+64</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/takelage/info/status/cli.rb', line 61</span>
+      <pre class="code"><span class="info file"># File 'lib/takelage/info/status/cli.rb', line 62</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_header'>header</span>
   <span class='id identifier rubyid_say'>say</span> <span class='id identifier rubyid_info_status_header'>info_status_header</span>
@@ -570,12 +581,12 @@
       <pre class="lines">
 
 
-73
 74
-75</pre>
+75
+76</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/takelage/info/status/cli.rb', line 73</span>
+      <pre class="code"><span class="info file"># File 'lib/takelage/info/status/cli.rb', line 74</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_ssh'>ssh</span>
   <span class='id identifier rubyid_exit'>exit</span> <span class='id identifier rubyid_info_status_ssh'>info_status_ssh</span>

@@ -482,7 +482,7 @@
 <span class='kw'>def</span> <span class='id identifier rubyid_list'>list</span>
   <span class='id identifier rubyid_scopes'>scopes</span> <span class='op'>=</span> <span class='id identifier rubyid_bit_scope_list'>bit_scope_list</span>
   <span class='id identifier rubyid_exit'>exit</span> <span class='kw'>false</span> <span class='kw'>if</span> <span class='id identifier rubyid_scopes'>scopes</span> <span class='op'>==</span> <span class='kw'>false</span>
-  <span class='id identifier rubyid_say'>say</span> <span class='id identifier rubyid_scopes'>scopes</span> <span class='kw'>unless</span> <span class='id identifier rubyid_scopes'>scopes</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='period'>.</span><span class='id identifier rubyid_strip'>strip</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span>
+  <span class='id identifier rubyid_say'>say</span> <span class='id identifier rubyid_scopes'>scopes</span> <span class='kw'>unless</span> <span class='id identifier rubyid_scopes'>scopes</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='period'>.</span><span class='id identifier rubyid_chomp'>chomp</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span>
   <span class='kw'>true</span>
 <span class='kw'>end</span></pre>
     </td>

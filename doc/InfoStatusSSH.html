@@ -206,7 +206,15 @@
 20
 21
 22
-23</pre>
+23
+24
+25
+26
+27
+28
+29
+30
+31</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/takelage/info/status/ssh.rb', line 8</span>
@@ -214,7 +222,15 @@
 <span class='kw'>def</span> <span class='id identifier rubyid_info_status_ssh'>info_status_ssh</span>
   <span class='id identifier rubyid_log'>log</span><span class='period'>.</span><span class='id identifier rubyid_debug'>debug</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Check ssh status</span><span class='tstring_end'>&#39;</span></span>
 
-  <span class='kw'>unless</span> <span class='id identifier rubyid__file_exists?'>_file_exists?</span> <span class='id identifier rubyid__socket_get_agent_ssh_socket_path'>_socket_get_agent_ssh_socket_path</span>
+  <span class='id identifier rubyid_ssh_auth_sock'>ssh_auth_sock</span> <span class='op'>=</span> <span class='const'>ENV</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>SSH_AUTH_SOCK</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_gpg_ssh_socket'>gpg_ssh_socket</span> <span class='op'>=</span> <span class='id identifier rubyid__socket_get_agent_ssh_socket_path'>_socket_get_agent_ssh_socket_path</span>
+
+  <span class='kw'>unless</span> <span class='id identifier rubyid_ssh_auth_sock'>ssh_auth_sock</span> <span class='op'>==</span> <span class='id identifier rubyid_gpg_ssh_socket'>gpg_ssh_socket</span>
+    <span class='id identifier rubyid_log'>log</span><span class='period'>.</span><span class='id identifier rubyid_error'>error</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>ssh does not use gpg ssh socket</span><span class='tstring_end'>&#39;</span></span>
+    <span class='kw'>return</span> <span class='kw'>false</span>
+  <span class='kw'>end</span>
+
+  <span class='kw'>unless</span> <span class='id identifier rubyid__file_exists?'>_file_exists?</span> <span class='id identifier rubyid_gpg_ssh_socket'>gpg_ssh_socket</span>
     <span class='id identifier rubyid_log'>log</span><span class='period'>.</span><span class='id identifier rubyid_error'>error</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>gpg ssh socket is not available</span><span class='tstring_end'>&#39;</span></span>
     <span class='kw'>return</span> <span class='kw'>false</span>
   <span class='kw'>end</span>
