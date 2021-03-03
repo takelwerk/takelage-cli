@@ -8,10 +8,20 @@ module InfoStatusSSH
   def info_status_ssh
     log.debug 'Check ssh status'
 
-    unless _file_exists? _socket_get_agent_ssh_socket_path
+    ssh_auth_sock = ENV['SSH_AUTH_SOCK']
+    gpg_ssh_socket = _socket_get_agent_ssh_socket_path
+
+    unless ssh_auth_sock == gpg_ssh_socket
+      log.error 'ssh does not use gpg ssh socket'
+      return false
+    end
+
+    unless _file_exists? gpg_ssh_socket
       log.error 'gpg ssh socket is not available'
       return false
     end
+
+
 
     unless _info_status_ssh_keys
       log.error 'ssh keys are not available'
