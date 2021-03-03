@@ -11,7 +11,7 @@ module DockerContainerCheckNetwork
 
     stdout_str = run _docker_container_cmd_check_network network
 
-    if stdout_str.to_s.strip.empty?
+    if stdout_str.to_s.chomp.empty?
       log.debug "Network \"#{network}\" is not existing"
       return false
     end

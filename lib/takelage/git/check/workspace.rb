@@ -4,10 +4,9 @@
 module GitCheckWorkspace
   # Backend method for git check workspace.
   # @return [Boolean] is this a git workspace?
-  def git_check_workspace
-    log.debug 'Check if this is a git workspace'
-    status_repo = _git_check_workspace_get_status_repo
-    dir = _git_check_workspace_get_dir
+  def git_check_workspace(dir = _git_check_workspace_get_dir)
+    log.debug "Check if \"#{dir}\" is a git workspace"
+    status_repo = _git_check_workspace_get_status_repo(dir)
     unless status_repo.exitstatus.zero?
       log.debug "No git workspace found in \"#{dir}\""
       return false
@@ -18,8 +17,11 @@ module GitCheckWorkspace
   private
 
   # Get git repository status.
-  def _git_check_workspace_get_status_repo
-    cmd_git_repo = config.active['cmd_git_check_workspace_git_repo']
+  def _git_check_workspace_get_status_repo(dir)
+    cmd_git_repo = format(
+      config.active['cmd_git_check_workspace_git_repo'],
+      dir: dir
+    )
     try cmd_git_repo
   end
 
@@ -27,6 +29,6 @@ module GitCheckWorkspace
   def _git_check_workspace_get_dir
     cmd_pwd =
       config.active['cmd_git_check_workspace_pwd']
-    (run cmd_pwd).strip
+    (run cmd_pwd).chomp
   end
 end

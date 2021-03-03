@@ -55,7 +55,7 @@ module Takelage
     def list
       scopes = bit_scope_list
       exit false if scopes == false
-      say scopes unless scopes.to_s.strip.empty?
+      say scopes unless scopes.to_s.chomp.empty?
       true
     end
 

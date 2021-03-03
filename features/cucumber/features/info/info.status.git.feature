@@ -4,6 +4,12 @@
 
 Feature: I can check if git is available
 
+  Background:
+    Given a directory named "project"
+    And I initialize a git workspace in "project"
+    And I cd to "project"
+    And an empty file named "Rakefile"
+
   Scenario: Check that git is available
     Given a file named "~/.takelage.yml" with:
       """
@@ -14,17 +20,27 @@ Feature: I can check if git is available
       cmd_info_status_lib_git_key_available: $(exit 0)
       """
     And I get the active takelage config
-    And an empty file named "Rakefile"
     When I run `tau-cli info status git`
     Then the exit status should be 0
 
   Scenario: Check that project root dir is available
+    Given I remove the file "Rakefile"
     When I run `tau-cli info status git`
     Then the exit status should be 1
     And the output should contain:
       """
       [ERROR] Cannot determine project root directory
       [INFO] Is there a Rakefile in the project root directory?
+      """
+
+  Scenario: Check that project root dir is git workspace
+    Given I cd to ".."
+    And an empty file named "Rakefile"
+    When I run `tau-cli info status git`
+    Then the exit status should be 1
+    And the output should contain:
+      """
+      [ERROR] Project root directory is not a git workspace
       """
 
   Scenario: Check that git name is available
@@ -37,7 +53,6 @@ Feature: I can check if git is available
       cmd_info_status_lib_git_key_available: $(exit 0)
       """
     And I get the active takelage config
-    And an empty file named "Rakefile"
     When I run `tau-cli info status git`
     Then the exit status should be 1
     And the output should contain:
@@ -55,7 +70,6 @@ Feature: I can check if git is available
       cmd_info_status_lib_git_key_available: $(exit 0)
       """
     And I get the active takelage config
-    And an empty file named "Rakefile"
     When I run `tau-cli info status git`
     Then the exit status should be 1
     And the output should contain:
@@ -73,7 +87,6 @@ Feature: I can check if git is available
       cmd_info_status_lib_git_key_available: $(exit 1)
       """
     And I get the active takelage config
-    And an empty file named "Rakefile"
     When I run `tau-cli info status git`
     Then the exit status should be 1
     And the output should contain:

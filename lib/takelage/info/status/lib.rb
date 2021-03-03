@@ -31,7 +31,7 @@ module InfoStatusLib
         config.active['cmd_info_status_lib_git_signingkey'],
         root: root
       )
-    run cmd_git_signingkey
+    (run cmd_git_signingkey).chomp
   end
 
   # Check if git key is available

@@ -7,6 +7,7 @@ module Takelage
     include SystemModule
     include ConfigModule
     include DockerSocketScheme
+    include GitCheckWorkspace
     include InfoStatusLib
     include InfoStatusGit
     include InfoStatusGopass

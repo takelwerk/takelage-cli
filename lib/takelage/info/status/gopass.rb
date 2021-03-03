@@ -8,9 +8,9 @@ module InfoStatusGopass
   def info_status_gopass
     log.debug 'Check gopass status'
 
-    root = _info_status_gopass_root_store.chomp
+    root = _info_status_gopass_root_store
 
-    if root.strip.empty?
+    if root.chomp.empty?
       log.error 'gopass root store not found'
       return false
     end
@@ -32,6 +32,6 @@ module InfoStatusGopass
   # Get gopass root store
   def _info_status_gopass_root_store
     cmd_gopass_root_store = config.active['cmd_info_status_gopass_root_store']
-    run cmd_gopass_root_store
+    (run cmd_gopass_root_store).chomp
   end
 end

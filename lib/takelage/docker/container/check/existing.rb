@@ -11,7 +11,7 @@ module DockerContainerCheckExisting
 
     stdout_str = run _docker_container_cmd_check_existing container
 
-    if stdout_str.to_s.strip.empty?
+    if stdout_str.to_s.chomp.empty?
       log.debug "Container \"#{container}\" is not existing"
       return false
     end

@@ -32,6 +32,6 @@ module BitCheckWorkspace
 
     stdout_str_dir = run cmd_pwd
 
-    stdout_str_dir.strip
+    stdout_str_dir.chomp
   end
 end

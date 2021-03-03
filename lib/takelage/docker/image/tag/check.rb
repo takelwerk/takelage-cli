@@ -9,7 +9,7 @@ module DockerImageTagCheck
 
     return false unless docker_check_daemon
 
-    if tag.to_s.strip.empty?
+    if tag.to_s.chomp.empty?
       log.warn 'No docker image tag specified'
       return false
     end
@@ -32,7 +32,7 @@ module DockerImageTagCheck
         image: image
       )
 
-    if (run cmd_docker_images).to_s.strip.empty?
+    if (run cmd_docker_images).to_s.chomp.empty?
       log.debug "No docker image \"#{image}\" found"
       return false
     end

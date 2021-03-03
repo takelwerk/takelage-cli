@@ -31,7 +31,7 @@ module DockerSocketStop
   # Stop process.
   def _docker_socket_stop_kill_process(process, cmds_start_socket)
     # split processes in process id and process command
-    pid_command = process.strip.split(/ /, 2)
+    pid_command = process.chomp.split(/ /, 2)
     pid = pid_command[0]
     command = pid_command[1]
 

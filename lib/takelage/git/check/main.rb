@@ -21,6 +21,6 @@ module GitCheckMain
   def _git_check_main_get_branch
     cmd_get_branch =
       config.active['cmd_git_check_main_git_branch']
-    (run cmd_get_branch).strip.split('/')[-1]
+    (run cmd_get_branch).chomp.split('/')[-1]
   end
 end
