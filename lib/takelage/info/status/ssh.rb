@@ -8,14 +8,7 @@ module InfoStatusSSH
   def info_status_ssh
     log.debug 'Check ssh status'
 
-    ssh_socket_path = _socket_get_agent_ssh_socket_path
-
-    unless ENV['SSH_AUTH_SOCK'] == ssh_socket_path
-      log.error 'gpg ssh socket is misconfigured'
-      return false
-    end
-
-    unless _file_exists? ssh_socket_path
+    unless _file_exists? _socket_get_agent_ssh_socket_path
       log.error 'gpg ssh socket is not available'
       return false
     end
