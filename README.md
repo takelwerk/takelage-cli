@@ -1,6 +1,6 @@
 [![takelage image](https://github.com/geospin-takelage/takelage-cli/actions/workflows/test_project_nightly.yml/badge.svg)](https://github.com/geospin-takelage/takelage-cli/actions/workflows/test_project_nightly.yml)
 [![rubygems package](https://img.shields.io/gem/v/takelage?label=rubygems.org&color=blue)](https://rubygems.org/gems/takelage)
-[![license](https://img.shields.io/github/license/geospin-takelage/takelage-cli?color=red)](https://github.com/geospin-takelage/takelage-cli/blob/main/LICENSE)
+[![license](https://img.shields.io/github/license/geospin-takelage/takelage-cli?color=blueviolet)](https://github.com/geospin-takelage/takelage-cli/blob/main/LICENSE)
 
 # takelage-cli
 
