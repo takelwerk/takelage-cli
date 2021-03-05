@@ -1,5 +1,6 @@
-[![takelage image](https://github.com/geospin-takelage/takelage-cli/actions/workflows/test_project_nightly.yml/badge.svg)](https://github.com/geospin-takelage/takelage-cli/actions/workflows/test_project_nightly.yml)
 [![rubygems package](https://img.shields.io/gem/v/takelage?label=rubygems.org)](https://rubygems.org/gems/takelage)
+[![takelage image](https://github.com/geospin-takelage/takelage-cli/actions/workflows/test_project_nightly.yml/badge.svg)](https://github.com/geospin-takelage/takelage-cli/actions/workflows/test_project_nightly.yml)
+
 # takelage-cli
 
 *takelage-cli* is a command line interface 
