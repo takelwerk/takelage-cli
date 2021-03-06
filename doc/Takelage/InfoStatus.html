@@ -93,7 +93,7 @@
   
   <dl>
       <dt>Includes:</dt>
-      <dd><span class='object_link'><a href="../ConfigModule.html" title="ConfigModule (module)">ConfigModule</a></span>, <span class='object_link'><a href="../DockerSocketScheme.html" title="DockerSocketScheme (module)">DockerSocketScheme</a></span>, <span class='object_link'><a href="../GitCheckWorkspace.html" title="GitCheckWorkspace (module)">GitCheckWorkspace</a></span>, <span class='object_link'><a href="../InfoStatusGPG.html" title="InfoStatusGPG (module)">InfoStatusGPG</a></span>, <span class='object_link'><a href="../InfoStatusGit.html" title="InfoStatusGit (module)">InfoStatusGit</a></span>, <span class='object_link'><a href="../InfoStatusGopass.html" title="InfoStatusGopass (module)">InfoStatusGopass</a></span>, <span class='object_link'><a href="../InfoStatusHeader.html" title="InfoStatusHeader (module)">InfoStatusHeader</a></span>, <span class='object_link'><a href="../InfoStatusLib.html" title="InfoStatusLib (module)">InfoStatusLib</a></span>, <span class='object_link'><a href="../InfoStatusSSH.html" title="InfoStatusSSH (module)">InfoStatusSSH</a></span>, <span class='object_link'><a href="../LoggingModule.html" title="LoggingModule (module)">LoggingModule</a></span>, <span class='object_link'><a href="../SystemModule.html" title="SystemModule (module)">SystemModule</a></span></dd>
+      <dd><span class='object_link'><a href="../ConfigModule.html" title="ConfigModule (module)">ConfigModule</a></span>, <span class='object_link'><a href="../DockerSocketScheme.html" title="DockerSocketScheme (module)">DockerSocketScheme</a></span>, <span class='object_link'><a href="../GitCheckWorkspace.html" title="GitCheckWorkspace (module)">GitCheckWorkspace</a></span>, <span class='object_link'><a href="../InfoStatusBar.html" title="InfoStatusBar (module)">InfoStatusBar</a></span>, <span class='object_link'><a href="../InfoStatusGPG.html" title="InfoStatusGPG (module)">InfoStatusGPG</a></span>, <span class='object_link'><a href="../InfoStatusGit.html" title="InfoStatusGit (module)">InfoStatusGit</a></span>, <span class='object_link'><a href="../InfoStatusGopass.html" title="InfoStatusGopass (module)">InfoStatusGopass</a></span>, <span class='object_link'><a href="../InfoStatusLib.html" title="InfoStatusLib (module)">InfoStatusLib</a></span>, <span class='object_link'><a href="../InfoStatusSSH.html" title="InfoStatusSSH (module)">InfoStatusSSH</a></span>, <span class='object_link'><a href="../LoggingModule.html" title="LoggingModule (module)">LoggingModule</a></span>, <span class='object_link'><a href="../SystemModule.html" title="SystemModule (module)">SystemModule</a></span></dd>
   </dl>
   
   
@@ -133,6 +133,30 @@
     </h2>
 
     <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#bar-instance_method" title="#bar (instance method)">#<strong>bar</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Print status info bar.</p>
+</div></span>
+  
+</li>
+
       
         <li class="public ">
   <span class="summary_signature">
@@ -209,30 +233,6 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#header-instance_method" title="#header (instance method)">#<strong>header</strong>  &#x21d2; Object </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'>
-<p>Print status info header.</p>
-</div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
       <a href="#ssh-instance_method" title="#ssh (instance method)">#<strong>ssh</strong>  &#x21d2; Object </a>
     
 
@@ -266,8 +266,8 @@
   
   
   
-  <h3 class="inherited">Methods included from <span class='object_link'><a href="../InfoStatusHeader.html" title="InfoStatusHeader (module)">InfoStatusHeader</a></span></h3>
-  <p class="inherited"><span class='object_link'><a href="../InfoStatusHeader.html#info_status_header-instance_method" title="InfoStatusHeader#info_status_header (method)">#info_status_header</a></span></p>
+  <h3 class="inherited">Methods included from <span class='object_link'><a href="../InfoStatusBar.html" title="InfoStatusBar (module)">InfoStatusBar</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="../InfoStatusBar.html#info_status_bar-instance_method" title="InfoStatusBar#info_status_bar (method)">#info_status_bar</a></span></p>
 
   
   
@@ -392,7 +392,48 @@
 
     
       <div class="method_details first">
-  <h3 class="signature first" id="git-instance_method">
+  <h3 class="signature first" id="bar-instance_method">
+  
+    #<strong>bar</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Print status info bar.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+26
+27
+28</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/takelage/info/status/cli.rb', line 26</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_bar'>bar</span>
+  <span class='id identifier rubyid_say'>say</span> <span class='id identifier rubyid_info_status_bar'>info_status_bar</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="git-instance_method">
   
     #<strong>git</strong>  &#x21d2; <tt>Object</tt> 
   
@@ -417,12 +458,12 @@
       <pre class="lines">
 
 
-26
-27
-28</pre>
+38
+39
+40</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/takelage/info/status/cli.rb', line 26</span>
+      <pre class="code"><span class="info file"># File 'lib/takelage/info/status/cli.rb', line 38</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_git'>git</span>
   <span class='id identifier rubyid_exit'>exit</span> <span class='id identifier rubyid_info_status_git'>info_status_git</span>
@@ -458,12 +499,12 @@
       <pre class="lines">
 
 
-38
-39
-40</pre>
+50
+51
+52</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/takelage/info/status/cli.rb', line 38</span>
+      <pre class="code"><span class="info file"># File 'lib/takelage/info/status/cli.rb', line 50</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_gopass'>gopass</span>
   <span class='id identifier rubyid_exit'>exit</span> <span class='id identifier rubyid_info_status_gopass'>info_status_gopass</span>
@@ -499,47 +540,6 @@
       <pre class="lines">
 
 
-50
-51
-52</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/takelage/info/status/cli.rb', line 50</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_gpg'>gpg</span>
-  <span class='id identifier rubyid_exit'>exit</span> <span class='id identifier rubyid_info_status_gpg'>info_status_gpg</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="header-instance_method">
-  
-    #<strong>header</strong>  &#x21d2; <tt>Object</tt> 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    
-<p>Print status info header.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
 62
 63
 64</pre>
@@ -547,8 +547,8 @@
     <td>
       <pre class="code"><span class="info file"># File 'lib/takelage/info/status/cli.rb', line 62</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_header'>header</span>
-  <span class='id identifier rubyid_say'>say</span> <span class='id identifier rubyid_info_status_header'>info_status_header</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_gpg'>gpg</span>
+  <span class='id identifier rubyid_exit'>exit</span> <span class='id identifier rubyid_info_status_gpg'>info_status_gpg</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
