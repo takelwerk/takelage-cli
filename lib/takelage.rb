@@ -76,7 +76,7 @@ require_relative 'takelage/info/status/git'
 require_relative 'takelage/info/status/gopass'
 require_relative 'takelage/info/status/gpg'
 require_relative 'takelage/info/status/ssh'
-require_relative 'takelage/info/status/header'
+require_relative 'takelage/info/status/bar'
 require_relative 'takelage/info/status/cli'
 require_relative 'takelage/info/project/cli'
 require_relative 'takelage/info/cli'
@@ -210,10 +210,10 @@ module Takelage
       Takelage::BitClipboard.new.push
     end
 
-    desc 'status', 'Alias for tau info status header'
-    # takelage status: {takelage::InfoStatus#header}
+    desc 'status', 'Alias for tau info status bar'
+    # takelage status: {takelage::InfoStatus#bar}
     def status
-      Takelage::InfoStatus.new.header
+      Takelage::InfoStatus.new.bar
     end
 
     desc 'update', 'Alias for tau docker image update'

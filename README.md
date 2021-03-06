@@ -105,7 +105,7 @@ tau [info project private](features/cucumber/features/info/info.project.private.
 tau [info status git](features/cucumber/features/info/info.status.git.feature) | Check git status info
 tau [info status gopass](features/cucumber/features/info/info.status.gopass.feature) | Check gopass status info
 tau [info status gpg](features/cucumber/features/info/info.status.gpg.feature) | Check gpg status info
-tau [info status header](features/cucumber/features/info/info.status.header.feature) | Print status info header
+tau [info status bar](features/cucumber/features/info/info.status.bar.feature) | Print status info bar
 tau [info status ssh](features/cucumber/features/info/info.status.ssh.feature) | Check ssh status info
 tau [self config active](features/cucumber/features/self/self.config.active.feature) | Print active takelage configuration
 tau [self config default](features/cucumber/features/self/self.config.default.feature) | Print takelage default configuration
@@ -123,7 +123,7 @@ tau project | Alias for tau [info project active](features/cucumber/features/inf
 tau prune | Alias for tau [docker container prune](features/cucumber/features/docker/docker.container.prune.feature)
 tau pull | Alias for tau [bit clipboard pull](features/cucumber/features/bit/bit.clipboard.pull.feature)
 tau push | Alias for tau [bit clipboard push](features/cucumber/features/bit/bit.clipboard.push.feature)
-tau status | Alias for tau [docker info status header](features/cucumber/features/info/info.status.header.feature)
+tau status | Alias for tau [docker info status bar](features/cucumber/features/info/info.status.bar.feature)
 tau update | Alias for tau [docker image update](features/cucumber/features/docker/docker.image.update.feature)
 tau version | Alias for tau [self version](features/cucumber/features/self/self.version.feature)
 
