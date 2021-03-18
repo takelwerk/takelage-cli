@@ -22,7 +22,7 @@ module DockerContainerPrune
       next unless docker_container_check_orphaned container
 
       name = _docker_container_lib_get_container_name_by_id container
-      mutagen_socket_terminate "--label-selector='hostname=#{container}'"
+      mutagen_socket_terminate "--label-selector='hostname=#{name}'"
       _docker_container_lib_stop_container container
       networks << name unless networks.include? name
     end
