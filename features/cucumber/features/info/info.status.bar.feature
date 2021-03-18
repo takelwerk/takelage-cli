@@ -1,6 +1,6 @@
 @info
 @info.status
-@info.status.header
+@info.status.bar
 
 Feature: I can check the takelage status
 
@@ -10,7 +10,7 @@ Feature: I can check the takelage status
     And I cd to "project"
     And an empty file named "Rakefile"
 
-  Scenario: Check the takelage status
+  Scenario: Print the takelage status bar
     Given a file named "~/.takelage.yml" with:
       """
       ---
@@ -26,7 +26,7 @@ Feature: I can check the takelage status
       """
     And I get the active takelage config
     And an empty file named "Rakefile"
-    When I run `env SSH_AUTH_SOCK='/tmp' tau-cli info status header`
+    When I run `env SSH_AUTH_SOCK='/tmp' tau-cli info status bar`
     Then the output should contain:
       """
       git: ok | gopass: ok | gpg: ok | ssh: ok
@@ -48,7 +48,7 @@ Feature: I can check the takelage status
       """
     And I get the active takelage config
     And an empty file named "Rakefile"
-    When I run `env SSH_AUTH_SOCK='/tmp' tau-cli info status header`
+    When I run `env SSH_AUTH_SOCK='/tmp' tau-cli info status bar`
     Then the output should contain:
       """
       git: no | gopass: no | gpg: ok | ssh: ok
@@ -70,7 +70,7 @@ Feature: I can check the takelage status
       """
     And I get the active takelage config
     And an empty file named "Rakefile"
-    When I run `env SSH_AUTH_SOCK='/nonexisting' tau-cli info status header`
+    When I run `env SSH_AUTH_SOCK='/nonexisting' tau-cli info status bar`
     Then the output should contain:
       """
       git: ok | gopass: ok | gpg: ok | ssh: no
@@ -92,7 +92,7 @@ Feature: I can check the takelage status
       """
     And I get the active takelage config
     And an empty file named "Rakefile"
-    When I run `env SSH_AUTH_SOCK='/tmp' tau-cli info status header`
+    When I run `env SSH_AUTH_SOCK='/tmp' tau-cli info status bar`
     Then the output should contain:
       """
       git: ok | gopass: ok | gpg: ok | ssh: no

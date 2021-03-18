@@ -1,6 +1,7 @@
-[![takelage image](https://github.com/geospin-takelage/takelage-cli/actions/workflows/test_project_nightly.yml/badge.svg)](https://github.com/geospin-takelage/takelage-cli/actions/workflows/test_project_nightly.yml)
-[![rubygems package](https://img.shields.io/gem/v/takelage?label=rubygems.org&color=blue)](https://rubygems.org/gems/takelage)
 [![license](https://img.shields.io/github/license/geospin-takelage/takelage-cli?color=blueviolet)](https://github.com/geospin-takelage/takelage-cli/blob/main/LICENSE)
+[![rubygems.org](https://img.shields.io/gem/v/takelage?label=rubygems.org&color=blue)](https://rubygems.org/gems/takelage)
+[![deploy project](https://img.shields.io/github/workflow/status/geospin-takelage/takelage-cli/Build,%20test%20and%20deploy%20project?label=deploy%20project)](https://github.com/geospin-takelage/takelage-cli/actions/workflows/build_test_deploy_project_on_push.yml)
+[![test project](https://img.shields.io/github/workflow/status/geospin-takelage/takelage-cli/Test%20project?label=test%20project)](https://github.com/geospin-takelage/takelage-cli/actions/workflows/test_project_nightly.yml)
 
 # takelage-cli
 
@@ -14,20 +15,30 @@ The *takelage-cli* executable *tau* is a
 command line script using the 
 [thor](http://whatisthor.com/) toolkit.
 
-## Framework
+## Framework Versions
 
-The takelage devops framework consists of these projects:
+| App | Artifact |
+| --- | -------- |
+| *[takelage-doc](https://github.com/geospin-takelage/takelage-doc)* | [![License](https://img.shields.io/github/license/geospin-takelage/takelage-doc?color=blueviolet)](https://github.com/geospin-takelage/takelage-doc/blob/main/LICENSE) |
+| *[takelage-dev](https://github.com/geospin-takelage/takelage-dev)* | [![hub.docker.com](https://img.shields.io/docker/v/takelage/takelage/latest?label=hub.docker.com&sort=semver&color=blue)](https://hub.docker.com/r/takelage/takelage) |
+| *[takelage-cli](https://github.com/geospin-takelage/takelage-cli)* | [![rubygems.org](https://img.shields.io/gem/v/takelage?label=rubygems.org&color=blue)](https://rubygems.org/gems/takelage) |
+| *[takelage-var](https://github.com/geospin-takelage/takelage-var)* | [![pypi,org](https://img.shields.io/pypi/v/takeltest?label=pypi.org&color=blue)](https://pypi.org/project/takeltest/) |
+| *[takelage-bit](https://github.com/geospin-takelage/takelage-bit)* | [![hub.docker.com](https://img.shields.io/docker/v/takelage/bitboard/latest?label=hub.docker.com&sort=semver&color=blue)](https://hub.docker.com/r/takelage/bitboard) | 
+| *[takelage-img-takelslim](https://github.com/geospin-takelage/takelage-img-takelslim)* | [![hub.docker.com](https://img.shields.io/docker/v/takelage/takelslim/latest?label=hub.docker.com&color=blue)](https://hub.docker.com/r/takelage/takelslim) | 
+| *[takelage-img-takelbase](https://github.com/geospin-takelage/takelage-img-takelbase)* | [![hub.docker.com](https://img.shields.io/docker/v/takelage/takelbase/latest?label=hub.docker.com&color=blue)](https://hub.docker.com/r/takelage/takelbase) | 
+| *[takelage-img-multipostgres](https://github.com/geospin-takelage/takelage-img-multipostgres)* | [![hub.docker.com](https://img.shields.io/docker/v/takelage/multipostgres/latest?label=hub.docker.com&color=blue)](https://hub.docker.com/r/takelage/multipostgres) | 
 
-| App | Description |
-| --- | ----------- |
-| *[takelage-doc](https://github.com/geospin-takelage/takelage-doc)* | takelage documentation |
-| *[takelage-dev](https://github.com/geospin-takelage/takelage-dev)* | takelage development environment |
-| *[takelage-var](https://github.com/geospin-takelage/takelage-var)* | takelage test plugin |
-| *[takelage-cli](https://github.com/geospin-takelage/takelage-cli)* | takelage command line interface |
-| *[takelage-bit](https://github.com/geospin-takelage/takelage-bit)* | takelage bit server | 
-| *[takelage-img-takelbase](https://github.com/geospin-takelage/takelage-img-takelbase)* | takelage takelbase image | 
-| *[takelage-img-takelslim](https://github.com/geospin-takelage/takelage-img-takelslim)* | takelage takelbase image | 
-| *[takelage-img-multipostgres](https://github.com/geospin-takelage/takelage-img-multipostgres)* | takelage multipostgres image | 
+## Framework Status
+
+| App | Deploy project | Test project | Test roles |
+| --- | -------------- | ------------ | ---------- |
+| *[takelage-dev](https://github.com/geospin-takelage/takelage-dev)* | [![deploy project](https://img.shields.io/github/workflow/status/geospin-takelage/takelage-dev/Build,%20test%20and%20deploy%20project?label=deploy%20project)](https://github.com/geospin-takelage/takelage-dev/actions/workflows/build_test_deploy_project_on_push.yml) | [![test project](https://img.shields.io/github/workflow/status/geospin-takelage/takelage-dev/Build%20and%20test%20project?label=test%20project)](https://github.com/geospin-takelage/takelage-dev/actions/workflows/build_test_project_nightly.yml) | [![test roles](https://img.shields.io/github/workflow/status/geospin-takelage/takelage-dev/Test%20roles?label=test%20roles)](https://github.com/geospin-takelage/takelage-dev/actions/workflows/build_test_roles_nightly.yml) |
+| *[takelage-cli](https://github.com/geospin-takelage/takelage-cli)* | [![deploy project](https://img.shields.io/github/workflow/status/geospin-takelage/takelage-cli/Build,%20test%20and%20deploy%20project?label=deploy%20project)](https://github.com/geospin-takelage/takelage-cli/actions/workflows/build_test_deploy_project_on_push.yml) | [![test project](https://img.shields.io/github/workflow/status/geospin-takelage/takelage-cli/Test%20project?label=test%20project)](https://github.com/geospin-takelage/takelage-cli/actions/workflows/test_project_nightly.yml) |
+| *[takelage-var](https://github.com/geospin-takelage/takelage-var)* | [![deploy project](https://img.shields.io/github/workflow/status/geospin-takelage/takelage-var/Build,%20test%20and%20deploy%20project?label=deploy%20project)](https://github.com/geospin-takelage/takelage-var/actions/workflows/build_test_deploy_project_on_push.yml) | [![test project](https://img.shields.io/github/workflow/status/geospin-takelage/takelage-var/Build%20and%20test%20project?label=test%20project)](https://github.com/geospin-takelage/takelage-var/actions/workflows/build_test_project_nightly.yml) |
+| *[takelage-bit](https://github.com/geospin-takelage/takelage-bit)* | [![deploy project](https://img.shields.io/github/workflow/status/geospin-takelage/takelage-bit/Build,%20test%20and%20deploy%20project?label=deploy%20project)](https://github.com/geospin-takelage/takelage-bit/actions/workflows/build_test_deploy_project_on_push.yml) | [![test project](https://img.shields.io/github/workflow/status/geospin-takelage/takelage-bit/Build%20and%20test%20project?label=test%20project)](https://github.com/geospin-takelage/takelage-bit/actions/workflows/build_test_project_nightly.yml) | [![test roles](https://img.shields.io/github/workflow/status/geospin-takelage/takelage-bit/Test%20roles?label=test%20roles)](https://github.com/geospin-takelage/takelage-bit/actions/workflows/build_test_roles_nightly.yml) |
+| *[takelage-img-takelslim](https://github.com/geospin-takelage/takelage-img-takelslim)* | [![deploy project](https://img.shields.io/github/workflow/status/geospin-takelage/takelage-img-takelslim/Build%20and%20deploy%20takelslim?label=deploy%20project)](https://github.com/geospin-takelage/takelage-img-takelslim/actions/workflows/build_deploy_takelslim_nightly.yml) |
+| *[takelage-img-takelbase](https://github.com/geospin-takelage/takelage-img-takelbase)* | [![deploy project](https://img.shields.io/github/workflow/status/geospin-takelage/takelage-img-takelbase/Build%20and%20deploy%20takelbase?label=deploy%20project)](https://github.com/geospin-takelage/takelage-img-takelbase/actions/workflows/build_deploy_takelbase_nightly.yml) |
+| *[takelage-img-multipostgres](https://github.com/geospin-takelage/takelage-img-multipostgres)* | [![deploy project](https://img.shields.io/github/workflow/status/geospin-takelage/takelage-img-multipostgres/Build%20and%20deploy%20multipostgres?label=deploy%20project)](https://github.com/geospin-takelage/takelage-img-multipostgres/actions/workflows/build_deploy_multipostgres_nightly.yml) |
 
 ## Installation
 
@@ -91,11 +102,11 @@ tau [info project active](features/cucumber/features/info/info.project.active.fe
 tau [info project dir](features/cucumber/features/info/info.project.dir.feature) | Print project root directory
 tau [info project main](features/cucumber/features/info/info.project.main.feature) | Print main project info
 tau [info project private](features/cucumber/features/info/info.project.private.feature) | Print private project info
-tau [info status git](features/cucumber/features/info/info.status.git.feature) | Check git status info
-tau [info status gopass](features/cucumber/features/info/info.status.gopass.feature) | Check gopass status info
-tau [info status gpg](features/cucumber/features/info/info.status.gpg.feature) | Check gpg status info
-tau [info status header](features/cucumber/features/info/info.status.header.feature) | Print status info header
-tau [info status ssh](features/cucumber/features/info/info.status.ssh.feature) | Check ssh status info
+tau [info status bar](features/cucumber/features/info/info.status.bar.feature) | Print status bar
+tau [info status git](features/cucumber/features/info/info.status.git.feature) | Check git status
+tau [info status gopass](features/cucumber/features/info/info.status.gopass.feature) | Check gopass status
+tau [info status gpg](features/cucumber/features/info/info.status.gpg.feature) | Check gpg status
+tau [info status ssh](features/cucumber/features/info/info.status.ssh.feature) | Check ssh status
 tau [mutagen socket check](features/cucumber/features/mutagen/mutagen.socket.check.feature) [SOCKET] | Check if mutagen [SOCKET] exists
 tau [mutagen socket create](features/cucumber/features/mutagen/mutagen.socket.create.feature) [IN] [OUT] | Create a mutagen socket from [IN] to [OUT] of the container
 tau [mutagen socket list](features/cucumber/features/mutagen/mutagen.socket.list.feature) | List mutagen sockets
@@ -116,7 +127,7 @@ tau project | Alias for tau [info project active](features/cucumber/features/inf
 tau prune | Alias for tau [docker container prune](features/cucumber/features/docker/docker.container.prune.feature)
 tau pull | Alias for tau [bit clipboard pull](features/cucumber/features/bit/bit.clipboard.pull.feature)
 tau push | Alias for tau [bit clipboard push](features/cucumber/features/bit/bit.clipboard.push.feature)
-tau status | Alias for tau [docker info status header](features/cucumber/features/info/info.status.header.feature)
+tau status | Alias for tau [docker info status bar](features/cucumber/features/info/info.status.bar.feature)
 tau update | Alias for tau [docker image update](features/cucumber/features/docker/docker.image.update.feature)
 tau version | Alias for tau [self version](features/cucumber/features/self/self.version.feature)
 
@@ -151,15 +162,6 @@ if you want to use a private bit remote server:
 ---
 bit_remote: 'ssh://bit@bit.example.com:222:/bit'
 bit_ssh: 'ssh -p 222 bit@bit.example.com'
-```
-
-- By default, takelage uses bright prompt colors which are best viewed on a
-dark background. If you prefer a light background (or want less bright colors)
-you can add an option to your *~/.takelage.yml*:
-
-```yaml
----
-docker_daynight: 'day'
 ```
 
 - If you want to pin a specific docker tag for one of your projects

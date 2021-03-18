@@ -42,7 +42,9 @@ jobs:
         run: gem install takelage
 
       - name: Configure tau
-        run: 'echo "docker_entrypoint_options: --no-git --no-gopass" >> $HOME/.takelage.yml'
+        run: |
+          echo "docker_entrypoint_options: --no-git --no-gopass" >> $HOME/.takelage.yml
+          echo "docker_run_options: --privileged" >> $HOME/.takelage.yml
 
       - name: Configure docker daemon
         run: |

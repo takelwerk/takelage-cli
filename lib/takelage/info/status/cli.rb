@@ -13,7 +13,19 @@ module Takelage
     include InfoStatusGopass
     include InfoStatusGPG
     include InfoStatusSSH
-    include InfoStatusHeader
+    include InfoStatusBar
+
+    #
+    # info status bar
+    #
+    desc 'bar', 'Print status info bar'
+    long_desc <<-LONGDESC.gsub("\n", "\x5")
+    Print status info bar
+    LONGDESC
+    # Print status info bar.
+    def bar
+      say info_status_bar
+    end
 
     #
     # info status git
@@ -49,18 +61,6 @@ module Takelage
     # Check gpg status info.
     def gpg
       exit info_status_gpg
-    end
-
-    #
-    # info status header
-    #
-    desc 'header', 'Print status info header'
-    long_desc <<-LONGDESC.gsub("\n", "\x5")
-    Print status info header
-    LONGDESC
-    # Print status info header.
-    def header
-      say info_status_header
     end
 
     #
