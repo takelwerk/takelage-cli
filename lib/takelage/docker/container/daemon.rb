@@ -8,6 +8,10 @@ module DockerContainerDaemon
 
     return false unless docker_check_daemon
 
-    _docker_container_lib_create_net_and_ctr @hostname
+    result = _docker_container_lib_create_net_and_ctr @hostname
+
+    mutagen_socket_create '~/.mutagen/daemon/daemon.sock', '~/.mutagen/daemon/daemon.sock'
+
+    result
   end
 end

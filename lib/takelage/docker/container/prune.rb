@@ -23,6 +23,7 @@ module DockerContainerPrune
 
       name = _docker_container_lib_get_container_name_by_id container
       _docker_container_lib_stop_container container
+      mutagen_socket_terminate "hostname=#{container}"
       networks << name unless networks.include? name
     end
     networks

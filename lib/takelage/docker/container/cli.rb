@@ -24,9 +24,12 @@ module Takelage
     include DockerSocketHost
     include DockerSocketScheme
     include DockerSocketStart
+    include MutagenSocketCreate
+    include MutagenSocketTerminate
 
     # Initialize docker container
     # rubocop:disable Metrics/AbcSize
+    # rubocop:disable Metrics/MethodLength
     def initialize(args = [], local_options = {}, configuration = {})
       # initialize thor parent class
       super args, local_options, configuration
@@ -38,9 +41,12 @@ module Takelage
       @username = ENV['USER'] || 'noname'
       @workdir = Dir.getwd
       @hostname = _docker_container_lib_hostname
+      @hostlabel = "hostname=#{@hostname}"
+      @takellabel = 'type=takelage-socket'
       @socket_host = docker_socket_host
       @sockets = docker_socket_scheme
     end
+    # rubocop:enable Metrics/MethodLength
     # rubocop:enable Metrics/AbcSize
 
     desc 'check [COMMAND]', 'Check docker container'

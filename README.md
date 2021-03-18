@@ -96,6 +96,10 @@ tau [info status gopass](features/cucumber/features/info/info.status.gopass.feat
 tau [info status gpg](features/cucumber/features/info/info.status.gpg.feature) | Check gpg status info
 tau [info status header](features/cucumber/features/info/info.status.header.feature) | Print status info header
 tau [info status ssh](features/cucumber/features/info/info.status.ssh.feature) | Check ssh status info
+tau [mutagen socket check](features/cucumber/features/mutagen/mutagen.socket.check.feature) [SOCKET] | Check if mutagen [SOCKET] exists
+tau [mutagen socket create](features/cucumber/features/mutagen/mutagen.socket.create.feature) [IN] [OUT] | Create a mutagen socket from [IN] to [OUT] of the container
+tau [mutagen socket list](features/cucumber/features/mutagen/mutagen.socket.list.feature) | List mutagen sockets
+tau [mutagen socket terminate](features/cucumber/features/mutagen/mutagen.socket.terminate.feature) | Terminate a mutagen socket
 tau [self config active](features/cucumber/features/self/self.config.active.feature) | Print active takelage configuration
 tau [self config default](features/cucumber/features/self/self.config.default.feature) | Print takelage default configuration
 tau [self config home](features/cucumber/features/self/self.config.home.feature) | Print takelage home config file configuration

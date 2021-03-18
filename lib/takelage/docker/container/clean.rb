@@ -12,6 +12,7 @@ module DockerContainerClean
 
     networks = _docker_container_clean_kill_existing_containers
     _docker_container_lib_remove_networks networks
+    mutagen_socket_terminate @takellabel
   end
 
   private

@@ -16,7 +16,10 @@ module DockerContainerLib
 
   # Create docker container and network.
   def _docker_container_lib_create_net_and_ctr(name)
-    return false if _docker_container_lib_check_matrjoschka
+    if _docker_container_lib_check_matrjoschka
+      log.error 'You cannot log in to takelage from within takelage'
+      return false
+    end
 
     unless docker_container_check_network name
       _docker_container_lib_create_network name
@@ -108,6 +111,7 @@ module DockerContainerLib
 
     try cmd_docker_create
   end
+
   # rubocop:enable Metrics/AbcSize
   # rubocop:enable Metrics/MethodLength
 
@@ -117,7 +121,7 @@ module DockerContainerLib
 
     return false unless ENV.keys.include? 'TAKELAGE_PROJECT_BASE_DIR'
 
-    log.error 'You cannot log in to takelage from within takelage'
+    log.debug 'We are already inside a takelage container'
 
     # wait or the github workflow will fail
     sleep 1

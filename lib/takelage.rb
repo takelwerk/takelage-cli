@@ -59,6 +59,8 @@ require_relative 'takelage/docker/image/tag/check'
 require_relative 'takelage/docker/image/tag/cli'
 require_relative 'takelage/docker/image/update'
 require_relative 'takelage/docker/image/cli'
+require_relative 'takelage/mutagen/socket/create'
+require_relative 'takelage/mutagen/socket/terminate'
 require_relative 'takelage/docker/container/check/existing'
 require_relative 'takelage/docker/container/check/network'
 require_relative 'takelage/docker/container/check/orphaned'
@@ -80,6 +82,10 @@ require_relative 'takelage/info/status/header'
 require_relative 'takelage/info/status/cli'
 require_relative 'takelage/info/project/cli'
 require_relative 'takelage/info/cli'
+require_relative 'takelage/mutagen/socket/check'
+require_relative 'takelage/mutagen/socket/list'
+require_relative 'takelage/mutagen/socket/cli'
+require_relative 'takelage/mutagen/cli'
 require_relative 'takelage/self/config/cli'
 require_relative 'takelage/self/list'
 require_relative 'takelage/self/cli'
@@ -142,6 +148,9 @@ module Takelage
 
     desc 'info [COMMAND] ', 'Get information'
     subcommand 'info', Info
+
+    desc 'mutagen [COMMAND] ', 'Manage mutagen'
+    subcommand 'mutagen', Mutagen
 
     desc 'self [COMMAND] ', 'Manage takelage tools'
     subcommand 'self', Self
