@@ -76,7 +76,7 @@
   
   <dl>
     <dt>Included in:</dt>
-    <dd><span class='object_link'><a href="ConfigModule/TakelageConfig.html" title="ConfigModule::TakelageConfig (class)">ConfigModule::TakelageConfig</a></span>, <span class='object_link'><a href="ProjectModule/TakelageProject.html" title="ProjectModule::TakelageProject (class)">ProjectModule::TakelageProject</a></span>, <span class='object_link'><a href="Takelage/BitCheck.html" title="Takelage::BitCheck (class)">Takelage::BitCheck</a></span>, <span class='object_link'><a href="Takelage/BitClipboard.html" title="Takelage::BitClipboard (class)">Takelage::BitClipboard</a></span>, <span class='object_link'><a href="Takelage/BitRequire.html" title="Takelage::BitRequire (class)">Takelage::BitRequire</a></span>, <span class='object_link'><a href="Takelage/BitScope.html" title="Takelage::BitScope (class)">Takelage::BitScope</a></span>, <span class='object_link'><a href="Takelage/CLI.html" title="Takelage::CLI (class)">Takelage::CLI</a></span>, <span class='object_link'><a href="Takelage/DockerCheck.html" title="Takelage::DockerCheck (class)">Takelage::DockerCheck</a></span>, <span class='object_link'><a href="Takelage/DockerContainer.html" title="Takelage::DockerContainer (class)">Takelage::DockerContainer</a></span>, <span class='object_link'><a href="Takelage/DockerContainerCheck.html" title="Takelage::DockerContainerCheck (class)">Takelage::DockerContainerCheck</a></span>, <span class='object_link'><a href="Takelage/DockerImage.html" title="Takelage::DockerImage (class)">Takelage::DockerImage</a></span>, <span class='object_link'><a href="Takelage/DockerImageTag.html" title="Takelage::DockerImageTag (class)">Takelage::DockerImageTag</a></span>, <span class='object_link'><a href="Takelage/DockerSocket.html" title="Takelage::DockerSocket (class)">Takelage::DockerSocket</a></span>, <span class='object_link'><a href="Takelage/GitCheck.html" title="Takelage::GitCheck (class)">Takelage::GitCheck</a></span>, <span class='object_link'><a href="Takelage/InfoProject.html" title="Takelage::InfoProject (class)">Takelage::InfoProject</a></span>, <span class='object_link'><a href="Takelage/InfoStatus.html" title="Takelage::InfoStatus (class)">Takelage::InfoStatus</a></span>, <span class='object_link'><a href="Takelage/SelfConfig.html" title="Takelage::SelfConfig (class)">Takelage::SelfConfig</a></span></dd>
+    <dd><span class='object_link'><a href="ConfigModule/TakelageConfig.html" title="ConfigModule::TakelageConfig (class)">ConfigModule::TakelageConfig</a></span>, <span class='object_link'><a href="ProjectModule/TakelageProject.html" title="ProjectModule::TakelageProject (class)">ProjectModule::TakelageProject</a></span>, <span class='object_link'><a href="Takelage/BitCheck.html" title="Takelage::BitCheck (class)">Takelage::BitCheck</a></span>, <span class='object_link'><a href="Takelage/BitClipboard.html" title="Takelage::BitClipboard (class)">Takelage::BitClipboard</a></span>, <span class='object_link'><a href="Takelage/BitRequire.html" title="Takelage::BitRequire (class)">Takelage::BitRequire</a></span>, <span class='object_link'><a href="Takelage/BitScope.html" title="Takelage::BitScope (class)">Takelage::BitScope</a></span>, <span class='object_link'><a href="Takelage/CLI.html" title="Takelage::CLI (class)">Takelage::CLI</a></span>, <span class='object_link'><a href="Takelage/DockerCheck.html" title="Takelage::DockerCheck (class)">Takelage::DockerCheck</a></span>, <span class='object_link'><a href="Takelage/DockerContainer.html" title="Takelage::DockerContainer (class)">Takelage::DockerContainer</a></span>, <span class='object_link'><a href="Takelage/DockerContainerCheck.html" title="Takelage::DockerContainerCheck (class)">Takelage::DockerContainerCheck</a></span>, <span class='object_link'><a href="Takelage/DockerImage.html" title="Takelage::DockerImage (class)">Takelage::DockerImage</a></span>, <span class='object_link'><a href="Takelage/DockerImageTag.html" title="Takelage::DockerImageTag (class)">Takelage::DockerImageTag</a></span>, <span class='object_link'><a href="Takelage/DockerSocket.html" title="Takelage::DockerSocket (class)">Takelage::DockerSocket</a></span>, <span class='object_link'><a href="Takelage/GitCheck.html" title="Takelage::GitCheck (class)">Takelage::GitCheck</a></span>, <span class='object_link'><a href="Takelage/InfoProject.html" title="Takelage::InfoProject (class)">Takelage::InfoProject</a></span>, <span class='object_link'><a href="Takelage/InfoStatus.html" title="Takelage::InfoStatus (class)">Takelage::InfoStatus</a></span>, <span class='object_link'><a href="Takelage/MutagenSocket.html" title="Takelage::MutagenSocket (class)">Takelage::MutagenSocket</a></span>, <span class='object_link'><a href="Takelage/SelfConfig.html" title="Takelage::SelfConfig (class)">Takelage::SelfConfig</a></span></dd>
   </dl>
   
 
@@ -618,15 +618,17 @@
 54
 55
 56
-57</pre>
+57
+58</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/takelage/lib/system.rb', line 52</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_run'>run</span><span class='lparen'>(</span><span class='id identifier rubyid_command'>command</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_log'>log</span><span class='period'>.</span><span class='id identifier rubyid_debug'>debug</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Running command \&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_command'>command</span><span class='embexpr_end'>}</span><span class='tstring_content'>\&quot;</span><span class='tstring_end'>&quot;</span></span>
-  <span class='id identifier rubyid_stdout_str'>stdout_str</span><span class='comma'>,</span> <span class='op'>=</span> <span class='const'>Open3</span><span class='period'>.</span><span class='id identifier rubyid_capture3'>capture3</span> <span class='id identifier rubyid_command'>command</span>
+  <span class='id identifier rubyid_stdout_str'>stdout_str</span><span class='comma'>,</span> <span class='id identifier rubyid_stderr_str'>stderr_str</span> <span class='op'>=</span> <span class='const'>Open3</span><span class='period'>.</span><span class='id identifier rubyid_capture3'>capture3</span> <span class='id identifier rubyid_command'>command</span>
   <span class='id identifier rubyid_log'>log</span><span class='period'>.</span><span class='id identifier rubyid_debug'>debug</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Command \&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_command'>command</span><span class='embexpr_end'>}</span><span class='tstring_content'>\&quot; has stdout:\n\&quot;\&quot;\&quot;\n</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_stdout_str'>stdout_str</span><span class='embexpr_end'>}</span><span class='tstring_content'>\&quot;\&quot;\&quot;</span><span class='tstring_end'>&quot;</span></span>
+  <span class='id identifier rubyid_log'>log</span><span class='period'>.</span><span class='id identifier rubyid_debug'>debug</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Command \&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_command'>command</span><span class='embexpr_end'>}</span><span class='tstring_content'>\&quot; has stderr:\n\&quot;\&quot;\&quot;\n</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_stderr_str'>stderr_str</span><span class='embexpr_end'>}</span><span class='tstring_content'>\&quot;\&quot;\&quot;</span><span class='tstring_end'>&quot;</span></span>
   <span class='id identifier rubyid_stdout_str'>stdout_str</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -660,13 +662,13 @@
       <pre class="lines">
 
 
-60
 61
 62
-63</pre>
+63
+64</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/takelage/lib/system.rb', line 60</span>
+      <pre class="code"><span class="info file"># File 'lib/takelage/lib/system.rb', line 61</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_run_and_exit'>run_and_exit</span><span class='lparen'>(</span><span class='id identifier rubyid_command'>command</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_log'>log</span><span class='period'>.</span><span class='id identifier rubyid_debug'>debug</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Running command \&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_command'>command</span><span class='embexpr_end'>}</span><span class='tstring_content'>\&quot; and exiting afterwards</span><span class='tstring_end'>&quot;</span></span>
@@ -703,16 +705,16 @@
       <pre class="lines">
 
 
-66
 67
 68
 69
 70
 71
-72</pre>
+72
+73</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/takelage/lib/system.rb', line 66</span>
+      <pre class="code"><span class="info file"># File 'lib/takelage/lib/system.rb', line 67</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_run_and_fork'>run_and_fork</span><span class='lparen'>(</span><span class='id identifier rubyid_command'>command</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_log'>log</span><span class='period'>.</span><span class='id identifier rubyid_debug'>debug</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Running command \&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_command'>command</span><span class='embexpr_end'>}</span><span class='tstring_content'>\&quot; as a background process</span><span class='tstring_end'>&quot;</span></span>
@@ -770,15 +772,15 @@
       <pre class="lines">
 
 
-76
 77
 78
 79
 80
-81</pre>
+81
+82</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/takelage/lib/system.rb', line 76</span>
+      <pre class="code"><span class="info file"># File 'lib/takelage/lib/system.rb', line 77</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_try'>try</span><span class='lparen'>(</span><span class='id identifier rubyid_command'>command</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_log'>log</span><span class='period'>.</span><span class='id identifier rubyid_debug'>debug</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Running command \&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_command'>command</span><span class='embexpr_end'>}</span><span class='tstring_content'>\&quot;</span><span class='tstring_end'>&quot;</span></span>
