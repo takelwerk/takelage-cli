@@ -11,6 +11,8 @@ Feature: I can clean docker containers
     Given a file named "~/.takelage.yml" with:
       """
       ---
+      cmd_mutagen_forward_socket_terminate: $(exit 0)
+      cmd_mutagen_forward_socket_remove:
       docker_user: host.docker.internal:5005/takelage-mock
       docker_repo: takelage-mock
       """
