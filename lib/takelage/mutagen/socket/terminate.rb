@@ -9,7 +9,7 @@ module MutagenSocketTerminate
     socket_terminated = _mutagen_socket_terminate_socket socket
 
     cmd_remove = config.active['cmd_mutagen_forward_socket_remove']
-    docker_container_command cmd_remove if (cmd_remove && socket_terminated.exitstatus.zero?)
+    docker_container_command cmd_remove if cmd_remove && socket_terminated.exitstatus.zero?
 
     unless socket_terminated.exitstatus.zero?
       log.debug "Unable to terminated mutagen socket \"#{socket}\""
