@@ -90,10 +90,6 @@ tau [docker image tag check](features/cucumber/features/docker/docker.image.tag.
 tau [docker image tag latest](features/cucumber/features/docker/docker.image.tag.latest.feature) | Print latest local docker image tag
 tau [docker image tag list](features/cucumber/features/docker/docker.image.tag.list.feature) | Print local docker image tags
 tau [docker image update](features/cucumber/features/docker/docker.image.update.feature) | Get latest remote docker container
-tau [docker socket host](features/cucumber/features/docker/docker.socket.host.feature) | Print docker socket host ip address
-tau [docker socket scheme](features/cucumber/features/docker/docker.socket.scheme.feature) | Print docker socket scheme
-tau [docker socket start](features/cucumber/features/docker/docker.socket.start.feature) | Start sockets for docker container
-tau [docker socket stop](features/cucumber/features/docker/docker.socket.stop.feature) | Stop sockets for docker container
 tau [git check clean](features/cucumber/features/git/git.check.clean.feature) | Check if the git workspace is clean
 tau [git check main](features/cucumber/features/git/git.check.main.feature) | Check if we are on the git main branch
 tau [git check workspace](features/cucumber/features/git/git.check.workspace.feature) | Check if a git workspace exists
@@ -109,7 +105,7 @@ tau [info status mutagen](features/cucumber/features/info/info.status.mutagen.fe
 tau [info status ssh](features/cucumber/features/info/info.status.ssh.feature) | Check ssh status
 tau [mutagen check daemon](features/cucumber/features/mutagen/mutagen.check.daemon.feature)) | Check if mutagen host conenction is available
 tau [mutagen socket check](features/cucumber/features/mutagen/mutagen.socket.check.feature) [SOCKET] | Check if mutagen [SOCKET] exists
-tau [mutagen socket create](features/cucumber/features/mutagen/mutagen.socket.create.feature) [IN] [OUT] | Create a mutagen socket from [IN] to [OUT] of the container
+tau [mutagen socket create](features/cucumber/features/mutagen/mutagen.socket.create.feature) [NAME] [IN] [OUT] | Create a mutagen socket [NAME] from [IN] to [OUT] of the container
 tau [mutagen socket list](features/cucumber/features/mutagen/mutagen.socket.list.feature) | List mutagen sockets
 tau [mutagen socket tidy](features/cucumber/features/mutagen/mutagen.socket.tidy.feature) | Remove mutagen daemon files
 tau [mutagen socket terminate](features/cucumber/features/mutagen/mutagen.socket.terminate.feature) | Terminate a mutagen socket

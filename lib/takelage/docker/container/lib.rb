@@ -6,6 +6,15 @@
 module DockerContainerLib
   private
 
+  # Create mutagen sockets
+  def _docker_container_lib_start_sockets
+    return false unless mutagen_check_daemon
+
+    mutagen_socket_create @mutagensock, @mutagensock
+    mutagen_socket_create @gpgsock, @@gpgsock
+    mutagen_socket_create @sshsock, @sshsock
+  end
+
   # Create unique docker hostname
   def _docker_container_lib_hostname
     relative_name = "#{@docker_repo}_#{File.basename(@workdir)}"

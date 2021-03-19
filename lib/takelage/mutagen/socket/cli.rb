@@ -11,9 +11,6 @@ module Takelage
     include DockerContainerCheckNetwork
     include DockerContainerCommand
     include DockerContainerLib
-    include DockerSocketLib
-    include DockerSocketScheme
-    include DockerSocketStart
     include DockerImageTagLatest
     include DockerImageTagList
     include DockerImageTagCheck
@@ -36,7 +33,7 @@ module Takelage
       inside = _docker_container_lib_check_matrjoschka
       @hostname = inside ? ENV['HOSTNAME'] : _docker_container_lib_hostname
       # See DockerContainerLib::_docker_container_lib_hostname
-      @socketname = @hostname[-11..-1]
+      @socketbasename = @hostname[-11..-1]
 
       @hostlabel = "hostname=#{@hostname}"
       @takellabel = config.active['mutagen_socket_takelage_label']
@@ -59,13 +56,13 @@ module Takelage
     #
     # mutagen socket create
     #
-    desc 'create [IN] [OUT]', 'Create a mutagen socket from [IN] to [OUT] of the container'
+    desc 'create [NAME] [IN] [OUT]', 'Create a mutagen socket [NAME] from [IN] to [OUT] of the container'
     long_desc <<-LONGDESC.gsub("\n", "\x5")
-    Create a mutagen socket from [IN] to [OUT] of the container
+    Create a mutagen socket [NAME] from [IN] to [OUT] of the container
     LONGDESC
-    # Create a mutagen socket from [IN] to [OUT] of the container.
-    def create(containersock, hostsock)
-      exit mutagen_socket_create containersock, hostsock
+    # Create a mutagen socket [NAME] from [IN] to [OUT] of the container.
+    def create(name, containersock, hostsock)
+      exit mutagen_socket_create name, containersock, hostsock
     end
 
     #

@@ -3,31 +3,34 @@
 # takelage mutagen socket create
 module MutagenSocketCreate
   # Backend method for mutagen socket create.
-  def mutagen_socket_create(containersock, hostsock)
-    log.debug "Create the mutagen socket \"#{@socketname}\" in the container" \
+  # rubocop:disable Metrics/MethodLength
+  def mutagen_socket_create(name, containersock, hostsock)
+    socketname = "#{@socketbasename}-#{name}"
+    log.debug "Create the mutagen socket \"#{socketname}\" in the container" \
       "at \"#{containersock}\" pointing to the host at \"#{hostsock}\""
 
     return false unless mutagen_check_daemon
 
-    socket_created = _mutagen_socket_create_socket(containersock, hostsock)
+    socket_created = _mutagen_socket_create_socket(socketname, containersock, hostsock)
 
     unless socket_created.include? 'Created session'
-      log.debug "Unable to create mutagen socket \"#{@socketname}\""
+      log.debug "Unable to create mutagen socket \"#{socketname}\""
       return false
     end
 
-    log.debug "Created the mutagen socket \"#{@socketname}\""
+    log.debug "Created the mutagen socket \"#{socketname}\""
     true
   end
+  # rubocop:enable Metrics/MethodLength
 
   private
 
   # Get git branch.
   # rubocop:disable Metrics/MethodLength
-  def _mutagen_socket_create_socket(containersock, hostsock)
+  def _mutagen_socket_create_socket(socketname, containersock, hostsock)
     cmd_create_socket = format(
       config.active['cmd_mutagen_forward_socket_create'],
-      socketname: @socketname,
+      socketname: socketname,
       containersock: containersock,
       hostsock: hostsock,
       username: @username,

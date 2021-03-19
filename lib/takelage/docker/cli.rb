@@ -11,8 +11,5 @@ module Takelage
 
     desc 'image [COMMAND]', 'Handle docker images'
     subcommand 'image', DockerImage
-
-    desc 'socket [COMMAND]', 'Handle sockets for docker containers'
-    subcommand 'socket', DockerSocket
   end
 end

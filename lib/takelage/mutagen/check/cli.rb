@@ -11,9 +11,6 @@ module Takelage
     include DockerContainerCheckNetwork
     include DockerContainerCommand
     include DockerContainerLib
-    include DockerSocketLib
-    include DockerSocketScheme
-    include DockerSocketStart
     include MutagenCheckDaemon
 
     # Initialize mutagen check
