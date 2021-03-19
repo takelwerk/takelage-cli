@@ -106,7 +106,9 @@ tau [info status bar](features/cucumber/features/info/info.status.bar.feature) |
 tau [info status git](features/cucumber/features/info/info.status.git.feature) | Check git status
 tau [info status gopass](features/cucumber/features/info/info.status.gopass.feature) | Check gopass status
 tau [info status gpg](features/cucumber/features/info/info.status.gpg.feature) | Check gpg status
+tau [info status mutagen](features/cucumber/features/info/info.status.mutagen.feature) | Check mutagen status
 tau [info status ssh](features/cucumber/features/info/info.status.ssh.feature) | Check ssh status
+tau [mutagen check daemon](features/cucumber/features/mutagen/mutagen.check.daemon.feature)) | Check if mutagen host conenction is available
 tau [mutagen socket check](features/cucumber/features/mutagen/mutagen.socket.check.feature) [SOCKET] | Check if mutagen [SOCKET] exists
 tau [mutagen socket create](features/cucumber/features/mutagen/mutagen.socket.create.feature) [IN] [OUT] | Create a mutagen socket from [IN] to [OUT] of the container
 tau [mutagen socket list](features/cucumber/features/mutagen/mutagen.socket.list.feature) | List mutagen sockets
