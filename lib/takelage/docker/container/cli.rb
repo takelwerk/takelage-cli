@@ -24,6 +24,7 @@ module Takelage
     include DockerSocketHost
     include DockerSocketScheme
     include DockerSocketStart
+    include MutagenCheckDaemon
     include MutagenSocketCreate
     include MutagenSocketTerminate
 
