@@ -9,7 +9,7 @@ Feature: I can check if mutagen is available
       """
       ---
       mutagen_socket_path: .
-      cmd_mutagen_check_daemon_host_connection: $(exit 0)
+      cmd_mutagen_check_daemon_host_connection: 'echo Status: Forwarding connections'
       """
     And I get the active takelage config
     When I run `env TAKELAGE_PROJECT_BASE_DIR=. tau-cli info status mutagen`
@@ -20,7 +20,7 @@ Feature: I can check if mutagen is available
       """
       ---
       mutagen_socket_path: nonexisting
-      cmd_mutagen_check_daemon_host_connection: $(exit 0)
+      cmd_mutagen_check_daemon_host_connection: 'echo Status: Forwarding connections'
       """
     And I get the active takelage config
     When I run `env TAKELAGE_PROJECT_BASE_DIR=. tau-cli info status mutagen`

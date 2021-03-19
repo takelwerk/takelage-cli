@@ -9,7 +9,7 @@ Feature: I can list mutagen takelage sockets
       """
       ---
       mutagen_socket_path: .
-      cmd_mutagen_check_daemon_host_connection: $(exit 0)
+      cmd_mutagen_check_daemon_host_connection: 'echo Status: Forwarding connections'
       cmd_mutagen_forward_socket_list: echo bosek-sonax
       """
     And I get the active takelage config
@@ -21,7 +21,7 @@ Feature: I can list mutagen takelage sockets
       """
       ---
       mutagen_socket_path: .
-      cmd_mutagen_check_daemon_host_connection: $(exit 0)
+      cmd_mutagen_check_daemon_host_connection: 'echo Status: Forwarding connections'
       cmd_mutagen_forward_socket_list:
       """
     And I get the active takelage config
