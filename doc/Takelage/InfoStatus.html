@@ -93,7 +93,7 @@
   
   <dl>
       <dt>Includes:</dt>
-      <dd><span class='object_link'><a href="../ConfigModule.html" title="ConfigModule (module)">ConfigModule</a></span>, <span class='object_link'><a href="../DockerSocketScheme.html" title="DockerSocketScheme (module)">DockerSocketScheme</a></span>, <span class='object_link'><a href="../GitCheckWorkspace.html" title="GitCheckWorkspace (module)">GitCheckWorkspace</a></span>, <span class='object_link'><a href="../InfoStatusBar.html" title="InfoStatusBar (module)">InfoStatusBar</a></span>, <span class='object_link'><a href="../InfoStatusGPG.html" title="InfoStatusGPG (module)">InfoStatusGPG</a></span>, <span class='object_link'><a href="../InfoStatusGit.html" title="InfoStatusGit (module)">InfoStatusGit</a></span>, <span class='object_link'><a href="../InfoStatusGopass.html" title="InfoStatusGopass (module)">InfoStatusGopass</a></span>, <span class='object_link'><a href="../InfoStatusLib.html" title="InfoStatusLib (module)">InfoStatusLib</a></span>, <span class='object_link'><a href="../InfoStatusSSH.html" title="InfoStatusSSH (module)">InfoStatusSSH</a></span>, <span class='object_link'><a href="../LoggingModule.html" title="LoggingModule (module)">LoggingModule</a></span>, <span class='object_link'><a href="../SystemModule.html" title="SystemModule (module)">SystemModule</a></span></dd>
+      <dd><span class='object_link'><a href="../ConfigModule.html" title="ConfigModule (module)">ConfigModule</a></span>, <span class='object_link'><a href="../DockerCheckDaemon.html" title="DockerCheckDaemon (module)">DockerCheckDaemon</a></span>, <span class='object_link'><a href="../DockerCheckSocat.html" title="DockerCheckSocat (module)">DockerCheckSocat</a></span>, <span class='object_link'><a href="../DockerContainerCheckExisting.html" title="DockerContainerCheckExisting (module)">DockerContainerCheckExisting</a></span>, <span class='object_link'><a href="../DockerContainerCheckNetwork.html" title="DockerContainerCheckNetwork (module)">DockerContainerCheckNetwork</a></span>, <span class='object_link'><a href="../DockerContainerCommand.html" title="DockerContainerCommand (module)">DockerContainerCommand</a></span>, <span class='object_link'><a href="../DockerContainerLib.html" title="DockerContainerLib (module)">DockerContainerLib</a></span>, <span class='object_link'><a href="../DockerSocketLib.html" title="DockerSocketLib (module)">DockerSocketLib</a></span>, <span class='object_link'><a href="../DockerSocketScheme.html" title="DockerSocketScheme (module)">DockerSocketScheme</a></span>, <span class='object_link'><a href="../DockerSocketStart.html" title="DockerSocketStart (module)">DockerSocketStart</a></span>, <span class='object_link'><a href="../GitCheckWorkspace.html" title="GitCheckWorkspace (module)">GitCheckWorkspace</a></span>, <span class='object_link'><a href="../InfoStatusBar.html" title="InfoStatusBar (module)">InfoStatusBar</a></span>, <span class='object_link'><a href="../InfoStatusGPG.html" title="InfoStatusGPG (module)">InfoStatusGPG</a></span>, <span class='object_link'><a href="../InfoStatusGit.html" title="InfoStatusGit (module)">InfoStatusGit</a></span>, <span class='object_link'><a href="../InfoStatusGopass.html" title="InfoStatusGopass (module)">InfoStatusGopass</a></span>, <span class='object_link'><a href="../InfoStatusLib.html" title="InfoStatusLib (module)">InfoStatusLib</a></span>, <span class='object_link'><a href="../InfoStatusSSH.html" title="InfoStatusSSH (module)">InfoStatusSSH</a></span>, <span class='object_link'><a href="../LoggingModule.html" title="LoggingModule (module)">LoggingModule</a></span>, <span class='object_link'><a href="../MutagenCheckDaemon.html" title="MutagenCheckDaemon (module)">MutagenCheckDaemon</a></span>, <span class='object_link'><a href="../SystemModule.html" title="SystemModule (module)">SystemModule</a></span></dd>
   </dl>
   
   
@@ -233,6 +233,56 @@
         <li class="public ">
   <span class="summary_signature">
     
+      <a href="#initialize-instance_method" title="#initialize (instance method)">#<strong>initialize</strong>(args = [], local_options = {}, configuration = {})  &#x21d2; InfoStatus </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title constructor">constructor</span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Initialize info status.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#mutagen-instance_method" title="#mutagen (instance method)">#<strong>mutagen</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Check mutagen status info.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#ssh-instance_method" title="#ssh (instance method)">#<strong>ssh</strong>  &#x21d2; Object </a>
     
 
@@ -257,6 +307,17 @@
     </ul>
   
 
+
+  
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods included from <span class='object_link'><a href="../MutagenCheckDaemon.html" title="MutagenCheckDaemon (module)">MutagenCheckDaemon</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="../MutagenCheckDaemon.html#mutagen_check_daemon-instance_method" title="MutagenCheckDaemon#mutagen_check_daemon (method)">#mutagen_check_daemon</a></span></p>
 
   
   
@@ -338,8 +399,86 @@
   
   
   
+  <h3 class="inherited">Methods included from <span class='object_link'><a href="../DockerSocketStart.html" title="DockerSocketStart (module)">DockerSocketStart</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="../DockerSocketStart.html#docker_socket_start-instance_method" title="DockerSocketStart#docker_socket_start (method)">#docker_socket_start</a></span></p>
+
+  
+  
+  
+  
+  
+  
+  
+  
   <h3 class="inherited">Methods included from <span class='object_link'><a href="../DockerSocketScheme.html" title="DockerSocketScheme (module)">DockerSocketScheme</a></span></h3>
   <p class="inherited"><span class='object_link'><a href="../DockerSocketScheme.html#docker_socket_scheme-instance_method" title="DockerSocketScheme#docker_socket_scheme (method)">#docker_socket_scheme</a></span></p>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods included from <span class='object_link'><a href="../DockerContainerCommand.html" title="DockerContainerCommand (module)">DockerContainerCommand</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="../DockerContainerCommand.html#docker_container_command-instance_method" title="DockerContainerCommand#docker_container_command (method)">#docker_container_command</a></span></p>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods included from <span class='object_link'><a href="../DockerContainerCheckNetwork.html" title="DockerContainerCheckNetwork (module)">DockerContainerCheckNetwork</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="../DockerContainerCheckNetwork.html#docker_container_check_network-instance_method" title="DockerContainerCheckNetwork#docker_container_check_network (method)">#docker_container_check_network</a></span></p>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods included from <span class='object_link'><a href="../DockerContainerCheckExisting.html" title="DockerContainerCheckExisting (module)">DockerContainerCheckExisting</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="../DockerContainerCheckExisting.html#docker_container_check_existing-instance_method" title="DockerContainerCheckExisting#docker_container_check_existing (method)">#docker_container_check_existing</a></span></p>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods included from <span class='object_link'><a href="../DockerCheckSocat.html" title="DockerCheckSocat (module)">DockerCheckSocat</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="../DockerCheckSocat.html#docker_check_socat-instance_method" title="DockerCheckSocat#docker_check_socat (method)">#docker_check_socat</a></span></p>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods included from <span class='object_link'><a href="../DockerCheckDaemon.html" title="DockerCheckDaemon (module)">DockerCheckDaemon</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="../DockerCheckDaemon.html#docker_check_daemon-instance_method" title="DockerCheckDaemon#docker_check_daemon (method)">#docker_check_daemon</a></span></p>
 
   
   
@@ -385,7 +524,62 @@
   <h3 class="inherited">Methods inherited from <span class='object_link'><a href="../SubCommandBase.html" title="SubCommandBase (class)">SubCommandBase</a></span></h3>
   <p class="inherited"><span class='object_link'><a href="../SubCommandBase.html#banner-class_method" title="SubCommandBase.banner (method)">banner</a></span>, <span class='object_link'><a href="../SubCommandBase.html#subcommand_prefix-class_method" title="SubCommandBase.subcommand_prefix (method)">subcommand_prefix</a></span></p>
 
+  <div id="constructor_details" class="method_details_list">
+  <h2>Constructor Details</h2>
   
+    <div class="method_details first">
+  <h3 class="signature first" id="initialize-instance_method">
+  
+    #<strong>initialize</strong>(args = [], local_options = {}, configuration = {})  &#x21d2; <tt><span class='object_link'><a href="" title="Takelage::InfoStatus (class)">InfoStatus</a></span></tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Initialize info status</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+28
+29
+30
+31
+32
+33
+34
+35</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/takelage/info/status/cli.rb', line 28</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_args'>args</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='id identifier rubyid_local_options'>local_options</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='id identifier rubyid_configuration'>configuration</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+  <span class='comment'># initialize thor parent class
+</span>  <span class='kw'>super</span> <span class='id identifier rubyid_args'>args</span><span class='comma'>,</span> <span class='id identifier rubyid_local_options'>local_options</span><span class='comma'>,</span> <span class='id identifier rubyid_configuration'>configuration</span>
+
+  <span class='id identifier rubyid_inside'>inside</span> <span class='op'>=</span> <span class='id identifier rubyid__docker_container_lib_check_matrjoschka'>_docker_container_lib_check_matrjoschka</span>
+  <span class='ivar'>@hostname</span> <span class='op'>=</span> <span class='id identifier rubyid_inside'>inside</span> <span class='op'>?</span> <span class='const'>ENV</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>HOSTNAME</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span> <span class='op'>:</span> <span class='id identifier rubyid__docker_container_lib_hostname'>_docker_container_lib_hostname</span>
+  <span class='ivar'>@hostlabel</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>hostname=</span><span class='embexpr_beg'>#{</span><span class='ivar'>@hostname</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+  
+</div>
+
 
   <div id="instance_method_details" class="method_details_list">
     <h2>Instance Method Details</h2>
@@ -417,12 +611,12 @@
       <pre class="lines">
 
 
-26
-27
-28</pre>
+45
+46
+47</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/takelage/info/status/cli.rb', line 26</span>
+      <pre class="code"><span class="info file"># File 'lib/takelage/info/status/cli.rb', line 45</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_bar'>bar</span>
   <span class='id identifier rubyid_say'>say</span> <span class='id identifier rubyid_info_status_bar'>info_status_bar</span>
@@ -458,12 +652,12 @@
       <pre class="lines">
 
 
-38
-39
-40</pre>
+57
+58
+59</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/takelage/info/status/cli.rb', line 38</span>
+      <pre class="code"><span class="info file"># File 'lib/takelage/info/status/cli.rb', line 57</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_git'>git</span>
   <span class='id identifier rubyid_exit'>exit</span> <span class='id identifier rubyid_info_status_git'>info_status_git</span>
@@ -499,12 +693,12 @@
       <pre class="lines">
 
 
-50
-51
-52</pre>
+69
+70
+71</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/takelage/info/status/cli.rb', line 50</span>
+      <pre class="code"><span class="info file"># File 'lib/takelage/info/status/cli.rb', line 69</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_gopass'>gopass</span>
   <span class='id identifier rubyid_exit'>exit</span> <span class='id identifier rubyid_info_status_gopass'>info_status_gopass</span>
@@ -540,15 +734,56 @@
       <pre class="lines">
 
 
-62
-63
-64</pre>
+81
+82
+83</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/takelage/info/status/cli.rb', line 62</span>
+      <pre class="code"><span class="info file"># File 'lib/takelage/info/status/cli.rb', line 81</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_gpg'>gpg</span>
   <span class='id identifier rubyid_exit'>exit</span> <span class='id identifier rubyid_info_status_gpg'>info_status_gpg</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="mutagen-instance_method">
+  
+    #<strong>mutagen</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Check mutagen status info.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+93
+94
+95</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/takelage/info/status/cli.rb', line 93</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_mutagen'>mutagen</span>
+  <span class='id identifier rubyid_exit'>exit</span> <span class='id identifier rubyid_mutagen_check_daemon'>mutagen_check_daemon</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -581,12 +816,12 @@
       <pre class="lines">
 
 
-74
-75
-76</pre>
+105
+106
+107</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/takelage/info/status/cli.rb', line 74</span>
+      <pre class="code"><span class="info file"># File 'lib/takelage/info/status/cli.rb', line 105</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_ssh'>ssh</span>
   <span class='id identifier rubyid_exit'>exit</span> <span class='id identifier rubyid_info_status_ssh'>info_status_ssh</span>
