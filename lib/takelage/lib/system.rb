@@ -5,8 +5,8 @@ require 'open3'
 require 'yaml'
 
 # Interaction with the operating system
+# rubocop:disable Metrics/ModuleLength
 module SystemModule
-
   # Check if a command is available
   # @return [Boolean] is the command available?
   def command_available?(command)
@@ -150,3 +150,4 @@ module SystemModule
     true
   end
 end
+# rubocop:enable Metrics/ModuleLength

@@ -4,6 +4,7 @@
 module DockerCheckDaemon
   # Backend method for docker check daemon.
   # @return [Boolean] is the docker daemon running?
+  # rubocop:disable Metrics/MethodLength
   def docker_check_daemon
     return true if @docker_daemon_running
 
@@ -22,4 +23,5 @@ module DockerCheckDaemon
     @docker_daemon_running = true
     true
   end
+  # rubocop:enable Metrics/MethodLength
 end
