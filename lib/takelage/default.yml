@@ -66,6 +66,7 @@ cmd_info_status_gopass_root_store: 'gopass config | grep "path" | cut -d " " -f 
 cmd_info_status_gpg_agent: 'gpg-connect-agent /bye'
 cmd_info_status_gpg_keys: 'gpg --list-keys'
 cmd_info_status_ssh_keys: 'ssh-add -l'
+cmd_mutagen_check_daemon_host_connection: 'mutagen forward list --label-selector="%{hostlabel}"'
 cmd_mutagen_forward_socket_create: 'mutagen forward create --name=%{socketname} --label=%{hostlabel} --label=%{takellabel} docker://%{username}@%{container}:unix:%{containersock} unix:%{hostsock}'
 cmd_mutagen_forward_socket_check: 'mutagen forward list %{socketname}'
 cmd_mutagen_forward_socket_terminate: 'mutagen forward terminate %{socketname}'

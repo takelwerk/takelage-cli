@@ -20,7 +20,7 @@ module Takelage
     include MutagenSocketList
     include MutagenSocketTerminate
 
-    # Initialize mtagen socket
+    # Initialize mutagen socket
     def initialize(args = [], local_options = {}, configuration = {})
       # initialize thor parent class
       super args, local_options, configuration

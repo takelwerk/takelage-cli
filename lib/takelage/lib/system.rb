@@ -85,7 +85,7 @@ module SystemModule
 
   # Check if file exists.
   def _file_exists?(file)
-    unless File.exist? file
+    unless File.exist? File.expand_path(file)
       log.debug "File \"#{file}\" doesn't exist"
       return false
     end
@@ -95,7 +95,7 @@ module SystemModule
   # Read yaml file.
   def _file_read(file)
     begin
-      @content_file = File.read file
+      @content_file = File.read File.expand_path(file)
     rescue SystemCallError
       log.debug "Unable to read file \"#{file}\""
       return false

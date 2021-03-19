@@ -6,7 +6,15 @@ module Takelage
     include LoggingModule
     include SystemModule
     include ConfigModule
+    include DockerCheckDaemon
+    include DockerCheckSocat
+    include DockerContainerCheckExisting
+    include DockerContainerCheckNetwork
+    include DockerContainerCommand
+    include DockerContainerLib
+    include DockerSocketLib
     include DockerSocketScheme
+    include DockerSocketStart
     include GitCheckWorkspace
     include InfoStatusLib
     include InfoStatusGit
@@ -14,6 +22,17 @@ module Takelage
     include InfoStatusGPG
     include InfoStatusSSH
     include InfoStatusBar
+    include MutagenCheckDaemon
+
+    # Initialize info status
+    def initialize(args = [], local_options = {}, configuration = {})
+      # initialize thor parent class
+      super args, local_options, configuration
+
+      inside = _docker_container_lib_check_matrjoschka
+      @hostname = inside ? ENV['HOSTNAME'] : _docker_container_lib_hostname
+      @hostlabel = "hostname=#{@hostname}"
+    end
 
     #
     # info status bar
@@ -61,6 +80,18 @@ module Takelage
     # Check gpg status info.
     def gpg
       exit info_status_gpg
+    end
+
+    #
+    # info status mutagen
+    #
+    desc 'mutagen', 'Check mutagen status info'
+    long_desc <<-LONGDESC.gsub("\n", "\x5")
+    Check mutagen status info
+    LONGDESC
+    # Check mutagen status info.
+    def mutagen
+      exit mutagen_check_daemon
     end
 
     #
