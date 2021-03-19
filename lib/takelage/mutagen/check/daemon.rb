@@ -9,28 +9,30 @@ module MutagenCheckDaemon
   def mutagen_check_daemon
     log.debug 'Check mutagen status'
 
+    return false unless command_available? 'mutagen'
+
     # are we outside of a takelage container?
     unless _docker_container_lib_check_matrjoschka
       unless _mutagen_check_daemon_version
-        log.error 'mutagen is not available'
+        log.error 'The mutagen daemin is not available'
         return false
       end
 
-      log.debug 'mutagen is available'
+      log.debug 'The mutagen daemon is available'
       return true
     end
 
     unless _file_exists? config.active['mutagen_socket_path']
-      log.error 'mutagen socket is not available'
+      log.error 'The mutagen socket is not available'
       return false
     end
 
     unless _mutagen_check_daemon_host_connection
-      log.error 'mutagen host connection is not available'
+      log.error 'A mutagen host connection is not available'
       return false
     end
 
-    log.debug 'mutagen is available'
+    log.debug 'The mutagen daemon is available'
     true
   end
   # rubocop:enable Metrics/AbcSize

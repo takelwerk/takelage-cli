@@ -8,7 +8,7 @@ module DockerSocketStart
 
     return false unless docker_check_daemon
 
-    return false unless docker_check_socat
+    return false unless command_available? 'socat'
 
     cmds_start_socket = _docker_socket_lib_get_socket_start_commands 'start'
 

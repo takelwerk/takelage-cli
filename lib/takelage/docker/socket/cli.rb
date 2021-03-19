@@ -7,7 +7,6 @@ module Takelage
     include SystemModule
     include ConfigModule
     include DockerCheckDaemon
-    include DockerCheckSocat
     include DockerSocketLib
     include DockerSocketHost
     include DockerSocketScheme

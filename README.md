@@ -78,7 +78,6 @@ tau [bit scope list](features/cucumber/features/bit/bit.scope.list.feature) | Li
 tau [bit scope new](features/cucumber/features/bit/bit.scope.new.feature) [SCOPE] | Init a new bit [SCOPE]
 tau [completion bash](features/cucumber/features/completion/completion.bash.feature) | Print bash completion code
 tau [docker check daemon](features/cucumber/features/docker/docker.check.daemon.feature) | Check if docker daemon is running
-tau [docker check socat](features/cucumber/features/docker/docker.check.socat.feature) | Check if socat command is available
 tau [docker container check existing](features/cucumber/features/docker/docker.container.check.existing.feature) [CONTAINER] | Check if docker [CONTAINER] is existing
 tau [docker container check network](features/cucumber/features/docker/docker.container.check.network.feature) [NETWORK] | Check if docker [NETWORK] is existing
 tau [docker container check orphaned](features/cucumber/features/docker/docker.container.check.orphaned.feature) [CONTAINER] | Check if docker [CONTAINER] is orphaned

@@ -27,7 +27,7 @@ Feature: I can check if mutagen is available
     Then the exit status should be 1
     And the output should contain:
       """
-      [ERROR] mutagen socket is not available
+      [ERROR] The mutagen socket is not available
       """
 
   Scenario: Check that the mutagen host connection is available in a container
@@ -42,7 +42,7 @@ Feature: I can check if mutagen is available
     Then the exit status should be 1
     And the output should contain:
       """
-      [ERROR] mutagen host connection is not available
+      [ERROR] A mutagen host connection is not available
       """
 
   Scenario: Check that mutagen is available on the host
@@ -66,5 +66,5 @@ Feature: I can check if mutagen is available
     Then the exit status should be 1
     And the output should contain:
       """
-      [ERROR] mutagen is not available
+      [ERROR] The mutagen daemon is not available
       """

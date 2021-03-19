@@ -8,7 +8,7 @@ module DockerSocketStop
 
     return false unless docker_check_daemon
 
-    return false unless docker_check_socat
+    return false unless command_available? 'socat'
 
     # get process list
     # assuming format: "pid command"

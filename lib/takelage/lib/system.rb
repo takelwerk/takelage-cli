@@ -6,6 +6,25 @@ require 'yaml'
 
 # Interaction with the operating system
 module SystemModule
+
+  # Check if a command is available
+  # @return [Boolean] is the command available?
+  def command_available?(command)
+    return true if instance_variable_get("@command_available_#{command}")
+
+    log.debug "Check if the command \"#{command}\" is available"
+
+    status = try "which #{command}"
+
+    unless status.exitstatus.zero?
+      log.debug "The command \"#{command}\" is not available"
+      return false
+    end
+
+    log.debug "The command \"#{command}\" is available"
+    instance_variable_set("@command_available_#{command}", true)
+  end
+
   # Convert hash to yaml.
   # @return [String] yaml of hash
   def hash_to_yaml(hash)
