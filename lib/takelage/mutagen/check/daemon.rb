@@ -14,7 +14,7 @@ module MutagenCheckDaemon
     # are we outside of a takelage container?
     unless _docker_container_lib_check_matrjoschka
       unless _mutagen_check_daemon_version
-        log.error 'The mutagen daemin is not available'
+        log.error 'The mutagen daemon is not available'
         return false
       end
 
