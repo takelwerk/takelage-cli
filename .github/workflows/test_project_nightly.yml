@@ -18,7 +18,7 @@ jobs:
           sudo apt-get install --yes socat
           wget -O /tmp/mutagen.tar.gz https://github.com/mutagen-io/mutagen/releases/download/v0.11.8/mutagen_linux_amd64_v0.11.8.tar.gz
           tar xvfz /tmp/mutagen.tar.gz
-          sudo mv /tmp/mutagen
+          sudo mv /tmp/mutagen /usr/local/bin/mutagen
           sudo chmod a+x /usr/local/bin/mutagen
 
       - name: Configure gnupg and ssh on the host
