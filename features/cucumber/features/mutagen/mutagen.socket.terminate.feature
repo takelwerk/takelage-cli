@@ -8,6 +8,8 @@ Feature: I can terminate a mutagen takelage socket
     Given a file named "~/.takelage.yml" with:
       """
       ---
+      mutagen_socket_path: .
+      cmd_mutagen_check_daemon_host_connection: $(exit 0)
       cmd_mutagen_forward_socket_terminate: $(exit 0)
       cmd_mutagen_forward_socket_remove:
       """
@@ -19,6 +21,8 @@ Feature: I can terminate a mutagen takelage socket
     Given a file named "~/.takelage.yml" with:
       """
       ---
+      mutagen_socket_path: .
+      cmd_mutagen_check_daemon_host_connection: $(exit 0)
       cmd_mutagen_forward_socket_terminate: $(exit 1)
       """
     And I get the active takelage config

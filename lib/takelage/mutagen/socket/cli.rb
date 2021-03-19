@@ -15,9 +15,14 @@ module Takelage
     include DockerSocketLib
     include DockerSocketScheme
     include DockerSocketStart
+    include DockerImageTagLatest
+    include DockerImageTagList
+    include DockerImageTagCheck
+    include MutagenCheckDaemon
     include MutagenSocketCheck
     include MutagenSocketCreate
     include MutagenSocketList
+    include MutagenSocketTidy
     include MutagenSocketTerminate
 
     # Initialize mutagen socket
@@ -89,6 +94,18 @@ module Takelage
     # Terminate a mutagen socket.
     def terminate(socket)
       exit mutagen_socket_terminate socket
+    end
+
+    #
+    # mutagen socket tidy
+    #
+    desc 'tidy', 'Remove mutagen daemon files'
+    long_desc <<-LONGDESC.gsub("\n", "\x5")
+    Remove mutagen daemon files
+    LONGDESC
+    # Remove mutagen daemon files.
+    def tidy
+      exit mutagen_socket_tidy
     end
   end
 end

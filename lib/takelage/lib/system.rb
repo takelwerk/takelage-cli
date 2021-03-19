@@ -51,9 +51,10 @@ module SystemModule
   # @return [String] stdout of command
   def run(command)
     log.debug "Running command \"#{command}\""
-    stdout_str, stderr_str = Open3.capture3 command
+    stdout_str, stderr_str, status = Open3.capture3 command
     log.debug "Command \"#{command}\" has stdout:\n\"\"\"\n#{stdout_str}\"\"\""
     log.debug "Command \"#{command}\" has stderr:\n\"\"\"\n#{stderr_str}\"\"\""
+    log.debug "Command \"#{command}\" has exit status: \"#{status.exitstatus}\""
     stdout_str
   end
 
@@ -76,8 +77,10 @@ module SystemModule
   # @return [Boolean] success of command run
   def try(command)
     log.debug "Running command \"#{command}\""
-    _, _, status = Open3.capture3 command
-    log.debug "Command \"#{command}\" has exit status \"#{status.exitstatus}\""
+    stdout_str, stderr_str, status = Open3.capture3 command
+    log.debug "Command \"#{command}\" has stdout:\n\"\"\"\n#{stdout_str}\"\"\""
+    log.debug "Command \"#{command}\" has stderr:\n\"\"\"\n#{stderr_str}\"\"\""
+    log.debug "Command \"#{command}\" has exit status: \"#{status.exitstatus}\""
     status
   end
 

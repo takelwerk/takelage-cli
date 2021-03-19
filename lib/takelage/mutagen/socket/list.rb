@@ -7,6 +7,8 @@ module MutagenSocketList
   def mutagen_socket_list
     log.debug 'List the mutagen takelage sockets'
 
+    return false unless mutagen_check_daemon
+
     sockets = _mutagen_socket_list
 
     if sockets.to_s.empty?

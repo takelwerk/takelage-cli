@@ -7,6 +7,8 @@ module MutagenSocketCreate
     log.debug "Create the mutagen socket \"#{@socketname}\" in the container" \
       "at \"#{containersock}\" pointing to the host at \"#{hostsock}\""
 
+    return false unless mutagen_check_daemon
+
     socket_created = _mutagen_socket_create_socket(containersock, hostsock)
 
     unless socket_created.include? 'Created session'

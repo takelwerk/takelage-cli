@@ -10,9 +10,9 @@ module DockerContainerClean
 
     return false if _docker_container_clean_harakiri?
 
+    mutagen_socket_terminate "--label-selector='#{@takellabel}'"
     networks = _docker_container_clean_kill_existing_containers
     _docker_container_lib_remove_networks networks
-    mutagen_socket_terminate "--label-selector='#{@takellabel}'"
   end
 
   private

@@ -7,6 +7,8 @@ module MutagenSocketCheck
   def mutagen_socket_check(socket)
     log.debug "Check if the mutagen socket \"#{socket}\" exists"
 
+    return false unless mutagen_check_daemon
+
     socket_exists = _mutagen_socket_check_socket(socket)
 
     unless socket_exists.exitstatus.zero?
