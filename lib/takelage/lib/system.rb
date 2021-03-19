@@ -77,6 +77,19 @@ module SystemModule
     stdout_str
   end
 
+  # Run a command and return the standard output
+  # the standard error and the exit status
+  # @return [[String, String, Integer]] array of
+  # stdout, stderr, exitstatus of command
+  def run_and_capture(command)
+    log.debug "Running amd capturing command \"#{command}\""
+    stdout_str, stderr_str, status = Open3.capture3 command
+    log.debug "Command \"#{command}\" has stdout:\n\"\"\"\n#{stdout_str}\"\"\""
+    log.debug "Command \"#{command}\" has stderr:\n\"\"\"\n#{stderr_str}\"\"\""
+    log.debug "Command \"#{command}\" has exit status: \"#{status.exitstatus}\""
+    [stdout_str, stderr_str, status.exitstatus]
+  end
+
   # Use Kernel#exec to replace the ruby process with a command.
   def run_and_exit(command)
     log.debug "Running command \"#{command}\" and exiting afterwards"

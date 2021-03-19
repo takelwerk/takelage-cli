@@ -41,14 +41,28 @@ module MutagenCheckDaemon
   private
 
   # Check mutagen host connection
+  # rubocop:disable Metrics/MethodLength
   def _mutagen_check_daemon_host_connection
     check_host_connection = format(
       config.active['cmd_mutagen_check_daemon_host_connection'],
       hostlabel: @hostlabel
     )
-    host_connection = try check_host_connection
-    host_connection.exitstatus.zero?
+    stdout, _, exitstatus = run_and_capture check_host_connection
+
+    unless exitstatus.zero?
+      log.debug 'There is no mutagen forward connection to the host'
+      return false
+    end
+
+    unless stdout.include? 'Status: Forwarding connections'
+      log.debug 'The mutagen forward connection to the host ' \
+        'is not forwarding connections'
+      return false
+    end
+
+    true
   end
+  # rubocop:enable Metrics/MethodLength
 
   # Check mutagen version
   def _mutagen_check_daemon_version
