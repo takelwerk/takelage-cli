@@ -10,9 +10,7 @@ module MutagenSocketTidy
     cmd_remove = config.active['cmd_mutagen_forward_socket_remove']
     return false unless container_existing && cmd_remove.empty?
 
-    result = docker_container_command(cmd_remove)
-    log.debug result
-    unless result
+    unless docker_container_command cmd_remove
       log.error "Unable to remove the mutagen daemon files in container \"#{@hostname}\""
       return false
     end
