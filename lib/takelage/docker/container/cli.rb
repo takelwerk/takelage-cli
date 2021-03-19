@@ -39,9 +39,9 @@ module Takelage
       @hostname = _docker_container_lib_hostname
       @hostlabel = "hostname=#{@hostname}"
       @takellabel = config.active['mutagen_socket_takelage_label']
-      @socket_host = docker_socket_host
-      @sockets = docker_socket_scheme
-      @mutagensock = config.active['mutagen_socket_path']
+      @mutagensock = config.active['mutagen_socket_path_mutagen']
+      @gpgsock = config.active['mutagen_socket_path_gpg']
+      @sshsock = config.active['mutagen_socket_path_ssh']
     end
     # rubocop:enable Metrics/MethodLength
     # rubocop:enable Metrics/AbcSize
