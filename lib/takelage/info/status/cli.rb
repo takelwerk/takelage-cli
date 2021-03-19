@@ -29,6 +29,8 @@ module Takelage
       # initialize thor parent class
       super args, local_options, configuration
 
+      @workdir = Dir.getwd
+
       inside = _docker_container_lib_check_matrjoschka
       @hostname = inside ? ENV['HOSTNAME'] : _docker_container_lib_hostname
       @hostlabel = "hostname=#{@hostname}"
