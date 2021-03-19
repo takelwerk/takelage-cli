@@ -28,10 +28,15 @@ module Takelage
       @docker_repo = config.active['docker_repo']
       @username = ENV['USER'] || 'noname'
       @workdir = Dir.getwd
+
       inside = _docker_container_lib_check_matrjoschka
       @hostname = inside ? ENV['HOSTNAME'] : _docker_container_lib_hostname
+      # See DockerContainerLib::_docker_container_lib_hostname
+      @socketname = @hostname[-11..-1]
+
       @hostlabel = "hostname=#{@hostname}"
-      @takellabel = 'type=takelage-socket'
+      @takellabel = config.active['mutagen_socket_takelage_label']
+
       @sockets = docker_socket_scheme
     end
 

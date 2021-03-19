@@ -42,10 +42,10 @@ module Takelage
       @workdir = Dir.getwd
       @hostname = _docker_container_lib_hostname
       @hostlabel = "hostname=#{@hostname}"
-      @takellabel = 'type=takelage-socket'
+      @takellabel = config.active['mutagen_socket_takelage_label']
       @socket_host = docker_socket_host
       @sockets = docker_socket_scheme
-      @mutagensock = config.active['mutagen_socket']
+      @mutagensock = config.active['mutagen_socket_path']
     end
     # rubocop:enable Metrics/MethodLength
     # rubocop:enable Metrics/AbcSize
