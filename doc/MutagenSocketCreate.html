@@ -186,7 +186,9 @@
 16
 17
 18
-19</pre>
+19
+20
+21</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/takelage/mutagen/socket/create.rb', line 6</span>
@@ -194,6 +196,8 @@
 <span class='kw'>def</span> <span class='id identifier rubyid_mutagen_socket_create'>mutagen_socket_create</span><span class='lparen'>(</span><span class='id identifier rubyid_containersock'>containersock</span><span class='comma'>,</span> <span class='id identifier rubyid_hostsock'>hostsock</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_log'>log</span><span class='period'>.</span><span class='id identifier rubyid_debug'>debug</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Create the mutagen socket \&quot;</span><span class='embexpr_beg'>#{</span><span class='ivar'>@socketname</span><span class='embexpr_end'>}</span><span class='tstring_content'>\&quot; in the container</span><span class='tstring_end'>&quot;</span></span> \
     <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>at \&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_containersock'>containersock</span><span class='embexpr_end'>}</span><span class='tstring_content'>\&quot; pointing to the host at \&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_hostsock'>hostsock</span><span class='embexpr_end'>}</span><span class='tstring_content'>\&quot;</span><span class='tstring_end'>&quot;</span></span>
+
+  <span class='kw'>return</span> <span class='kw'>false</span> <span class='kw'>unless</span> <span class='id identifier rubyid_mutagen_check_daemon'>mutagen_check_daemon</span>
 
   <span class='id identifier rubyid_socket_created'>socket_created</span> <span class='op'>=</span> <span class='id identifier rubyid__mutagen_socket_create_socket'>_mutagen_socket_create_socket</span><span class='lparen'>(</span><span class='id identifier rubyid_containersock'>containersock</span><span class='comma'>,</span> <span class='id identifier rubyid_hostsock'>hostsock</span><span class='rparen'>)</span>
 

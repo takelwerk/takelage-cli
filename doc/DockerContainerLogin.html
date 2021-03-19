@@ -199,7 +199,7 @@
 
   <span class='kw'>return</span> <span class='kw'>false</span> <span class='kw'>unless</span> <span class='id identifier rubyid__docker_container_lib_create_net_and_ctr'>_docker_container_lib_create_net_and_ctr</span> <span class='ivar'>@hostname</span>
 
-  <span class='id identifier rubyid_mutagen_socket_create'>mutagen_socket_create</span> <span class='ivar'>@mutagensock</span><span class='comma'>,</span> <span class='ivar'>@mutagensock</span>
+  <span class='id identifier rubyid_mutagen_socket_create'>mutagen_socket_create</span> <span class='ivar'>@mutagensock</span><span class='comma'>,</span> <span class='ivar'>@mutagensock</span> <span class='kw'>if</span> <span class='id identifier rubyid_mutagen_check_daemon'>mutagen_check_daemon</span>
 
   <span class='id identifier rubyid_run_and_exit'>run_and_exit</span> <span class='id identifier rubyid__docker_container_login_enter_container'>_docker_container_login_enter_container</span> <span class='ivar'>@hostname</span>
 <span class='kw'>end</span></pre>

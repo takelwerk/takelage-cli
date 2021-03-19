@@ -619,16 +619,18 @@
 55
 56
 57
-58</pre>
+58
+59</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/takelage/lib/system.rb', line 52</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_run'>run</span><span class='lparen'>(</span><span class='id identifier rubyid_command'>command</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_log'>log</span><span class='period'>.</span><span class='id identifier rubyid_debug'>debug</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Running command \&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_command'>command</span><span class='embexpr_end'>}</span><span class='tstring_content'>\&quot;</span><span class='tstring_end'>&quot;</span></span>
-  <span class='id identifier rubyid_stdout_str'>stdout_str</span><span class='comma'>,</span> <span class='id identifier rubyid_stderr_str'>stderr_str</span> <span class='op'>=</span> <span class='const'>Open3</span><span class='period'>.</span><span class='id identifier rubyid_capture3'>capture3</span> <span class='id identifier rubyid_command'>command</span>
+  <span class='id identifier rubyid_stdout_str'>stdout_str</span><span class='comma'>,</span> <span class='id identifier rubyid_stderr_str'>stderr_str</span><span class='comma'>,</span> <span class='id identifier rubyid_status'>status</span> <span class='op'>=</span> <span class='const'>Open3</span><span class='period'>.</span><span class='id identifier rubyid_capture3'>capture3</span> <span class='id identifier rubyid_command'>command</span>
   <span class='id identifier rubyid_log'>log</span><span class='period'>.</span><span class='id identifier rubyid_debug'>debug</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Command \&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_command'>command</span><span class='embexpr_end'>}</span><span class='tstring_content'>\&quot; has stdout:\n\&quot;\&quot;\&quot;\n</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_stdout_str'>stdout_str</span><span class='embexpr_end'>}</span><span class='tstring_content'>\&quot;\&quot;\&quot;</span><span class='tstring_end'>&quot;</span></span>
   <span class='id identifier rubyid_log'>log</span><span class='period'>.</span><span class='id identifier rubyid_debug'>debug</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Command \&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_command'>command</span><span class='embexpr_end'>}</span><span class='tstring_content'>\&quot; has stderr:\n\&quot;\&quot;\&quot;\n</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_stderr_str'>stderr_str</span><span class='embexpr_end'>}</span><span class='tstring_content'>\&quot;\&quot;\&quot;</span><span class='tstring_end'>&quot;</span></span>
+  <span class='id identifier rubyid_log'>log</span><span class='period'>.</span><span class='id identifier rubyid_debug'>debug</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Command \&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_command'>command</span><span class='embexpr_end'>}</span><span class='tstring_content'>\&quot; has exit status: \&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_status'>status</span><span class='period'>.</span><span class='id identifier rubyid_exitstatus'>exitstatus</span><span class='embexpr_end'>}</span><span class='tstring_content'>\&quot;</span><span class='tstring_end'>&quot;</span></span>
   <span class='id identifier rubyid_stdout_str'>stdout_str</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -662,13 +664,13 @@
       <pre class="lines">
 
 
-61
 62
 63
-64</pre>
+64
+65</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/takelage/lib/system.rb', line 61</span>
+      <pre class="code"><span class="info file"># File 'lib/takelage/lib/system.rb', line 62</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_run_and_exit'>run_and_exit</span><span class='lparen'>(</span><span class='id identifier rubyid_command'>command</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_log'>log</span><span class='period'>.</span><span class='id identifier rubyid_debug'>debug</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Running command \&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_command'>command</span><span class='embexpr_end'>}</span><span class='tstring_content'>\&quot; and exiting afterwards</span><span class='tstring_end'>&quot;</span></span>
@@ -705,16 +707,16 @@
       <pre class="lines">
 
 
-67
 68
 69
 70
 71
 72
-73</pre>
+73
+74</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/takelage/lib/system.rb', line 67</span>
+      <pre class="code"><span class="info file"># File 'lib/takelage/lib/system.rb', line 68</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_run_and_fork'>run_and_fork</span><span class='lparen'>(</span><span class='id identifier rubyid_command'>command</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_log'>log</span><span class='period'>.</span><span class='id identifier rubyid_debug'>debug</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Running command \&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_command'>command</span><span class='embexpr_end'>}</span><span class='tstring_content'>\&quot; as a background process</span><span class='tstring_end'>&quot;</span></span>
@@ -772,20 +774,24 @@
       <pre class="lines">
 
 
-77
 78
 79
 80
 81
-82</pre>
+82
+83
+84
+85</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/takelage/lib/system.rb', line 77</span>
+      <pre class="code"><span class="info file"># File 'lib/takelage/lib/system.rb', line 78</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_try'>try</span><span class='lparen'>(</span><span class='id identifier rubyid_command'>command</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_log'>log</span><span class='period'>.</span><span class='id identifier rubyid_debug'>debug</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Running command \&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_command'>command</span><span class='embexpr_end'>}</span><span class='tstring_content'>\&quot;</span><span class='tstring_end'>&quot;</span></span>
-  <span class='id identifier rubyid__'>_</span><span class='comma'>,</span> <span class='id identifier rubyid__'>_</span><span class='comma'>,</span> <span class='id identifier rubyid_status'>status</span> <span class='op'>=</span> <span class='const'>Open3</span><span class='period'>.</span><span class='id identifier rubyid_capture3'>capture3</span> <span class='id identifier rubyid_command'>command</span>
-  <span class='id identifier rubyid_log'>log</span><span class='period'>.</span><span class='id identifier rubyid_debug'>debug</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Command \&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_command'>command</span><span class='embexpr_end'>}</span><span class='tstring_content'>\&quot; has exit status \&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_status'>status</span><span class='period'>.</span><span class='id identifier rubyid_exitstatus'>exitstatus</span><span class='embexpr_end'>}</span><span class='tstring_content'>\&quot;</span><span class='tstring_end'>&quot;</span></span>
+  <span class='id identifier rubyid_stdout_str'>stdout_str</span><span class='comma'>,</span> <span class='id identifier rubyid_stderr_str'>stderr_str</span><span class='comma'>,</span> <span class='id identifier rubyid_status'>status</span> <span class='op'>=</span> <span class='const'>Open3</span><span class='period'>.</span><span class='id identifier rubyid_capture3'>capture3</span> <span class='id identifier rubyid_command'>command</span>
+  <span class='id identifier rubyid_log'>log</span><span class='period'>.</span><span class='id identifier rubyid_debug'>debug</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Command \&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_command'>command</span><span class='embexpr_end'>}</span><span class='tstring_content'>\&quot; has stdout:\n\&quot;\&quot;\&quot;\n</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_stdout_str'>stdout_str</span><span class='embexpr_end'>}</span><span class='tstring_content'>\&quot;\&quot;\&quot;</span><span class='tstring_end'>&quot;</span></span>
+  <span class='id identifier rubyid_log'>log</span><span class='period'>.</span><span class='id identifier rubyid_debug'>debug</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Command \&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_command'>command</span><span class='embexpr_end'>}</span><span class='tstring_content'>\&quot; has stderr:\n\&quot;\&quot;\&quot;\n</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_stderr_str'>stderr_str</span><span class='embexpr_end'>}</span><span class='tstring_content'>\&quot;\&quot;\&quot;</span><span class='tstring_end'>&quot;</span></span>
+  <span class='id identifier rubyid_log'>log</span><span class='period'>.</span><span class='id identifier rubyid_debug'>debug</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Command \&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_command'>command</span><span class='embexpr_end'>}</span><span class='tstring_content'>\&quot; has exit status: \&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_status'>status</span><span class='period'>.</span><span class='id identifier rubyid_exitstatus'>exitstatus</span><span class='embexpr_end'>}</span><span class='tstring_content'>\&quot;</span><span class='tstring_end'>&quot;</span></span>
   <span class='id identifier rubyid_status'>status</span>
 <span class='kw'>end</span></pre>
     </td>

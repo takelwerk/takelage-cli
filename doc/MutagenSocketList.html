@@ -203,13 +203,17 @@
 16
 17
 18
-19</pre>
+19
+20
+21</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/takelage/mutagen/socket/list.rb', line 7</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_mutagen_socket_list'>mutagen_socket_list</span>
   <span class='id identifier rubyid_log'>log</span><span class='period'>.</span><span class='id identifier rubyid_debug'>debug</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>List the mutagen takelage sockets</span><span class='tstring_end'>&#39;</span></span>
+
+  <span class='kw'>return</span> <span class='kw'>false</span> <span class='kw'>unless</span> <span class='id identifier rubyid_mutagen_check_daemon'>mutagen_check_daemon</span>
 
   <span class='id identifier rubyid_sockets'>sockets</span> <span class='op'>=</span> <span class='id identifier rubyid__mutagen_socket_list'>_mutagen_socket_list</span>
 
