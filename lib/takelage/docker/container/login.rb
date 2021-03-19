@@ -12,7 +12,7 @@ module DockerContainerLogin
 
     return false unless _docker_container_lib_create_net_and_ctr @hostname
 
-    mutagen_socket_create '~/.mutagen/daemon/daemon.sock', '~/.mutagen/daemon/daemon.sock'
+    mutagen_socket_create @mutagensock, @mutagensock
 
     run_and_exit _docker_container_login_enter_container @hostname
   end

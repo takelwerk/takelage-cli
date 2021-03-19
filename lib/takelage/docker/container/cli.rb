@@ -45,6 +45,7 @@ module Takelage
       @takellabel = 'type=takelage-socket'
       @socket_host = docker_socket_host
       @sockets = docker_socket_scheme
+      @mutagensock = config.active['mutagen_socket']
     end
     # rubocop:enable Metrics/MethodLength
     # rubocop:enable Metrics/AbcSize

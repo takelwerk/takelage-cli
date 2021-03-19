@@ -11,7 +11,7 @@ module DockerContainerCommand
     docker_socket_start
     return false unless _docker_container_lib_create_net_and_ctr @hostname
 
-    mutagen_socket_create '~/.mutagen/daemon/daemon.sock', '~/.mutagen/daemon/daemon.sock'
+    mutagen_socket_create @mutagensock, @mutagensock
 
     _docker_container_command_run_command @hostname, command
   end
