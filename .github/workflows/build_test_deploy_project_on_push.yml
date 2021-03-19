@@ -16,7 +16,11 @@ jobs:
         run: 'echo -e "---\n:rubygems_api_key: ${{ secrets.RUBYGEMS_API_KEY }}" > credentials'
 
       - name: Install prerequisites
-        run: sudo apt-get install --yes socat
+        run: |
+          sudo apt-get install --yes socat
+          wget -O /tmp/z.$$ https://github.com/mutagen-io/mutagen/releases/download/v0.11.8/mutagen_linux_amd64_v0.11.8.tar.gz
+          unzip -d /usr/local/bin /tmp/z.$$
+          rm /tmp/z.$$
 
       - name: Configure gnupg and ssh on the host
         run: |

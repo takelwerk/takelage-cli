@@ -13,7 +13,11 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Install prerequisites
-        run: sudo apt-get install --yes socat
+        run: |
+          sudo apt-get install --yes socat
+          wget -O /tmp/z.$$ https://github.com/mutagen-io/mutagen/releases/download/v0.11.8/mutagen_linux_amd64_v0.11.8.tar.gz
+          unzip -d /usr/local/bin /tmp/z.$$
+          rm /tmp/z.$$
 
       - name: Configure gnupg and ssh on the host
         run: |
