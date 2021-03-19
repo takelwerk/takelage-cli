@@ -93,7 +93,7 @@
   
   <dl>
       <dt>Includes:</dt>
-      <dd><span class='object_link'><a href="../ConfigModule.html" title="ConfigModule (module)">ConfigModule</a></span>, <span class='object_link'><a href="../DockerCheckDaemon.html" title="DockerCheckDaemon (module)">DockerCheckDaemon</a></span>, <span class='object_link'><a href="../DockerCheckSocat.html" title="DockerCheckSocat (module)">DockerCheckSocat</a></span>, <span class='object_link'><a href="../LoggingModule.html" title="LoggingModule (module)">LoggingModule</a></span>, <span class='object_link'><a href="../SystemModule.html" title="SystemModule (module)">SystemModule</a></span></dd>
+      <dd><span class='object_link'><a href="../ConfigModule.html" title="ConfigModule (module)">ConfigModule</a></span>, <span class='object_link'><a href="../DockerCheckDaemon.html" title="DockerCheckDaemon (module)">DockerCheckDaemon</a></span>, <span class='object_link'><a href="../LoggingModule.html" title="LoggingModule (module)">LoggingModule</a></span>, <span class='object_link'><a href="../SystemModule.html" title="SystemModule (module)">SystemModule</a></span></dd>
   </dl>
   
   
@@ -158,44 +158,9 @@
 </li>
 
       
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#socat-instance_method" title="#socat (instance method)">#<strong>socat</strong>  &#x21d2; Object </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'>
-<p>Check if socat command is available.</p>
-</div></span>
-  
-</li>
-
-      
     </ul>
   
 
-
-  
-  
-  
-  
-  
-  
-  
-  
-  <h3 class="inherited">Methods included from <span class='object_link'><a href="../DockerCheckSocat.html" title="DockerCheckSocat (module)">DockerCheckSocat</a></span></h3>
-  <p class="inherited"><span class='object_link'><a href="../DockerCheckSocat.html#docker_check_socat-instance_method" title="DockerCheckSocat#docker_check_socat (method)">#docker_check_socat</a></span></p>
 
   
   
@@ -228,7 +193,7 @@
   
   
   <h3 class="inherited">Methods included from <span class='object_link'><a href="../SystemModule.html" title="SystemModule (module)">SystemModule</a></span></h3>
-  <p class="inherited"><span class='object_link'><a href="../SystemModule.html#hash_to_yaml-instance_method" title="SystemModule#hash_to_yaml (method)">#hash_to_yaml</a></span>, <span class='object_link'><a href="../SystemModule.html#read_yaml_erb_file-instance_method" title="SystemModule#read_yaml_erb_file (method)">#read_yaml_erb_file</a></span>, <span class='object_link'><a href="../SystemModule.html#read_yaml_file-instance_method" title="SystemModule#read_yaml_file (method)">#read_yaml_file</a></span>, <span class='object_link'><a href="../SystemModule.html#rm_fr-instance_method" title="SystemModule#rm_fr (method)">#rm_fr</a></span>, <span class='object_link'><a href="../SystemModule.html#run-instance_method" title="SystemModule#run (method)">#run</a></span>, <span class='object_link'><a href="../SystemModule.html#run_and_exit-instance_method" title="SystemModule#run_and_exit (method)">#run_and_exit</a></span>, <span class='object_link'><a href="../SystemModule.html#run_and_fork-instance_method" title="SystemModule#run_and_fork (method)">#run_and_fork</a></span>, <span class='object_link'><a href="../SystemModule.html#try-instance_method" title="SystemModule#try (method)">#try</a></span></p>
+  <p class="inherited"><span class='object_link'><a href="../SystemModule.html#command_available%3F-instance_method" title="SystemModule#command_available? (method)">#command_available?</a></span>, <span class='object_link'><a href="../SystemModule.html#hash_to_yaml-instance_method" title="SystemModule#hash_to_yaml (method)">#hash_to_yaml</a></span>, <span class='object_link'><a href="../SystemModule.html#read_yaml_erb_file-instance_method" title="SystemModule#read_yaml_erb_file (method)">#read_yaml_erb_file</a></span>, <span class='object_link'><a href="../SystemModule.html#read_yaml_file-instance_method" title="SystemModule#read_yaml_file (method)">#read_yaml_file</a></span>, <span class='object_link'><a href="../SystemModule.html#rm_fr-instance_method" title="SystemModule#rm_fr (method)">#rm_fr</a></span>, <span class='object_link'><a href="../SystemModule.html#run-instance_method" title="SystemModule#run (method)">#run</a></span>, <span class='object_link'><a href="../SystemModule.html#run_and_exit-instance_method" title="SystemModule#run_and_exit (method)">#run_and_exit</a></span>, <span class='object_link'><a href="../SystemModule.html#run_and_fork-instance_method" title="SystemModule#run_and_fork (method)">#run_and_fork</a></span>, <span class='object_link'><a href="../SystemModule.html#try-instance_method" title="SystemModule#try (method)">#try</a></span></p>
 
   
   
@@ -284,56 +249,15 @@
       <pre class="lines">
 
 
+19
 20
-21
-22</pre>
+21</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/takelage/docker/check/cli.rb', line 20</span>
+      <pre class="code"><span class="info file"># File 'lib/takelage/docker/check/cli.rb', line 19</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_daemon'>daemon</span>
   <span class='id identifier rubyid_exit'>exit</span> <span class='id identifier rubyid_docker_check_daemon'>docker_check_daemon</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="socat-instance_method">
-  
-    #<strong>socat</strong>  &#x21d2; <tt>Object</tt> 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    
-<p>Check if socat command is available.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-32
-33
-34</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/takelage/docker/check/cli.rb', line 32</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_socat'>socat</span>
-  <span class='id identifier rubyid_exit'>exit</span> <span class='id identifier rubyid_docker_check_socat'>docker_check_socat</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>

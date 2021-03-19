@@ -572,7 +572,7 @@
   
   
   <h3 class="inherited">Methods included from <span class='object_link'><a href="../SystemModule.html" title="SystemModule (module)">SystemModule</a></span></h3>
-  <p class="inherited"><span class='object_link'><a href="../SystemModule.html#hash_to_yaml-instance_method" title="SystemModule#hash_to_yaml (method)">#hash_to_yaml</a></span>, <span class='object_link'><a href="../SystemModule.html#read_yaml_erb_file-instance_method" title="SystemModule#read_yaml_erb_file (method)">#read_yaml_erb_file</a></span>, <span class='object_link'><a href="../SystemModule.html#read_yaml_file-instance_method" title="SystemModule#read_yaml_file (method)">#read_yaml_file</a></span>, <span class='object_link'><a href="../SystemModule.html#rm_fr-instance_method" title="SystemModule#rm_fr (method)">#rm_fr</a></span>, <span class='object_link'><a href="../SystemModule.html#run-instance_method" title="SystemModule#run (method)">#run</a></span>, <span class='object_link'><a href="../SystemModule.html#run_and_exit-instance_method" title="SystemModule#run_and_exit (method)">#run_and_exit</a></span>, <span class='object_link'><a href="../SystemModule.html#run_and_fork-instance_method" title="SystemModule#run_and_fork (method)">#run_and_fork</a></span>, <span class='object_link'><a href="../SystemModule.html#try-instance_method" title="SystemModule#try (method)">#try</a></span></p>
+  <p class="inherited"><span class='object_link'><a href="../SystemModule.html#command_available%3F-instance_method" title="SystemModule#command_available? (method)">#command_available?</a></span>, <span class='object_link'><a href="../SystemModule.html#hash_to_yaml-instance_method" title="SystemModule#hash_to_yaml (method)">#hash_to_yaml</a></span>, <span class='object_link'><a href="../SystemModule.html#read_yaml_erb_file-instance_method" title="SystemModule#read_yaml_erb_file (method)">#read_yaml_erb_file</a></span>, <span class='object_link'><a href="../SystemModule.html#read_yaml_file-instance_method" title="SystemModule#read_yaml_file (method)">#read_yaml_file</a></span>, <span class='object_link'><a href="../SystemModule.html#rm_fr-instance_method" title="SystemModule#rm_fr (method)">#rm_fr</a></span>, <span class='object_link'><a href="../SystemModule.html#run-instance_method" title="SystemModule#run (method)">#run</a></span>, <span class='object_link'><a href="../SystemModule.html#run_and_exit-instance_method" title="SystemModule#run_and_exit (method)">#run_and_exit</a></span>, <span class='object_link'><a href="../SystemModule.html#run_and_fork-instance_method" title="SystemModule#run_and_fork (method)">#run_and_fork</a></span>, <span class='object_link'><a href="../SystemModule.html#try-instance_method" title="SystemModule#try (method)">#try</a></span></p>
 
   
   
@@ -614,6 +614,7 @@
       <pre class="lines">
 
 
+114
 115
 116
 117
@@ -632,11 +633,10 @@
 130
 131
 132
-133
-134</pre>
+133</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/takelage.rb', line 115</span>
+      <pre class="code"><span class="info file"># File 'lib/takelage.rb', line 114</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_args'>args</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='id identifier rubyid_local_options'>local_options</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='id identifier rubyid_configuration'>configuration</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='comment'># Initialize thor parent class
@@ -714,12 +714,12 @@
       <pre class="lines">
 
 
+107
 108
-109
-110</pre>
+109</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/takelage.rb', line 108</span>
+      <pre class="code"><span class="info file"># File 'lib/takelage.rb', line 107</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_bash_fylla'>bash_fylla</span>
   <span class='ivar'>@bash_fylla</span>
@@ -775,12 +775,12 @@
       <pre class="lines">
 
 
+248
 249
-250
-251</pre>
+250</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/takelage.rb', line 249</span>
+      <pre class="code"><span class="info file"># File 'lib/takelage.rb', line 248</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_exit_on_failure?'>exit_on_failure?</span>
   <span class='kw'>true</span>
@@ -822,12 +822,12 @@
       <pre class="lines">
 
 
+196
 197
-198
-199</pre>
+198</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/takelage.rb', line 197</span>
+      <pre class="code"><span class="info file"># File 'lib/takelage.rb', line 196</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_clean'>clean</span>
   <span class='const'><span class='object_link'><a href="../Takelage.html" title="Takelage (module)">Takelage</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="DockerContainer.html" title="Takelage::DockerContainer (class)">DockerContainer</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="DockerContainer.html#initialize-instance_method" title="Takelage::DockerContainer#initialize (method)">new</a></span></span><span class='period'>.</span><span class='id identifier rubyid_clean'><span class='object_link'><a href="DockerContainer.html#clean-instance_method" title="Takelage::DockerContainer#clean (method)">clean</a></span></span>
@@ -863,12 +863,12 @@
       <pre class="lines">
 
 
+166
 167
-168
-169</pre>
+168</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/takelage.rb', line 167</span>
+      <pre class="code"><span class="info file"># File 'lib/takelage.rb', line 166</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_config'>config</span>
   <span class='const'><span class='object_link'><a href="../Takelage.html" title="Takelage (module)">Takelage</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="SelfConfig.html" title="Takelage::SelfConfig (class)">SelfConfig</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='period'>.</span><span class='id identifier rubyid_active'><span class='object_link'><a href="SelfConfig.html#active-instance_method" title="Takelage::SelfConfig#active (method)">active</a></span></span>
@@ -904,12 +904,12 @@
       <pre class="lines">
 
 
+172
 173
-174
-175</pre>
+174</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/takelage.rb', line 173</span>
+      <pre class="code"><span class="info file"># File 'lib/takelage.rb', line 172</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_copy'>copy</span><span class='lparen'>(</span><span class='id identifier rubyid_dir_or_file'>dir_or_file</span><span class='comma'>,</span> <span class='id identifier rubyid_scope'>scope</span><span class='rparen'>)</span>
   <span class='const'><span class='object_link'><a href="../Takelage.html" title="Takelage (module)">Takelage</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="BitClipboard.html" title="Takelage::BitClipboard (class)">BitClipboard</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='period'>.</span><span class='id identifier rubyid_copy'><span class='object_link'><a href="BitClipboard.html#copy-instance_method" title="Takelage::BitClipboard#copy (method)">copy</a></span></span> <span class='id identifier rubyid_dir_or_file'>dir_or_file</span><span class='comma'>,</span> <span class='id identifier rubyid_scope'>scope</span>
@@ -945,12 +945,12 @@
       <pre class="lines">
 
 
+190
 191
-192
-193</pre>
+192</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/takelage.rb', line 191</span>
+      <pre class="code"><span class="info file"># File 'lib/takelage.rb', line 190</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list'>list</span>
   <span class='const'><span class='object_link'><a href="../Takelage.html" title="Takelage (module)">Takelage</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Self.html" title="Takelage::Self (class)">Self</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='period'>.</span><span class='id identifier rubyid_list'><span class='object_link'><a href="Self.html#list-instance_method" title="Takelage::Self#list (method)">list</a></span></span>
@@ -986,12 +986,12 @@
       <pre class="lines">
 
 
+184
 185
-186
-187</pre>
+186</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/takelage.rb', line 185</span>
+      <pre class="code"><span class="info file"># File 'lib/takelage.rb', line 184</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_login'>login</span>
   <span class='const'><span class='object_link'><a href="../Takelage.html" title="Takelage (module)">Takelage</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="DockerContainer.html" title="Takelage::DockerContainer (class)">DockerContainer</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="DockerContainer.html#initialize-instance_method" title="Takelage::DockerContainer#initialize (method)">new</a></span></span><span class='period'>.</span><span class='id identifier rubyid_login'><span class='object_link'><a href="DockerContainer.html#login-instance_method" title="Takelage::DockerContainer#login (method)">login</a></span></span>
@@ -1027,12 +1027,12 @@
       <pre class="lines">
 
 
+202
 203
-204
-205</pre>
+204</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/takelage.rb', line 203</span>
+      <pre class="code"><span class="info file"># File 'lib/takelage.rb', line 202</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_paste'>paste</span><span class='lparen'>(</span><span class='id identifier rubyid_cid'>cid</span><span class='comma'>,</span> <span class='id identifier rubyid_dir'>dir</span><span class='rparen'>)</span>
   <span class='const'><span class='object_link'><a href="../Takelage.html" title="Takelage (module)">Takelage</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="BitClipboard.html" title="Takelage::BitClipboard (class)">BitClipboard</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='period'>.</span><span class='id identifier rubyid_paste'><span class='object_link'><a href="BitClipboard.html#paste-instance_method" title="Takelage::BitClipboard#paste (method)">paste</a></span></span> <span class='id identifier rubyid_cid'>cid</span><span class='comma'>,</span> <span class='id identifier rubyid_dir'>dir</span>
@@ -1068,12 +1068,12 @@
       <pre class="lines">
 
 
+178
 179
-180
-181</pre>
+180</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/takelage.rb', line 179</span>
+      <pre class="code"><span class="info file"># File 'lib/takelage.rb', line 178</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_project'>project</span>
   <span class='const'><span class='object_link'><a href="../Takelage.html" title="Takelage (module)">Takelage</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="InfoProject.html" title="Takelage::InfoProject (class)">InfoProject</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='period'>.</span><span class='id identifier rubyid_active'><span class='object_link'><a href="InfoProject.html#active-instance_method" title="Takelage::InfoProject#active (method)">active</a></span></span>
@@ -1109,12 +1109,12 @@
       <pre class="lines">
 
 
+214
 215
-216
-217</pre>
+216</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/takelage.rb', line 215</span>
+      <pre class="code"><span class="info file"># File 'lib/takelage.rb', line 214</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_prune'>prune</span>
   <span class='const'><span class='object_link'><a href="../Takelage.html" title="Takelage (module)">Takelage</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="DockerContainer.html" title="Takelage::DockerContainer (class)">DockerContainer</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="DockerContainer.html#initialize-instance_method" title="Takelage::DockerContainer#initialize (method)">new</a></span></span><span class='period'>.</span><span class='id identifier rubyid_prune'><span class='object_link'><a href="DockerContainer.html#prune-instance_method" title="Takelage::DockerContainer#prune (method)">prune</a></span></span>
@@ -1150,12 +1150,12 @@
       <pre class="lines">
 
 
+208
 209
-210
-211</pre>
+210</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/takelage.rb', line 209</span>
+      <pre class="code"><span class="info file"># File 'lib/takelage.rb', line 208</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_pull'>pull</span>
   <span class='const'><span class='object_link'><a href="../Takelage.html" title="Takelage (module)">Takelage</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="BitClipboard.html" title="Takelage::BitClipboard (class)">BitClipboard</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='period'>.</span><span class='id identifier rubyid_pull'><span class='object_link'><a href="BitClipboard.html#pull-instance_method" title="Takelage::BitClipboard#pull (method)">pull</a></span></span>
@@ -1191,12 +1191,12 @@
       <pre class="lines">
 
 
+220
 221
-222
-223</pre>
+222</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/takelage.rb', line 221</span>
+      <pre class="code"><span class="info file"># File 'lib/takelage.rb', line 220</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_push'>push</span>
   <span class='const'><span class='object_link'><a href="../Takelage.html" title="Takelage (module)">Takelage</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="BitClipboard.html" title="Takelage::BitClipboard (class)">BitClipboard</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='period'>.</span><span class='id identifier rubyid_push'><span class='object_link'><a href="BitClipboard.html#push-instance_method" title="Takelage::BitClipboard#push (method)">push</a></span></span>
@@ -1232,12 +1232,12 @@
       <pre class="lines">
 
 
+226
 227
-228
-229</pre>
+228</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/takelage.rb', line 227</span>
+      <pre class="code"><span class="info file"># File 'lib/takelage.rb', line 226</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_status'>status</span>
   <span class='const'><span class='object_link'><a href="../Takelage.html" title="Takelage (module)">Takelage</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="InfoStatus.html" title="Takelage::InfoStatus (class)">InfoStatus</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="InfoStatus.html#initialize-instance_method" title="Takelage::InfoStatus#initialize (method)">new</a></span></span><span class='period'>.</span><span class='id identifier rubyid_bar'><span class='object_link'><a href="InfoStatus.html#bar-instance_method" title="Takelage::InfoStatus#bar (method)">bar</a></span></span>
@@ -1273,12 +1273,12 @@
       <pre class="lines">
 
 
+232
 233
-234
-235</pre>
+234</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/takelage.rb', line 233</span>
+      <pre class="code"><span class="info file"># File 'lib/takelage.rb', line 232</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_update'>update</span>
   <span class='const'><span class='object_link'><a href="../Takelage.html" title="Takelage (module)">Takelage</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="DockerImage.html" title="Takelage::DockerImage (class)">DockerImage</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="DockerImage.html#initialize-instance_method" title="Takelage::DockerImage#initialize (method)">new</a></span></span><span class='period'>.</span><span class='id identifier rubyid_update'><span class='object_link'><a href="DockerImage.html#update-instance_method" title="Takelage::DockerImage#update (method)">update</a></span></span>
@@ -1314,12 +1314,12 @@
       <pre class="lines">
 
 
+238
 239
-240
-241</pre>
+240</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/takelage.rb', line 239</span>
+      <pre class="code"><span class="info file"># File 'lib/takelage.rb', line 238</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_version'>version</span>
   <span class='const'><span class='object_link'><a href="../Takelage.html" title="Takelage (module)">Takelage</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Self.html" title="Takelage::Self (class)">Self</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='period'>.</span><span class='id identifier rubyid_version'><span class='object_link'><a href="Self.html#version-instance_method" title="Takelage::Self#version (method)">version</a></span></span>
