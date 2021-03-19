@@ -9,22 +9,25 @@ module MutagenCheckDaemon
   def mutagen_check_daemon
     log.debug 'Check mutagen status'
 
+    # are we outside of a takelage container?
+    unless _docker_container_lib_check_matrjoschka
+      unless _mutagen_check_daemon_version
+        log.error 'mutagen is not available'
+        return false
+      end
+
+      log.debug 'mutagen is available'
+      return true
+    end
+
     unless _file_exists? config.active['mutagen_socket_path']
       log.error 'mutagen socket is not available'
       return false
     end
 
-    # are we inside a takelage container?
-    if _docker_container_lib_check_matrjoschka
-      unless _mutagen_check_daemon_host_connection
-        log.error 'mutagen host connection is not available'
-        return false
-      end
-    else
-      unless _mutagen_check_daemon_version
-        log.error 'mutagen is not available'
-        return false
-      end
+    unless _mutagen_check_daemon_host_connection
+      log.error 'mutagen host connection is not available'
+      return false
     end
 
     log.debug 'mutagen is available'
