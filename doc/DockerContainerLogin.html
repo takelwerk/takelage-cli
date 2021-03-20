@@ -183,7 +183,9 @@
 13
 14
 15
-16</pre>
+16
+17
+18</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/takelage/docker/container/login.rb', line 6</span>
@@ -196,6 +198,8 @@
   <span class='kw'>return</span> <span class='kw'>false</span> <span class='kw'>unless</span> <span class='id identifier rubyid__docker_container_lib_create_net_and_ctr'>_docker_container_lib_create_net_and_ctr</span> <span class='ivar'>@hostname</span>
 
   <span class='id identifier rubyid__docker_container_lib_start_sockets'>_docker_container_lib_start_sockets</span>
+
+  <span class='id identifier rubyid__docker_container_wait_for_sockets'>_docker_container_wait_for_sockets</span>
 
   <span class='id identifier rubyid_run_and_exit'>run_and_exit</span> <span class='id identifier rubyid__docker_container_login_enter_container'>_docker_container_login_enter_container</span> <span class='ivar'>@hostname</span>
 <span class='kw'>end</span></pre>
