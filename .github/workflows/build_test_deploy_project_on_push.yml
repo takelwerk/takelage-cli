@@ -23,9 +23,9 @@ jobs:
       - name: Configure gnupg and ssh on the host
         run: |
           mkdir --parents $HOME/.ssh
-          echo "AddKeysToAgent yes" > $HOME/.ssh/config
+          echo "AddKeysToAgent yes" >> $HOME/.ssh/config
           mkdir $HOME/.gnupg
-          echo "batch" > $HOME/.gnupg/gpg-agent.conf
+          echo "batch" >> $HOME/.gnupg/gpg-agent.conf
           echo "enable-ssh-support" >> $HOME/.gnupg/gpg-agent.conf
 
       - name: Add bitboard ssh key to agent
@@ -48,7 +48,7 @@ jobs:
 
       - name: Configure tau
         run: |
-          echo "docker_entrypoint_options: --no-git --no-gopass" > $HOME/.takelage.yml
+          echo "docker_entrypoint_options: --no-git --no-gopass" >> $HOME/.takelage.yml
           echo "docker_run_options: --cap-add=NET_ADMIN" >> $HOME/.takelage.yml
 
       - name: Configure docker daemon
