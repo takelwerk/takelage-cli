@@ -32,8 +32,6 @@ module Takelage
 
       inside = _docker_container_lib_check_matrjoschka
       @hostname = inside ? ENV['HOSTNAME'] : _docker_container_lib_hostname
-      # See DockerContainerLib::_docker_container_lib_hostname
-      @socketbasename = @hostname[-11..-1]
 
       @hostlabel = "hostname=#{@hostname}"
       @takellabel = config.active['mutagen_socket_takelage_label']

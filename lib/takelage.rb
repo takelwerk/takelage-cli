@@ -45,6 +45,7 @@ require_relative 'takelage/bit/require/cli'
 require_relative 'takelage/bit/cli'
 require_relative 'takelage/completion/cli'
 require_relative 'takelage/mutagen/check/daemon'
+require_relative 'takelage/mutagen/socket/check'
 require_relative 'takelage/mutagen/socket/create'
 require_relative 'takelage/mutagen/socket/terminate'
 require_relative 'takelage/mutagen/socket/tidy'
@@ -69,7 +70,6 @@ require_relative 'takelage/docker/container/prune'
 require_relative 'takelage/docker/container/cli'
 require_relative 'takelage/docker/cli'
 require_relative 'takelage/mutagen/check/cli'
-require_relative 'takelage/mutagen/socket/check'
 require_relative 'takelage/mutagen/socket/list'
 require_relative 'takelage/mutagen/socket/cli'
 require_relative 'takelage/mutagen/cli'
@@ -120,7 +120,9 @@ module Takelage
 
       # Set defaults
       @docker_daemon_running = false
-      @socat_command_available = false
+      @command_available_docker = false
+      @mutagen_daemon_available = false
+      @command_available_mutagen = false
 
       # fylla bash completion code
       @bash_fylla = Fylla.bash_completion self

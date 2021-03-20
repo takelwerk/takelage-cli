@@ -5,11 +5,14 @@ module MutagenSocketCreate
   # Backend method for mutagen socket create.
   # rubocop:disable Metrics/MethodLength
   def mutagen_socket_create(name, containersock, hostsock)
-    socketname = "#{@socketbasename}-#{name}"
-    log.debug "Create the mutagen socket \"#{socketname}\" in the container" \
+    # See DockerContainerLib::_docker_container_lib_hostname
+    socketname = "#{@hostname[-11..-1]}-#{name}"
+    log.debug "Create the mutagen socket \"#{socketname}\" in the container " \
       "at \"#{containersock}\" pointing to the host at \"#{hostsock}\""
 
     return false unless mutagen_check_daemon
+
+    return false if mutagen_socket_check socketname
 
     socket_created = _mutagen_socket_create_socket(socketname, containersock, hostsock)
 

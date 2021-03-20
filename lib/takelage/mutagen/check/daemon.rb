@@ -7,9 +7,11 @@ module MutagenCheckDaemon
   # rubocop:disable Metrics/MethodLength
   # rubocop:disable Metrics/AbcSize
   def mutagen_check_daemon
-    log.debug 'Check mutagen status'
+    return true if @mutagen_daemon_available
 
     return false unless command_available? 'mutagen'
+
+    log.debug 'Check mutagen status'
 
     # are we outside of a takelage container?
     unless _docker_container_lib_check_matrjoschka
@@ -19,6 +21,7 @@ module MutagenCheckDaemon
       end
 
       log.debug 'The mutagen daemon is available'
+      @mutagen_daemon_available = true
       return true
     end
 
@@ -33,6 +36,7 @@ module MutagenCheckDaemon
     end
 
     log.debug 'The mutagen daemon is available'
+    @mutagen_daemon_available = true
     true
   end
   # rubocop:enable Metrics/AbcSize

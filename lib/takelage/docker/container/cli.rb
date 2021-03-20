@@ -20,6 +20,7 @@ module Takelage
     include DockerImageTagList
     include DockerImageTagCheck
     include MutagenCheckDaemon
+    include MutagenSocketCheck
     include MutagenSocketCreate
     include MutagenSocketTerminate
 
