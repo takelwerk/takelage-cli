@@ -12,12 +12,10 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v2
 
-      - name: Install prerequisites
+      - name: Install mutagen
         run: |
           wget -O /tmp/mutagen.tar.gz https://github.com/mutagen-io/mutagen/releases/download/v0.11.8/mutagen_linux_amd64_v0.11.8.tar.gz
-          tar xvfz /tmp/mutagen.tar.gz -C /tmp
-          sudo mv /tmp/mutagen /usr/local/bin/mutagen
-          sudo chmod a+x /usr/local/bin/mutagen
+          sudo tar xvfz /tmp/mutagen.tar.gz -C /usr/local/bin
 
       - name: Configure gnupg and ssh on the host
         run: |
@@ -48,7 +46,7 @@ jobs:
       - name: Configure tau
         run: |
           echo "docker_entrypoint_options: --no-git --no-gopass" >> $HOME/.takelage.yml
-          echo "docker_run_options: --privileged" >> $HOME/.takelage.yml
+          echo "docker_run_options: --cap-add=NET_ADMIN" >> $HOME/.takelage.yml
 
       - name: Configure docker daemon
         run: |
