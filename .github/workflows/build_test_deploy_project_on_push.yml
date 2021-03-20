@@ -15,9 +15,6 @@ jobs:
       - name: Create rubygems credentials file
         run: 'echo -e "---\n:rubygems_api_key: ${{ secrets.RUBYGEMS_API_KEY }}" > credentials'
 
-      - name: Setup Debug Session
-        uses: csexton/debugger-action@master
-
       - name: Install prerequisites
         run: |
           wget -O /tmp/mutagen.tar.gz https://github.com/mutagen-io/mutagen/releases/download/v0.11.8/mutagen_linux_amd64_v0.11.8.tar.gz
@@ -27,7 +24,7 @@ jobs:
 
       - name: Configure gnupg and ssh on the host
         run: |
-          mkdir $HOME/.ssh
+          mkdir --parents $HOME/.ssh
           echo "AddKeysToAgent yes" > $HOME/.ssh/config
           mkdir $HOME/.gnupg
           echo "batch" > $HOME/.gnupg/gpg-agent.conf
@@ -39,10 +36,6 @@ jobs:
           export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
           chmod 600 features/cucumber/support/fixtures/takelage-bitboard/id_rsa.myuser
           ssh-add features/cucumber/support/fixtures/takelage-bitboard/id_rsa.myuser
-          ssh-add -l
-
-      - name: Add host.docker.internal to /etc/hosts
-        run: echo "127.0.0.1 host.docker.internal" | sudo tee --append /etc/hosts
 
       - name: Set up ruby
         uses: ruby/setup-ruby@v1.61.1
@@ -74,6 +67,9 @@ jobs:
           tau docker container command "mkdir $HOME/.gem"
           tau docker container command "mv /project/credentials $HOME/.gem/credentials"
           tau docker container command "chmod 0600 $HOME/.gem/credentials"
+
+      - name: Setup Debug Session
+        uses: csexton/debugger-action@master
 
       - name: Lint ruby
         run: tau docker container command "rake rubylint"
