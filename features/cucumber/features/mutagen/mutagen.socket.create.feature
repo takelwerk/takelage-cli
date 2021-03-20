@@ -4,23 +4,23 @@
 
 Feature: I can create a mutagen takelage socket
 
-  Scenario: Create mutagen takelage socket
+  Scenario: Create mutagen socket
     Given a file named "~/.takelage.yml" with:
       """
       ---
-      mutagen_socket_path: .
+      mutagen_socket_path_mutagen: .
       cmd_mutagen_check_daemon_host_connection: 'echo Status: Forwarding connections'
       cmd_mutagen_forward_socket_create: echo "Created session"
       """
     And I get the active takelage config
-    When I run `tau-cli mutagen socket create ~/.mutagen/daemon/daemon.sock ~/.mutagen/daemon/daemon.sock`
+    When I run `tau-cli mutagen socket create mutagen-socket ~/.mutagen/daemon/daemon.sock ~/.mutagen/daemon/daemon.sock`
     Then the exit status should be 0
 
-  Scenario: Fail to create a mutagen takelage socket
+  Scenario: Fail to create a mutagen socket
     Given a file named "~/.takelage.yml" with:
       """
       ---
-      mutagen_socket_path: .
+      mutagen_socket_path_mutagen: .
       cmd_mutagen_check_daemon_host_connection: 'echo Status: Forwarding connections'
       cmd_mutagen_forward_socket_create: $(exit 1)
       """

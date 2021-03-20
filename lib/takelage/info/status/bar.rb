@@ -15,6 +15,7 @@ module InfoStatusBar
     _info_status_bar_git
     _info_status_bar_gopass
     _info_status_bar_gpg
+    _info_status_bar_mutagen
     _info_status_bar_ssh
 
     bar = @bar_list.join(' | ')
@@ -59,6 +60,11 @@ module InfoStatusBar
     end
 
     @bar_list << ("gpg: #{info_status_gpg ? 'ok'.green : 'no'.red}")
+  end
+
+  # Add mutagen status info to bar
+  def _info_status_bar_mutagen
+    @bar_list << ("mutagen: #{mutagen_check_daemon ? 'ok'.green : 'no'.red}")
   end
 
   # Add ssh status info to bar

@@ -22,7 +22,7 @@ module MutagenCheckDaemon
       return true
     end
 
-    unless _file_exists? config.active['mutagen_socket_path']
+    unless _file_exists? config.active['mutagen_socket_path_mutagen']
       log.error 'The mutagen socket is not available'
       return false
     end

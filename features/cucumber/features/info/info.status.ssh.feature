@@ -8,7 +8,7 @@ Feature: I can check if ssh is available
     Given a file named "~/.takelage.yml" with:
       """
       ---
-      cmd_docker_socket_config_agent_ssh_socket_path: echo /tmp
+      cmd_info_status_ssh_socket: echo /tmp
       cmd_info_status_ssh_keys: $(exit 0)
       """
     And I get the active takelage config
@@ -19,7 +19,7 @@ Feature: I can check if ssh is available
     Given a file named "~/.takelage.yml" with:
       """
       ---
-      cmd_docker_socket_config_agent_ssh_socket_path: echo /tmp
+      cmd_info_status_ssh_socket: echo /tmp
       """
     And I get the active takelage config
     When I run `env SSH_AUTH_SOCK='/nonexisting' tau-cli info status ssh`
@@ -33,7 +33,7 @@ Feature: I can check if ssh is available
     Given a file named "~/.takelage.yml" with:
       """
       ---
-      cmd_docker_socket_config_agent_ssh_socket_path: echo /nonexisting
+      cmd_info_status_ssh_socket: echo /nonexisting
       """
     And I get the active takelage config
     When I run `env SSH_AUTH_SOCK='/nonexisting' tau-cli info status ssh`
@@ -47,7 +47,7 @@ Feature: I can check if ssh is available
     Given a file named "~/.takelage.yml" with:
       """
       ---
-      cmd_docker_socket_config_agent_ssh_socket_path: echo /tmp
+      cmd_info_status_ssh_socket: echo /tmp
       cmd_info_status_ssh_keys: $(exit 1)
       """
     And I get the active takelage config

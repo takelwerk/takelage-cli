@@ -9,7 +9,7 @@ module InfoStatusSSH
     log.debug 'Check ssh status'
 
     ssh_auth_sock = ENV['SSH_AUTH_SOCK']
-    gpg_ssh_socket = _info_status_ssh_socket_path
+    gpg_ssh_socket = _info_status_ssh_socket_path.chomp
 
     unless ssh_auth_sock == gpg_ssh_socket
       log.error 'ssh does not use gpg ssh socket'

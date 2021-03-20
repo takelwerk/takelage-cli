@@ -37,8 +37,6 @@ module Takelage
 
       @hostlabel = "hostname=#{@hostname}"
       @takellabel = config.active['mutagen_socket_takelage_label']
-
-      @sockets = docker_socket_scheme
     end
 
     #

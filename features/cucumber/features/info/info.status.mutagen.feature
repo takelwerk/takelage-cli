@@ -8,7 +8,7 @@ Feature: I can check if mutagen is available
     Given a file named "~/.takelage.yml" with:
       """
       ---
-      mutagen_socket_path: .
+      mutagen_socket_path_mutagen: .
       cmd_mutagen_check_daemon_host_connection: 'echo Status: Forwarding connections'
       """
     And I get the active takelage config
@@ -19,7 +19,7 @@ Feature: I can check if mutagen is available
     Given a file named "~/.takelage.yml" with:
       """
       ---
-      mutagen_socket_path: nonexisting
+      mutagen_socket_path_mutagen: nonexisting
       cmd_mutagen_check_daemon_host_connection: 'echo Status: Forwarding connections'
       """
     And I get the active takelage config
@@ -34,7 +34,7 @@ Feature: I can check if mutagen is available
     Given a file named "~/.takelage.yml" with:
       """
       ---
-      mutagen_socket_path: .
+      mutagen_socket_path_mutagen: .
       cmd_mutagen_check_daemon_host_connection: $(exit 1)
       """
     And I get the active takelage config

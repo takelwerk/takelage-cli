@@ -11,7 +11,7 @@ module DockerContainerLib
     return false unless mutagen_check_daemon
 
     mutagen_socket_create 'mutagen', @mutagensock, @mutagensock
-    mutagen_socket_create 'gpg', @gpgsock, @@gpgsock
+    mutagen_socket_create 'gpg', @gpgsock, @gpgsock
     mutagen_socket_create 'ssh', @sshsock, @sshsock
   end
 
@@ -84,10 +84,6 @@ module DockerContainerLib
 
     log.debug "Using docker image \"#{image}\""
 
-    unless @socket_host == '127.0.0.1'
-      addhost = "--add-host host.docker.internal:#{@socket_host}"
-    end
-
     docker_debug = config.active['docker_debug']
     entrypoint = '/entrypoint.py '
     volume_dev = ''
@@ -98,7 +94,6 @@ module DockerContainerLib
 
     cmd_docker_create = format(
       config.active['cmd_docker_container_create'],
-      addhost: addhost,
       container: container,
       docker_run_options: config.active['docker_run_options'],
       dockersock: '/var/run/docker.sock',
@@ -106,8 +101,6 @@ module DockerContainerLib
       entrypoint_options: config.active['docker_entrypoint_options'],
       extra: config.active['docker_entrypoint_extra'],
       gid: Etc.getpwnam(@username).gid,
-      gpg_agent_port: config.active['docker_socket_gpg_agent_port'],
-      gpg_ssh_agent_port: config.active['docker_socket_gpg_ssh_agent_port'],
       homedir: ENV['HOME'] || '/tmp',
       image: image,
       shmsize: config.active['docker_shm_size'],
