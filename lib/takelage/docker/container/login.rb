@@ -12,6 +12,8 @@ module DockerContainerLogin
 
     _docker_container_lib_start_sockets
 
+    _docker_container_wait_for_sockets
+
     run_and_exit _docker_container_login_enter_container @hostname
   end
 
@@ -30,5 +32,14 @@ module DockerContainerLogin
       loginpoint: loginpoint,
       username: @username
     )
+  end
+
+  # Wait for the sockets to come up
+  def _docker_container_wait_for_sockets
+    wait_for_sockets = config.active['login_wait_for_sockets'].to_i
+    unless wait_for_sockets.zero?
+      log.debug "Waiting for #{wait_for_sockets} #{pluralize(wait_for_sockets, 'second', 'seconds')}"
+      sleep wait_for_sockets
+    end
   end
 end

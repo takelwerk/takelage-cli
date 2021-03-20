@@ -162,5 +162,11 @@ module SystemModule
     end
     true
   end
+
+  # Pluralize a verb in relation to a number
+  def pluralize(number, singular, plural)
+    return singular if number == 1
+    plural
+  end
 end
 # rubocop:enable Metrics/ModuleLength
