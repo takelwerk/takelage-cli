@@ -8,9 +8,12 @@ module DockerContainerCommand
 
     return false unless docker_check_daemon
 
-    return false unless _docker_container_lib_create_net_and_ctr @hostname
+    # no matrjoschka test here
 
-    _docker_container_lib_start_sockets
+    unless docker_container_check_existing @hostname
+      return false unless _docker_container_lib_create_net_and_ctr @hostname
+      _docker_container_lib_start_sockets
+    end
 
     _docker_container_command_run_command @hostname, command
   end

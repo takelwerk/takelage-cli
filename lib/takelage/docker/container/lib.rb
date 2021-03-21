@@ -25,16 +25,11 @@ module DockerContainerLib
 
   # Create docker container and network.
   def _docker_container_lib_create_net_and_ctr(name)
-    if _docker_container_lib_check_matrjoschka
-      log.error 'You cannot log in to takelage from within takelage'
-      return false
-    end
+    return true if docker_container_check_existing name
 
     unless docker_container_check_network name
       _docker_container_lib_create_network name
     end
-
-    return true if docker_container_check_existing name
 
     _docker_container_lib_create_container name
   end
@@ -121,12 +116,12 @@ module DockerContainerLib
   def _docker_container_lib_check_matrjoschka
     log.debug 'Checking if we are already inside a takelage container'
 
-    return false unless ENV.keys.include? 'TAKELAGE_PROJECT_BASE_DIR'
+    unless ENV.keys.include? 'TAKELAGE_PROJECT_BASE_DIR'
+      log.debug 'We are not inside a takelage container'
+      return false
+    end
 
-    log.debug 'We are already inside a takelage container'
-
-    # wait or the github workflow will fail
-    sleep 1
+    log.debug 'We are inside a takelage container'
 
     true
   end
