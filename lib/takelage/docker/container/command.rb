@@ -12,6 +12,7 @@ module DockerContainerCommand
 
     unless docker_container_check_existing @hostname
       return false unless _docker_container_lib_create_net_and_ctr @hostname
+
       _docker_container_lib_start_sockets
     end
 
