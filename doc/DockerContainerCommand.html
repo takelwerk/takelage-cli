@@ -183,7 +183,11 @@
 13
 14
 15
-16</pre>
+16
+17
+18
+19
+20</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/takelage/docker/container/command.rb', line 6</span>
@@ -193,9 +197,13 @@
 
   <span class='kw'>return</span> <span class='kw'>false</span> <span class='kw'>unless</span> <span class='id identifier rubyid_docker_check_daemon'>docker_check_daemon</span>
 
-  <span class='kw'>return</span> <span class='kw'>false</span> <span class='kw'>unless</span> <span class='id identifier rubyid__docker_container_lib_create_net_and_ctr'>_docker_container_lib_create_net_and_ctr</span> <span class='ivar'>@hostname</span>
+  <span class='comment'># no matrjoschka test here
+</span>
+  <span class='kw'>unless</span> <span class='id identifier rubyid_docker_container_check_existing'>docker_container_check_existing</span> <span class='ivar'>@hostname</span>
+    <span class='kw'>return</span> <span class='kw'>false</span> <span class='kw'>unless</span> <span class='id identifier rubyid__docker_container_lib_create_net_and_ctr'>_docker_container_lib_create_net_and_ctr</span> <span class='ivar'>@hostname</span>
 
-  <span class='id identifier rubyid__docker_container_lib_start_sockets'>_docker_container_lib_start_sockets</span>
+    <span class='id identifier rubyid__docker_container_lib_start_sockets'>_docker_container_lib_start_sockets</span>
+  <span class='kw'>end</span>
 
   <span class='id identifier rubyid__docker_container_command_run_command'>_docker_container_command_run_command</span> <span class='ivar'>@hostname</span><span class='comma'>,</span> <span class='id identifier rubyid_command'>command</span>
 <span class='kw'>end</span></pre>
