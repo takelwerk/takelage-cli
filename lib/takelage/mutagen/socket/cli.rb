@@ -79,11 +79,11 @@ module Takelage
     #
     # mutagen socket terminate
     #
-    desc 'terminate', 'Terminate a mutagen socket'
+    desc 'terminate [SOCKET]', 'Terminate a mutagen [SOCKET]'
     long_desc <<-LONGDESC.gsub("\n", "\x5")
-    Terminate a mutagen socket
+    Terminate a mutagen [SOCKET]
     LONGDESC
-    # Terminate a mutagen socket.
+    # Terminate a mutagen [SOCKET].
     def terminate(socket)
       exit mutagen_socket_terminate socket
     end
