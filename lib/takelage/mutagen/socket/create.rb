@@ -41,7 +41,6 @@ module MutagenSocketCreate
       hostlabel: @hostlabel,
       takellabel: @takellabel,
       takelsocklabel: @takelsocklabel
-
     )
     run cmd_create_socket
   end
