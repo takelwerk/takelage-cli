@@ -35,6 +35,7 @@ module Takelage
 
       @hostlabel = "hostname=#{@hostname}"
       @takellabel = config.active['mutagen_socket_takelage_label']
+      @takelsocklabel = config.active['mutagen_socket_takelage_socket_label']
     end
 
     #
