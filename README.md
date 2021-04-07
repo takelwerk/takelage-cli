@@ -71,7 +71,7 @@ tau [bit clipboard push](features/cucumber/features/bit/bit.clipboard.push.featu
 tau [bit require export](features/cucumber/features/bit/bit.require.export.feature) | Show requirements file of bit components
 tau [bit require import](features/cucumber/features/bit/bit.require.import.feature) | Import bit components from requirements file
 tau [bit scope add](features/cucumber/features/bit/bit.scope.add.feature) [SCOPE] | Add a bit [SCOPE]
-tau [bit scope inbit](features/cucumber/features/bit/bit.scope.inbit.feature) | Log in to bit remote server
+tau [bit scope ssh](features/cucumber/features/bit/bit.scope.ssh.feature) | Log in to bit remote server
 tau [bit scope list](features/cucumber/features/bit/bit.scope.list.feature) | List bit remote scopes
 tau [bit scope new](features/cucumber/features/bit/bit.scope.new.feature) [SCOPE] | Init a new bit [SCOPE]
 tau [completion bash](features/cucumber/features/completion/completion.bash.feature) | Print bash completion code

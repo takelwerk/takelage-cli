@@ -10,7 +10,7 @@ module Takelage
     include GitCheckWorkspace
     include BitCheckWorkspace
     include BitScopeAdd
-    include BitScopeInbit
+    include BitScopeSSH
     include BitScopeList
     include BitScopeNew
 
@@ -60,15 +60,15 @@ module Takelage
     end
 
     #
-    # bit scope inbit
+    # bit scope ssh
     #
-    desc 'inbit', 'Log in to bit remote server'
+    desc 'ssh', 'Log in to bit remote server'
     long_desc <<-LONGDESC.gsub("\n", "\x5")
     Log in to bit remote server
     LONGDESC
     # Log in to bit remote server.
-    def inbit
-      exit bit_scope_inbit
+    def ssh
+      exit bit_scope_ssh
     end
   end
 end

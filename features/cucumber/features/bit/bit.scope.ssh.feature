@@ -1,6 +1,6 @@
 @bit
 @bit.scope
-@bit.scope.inbit
+@bit.scope.ssh
 
 Feature: I can log in to remote server
 
@@ -11,7 +11,7 @@ Feature: I can log in to remote server
       bit_ssh: 'ssh -F $HOME/.ssh/config -p 222 bit@bitboard-cucumber exit 123'
       """
     And I get the active takelage config
-    When I run `tau-cli bit scope inbit`
+    When I run `tau-cli bit scope ssh`
     Then the exit status should be 123
 
   Scenario: Handle absent config gracefully
@@ -21,7 +21,7 @@ Feature: I can log in to remote server
       bit_ssh:
       """
     And I get the active takelage config
-    When I run `tau-cli bit scope inbit`
+    When I run `tau-cli bit scope ssh`
     And the output should contain:
       """
       [ERROR] Unset config key. Please configure "bit_ssh"
