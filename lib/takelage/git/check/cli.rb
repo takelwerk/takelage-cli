@@ -7,8 +7,20 @@ module Takelage
     include SystemModule
     include ConfigModule
     include GitCheckClean
-    include GitCheckMain
+    include GitCheckBit
     include GitCheckWorkspace
+
+    #
+    # git check bit
+    #
+    desc 'bit', 'Check if we are on the git bit branch'
+    long_desc <<-LONGDESC.gsub("\n", "\x5")
+    Check if we are on the git bit branch
+    LONGDESC
+    # Check if we are on the git bit branch.
+    def bit
+      exit git_check_bit
+    end
 
     #
     # git check clean
@@ -20,18 +32,6 @@ module Takelage
     # Check if the git workspace is clean.
     def clean
       exit git_check_clean
-    end
-
-    #
-    # git check main
-    #
-    desc 'main', 'Check if we are on the git main branch'
-    long_desc <<-LONGDESC.gsub("\n", "\x5")
-    Check if we are on the git main branch
-    LONGDESC
-    # Check if we are on the git main branch.
-    def main
-      exit git_check_main
     end
 
     #

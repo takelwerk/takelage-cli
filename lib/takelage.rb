@@ -21,7 +21,7 @@ require_relative 'takelage/lib/config'
 require_relative 'takelage/lib/project'
 
 require_relative 'takelage/git/check/clean'
-require_relative 'takelage/git/check/main'
+require_relative 'takelage/git/check/bit'
 require_relative 'takelage/git/check/workspace'
 require_relative 'takelage/git/check/cli'
 require_relative 'takelage/git/cli'

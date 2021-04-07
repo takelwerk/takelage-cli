@@ -89,7 +89,7 @@ tau [docker image tag latest](features/cucumber/features/docker/docker.image.tag
 tau [docker image tag list](features/cucumber/features/docker/docker.image.tag.list.feature) | Print local docker image tags
 tau [docker image update](features/cucumber/features/docker/docker.image.update.feature) | Get latest remote docker container
 tau [git check clean](features/cucumber/features/git/git.check.clean.feature) | Check if the git workspace is clean
-tau [git check main](features/cucumber/features/git/git.check.main.feature) | Check if we are on the git main branch
+tau [git check bit](features/cucumber/features/git/git.check.bit.feature) | Check if we are on the git bit branch
 tau [git check workspace](features/cucumber/features/git/git.check.workspace.feature) | Check if a git workspace exists
 tau [info project active](features/cucumber/features/info/info.project.active.feature) | Print active project info
 tau [info project dir](features/cucumber/features/info/info.project.dir.feature) | Print project root directory
