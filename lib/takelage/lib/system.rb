@@ -131,16 +131,7 @@ module SystemModule
     return true if instance_variable_get("@command_available_#{command}")
 
     log.debug "Check if the command \"#{command}\" is available"
-
-    status = try "which #{command}"
-
-    unless status.exitstatus.zero?
-      log.error "The command \"#{command}\" is not available"
-      return false
-    end
-
-    log.debug "The command \"#{command}\" is available"
-    instance_variable_set("@command_available_#{command}", true)
+    try "which #{command}"
   end
 
   # Command is available
