@@ -20,7 +20,7 @@ module SystemModule
 
   # Check if a command is available else log warning message
   # @return [Boolean] is the command available?
-  def command_available_else_warning?(command)
+  def command_available_else_warn?(command)
     unless _command_available? command
       log.warn "The command \"#{command}\" is not available"
       return false

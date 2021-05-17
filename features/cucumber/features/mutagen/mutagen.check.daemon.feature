@@ -57,3 +57,14 @@ Feature: I can check if mutagene host connection available
     And I get the active takelage config
     When I run `env -u TAKELAGE_PROJECT_BASE_DIR tau-cli mutagen check daemon`
     Then the exit status should be 1
+
+  Scenario: Check if the test "is mutagen available?" works
+    Given a file named "~/.takelage.yml" with:
+      """
+      ---
+      mutagen_socket_path_mutagen: .
+      cmd_mutagen: 'banana'
+      """
+    And I get the active takelage config
+    When I run `env -u TAKELAGE_PROJECT_BASE_DIR tau-cli mutagen check daemon`
+    Then the exit status should be 1

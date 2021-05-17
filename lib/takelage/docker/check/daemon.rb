@@ -8,7 +8,7 @@ module DockerCheckDaemon
   def docker_check_daemon
     return true if @docker_daemon_running
 
-    return false unless command_available_else_error? 'docker'
+    return false unless command_available_else_error? config.active['cmd_docker']
 
     log.debug 'Check if the docker daemon is running'
 

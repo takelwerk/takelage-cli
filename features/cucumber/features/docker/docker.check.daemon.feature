@@ -23,3 +23,13 @@ Feature: I can check if the docker daemon is running
     And I get the active takelage config
     When I run `tau-cli docker check daemon`
     Then the exit status should be 1
+
+  Scenario: Check if the test "is docker available?" works
+    Given a file named "~/.takelage.yml" with:
+      """
+      ---
+      cmd_docker: 'banana'
+      """
+    And I get the active takelage config
+    When I run `env -u TAKELAGE_PROJECT_BASE_DIR tau-cli docker check daemon`
+    Then the exit status should be 1

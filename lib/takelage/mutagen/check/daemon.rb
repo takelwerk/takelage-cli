@@ -9,7 +9,7 @@ module MutagenCheckDaemon
   def mutagen_check_daemon
     return true if @mutagen_daemon_available
 
-    return false unless command_available_else_warning? 'mutagen'
+    return false unless command_available_else_warn? config.active['cmd_mutagen']
 
     log.debug 'Check mutagen status'
 
