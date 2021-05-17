@@ -10,9 +10,8 @@ module SystemModule
   # Check if a command is available else log error message
   # @return [Boolean] is the command available?
   def command_available_else_error?(command)
-    status = _command_available? command
 
-    unless status.exitstatus.zero?
+    unless _command_available? command
       log.error "The command \"#{command}\" is not available"
       return false
     end
@@ -23,9 +22,8 @@ module SystemModule
   # Check if a command is available else log warning message
   # @return [Boolean] is the command available?
   def command_available_else_warning?(command)
-    status = _command_available? command
 
-    unless status.exitstatus.zero?
+    unless _command_available? command
       log.warning "The command \"#{command}\" is not available"
       return false
     end
@@ -131,7 +129,10 @@ module SystemModule
     return true if instance_variable_get("@command_available_#{command}")
 
     log.debug "Check if the command \"#{command}\" is available"
-    try "which #{command}"
+    status = try "which #{command}"
+    return false unless status.exitstatus.zero?
+
+    true
   end
 
   # Command is available
