@@ -7,22 +7,30 @@ require 'yaml'
 # Interaction with the operating system
 # rubocop:disable Metrics/ModuleLength
 module SystemModule
-  # Check if a command is available
+  # Check if a command is available else log error message
   # @return [Boolean] is the command available?
-  def command_available?(command)
-    return true if instance_variable_get("@command_available_#{command}")
-
-    log.debug "Check if the command \"#{command}\" is available"
-
-    status = try "which #{command}"
+  def command_available_else_error?(command)
+    status = _command_available? command
 
     unless status.exitstatus.zero?
-      log.debug "The command \"#{command}\" is not available"
+      log.error "The command \"#{command}\" is not available"
       return false
     end
 
-    log.debug "The command \"#{command}\" is available"
-    instance_variable_set("@command_available_#{command}", true)
+    command_available command
+  end
+
+  # Check if a command is available else log warning message
+  # @return [Boolean] is the command available?
+  def command_available_else_warning?(command)
+    status = _command_available? command
+
+    unless status.exitstatus.zero?
+      log.warning "The command \"#{command}\" is not available"
+      return false
+    end
+
+    command_available command
   end
 
   # Convert hash to yaml.
@@ -117,6 +125,29 @@ module SystemModule
   end
 
   private
+
+  # Check if command is available
+  def _command_available?(command)
+    return true if instance_variable_get("@command_available_#{command}")
+
+    log.debug "Check if the command \"#{command}\" is available"
+
+    status = try "which #{command}"
+
+    unless status.exitstatus.zero?
+      log.error "The command \"#{command}\" is not available"
+      return false
+    end
+
+    log.debug "The command \"#{command}\" is available"
+    instance_variable_set("@command_available_#{command}", true)
+  end
+
+  # Command is available
+  def command_available(command)
+    log.debug "The command \"#{command}\" is available"
+    instance_variable_set("@command_available_#{command}", true)
+  end
 
   # Check if file exists.
   def _file_exists?(file)
