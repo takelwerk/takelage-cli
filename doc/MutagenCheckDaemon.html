@@ -231,7 +231,7 @@
 <span class='kw'>def</span> <span class='id identifier rubyid_mutagen_check_daemon'>mutagen_check_daemon</span>
   <span class='kw'>return</span> <span class='kw'>true</span> <span class='kw'>if</span> <span class='ivar'>@mutagen_daemon_available</span>
 
-  <span class='kw'>return</span> <span class='kw'>false</span> <span class='kw'>unless</span> <span class='id identifier rubyid_command_available?'>command_available?</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>mutagen</span><span class='tstring_end'>&#39;</span></span>
+  <span class='kw'>return</span> <span class='kw'>false</span> <span class='kw'>unless</span> <span class='id identifier rubyid_command_available_else_warning?'>command_available_else_warning?</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>mutagen</span><span class='tstring_end'>&#39;</span></span>
 
   <span class='id identifier rubyid_log'>log</span><span class='period'>.</span><span class='id identifier rubyid_debug'>debug</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Check mutagen status</span><span class='tstring_end'>&#39;</span></span>
 
