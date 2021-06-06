@@ -32,7 +32,7 @@ module InfoStatusBar
     return unless _file_exists? takelage_version_file
 
     _file_read takelage_version_file
-    @bar_list << "takelage: #{@content_file.chomp.green}"
+    @bar_list << "#{config.active['docker_repo']}: #{@content_file.chomp.green}"
   end
 
   # Add tau version info to bar

@@ -23,6 +23,7 @@ Feature: I can check the takelage status
       cmd_info_status_gpg_agent: $(exit 0)
       cmd_info_status_gpg_keys: $(exit 0)
       cmd_info_status_ssh_keys: $(exit 0)
+      docker_repo: takelbanana
       mutagen_socket_path_mutagen: .
       cmd_mutagen_check_daemon_host_connection: 'echo Status: Forwarding connections'
       """
@@ -32,6 +33,10 @@ Feature: I can check the takelage status
     Then the output should contain:
       """
       git: ok | gopass: ok | gpg: ok | mutagen: ok | ssh: ok
+      """
+    And the output should contain:
+      """
+      takelbanana:
       """
 
   Scenario: Check the takelage git and gopass status
