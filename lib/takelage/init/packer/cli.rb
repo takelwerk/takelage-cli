@@ -23,6 +23,7 @@ module Takelage
     argument :name
 
     # Initialize bit require
+    # rubocop:disable Metrics/MethodLength
     def initialize(args = [], local_options = {}, configuration = {})
       # initialize thor parent class
       super args, local_options, configuration
@@ -31,26 +32,34 @@ module Takelage
 
       @ansiblelint = {
         name: 'ansible/.ansible-lint',
-        template: 'templates/ansiblelint.tt' }
+        template: 'templates/ansiblelint.tt'
+      }
       @bitrequireyml = {
         name: 'bitrequire.yml',
-        template: 'templates/bitrequireyml.tt' }
+        template: 'templates/bitrequireyml.tt'
+      }
       @gitignore = {
         name: '.gitignore',
-        template: 'templates/gitignore.tt' }
+        template: 'templates/gitignore.tt'
+      }
       @groupvarsprojectyml = {
         name: 'ansible/group_vars/project.yml',
-        template: 'templates/groupvarsprojectyml.tt' }
+        template: 'templates/groupvarsprojectyml.tt'
+      }
       @playbooksiteyml = {
         name: 'ansible/playbook-site.yml',
-        template: 'templates/playbooksiteyml.tt' }
+        template: 'templates/playbooksiteyml.tt'
+      }
       @projectyml = {
         name: 'project.yml',
-        template: 'templates/projectyml.tt' }
+        template: 'templates/projectyml.tt'
+      }
       @rakefile = {
         name: 'Rakefile',
-        template: 'templates/Rakefile.tt' }
+        template: 'templates/Rakefile.tt'
+      }
     end
+    # rubocop:enable Metrics/MethodLength
 
     # Provide template path for Thor:Actions
     def self.source_root
