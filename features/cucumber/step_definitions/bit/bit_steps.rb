@@ -15,3 +15,14 @@ Given 'I initialize a bit workspace in {string}' do |dir|
   system cmd_bit_reporting_false
   system cmd_bit_init_workspace
 end
+
+Given 'I configure my global bit report settings' do
+  cmd_bit_reporting_false = "bash -c '" \
+      "HOME=#{aruba.config.home_directory} " \
+      'bit config --skip-update set analytics_reporting false && ' \
+      "HOME=#{aruba.config.home_directory} " \
+      'bit config --skip-update set error_reporting false' \
+      "'"
+
+  system cmd_bit_reporting_false
+end

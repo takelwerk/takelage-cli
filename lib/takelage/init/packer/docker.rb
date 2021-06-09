@@ -18,46 +18,30 @@ module InitPackerDocker
     exit_code &&= _init_packer_lib_git_add_all
     exit_code &&= _init_packer_lib_git_commit_initial
 
+    # reinitialize config with newly created files
     initialize_config
 
-    exit_code &&= bit_require_import
+    if config.active['init_packer_docker_bit_require_import'] == 'true'
+      log.info "Importing bit components"
+      return false unless bit_require_import
+    end
 
-    exit_code
+    return false unless exit_code
+
+    true
   end
 
   private
 
   def _init_packer_docker_files_get
-    ansiblelint = {
-      name: '.ansible-lint',
-      template: 'templates/ansiblelint.tt' }
-    bitrequireyml = {
-      name: 'bitrequire.yml',
-      template: 'templates/bitrequireyml.tt' }
-    gitignore = {
-      name: '.gitgnore',
-      template: 'templates/gitignore.tt' }
-    groupvarsprojectyml = {
-      name: 'ansible/group_vars/project.yml',
-      template: 'templates/groupvarsprojectyml.tt' }
-    playbooksiteyml = {
-      name: 'ansible/playbook-site.yml',
-      template: 'templates/playbooksiteyml.tt' }
-    projectyml = {
-      name: 'project.yml',
-      template: 'templates/projectyml.tt' }
-    rakefile = {
-      name: 'Rakefile',
-      template: 'templates/Rakefile.tt' }
-
     [
-      ansiblelint,
-      bitrequireyml,
-      gitignore,
-      groupvarsprojectyml,
-      playbooksiteyml,
-      projectyml,
-      rakefile
+      @ansiblelint,
+      @bitrequireyml,
+      @gitignore,
+      @groupvarsprojectyml,
+      @playbooksiteyml,
+      @projectyml,
+      @rakefile
     ]
   end
 end

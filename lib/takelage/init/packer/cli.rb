@@ -28,6 +28,28 @@ module Takelage
       super args, local_options, configuration
 
       @bit_require_file = config.active['bit_require_file']
+
+      @ansiblelint = {
+        name: 'ansible/.ansible-lint',
+        template: 'templates/ansiblelint.tt' }
+      @bitrequireyml = {
+        name: 'bitrequire.yml',
+        template: 'templates/bitrequireyml.tt' }
+      @gitignore = {
+        name: '.gitignore',
+        template: 'templates/gitignore.tt' }
+      @groupvarsprojectyml = {
+        name: 'ansible/group_vars/project.yml',
+        template: 'templates/groupvarsprojectyml.tt' }
+      @playbooksiteyml = {
+        name: 'ansible/playbook-site.yml',
+        template: 'templates/playbooksiteyml.tt' }
+      @projectyml = {
+        name: 'project.yml',
+        template: 'templates/projectyml.tt' }
+      @rakefile = {
+        name: 'Rakefile',
+        template: 'templates/Rakefile.tt' }
     end
 
     # Provide template path for Thor:Actions
