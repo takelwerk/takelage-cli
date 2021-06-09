@@ -1,0 +1,19 @@
+---
+name: <%= name %>
+version: 0.1.0
+
+pipelines:
+  - prod
+
+images:
+  project:
+    base_user: takelage
+    base_repo: takelslim
+    base_tag: latest
+    layers:
+      - site
+    omit_pipeline_name: prod
+    target_user: takelage
+    target_repo: init
+
+local_user: packer_local

@@ -27,6 +27,7 @@ module BitRequireImport
 
   # Check if a bit requirements file exists.
   def _bit_require_import_check_require_file_exists
+    log.warn(@bit_require_file)
     return true if File.exist? @bit_require_file
 
     log.error "No #{@bit_require_file} file found"

@@ -44,6 +44,10 @@ require_relative 'takelage/bit/require/import'
 require_relative 'takelage/bit/require/cli'
 require_relative 'takelage/bit/cli'
 require_relative 'takelage/completion/cli'
+require_relative 'takelage/init/packer/lib'
+require_relative 'takelage/init/packer/docker'
+require_relative 'takelage/init/packer/cli'
+require_relative 'takelage/init/cli'
 require_relative 'takelage/mutagen/check/daemon'
 require_relative 'takelage/mutagen/socket/check'
 require_relative 'takelage/mutagen/socket/create'
@@ -146,6 +150,9 @@ module Takelage
 
     desc 'info [COMMAND] ', 'Get information'
     subcommand 'info', Info
+
+    desc 'init [COMMAND] ', 'Init projects'
+    subcommand 'init', Init
 
     desc 'mutagen [COMMAND] ', 'Manage mutagen'
     subcommand 'mutagen', Mutagen

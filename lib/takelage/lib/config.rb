@@ -68,7 +68,7 @@ module ConfigModule
     if config_key == 'project_root_dir'
       log.error 'Please create a "Rakefile" in the project root directory'
     else
-      log.error "Unset config key. Please configure \"#{config_key}\""
+      log.error "Missing config key. Please configure \"#{config_key}\""
     end
     @configured = false
     false

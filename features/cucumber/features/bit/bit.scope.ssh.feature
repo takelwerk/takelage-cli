@@ -24,5 +24,5 @@ Feature: I can log in to remote server
     When I run `tau-cli bit scope ssh`
     And the output should contain:
       """
-      [ERROR] Unset config key. Please configure "bit_ssh"
+      [ERROR] Missing config key. Please configure "bit_ssh"
       """
