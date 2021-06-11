@@ -43,7 +43,7 @@ module Takelage
         template: 'templates/gitignore.tt'
       }
       @groupvarsprojectyml = {
-        name: 'ansible/group_vars/project.yml',
+        name: 'ansible/group_vars/all/project.yml',
         template: 'templates/groupvarsprojectyml.tt'
       }
       @playbooksiteyml = {
