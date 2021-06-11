@@ -14,6 +14,6 @@ images:
       - site
     omit_pipeline_name: prod
     target_user: takelage
-    target_repo: init
+    target_repo: <%= name %>
 
 local_user: packer_local
