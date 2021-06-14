@@ -1,0 +1,5 @@
+---
+scopes:
+  takelage.rake:
+  - name: rake/meta
+  - name: rake/rubylint

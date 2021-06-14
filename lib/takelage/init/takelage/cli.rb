@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 module Takelage
-  # takelage init packer
-  class InitPacker < SubCommandBase
+  # takelage init takelage
+  class InitTakelage < SubCommandBase
     include Thor::Actions
     include LoggingModule
     include SystemModule
@@ -18,7 +18,7 @@ module Takelage
     include BitRequireLib
     include BitRequireImport
     include InitLib
-    include InitPackerDocker
+    include InitTakelageRake
 
     argument :name
 
@@ -31,10 +31,6 @@ module Takelage
 
       @bit_require_file = config.active['bit_require_file']
 
-      @ansiblelint = {
-        name: 'ansible/.ansible-lint',
-        template: 'templates/ansiblelint.tt'
-      }
       @bitrequireyml = {
         name: 'bitrequire.yml',
         template: 'templates/bitrequireyml.tt'
@@ -42,14 +38,6 @@ module Takelage
       @gitignore = {
         name: '.gitignore',
         template: '../templates/gitignore.tt'
-      }
-      @groupvarsprojectyml = {
-        name: 'ansible/group_vars/all/project.yml',
-        template: 'templates/groupvarsprojectyml.tt'
-      }
-      @playbooksiteyml = {
-        name: 'ansible/playbook-site.yml',
-        template: 'templates/playbooksiteyml.tt'
       }
       @projectyml = {
         name: 'project.yml',
@@ -68,15 +56,15 @@ module Takelage
     end
 
     #
-    # init packer docker
+    # init takelage rake
     #
-    desc 'docker [NAME]', 'Initialize packer project [NAME] for docker images'
+    desc 'rake [NAME]', 'Initialize takelage rake project [NAME]'
     long_desc <<-LONGDESC.gsub("\n", "\x5")
-    Initialize packer project [NAME] for docker images
+    Initialize takelage rake project [NAME]
     LONGDESC
-    # Initialize packer project [NAME] for docker images.
-    def docker
-      exit init_packer_docker
+    # Initialize takelage rake project [NAME].
+    def rake
+      exit init_takelage_rake
     end
   end
 end

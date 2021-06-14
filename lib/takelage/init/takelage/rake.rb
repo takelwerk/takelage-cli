@@ -1,20 +1,20 @@
 # frozen_string_literal: true
 
-# takelage init packer docker
-module InitPackerDocker
-  def init_packer_docker
-    log.debug 'Initialize packer project for docker images'
+# takelage init takelage rake
+module InitTakelageRake
+  def init_takelage_rake
+    log.debug 'Initialize takelage rake project'
 
-    files = _init_packer_docker_files_get
+    files = _init_takelage_rake_files_get
 
-    return false unless _init_packer_docker_check_prerequisites files
+    return false unless _init_takelage_rake_check_prerequisites files
 
-    exit_code = _init_packer_docker_create_project files
+    exit_code = _init_takelage_rake_create_project files
 
     # reinitialize config with newly created files
     initialize_config
 
-    return false unless _init_packer_docker_bit_require_import
+    return false unless _init_takelage_rake_bit_require_import
 
     return false unless exit_code
 
@@ -23,19 +23,16 @@ module InitPackerDocker
 
   private
 
-  def _init_packer_docker_files_get
+  def _init_takelage_rake_files_get
     [
-      @ansiblelint,
       @bitrequireyml,
       @gitignore,
-      @groupvarsprojectyml,
-      @playbooksiteyml,
       @projectyml,
       @rakefile
     ]
   end
 
-  def _init_packer_docker_bit_require_import
+  def _init_takelage_rake_bit_require_import
     if config.active['init_bit_require_import'] == 'true'
       log.info 'Importing bit components'
       return false unless bit_require_import
@@ -44,7 +41,7 @@ module InitPackerDocker
     true
   end
 
-  def _init_packer_docker_check_prerequisites(files)
+  def _init_takelage_rake_check_prerequisites(files)
     return false unless _init_lib_git_check
 
     return false unless _init_lib_bit_check
@@ -54,7 +51,7 @@ module InitPackerDocker
     true
   end
 
-  def _init_packer_docker_create_project(files)
+  def _init_takelage_rake_create_project(files)
     exit_code = true
 
     exit_code &&= _init_lib_git_init
