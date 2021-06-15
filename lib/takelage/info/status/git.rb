@@ -13,7 +13,7 @@ module InfoStatusGit
 
     if root.chomp.empty?
       log.error 'Cannot determine project root directory'
-      log.info 'Is there a Rakefile in the project root directory?'
+      log.warn 'Is there a Rakefile in the project root directory?'
       return false
     end
 

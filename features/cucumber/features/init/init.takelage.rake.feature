@@ -1,12 +1,12 @@
 @init
-@init.packer
-@init.packer.docker
+@init.takelage
+@init.takelage.rake
 
 @announce-stdout
 
-Feature: I can initialize a packer project for docker images
+Feature: I can initialize a takelage rake project
 
-  Scenario: I initialize a packer project for docker images
+  Scenario: I initialize a takelage rake project
     Given a file named "~/.takelage.yml" with:
       """
       ---
@@ -17,8 +17,7 @@ Feature: I can initialize a packer project for docker images
     And I configure my global bit report settings
     And a directory named "project"
     And I cd to "project"
-    When I run `tau-cli init packer docker banana`
-    And I run `cat ansible/.ansible-lint`
+    When I run `tau-cli init takelage rake tomato`
     Then the exit status should be 0
     And the output should contain:
       """
@@ -36,18 +35,6 @@ Feature: I can initialize a packer project for docker images
       """
       [INFO] Saving initial git commit
       """
-    And the file named "ansible/.ansible-lint" should contain:
-      """
-      skip_list:
-      """
-    And the file named "ansible/group_vars/all/project.yml" should contain:
-      """
-      project: "{{ lookup('pipe', 'tau project') | from_yaml }}"
-      """
-    And the file named "ansible/playbook-site.yml" should contain:
-      """
-      (playbook-site)
-      """
     And the file named "bitrequire.yml" should contain:
       """
       name: rake/meta
@@ -58,7 +45,7 @@ Feature: I can initialize a packer project for docker images
       """
     And the file named "project.yml" should contain:
       """
-      banana
+      tomato
       """
     And the file named "Rakefile" should contain:
       """
