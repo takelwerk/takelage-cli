@@ -2,6 +2,8 @@
 
 # takelage init takelage rake
 module InitTakelageRake
+  # Backend method for init takelage rake.
+  # @return [Boolean] successful init?
   def init_takelage_rake
     log.debug 'Initialize takelage rake project'
 
@@ -14,7 +16,7 @@ module InitTakelageRake
     # reinitialize config with newly created files
     initialize_config
 
-    return false unless _init_takelage_rake_bit_require_import
+    return false unless _init_lib_bit_require_import
 
     return false unless exit_code
 
@@ -23,6 +25,7 @@ module InitTakelageRake
 
   private
 
+  # Add templates.
   def _init_takelage_rake_files_get
     [
       @bitrequireyml,
@@ -32,15 +35,7 @@ module InitTakelageRake
     ]
   end
 
-  def _init_takelage_rake_bit_require_import
-    if config.active['init_bit_require_import'] == 'true'
-      log.info 'Importing bit components'
-      return false unless bit_require_import
-    end
-
-    true
-  end
-
+  # Check prerequisites.
   def _init_takelage_rake_check_prerequisites(files)
     return false unless _init_lib_git_check
 
@@ -51,6 +46,7 @@ module InitTakelageRake
     true
   end
 
+  # Create project.
   def _init_takelage_rake_create_project(files)
     exit_code = true
 

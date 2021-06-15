@@ -26,7 +26,7 @@ module InfoStatusBar
 
   private
 
-  # Add takelage version info to bar
+  # Add takelage version info to bar.
   def _info_status_bar_takelage
     takelage_version_file = '/etc/takelage_version'
     return unless _file_exists? takelage_version_file
@@ -35,24 +35,24 @@ module InfoStatusBar
     @bar_list << "#{config.active['docker_repo']}: #{@content_file.chomp.green}"
   end
 
-  # Add tau version info to bar
+  # Add tau version info to bar.
   def _info_status_bar_tau
     @bar_list << "tau: #{Takelage::VERSION.green}"
   end
 
-  # Add git status info to bar
+  # Add git status info to bar.
   def _info_status_bar_git
     @status_git = info_status_git
     @bar_list << ("git: #{@status_git ? 'ok'.green : 'no'.red}")
   end
 
-  # Add gopass status info to bar
+  # Add gopass status info to bar.
   def _info_status_bar_gopass
     @status_gopass = info_status_gopass
     @bar_list << ("gopass: #{@status_gopass ? 'ok'.green : 'no'.red}")
   end
 
-  # Add gpg status info to bar
+  # Add gpg status info to bar.
   def _info_status_bar_gpg
     if @status_git || @status_gopass
       @bar_list << "gpg: #{'ok'.green}"
@@ -62,18 +62,18 @@ module InfoStatusBar
     @bar_list << ("gpg: #{info_status_gpg ? 'ok'.green : 'no'.red}")
   end
 
-  # Add mutagen status info to bar
+  # Add mutagen status info to bar.
   def _info_status_bar_mutagen
     @bar_list << ("mutagen: #{mutagen_check_daemon ? 'ok'.green : 'no'.red}")
   end
 
-  # Add ssh status info to bar
+  # Add ssh status info to bar.
   def _info_status_bar_ssh
     @bar_list << ("ssh: #{info_status_ssh ? 'ok'.green : 'no'.red}")
   end
 end
 
-# Amend String class with colorization
+# Amend String class with colorization.
 class String
   # Colorize strings
   def colorize(color_code)
