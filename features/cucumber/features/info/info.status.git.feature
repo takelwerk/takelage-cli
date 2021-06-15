@@ -30,7 +30,7 @@ Feature: I can check if git is available
     And the output should contain:
       """
       [ERROR] Cannot determine project root directory
-      [INFO] Is there a Rakefile in the project root directory?
+      [WARN] Is there a Rakefile in the project root directory?
       """
 
   Scenario: Check that project root dir is git workspace
