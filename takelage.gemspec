@@ -9,15 +9,15 @@ version = File.read 'lib/takelage/version'
 version.chomp!
 
 Gem::Specification.new do |spec|
-  spec.name = 'takelage'
+  spec.name = 'takeltau'
   spec.version = version
-  spec.authors = ['Geospin']
-  spec.email = ['takelage@geospin.de']
+  spec.authors = ['Takelwerk']
+  spec.email = ['takeltau@takelwerk.net']
   spec.summary = 'takelage devops workflow cli'
   spec.description = \
     'tau is a thor command line script ' \
     'to tame the takelage devops workflow'
-  spec.homepage = 'https://github.com/geospin-takelage/takelage-cli'
+  spec.homepage = 'https://github.com/takelwerk/takelage-cli'
   spec.license = 'GPL-3.0'
   spec.files = FileList[
     'LICENSE',
