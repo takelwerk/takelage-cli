@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 def bit_before_all
-  @bitboard_image = 'takelage/bitboard'
+  @bitboard_image = 'takelwerk/bitboard'
   @bitboard_name = 'bitboard-cucumber'
   _start_bitboard
 end
