@@ -15,7 +15,7 @@ Feature: I can run a docker container in daemon mode
       docker_user: host.docker.internal:5005/takelage-mock
       docker_repo: takelage-mock
       """
-    And I get the active takelage config
+    And I get the active takeltau config
     And I successfully run `tau-cli clean`
     And the docker container "takelage-mock_cucumber" doesn't exist
     When I successfully run `env -u TAKELAGE_PROJECT_BASE_DIR unbuffer tau-cli docker container daemon`

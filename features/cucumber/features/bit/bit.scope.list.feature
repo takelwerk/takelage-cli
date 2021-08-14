@@ -11,7 +11,7 @@ Feature: I can list bit remote scopes
       bit_remote: 'ssh://bit@bitboard-cucumber:222:/bit'
       bit_ssh: 'ssh -F $HOME/.ssh/config -p 222 bit@bitboard-cucumber'
       """
-    And I get the active takelage config
+    And I get the active takeltau config
     And the list of remote scopes is up-to-date
     When I successfully run `tau-cli bit scope list`
     Then the output is equal to the list of remote scopes

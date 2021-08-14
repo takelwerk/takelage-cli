@@ -10,7 +10,7 @@ Feature: I can print the main project info
       ---
       info_project_private: project_private.yml
       """
-    And I get the active takelage config
+    And I get the active takeltau config
     And a file named "project.yml" with:
       """
       ---

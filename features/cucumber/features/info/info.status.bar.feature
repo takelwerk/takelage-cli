@@ -27,7 +27,7 @@ Feature: I can check the takelage status
       mutagen_socket_path_mutagen: .
       cmd_mutagen_check_daemon_host_connection: 'echo Status: Forwarding connections'
       """
-    And I get the active takelage config
+    And I get the active takeltau config
     And an empty file named "Rakefile"
     When I run `env SSH_AUTH_SOCK='/tmp' tau-cli info status bar`
     Then the output should contain:
@@ -55,7 +55,7 @@ Feature: I can check the takelage status
       mutagen_socket_path_mutagen: .
       cmd_mutagen_check_daemon_host_connection: 'echo Status: Forwarding connections'
       """
-    And I get the active takelage config
+    And I get the active takeltau config
     And an empty file named "Rakefile"
     When I run `env SSH_AUTH_SOCK='/tmp' tau-cli info status bar`
     Then the output should contain:
@@ -79,7 +79,7 @@ Feature: I can check the takelage status
       mutagen_socket_path_mutagen: .
       cmd_mutagen_check_daemon_host_connection: 'echo Status: Forwarding connections'
       """
-    And I get the active takelage config
+    And I get the active takeltau config
     And an empty file named "Rakefile"
     When I run `env SSH_AUTH_SOCK='/nonexisting' tau-cli info status bar`
     Then the output should contain:
@@ -103,7 +103,7 @@ Feature: I can check the takelage status
       mutagen_socket_path_mutagen: .
       cmd_mutagen_check_daemon_host_connection: 'echo Status: Forwarding connections'
       """
-    And I get the active takelage config
+    And I get the active takeltau config
     And an empty file named "Rakefile"
     When I run `env SSH_AUTH_SOCK='/tmp' tau-cli info status bar`
     Then the output should contain:
@@ -127,7 +127,7 @@ Feature: I can check the takelage status
       mutagen_socket_path_mutagen: .
       cmd_mutagen_check_daemon_host_connection: $(exit 1)
       """
-    And I get the active takelage config
+    And I get the active takeltau config
     And an empty file named "Rakefile"
     When I run `env SSH_AUTH_SOCK='/tmp' tau-cli info status bar`
     Then the output should contain:

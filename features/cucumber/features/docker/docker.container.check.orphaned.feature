@@ -15,7 +15,7 @@ Feature: I can check if a docker container is orphaned
       docker_user: host.docker.internal:5005/takelage-mock
       docker_repo: takelage-mock
       """
-    And I get the active takelage config
+    And I get the active takeltau config
 
   Scenario: Check that an orphaned docker container is orphaned
     Given I successfully run `env -u TAKELAGE_PROJECT_BASE_DIR unbuffer tau-cli login`

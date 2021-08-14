@@ -11,7 +11,7 @@ Feature: I can check if mutagen is available
       mutagen_socket_path_mutagen: .
       cmd_mutagen_check_daemon_host_connection: 'echo Status: Forwarding connections'
       """
-    And I get the active takelage config
+    And I get the active takeltau config
     When I run `env TAKELAGE_PROJECT_BASE_DIR=. tau-cli info status mutagen`
     Then the exit status should be 0
 
@@ -22,7 +22,7 @@ Feature: I can check if mutagen is available
       mutagen_socket_path_mutagen: nonexisting
       cmd_mutagen_check_daemon_host_connection: 'echo Status: Forwarding connections'
       """
-    And I get the active takelage config
+    And I get the active takeltau config
     When I run `env TAKELAGE_PROJECT_BASE_DIR=. tau-cli info status mutagen`
     Then the exit status should be 1
     And the output should contain:
@@ -37,7 +37,7 @@ Feature: I can check if mutagen is available
       mutagen_socket_path_mutagen: .
       cmd_mutagen_check_daemon_host_connection: $(exit 1)
       """
-    And I get the active takelage config
+    And I get the active takeltau config
     When I run `env TAKELAGE_PROJECT_BASE_DIR=. tau-cli info status mutagen`
     Then the exit status should be 1
     And the output should contain:
@@ -51,7 +51,7 @@ Feature: I can check if mutagen is available
       ---
       cmd_mutagen_check_daemon_version: $(exit 0)
       """
-    And I get the active takelage config
+    And I get the active takeltau config
     When I run `env -u TAKELAGE_PROJECT_BASE_DIR tau-cli info status mutagen`
     Then the exit status should be 0
 
@@ -61,7 +61,7 @@ Feature: I can check if mutagen is available
       ---
       cmd_mutagen_check_daemon_version: $(exit 1)
       """
-    And I get the active takelage config
+    And I get the active takeltau config
     When I run `env -u TAKELAGE_PROJECT_BASE_DIR tau-cli info status mutagen`
     Then the exit status should be 1
     And the output should contain:

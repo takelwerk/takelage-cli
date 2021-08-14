@@ -14,7 +14,7 @@ Feature: I can log in to a docker container
       docker_repo: takelage-mock
       docker_tag: prod
       """
-    And I get the active takelage config
+    And I get the active takeltau config
     When I successfully run `env -u TAKELAGE_PROJECT_BASE_DIR unbuffer tau-cli docker container login`
     Then the output should contain exactly "Running /loginpoint.py"
 
@@ -27,7 +27,7 @@ Feature: I can log in to a docker container
       docker_user: host.docker.internal:5005/takelage-mock
       docker_repo: takelage
       """
-    And I get the active takelage config
+    And I get the active takeltau config
     When I successfully run `env TAKELAGE_PROJECT_BASE_DIR='banana' unbuffer tau-cli docker container login`
     Then the output should contain:
       """

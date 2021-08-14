@@ -13,7 +13,7 @@ Feature: I can initialize a packer project for docker images
       cmd_init_packer_lib_git_init: 'git init && git config user.name "Cucumber" && git config user.email "cucumber@example.com" && git checkout -b main'
       init_bit_require_import: 'false'
       """
-    And I get the active takelage config
+    And I get the active takeltau config
     And I configure my global bit report settings
     And a directory named "project"
     And I cd to "project"

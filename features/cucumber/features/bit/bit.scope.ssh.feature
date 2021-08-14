@@ -10,7 +10,7 @@ Feature: I can log in to remote server
       ---
       bit_ssh: 'ssh -F $HOME/.ssh/config -p 222 bit@bitboard-cucumber exit 123'
       """
-    And I get the active takelage config
+    And I get the active takeltau config
     When I run `tau-cli bit scope ssh`
     Then the exit status should be 123
 
@@ -20,7 +20,7 @@ Feature: I can log in to remote server
       ---
       bit_ssh:
       """
-    And I get the active takelage config
+    And I get the active takeltau config
     When I run `tau-cli bit scope ssh`
     And the output should contain:
       """

@@ -11,7 +11,7 @@ Feature: I can import bit components from a requirements file
       bit_remote: 'ssh://bit@bitboard-cucumber:222:/bit'
       bit_ssh: 'ssh -F $HOME/.ssh/config -p 222 bit@bitboard-cucumber'
       """
-    And I get the active takelage config
+    And I get the active takeltau config
     And a directory named "export"
     And I initialize a bit workspace in "export"
     And I cd to "export"

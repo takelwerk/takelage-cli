@@ -16,7 +16,7 @@ Feature: I can clean docker containers
       docker_user: host.docker.internal:5005/takelage-mock
       docker_repo: takelage-mock
       """
-    And I get the active takelage config
+    And I get the active takeltau config
     And a directory named "finite"
     And a directory named "infinite"
     And I cd to "finite"

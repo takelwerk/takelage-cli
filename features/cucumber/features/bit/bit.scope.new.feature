@@ -13,7 +13,7 @@ Feature: I can add a bit remote scopes
       bit_remote: 'ssh://bit@bitboard-cucumber:222:/bit'
       bit_ssh: 'ssh -F $HOME/.ssh/config -p 222 bit@bitboard-cucumber'
       """
-    And I get the active takelage config
+    And I get the active takeltau config
     And the list of remote scopes is up-to-date
     And a remote scope named "my_scope" should not exist
     When I successfully run `tau-cli bit scope new my_scope`

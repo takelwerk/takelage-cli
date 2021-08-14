@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-Given 'the takelage default configuration' do
-  @default_configuration = YAML.safe_load(File.read('lib/takelage/default.yml'))
+Given 'the takeltau default configuration' do
+  @default_configuration = YAML.safe_load(File.read('lib/takeltau/default.yml'))
   @default_configuration['project_root_dir'] = ''
 end
 

@@ -13,7 +13,7 @@ Feature: I can copy a directory as a new tagged bit component
       bit_remote: 'ssh://bit@bitboard-cucumber:222:/bit'
       bit_ssh: 'ssh -F $HOME/.ssh/config -p 222 bit@bitboard-cucumber'
       """
-    And I get the active takelage config
+    And I get the active takeltau config
     And a directory named "bit"
     And I initialize a bit workspace in "bit"
     And I cd to "bit"

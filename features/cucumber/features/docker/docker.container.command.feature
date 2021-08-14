@@ -13,7 +13,7 @@ Feature: I can run a command in a docker container
       docker_user: host.docker.internal:5005/takelage-mock
       docker_repo: takelage-mock
       """
-    And I get the active takelage config
+    And I get the active takeltau config
     And I successfully run `env -u TAKELAGE_PROJECT_BASE_DIR unbuffer tau-cli docker container login`
     And I create my user in the docker container
     When I successfully run `env -u TAKELAGE_PROJECT_BASE_DIR unbuffer tau-cli docker container command pwd`

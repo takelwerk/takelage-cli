@@ -15,7 +15,7 @@ Feature: I can print the list of commands
       """
     And the output should not contain "------"
     And the output should not contain "thor"
-    And the output should not contain "takelage:c_l_i:"
+    And the output should not contain "takeltau:c_l_i:"
     And the output should not contain "COMMAND"
 
   Scenario: Print the list of commands
@@ -30,5 +30,5 @@ Feature: I can print the list of commands
       """
     And the output should not contain "------"
     And the output should not contain "thor"
-    And the output should not contain "takelage:c_l_i:"
+    And the output should not contain "takeltau:c_l_i:"
     And the output should not contain "COMMAND"

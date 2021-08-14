@@ -12,7 +12,7 @@ Feature: I can check if gopass is available
       cmd_info_status_lib_git_signingkey: echo signingkey
       cmd_info_status_lib_git_key_available: $(exit 0)
       """
-    And I get the active takelage config
+    And I get the active takeltau config
     When I run `tau-cli info status gopass`
     Then the exit status should be 0
 
@@ -24,7 +24,7 @@ Feature: I can check if gopass is available
       cmd_info_status_lib_git_signingkey: echo signingkey
       cmd_info_status_lib_git_key_available: $(exit 0)
       """
-    And I get the active takelage config
+    And I get the active takeltau config
     When I run `tau-cli info status gopass`
     Then the exit status should be 1
     And the output should contain:
@@ -40,7 +40,7 @@ Feature: I can check if gopass is available
       cmd_info_status_lib_git_signingkey: echo signingkey
       cmd_info_status_lib_git_key_available: $(exit 1)
       """
-    And I get the active takelage config
+    And I get the active takeltau config
     When I run `tau-cli info status gopass`
     Then the exit status should be 1
     And the output should contain:

@@ -13,7 +13,7 @@ Feature: I can pull bit component changes to a local bit workspace
       bit_remote: 'ssh://bit@bitboard-cucumber:222:/bit'
       bit_ssh: 'ssh -F $HOME/.ssh/config -p 222 bit@bitboard-cucumber'
       """
-    And I get the active takelage config
+    And I get the active takeltau config
     And a directory named "bit"
     And I initialize a bit workspace in "bit"
     And I cd to "bit"

@@ -11,7 +11,7 @@ Feature: I can remove mutagen daemon files
       cmd_mutagen_forward_socket_remove:
       cmd_docker_container_check_existing_docker_ps: $(exit 0)
       """
-    And I get the active takelage config
+    And I get the active takeltau config
     When I run `tau-cli mutagen socket tidy`
     Then the exit status should be 1
 
@@ -21,7 +21,7 @@ Feature: I can remove mutagen daemon files
       ---
       cmd_docker_container_check_existing_docker_ps: $(exit 1)
       """
-    And I get the active takelage config
+    And I get the active takeltau config
     When I run `tau-cli mutagen socket tidy -l debug`
     Then the exit status should be 1
     And the output should contain:

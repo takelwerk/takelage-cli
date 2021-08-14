@@ -10,7 +10,7 @@ Feature: I can check if the docker daemon is running
       ---
       cmd_docker_check_daemon_docker_info: $(exit 0)
       """
-    And I get the active takelage config
+    And I get the active takeltau config
     When I run `tau-cli docker check daemon`
     Then the exit status should be 0
 
@@ -20,7 +20,7 @@ Feature: I can check if the docker daemon is running
       ---
       cmd_docker_check_daemon_docker_info: $(exit 1)
       """
-    And I get the active takelage config
+    And I get the active takeltau config
     When I run `tau-cli docker check daemon`
     Then the exit status should be 1
 
@@ -30,6 +30,6 @@ Feature: I can check if the docker daemon is running
       ---
       cmd_docker: 'banana'
       """
-    And I get the active takelage config
+    And I get the active takeltau config
     When I run `env -u TAKELAGE_PROJECT_BASE_DIR tau-cli docker check daemon`
     Then the exit status should be 1

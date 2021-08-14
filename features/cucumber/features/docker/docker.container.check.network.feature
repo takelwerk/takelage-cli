@@ -13,7 +13,7 @@ Feature: I can check if a docker network is existing
       ---
       docker_user: host.docker.internal:5005/takelage-mock
       """
-    And I get the active takelage config
+    And I get the active takeltau config
 
   Scenario: Check that an existing docker network is existing
     Given I successfully run `docker network create takelage-mock_test-network`

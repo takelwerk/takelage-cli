@@ -14,7 +14,7 @@ Feature: I can update to the latest remote docker image
       docker_repo: takelage-mock
       docker_registry: http://host.docker.internal:5005
       """
-    And I get the active takelage config
+    And I get the active takeltau config
     And I push the docker image "latest"
 
   @docker.image.update.noimageexists

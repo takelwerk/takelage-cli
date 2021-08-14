@@ -15,7 +15,7 @@ Feature: I can print the latest docker tag
       docker_repo: takelage-mock
       docker_registry: http://host.docker.internal:5005
       """
-    And I get the active takelage config
+    And I get the active takeltau config
 
   Scenario: Print the docker tag "latest"
     Then my latest docker image should be "latest"
