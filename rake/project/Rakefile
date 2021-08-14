@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 namespace :project do
-  desc 'Build takelage cli ruby gem'
+  desc 'Build takeltau cli ruby gem'
   task prod: %w[gem:signin
                 rubylint
                 test

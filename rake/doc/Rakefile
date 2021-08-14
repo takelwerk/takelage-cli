@@ -8,17 +8,17 @@ cmd_doc_commit = 'tau git check clean || ' \
   '(git add doc && git commit -m "Update docs")'
 
 namespace :doc do
-  desc 'Build takelage doc'
+  desc 'Build takeltau doc'
   task :build do
     @commands << cmd_doc_build
   end
 
-  desc 'Clean takelage doc'
+  desc 'Clean takeltau doc'
   task :clean do
     @commands << cmd_doc_clean
   end
 
-  desc 'Commit takelage doc'
+  desc 'Commit takeltau doc'
   task :commit do
     @commands << cmd_doc_commit
   end
