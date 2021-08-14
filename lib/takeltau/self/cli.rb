@@ -9,7 +9,7 @@ module Takeltau
     include LoggingModule
     include SelfList
 
-    desc 'config [COMMAND]', 'Manage takelage configuration'
+    desc 'config [COMMAND]', 'Manage takeltau configuration'
     subcommand 'config', SelfConfig
 
     #
@@ -30,11 +30,11 @@ module Takeltau
     #
     # self version
     #
-    desc 'version', 'Print takelage semantic version number'
+    desc 'version', 'Print takeltau semantic version number'
     long_desc <<-LONGDESC.gsub("\n", "\x5")
-    Print takelage semantic version number
+    Print takeltau semantic version number
     LONGDESC
-    # Print takelage semantic version number.
+    # Print takeltau semantic version number.
     def version
       say VERSION
       true

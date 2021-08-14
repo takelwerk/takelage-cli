@@ -38,7 +38,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'aruba', '~> 1.0'
   spec.add_development_dependency 'bundler', '~> 2.2'
   spec.add_development_dependency 'cucumber', '~> 3.1'
-  spec.add_development_dependency 'rake', '~> 12.3'
+  spec.add_development_dependency 'rake', '~> 13.0'
   spec.add_development_dependency 'rspec', '~> 3.9'
   spec.add_development_dependency 'yard', '~> 0.9'
 end
