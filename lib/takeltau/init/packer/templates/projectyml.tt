@@ -2,9 +2,6 @@
 name: <%= name %>
 version: 0.1.0
 
-pipelines:
-  - prod
-
 images:
   project:
     base_user: takelwerk
@@ -12,8 +9,7 @@ images:
     base_tag: latest
     layers:
       - site
-    omit_pipeline_name: prod
-    target_user: takelage
+    target_user: takelwerk
     target_repo: <%= name %>
 
 local_user: packer_local
