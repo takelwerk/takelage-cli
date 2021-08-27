@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Takeltau
-  # takeltau bit requiere
+  # takeltau bit require
   class BitRequire < SubCommandBase
     include LoggingModule
     include ConfigModule
