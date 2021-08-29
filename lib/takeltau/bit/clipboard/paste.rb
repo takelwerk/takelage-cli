@@ -4,7 +4,7 @@
 module BitClipboardPaste
   # Backend method for bit paste.
   def bit_clipboard_paste(cid, dir)
-    log.debug "Running bit paste \"#{cid}\" to \"#{dir}\""
+    log.info "Running bit paste \"#{cid}\" to \"#{dir}\""
 
     return false unless configured? %w[project_root_dir]
 

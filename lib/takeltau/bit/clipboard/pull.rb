@@ -4,7 +4,7 @@
 module BitClipboardPull
   # Backend method for bit pull.
   def bit_clipboard_pull
-    log.debug 'Running bit pull'
+    log.info 'Running bit pull'
 
     return false unless configured? %w[project_root_dir]
 

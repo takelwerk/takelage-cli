@@ -7,7 +7,7 @@ module BitClipboardCopy
     # remove trailing slash
     dir = dir.chomp('/')
 
-    log.debug "Running bit copy \"#{dir}\" to \"#{scope}\""
+    log.info "Running bit copy \"#{dir}\" to \"#{scope}\""
 
     return false unless configured? %w[project_root_dir]
 

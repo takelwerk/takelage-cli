@@ -57,7 +57,7 @@ module BitClipboardLib
 
   # Sync workspace with upstream.
   def _bit_clipboard_lib_sync_workspace
-    log.debug 'Syncing git workspace'
+    log.info 'Syncing git workspace'
 
     path = config.active['project_root_dir']
     file = "#{path}/.bitmap"
@@ -105,7 +105,7 @@ module BitClipboardLib
 
   # git pull.
   def _bit_clipboard_lib_git_pull
-    log.debug 'Updating git workspace'
+    log.info 'Updating git workspace'
     cmd_bit_clipboard_git_pull = format(
       config.active['cmd_bit_clipboard_git_pull'],
       main: config.active['git_bit_branch']

@@ -4,7 +4,7 @@
 module BitClipboardPush
   # Backend method for bit push.
   def bit_clipboard_push
-    log.debug 'Running bit push'
+    log.info 'Running bit push'
 
     return false unless configured? %w[project_root_dir]
 

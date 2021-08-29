@@ -4,7 +4,7 @@
 module BitScopeAdd
   # Backend method for bit scope add.
   def bit_scope_add(scope)
-    log.debug "Adding bit remote scope \"#{scope}\" to local workspace"
+    log.info "Adding bit remote scope \"#{scope}\" to local workspace"
 
     return false unless configured? %w[bit_ssh bit_remote]
 

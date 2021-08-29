@@ -5,7 +5,7 @@ module BitScopeNew
   # Backend method for bit scope new.
   # @return [Int] status of new command
   def bit_scope_new(scope)
-    log.debug "Creating new bit remote scope \"#{scope}\""
+    log.info "Creating new bit remote scope \"#{scope}\""
 
     return false unless configured? %w[bit_ssh bit_remote]
 

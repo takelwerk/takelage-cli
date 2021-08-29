@@ -4,7 +4,7 @@
 module BitScopeSSH
   # Backend method for bit scope ssh.
   def bit_scope_ssh
-    log.debug 'Logging in to bit remote server'
+    log.info 'Logging in to bit remote server'
 
     return false unless configured? %w[bit_ssh]
 
