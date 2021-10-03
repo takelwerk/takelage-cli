@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Takeltau
-  # takeltau git
+  # tau git
   class Mutagen < SubCommandBase
     desc 'check [COMMAND]', 'Check mutagen'
     subcommand 'check', MutagenCheck

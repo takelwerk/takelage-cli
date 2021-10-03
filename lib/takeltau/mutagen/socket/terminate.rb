@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# takeltau mutagen socket terminate
+# tau mutagen socket terminate
 module MutagenSocketTerminate
   # Backend method for mutagen socket terminate.
   def mutagen_socket_terminate(socket)

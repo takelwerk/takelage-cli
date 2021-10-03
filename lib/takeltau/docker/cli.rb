@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Takeltau
-  # takeltau docker
+  # tau docker
   class Docker < SubCommandBase
     desc 'check [COMMAND]', 'Check docker'
     subcommand 'check', DockerCheck

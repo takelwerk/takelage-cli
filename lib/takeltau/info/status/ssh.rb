@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# takeltau info status ssh
+# tau info status ssh
 module InfoStatusSSH
   # Backend method for info status ssh.
   # @return [Boolean] is ssh available?

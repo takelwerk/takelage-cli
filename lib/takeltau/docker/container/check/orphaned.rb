@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# takeltau docker container check orphaned
+# tau docker container check orphaned
 module DockerContainerCheckOrphaned
   # Backend method for docker container check orphaned.
   # @return [Boolean] is container orphaned?

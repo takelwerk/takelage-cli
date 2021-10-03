@@ -1,0 +1,2 @@
+hg clone git@github.com:takelwerk/rake-meta.git rake/meta
+hg clone git@github.com:takelwerk/rake-rubylint.git rake/rubylint

@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# takeltau docker container prune
+# tau docker container prune
 module DockerContainerPrune
   # Backend method for docker container prune.
   def docker_container_prune

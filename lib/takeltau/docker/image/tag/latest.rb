@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# takeltau docker image tag latest
+# tau docker image tag latest
 module DockerImageTagLatest
   # Backend method for docker image tag latest.
   # @return [String] latest docker image tag

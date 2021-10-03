@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Takeltau
-  # takeltau info project
+  # tau info project
   class InfoProject < SubCommandBase
     include LoggingModule
     include SystemModule

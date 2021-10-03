@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# takeltau docker container check existing
+# tau docker container check existing
 module DockerContainerCheckExisting
   # Backend method for docker container check existing.
   # @return [Boolean] is container existing?

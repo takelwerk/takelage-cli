@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Takeltau
-  # takeltau docker image tag
+  # tau docker image tag
   class DockerImageTag < SubCommandBase
     include LoggingModule
     include SystemModule

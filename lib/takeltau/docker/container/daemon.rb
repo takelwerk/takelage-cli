@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# takeltau docker container daemon
+# tau docker container daemon
 module DockerContainerDaemon
   # Backend method for docker container daemon.
   def docker_container_daemon

@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-# takeltau project module
+# tau project module
 module ProjectModule
-  # takeltau config class.
+  # tau config class.
   class TakeltauProject
     include Singleton
     include LoggingModule

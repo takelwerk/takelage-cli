@@ -16,7 +16,7 @@ module InitPackerDocker
     # reinitialize config with newly created files
     initialize_config
 
-    return false unless _init_lib_bit_require_import
+    return false unless _init_lib_hg_clone
 
     return false unless exit_code
 
@@ -29,9 +29,9 @@ module InitPackerDocker
   def _init_packer_docker_files_get
     [
       @ansiblelint,
-      @bitrequireyml,
       @gitignore,
       @groupvarsprojectyml,
+      @hgclone,
       @playbooksiteyml,
       @projectyml,
       @rakefile
@@ -41,8 +41,6 @@ module InitPackerDocker
   # Check prerequisites.
   def _init_packer_docker_check_prerequisites(files)
     return false unless _init_lib_git_check
-
-    return false unless _init_lib_bit_check
 
     return false unless _init_lib_files_check files
 
@@ -54,7 +52,6 @@ module InitPackerDocker
     exit_code = true
 
     exit_code &&= _init_lib_git_init
-    exit_code &&= _init_lib_bit_init
     exit_code &&= _init_lib_files_create files
     exit_code &&= _init_lib_git_add_all
     exit_code &&= _init_lib_git_commit_initial

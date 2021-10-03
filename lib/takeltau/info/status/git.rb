@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# takeltau info status git
+# tau info status git
 module InfoStatusGit
   # Backend method for info status git.
   # @return [Boolean] is the git gpg signing key available?

@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# takeltau git check clean
+# tau git check clean
 module GitCheckClean
   # Backend method for git check clean.
   # @return [Boolean] is git workspace clean?

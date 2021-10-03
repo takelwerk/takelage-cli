@@ -9,35 +9,25 @@ module Takeltau
     include ConfigModule
     include ProjectModule
     include GitCheckClean
-    include GitCheckBit
     include GitCheckWorkspace
-    include BitCheckWorkspace
-    include BitClipboardLib
-    include BitClipboardCopy
-    include BitClipboardPaste
-    include BitRequireLib
-    include BitRequireImport
     include InitLib
     include InitTakelageRake
 
     argument :name
 
-    # Initialize bit require
     # Define templates
     # rubocop:disable Metrics/MethodLength
     def initialize(args = [], local_options = {}, configuration = {})
       # initialize thor parent class
       super args, local_options, configuration
 
-      @bit_require_file = config.active['bit_require_file']
-
-      @bitrequireyml = {
-        name: 'bitrequire.yml',
-        template: 'templates/bitrequireyml.tt'
-      }
       @gitignore = {
         name: '.gitignore',
         template: '../templates/gitignore.tt'
+      }
+      @hgclone = {
+        name: 'hgclone',
+        template: 'templates/hgclone.tt'
       }
       @projectyml = {
         name: 'project.yml',

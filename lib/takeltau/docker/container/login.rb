@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# takeltau docker container login
+# tau docker container login
 module DockerContainerLogin
   # Backend method for docker container login.
   def docker_container_login

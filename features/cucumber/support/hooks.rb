@@ -2,7 +2,6 @@
 
 Before do
   _copy_home_config
-  _copy_ssh_config
   _copy_gopass_gpg_tar_gz
   _tar_extract_gopass_gpg_tar_gz
 end
@@ -17,18 +16,6 @@ After '@after_stop_mock_container' do
   stop_mock_container
 end
 
-After '@after_remove_scope_my_scope' do
-  cmd_bit_ssh = @config['bit_ssh']
-  root = @config['bit_root']
-  cmd_bit_scope_remove = format(
-    @config['cmd_bit_scope_remove_scope'],
-    root: root,
-    scope: 'my_scope'
-  )
-  system "HOME=#{aruba.config.home_directory} && " \
-    "#{cmd_bit_ssh} '#{cmd_bit_scope_remove}'"
-end
-
 private
 
 def _copy_home_config
@@ -39,18 +26,6 @@ def _copy_home_config
       "#{aruba.config.home_directory}/.takelage.yml" \
       "'"
   system cmd_copy_home_config
-end
-
-def _copy_ssh_config
-  cmd_copy_ssh_config = "bash -c '" \
-      "mkdir -p #{aruba.config.home_directory}/.ssh && " \
-      'cp features/cucumber/support/fixtures/takelage-bitboard/config ' \
-      "#{aruba.config.home_directory}/.ssh/config && " \
-      'cp features/cucumber/support/fixtures/takelage-bitboard/id_rsa.myuser ' \
-      "#{aruba.config.home_directory}/.ssh/id_rsa && " \
-      "chmod 600 #{aruba.config.home_directory}/.ssh/id_rsa" \
-      "'"
-  system cmd_copy_ssh_config
 end
 
 def _copy_gopass_gpg_tar_gz

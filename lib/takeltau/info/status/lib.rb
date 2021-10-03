@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# takeltau info status lib
+# tau info status lib
 module InfoStatusLib
   private
 

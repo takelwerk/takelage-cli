@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# takeltau info status bar
+# tau info status bar
 module InfoStatusBar
   # Backend method for info status bar.
   # @return [String] status info bar

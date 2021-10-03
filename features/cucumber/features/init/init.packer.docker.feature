@@ -11,10 +11,8 @@ Feature: I can initialize a packer project for docker images
       """
       ---
       cmd_init_packer_lib_git_init: 'git init && git config user.name "Cucumber" && git config user.email "cucumber@example.com" && git checkout -b main'
-      init_bit_require_import: 'false'
       """
     And I get the active takeltau config
-    And I configure my global bit report settings
     And a directory named "project"
     And I cd to "project"
     When I run `tau-cli init packer docker banana`
@@ -23,10 +21,6 @@ Feature: I can initialize a packer project for docker images
     And the output should contain:
       """
       [INFO] Initializing git workspace
-      """
-    And the output should contain:
-      """
-      [INFO] Initializing bit workspace
       """
     And the output should contain:
       """
@@ -48,9 +42,9 @@ Feature: I can initialize a packer project for docker images
       """
       (playbook-site)
       """
-    And the file named "bitrequire.yml" should contain:
+    And the file named "hgclone" should contain:
       """
-      name: rake/meta
+      hg clone git@github.com:takelwerk/rake-meta.git rake/meta
       """
     And the file named ".gitignore" should contain:
       """

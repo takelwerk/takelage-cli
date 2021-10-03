@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# takeltau docker container clean
+# tau docker container clean
 module DockerContainerClean
   # Backend method for docker container clean.
   def docker_container_clean

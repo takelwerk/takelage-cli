@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# takeltau self list
+# tau self list
 module SelfList
   # Backend method for config self.
   def self_list

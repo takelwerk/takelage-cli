@@ -16,7 +16,7 @@ module InitTakelageRake
     # reinitialize config with newly created files
     initialize_config
 
-    return false unless _init_lib_bit_require_import
+    return false unless _init_lib_hg_clone
 
     return false unless exit_code
 
@@ -28,8 +28,8 @@ module InitTakelageRake
   # Add templates.
   def _init_takelage_rake_files_get
     [
-      @bitrequireyml,
       @gitignore,
+      @hgclone,
       @projectyml,
       @rakefile
     ]
@@ -38,8 +38,6 @@ module InitTakelageRake
   # Check prerequisites.
   def _init_takelage_rake_check_prerequisites(files)
     return false unless _init_lib_git_check
-
-    return false unless _init_lib_bit_check
 
     return false unless _init_lib_files_check files
 
@@ -51,7 +49,6 @@ module InitTakelageRake
     exit_code = true
 
     exit_code &&= _init_lib_git_init
-    exit_code &&= _init_lib_bit_init
     exit_code &&= _init_lib_files_create files
     exit_code &&= _init_lib_git_add_all
     exit_code &&= _init_lib_git_commit_initial

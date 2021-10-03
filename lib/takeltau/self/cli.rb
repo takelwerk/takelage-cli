@@ -4,7 +4,7 @@ module Takeltau
   # semantic version number
   VERSION = (File.read "#{File.dirname(__FILE__)}/../version").chomp
 
-  # takeltau self
+  # tau self
   class Self < SubCommandBase
     include LoggingModule
     include SelfList

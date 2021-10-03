@@ -1,6 +1,2 @@
 ---
-# project settings
 name: takelage-cli
-
-pipelines:
-  - prod

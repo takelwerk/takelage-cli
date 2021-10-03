@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Takeltau
-  # takeltau docker container
+  # tau docker container
   class DockerContainer < SubCommandBase
     include LoggingModule
     include SystemModule

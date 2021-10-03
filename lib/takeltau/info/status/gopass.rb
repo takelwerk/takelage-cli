@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# takeltau info status gopass
+# tau info status gopass
 module InfoStatusGopass
   # Backend method for info status gopass.
   # @return [Boolean] is gopass available?

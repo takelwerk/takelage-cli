@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# takeltau docker container check network
+# tau docker container check network
 module DockerContainerCheckNetwork
   # Backend method for docker container check network.
   # @return [Boolean] is network existing?

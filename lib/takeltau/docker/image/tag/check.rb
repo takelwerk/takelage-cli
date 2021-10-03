@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# takeltau docker image tag check
+# tau docker image tag check
 module DockerImageTagCheck
   # Backend method for docker image tag check.
   # @return [Boolean] does docker image tag exist?

@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# takeltau mutagen socket tidy
+# tau mutagen socket tidy
 module MutagenSocketTidy
   # Backend method for mutagen socket tidy.
   def mutagen_socket_tidy

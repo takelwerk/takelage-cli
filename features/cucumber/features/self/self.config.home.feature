@@ -8,7 +8,7 @@ Feature: I can print the home configuration
     Given a file named "~/.takelage.yml" with:
       """
       ---
-      bit_scope_list: banana
+      git_hg_branch: banana
       """
     And an empty file "Rakefile"
     And an empty file "takelage.yml"
@@ -16,5 +16,5 @@ Feature: I can print the home configuration
     Then the output should contain exactly:
       """
       ---
-      bit_scope_list: banana
+      git_hg_branch: banana
       """

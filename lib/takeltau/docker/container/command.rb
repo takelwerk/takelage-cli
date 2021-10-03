@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# takeltau docker container command
+# tau docker container command
 module DockerContainerCommand
   # Backend method for docker container command.
   def docker_container_command(command)

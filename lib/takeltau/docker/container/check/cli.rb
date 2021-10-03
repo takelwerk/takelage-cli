@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Takeltau
-  # takeltau docker container check
+  # tau docker container check
   class DockerContainerCheck < SubCommandBase
     include LoggingModule
     include SystemModule

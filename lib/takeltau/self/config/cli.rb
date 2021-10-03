@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Takeltau
-  # takeltau bit
+  # tau self
   class SelfConfig < SubCommandBase
     include LoggingModule
     include SystemModule

@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# takeltau mutagen socket check
+# tau mutagen socket check
 module MutagenSocketCheck
   # Backend method for mutagen socket check.
   # @return [Boolean] Does a mutagen socket exist?

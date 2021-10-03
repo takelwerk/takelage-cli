@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# takeltau docker container lib
+# tau docker container lib
 # rubocop:disable Metrics/ModuleLength
 # rubocop:disable Style/IfUnlessModifier
 module DockerContainerLib

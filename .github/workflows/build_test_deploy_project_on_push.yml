@@ -28,13 +28,6 @@ jobs:
           echo "batch" >> $HOME/.gnupg/gpg-agent.conf
           echo "enable-ssh-support" >> $HOME/.gnupg/gpg-agent.conf
 
-      - name: Add bitboard ssh key to agent
-        run: |
-          gpg-connect-agent updatestartuptty /bye
-          export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
-          chmod 600 features/cucumber/support/fixtures/takelage-bitboard/id_rsa.myuser
-          ssh-add features/cucumber/support/fixtures/takelage-bitboard/id_rsa.myuser
-
       - name: Add host.docker.internal to /etc/hosts
         run: echo "127.0.0.1 host.docker.internal" | sudo tee --append /etc/hosts
 

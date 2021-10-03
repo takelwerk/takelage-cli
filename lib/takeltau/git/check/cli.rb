@@ -1,26 +1,14 @@
 # frozen_string_literal: true
 
 module Takeltau
-  # takeltau git check
+  # tau git check
   class GitCheck < SubCommandBase
     include LoggingModule
     include SystemModule
     include ConfigModule
     include GitCheckClean
-    include GitCheckBit
+    include GitCheckHg
     include GitCheckWorkspace
-
-    #
-    # git check bit
-    #
-    desc 'bit', 'Check if we are on the git bit branch'
-    long_desc <<-LONGDESC.gsub("\n", "\x5")
-    Check if we are on the git bit branch
-    LONGDESC
-    # Check if we are on the git bit branch.
-    def bit
-      exit git_check_bit
-    end
 
     #
     # git check clean
@@ -32,6 +20,18 @@ module Takeltau
     # Check if the git workspace is clean.
     def clean
       exit git_check_clean
+    end
+
+    #
+    # git check hg
+    #
+    desc 'hg', 'Check if we are on the git hg branch'
+    long_desc <<-LONGDESC.gsub("\n", "\x5")
+    Check if we are on the git hg branch
+    LONGDESC
+    # Check if we are on the git hg branch.
+    def hg
+      exit git_check_hg
     end
 
     #

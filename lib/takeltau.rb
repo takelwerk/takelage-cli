@@ -20,30 +20,17 @@ require_relative 'takeltau/lib/system'
 require_relative 'takeltau/lib/config'
 require_relative 'takeltau/lib/project'
 
+require_relative 'takeltau/completion/cli'
 require_relative 'takeltau/git/check/clean'
-require_relative 'takeltau/git/check/bit'
+require_relative 'takeltau/git/check/hg'
 require_relative 'takeltau/git/check/workspace'
 require_relative 'takeltau/git/check/cli'
+require_relative 'takeltau/git/lib'
 require_relative 'takeltau/git/cli'
-require_relative 'takeltau/bit/check/workspace'
-require_relative 'takeltau/bit/check/cli'
-require_relative 'takeltau/bit/scope/add'
-require_relative 'takeltau/bit/scope/ssh'
-require_relative 'takeltau/bit/scope/list'
-require_relative 'takeltau/bit/scope/new'
-require_relative 'takeltau/bit/scope/cli'
-require_relative 'takeltau/bit/clipboard/lib'
-require_relative 'takeltau/bit/clipboard/copy'
-require_relative 'takeltau/bit/clipboard/paste'
-require_relative 'takeltau/bit/clipboard/pull'
-require_relative 'takeltau/bit/clipboard/push'
-require_relative 'takeltau/bit/clipboard/cli'
-require_relative 'takeltau/bit/require/lib'
-require_relative 'takeltau/bit/require/export'
-require_relative 'takeltau/bit/require/import'
-require_relative 'takeltau/bit/require/cli'
-require_relative 'takeltau/bit/cli'
-require_relative 'takeltau/completion/cli'
+require_relative 'takeltau/hg/export'
+require_relative 'takeltau/hg/pull'
+require_relative 'takeltau/hg/push'
+require_relative 'takeltau/hg/cli'
 require_relative 'takeltau/init/lib'
 require_relative 'takeltau/init/packer/docker'
 require_relative 'takeltau/init/packer/cli'
@@ -137,10 +124,7 @@ module Takeltau
     #
     # Subcommands
     #
-
-    desc 'bit [COMMAND] ', 'Manage bit'
-    subcommand 'bit', Bit
-
+    
     desc 'completion [COMMAND] ', 'Print shell completion code'
     subcommand 'completion', Completion
 
@@ -150,10 +134,13 @@ module Takeltau
     desc 'git [COMMAND] ', 'Manage git'
     subcommand 'git', Git
 
+    desc 'hg [COMMAND] ', 'Manage hg'
+    subcommand 'hg', Hg
+
     desc 'info [COMMAND] ', 'Get information'
     subcommand 'info', Info
 
-    desc 'init [COMMAND] ', 'Init projects'
+    desc 'init [COMMAND] ', 'Init project'
     subcommand 'init', Init
 
     desc 'mutagen [COMMAND] ', 'Manage mutagen'
@@ -166,80 +153,68 @@ module Takeltau
     # Top-level commands
     #
 
+    desc 'clean', 'Alias for tau docker container clean'
+    # tau clean: {Takeltau::DockerContainer#clean}
+    def clean
+      Takeltau::DockerContainer.new.clean
+    end
+
     desc 'config', 'Alias for tau self config active'
-    # takeltau config: {takelage::SelfConfig#active}
+    # tau config: {Takeltau::SelfConfig#active}
     def config
       Takeltau::SelfConfig.new.active
     end
 
-    desc 'copy [DIR] [SCOPE]', 'Alias for tau bit clipboard copy'
-    # takeltau copy: {takelage::BitClipboard#copy}
-    def copy(dir_or_file, scope)
-      Takeltau::BitClipboard.new.copy dir_or_file, scope
-    end
-
-    desc 'project', 'Alias for tau info project active'
-    # takeltau project: {takelage::InfoProject#active}
-    def project
-      Takeltau::InfoProject.new.active
-    end
-
     desc 'login', 'Alias for tau docker container login'
-    # takeltau login: {takelage::DockerContainer#login}
+    # tau login: {Takeltau::DockerContainer#login}
     def login
       Takeltau::DockerContainer.new.login
     end
 
     desc 'list', 'Alias for tau self list'
-    # takeltau version: {takelage::Self#list}
+    # tau version: {Takeltau::Self#list}
     def list
       Takeltau::Self.new.list
     end
 
-    desc 'clean', 'Alias for tau docker container clean'
-    # takeltau clean: {takelage::DockerContainer#clean}
-    def clean
-      Takeltau::DockerContainer.new.clean
-    end
-
-    desc 'paste [COMPONENT] [DIR]', 'Alias for tau bit clipboard paste'
-    # takeltau paste: {takelage::BitClipboard#paste}
-    def paste(cid, dir)
-      Takeltau::BitClipboard.new.paste cid, dir
-    end
-
-    desc 'pull', 'Alias for tau bit clipboard pull'
-    # takeltau pull: {takelage::BitClipboard#pull}
-    def pull
-      Takeltau::BitClipboard.new.pull
+    desc 'project', 'Alias for tau info project active'
+    # tau project: {Takeltau::InfoProject#active}
+    def project
+      Takeltau::InfoProject.new.active
     end
 
     desc 'prune', 'Alias for tau docker container prune'
-    # takeltau prune: {takelage::DockerContainer#prune}
+    # tau prune: {Takeltau::DockerContainer#prune}
     def prune
       Takeltau::DockerContainer.new.prune
     end
 
-    desc 'push', 'Alias for tau bit clipboard push'
-    # takeltau push: {takelage::BitClipboard#push}
+    desc 'pull', 'Alias for tau hg pull'
+    # tau pull: {Takeltau::Hg#pull}
+    def pull
+      Takeltau::Hg.new.pull
+    end
+
+    desc 'push', 'Alias for tau hg push'
+    # tau push: {Takeltau::Hg#push}
     def push
-      Takeltau::BitClipboard.new.push
+      Takeltau::Hg.new.push
     end
 
     desc 'status', 'Alias for tau info status bar'
-    # takeltau status: {takelage::InfoStatus#bar}
+    # tau status: {Takeltau::InfoStatus#bar}
     def status
       Takeltau::InfoStatus.new.bar
     end
 
     desc 'update', 'Alias for tau docker image update'
-    # takeltau update: {takelage::DockerImage#update}
+    # tau update: {Takeltau::DockerImage#update}
     def update
       Takeltau::DockerImage.new.update
     end
 
     desc 'version', 'Alias for tau self version'
-    # takeltau version: {takelage::Self#version}
+    # tau version: {Takeltau::Self#version}
     def version
       Takeltau::Self.new.version
     end

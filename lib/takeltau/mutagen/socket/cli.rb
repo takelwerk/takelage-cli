@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Takeltau
-  # takeltau mutagen socket
+  # tau mutagen socket
   class MutagenSocket < SubCommandBase
     include LoggingModule
     include SystemModule

@@ -11,10 +11,8 @@ Feature: I can initialize a takelage rake project
       """
       ---
       cmd_init_packer_lib_git_init: 'git init && git config user.name "Cucumber" && git config user.email "cucumber@example.com" && git checkout -b main'
-      init_bit_require_import: 'false'
       """
     And I get the active takeltau config
-    And I configure my global bit report settings
     And a directory named "project"
     And I cd to "project"
     When I run `tau-cli init takelage rake tomato`
@@ -25,19 +23,15 @@ Feature: I can initialize a takelage rake project
       """
     And the output should contain:
       """
-      [INFO] Initializing bit workspace
-      """
-    And the output should contain:
-      """
       [INFO] Preparing initial git commit
       """
     And the output should contain:
       """
       [INFO] Saving initial git commit
       """
-    And the file named "bitrequire.yml" should contain:
+    And the file named "hgclone" should contain:
       """
-      name: rake/meta
+      hg clone git@github.com:takelwerk/rake-meta.git rake/meta
       """
     And the file named ".gitignore" should contain:
       """

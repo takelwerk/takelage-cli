@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# takeltau docker image tag list
+# tau docker image tag list
 module DockerImageTagList
   # Backend method for docker image tag list.
   # @return [Array] docker image tags

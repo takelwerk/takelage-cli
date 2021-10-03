@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# takeltau info status gpg
+# tau info status gpg
 module InfoStatusGPG
   # Backend method for info status gpg.
   # @return [Boolean] is GPG available?

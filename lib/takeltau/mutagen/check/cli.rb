@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Takeltau
-  # takeltau mutagen check
+  # tau mutagen check
   class MutagenCheck < SubCommandBase
     include LoggingModule
     include SystemModule

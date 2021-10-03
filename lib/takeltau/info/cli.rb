@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Takeltau
-  # takeltau info
+  # tau info
   class Info < SubCommandBase
     desc 'project [COMMAND]', 'Get project info'
     subcommand 'project', InfoProject

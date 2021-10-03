@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# takeltau git check workspace
+# tau git check workspace
 module GitCheckWorkspace
   # Backend method for git check workspace.
   # @return [Boolean] is this a git workspace?

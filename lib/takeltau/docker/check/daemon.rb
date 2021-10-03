@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# takeltau docker check daemon
+# tau docker check daemon
 module DockerCheckDaemon
   # Backend method for docker check daemon.
   # @return [Boolean] is the docker daemon running?

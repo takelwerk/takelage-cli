@@ -1,35 +1,8 @@
 # frozen_string_literal: true
 
-# takeltau init takelage lib
+# takeltau init lib
 module InitLib
   private
-
-  # Import bit components.
-  def _init_lib_bit_require_import
-    if config.active['init_bit_require_import'] == 'true'
-      log.info 'Importing bit components'
-      return false unless bit_require_import
-    end
-
-    true
-  end
-
-  # Check bit.
-  def _init_lib_bit_check
-    return false unless command_available_else_error? config.active['cmd_bit']
-    return true unless bit_check_workspace
-
-    log.error 'bit is already initialized!'
-    false
-  end
-
-  # Init bit.
-  def _init_lib_bit_init
-    log.info 'Initializing bit workspace'
-    return false unless try config.active['cmd_init_lib_bit_init']
-
-    true
-  end
 
   # Check git.
   def _init_lib_git_check
@@ -80,6 +53,14 @@ module InitLib
   def _init_lib_git_commit_initial
     log.info 'Saving initial git commit'
     return false unless try config.active['cmd_init_lib_git_commit_initial']
+
+    true
+  end
+
+  # Clone hg repos.
+  def _init_lib_hg_clone
+    log.info 'Cloning hg repos'
+    return false unless try config.active['cmd_init_lib_hg_clone']
 
     true
   end

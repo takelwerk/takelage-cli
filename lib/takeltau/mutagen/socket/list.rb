@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# takeltau mutagen socket list
+# tau mutagen socket list
 module MutagenSocketList
   # Backend method for mutagen socket list.
   # @return [String] List of takelage sockets

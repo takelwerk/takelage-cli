@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Takeltau
-  # takeltau info status
+  # tau info status
   class InfoStatus < SubCommandBase
     include LoggingModule
     include SystemModule

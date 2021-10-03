@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# takeltau mutagen socket create
+# tau mutagen socket create
 module MutagenSocketCreate
   # Backend method for mutagen socket create.
   # rubocop:disable Metrics/MethodLength

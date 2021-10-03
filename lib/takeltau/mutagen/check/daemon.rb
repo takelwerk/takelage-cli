@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# takeltau info status mutagen
+# tau info status mutagen
 module MutagenCheckDaemon
   # Backend method for mutagen check daemon.
   # @return [Boolean] is mutagen available?

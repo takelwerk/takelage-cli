@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Takeltau
-  # takeltau completion
+  # tau completion
   class Completion < SubCommandBase
     include LoggingModule
 
