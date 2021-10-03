@@ -3,10 +3,9 @@
 Given 'I initialize a git workspace in {string}' do |dir|
   cmd_git_init_workspace = "bash -c '" \
       "cd #{aruba.config.working_directory}/#{dir} && " \
-      'git init && ' \
+      'git init -b "main" && ' \
       'git config user.name "Cucumber" && ' \
       'git config user.email "cucumber@example.com" && ' \
-      'git checkout -b main ' \
       '&> /dev/null' \
       "'"
   system cmd_git_init_workspace
