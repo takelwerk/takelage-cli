@@ -16,14 +16,15 @@ module GitLib
     return false unless _git_lib_git_add_all
     return false unless _git_lib_git_commit message
     return false unless _git_lib_git_pull_origin_hg
+
     _git_lib_git_push_origin_hg
   end
 
   private
-  
+
   # git add all.
   def _git_lib_git_add_all
-    log.debug "Adding all files to git"
+    log.debug 'Adding all files to git'
 
     cmd_git_add_all = config.active['cmd_git_lib_git_add_all']
 
@@ -61,7 +62,7 @@ module GitLib
     log.error 'Unable to pull git hg branch'
     false
   end
-  
+
   # git push origin hg.
   def _git_lib_git_push_origin_hg
     log.debug 'Pushing git hg branch to origin'

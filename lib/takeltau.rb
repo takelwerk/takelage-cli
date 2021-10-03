@@ -124,7 +124,7 @@ module Takeltau
     #
     # Subcommands
     #
-    
+
     desc 'completion [COMMAND] ', 'Print shell completion code'
     subcommand 'completion', Completion
 

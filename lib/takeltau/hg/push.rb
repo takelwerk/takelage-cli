@@ -3,6 +3,7 @@
 # tau hg push
 module HgPush
   # Backend method for hg push.
+  # rubocop:disable Metrics/MethodLength
   def hg_push
     log.debug 'Push hg repos'
 
@@ -20,11 +21,12 @@ module HgPush
 
     log.info _hg_push_hg_push_repos
 
-    return true if git_lib_push_workspace "tau hg push"
+    return true if git_lib_push_workspace 'tau hg push'
 
     log.error 'Unable to push git workspace'
     false
   end
+  # rubocop:enable Metrics/MethodLength
 
   private
 

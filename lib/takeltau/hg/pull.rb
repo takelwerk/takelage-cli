@@ -3,6 +3,7 @@
 # tau hg pull
 module HgPull
   # Backend method for hg pull.
+  # rubocop:disable Metrics/MethodLength
   def hg_pull
     log.debug 'Pull hg repos'
 
@@ -25,6 +26,7 @@ module HgPull
 
     _hg_pull_hg_pull_repos
   end
+  # rubocop:enable Metrics/MethodLength
 
   private
 
