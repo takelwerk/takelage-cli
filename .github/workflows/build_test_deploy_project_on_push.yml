@@ -20,14 +20,6 @@ jobs:
           wget -O /tmp/mutagen.tar.gz https://github.com/mutagen-io/mutagen/releases/download/v0.11.8/mutagen_linux_amd64_v0.11.8.tar.gz
           sudo tar xvfz /tmp/mutagen.tar.gz -C /usr/local/bin
 
-      - name: Configure gnupg and ssh on the host
-        run: |
-          mkdir --parents $HOME/.ssh
-          echo "AddKeysToAgent yes" >> $HOME/.ssh/config
-          mkdir $HOME/.gnupg
-          echo "batch" >> $HOME/.gnupg/gpg-agent.conf
-          echo "enable-ssh-support" >> $HOME/.gnupg/gpg-agent.conf
-
       - name: Add host.docker.internal to /etc/hosts
         run: echo "127.0.0.1 host.docker.internal" | sudo tee --append /etc/hosts
 
@@ -43,6 +35,7 @@ jobs:
         run: |
           echo "docker_entrypoint_options: --no-git --no-gopass" >> $HOME/.takelage.yml
           echo "docker_run_options: --cap-add=NET_ADMIN" >> $HOME/.takelage.yml
+          echo "docker_repo: takelbeta" >> $HOME/.takelage.yml
 
       - name: Configure docker daemon
         run: |
