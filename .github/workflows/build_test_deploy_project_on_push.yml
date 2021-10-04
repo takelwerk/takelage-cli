@@ -69,7 +69,7 @@ jobs:
         run: tau docker container command "rake test"
 
       - name: Run cucumber features
-        run: tau docker container command "SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket) rake features"
+        run: tau docker container command "rake features"
 
       - name: Clean docs
         run: tau docker container command "rake doc:clean"
