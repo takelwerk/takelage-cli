@@ -22,7 +22,7 @@ Feature: I can push hg repos
     And I successfully run `git checkout -b my_branch`
     And I cd to "../project_clone"
 
-  Scenario:
+  Scenario: Push hg repo
     When I successfully run `tau-cli hg push`
     And I cd to "../my_git_origin"
     And I successfully run `git checkout main`

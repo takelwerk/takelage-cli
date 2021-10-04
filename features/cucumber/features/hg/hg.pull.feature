@@ -19,6 +19,6 @@ Feature: I can pull hg repos
     And I commit everything in "my_git_origin" to git
     And I cd to "project_clone"
 
-  Scenario:
+  Scenario: Pull hg repo
     When I successfully run `tau-cli hg pull`
     Then the file "my_hg_clone/new_file" should exist
