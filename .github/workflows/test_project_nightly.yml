@@ -60,10 +60,5 @@ jobs:
       - name: Run unit tests
         run: tau docker container command "rake test"
 
-      - name: Setup tmate session
-        uses: mxschmitt/action-tmate@v3
-        with:
-          limit-access-to-actor: true
-
-      #- name: Run cucumber features
-      #  run: tau docker container command "SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket) rake features"
+      - name: Run cucumber features
+        run: tau docker container command "SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket) rake features"
