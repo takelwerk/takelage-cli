@@ -43,7 +43,6 @@ jobs:
         run: |
           echo "docker_entrypoint_options: --no-git --no-gopass" >> $HOME/.takelage.yml
           echo "docker_run_options: --cap-add=NET_ADMIN" >> $HOME/.takelage.yml
-          echo "docker_repo: takelbeta" >> $HOME/.takelage.yml
 
       - name: Configure docker daemon
         run: |
