@@ -16,14 +16,11 @@ Feature: I can push hg repos
     And I run `hg clone my_git_origin project_clone/my_hg_clone`
     And an empty file named "project_clone/my_hg_clone/new_file"
     And I commit everything in "project_clone" to git
-    And I cd to "my_git_origin"
-    And I successfully run `git checkout -b my_branch`
-    And I cd to "../project_origin"
-    And I successfully run `git checkout -b my_branch`
-    And I cd to "../project_clone"
+    And I switch to the new git branch named "my_branch" in "my_git_origin"
+    And I switch to the new git branch named "my_branch" in "project_origin"
+    And I cd to "project_clone"
 
   Scenario: Push hg repo
     When I successfully run `tau-cli hg push`
-    And I cd to "../my_git_origin"
-    And I successfully run `git checkout main`
-    Then the file "new_file" should exist
+    And I switch to the git branch named "main" in "my_git_origin"
+    Then the file "../my_git_origin/new_file" should exist
