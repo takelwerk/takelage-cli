@@ -6,7 +6,6 @@ Given 'I initialize a git workspace in {string}' do |dir|
       'git init --initial-branch "main" && ' \
       'git config user.name "Cucumber" && ' \
       'git config user.email "cucumber@example.com" && ' \
-      'hg --config ui.username="Cucumber <cucumber@example.com>" && ' \
       '&> /dev/null' \
       "'"
   system cmd_git_init_workspace

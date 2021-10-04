@@ -4,6 +4,7 @@ Before do
   _copy_home_config
   _copy_gopass_gpg_tar_gz
   _tar_extract_gopass_gpg_tar_gz
+  _create_hg_config
 end
 
 # for host.docker.internal see
@@ -43,4 +44,12 @@ def _tar_extract_gopass_gpg_tar_gz
       '&> /dev/null' \
       "'"
   system cmd_tar_extract_gopass_gpg_tar_gz
+end
+
+def _create_hg_config
+  cmd_create_hg_config = "bash -c '" \
+      'echo -e "[ui]\nusername = Cucumber <cucumber@example.com>" > ' \
+      "#{aruba.config.home_directory}/.hgrc " \
+      "'"
+  system cmd_create_hg_config
 end
