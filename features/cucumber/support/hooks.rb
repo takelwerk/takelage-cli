@@ -4,6 +4,7 @@ Before do
   _copy_home_config
   _copy_gopass_gpg_tar_gz
   _tar_extract_gopass_gpg_tar_gz
+  _create_git_config
   _create_hg_config
 end
 
@@ -44,6 +45,14 @@ def _tar_extract_gopass_gpg_tar_gz
       '&> /dev/null' \
       "'"
   system cmd_tar_extract_gopass_gpg_tar_gz
+end
+
+def _create_git_config
+  cmd_create_git_config = "bash -c '" \
+      'echo -e "[user]\n	name = Cucumber\n	email = cucumber@example.net" > ' \
+      "#{aruba.config.home_directory}/.gitconfig " \
+      "'"
+  system cmd_create_git_config
 end
 
 def _create_hg_config
