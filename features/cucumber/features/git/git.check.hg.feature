@@ -18,7 +18,7 @@ Feature: I can check if I am on the git hg branch
   @git.check.hg.isnothg
 
   Scenario: Check that I am not on the git hg branch
-    Given I switch to the git branch named "my_branch" in "git"
+    Given I switch to the new git branch named "my_branch" in "git"
     When I run `tau-cli git check hg`
     Then the exit status should be 1
 
