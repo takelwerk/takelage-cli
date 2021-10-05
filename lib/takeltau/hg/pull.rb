@@ -24,7 +24,8 @@ module HgPull
       return false
     end
 
-    _hg_pull_hg_pull_repos
+    log.info _hg_pull_hg_pull_repos
+    true
   end
   # rubocop:enable Metrics/MethodLength
 
