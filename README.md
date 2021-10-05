@@ -23,7 +23,6 @@ command line script using the
 | *[takelage-dev](https://github.com/takelwerk/takelage-dev)* | [![hub.docker.com](https://img.shields.io/docker/v/takelwerk/takelage/latest?label=hub.docker.com&sort=semver&color=blue)](https://hub.docker.com/r/takelwerk/takelage) |
 | *[takelage-cli](https://github.com/takelwerk/takelage-cli)* | [![rubygems.org](https://img.shields.io/gem/v/takeltau?label=rubygems.org&color=blue)](https://rubygems.org/gems/takeltau) |
 | *[takelage-var](https://github.com/takelwerk/takelage-var)* | [![pypi,org](https://img.shields.io/pypi/v/pytest-takeltest?label=pypi.org&color=blue)](https://pypi.org/project/pytest-takeltest/) |
-| *[takelage-bit](https://github.com/takelwerk/takelage-bit)* | [![hub.docker.com](https://img.shields.io/docker/v/takelwerk/bitboard/latest?label=hub.docker.com&sort=semver&color=blue)](https://hub.docker.com/r/takelwerk/bitboard) | 
 | *[takelage-img-takelslim](https://github.com/takelwerk/takelage-img-takelslim)* | [![hub.docker.com](https://img.shields.io/docker/v/takelwerk/takelslim/latest?label=hub.docker.com&color=blue)](https://hub.docker.com/r/takelwerk/takelslim) | 
 | *[takelage-img-takelbase](https://github.com/takelwerk/takelage-img-takelbase)* | [![hub.docker.com](https://img.shields.io/docker/v/takelwerk/takelbase/latest?label=hub.docker.com&color=blue)](https://hub.docker.com/r/takelwerk/takelbase) | 
 | *[takelage-img-takelruby](https://github.com/takelwerk/takelage-img-takelruby)* | [![hub.docker.com](https://img.shields.io/docker/v/takelwerk/takelruby/latest?label=hub.docker.com&color=blue)](https://hub.docker.com/r/takelwerk/takelruby) | 
@@ -35,7 +34,6 @@ command line script using the
 | *[takelage-dev](https://github.com/takelwerk/takelage-dev)* | [![deploy project](https://img.shields.io/github/workflow/status/takelwerk/takelage-dev/Build,%20test%20and%20deploy%20project?label=deploy%20project)](https://github.com/takelwerk/takelage-dev/actions/workflows/build_test_deploy_project_on_push.yml) | [![test project](https://img.shields.io/github/workflow/status/takelwerk/takelage-dev/Build%20and%20test%20project?label=test%20project)](https://github.com/takelwerk/takelage-dev/actions/workflows/build_test_project_nightly.yml) | [![test roles](https://img.shields.io/github/workflow/status/takelwerk/takelage-dev/Test%20roles?label=test%20roles)](https://github.com/takelwerk/takelage-dev/actions/workflows/build_test_roles_nightly.yml) |
 | *[takelage-cli](https://github.com/takelwerk/takelage-cli)* | [![deploy project](https://img.shields.io/github/workflow/status/takelwerk/takelage-cli/Build,%20test%20and%20deploy%20project?label=deploy%20project)](https://github.com/takelwerk/takelage-cli/actions/workflows/build_test_deploy_project_on_push.yml) | [![test project](https://img.shields.io/github/workflow/status/takelwerk/takelage-cli/Test%20project?label=test%20project)](https://github.com/takelwerk/takelage-cli/actions/workflows/test_project_nightly.yml) |
 | *[takelage-var](https://github.com/takelwerk/takelage-var)* | [![deploy project](https://img.shields.io/github/workflow/status/takelwerk/takelage-var/Build,%20test%20and%20deploy%20project?label=deploy%20project)](https://github.com/takelwerk/takelage-var/actions/workflows/build_test_deploy_project_on_push.yml) | [![test project](https://img.shields.io/github/workflow/status/takelwerk/takelage-var/Build%20and%20test%20project?label=test%20project)](https://github.com/takelwerk/takelage-var/actions/workflows/build_test_project_nightly.yml) |
-| *[takelage-bit](https://github.com/takelwerk/takelage-bit)* | [![deploy project](https://img.shields.io/github/workflow/status/takelwerk/takelage-bit/Build,%20test%20and%20deploy%20project?label=deploy%20project)](https://github.com/takelwerk/takelage-bit/actions/workflows/build_test_deploy_project_on_push.yml) | [![test project](https://img.shields.io/github/workflow/status/takelwerk/takelage-bit/Build%20and%20test%20project?label=test%20project)](https://github.com/takelwerk/takelage-bit/actions/workflows/build_test_project_nightly.yml) | [![test roles](https://img.shields.io/github/workflow/status/takelwerk/takelage-bit/Test%20roles?label=test%20roles)](https://github.com/takelwerk/takelage-bit/actions/workflows/build_test_roles_nightly.yml) |
 | *[takelage-img-takelslim](https://github.com/takelwerk/takelage-img-takelslim)* | [![deploy project](https://img.shields.io/github/workflow/status/takelwerk/takelage-img-takelslim/Build%20and%20deploy%20takelslim?label=deploy%20project)](https://github.com/takelwerk/takelage-img-takelslim/actions/workflows/build_deploy_takelslim_nightly.yml) |
 | *[takelage-img-takelbase](https://github.com/takelwerk/takelage-img-takelbase)* | [![deploy project](https://img.shields.io/github/workflow/status/takelwerk/takelage-img-takelbase/Build%20and%20deploy%20takelbase?label=deploy%20project)](https://github.com/takelwerk/takelage-img-takelbase/actions/workflows/build_deploy_takelbase_nightly.yml) |
 | *[takelage-img-takelruby](https://github.com/takelwerk/takelage-img-takelruby)* | [![deploy project](https://img.shields.io/github/workflow/status/takelwerk/takelage-img-takelruby/Build%20and%20deploy%20takelruby%20latest?label=deploy%20project)](https://github.com/takelwerk/takelage-img-takelruby/actions/workflows/build_deploy_takelruby_nightly.yml) |
@@ -65,17 +63,6 @@ or *tau list*:
 
 Command	| Description
 ------- | -----------
-tau [bit check workspace](features/cucumber/features/bit/bit.check.workspace.feature) | Check if a bit workspace exists
-tau [bit clipboard copy](features/cucumber/features/bit/bit.clipboard.copy.feature) [DIR] [SCOPE] | Copy new [DIR] to [SCOPE]
-tau [bit clipboard paste](features/cucumber/features/bit/bit.clipboard.paste.feature) [COMPONENT] [DIR] | Paste bit [COMPONENT] into [DIR]
-tau [bit clipboard pull](features/cucumber/features/bit/bit.clipboard.pull.feature) | Pull all updates for bit components from bit remote scopes
-tau [bit clipboard push](features/cucumber/features/bit/bit.clipboard.push.feature) | Push all updates of bit components to bit remote scopes
-tau [bit require export](features/cucumber/features/bit/bit.require.export.feature) | Show requirements file of bit components
-tau [bit require import](features/cucumber/features/bit/bit.require.import.feature) | Import bit components from requirements file
-tau [bit scope add](features/cucumber/features/bit/bit.scope.add.feature) [SCOPE] | Add a bit [SCOPE]
-tau [bit scope ssh](features/cucumber/features/bit/bit.scope.ssh.feature) | Log in to bit remote server
-tau [bit scope list](features/cucumber/features/bit/bit.scope.list.feature) | List bit remote scopes
-tau [bit scope new](features/cucumber/features/bit/bit.scope.new.feature) [SCOPE] | Init a new bit [SCOPE]
 tau [completion bash](features/cucumber/features/completion/completion.bash.feature) | Print bash completion code
 tau [docker check daemon](features/cucumber/features/docker/docker.check.daemon.feature) | Check if docker daemon is running
 tau [docker container check existing](features/cucumber/features/docker/docker.container.check.existing.feature) [CONTAINER] | Check if docker [CONTAINER] is existing
@@ -91,8 +78,11 @@ tau [docker image tag latest](features/cucumber/features/docker/docker.image.tag
 tau [docker image tag list](features/cucumber/features/docker/docker.image.tag.list.feature) | Print local docker image tags
 tau [docker image update](features/cucumber/features/docker/docker.image.update.feature) | Get latest remote docker container
 tau [git check clean](features/cucumber/features/git/git.check.clean.feature) | Check if the git workspace is clean
-tau [git check bit](features/cucumber/features/git/git.check.bit.feature) | Check if we are on the git bit branch
+tau [git check hg](features/cucumber/features/git/git.check.hg.feature) | Check if we are on the git hg branch
 tau [git check workspace](features/cucumber/features/git/git.check.workspace.feature) | Check if a git workspace exists
+tau [hg export](features/cucumber/features/hg/hg.export.feature) | Export hg repos
+tau [hg pull](features/cucumber/features/hg/hg.pull.feature) | Pull hg repos
+tau [hg push](features/cucumber/features/hg/hg.push.feature) | Push hg repos
 tau [info project active](features/cucumber/features/info/info.project.active.feature) | Print active project info
 tau [info project dir](features/cucumber/features/info/info.project.dir.feature) | Print project root directory
 tau [info project main](features/cucumber/features/info/info.project.main.feature) | Print main project info
@@ -118,14 +108,12 @@ tau [self list](features/cucumber/features/self/self.list.feature) | List all co
 tau [self version](features/cucumber/features/self/self.version.feature) | Print tau semantic version number
 tau clean | Alias for tau [docker container clean](features/cucumber/features/docker/docker.container.clean.feature)
 tau config | Alias for tau [self config active](features/cucumber/features/self/self.config.active.feature)
-tau copy [DIR] [SCOPE] | Alias for tau [bit clipboard copy](features/cucumber/features/bit/bit.clipboard.copy.feature)
 tau list | Alias for tau [self list](features/cucumber/features/self/self.list.feature)
 tau login | Alias for tau [docker container login](features/cucumber/features/docker/docker.container.login.feature)
-tau paste [COMPONENT] [DIR] | Alias for tau [bit clipboard paste](features/cucumber/features/bit/bit.clipboard.paste.feature)
 tau project | Alias for tau [info project active](features/cucumber/features/info/info.project.active.feature)
 tau prune | Alias for tau [docker container prune](features/cucumber/features/docker/docker.container.prune.feature)
-tau pull | Alias for tau [bit clipboard pull](features/cucumber/features/bit/bit.clipboard.pull.feature)
-tau push | Alias for tau [bit clipboard push](features/cucumber/features/bit/bit.clipboard.push.feature)
+tau pull | Alias for tau [hg pull](features/cucumber/features/hg/hg.pull.feature)
+tau push | Alias for tau [hg push](features/cucumber/features/hg/hg.push.feature)
 tau status | Alias for tau [docker info status bar](features/cucumber/features/info/info.status.bar.feature)
 tau update | Alias for tau [docker image update](features/cucumber/features/docker/docker.image.update.feature)
 tau version | Alias for tau [self version](features/cucumber/features/self/self.version.feature)
@@ -155,12 +143,11 @@ Please remember that a project directory is identified by the main
 ### Configuration Examples
 
 - You should add the following configuration items in your *~/.takelage.yml*
-if you want to use a private bit remote server:
+if you want to use the *takelbeta* docker image channel:
 
 ```yaml
 ---
-bit_remote: 'ssh://bit@bit.example.com:222:/bit'
-bit_ssh: 'ssh -p 222 bit@bit.example.com'
+docker_repo: takelbeta
 ```
 
 - If you want to pin a specific docker tag for one of your projects
@@ -229,9 +216,3 @@ You need to whitelist it in your host's docker engine configuration:
   ]
 }
 ```
-
-*takelage-cli* deploys a 
-*[bitboard](https://hub.docker.com/r/takelwerk/bitboard)*
-server created with 
-*[takelage-bit](https://github.com/takelwerk/takelage-bit)*
-to end-to-end test the *tau bit* commands.
