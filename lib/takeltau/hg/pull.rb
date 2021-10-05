@@ -37,9 +37,6 @@ module HgPull
       root: config.active['project_root_dir']
     )
 
-    return true if try cmd_hg_pull_repos
-
-    log.error 'Unable to pull hg repos'
-    false
+    run cmd_hg_pull_repos
   end
 end
