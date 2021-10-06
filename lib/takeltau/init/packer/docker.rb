@@ -28,7 +28,6 @@ module InitPackerDocker
   # Add templates.
   def _init_packer_docker_files_get
     [
-      @ansiblelint,
       @gitignore,
       @groupvarsprojectyml,
       @hgclone,

@@ -21,10 +21,6 @@ module Takeltau
       # initialize thor parent class
       super args, local_options, configuration
 
-      @ansiblelint = {
-        name: 'ansible/.ansible-lint',
-        template: 'templates/ansiblelint.tt'
-      }
       @gitignore = {
         name: '.gitignore',
         template: '../templates/gitignore.tt'
