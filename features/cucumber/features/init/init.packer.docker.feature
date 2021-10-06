@@ -16,7 +16,6 @@ Feature: I can initialize a packer project for docker images
     And a directory named "project"
     And I cd to "project"
     When I run `tau-cli init packer docker banana`
-    And I run `cat ansible/.ansible-lint`
     Then the exit status should be 0
     And the output should contain:
       """
