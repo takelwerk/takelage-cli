@@ -30,10 +30,6 @@ Feature: I can initialize a packer project for docker images
       """
       [INFO] Saving initial git commit
       """
-    And the file named "ansible/.ansible-lint" should contain:
-      """
-      skip_list:
-      """
     And the file named "ansible/group_vars/all/project.yml" should contain:
       """
       project: "{{ lookup('pipe', 'tau project') | from_yaml }}"
