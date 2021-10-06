@@ -1,5 +1,6 @@
 /takelage.yml
 /credentials
+**/.hg/cache/*
 .idea
 *.gem
 *.rbc
