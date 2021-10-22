@@ -108,11 +108,11 @@ tau [self config active](features/cucumber/features/self/self.config.active.feat
 tau [self config default](features/cucumber/features/self/self.config.default.feature) | Print takelage default configuration
 tau [self config home](features/cucumber/features/self/self.config.home.feature) | Print takelage home config file configuration
 tau [self config project](features/cucumber/features/self/self.config.project.feature) | Print takelage project config file configuration
-tau [self list](features/cucumber/features/self/self.list.feature) | List all commands
+tau [self commands](features/cucumber/features/self/self.commands.feature) | List all commands
 tau [self version](features/cucumber/features/self/self.version.feature) | Print tau semantic version number
 tau clean | Alias for tau [docker container clean](features/cucumber/features/docker/docker.container.clean.feature)
 tau config | Alias for tau [self config active](features/cucumber/features/self/self.config.active.feature)
-tau list | Alias for tau [self list](features/cucumber/features/self/self.list.feature)
+tau commands | Alias for tau [self commands](features/cucumber/features/self/self.commands.feature)
 tau login | Alias for tau [docker container login](features/cucumber/features/docker/docker.container.login.feature)
 tau project | Alias for tau [info project active](features/cucumber/features/info/info.project.active.feature)
 tau prune | Alias for tau [docker container prune](features/cucumber/features/docker/docker.container.prune.feature)

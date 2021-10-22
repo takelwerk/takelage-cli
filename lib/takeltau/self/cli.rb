@@ -7,23 +7,23 @@ module Takeltau
   # tau self
   class Self < SubCommandBase
     include LoggingModule
-    include SelfList
+    include SelfCommands
 
     desc 'config [COMMAND]', 'Manage takeltau configuration'
     subcommand 'config', SelfConfig
 
     #
-    # self list
+    # self commands
     #
-    desc 'list', 'List all commands'
+    desc 'commands', 'List all commands'
     long_desc <<-LONGDESC.gsub("\n", "\x5")
     List all commands
     LONGDESC
     # List all commands.
-    def list
-      list = self_list
-      exit false if list == false
-      say list
+    def commands
+      commands = self_commands
+      exit false if commands == false
+      say commands
       true
     end
 

@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
-# tau self list
-module SelfList
-  # Backend method for config self.
-  def self_list
+# tau self commands
+module SelfCommands
+  # Backend method for config self commands.
+  def self_commands
     _manipulate_output_(_get_thor_list_)
   end
 
@@ -26,10 +26,10 @@ module SelfList
 
   # Manipulate output of thor list command.
   def _manipulate_output_(thor_list)
-    tau_list = thor_list.gsub("takeltau\n", '')
-    tau_list.gsub!("------\n", '')
-    tau_list.gsub!('thor ', 'tau ')
-    tau_list.gsub!(/(.*)takeltau:c_l_i:(.*)#(.*)/, '\1\2               #\3')
-    tau_list.gsub!(/.*COMMAND.*\n/, '')
+    tau_commands = thor_list.gsub("takeltau\n", '')
+    tau_commands.gsub!("------\n", '')
+    tau_commands.gsub!('thor ', 'tau ')
+    tau_commands.gsub!(/(.*)takeltau:c_l_i:(.*)#(.*)/, '\1\2               #\3')
+    tau_commands.gsub!(/.*COMMAND.*\n/, '')
   end
 end

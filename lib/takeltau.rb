@@ -76,7 +76,7 @@ require_relative 'takeltau/info/status/cli'
 require_relative 'takeltau/info/project/cli'
 require_relative 'takeltau/info/cli'
 require_relative 'takeltau/self/config/cli'
-require_relative 'takeltau/self/list'
+require_relative 'takeltau/self/commands'
 require_relative 'takeltau/self/cli'
 
 # Facilitate the takelage devops workflow.
@@ -171,10 +171,10 @@ module Takeltau
       Takeltau::DockerContainer.new.login
     end
 
-    desc 'list', 'Alias for tau self list'
-    # tau version: {Takeltau::Self#list}
-    def list
-      Takeltau::Self.new.list
+    desc 'commands', 'Alias for tau self commands'
+    # tau version: {Takeltau::Self#commands}
+    def commands
+      Takeltau::Self.new.commands
     end
 
     desc 'project', 'Alias for tau info project active'

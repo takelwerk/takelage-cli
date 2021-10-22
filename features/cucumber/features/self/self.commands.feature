@@ -1,17 +1,17 @@
 @self
-@self.list
+@self.commands
 
-Feature: I can print the list of commands
+Feature: I can print the commands of commands
 
-  Scenario: Print the list of commands
-    When I successfully run `tau-cli self list`
+  Scenario: Print the commands of commands
+    When I successfully run `tau-cli self commands`
     Then the output should contain:
       """
-      tau list                                         # Alias for tau self list
+      tau commands                                     # Alias for tau self commands
       """
     And the output should contain:
       """
-      tau self list                                    # List all commands
+      tau self commands                                # List all commands
       """
     And the output should not contain "------"
     And the output should not contain "thor"
@@ -19,14 +19,14 @@ Feature: I can print the list of commands
     And the output should not contain "COMMAND"
 
   Scenario: Print the list of commands
-    When I successfully run `tau-cli list`
+    When I successfully run `tau-cli commands`
     Then the output should contain:
       """
-      tau list                                         # Alias for tau self list
+      tau commands                                     # Alias for tau self commands
       """
     And the output should contain:
       """
-      tau self list                                    # List all commands
+      tau self commands                                # List all commands
       """
     And the output should not contain "------"
     And the output should not contain "thor"
