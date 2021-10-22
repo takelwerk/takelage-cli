@@ -93,7 +93,7 @@
   
   <dl>
       <dt>Includes:</dt>
-      <dd><span class='object_link'><a href="../ConfigModule.html" title="ConfigModule (module)">ConfigModule</a></span>, <span class='object_link'><a href="../GitCheckClean.html" title="GitCheckClean (module)">GitCheckClean</a></span>, <span class='object_link'><a href="../GitCheckHg.html" title="GitCheckHg (module)">GitCheckHg</a></span>, <span class='object_link'><a href="../GitCheckWorkspace.html" title="GitCheckWorkspace (module)">GitCheckWorkspace</a></span>, <span class='object_link'><a href="../GitLib.html" title="GitLib (module)">GitLib</a></span>, <span class='object_link'><a href="../HgExport.html" title="HgExport (module)">HgExport</a></span>, <span class='object_link'><a href="../HgPull.html" title="HgPull (module)">HgPull</a></span>, <span class='object_link'><a href="../HgPush.html" title="HgPush (module)">HgPush</a></span>, <span class='object_link'><a href="../LoggingModule.html" title="LoggingModule (module)">LoggingModule</a></span>, <span class='object_link'><a href="../SystemModule.html" title="SystemModule (module)">SystemModule</a></span></dd>
+      <dd><span class='object_link'><a href="../ConfigModule.html" title="ConfigModule (module)">ConfigModule</a></span>, <span class='object_link'><a href="../GitCheckClean.html" title="GitCheckClean (module)">GitCheckClean</a></span>, <span class='object_link'><a href="../GitCheckHg.html" title="GitCheckHg (module)">GitCheckHg</a></span>, <span class='object_link'><a href="../GitCheckWorkspace.html" title="GitCheckWorkspace (module)">GitCheckWorkspace</a></span>, <span class='object_link'><a href="../GitLib.html" title="GitLib (module)">GitLib</a></span>, <span class='object_link'><a href="../HgList.html" title="HgList (module)">HgList</a></span>, <span class='object_link'><a href="../HgPull.html" title="HgPull (module)">HgPull</a></span>, <span class='object_link'><a href="../HgPush.html" title="HgPush (module)">HgPush</a></span>, <span class='object_link'><a href="../LoggingModule.html" title="LoggingModule (module)">LoggingModule</a></span>, <span class='object_link'><a href="../SystemModule.html" title="SystemModule (module)">SystemModule</a></span></dd>
   </dl>
   
   
@@ -137,7 +137,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#export-instance_method" title="#export (instance method)">#<strong>export</strong>  &#x21d2; Object </a>
+      <a href="#list-instance_method" title="#list (instance method)">#<strong>list</strong>  &#x21d2; Object </a>
     
 
     
@@ -152,7 +152,7 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Export hg repos.</p>
+<p>List hg repos.</p>
 </div></span>
   
 </li>
@@ -240,8 +240,8 @@
   
   
   
-  <h3 class="inherited">Methods included from <span class='object_link'><a href="../HgExport.html" title="HgExport (module)">HgExport</a></span></h3>
-  <p class="inherited"><span class='object_link'><a href="../HgExport.html#hg_export-instance_method" title="HgExport#hg_export (method)">#hg_export</a></span></p>
+  <h3 class="inherited">Methods included from <span class='object_link'><a href="../HgList.html" title="HgList (module)">HgList</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="../HgList.html#hg_list-instance_method" title="HgList#hg_list (method)">#hg_list</a></span></p>
 
   
   
@@ -338,9 +338,9 @@
 
     
       <div class="method_details first">
-  <h3 class="signature first" id="export-instance_method">
+  <h3 class="signature first" id="list-instance_method">
   
-    #<strong>export</strong>  &#x21d2; <tt>Object</tt> 
+    #<strong>list</strong>  &#x21d2; <tt>Object</tt> 
   
 
   
@@ -349,7 +349,7 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Export hg repos.</p>
+<p>List hg repos.</p>
 
 
   </div>
@@ -373,8 +373,8 @@
     <td>
       <pre class="code"><span class="info file"># File 'lib/takeltau/hg/cli.rb', line 25</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_export'>export</span>
-  <span class='id identifier rubyid_hgclone'>hgclone</span> <span class='op'>=</span> <span class='id identifier rubyid_hg_export'>hg_export</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_list'>list</span>
+  <span class='id identifier rubyid_hgclone'>hgclone</span> <span class='op'>=</span> <span class='id identifier rubyid_hg_list'>hg_list</span>
   <span class='id identifier rubyid_exit'>exit</span> <span class='kw'>false</span> <span class='kw'>if</span> <span class='id identifier rubyid_hgclone'>hgclone</span> <span class='op'>==</span> <span class='kw'>false</span>
   <span class='id identifier rubyid_say'>say</span> <span class='id identifier rubyid_hgclone'>hgclone</span>
   <span class='kw'>true</span>
