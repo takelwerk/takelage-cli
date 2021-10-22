@@ -10,20 +10,20 @@ module Takeltau
     include GitCheckHg
     include GitCheckWorkspace
     include GitLib
-    include HgExport
+    include HgList
     include HgPull
     include HgPush
 
     #
-    # hg export
+    # hg list
     #
-    desc 'export', 'Export hg repos'
+    desc 'list', 'List hg repos'
     long_desc <<-LONGDESC.gsub("\n", "\x5")
-    Export hg repos
+    List hg repos
     LONGDESC
-    # Export hg repos.
-    def export
-      hgclone = hg_export
+    # List hg repos.
+    def list
+      hgclone = hg_list
       exit false if hgclone == false
       say hgclone
       true

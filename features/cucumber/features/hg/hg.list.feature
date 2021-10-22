@@ -1,7 +1,7 @@
 @hg
-@hg.export
+@hg.list
 
-Feature: I can export hg repos
+Feature: I can list hg repos
 
   Background:
     Given a directory named "my_git_origin"
@@ -13,8 +13,8 @@ Feature: I can export hg repos
     And an empty file named "project/Rakefile"
     And I cd to "project"
 
-  Scenario: Export hg repos
-    When I successfully run `tau-cli hg export`
+  Scenario: List hg repos
+    When I successfully run `tau-cli hg list`
     Then the output should contain:
       """
       hg clone /tmp/cucumber/my_git_origin my_hg_clone

@@ -27,7 +27,7 @@ require_relative 'takeltau/git/check/workspace'
 require_relative 'takeltau/git/check/cli'
 require_relative 'takeltau/git/lib'
 require_relative 'takeltau/git/cli'
-require_relative 'takeltau/hg/export'
+require_relative 'takeltau/hg/list'
 require_relative 'takeltau/hg/pull'
 require_relative 'takeltau/hg/push'
 require_relative 'takeltau/hg/cli'
@@ -187,18 +187,6 @@ module Takeltau
     # tau prune: {Takeltau::DockerContainer#prune}
     def prune
       Takeltau::DockerContainer.new.prune
-    end
-
-    desc 'pull', 'Alias for tau hg pull'
-    # tau pull: {Takeltau::Hg#pull}
-    def pull
-      Takeltau::Hg.new.pull
-    end
-
-    desc 'push', 'Alias for tau hg push'
-    # tau push: {Takeltau::Hg#push}
-    def push
-      Takeltau::Hg.new.push
     end
 
     desc 'status', 'Alias for tau info status bar'

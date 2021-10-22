@@ -84,7 +84,7 @@ tau [docker image update](features/cucumber/features/docker/docker.image.update.
 tau [git check clean](features/cucumber/features/git/git.check.clean.feature) | Check if the git workspace is clean
 tau [git check hg](features/cucumber/features/git/git.check.hg.feature) | Check if we are on the git hg branch
 tau [git check workspace](features/cucumber/features/git/git.check.workspace.feature) | Check if a git workspace exists
-tau [hg export](features/cucumber/features/hg/hg.export.feature) | Export hg repos
+tau [hg list](features/cucumber/features/hg/hg.list.feature) | List hg repos
 tau [hg pull](features/cucumber/features/hg/hg.pull.feature) | Pull hg repos
 tau [hg push](features/cucumber/features/hg/hg.push.feature) | Push hg repos
 tau [info project active](features/cucumber/features/info/info.project.active.feature) | Print active project info
@@ -116,8 +116,6 @@ tau list | Alias for tau [self list](features/cucumber/features/self/self.list.f
 tau login | Alias for tau [docker container login](features/cucumber/features/docker/docker.container.login.feature)
 tau project | Alias for tau [info project active](features/cucumber/features/info/info.project.active.feature)
 tau prune | Alias for tau [docker container prune](features/cucumber/features/docker/docker.container.prune.feature)
-tau pull | Alias for tau [hg pull](features/cucumber/features/hg/hg.pull.feature)
-tau push | Alias for tau [hg push](features/cucumber/features/hg/hg.push.feature)
 tau status | Alias for tau [docker info status bar](features/cucumber/features/info/info.status.bar.feature)
 tau update | Alias for tau [docker image update](features/cucumber/features/docker/docker.image.update.feature)
 tau version | Alias for tau [self version](features/cucumber/features/self/self.version.feature)
