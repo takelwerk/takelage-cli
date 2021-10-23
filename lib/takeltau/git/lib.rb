@@ -20,6 +20,18 @@ module GitLib
     _git_lib_git_push_origin_hg
   end
 
+  # Push git workspace.
+  def git_lib_push_hg_dirs
+    log.info 'Pushing git workspace'
+
+    message = '"Update .hg mercurial directories'
+
+    return false unless _git_lib_git_add_hg_dirs
+    return false unless _git_lib_git_commit message
+
+    _git_lib_git_push_origin_hg
+  end
+
   private
 
   # git add all.
@@ -31,6 +43,18 @@ module GitLib
     return true if try cmd_git_add_all
 
     log.error 'Unable to add all files to git'
+    false
+  end
+
+  # git add hg dirs.
+  def _git_lib_git_add_hg_dirs
+    log.debug 'Adding all .hg mercurial dirs to git'
+
+    cmd_git_add_hg_dirs = config.active['cmd_git_lib_git_add_hg_dirs']
+
+    return true if try cmd_git_add_hg_dirs
+
+    log.error 'Unable to add all .hg mercurial dirs to git'
     false
   end
 
