@@ -17,6 +17,7 @@ Feature: I can pull hg repos
     And I commit everything in "project_clone" to git
     And an empty file named "my_git_origin/new_file"
     And I commit everything in "my_git_origin" to git
+    And I switch to the new git branch named "my_branch" in "project_origin"
     And I cd to "project_clone"
 
   Scenario: Pull hg repo
