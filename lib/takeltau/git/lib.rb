@@ -24,7 +24,7 @@ module GitLib
   def git_lib_push_hg_dirs
     log.info 'Pushing git workspace'
 
-    message = '"Update .hg mercurial directories'
+    message = 'Update .hg mercurial directories'
 
     return false unless _git_lib_git_add_hg_dirs
     return false unless _git_lib_git_commit message
