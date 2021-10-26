@@ -168,7 +168,21 @@ to overwrite defaults like:
 docker_repo: takelage-mock
 ```
 
-Furthermore, every external command can be reconfigured.
+- You may prefer to interact with 
+[mercurial(https://github.com/takelwerk/takelage-doc/blob/main/doc/tau/hg.md)
+through `tau hg`
+in a different branch than `main` in one project so you may add
+to your *takelage.yml*:
+
+
+```yaml
+---
+git_hg_repo: my_git_hg_branch
+```
+
+Furthermore, 
+[every external command](https://github.com/takelwerk/takelage-cli/blob/main/lib/takeltau/default.yml)
+can be reconfigured.
 
 ### Project Files
 
