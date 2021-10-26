@@ -169,7 +169,7 @@ docker_repo: takelage-mock
 ```
 
 - You may prefer to interact with 
-[mercurial(https://github.com/takelwerk/takelage-doc/blob/main/doc/tau/hg.md)
+[mercurial](https://github.com/takelwerk/takelage-doc/blob/main/doc/tau/hg.md)
 through `tau hg`
 in a different branch than `main` in one project so you may add
 to your *takelage.yml*:
