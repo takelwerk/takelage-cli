@@ -3,6 +3,7 @@
 # tau git lib
 module GitLib
   # Prepare git workspace.
+  # rubocop:disable Metrics/MethodLength
   def git_lib_prepare_git_workspace
     log.debug 'Prepare git workspace'
 
@@ -23,6 +24,7 @@ module GitLib
     log.error 'Unable to pull git workspace'
     false
   end
+  # rubocop:enable Metrics/MethodLength
 
   # Push git workspace.
   def git_lib_push_hg_dirs
