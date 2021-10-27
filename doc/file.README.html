@@ -121,8 +121,15 @@ docker_tag: &#39;1.2.3&#39;
 <pre class="code ruby"><code class="ruby">---
 docker_repo: takelage-mock
 </code></pre>
+<ul><li>
+<p>You may prefer to interact with <a href="https://github.com/takelwerk/takelage-doc/blob/main/doc/tau/hg.md">mercurial</a> through <code>tau hg</code> in a different branch than <code>main</code> in one project so you may add to your <em>takelage.yml</em>:</p>
+</li></ul>
 
-<p>Furthermore, every external command can be reconfigured.</p>
+<pre class="code ruby"><code class="ruby">---
+git_hg_repo: my_git_hg_branch
+</code></pre>
+
+<p>Furthermore, <a href="https://github.com/takelwerk/takelage-cli/blob/main/lib/takeltau/default.yml">every external command</a> can be reconfigured.</p>
 
 <h3 id="label-Project+Files">Project Files</h3>
 
