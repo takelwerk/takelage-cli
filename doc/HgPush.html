@@ -159,7 +159,7 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Backend method for hg push. rubocop:disable Metrics/MethodLength</p>
+<p>Backend method for hg push.</p>
 
 
   </div>
@@ -173,6 +173,7 @@
       <pre class="lines">
 
 
+6
 7
 8
 9
@@ -183,43 +184,22 @@
 14
 15
 16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28</pre>
+17</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/takeltau/hg/push.rb', line 7</span>
+      <pre class="code"><span class="info file"># File 'lib/takeltau/hg/push.rb', line 6</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_hg_push'>hg_push</span>
   <span class='id identifier rubyid_log'>log</span><span class='period'>.</span><span class='id identifier rubyid_debug'>debug</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Push hg repos</span><span class='tstring_end'>&#39;</span></span>
 
-  <span class='kw'>return</span> <span class='kw'>false</span> <span class='kw'>unless</span> <span class='id identifier rubyid_configured?'>configured?</span> <span class='qwords_beg'>%w[</span><span class='tstring_content'>project_root_dir</span><span class='tstring_end'>]</span></span>
+  <span class='kw'>return</span> <span class='kw'>false</span> <span class='kw'>unless</span> <span class='id identifier rubyid_git_lib_prepare_git_workspace'>git_lib_prepare_git_workspace</span>
 
-  <span class='kw'>unless</span> <span class='id identifier rubyid_git_check_hg'>git_check_hg</span>
-    <span class='id identifier rubyid_log'>log</span><span class='period'>.</span><span class='id identifier rubyid_error'>error</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Not on git hg branch</span><span class='tstring_end'>&#39;</span></span>
+  <span class='kw'>unless</span> <span class='id identifier rubyid__hg_push_hg_push_repos'>_hg_push_hg_push_repos</span>
+    <span class='id identifier rubyid_log'>log</span><span class='period'>.</span><span class='id identifier rubyid_error'>error</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Unable to tau hg push</span><span class='tstring_end'>&#39;</span></span>
     <span class='kw'>return</span> <span class='kw'>false</span>
   <span class='kw'>end</span>
 
-  <span class='kw'>unless</span> <span class='id identifier rubyid_git_check_clean'>git_check_clean</span>
-    <span class='id identifier rubyid_log'>log</span><span class='period'>.</span><span class='id identifier rubyid_error'>error</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>No clean git workspace</span><span class='tstring_end'>&#39;</span></span>
-    <span class='kw'>return</span> <span class='kw'>false</span>
-  <span class='kw'>end</span>
-
-  <span class='id identifier rubyid_log'>log</span><span class='period'>.</span><span class='id identifier rubyid_info'>info</span> <span class='id identifier rubyid__hg_push_hg_push_repos'>_hg_push_hg_push_repos</span>
-
-  <span class='kw'>return</span> <span class='kw'>true</span> <span class='kw'>if</span> <span class='id identifier rubyid_git_lib_push_workspace'>git_lib_push_workspace</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>tau hg push</span><span class='tstring_end'>&#39;</span></span>
-
-  <span class='id identifier rubyid_log'>log</span><span class='period'>.</span><span class='id identifier rubyid_error'>error</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Unable to push git workspace</span><span class='tstring_end'>&#39;</span></span>
-  <span class='kw'>false</span>
+  <span class='id identifier rubyid_git_lib_push_hg_dirs'>git_lib_push_hg_dirs</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
