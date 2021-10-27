@@ -24,3 +24,33 @@ Feature: I can push hg repos
     When I successfully run `tau-cli hg push`
     And I switch to the git branch named "main" in "my_git_origin"
     Then the file "../my_git_origin/new_file" should exist
+
+  Scenario: Fail when not on git hg branch
+    Given I switch to the new git branch named "my_branch" in "project_clone"
+    When I run `tau-cli hg push`
+    Then the exit status should be 1
+    And the output should contain "[ERROR] Not on git hg branch"
+
+  Scenario: Fail when git sees uncommitted files
+    Given an empty file named "uncommitted_file"
+    When I run `tau-cli hg push`
+    Then the exit status should be 1
+    And the output should contain "[ERROR] No clean git workspace"
+
+  Scenario: Fail when git cannot pull from upstream
+    Given I successfully run `git remote remove origin`
+    When I run `tau-cli hg push`
+    Then the exit status should be 1
+    And the output should contain "[ERROR] Unable to pull git workspace"
+
+  Scenario: Fail when hg push fails
+    Given the directory "../my_git_origin" does not exist
+    When I run `tau-cli hg push`
+    Then the exit status should be 1
+    And the output should contain "[ERROR] Unable to tau hg push"
+
+  Scenario: Fail when final git push fails
+    Given I successfully run `git remote set-url --push origin banana`
+    When I run `tau-cli hg push`
+    Then the exit status should be 1
+    And the output should contain "[ERROR] Unable to git push .hg mercurial directories"

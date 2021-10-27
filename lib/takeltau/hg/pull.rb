@@ -3,37 +3,18 @@
 # tau hg pull
 module HgPull
   # Backend method for hg pull.
-  # rubocop:disable Metrics/AbcSize
-  # rubocop:disable Metrics/MethodLength
   def hg_pull
     log.debug 'Pull hg repos'
 
-    return false unless configured? %w[project_root_dir]
+    return false unless git_lib_prepare_git_workspace
 
-    unless git_check_hg
-      log.error 'Not on git hg branch'
+    unless _hg_pull_hg_pull_repos
+      log.error 'Unable to tau hg pull'
       return false
     end
 
-    unless git_check_clean
-      log.error 'No clean git workspace'
-      return false
-    end
-
-    unless git_lib_pull_workspace
-      log.error 'Unable to pull git workspace'
-      return false
-    end
-
-    log.info _hg_pull_hg_pull_repos
-
-    return true if git_lib_push_hg_dirs
-
-    log.error 'Unable to push .hg mercurial directories'
-    false
+    git_lib_push_hg_dirs
   end
-  # rubocop:enable Metrics/MethodLength
-  # rubocop:enable Metrics/AbcSize
 
   private
 
@@ -44,6 +25,8 @@ module HgPull
       root: config.active['project_root_dir']
     )
 
-    run cmd_hg_pull_repos
+    stdout, _, exitstatus = run_and_capture cmd_hg_pull_repos
+    log.info stdout
+    exitstatus.zero?
   end
 end

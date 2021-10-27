@@ -2,22 +2,26 @@
 
 # tau git lib
 module GitLib
-  # Pull git workspace.
-  def git_lib_pull_workspace
-    log.info 'Pulling git workspace'
+  # Prepare git workspace.
+  def git_lib_prepare_git_workspace
+    log.debug 'Prepare git workspace'
 
-    _git_lib_git_pull_origin_hg
-  end
+    return false unless configured? %w[project_root_dir]
 
-  # Push git workspace.
-  def git_lib_push_workspace(message)
-    log.info 'Pushing git workspace'
+    unless git_check_hg
+      log.error 'Not on git hg branch'
+      return false
+    end
 
-    return false unless _git_lib_git_add_all
-    return false unless _git_lib_git_commit message
-    return false unless _git_lib_git_pull_origin_hg
+    unless git_check_clean
+      log.error 'No clean git workspace'
+      return false
+    end
 
-    _git_lib_git_push_origin_hg
+    return true if _git_lib_git_pull_origin_hg
+
+    log.error 'Unable to pull git workspace'
+    false
   end
 
   # Push git workspace.
@@ -29,22 +33,13 @@ module GitLib
     return false unless _git_lib_git_add_hg_dirs
     return false unless _git_lib_git_commit message
 
-    _git_lib_git_push_origin_hg
+    return true if _git_lib_git_push_origin_hg
+
+    log.error 'Unable to git push .hg mercurial directories'
+    false
   end
 
   private
-
-  # git add all.
-  def _git_lib_git_add_all
-    log.debug 'Adding all files to git'
-
-    cmd_git_add_all = config.active['cmd_git_lib_git_add_all']
-
-    return true if try cmd_git_add_all
-
-    log.error 'Unable to add all files to git'
-    false
-  end
 
   # git add hg dirs.
   def _git_lib_git_add_hg_dirs
@@ -52,7 +47,7 @@ module GitLib
 
     cmd_git_add_hg_dirs = config.active['cmd_git_lib_git_add_hg_dirs']
 
-    return true if try cmd_git_add_hg_dirs
+    return true if (try cmd_git_add_hg_dirs).exitstatus.zero?
 
     log.error 'Unable to add all .hg mercurial dirs to git'
     false
@@ -67,7 +62,7 @@ module GitLib
       message: message
     )
 
-    return true if try cmd_git_commit
+    return true if (try cmd_git_commit).exitstatus.zero?
 
     log.error 'Unable to commit to git'
     false
