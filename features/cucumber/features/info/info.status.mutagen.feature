@@ -8,7 +8,8 @@ Feature: I can check if mutagen is available
     Given a file named "~/.takelage.yml" with:
       """
       ---
-      mutagen_socket_container_path_mutagen: .
+      mutagen_socket_path_mutagen_container: .
+      mutagen_socket_path_mutagen_host: .
       cmd_mutagen_check_daemon_host_connection: 'echo Status: Forwarding connections'
       """
     And I get the active takeltau config
@@ -19,22 +20,24 @@ Feature: I can check if mutagen is available
     Given a file named "~/.takelage.yml" with:
       """
       ---
-      mutagen_socket_host_path_mutagen: nonexisting
-      cmd_mutagen_check_daemon_host_connection: 'echo Status: Forwarding connections'
+      mutagen_socket_path_mutagen_container: nonexisting
+      mutagen_socket_path_mutagen_host: .
+      cmd_mutagen_check_daemon_host_connection: $(exit 1)
       """
     And I get the active takeltau config
     When I run `env TAKELAGE_PROJECT_BASE_DIR=. tau-cli info status mutagen`
     Then the exit status should be 1
     And the output should contain:
       """
-      [ERROR] The mutagen socket is not available
+      [ERROR] The mutagen socket path in the container is not available
       """
 
   Scenario: Check that the mutagen host connection is available in a container
     Given a file named "~/.takelage.yml" with:
       """
       ---
-      mutagen_socket_container_path_mutagen: .
+      mutagen_socket_path_mutagen_container: .
+      mutagen_socket_path_mutagen_host: .
       cmd_mutagen_check_daemon_host_connection: $(exit 1)
       """
     And I get the active takeltau config

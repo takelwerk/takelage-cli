@@ -24,7 +24,8 @@ Feature: I can check the takelage status
       cmd_info_status_gpg_keys: $(exit 0)
       cmd_info_status_ssh_keys: $(exit 0)
       docker_repo: takelbanana
-      mutagen_socket_container_path_mutagen: .
+      mutagen_socket_path_mutagen_container: .
+      mutagen_socket_path_mutagen_host: .
       cmd_mutagen_check_daemon_host_connection: 'echo Status: Forwarding connections'
       """
     And I get the active takeltau config
@@ -52,7 +53,8 @@ Feature: I can check the takelage status
       cmd_info_status_gpg_agent: $(exit 0)
       cmd_info_status_gpg_keys: $(exit 0)
       cmd_info_status_ssh_keys: $(exit 0)
-      mutagen_socket_container_path_mutagen: .
+      mutagen_socket_path_mutagen_host: .
+      mutagen_socket_path_mutagen_container: .
       cmd_mutagen_check_daemon_host_connection: 'echo Status: Forwarding connections'
       """
     And I get the active takeltau config
@@ -76,7 +78,8 @@ Feature: I can check the takelage status
       cmd_info_status_gpg_agent: $(exit 0)
       cmd_info_status_gpg_keys: $(exit 0)
       cmd_info_status_ssh_keys: $(exit 1)
-      mutagen_socket_container_path_mutagen: .
+      mutagen_socket_path_mutagen_host: .
+      mutagen_socket_path_mutagen_container: .
       cmd_mutagen_check_daemon_host_connection: 'echo Status: Forwarding connections'
       """
     And I get the active takeltau config
@@ -100,7 +103,8 @@ Feature: I can check the takelage status
       cmd_info_status_gpg_agent: $(exit 0)
       cmd_info_status_gpg_keys: $(exit 0)
       cmd_info_status_ssh_keys: $(exit 1)
-      mutagen_socket_container_path_mutagen: .
+      mutagen_socket_path_mutagen_host: .
+      mutagen_socket_path_mutagen_container: .
       cmd_mutagen_check_daemon_host_connection: 'echo Status: Forwarding connections'
       """
     And I get the active takeltau config
@@ -111,7 +115,7 @@ Feature: I can check the takelage status
       git: ok | gopass: ok | gpg: ok | mutagen: ok | ssh: no
       """
 
-  Scenario: Check the takelage mutagen no forwardin connections
+  Scenario: Check the takelage mutagen no forwarding connections
     Given a file named "~/.takelage.yml" with:
       """
       ---
@@ -124,7 +128,8 @@ Feature: I can check the takelage status
       cmd_info_status_gpg_agent: $(exit 0)
       cmd_info_status_gpg_keys: $(exit 0)
       cmd_info_status_ssh_keys: $(exit 1)
-      mutagen_socket_container_path_mutagen: .
+      mutagen_socket_path_mutagen_host: .
+      mutagen_socket_path_mutagen_container: .
       cmd_mutagen_check_daemon_host_connection: $(exit 1)
       """
     And I get the active takeltau config
