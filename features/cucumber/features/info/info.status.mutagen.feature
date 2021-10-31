@@ -52,6 +52,8 @@ Feature: I can check if mutagen is available
     Given a file named "~/.takelage.yml" with:
       """
       ---
+      mutagen_socket_path_mutagen_container: .
+      mutagen_socket_path_mutagen_host: .
       cmd_mutagen_check_daemon_version: $(exit 0)
       """
     And I get the active takeltau config
@@ -62,6 +64,8 @@ Feature: I can check if mutagen is available
     Given a file named "~/.takelage.yml" with:
       """
       ---
+      mutagen_socket_path_mutagen_container: .
+      mutagen_socket_path_mutagen_host: .
       cmd_mutagen_check_daemon_version: $(exit 1)
       """
     And I get the active takeltau config
