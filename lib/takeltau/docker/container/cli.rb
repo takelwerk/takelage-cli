@@ -40,9 +40,12 @@ module Takeltau
       @hostname = _docker_container_lib_hostname
       @hostlabel = "hostname=#{@hostname}"
       @takellabel = config.active['mutagen_socket_takelage_label']
-      @mutagensock = config.active['mutagen_socket_path_mutagen']
-      @gpgsock = config.active['mutagen_socket_path_gpg']
-      @sshsock = config.active['mutagen_socket_path_ssh']
+      @mutagensock_host = config.active['mutagen_socket_host_path_mutagen']
+      @mutagensock_container = config.active['mutagen_socket_container_path_mutagen']
+      @gpgsock_host = config.active['mutagen_socket_host_path_gpg']
+      @gpgsock_container = config.active['mutagen_socket_container_path_gpg']
+      @sshsock_host = config.active['mutagen_socket_host_path_ssh']
+      @sshsock_container = config.active['mutagen_socket_container_path_ssh']
     end
     # rubocop:enable Metrics/MethodLength
     # rubocop:enable Metrics/AbcSize

@@ -10,9 +10,9 @@ module DockerContainerLib
   def _docker_container_lib_start_sockets
     return false unless mutagen_check_daemon
 
-    mutagen_socket_create 'mutagen', @mutagensock, @mutagensock
-    mutagen_socket_create 'gpg', @gpgsock, @gpgsock
-    mutagen_socket_create 'ssh', @sshsock, @sshsock
+    mutagen_socket_create 'mutagen', @mutagensock_container, @mutagensock_host
+    mutagen_socket_create 'gpg', @gpgsock_container, @gpgsock_host
+    mutagen_socket_create 'ssh', @sshsock_container, @sshsock_host
   end
 
   # Create unique docker hostname
