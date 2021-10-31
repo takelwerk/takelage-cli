@@ -8,7 +8,7 @@ Feature: I can list mutagen takelage sockets
     Given a file named "~/.takelage.yml" with:
       """
       ---
-      mutagen_socket_path_mutagen: .
+      mutagen_socket_host_path_mutagen: .
       cmd_mutagen_check_daemon_host_connection: 'echo Status: Forwarding connections'
       cmd_mutagen_forward_socket_list: echo bosek-sonax
       """
@@ -20,7 +20,7 @@ Feature: I can list mutagen takelage sockets
     Given a file named "~/.takelage.yml" with:
       """
       ---
-      mutagen_socket_path_mutagen: .
+      mutagen_socket_host_path_mutagen: .
       cmd_mutagen_check_daemon_host_connection: 'echo Status: Forwarding connections'
       cmd_mutagen_forward_socket_list:
       """
