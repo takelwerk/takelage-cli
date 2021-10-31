@@ -51,7 +51,7 @@ Feature: I can check if mutagene host connection available
     Given a file named "~/.takelage.yml" with:
       """
       ---
-      mutagen_socket_path_mutagen: .
+      mutagen_socket_host_path_mutagen: .
       cmd_mutagen_check_daemon_version: $(exit 1)
       """
     And I get the active takeltau config
