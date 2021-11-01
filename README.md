@@ -98,22 +98,23 @@ tau [info status gpg](features/cucumber/features/info/info.status.gpg.feature) |
 tau [info status hg](features/cucumber/features/info/info.status.hg.feature) | Check hg status
 tau [info status mutagen](features/cucumber/features/info/info.status.mutagen.feature) | Check mutagen status
 tau [info status ssh](features/cucumber/features/info/info.status.ssh.feature) | Check ssh status
-tau [init packer docker](features/cucumber/features/info/init.packer.docker.feature) | Initialize packer project for docker images
+tau [init packer docker](features/cucumber/features/init/init.packer.docker.feature) | Initialize packer project for docker images
+tau [init takelage rake](features/cucumber/features/init/init.takelage.rake.feature) | Initialize takelage rake project
 tau [mutagen check daemon](features/cucumber/features/mutagen/mutagen.check.daemon.feature)) | Check if mutagen host conenction is available
 tau [mutagen socket check](features/cucumber/features/mutagen/mutagen.socket.check.feature) [SOCKET] | Check if mutagen [SOCKET] exists
 tau [mutagen socket create](features/cucumber/features/mutagen/mutagen.socket.create.feature) [NAME] [IN] [OUT] | Create a mutagen socket [NAME] from [IN] to [OUT] of the container
 tau [mutagen socket list](features/cucumber/features/mutagen/mutagen.socket.list.feature) | List mutagen sockets
-tau [mutagen socket tidy](features/cucumber/features/mutagen/mutagen.socket.tidy.feature) | Remove mutagen daemon files
 tau [mutagen socket terminate](features/cucumber/features/mutagen/mutagen.socket.terminate.feature) [SOCKET] | Terminate a mutagen [SOCKET]
+tau [mutagen socket tidy](features/cucumber/features/mutagen/mutagen.socket.tidy.feature) | Remove mutagen daemon files
+tau [self commands](features/cucumber/features/self/self.commands.feature) | List all commands
 tau [self config active](features/cucumber/features/self/self.config.active.feature) | Print active takelage configuration
 tau [self config default](features/cucumber/features/self/self.config.default.feature) | Print takelage default configuration
 tau [self config home](features/cucumber/features/self/self.config.home.feature) | Print takelage home config file configuration
 tau [self config project](features/cucumber/features/self/self.config.project.feature) | Print takelage project config file configuration
-tau [self commands](features/cucumber/features/self/self.commands.feature) | List all commands
 tau [self version](features/cucumber/features/self/self.version.feature) | Print tau semantic version number
 tau clean | Alias for tau [docker container clean](features/cucumber/features/docker/docker.container.clean.feature)
-tau config | Alias for tau [self config active](features/cucumber/features/self/self.config.active.feature)
 tau commands | Alias for tau [self commands](features/cucumber/features/self/self.commands.feature)
+tau config | Alias for tau [self config active](features/cucumber/features/self/self.config.active.feature)
 tau login | Alias for tau [docker container login](features/cucumber/features/docker/docker.container.login.feature)
 tau project | Alias for tau [info project active](features/cucumber/features/info/info.project.active.feature)
 tau prune | Alias for tau [docker container prune](features/cucumber/features/docker/docker.container.prune.feature)

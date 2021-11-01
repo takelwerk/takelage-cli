@@ -27,7 +27,7 @@ module SelfCommands
   # Manipulate output of thor list command.
   def _manipulate_output_(thor_list)
     tau_commands = thor_list.gsub("takeltau\n", '')
-    tau_commands.gsub!("------\n", '')
+    tau_commands.gsub!("--------\n", '')
     tau_commands.gsub!('thor ', 'tau ')
     tau_commands.gsub!(/(.*)takeltau:c_l_i:(.*)#(.*)/, '\1\2               #\3')
     tau_commands.gsub!(/.*COMMAND.*\n/, '')
