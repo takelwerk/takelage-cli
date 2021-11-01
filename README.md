@@ -95,6 +95,7 @@ tau [info status bar](features/cucumber/features/info/info.status.bar.feature) |
 tau [info status git](features/cucumber/features/info/info.status.git.feature) | Check git status
 tau [info status gopass](features/cucumber/features/info/info.status.gopass.feature) | Check gopass status
 tau [info status gpg](features/cucumber/features/info/info.status.gpg.feature) | Check gpg status
+tau [info status hg](features/cucumber/features/info/info.status.hg.feature) | Check hg status
 tau [info status mutagen](features/cucumber/features/info/info.status.mutagen.feature) | Check mutagen status
 tau [info status ssh](features/cucumber/features/info/info.status.ssh.feature) | Check ssh status
 tau [init packer docker](features/cucumber/features/info/init.packer.docker.feature) | Initialize packer project for docker images
