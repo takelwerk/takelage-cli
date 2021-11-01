@@ -16,6 +16,7 @@ module Takeltau
     include InfoStatusGit
     include InfoStatusGopass
     include InfoStatusGPG
+    include InfoStatusHg
     include InfoStatusSSH
     include InfoStatusBar
     include MutagenCheckDaemon
@@ -78,6 +79,18 @@ module Takeltau
     # Check gpg status info.
     def gpg
       exit info_status_gpg
+    end
+
+    #
+    # info status hg
+    #
+    desc 'hg', 'Check hg status info'
+    long_desc <<-LONGDESC.gsub("\n", "\x5")
+    Check hg status info
+    LONGDESC
+    # Check hg status info.
+    def hg
+      exit info_status_hg
     end
 
     #

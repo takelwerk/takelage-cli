@@ -15,6 +15,7 @@ module InfoStatusBar
     _info_status_bar_git
     _info_status_bar_gopass
     _info_status_bar_gpg
+    _info_status_bar_hg
     _info_status_bar_mutagen
     _info_status_bar_ssh
 
@@ -60,6 +61,12 @@ module InfoStatusBar
     end
 
     @bar_list << ("gpg: #{info_status_gpg ? 'ok'.green : 'no'.red}")
+  end
+
+  # Add git status info to bar.
+  def _info_status_bar_hg
+    @status_hg = info_status_hg
+    @bar_list << ("hg: #{@status_hg ? 'ok'.green : 'no'.red}")
   end
 
   # Add mutagen status info to bar.
