@@ -31,7 +31,7 @@ Feature: I can check the takelage status
       """
     And I get the active takeltau config
     And an empty file named "Rakefile"
-    When I run `env SSH_AUTH_SOCK='/tmp' tau-cli info status bar`
+    When I successfully run `env SSH_AUTH_SOCK='/tmp' tau-cli info status bar`
     Then the output should contain:
       """
       git: ok | gopass: ok | gpg: ok | hg: ok | mutagen: ok | ssh: ok
@@ -62,9 +62,14 @@ Feature: I can check the takelage status
     And I get the active takeltau config
     And an empty file named "Rakefile"
     When I run `env SSH_AUTH_SOCK='/tmp' tau-cli info status bar`
-    Then the output should contain:
+    Then the exit status should be 1
+    And the output should contain:
       """
       git: no | gopass: no | gpg: ok | hg: ok | mutagen: ok | ssh: ok
+      """
+    And the output should contain:
+      """
+      [ERROR] git config user.signingkey is not available
       """
 
   Scenario: Check the takelage hg status
@@ -88,9 +93,14 @@ Feature: I can check the takelage status
     And I get the active takeltau config
     And an empty file named "Rakefile"
     When I run `env SSH_AUTH_SOCK='/tmp' tau-cli info status bar`
-    Then the output should contain:
+    Then the exit status should be 1
+    And the output should contain:
       """
       git: ok | gopass: ok | gpg: ok | hg: no | mutagen: ok | ssh: ok
+      """
+    And the output should contain:
+      """
+      [ERROR] hg ui.username is not configured
       """
 
   Scenario: Check the takelage ssh socket status
@@ -114,9 +124,14 @@ Feature: I can check the takelage status
     And I get the active takeltau config
     And an empty file named "Rakefile"
     When I run `env SSH_AUTH_SOCK='/nonexisting' tau-cli info status bar`
-    Then the output should contain:
+    Then the exit status should be 1
+    And the output should contain:
       """
       git: ok | gopass: ok | gpg: ok | hg: ok | mutagen: ok | ssh: no
+      """
+    And the output should contain:
+      """
+      [ERROR] ssh does not use gpg ssh socket
       """
 
   Scenario: Check the takelage ssh keys status
@@ -140,9 +155,14 @@ Feature: I can check the takelage status
     And I get the active takeltau config
     And an empty file named "Rakefile"
     When I run `env SSH_AUTH_SOCK='/tmp' tau-cli info status bar`
-    Then the output should contain:
+    Then the exit status should be 1
+    And the output should contain:
       """
       git: ok | gopass: ok | gpg: ok | hg: ok | mutagen: ok | ssh: no
+      """
+    And the output should contain:
+      """
+      [ERROR] ssh keys are not available
       """
 
   Scenario: Check the takelage mutagen no forwarding connections
@@ -166,7 +186,12 @@ Feature: I can check the takelage status
     And I get the active takeltau config
     And an empty file named "Rakefile"
     When I run `env SSH_AUTH_SOCK='/tmp' tau-cli info status bar`
-    Then the output should contain:
+    Then the exit status should be 1
+    And the output should contain:
       """
       git: ok | gopass: ok | gpg: ok | hg: ok | mutagen: no | ssh: no
+      """
+    And the output should contain:
+      """
+      [ERROR] A mutagen host connection is not available
       """

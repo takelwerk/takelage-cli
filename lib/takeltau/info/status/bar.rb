@@ -9,6 +9,7 @@ module InfoStatusBar
     log.debug 'Get status info bar'
 
     @bar_list = []
+    @bar_status = true
 
     _info_status_bar_takelage
     _info_status_bar_tau
@@ -19,9 +20,8 @@ module InfoStatusBar
     _info_status_bar_mutagen
     _info_status_bar_ssh
 
-    bar = @bar_list.join(' | ')
-    log.debug "status info bar: #{bar}"
-    bar
+    say @bar_list.join(' | ')
+    @bar_status
   end
   # rubocop:enable Metrics/MethodLength
 
@@ -30,7 +30,10 @@ module InfoStatusBar
   # Add takelage version info to bar.
   def _info_status_bar_takelage
     takelage_version_file = '/etc/takelage_version'
-    return unless _file_exists? takelage_version_file
+    unless _file_exists? takelage_version_file
+      @bar_status = false
+      return false
+    end
 
     _file_read takelage_version_file
     @bar_list << "#{config.active['docker_repo']}: #{@content_file.chomp.green}"
@@ -44,12 +47,14 @@ module InfoStatusBar
   # Add git status info to bar.
   def _info_status_bar_git
     @status_git = info_status_git
+    @bar_status &&= @status_git
     @bar_list << ("git: #{@status_git ? 'ok'.green : 'no'.red}")
   end
 
   # Add gopass status info to bar.
   def _info_status_bar_gopass
     @status_gopass = info_status_gopass
+    @bar_status &&= @status_gopass
     @bar_list << ("gopass: #{@status_gopass ? 'ok'.green : 'no'.red}")
   end
 
@@ -60,23 +65,30 @@ module InfoStatusBar
       return
     end
 
-    @bar_list << ("gpg: #{info_status_gpg ? 'ok'.green : 'no'.red}")
+    status_gpg = info_status_gpg
+    @bar_status &&= status_gpg
+    @bar_list << ("gpg: #{status_gpg ? 'ok'.green : 'no'.red}")
   end
 
   # Add git status info to bar.
   def _info_status_bar_hg
     @status_hg = info_status_hg
+    @bar_status &&= @status_hg
     @bar_list << ("hg: #{@status_hg ? 'ok'.green : 'no'.red}")
   end
 
   # Add mutagen status info to bar.
   def _info_status_bar_mutagen
-    @bar_list << ("mutagen: #{mutagen_check_daemon ? 'ok'.green : 'no'.red}")
+    status_mutagen = mutagen_check_daemon
+    @bar_status &&= status_mutagen
+    @bar_list << ("mutagen: #{status_mutagen ? 'ok'.green : 'no'.red}")
   end
 
   # Add ssh status info to bar.
   def _info_status_bar_ssh
-    @bar_list << ("ssh: #{info_status_ssh ? 'ok'.green : 'no'.red}")
+    status_ssh = info_status_ssh
+    @bar_status &&= status_ssh
+    @bar_list << ("ssh: #{status_ssh ? 'ok'.green : 'no'.red}")
   end
 end
 

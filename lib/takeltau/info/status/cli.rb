@@ -42,7 +42,7 @@ module Takeltau
     LONGDESC
     # Print status info bar.
     def bar
-      say info_status_bar
+      exit info_status_bar
     end
 
     #
