@@ -10,6 +10,7 @@ module DockerContainerLib
   def _docker_container_lib_start_sockets
     return false unless mutagen_check_daemon
 
+    mutagen_socket_docker @dockersock_host
     mutagen_socket_create 'mutagen', @mutagensock_container, @mutagensock_host
     mutagen_socket_create 'gpg', @gpgsock_container, @gpgsock_host
     mutagen_socket_create 'ssh', @sshsock_container, @sshsock_host
@@ -91,7 +92,6 @@ module DockerContainerLib
       config.active['cmd_docker_container_create'],
       container: container,
       docker_run_options: config.active['docker_run_options'],
-      dockersock: '/var/run/docker.sock',
       entrypoint: entrypoint,
       entrypoint_options: config.active['docker_entrypoint_options'],
       extra: config.active['docker_entrypoint_extra'],

@@ -17,6 +17,7 @@ module Takeltau
     include MutagenCheckDaemon
     include MutagenSocketCheck
     include MutagenSocketCreate
+    include MutagenSocketDocker
     include MutagenSocketList
     include MutagenSocketTidy
     include MutagenSocketTerminate
@@ -59,6 +60,18 @@ module Takeltau
     # Create a mutagen socket [NAME] from [IN] to [OUT] of the container.
     def create(name, containersock, hostsock)
       exit mutagen_socket_create name, containersock, hostsock
+    end
+
+    #
+    # mutagen socket create
+    #
+    desc 'docker [OUT]', 'Create a mutagen docker socket [OUT] of the container'
+    long_desc <<-LONGDESC.gsub("\n", "\x5")
+    Create a mutagen docker socket [OUT] of the container
+    LONGDESC
+    # Create a mutagen docker socket [OUT] of the container.
+    def docker(hostsock)
+      exit mutagen_socket_docker hostsock
     end
 
     #

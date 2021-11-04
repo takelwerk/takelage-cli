@@ -22,6 +22,7 @@ module Takeltau
     include MutagenCheckDaemon
     include MutagenSocketCheck
     include MutagenSocketCreate
+    include MutagenSocketDocker
     include MutagenSocketTerminate
 
     # Initialize docker container
@@ -40,6 +41,7 @@ module Takeltau
       @hostname = _docker_container_lib_hostname
       @hostlabel = "hostname=#{@hostname}"
       @takellabel = config.active['mutagen_socket_takelage_label']
+      @dockersock_host = config.active['mutagen_socket_path_docker_host']
       @mutagensock_container = config.active['mutagen_socket_path_mutagen_container']
       @mutagensock_host = config.active['mutagen_socket_path_mutagen_host']
       @gpgsock_container = config.active['mutagen_socket_path_gpg_container']
