@@ -122,7 +122,6 @@ module DockerContainerLib
     end
 
     log.debug 'We are inside a takelage container'
-
     true
   end
 
@@ -145,9 +144,7 @@ module DockerContainerLib
     )
 
     name = (run cmd_get_container_name_by_id).chomp
-
     log.debug "Container #{container} has name \"#{name}\""
-
     name
   end
 

@@ -43,4 +43,18 @@ module InfoStatusLib
       )
     try cmd_git_key_available
   end
+
+  # Get takelage environment string
+  def _info_status_lib_get_channel_and_version
+    takelage_version_file = '/etc/takelage_version'
+    return '' unless _file_exists? takelage_version_file
+
+    _file_read takelage_version_file
+
+    channel = config.active['docker_repo']
+    version = @content_file.chomp
+
+    log.debug "#{channel}: #{version.green}"
+    "#{channel}: #{version.green}"
+  end
 end

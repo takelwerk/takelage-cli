@@ -29,14 +29,10 @@ module InfoStatusBar
 
   # Add takelage version info to bar.
   def _info_status_bar_takelage
-    takelage_version_file = '/etc/takelage_version'
-    unless _file_exists? takelage_version_file
-      @bar_status = false
-      return false
-    end
+    # Check if we are inside a takelage docker container
+    return unless _docker_container_lib_check_matrjoschka
 
-    _file_read takelage_version_file
-    @bar_list << "#{config.active['docker_repo']}: #{@content_file.chomp.green}"
+    @bar_list << _info_status_lib_get_channel_and_version
   end
 
   # Add tau version info to bar.
