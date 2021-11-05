@@ -63,12 +63,12 @@ Feature: I can check if mutagen is available
     Given a file named "~/.takelage.yml" with:
       """
       ---
-      cmd_mutagen_check_daemon_start_daemon: $(exit 1)
+      cmd_mutagen: banana
       """
     And I get the active takeltau config
     When I run `env -u TAKELAGE_PROJECT_BASE_DIR tau-cli info status mutagen`
     Then the exit status should be 1
     And the output should contain:
       """
-      [ERROR] The mutagen daemon cannot be started
+      [ERROR] The command "banana" is not available
       """

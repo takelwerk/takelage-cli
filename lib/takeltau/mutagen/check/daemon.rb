@@ -67,10 +67,4 @@ module MutagenCheckDaemon
     true
   end
   # rubocop:enable Metrics/MethodLength
-
-  # Start mutagen daemon in the background
-  def _mutagen_check_daemon_forward_list
-    start = try config.active['cmd_mutagen_check_daemon_forward_list']
-    start.exitstatus.zero?
-  end
 end
