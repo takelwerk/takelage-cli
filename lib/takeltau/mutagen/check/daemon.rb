@@ -11,10 +11,7 @@ module MutagenCheckDaemon
 
     log.debug 'Check mutagen status'
 
-    unless _mutagen_check_daemon_start
-      log.error 'The mutagen daemon cannot be started'
-      return false
-    end
+    return false unless command_available_else_error? config.active['cmd_mutagen']
 
     # are we inside a takelage container?
     unless _docker_container_lib_check_matrjoschka
@@ -28,13 +25,13 @@ module MutagenCheckDaemon
       return true
     end
 
-    unless _mutagen_check_daemon_host_connection
-      log.error 'A mutagen host connection is not available'
+    unless _file_exists? config.active['mutagen_socket_path_mutagen_container']
+      log.error 'The mutagen socket path in the container is not available'
       return false
     end
 
-    unless _file_exists? config.active['mutagen_socket_path_mutagen_container']
-      log.error 'The mutagen socket path in the container is not available'
+    unless _mutagen_check_daemon_host_connection
+      log.error 'A mutagen host connection is not available'
       return false
     end
 
@@ -42,6 +39,7 @@ module MutagenCheckDaemon
     @mutagen_daemon_available = true
     true
   end
+  # rubocop:enable Metrics/AbcSize
   # rubocop:enable Metrics/MethodLength
 
   private
@@ -68,12 +66,11 @@ module MutagenCheckDaemon
 
     true
   end
-  # rubocop:enable Metrics/AbcSize
   # rubocop:enable Metrics/MethodLength
 
-  # Start mutagen daemon
-  def _mutagen_check_daemon_start
-    start = try config.active['cmd_mutagen_check_daemon_start_daemon']
+  # Start mutagen daemon in the background
+  def _mutagen_check_daemon_forward_list
+    start = try config.active['cmd_mutagen_check_daemon_forward_list']
     start.exitstatus.zero?
   end
 end

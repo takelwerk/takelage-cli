@@ -8,8 +8,6 @@ module DockerContainerLib
 
   # Create mutagen sockets
   def _docker_container_lib_start_sockets
-    return false unless mutagen_check_daemon
-
     mutagen_socket_docker @dockersock_host
     mutagen_socket_create 'mutagen', @mutagensock_container, @mutagensock_host
     mutagen_socket_create 'gpg', @gpgsock_container, @gpgsock_host

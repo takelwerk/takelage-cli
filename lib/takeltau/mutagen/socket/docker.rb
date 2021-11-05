@@ -10,8 +10,6 @@ module MutagenSocketDocker
     log.debug "Create the mutagen docker socket \"#{socketname}\" in the container " \
       "pointing to the host at \"#{hostsock}\""
 
-    return false unless mutagen_check_daemon
-
     return false if mutagen_socket_check socketname
 
     socket_created = _mutagen_socket_docker_socket(socketname, hostsock)
