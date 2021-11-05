@@ -48,6 +48,9 @@ jobs:
           echo "docker_run_options: --cap-add=NET_ADMIN" >> $HOME/.takelage.yml
           echo "docker_tag: '0.49.0'" >> $HOME/.takelage.yml
 
+      - name: Pull docker image
+        run: docker pull takelwerk/takelage:0.49.0
+
       - name: Configure docker daemon
         run: |
           echo '{ "cgroup-parent": "/actions_job", "insecure-registries": [ "host.docker.internal:5005" ] }' > /tmp/daemon.json
