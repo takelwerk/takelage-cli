@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+  Module: MutagenSocketDocker
+  
+    &mdash; Documentation by YARD 0.9.26
+  
+</title>
+
+  <link rel="stylesheet" href="css/style.css" type="text/css" />
+
+  <link rel="stylesheet" href="css/common.css" type="text/css" />
+
+<script type="text/javascript">
+  pathId = "MutagenSocketDocker";
+  relpath = '';
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div class="nav_wrap">
+      <iframe id="nav" src="class_list.html?1"></iframe>
+      <div id="resizer"></div>
+    </div>
+
+    <div id="main" tabindex="-1">
+      <div id="header">
+        <div id="menu">
+  
+    <a href="_index.html">Index (M)</a> &raquo;
+    
+    
+    <span class="title">MutagenSocketDocker</span>
+  
+</div>
+
+        <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="class_list.html">
+
+        <svg width="24" height="24">
+          <rect x="0" y="4" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="12" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="20" width="24" height="4" rx="1" ry="1"></rect>
+        </svg>
+    </a>
+  
+</div>
+        <div class="clear"></div>
+      </div>
+
+      <div id="content"><h1>Module: MutagenSocketDocker
+  
+  
+  
+</h1>
+<div class="box_info">
+  
+
+  
+  
+  
+  
+  
+
+  
+  <dl>
+    <dt>Included in:</dt>
+    <dd><span class='object_link'><a href="Takeltau/DockerContainer.html" title="Takeltau::DockerContainer (class)">Takeltau::DockerContainer</a></span>, <span class='object_link'><a href="Takeltau/MutagenSocket.html" title="Takeltau::MutagenSocket (class)">Takeltau::MutagenSocket</a></span></dd>
+  </dl>
+  
+
+  
+  <dl>
+    <dt>Defined in:</dt>
+    <dd>lib/takeltau/mutagen/socket/docker.rb</dd>
+  </dl>
+  
+</div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>tau mutagen socket docker</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+
+
+
+
+
+
+  
+    <h2>
+      Instance Method Summary
+      <small><a href="#" class="summary_toggle">collapse</a></small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#mutagen_socket_docker-instance_method" title="#mutagen_socket_docker (instance method)">#<strong>mutagen_socket_docker</strong>(hostsock)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Backend method for mutagen socket docker.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="mutagen_socket_docker-instance_method">
+  
+    #<strong>mutagen_socket_docker</strong>(hostsock)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Backend method for mutagen socket docker. rubocop:disable Metrics/MethodLength</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/takeltau/mutagen/socket/docker.rb', line 7</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_mutagen_socket_docker'>mutagen_socket_docker</span><span class='lparen'>(</span><span class='id identifier rubyid_hostsock'>hostsock</span><span class='rparen'>)</span>
+  <span class='comment'># See DockerContainerLib::_docker_container_lib_hostname
+</span>  <span class='id identifier rubyid_socketname'>socketname</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='ivar'>@hostname</span><span class='lbracket'>[</span><span class='op'>-</span><span class='int'>11</span><span class='op'>..</span><span class='op'>-</span><span class='int'>1</span><span class='rbracket'>]</span><span class='embexpr_end'>}</span><span class='tstring_content'>-docker</span><span class='tstring_end'>&quot;</span></span>
+  <span class='id identifier rubyid_log'>log</span><span class='period'>.</span><span class='id identifier rubyid_debug'>debug</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Create the mutagen docker socket \&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_socketname'>socketname</span><span class='embexpr_end'>}</span><span class='tstring_content'>\&quot; in the container </span><span class='tstring_end'>&quot;</span></span> \
+    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>pointing to the host at \&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_hostsock'>hostsock</span><span class='embexpr_end'>}</span><span class='tstring_content'>\&quot;</span><span class='tstring_end'>&quot;</span></span>
+
+  <span class='kw'>return</span> <span class='kw'>false</span> <span class='kw'>unless</span> <span class='id identifier rubyid_mutagen_check_daemon'>mutagen_check_daemon</span>
+
+  <span class='kw'>return</span> <span class='kw'>false</span> <span class='kw'>if</span> <span class='id identifier rubyid_mutagen_socket_check'>mutagen_socket_check</span> <span class='id identifier rubyid_socketname'>socketname</span>
+
+  <span class='id identifier rubyid_socket_created'>socket_created</span> <span class='op'>=</span> <span class='id identifier rubyid__mutagen_socket_docker_socket'>_mutagen_socket_docker_socket</span><span class='lparen'>(</span><span class='id identifier rubyid_socketname'>socketname</span><span class='comma'>,</span> <span class='id identifier rubyid_hostsock'>hostsock</span><span class='rparen'>)</span>
+
+  <span class='kw'>unless</span> <span class='id identifier rubyid_socket_created'>socket_created</span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Created session</span><span class='tstring_end'>&#39;</span></span>
+    <span class='id identifier rubyid_log'>log</span><span class='period'>.</span><span class='id identifier rubyid_debug'>debug</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Unable to create mutagen docker socket \&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_socketname'>socketname</span><span class='embexpr_end'>}</span><span class='tstring_content'>\&quot;</span><span class='tstring_end'>&quot;</span></span>
+    <span class='kw'>return</span> <span class='kw'>false</span>
+  <span class='kw'>end</span>
+
+  <span class='id identifier rubyid_log'>log</span><span class='period'>.</span><span class='id identifier rubyid_debug'>debug</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Created the mutagen docker socket \&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_socketname'>socketname</span><span class='embexpr_end'>}</span><span class='tstring_content'>\&quot;</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>true</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+      
+    </div>
+  </body>
+</html>

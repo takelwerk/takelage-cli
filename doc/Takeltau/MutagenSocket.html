@@ -93,7 +93,7 @@
   
   <dl>
       <dt>Includes:</dt>
-      <dd><span class='object_link'><a href="../ConfigModule.html" title="ConfigModule (module)">ConfigModule</a></span>, <span class='object_link'><a href="../DockerCheckDaemon.html" title="DockerCheckDaemon (module)">DockerCheckDaemon</a></span>, <span class='object_link'><a href="../DockerContainerCheckExisting.html" title="DockerContainerCheckExisting (module)">DockerContainerCheckExisting</a></span>, <span class='object_link'><a href="../DockerContainerCheckNetwork.html" title="DockerContainerCheckNetwork (module)">DockerContainerCheckNetwork</a></span>, <span class='object_link'><a href="../DockerContainerCommand.html" title="DockerContainerCommand (module)">DockerContainerCommand</a></span>, <span class='object_link'><a href="../DockerContainerLib.html" title="DockerContainerLib (module)">DockerContainerLib</a></span>, <span class='object_link'><a href="../DockerImageTagCheck.html" title="DockerImageTagCheck (module)">DockerImageTagCheck</a></span>, <span class='object_link'><a href="../DockerImageTagLatest.html" title="DockerImageTagLatest (module)">DockerImageTagLatest</a></span>, <span class='object_link'><a href="../DockerImageTagList.html" title="DockerImageTagList (module)">DockerImageTagList</a></span>, <span class='object_link'><a href="../LoggingModule.html" title="LoggingModule (module)">LoggingModule</a></span>, <span class='object_link'><a href="../MutagenCheckDaemon.html" title="MutagenCheckDaemon (module)">MutagenCheckDaemon</a></span>, <span class='object_link'><a href="../MutagenSocketCheck.html" title="MutagenSocketCheck (module)">MutagenSocketCheck</a></span>, <span class='object_link'><a href="../MutagenSocketCreate.html" title="MutagenSocketCreate (module)">MutagenSocketCreate</a></span>, <span class='object_link'><a href="../MutagenSocketList.html" title="MutagenSocketList (module)">MutagenSocketList</a></span>, <span class='object_link'><a href="../MutagenSocketTerminate.html" title="MutagenSocketTerminate (module)">MutagenSocketTerminate</a></span>, <span class='object_link'><a href="../MutagenSocketTidy.html" title="MutagenSocketTidy (module)">MutagenSocketTidy</a></span>, <span class='object_link'><a href="../SystemModule.html" title="SystemModule (module)">SystemModule</a></span></dd>
+      <dd><span class='object_link'><a href="../ConfigModule.html" title="ConfigModule (module)">ConfigModule</a></span>, <span class='object_link'><a href="../DockerCheckDaemon.html" title="DockerCheckDaemon (module)">DockerCheckDaemon</a></span>, <span class='object_link'><a href="../DockerContainerCheckExisting.html" title="DockerContainerCheckExisting (module)">DockerContainerCheckExisting</a></span>, <span class='object_link'><a href="../DockerContainerCheckNetwork.html" title="DockerContainerCheckNetwork (module)">DockerContainerCheckNetwork</a></span>, <span class='object_link'><a href="../DockerContainerCommand.html" title="DockerContainerCommand (module)">DockerContainerCommand</a></span>, <span class='object_link'><a href="../DockerContainerLib.html" title="DockerContainerLib (module)">DockerContainerLib</a></span>, <span class='object_link'><a href="../DockerImageTagCheck.html" title="DockerImageTagCheck (module)">DockerImageTagCheck</a></span>, <span class='object_link'><a href="../DockerImageTagLatest.html" title="DockerImageTagLatest (module)">DockerImageTagLatest</a></span>, <span class='object_link'><a href="../DockerImageTagList.html" title="DockerImageTagList (module)">DockerImageTagList</a></span>, <span class='object_link'><a href="../LoggingModule.html" title="LoggingModule (module)">LoggingModule</a></span>, <span class='object_link'><a href="../MutagenCheckDaemon.html" title="MutagenCheckDaemon (module)">MutagenCheckDaemon</a></span>, <span class='object_link'><a href="../MutagenSocketCheck.html" title="MutagenSocketCheck (module)">MutagenSocketCheck</a></span>, <span class='object_link'><a href="../MutagenSocketCreate.html" title="MutagenSocketCreate (module)">MutagenSocketCreate</a></span>, <span class='object_link'><a href="../MutagenSocketDocker.html" title="MutagenSocketDocker (module)">MutagenSocketDocker</a></span>, <span class='object_link'><a href="../MutagenSocketList.html" title="MutagenSocketList (module)">MutagenSocketList</a></span>, <span class='object_link'><a href="../MutagenSocketTerminate.html" title="MutagenSocketTerminate (module)">MutagenSocketTerminate</a></span>, <span class='object_link'><a href="../MutagenSocketTidy.html" title="MutagenSocketTidy (module)">MutagenSocketTidy</a></span>, <span class='object_link'><a href="../SystemModule.html" title="SystemModule (module)">SystemModule</a></span></dd>
   </dl>
   
   
@@ -177,6 +177,30 @@
   
     <span class="summary_desc"><div class='inline'>
 <p>Create a mutagen socket [NAME] from [IN] to [OUT] of the container.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#docker-instance_method" title="#docker (instance method)">#<strong>docker</strong>(hostsock)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Create a mutagen docker socket [OUT] of the container.</p>
 </div></span>
   
 </li>
@@ -316,6 +340,17 @@
   
   <h3 class="inherited">Methods included from <span class='object_link'><a href="../MutagenSocketList.html" title="MutagenSocketList (module)">MutagenSocketList</a></span></h3>
   <p class="inherited"><span class='object_link'><a href="../MutagenSocketList.html#mutagen_socket_list-instance_method" title="MutagenSocketList#mutagen_socket_list (method)">#mutagen_socket_list</a></span></p>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods included from <span class='object_link'><a href="../MutagenSocketDocker.html" title="MutagenSocketDocker (module)">MutagenSocketDocker</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="../MutagenSocketDocker.html#mutagen_socket_docker-instance_method" title="MutagenSocketDocker#mutagen_socket_docker (method)">#mutagen_socket_docker</a></span></p>
 
   
   
@@ -506,7 +541,6 @@
       <pre class="lines">
 
 
-25
 26
 27
 28
@@ -519,10 +553,11 @@
 35
 36
 37
-38</pre>
+38
+39</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/takeltau/mutagen/socket/cli.rb', line 25</span>
+      <pre class="code"><span class="info file"># File 'lib/takeltau/mutagen/socket/cli.rb', line 26</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_args'>args</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='id identifier rubyid_local_options'>local_options</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='id identifier rubyid_configuration'>configuration</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='comment'># initialize thor parent class
@@ -576,12 +611,12 @@
       <pre class="lines">
 
 
-48
 49
-50</pre>
+50
+51</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/takeltau/mutagen/socket/cli.rb', line 48</span>
+      <pre class="code"><span class="info file"># File 'lib/takeltau/mutagen/socket/cli.rb', line 49</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_check'>check</span><span class='lparen'>(</span><span class='id identifier rubyid_socket'>socket</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_exit'>exit</span> <span class='id identifier rubyid_mutagen_socket_check'>mutagen_socket_check</span> <span class='id identifier rubyid_socket'>socket</span>
@@ -617,15 +652,56 @@
       <pre class="lines">
 
 
-60
 61
-62</pre>
+62
+63</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/takeltau/mutagen/socket/cli.rb', line 60</span>
+      <pre class="code"><span class="info file"># File 'lib/takeltau/mutagen/socket/cli.rb', line 61</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span class='id identifier rubyid_containersock'>containersock</span><span class='comma'>,</span> <span class='id identifier rubyid_hostsock'>hostsock</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_exit'>exit</span> <span class='id identifier rubyid_mutagen_socket_create'>mutagen_socket_create</span> <span class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span class='id identifier rubyid_containersock'>containersock</span><span class='comma'>,</span> <span class='id identifier rubyid_hostsock'>hostsock</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="docker-instance_method">
+  
+    #<strong>docker</strong>(hostsock)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Create a mutagen docker socket [OUT] of the container.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+73
+74
+75</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/takeltau/mutagen/socket/cli.rb', line 73</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_docker'>docker</span><span class='lparen'>(</span><span class='id identifier rubyid_hostsock'>hostsock</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_exit'>exit</span> <span class='id identifier rubyid_mutagen_socket_docker'>mutagen_socket_docker</span> <span class='id identifier rubyid_hostsock'>hostsock</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -658,15 +734,15 @@
       <pre class="lines">
 
 
-72
-73
-74
-75
-76
-77</pre>
+85
+86
+87
+88
+89
+90</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/takeltau/mutagen/socket/cli.rb', line 72</span>
+      <pre class="code"><span class="info file"># File 'lib/takeltau/mutagen/socket/cli.rb', line 85</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list'>list</span>
   <span class='id identifier rubyid_socket_list'>socket_list</span> <span class='op'>=</span> <span class='id identifier rubyid_mutagen_socket_list'>mutagen_socket_list</span>
@@ -705,12 +781,12 @@
       <pre class="lines">
 
 
-87
-88
-89</pre>
+100
+101
+102</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/takeltau/mutagen/socket/cli.rb', line 87</span>
+      <pre class="code"><span class="info file"># File 'lib/takeltau/mutagen/socket/cli.rb', line 100</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_terminate'>terminate</span><span class='lparen'>(</span><span class='id identifier rubyid_socket'>socket</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_exit'>exit</span> <span class='id identifier rubyid_mutagen_socket_terminate'>mutagen_socket_terminate</span> <span class='id identifier rubyid_socket'>socket</span>
@@ -746,12 +822,12 @@
       <pre class="lines">
 
 
-99
-100
-101</pre>
+112
+113
+114</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/takeltau/mutagen/socket/cli.rb', line 99</span>
+      <pre class="code"><span class="info file"># File 'lib/takeltau/mutagen/socket/cli.rb', line 112</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_tidy'>tidy</span>
   <span class='id identifier rubyid_exit'>exit</span> <span class='id identifier rubyid_mutagen_socket_tidy'>mutagen_socket_tidy</span>
