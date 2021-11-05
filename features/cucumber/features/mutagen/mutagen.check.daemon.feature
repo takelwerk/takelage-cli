@@ -46,6 +46,7 @@ Feature: I can check if mutagene host connection available
       """
       ---
       cmd_mutagen_check_daemon_start_daemon: $(exit 0)
+      cmd_mutagen_check_daemon_host_connection: 'echo Status: Forwarding connections'
       mutagen_socket_path_mutagen_container: nonexisting
       """
     And I get the active takeltau config
