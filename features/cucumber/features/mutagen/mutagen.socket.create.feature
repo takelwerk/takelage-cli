@@ -9,7 +9,6 @@ Feature: I can create a mutagen takelage socket
       """
       ---
       mutagen_socket_path_mutagen_container: .
-      mutagen_socket_path_mutagen_host: .
       cmd_mutagen_check_daemon_host_connection: 'echo Status: Forwarding connections'
       cmd_mutagen_forward_socket_create: echo "Created session"
       """
@@ -22,7 +21,6 @@ Feature: I can create a mutagen takelage socket
       """
       ---
       mutagen_socket_path_mutagen_container: .
-      mutagen_socket_path_mutagen_host: .
       cmd_mutagen_check_daemon_host_connection: 'echo Status: Forwarding connections'
       cmd_mutagen_forward_socket_create: $(exit 1)
       """

@@ -9,7 +9,6 @@ Feature: I can terminate a mutagen takelage socket
       """
       ---
       mutagen_socket_path_mutagen_container: .
-      mutagen_socket_path_mutagen_host: .
       cmd_mutagen_check_daemon_host_connection: 'echo Status: Forwarding connections'
       cmd_mutagen_forward_socket_terminate: $(exit 0)
       cmd_mutagen_forward_socket_remove:
@@ -23,7 +22,6 @@ Feature: I can terminate a mutagen takelage socket
       """
       ---
       mutagen_socket_path_mutagen_container: .
-      mutagen_socket_path_mutagen_host: .
       cmd_mutagen_check_daemon_host_connection: 'echo Status: Forwarding connections'
       cmd_mutagen_forward_socket_terminate: $(exit 1)
       """
