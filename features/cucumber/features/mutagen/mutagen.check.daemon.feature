@@ -20,7 +20,6 @@ Feature: I can check if mutagene host connection available
     Given a file named "~/.takelage.yml" with:
       """
       ---
-      cmd_mutagen_check_daemon_host_connection: $(exit 1)
       mutagen_socket_path_mutagen_host: nonexisting
       """
     And I get the active takeltau config
@@ -43,7 +42,6 @@ Feature: I can check if mutagene host connection available
     Given a file named "~/.takelage.yml" with:
       """
       ---
-      cmd_mutagen_check_daemon_host_connection: $(exit 1)
       mutagen_socket_path_mutagen_container: nonexisting
       """
     And I get the active takeltau config
