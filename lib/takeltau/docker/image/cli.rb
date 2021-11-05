@@ -16,6 +16,7 @@ module Takeltau
 
       @docker_user = config.active['docker_user']
       @docker_repo = config.active['docker_repo']
+      @docker_tag = config.active['docker_tag']
       @docker_registry = config.active['docker_registry']
     end
 
