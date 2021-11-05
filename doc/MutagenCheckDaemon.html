@@ -159,7 +159,7 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Backend method for mutagen check daemon. rubocop:disable Metrics/MethodLength</p>
+<p>Backend method for mutagen check daemon. rubocop:disable Metrics/MethodLength rubocop:disable Metrics/AbcSize</p>
 
 
   </div>
@@ -191,7 +191,6 @@
       <pre class="lines">
 
 
-8
 9
 10
 11
@@ -218,28 +217,45 @@
 32
 33
 34
-35</pre>
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/takeltau/mutagen/check/daemon.rb', line 8</span>
+      <pre class="code"><span class="info file"># File 'lib/takeltau/mutagen/check/daemon.rb', line 9</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_mutagen_check_daemon'>mutagen_check_daemon</span>
   <span class='kw'>return</span> <span class='kw'>true</span> <span class='kw'>if</span> <span class='ivar'>@mutagen_daemon_available</span>
 
   <span class='id identifier rubyid_log'>log</span><span class='period'>.</span><span class='id identifier rubyid_debug'>debug</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Check mutagen status</span><span class='tstring_end'>&#39;</span></span>
 
-  <span class='kw'>return</span> <span class='kw'>false</span> <span class='kw'>unless</span> <span class='id identifier rubyid__mutagen_check_check_prerequisites'>_mutagen_check_check_prerequisites</span>
+  <span class='kw'>unless</span> <span class='id identifier rubyid__mutagen_check_daemon_start'>_mutagen_check_daemon_start</span>
+    <span class='id identifier rubyid_log'>log</span><span class='period'>.</span><span class='id identifier rubyid_error'>error</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>The mutagen daemon cannot be started</span><span class='tstring_end'>&#39;</span></span>
+    <span class='kw'>return</span> <span class='kw'>false</span>
+  <span class='kw'>end</span>
 
   <span class='comment'># are we outside of a takelage container?
 </span>  <span class='kw'>unless</span> <span class='id identifier rubyid__docker_container_lib_check_matrjoschka'>_docker_container_lib_check_matrjoschka</span>
-    <span class='kw'>unless</span> <span class='id identifier rubyid__mutagen_check_daemon_version'>_mutagen_check_daemon_version</span>
-      <span class='id identifier rubyid_log'>log</span><span class='period'>.</span><span class='id identifier rubyid_error'>error</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>The mutagen daemon is not available</span><span class='tstring_end'>&#39;</span></span>
+    <span class='kw'>unless</span> <span class='id identifier rubyid__file_exists?'>_file_exists?</span> <span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_active'>active</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>mutagen_socket_path_mutagen_host</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
+      <span class='id identifier rubyid_log'>log</span><span class='period'>.</span><span class='id identifier rubyid_error'>error</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>The mutagen socket path on the host is not available</span><span class='tstring_end'>&#39;</span></span>
       <span class='kw'>return</span> <span class='kw'>false</span>
     <span class='kw'>end</span>
 
     <span class='id identifier rubyid_log'>log</span><span class='period'>.</span><span class='id identifier rubyid_debug'>debug</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>The mutagen daemon is available</span><span class='tstring_end'>&#39;</span></span>
     <span class='ivar'>@mutagen_daemon_available</span> <span class='op'>=</span> <span class='kw'>true</span>
     <span class='kw'>return</span> <span class='kw'>true</span>
+  <span class='kw'>end</span>
+
+  <span class='kw'>unless</span> <span class='id identifier rubyid__file_exists?'>_file_exists?</span> <span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_active'>active</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>mutagen_socket_path_mutagen_container</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
+    <span class='id identifier rubyid_log'>log</span><span class='period'>.</span><span class='id identifier rubyid_error'>error</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>The mutagen socket path in the container is not available</span><span class='tstring_end'>&#39;</span></span>
+    <span class='kw'>return</span> <span class='kw'>false</span>
   <span class='kw'>end</span>
 
   <span class='kw'>unless</span> <span class='id identifier rubyid__mutagen_check_daemon_host_connection'>_mutagen_check_daemon_host_connection</span>
