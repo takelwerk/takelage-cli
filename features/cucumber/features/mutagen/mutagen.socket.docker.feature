@@ -8,9 +8,10 @@ Feature: I can create a mutagen docker socket
     Given a file named "~/.takelage.yml" with:
       """
       ---
-      mutagen_socket_path_docker_host: .
+      mutagen_socket_path_mutagen_container: .
+      mutagen_socket_path_mutagen_host: .
       cmd_mutagen_check_daemon_host_connection: 'echo Status: Forwarding connections'
-      cmd_mutagen_forward_socket_create: echo "Created session"
+      cmd_mutagen_forward_socket_docker: echo "Created session"
       """
     And I get the active takeltau config
     When I run `tau-cli mutagen socket docker ~/.docker.sock`
@@ -20,9 +21,10 @@ Feature: I can create a mutagen docker socket
     Given a file named "~/.takelage.yml" with:
       """
       ---
-      mutagen_socket_path_docker_host: .
+      mutagen_socket_path_mutagen_container: .
+      mutagen_socket_path_mutagen_host: .
       cmd_mutagen_check_daemon_host_connection: 'echo Status: Forwarding connections'
-      cmd_mutagen_forward_socket_create: $(exit 1)
+      cmd_mutagen_forward_socket_docker: $(exit 1)
       """
     And I get the active takeltau config
     When I run `tau-cli mutagen socket create nix.sock`
