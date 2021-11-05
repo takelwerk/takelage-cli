@@ -16,7 +16,7 @@ module MutagenCheckDaemon
       return false
     end
 
-    # are we outside of a takelage container?
+    # are we inside a takelage container?
     unless _docker_container_lib_check_matrjoschka
       unless _file_exists? config.active['mutagen_socket_path_mutagen_host']
         log.error 'The mutagen socket path on the host is not available'
@@ -28,13 +28,13 @@ module MutagenCheckDaemon
       return true
     end
 
-    unless _file_exists? config.active['mutagen_socket_path_mutagen_container']
-      log.error 'The mutagen socket path in the container is not available'
+    unless _mutagen_check_daemon_host_connection
+      log.error 'A mutagen host connection is not available'
       return false
     end
 
-    unless _mutagen_check_daemon_host_connection
-      log.error 'A mutagen host connection is not available'
+    unless _file_exists? config.active['mutagen_socket_path_mutagen_container']
+      log.error 'The mutagen socket path in the container is not available'
       return false
     end
 

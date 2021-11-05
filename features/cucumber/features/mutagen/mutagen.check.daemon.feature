@@ -20,6 +20,8 @@ Feature: I can check if mutagene host connection available
     Given a file named "~/.takelage.yml" with:
       """
       ---
+      cmd_mutagen_check_daemon_start_daemon: $(exit 0)
+      cmd_mutagen_check_daemon_host_connection: 'echo Status: Forwarding connections'
       mutagen_socket_path_mutagen_host: nonexisting
       """
     And I get the active takeltau config
@@ -31,6 +33,7 @@ Feature: I can check if mutagene host connection available
     Given a file named "~/.takelage.yml" with:
       """
       ---
+      cmd_mutagen_check_daemon_start_daemon: $(exit 0)
       cmd_mutagen_check_daemon_host_connection: 'echo Status: Forwarding connections'
       mutagen_socket_path_mutagen_container: .
       """
@@ -42,23 +45,13 @@ Feature: I can check if mutagene host connection available
     Given a file named "~/.takelage.yml" with:
       """
       ---
+      cmd_mutagen_check_daemon_start_daemon: $(exit 0)
       mutagen_socket_path_mutagen_container: nonexisting
       """
     And I get the active takeltau config
     When I run `env TAKELAGE_PROJECT_BASE_DIR=. tau-cli mutagen check daemon`
     Then the exit status should be 1
     And the output should contain "[ERROR] The mutagen socket path in the container is not available"
-
-  Scenario: Start mutagen on the host
-    Given a file named "~/.takelage.yml" with:
-      """
-      ---
-      cmd_mutagen_check_daemon_start_daemon: $(exit 0)
-      mutagen_socket_path_mutagen_host: .
-      """
-    And I get the active takeltau config
-    When I run `env -u TAKELAGE_PROJECT_BASE_DIR tau-cli mutagen check daemon`
-    Then the exit status should be 0
 
   Scenario: Fail when mutagen start fails
     Given a file named "~/.takelage.yml" with:
