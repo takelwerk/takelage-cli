@@ -11,8 +11,8 @@ module MutagenCheckDaemon
 
     log.debug 'Check mutagen status'
 
-    unless _mutagen_check_daemon_version
-      log.error 'The mutagen daemon is not available'
+    unless _mutagen_check_daemon_start
+      log.error 'The mutagen daemon cannot be started'
       return false
     end
 
@@ -71,9 +71,9 @@ module MutagenCheckDaemon
   # rubocop:enable Metrics/AbcSize
   # rubocop:enable Metrics/MethodLength
 
-  # Check mutagen version
-  def _mutagen_check_daemon_version
-    version = try config.active['cmd_mutagen_check_daemon_version']
-    version.exitstatus.zero?
+  # Start mutagen daemon
+  def _mutagen_check_daemon_start
+    start = try config.active['cmd_mutagen_check_daemon_start_daemon']
+    start.exitstatus.zero?
   end
 end
