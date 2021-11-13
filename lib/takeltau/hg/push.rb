@@ -25,8 +25,10 @@ module HgPush
       root: config.active['project_root_dir']
     )
 
-    stdout, _, exitstatus = run_and_capture cmd_hg_push_repos
+    stdout, stderr, exitstatus = run_and_capture cmd_hg_push_repos
     log.info stdout
+    log.info stderr
+    log.info exitstatus
     exitstatus.zero?
   end
 end
