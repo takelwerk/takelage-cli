@@ -33,7 +33,9 @@ module GitLib
     message = 'Update .hg mercurial directories'
 
     return false unless _git_lib_git_add_hg_dirs
-    return false unless _git_lib_git_commit message
+
+    # Do not fail or a clean workspace triggers a return
+    _git_lib_git_commit message
 
     return true if _git_lib_git_push_origin_hg
 
