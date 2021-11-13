@@ -39,7 +39,7 @@ module GitLib
 
     return true if _git_lib_git_push_origin_hg
 
-    log.error 'Unable to git push .hg mercurial directories'
+    log.debug 'Unable to git push .hg mercurial directories'
     false
   end
 
