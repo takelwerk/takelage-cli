@@ -43,12 +43,6 @@ Feature: I can push hg repos
     Then the exit status should be 1
     And the output should contain "[ERROR] Unable to pull git workspace"
 
-  Scenario: Fail when hg push fails
-    Given the directory "../my_git_origin" does not exist
-    When I run `tau-cli hg push`
-    Then the exit status should be 1
-    And the output should contain "[ERROR] Unable to tau hg push"
-
   Scenario: Fail when final git push fails
     Given I successfully run `git remote set-url --push origin banana`
     When I run `tau-cli hg push`

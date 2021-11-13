@@ -8,10 +8,7 @@ module HgPull
 
     return false unless git_lib_prepare_git_workspace
 
-    unless _hg_pull_hg_pull_repos
-      log.error 'Unable to tau hg pull'
-      return false
-    end
+    _hg_pull_hg_pull_repos
 
     git_lib_push_hg_dirs
   end
@@ -25,8 +22,6 @@ module HgPull
       root: config.active['project_root_dir']
     )
 
-    stdout, _, exitstatus = run_and_capture cmd_hg_pull_repos
-    log.info stdout
-    exitstatus.zero?
+    log.info run cmd_hg_pull_repos
   end
 end
