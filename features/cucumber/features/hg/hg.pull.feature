@@ -46,4 +46,3 @@ Feature: I can pull hg repos
     Given I successfully run `git remote set-url --push origin banana`
     When I run `tau-cli hg pull`
     Then the exit status should be 1
-    And the output should contain "[ERROR] Unable to git push .hg mercurial directories"
