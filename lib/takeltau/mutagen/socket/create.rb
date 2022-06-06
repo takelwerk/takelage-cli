@@ -6,7 +6,7 @@ module MutagenSocketCreate
   # rubocop:disable Metrics/MethodLength
   def mutagen_socket_create(name, containersock, hostsock)
     # See DockerContainerLib::_docker_container_lib_hostname
-    socketname = "#{@hostname[-11..-1]}-#{name}"
+    socketname = "#{@hostname[-11..]}-#{name}"
     log.debug "Create the mutagen socket \"#{socketname}\" in the container " \
       "at \"#{containersock}\" pointing to the host at \"#{hostsock}\""
 
