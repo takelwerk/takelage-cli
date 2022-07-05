@@ -58,7 +58,7 @@ module MutagenCheckDaemon
       return false
     end
 
-    unless stdout.include? 'Status: Forwarding connections'
+    unless stdout.include? 'Status: Forwarding'
       log.debug 'The mutagen forward connection to the host ' \
         'is not forwarding connections'
       return false
