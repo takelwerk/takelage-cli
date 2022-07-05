@@ -32,7 +32,7 @@ Feature: I can check if mutagene host connection available
       """
       ---
       cmd_mutagen: true
-      cmd_mutagen_check_daemon_host_connection: 'echo Status: Forwarding connections'
+      cmd_mutagen_check_daemon_host_connection: 'echo Status: Forwarding'
       mutagen_socket_path_mutagen_container: .
       """
     And I get the active takeltau config
@@ -44,7 +44,7 @@ Feature: I can check if mutagene host connection available
       """
       ---
       cmd_mutagen: true
-      cmd_mutagen_check_daemon_host_connection: 'echo Status: Forwarding connections'
+      cmd_mutagen_check_daemon_host_connection: 'echo Status: Forwarding'
       mutagen_socket_path_mutagen_container: nonexisting
       """
     And I get the active takeltau config
