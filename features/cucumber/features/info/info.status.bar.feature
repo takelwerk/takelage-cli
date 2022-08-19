@@ -34,7 +34,7 @@ Feature: I can check the takelage status
     When I successfully run `env SSH_AUTH_SOCK='/tmp' tau-cli info status bar`
     Then the output should contain:
       """
-      git: ok | gopass: ok | gpg: ok | hg: ok | mutagen: ok | ssh: ok
+      git: ok | gopass: ok | gpg: ok | hg: ok | ssh: ok | mutagen: ok
       """
     And the output should contain:
       """
@@ -65,7 +65,7 @@ Feature: I can check the takelage status
     Then the exit status should be 1
     And the output should contain:
       """
-      git: no | gopass: no | gpg: ok | hg: ok | mutagen: ok | ssh: ok
+      git: no | gopass: no | gpg: ok | hg: ok | ssh: ok | mutagen: ok
       """
     And the output should contain:
       """
@@ -96,7 +96,7 @@ Feature: I can check the takelage status
     Then the exit status should be 1
     And the output should contain:
       """
-      git: ok | gopass: ok | gpg: ok | hg: no | mutagen: ok | ssh: ok
+      git: ok | gopass: ok | gpg: ok | hg: no | ssh: ok | mutagen: ok
       """
     And the output should contain:
       """
@@ -127,7 +127,7 @@ Feature: I can check the takelage status
     Then the exit status should be 1
     And the output should contain:
       """
-      git: ok | gopass: ok | gpg: ok | hg: ok | mutagen: ok | ssh: no
+      git: ok | gopass: ok | gpg: ok | hg: ok | ssh: no | mutagen: ok
       """
     And the output should contain:
       """
@@ -158,7 +158,7 @@ Feature: I can check the takelage status
     Then the exit status should be 1
     And the output should contain:
       """
-      git: ok | gopass: ok | gpg: ok | hg: ok | mutagen: ok | ssh: no
+      git: ok | gopass: ok | gpg: ok | hg: ok | ssh: no | mutagen: ok
       """
     And the output should contain:
       """
@@ -189,7 +189,7 @@ Feature: I can check the takelage status
     Then the exit status should be 1
     And the output should contain:
       """
-      git: ok | gopass: ok | gpg: ok | hg: ok | mutagen: no | ssh: no
+      git: ok | gopass: ok | gpg: ok | hg: ok | ssh: no | mutagen: no
       """
     And the output should contain:
       """

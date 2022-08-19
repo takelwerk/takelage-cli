@@ -34,6 +34,7 @@ Feature: I can check if ssh is available
       """
       ---
       cmd_info_status_ssh_socket: echo /nonexisting
+      cmd_info_status_ssh_keys: $(exit 0)
       """
     And I get the active takeltau config
     When I run `env SSH_AUTH_SOCK='/nonexisting' tau-cli info status ssh`
