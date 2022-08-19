@@ -17,8 +17,8 @@ module InfoStatusBar
     _info_status_bar_gopass
     _info_status_bar_gpg
     _info_status_bar_hg
-    _info_status_bar_mutagen
     _info_status_bar_ssh
+    _info_status_bar_mutagen
 
     say @bar_list.join(' | ')
     @bar_status

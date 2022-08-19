@@ -16,13 +16,13 @@ module InfoStatusSSH
       return false
     end
 
-    unless _file_exists? gpg_ssh_socket
-      log.error 'gpg ssh socket is not available'
+    unless _info_status_ssh_keys
+      log.error 'ssh keys are not available'
       return false
     end
 
-    unless _info_status_ssh_keys
-      log.error 'ssh keys are not available'
+    unless _file_exists? gpg_ssh_socket
+      log.error 'gpg ssh socket is not available'
       return false
     end
 
