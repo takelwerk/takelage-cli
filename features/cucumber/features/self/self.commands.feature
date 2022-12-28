@@ -3,7 +3,7 @@
 
 Feature: I can print the commands of commands
 
-  Scenario: Print the commands of commands
+  Scenario: Print the list of commands
     When I successfully run `tau-cli self commands`
     Then the output should contain:
       """
