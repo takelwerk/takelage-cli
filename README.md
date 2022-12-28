@@ -63,7 +63,7 @@ for the *tau* commands
 to get an idea of how the commands work.
 You can list the *tau* commands by running
 *tau [self commands](features/cucumber/features/self/self.commands.feature)*
-or *tau list*:
+or *tau commands*:
 
 Command	| Description
 ------- | -----------
