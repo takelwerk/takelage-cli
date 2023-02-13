@@ -93,7 +93,7 @@
   
   <dl>
       <dt>Includes:</dt>
-      <dd><span class='object_link'><a href="../ConfigModule.html" title="ConfigModule (module)">ConfigModule</a></span>, <span class='object_link'><a href="../DockerCheckDaemon.html" title="DockerCheckDaemon (module)">DockerCheckDaemon</a></span>, <span class='object_link'><a href="../DockerContainerCheckExisting.html" title="DockerContainerCheckExisting (module)">DockerContainerCheckExisting</a></span>, <span class='object_link'><a href="../DockerContainerCheckNetwork.html" title="DockerContainerCheckNetwork (module)">DockerContainerCheckNetwork</a></span>, <span class='object_link'><a href="../DockerContainerCommand.html" title="DockerContainerCommand (module)">DockerContainerCommand</a></span>, <span class='object_link'><a href="../DockerContainerLib.html" title="DockerContainerLib (module)">DockerContainerLib</a></span>, <span class='object_link'><a href="../GitCheckWorkspace.html" title="GitCheckWorkspace (module)">GitCheckWorkspace</a></span>, <span class='object_link'><a href="../InfoStatusBar.html" title="InfoStatusBar (module)">InfoStatusBar</a></span>, <span class='object_link'><a href="../InfoStatusGPG.html" title="InfoStatusGPG (module)">InfoStatusGPG</a></span>, <span class='object_link'><a href="../InfoStatusGit.html" title="InfoStatusGit (module)">InfoStatusGit</a></span>, <span class='object_link'><a href="../InfoStatusGopass.html" title="InfoStatusGopass (module)">InfoStatusGopass</a></span>, <span class='object_link'><a href="../InfoStatusHg.html" title="InfoStatusHg (module)">InfoStatusHg</a></span>, <span class='object_link'><a href="../InfoStatusLib.html" title="InfoStatusLib (module)">InfoStatusLib</a></span>, <span class='object_link'><a href="../InfoStatusSSH.html" title="InfoStatusSSH (module)">InfoStatusSSH</a></span>, <span class='object_link'><a href="../LoggingModule.html" title="LoggingModule (module)">LoggingModule</a></span>, <span class='object_link'><a href="../MutagenCheckDaemon.html" title="MutagenCheckDaemon (module)">MutagenCheckDaemon</a></span>, <span class='object_link'><a href="../SystemModule.html" title="SystemModule (module)">SystemModule</a></span></dd>
+      <dd><span class='object_link'><a href="../ConfigModule.html" title="ConfigModule (module)">ConfigModule</a></span>, <span class='object_link'><a href="../DockerCheckDaemon.html" title="DockerCheckDaemon (module)">DockerCheckDaemon</a></span>, <span class='object_link'><a href="../DockerContainerCheckExisting.html" title="DockerContainerCheckExisting (module)">DockerContainerCheckExisting</a></span>, <span class='object_link'><a href="../DockerContainerCheckNetwork.html" title="DockerContainerCheckNetwork (module)">DockerContainerCheckNetwork</a></span>, <span class='object_link'><a href="../DockerContainerCommand.html" title="DockerContainerCommand (module)">DockerContainerCommand</a></span>, <span class='object_link'><a href="../DockerContainerLib.html" title="DockerContainerLib (module)">DockerContainerLib</a></span>, <span class='object_link'><a href="../GitCheckWorkspace.html" title="GitCheckWorkspace (module)">GitCheckWorkspace</a></span>, <span class='object_link'><a href="../InfoStatusArch.html" title="InfoStatusArch (module)">InfoStatusArch</a></span>, <span class='object_link'><a href="../InfoStatusBar.html" title="InfoStatusBar (module)">InfoStatusBar</a></span>, <span class='object_link'><a href="../InfoStatusGPG.html" title="InfoStatusGPG (module)">InfoStatusGPG</a></span>, <span class='object_link'><a href="../InfoStatusGit.html" title="InfoStatusGit (module)">InfoStatusGit</a></span>, <span class='object_link'><a href="../InfoStatusGopass.html" title="InfoStatusGopass (module)">InfoStatusGopass</a></span>, <span class='object_link'><a href="../InfoStatusHg.html" title="InfoStatusHg (module)">InfoStatusHg</a></span>, <span class='object_link'><a href="../InfoStatusLib.html" title="InfoStatusLib (module)">InfoStatusLib</a></span>, <span class='object_link'><a href="../InfoStatusSSH.html" title="InfoStatusSSH (module)">InfoStatusSSH</a></span>, <span class='object_link'><a href="../LoggingModule.html" title="LoggingModule (module)">LoggingModule</a></span>, <span class='object_link'><a href="../MutagenCheckDaemon.html" title="MutagenCheckDaemon (module)">MutagenCheckDaemon</a></span>, <span class='object_link'><a href="../SystemModule.html" title="SystemModule (module)">SystemModule</a></span></dd>
   </dl>
   
   
@@ -133,6 +133,30 @@
     </h2>
 
     <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#arch-instance_method" title="#arch (instance method)">#<strong>arch</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Check arch status info.</p>
+</div></span>
+  
+</li>
+
       
         <li class="public ">
   <span class="summary_signature">
@@ -417,6 +441,17 @@
   
   
   
+  <h3 class="inherited">Methods included from <span class='object_link'><a href="../InfoStatusArch.html" title="InfoStatusArch (module)">InfoStatusArch</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="../InfoStatusArch.html#info_status_arch-instance_method" title="InfoStatusArch#info_status_arch (method)">#info_status_arch</a></span></p>
+
+  
+  
+  
+  
+  
+  
+  
+  
   
   
   
@@ -549,7 +584,6 @@
       <pre class="lines">
 
 
-25
 26
 27
 28
@@ -558,10 +592,11 @@
 31
 32
 33
-34</pre>
+34
+35</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/takeltau/info/status/cli.rb', line 25</span>
+      <pre class="code"><span class="info file"># File 'lib/takeltau/info/status/cli.rb', line 26</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_args'>args</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='id identifier rubyid_local_options'>local_options</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='id identifier rubyid_configuration'>configuration</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='comment'># initialize thor parent class
@@ -586,7 +621,54 @@
 
     
       <div class="method_details first">
-  <h3 class="signature first" id="bar-instance_method">
+  <h3 class="signature first" id="arch-instance_method">
+  
+    #<strong>arch</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Check arch status info.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+57
+58
+59
+60
+61
+62</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/takeltau/info/status/cli.rb', line 57</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_arch'>arch</span>
+  <span class='id identifier rubyid_arch'>arch</span> <span class='op'>=</span> <span class='id identifier rubyid_info_status_arch'>info_status_arch</span>
+  <span class='id identifier rubyid_exit'>exit</span> <span class='kw'>false</span> <span class='kw'>if</span> <span class='id identifier rubyid_arch'>arch</span> <span class='op'>==</span> <span class='kw'>false</span>
+  <span class='id identifier rubyid_say'>say</span> <span class='id identifier rubyid_arch'>arch</span>
+  <span class='kw'>true</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="bar-instance_method">
   
     #<strong>bar</strong>  &#x21d2; <tt>Object</tt> 
   
@@ -611,12 +693,12 @@
       <pre class="lines">
 
 
-44
 45
-46</pre>
+46
+47</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/takeltau/info/status/cli.rb', line 44</span>
+      <pre class="code"><span class="info file"># File 'lib/takeltau/info/status/cli.rb', line 45</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_bar'>bar</span>
   <span class='id identifier rubyid_exit'>exit</span> <span class='id identifier rubyid_info_status_bar'>info_status_bar</span>
@@ -652,12 +734,12 @@
       <pre class="lines">
 
 
-56
-57
-58</pre>
+72
+73
+74</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/takeltau/info/status/cli.rb', line 56</span>
+      <pre class="code"><span class="info file"># File 'lib/takeltau/info/status/cli.rb', line 72</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_git'>git</span>
   <span class='id identifier rubyid_exit'>exit</span> <span class='id identifier rubyid_info_status_git'>info_status_git</span>
@@ -693,12 +775,12 @@
       <pre class="lines">
 
 
-68
-69
-70</pre>
+84
+85
+86</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/takeltau/info/status/cli.rb', line 68</span>
+      <pre class="code"><span class="info file"># File 'lib/takeltau/info/status/cli.rb', line 84</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_gopass'>gopass</span>
   <span class='id identifier rubyid_exit'>exit</span> <span class='id identifier rubyid_info_status_gopass'>info_status_gopass</span>
@@ -734,12 +816,12 @@
       <pre class="lines">
 
 
-80
-81
-82</pre>
+96
+97
+98</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/takeltau/info/status/cli.rb', line 80</span>
+      <pre class="code"><span class="info file"># File 'lib/takeltau/info/status/cli.rb', line 96</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_gpg'>gpg</span>
   <span class='id identifier rubyid_exit'>exit</span> <span class='id identifier rubyid_info_status_gpg'>info_status_gpg</span>
@@ -775,12 +857,12 @@
       <pre class="lines">
 
 
-92
-93
-94</pre>
+108
+109
+110</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/takeltau/info/status/cli.rb', line 92</span>
+      <pre class="code"><span class="info file"># File 'lib/takeltau/info/status/cli.rb', line 108</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_hg'>hg</span>
   <span class='id identifier rubyid_exit'>exit</span> <span class='id identifier rubyid_info_status_hg'>info_status_hg</span>
@@ -816,12 +898,12 @@
       <pre class="lines">
 
 
-104
-105
-106</pre>
+120
+121
+122</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/takeltau/info/status/cli.rb', line 104</span>
+      <pre class="code"><span class="info file"># File 'lib/takeltau/info/status/cli.rb', line 120</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_mutagen'>mutagen</span>
   <span class='id identifier rubyid_exit'>exit</span> <span class='id identifier rubyid_mutagen_check_daemon'>mutagen_check_daemon</span>
@@ -857,12 +939,12 @@
       <pre class="lines">
 
 
-116
-117
-118</pre>
+132
+133
+134</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/takeltau/info/status/cli.rb', line 116</span>
+      <pre class="code"><span class="info file"># File 'lib/takeltau/info/status/cli.rb', line 132</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_ssh'>ssh</span>
   <span class='id identifier rubyid_exit'>exit</span> <span class='id identifier rubyid_info_status_ssh'>info_status_ssh</span>
