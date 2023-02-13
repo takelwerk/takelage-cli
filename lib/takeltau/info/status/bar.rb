@@ -13,6 +13,7 @@ module InfoStatusBar
 
     _info_status_bar_takelage
     _info_status_bar_tau
+    _info_status_bar_arch
     _info_status_bar_git
     _info_status_bar_gopass
     _info_status_bar_gpg
@@ -38,6 +39,20 @@ module InfoStatusBar
   # Add tau version info to bar.
   def _info_status_bar_tau
     @bar_list << "tau: #{Takeltau::VERSION.green}"
+  end
+
+  # Add architecture info to bar.
+  def _info_status_bar_arch
+    arch = info_status_arch
+    if arch == false
+      @status_arch = false
+      architecture = 'unknown'.red
+    else
+      @status_arch = true
+      architecture = arch.green
+    end
+    @bar_status &&= @status_arch
+    @bar_list << "arch: #{architecture}"
   end
 
   # Add git status info to bar.

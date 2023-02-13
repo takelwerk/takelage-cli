@@ -13,6 +13,7 @@ module Takeltau
     include DockerContainerLib
     include GitCheckWorkspace
     include InfoStatusLib
+    include InfoStatusArch
     include InfoStatusGit
     include InfoStatusGopass
     include InfoStatusGPG
@@ -43,6 +44,21 @@ module Takeltau
     # Print status info bar.
     def bar
       exit info_status_bar
+    end
+
+    #
+    # info status arch
+    #
+    desc 'arch', 'Check arch status info'
+    long_desc <<-LONGDESC.gsub("\n", "\x5")
+    Check arch status info
+    LONGDESC
+    # Check arch status info.
+    def arch
+      arch = info_status_arch
+      exit false if arch == false
+      say arch
+      true
     end
 
     #

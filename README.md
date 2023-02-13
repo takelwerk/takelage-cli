@@ -92,6 +92,7 @@ tau [info project dir](features/cucumber/features/info/info.project.dir.feature)
 tau [info project main](features/cucumber/features/info/info.project.main.feature) | Print main project info
 tau [info project private](features/cucumber/features/info/info.project.private.feature) | Print private project info
 tau [info status bar](features/cucumber/features/info/info.status.bar.feature) | Print status bar
+tau [info status arch](features/cucumber/features/info/info.status.arch.feature) | Check arch status
 tau [info status git](features/cucumber/features/info/info.status.git.feature) | Check git status
 tau [info status gopass](features/cucumber/features/info/info.status.gopass.feature) | Check gopass status
 tau [info status gpg](features/cucumber/features/info/info.status.gpg.feature) | Check gpg status
