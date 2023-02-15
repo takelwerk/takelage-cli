@@ -43,7 +43,7 @@ jobs:
 
       - name: Configure docker daemon
         run: |
-          echo '{ "cgroup-parent": "/actions_job", "insecure-registries": [ "host.docker.internal:5005" ] }' > /tmp/daemon.json
+          echo '{ "insecure-registries": [ "host.docker.internal:5005" ] }' > /tmp/daemon.json
           sudo mv /tmp/daemon.json /etc/docker/daemon.json
           sudo systemctl restart docker.service
 
