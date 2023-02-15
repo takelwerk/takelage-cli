@@ -82,7 +82,6 @@ jobs:
         with:
           add: 'doc'
           message: 'Update docs via GitHub workflow'
-          branch: main
 
       - name: Clean gems
         run: tau docker container command "rake gem:clean"
