@@ -44,5 +44,54 @@ jobs:
           echo "docker_entrypoint_options: --no-git --no-gopass" >> $HOME/.takelage.yml
           echo "docker_run_options: --cap-add=NET_ADMIN" >> $HOME/.takelage.yml
 
-      - name: Setup tmate session
-        uses: mxschmitt/action-tmate@v3
+      - name: Configure docker daemon
+        run: |
+          echo '{ "insecure-registries": [ "host.docker.internal:5005" ] }' > /tmp/daemon.json
+          sudo mv /tmp/daemon.json /etc/docker/daemon.json
+          sudo systemctl restart docker.service
+
+      - name: Pull takelage image
+        run: tau update
+
+      - name: Start an instance of takelage
+        run: tau docker container daemon
+
+      - name: Move rubygems credentials file
+        run: |
+          tau docker container command "mkdir $HOME/.gem"
+          tau docker container command "mv /project/credentials $HOME/.gem/credentials"
+          tau docker container command "chmod 0600 $HOME/.gem/credentials"
+
+      - name: Lint ruby
+        run: tau docker container command "rake rubylint"
+
+      - name: Run unit tests
+        run: tau docker container command "rake test"
+
+      - name: Run cucumber features
+        run: tau docker container command "SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket) rake features"
+
+      - name: Clean docs
+        run: tau docker container command "rake doc:clean"
+
+      - name: Build docs
+        run: tau docker container command "rake doc:build"
+
+      - name: Commit docs
+        uses: EndBug/add-and-commit@v9
+        with:
+          add: 'doc'
+          message: 'Update docs via GitHub workflow'
+          branch: main
+
+      - name: Clean gems
+        run: tau docker container command "rake gem:clean"
+
+      - name: Build gem
+        run: tau docker container command "rake gem:build"
+
+      - name: Move gem
+        run: tau docker container command "rake gem:move"
+
+      - name: Push gem
+        run: tau docker container command "rake gem:push"
