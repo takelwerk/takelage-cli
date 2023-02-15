@@ -1,28 +1,25 @@
-name: Build, test and deploy project
+name: test takeltau
 
 on:
-  push: # trigger on git push
+  schedule: # run daily at 1 pm CET
+    - cron:  '0 2 * * *'
   workflow_dispatch: # allow manual trigger
 
 jobs:
-  build-and-test-and-deploy-project:
-    runs-on: ubuntu-20.04
-    if: startsWith(github.ref, 'refs/tags/')
+  test-project:
+    runs-on: ubuntu-latest
     steps:
       - name: Check out repository
-        uses: actions/checkout@v2
-
-      - name: Create rubygems credentials file
-        run: 'echo -e "---\n:rubygems_api_key: ${{ secrets.RUBYGEMS_API_KEY }}" > credentials'
+        uses: actions/checkout@v3
 
       - name: Install mutagen
         run: |
-          wget -O /tmp/mutagen.tar.gz https://github.com/mutagen-io/mutagen/releases/download/v0.12.0/mutagen_linux_amd64_v0.12.0.tar.gz
+          wget --header="Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" -O /tmp/mutagen.tar.gz https://github.com/mutagen-io/mutagen/releases/download/v0.16.4/mutagen_linux_amd64_v0.16.4.tar.gz
           sudo tar xvfz /tmp/mutagen.tar.gz -C /usr/local/bin
 
       - name: Configure gnupg and ssh on the host
         run: |
-          mkdir --parents $HOME/.ssh
+          mkdir $HOME/.ssh
           echo "AddKeysToAgent yes" >> $HOME/.ssh/config
           mkdir $HOME/.gnupg
           echo "batch" >> $HOME/.gnupg/gpg-agent.conf
@@ -32,9 +29,9 @@ jobs:
         run: echo "127.0.0.1 host.docker.internal" | sudo tee --append /etc/hosts
 
       - name: Set up ruby
-        uses: ruby/setup-ruby@v1.61.1
+        uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 2.7
+          ruby-version: ruby
 
       - name: Install tau
         run: gem install takeltau
@@ -56,12 +53,6 @@ jobs:
       - name: Start an instance of takelage
         run: tau docker container daemon
 
-      - name: Move rubygems credentials file
-        run: |
-          tau docker container command "mkdir $HOME/.gem"
-          tau docker container command "mv /project/credentials $HOME/.gem/credentials"
-          tau docker container command "chmod 0600 $HOME/.gem/credentials"
-
       - name: Lint ruby
         run: tau docker container command "rake rubylint"
 
@@ -70,28 +61,3 @@ jobs:
 
       - name: Run cucumber features
         run: tau docker container command "SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket) rake features"
-
-      - name: Clean docs
-        run: tau docker container command "rake doc:clean"
-
-      - name: Build docs
-        run: tau docker container command "rake doc:build"
-
-      - name: Commit docs
-        uses: EndBug/add-and-commit@v7
-        with:
-          add: 'doc'
-          message: 'Update docs via GitHub workflow'
-          branch: main
-
-      - name: Clean gems
-        run: tau docker container command "rake gem:clean"
-
-      - name: Build gem
-        run: tau docker container command "rake gem:build"
-
-      - name: Move gem
-        run: tau docker container command "rake gem:move"
-
-      - name: Push gem
-        run: tau docker container command "rake gem:push"
