@@ -8,9 +8,7 @@ module InfoStatusArch
     log.debug 'Get cpu architecture'
 
     architecture = _info_status_arch_get_architecture.to_sym
-    # rubocop:disable Naming/VariableNumber
     architectures = { arm64: 'arm64', aarch64: 'arm64', x86_64: 'amd64' }
-    # rubocop:enable Naming/VariableNumber
     unless architectures.key? architecture
       log.error 'cpu architecture unknown'
       return false
