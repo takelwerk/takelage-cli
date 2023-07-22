@@ -17,11 +17,6 @@ jobs:
       - name: Create rubygems credentials file
         run: 'echo -e "---\n:rubygems_api_key: ${{ secrets.RUBYGEMS_API_KEY }}" > credentials'
 
-      - name: Install mutagen
-        run: |
-          wget --header="Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" -O /tmp/mutagen.tar.gz https://github.com/mutagen-io/mutagen/releases/download/v0.16.5/mutagen_linux_amd64_v0.16.5.tar.gz
-          sudo tar xvfz /tmp/mutagen.tar.gz -C /usr/local/bin
-
       - name: Configure gnupg and ssh on the host
         run: |
           mkdir --parents $HOME/.ssh
@@ -45,6 +40,7 @@ jobs:
         run: |
           echo "docker_entrypoint_options: --no-git --no-gopass" >> $HOME/.takelage.yml
           echo "docker_run_options: --cap-add=NET_ADMIN" >> $HOME/.takelage.yml
+          echo "docker_tag: latest-amd64" >> $HOME/.takelage.yml
 
       - name: Configure docker daemon
         run: |
@@ -54,6 +50,18 @@ jobs:
 
       - name: Pull takelage image
         run: tau update
+
+      - name: Read mutagen version
+        run: |
+          MUTAGEN=$(docker inspect --format '{{ index .Config.Labels "mutagen" }}' takelwerk/takelage:latest-amd64)
+          echo "MUTAGEN=$MUTAGEN" >> "$GITHUB_ENV"
+
+      - name: Install mutagen
+        run: |
+          MUTAGEN_FILE=https://github.com/mutagen-io/mutagen/releases/download/v${{ env.MUTAGEN }}/mutagen_linux_amd64_v${{ env.MUTAGEN }}.tar.gz
+          wget --header="Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" -O /tmp/mutagen.tar.gz $MUTAGEN_FILE
+          sudo tar xvfz /tmp/mutagen.tar.gz -C /usr/local/bin
+          mutagen daemon start
 
       - name: Start an instance of takelage
         run: tau docker container daemon
