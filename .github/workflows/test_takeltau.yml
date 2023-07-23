@@ -35,7 +35,9 @@ jobs:
         run: |
           echo "docker_entrypoint_options: --no-git --no-gopass" >> $HOME/.takelage.yml
           echo "docker_run_options: --cap-add=NET_ADMIN" >> $HOME/.takelage.yml
+          echo "docker_repo: takelbuild" >> $HOME/.takelage.yml
           echo "docker_tag: latest-amd64" >> $HOME/.takelage.yml
+          cat $HOME/.takelage.yml
 
       - name: Configure docker daemon
         run: |
