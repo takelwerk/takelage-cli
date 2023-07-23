@@ -26,7 +26,7 @@ Gem::Specification.new do |spec|
   ]
   spec.bindir = 'bin'
   spec.executables << 'tau'
-  spec.required_ruby_version = '>= 2.6'
+  spec.required_ruby_version = '>= 2.7'
   spec.metadata['yard.run'] = 'yard'
   spec.add_runtime_dependency 'docker_registry2', '~> 1.9'
   spec.add_runtime_dependency 'fylla', '~> 0.5'
