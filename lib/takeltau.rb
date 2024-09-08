@@ -187,6 +187,12 @@ module Takeltau
       Takeltau::DockerContainer.new.list
     end
 
+    desc 'ls', 'Alias for tau docker container list'
+    # tau ls: {Takeltau::DockerContainer#list}
+    def ls
+      Takeltau::DockerContainer.new.list
+    end
+
     desc 'project', 'Alias for tau info project active'
     # tau project: {Takeltau::InfoProject#active}
     def project

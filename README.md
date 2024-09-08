@@ -112,6 +112,7 @@ tau clean | Alias for tau [docker container clean](features/cucumber/features/do
 tau commands | Alias for tau [self commands](features/cucumber/features/self/self.commands.feature)
 tau config | Alias for tau [self config active](features/cucumber/features/self/self.config.active.feature)
 tau list | Alias for tau [docker container list](features/cucumber/features/docker/docker.container.list.feature)
+tau ls | Alias for tau [docker container list](features/cucumber/features/docker/docker.container.list.feature)
 tau login | Alias for tau [docker container login](features/cucumber/features/docker/docker.container.login.feature)
 tau project | Alias for tau [info project active](features/cucumber/features/info/info.project.active.feature)
 tau prune | Alias for tau [docker container prune](features/cucumber/features/docker/docker.container.prune.feature)
