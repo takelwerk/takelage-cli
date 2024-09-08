@@ -8,40 +8,34 @@ module DockerContainerList
 
     return false unless docker_check_daemon
 
-    _docker_container_list_list_docker_containers
+    _docker_container_list_get_inventory.to_yaml
   end
 
   private
 
-  # Kill orphaned docker containers and return list of networks.
-  def _docker_container_list_list_docker_containers
-    containers_login = []
-    containers_orphaned = []
+  # Get the current inventory
+  def _docker_container_list_get_inventory
+    inventory = _docker_container_list_new_inventory
     _docker_container_lib_get_containers.each do |container|
       name = _docker_container_lib_get_container_name_by_id container
       if docker_container_check_orphaned container
-        containers_login << name
+        inventory['login']['hosts'] << name
       else
-        containers_orphaned << name
+        inventory['orphaned']['hosts'] << name
       end
     end
+    inventory
+  end
 
-    inventory = {
-      "login" => {
-        "hosts" => []
+  # Create a new inventory
+  def _docker_container_list_new_inventory
+    {
+      'login' => {
+        'hosts' => []
       },
-      "orphaned" => {
-        "hosts" => []
+      'orphaned' => {
+        'hosts' => []
       }
     }
-
-    for container_name in containers_login do
-      inventory['login']['hosts'] << container_name
-    end
-    for container_name in containers_orphaned do
-      inventory['orphaned']['hosts'] << container_name
-    end
-
-    inventory.to_yaml()
   end
 end
