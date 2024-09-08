@@ -19,9 +19,9 @@ module DockerContainerList
     _docker_container_lib_get_containers.each do |container|
       name = _docker_container_lib_get_container_name_by_id container
       if docker_container_check_orphaned container
-        inventory['login']['hosts'] << name
-      else
         inventory['orphaned']['hosts'] << name
+      else
+        inventory['login']['hosts'] << name
       end
     end
     inventory

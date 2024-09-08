@@ -37,10 +37,10 @@ Feature: I can list docker containers
       ---
       login:
         hosts:
-        - takelage-mock_finite_xucih-zavis
+        - takelage-mock_infinite_xesoz-nivyr
       orphaned:
         hosts:
-        - takelage-mock_infinite_xesoz-nivyr
+        - takelage-mock_finite_xucih-zavis
       """
 
   Scenario: Do not list docker containers
