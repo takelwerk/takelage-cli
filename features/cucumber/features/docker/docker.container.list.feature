@@ -17,6 +17,7 @@ Feature: I can list docker containers
       docker_repo: takelage-mock
       """
     And I get the active takeltau config
+    And I successfully run `tau-cli clean`
     And a directory named "finite"
     And a directory named "infinite"
     And I cd to "finite"
@@ -52,6 +53,7 @@ Feature: I can list docker containers
       docker_repo: takelage-mock
       """
     And I get the active takeltau config
+    And I successfully run `tau-cli clean`
     And I run `tau-cli docker container check exist takelage-mock_finite_xucih-zavis`
     And the exit status should be 1
     When I successfully run `tau-cli docker container list`
