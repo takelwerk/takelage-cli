@@ -69,6 +69,7 @@ tau [docker container check orphaned](features/cucumber/features/docker/docker.c
 tau [docker container clean](features/cucumber/features/docker/docker.container.clean.feature) | Remove all docker containers
 tau [docker container command](features/cucumber/features/docker/docker.container.command.feature) [CMD] | Run [CMD] in a docker container
 tau [docker container daemon](features/cucumber/features/docker/docker.container.daemon.feature) | Run docker container in daemon mode
+tau [docker container list](features/cucumber/features/docker/docker.container.list.feature) | List docker containers
 tau [docker container login](features/cucumber/features/docker/docker.container.login.feature) | Log in to latest local docker container
 tau [docker container prune](features/cucumber/features/docker/docker.container.prune.feature) | Remove orphaned docker containers
 tau [docker image tag check](features/cucumber/features/docker/docker.image.tag.check.feature) [TAG] | Check if local docker image [TAG] exists
@@ -110,6 +111,7 @@ tau [self version](features/cucumber/features/self/self.version.feature) | Print
 tau clean | Alias for tau [docker container clean](features/cucumber/features/docker/docker.container.clean.feature)
 tau commands | Alias for tau [self commands](features/cucumber/features/self/self.commands.feature)
 tau config | Alias for tau [self config active](features/cucumber/features/self/self.config.active.feature)
+tau list | Alias for tau [docker container list](features/cucumber/features/docker/docker.container.list.feature)
 tau login | Alias for tau [docker container login](features/cucumber/features/docker/docker.container.login.feature)
 tau project | Alias for tau [info project active](features/cucumber/features/info/info.project.active.feature)
 tau prune | Alias for tau [docker container prune](features/cucumber/features/docker/docker.container.prune.feature)
