@@ -13,6 +13,7 @@ module Takeltau
     include DockerContainerLib
     include DockerContainerCommand
     include DockerContainerDaemon
+    include DockerContainerList
     include DockerContainerLogin
     include DockerContainerClean
     include DockerContainerPrune
@@ -89,6 +90,19 @@ module Takeltau
     # Run docker container in daemon mode.
     def daemon
       docker_container_daemon
+    end
+
+    #
+    # docker container list
+    #
+    desc 'list', 'List docker containers'
+    long_desc <<-LONGDESC.gsub("\n", "\x5")
+    List docker containers
+    LONGDESC
+    # List docker containers.
+    def list
+      say docker_container_list
+      true
     end
 
     #
