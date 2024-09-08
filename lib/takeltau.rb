@@ -58,6 +58,7 @@ require_relative 'takeltau/docker/container/check/cli'
 require_relative 'takeltau/docker/container/lib'
 require_relative 'takeltau/docker/container/command'
 require_relative 'takeltau/docker/container/daemon'
+require_relative 'takeltau/docker/container/list'
 require_relative 'takeltau/docker/container/login'
 require_relative 'takeltau/docker/container/clean'
 require_relative 'takeltau/docker/container/prune'
@@ -178,6 +179,12 @@ module Takeltau
     # tau version: {Takeltau::Self#commands}
     def commands
       Takeltau::Self.new.commands
+    end
+
+    desc 'list', 'Alias for tau docker container list'
+    # tau list: {Takeltau::DockerContainer#list}
+    def list
+      Takeltau::DockerContainer.new.list
     end
 
     desc 'project', 'Alias for tau info project active'
