@@ -31,7 +31,7 @@ Feature: I can initialize a packer project for docker images
       """
     And the file named "ansible/group_vars/all/project.yml" should contain:
       """
-      project: "{{ lookup('pipe', 'tau project') | from_yaml }}"
+      project: "{{ lookup('pipe', 'cd /project && tau project') | from_yaml }}"
       """
     And the file named "ansible/playbook-site.yml" should contain:
       """
