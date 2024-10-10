@@ -5,7 +5,12 @@ class SubCommandBase < Thor
   # Set the subcommand banner.
   # rubocop:disable Style/OptionalBooleanParameter
   def self.banner(command, _namespace = nil, _subcommand = false)
-    "#{basename} #{subcommand_prefix} #{command.usage}"
+    subcommand = self.subcommand_prefix
+    name = $PROGRAM_NAME
+    name = ENV['TAKELAGE_TAU_TAU'] unless ENV['TAKELAGE_TAU_TAU'].nil?
+    subcommand.gsub!(/ship\s*/) {} unless ENV['TAKELAGE_TAU_SHIP'].nil?
+    name = File.basename(name)
+    [name, subcommand, command.usage].reject(&:empty?).join(' ')
   end
   # rubocop:enable Style/OptionalBooleanParameter
 

@@ -82,6 +82,18 @@ require_relative 'takeltau/info/cli'
 require_relative 'takeltau/self/config/cli'
 require_relative 'takeltau/self/commands'
 require_relative 'takeltau/self/cli'
+require_relative 'takeltau/ship/container/check/existing'
+require_relative 'takeltau/ship/container/check/cli'
+require_relative 'takeltau/ship/container/lib'
+require_relative 'takeltau/ship/info/lib'
+require_relative 'takeltau/ship/container/login'
+require_relative 'takeltau/ship/container/podman'
+require_relative 'takeltau/ship/container/cli'
+require_relative 'takeltau/ship/info/cli'
+require_relative 'takeltau/ship/project/list'
+require_relative 'takeltau/ship/project/start'
+require_relative 'takeltau/ship/project/cli'
+require_relative 'takeltau/ship/cli'
 
 # Facilitate the takelage devops workflow.
 module Takeltau
@@ -152,6 +164,9 @@ module Takeltau
 
     desc 'self [COMMAND] ', 'Manage takelage tools'
     subcommand 'self', Self
+
+    desc 'ship [COMMAND] ', 'Manage takelships'
+    subcommand 'ship', Ship
 
     #
     # Top-level commands

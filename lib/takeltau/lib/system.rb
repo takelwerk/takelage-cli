@@ -43,7 +43,7 @@ module SystemModule
     log.debug "Reading YAML file \"#{file}\""
     return nil unless _file_exists? file
     return nil unless _file_read file
-    return nil unless _parse_yaml file, @content_file
+    return nil unless _parse_yaml_file file, @content_file
 
     @content
   end
@@ -54,8 +54,8 @@ module SystemModule
     log.debug "Reading YAML ERB file \"#{file}\""
     return nil unless _file_exists? file
     return nil unless _file_read file
-    return nil unless _parse_erb file, @content_file
-    return nil unless _parse_yaml file, @content_yaml
+    return nil unless _parse_erb_file file, @content_file
+    return nil unless _parse_yaml_file file, @content_yaml
 
     @content
   end
@@ -160,7 +160,7 @@ module SystemModule
   end
 
   # Parse erb file.
-  def _parse_erb(file, content_erb)
+  def _parse_erb_file(file, content_erb)
     begin
       @content_yaml = ERB.new(content_erb).result
     rescue StandardError => e
@@ -173,7 +173,7 @@ module SystemModule
   end
 
   # Parse yaml file.
-  def _parse_yaml(file, content_yaml)
+  def _parse_yaml_file(file, content_yaml)
     begin
       @content = YAML.safe_load content_yaml
     rescue Psych::SyntaxError
@@ -182,6 +182,18 @@ module SystemModule
       return false
     end
     true
+  end
+
+  # Get yaml.
+  def _parse_yaml(content_yaml)
+    begin
+      content = YAML.safe_load content_yaml
+    rescue Psych::SyntaxError
+      log.debug "Invalid YAML file \"#{file}\""
+      log.debug "Try: yamllint #{file}"
+      return false
+    end
+    content
   end
 
   # Pluralize a verb in relation to a number

@@ -1,5 +1,4 @@
-#!/bin/bash
-# frozen_string_literal: true
+#!/usr/bin/env bash
 
 get_script_dir () {
      SOURCE="${BASH_SOURCE[0]}"
@@ -16,4 +15,4 @@ get_script_dir () {
 
 DIR=$(get_script_dir)
 
-ruby -I$DIR/../lib $DIR/tau "$@"
+TAKELAGE_TAU_TAU="$0" ruby -I$DIR/../lib $DIR/tau "$@"

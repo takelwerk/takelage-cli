@@ -121,10 +121,18 @@ module ConfigModule
   # Get project root directory.
   # @return [String] project root directory
   def _get_project_root_dir
-    _rakefile, path = Rake.application.find_rakefile_location
-    return path unless path.nil?
+    _rakefile, path_rakefile = Rake.application.find_rakefile_location
+    return path_rakefile unless path_rakefile.nil?
 
-    log.debug 'No "Rakefile" found. Cannot determine project root directory.'
+    log.debug 'No "Rakefile" found. Cannot determine takelage project root directory.'
+
+    unless ENV['TAKELAGE_TAU_SHIP'].empty?
+      path_takelship = Dir.pwd
+      log.debug 'Invoked in takelship mode. Using current working directory as root directory.'
+      return path_takelship
+    end
+
+    log.debug "Not in takelship mode. Cannot determine root directory."
     ''
   end
 end
