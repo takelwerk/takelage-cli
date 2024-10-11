@@ -12,6 +12,7 @@ module Takeltau
     include ShipContainerLib
     include ShipContainerLogin
     include ShipContainerPodman
+    include ShipContainerUpdate
 
     desc 'check [COMMAND]', 'Check takelship container'
     subcommand 'check', ShipContainerCheck
@@ -38,6 +39,18 @@ module Takeltau
     # Run podman command.
     def podman(*args)
       say ship_container_podman args
+    end
+
+    #
+    # ship container update
+    #
+    desc 'update', 'Update takelship image'
+    long_desc <<-LONGDESC.gsub("\n", "\x5")
+      Update takelship image
+    LONGDESC
+    # Update takelship image.
+    def update
+      ship_container_update
     end
   end
 end

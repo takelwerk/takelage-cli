@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# tau docker image uppdate
+# tau docker image update
 module DockerImageUpdate
   # Backend method for docker image update.
   def docker_image_update
