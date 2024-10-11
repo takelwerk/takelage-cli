@@ -40,30 +40,8 @@ module ShipContainerLib
   # rubocop:enable Metrics/MethodLength
   # rubocop:enable Metrics/AbcSize
 
-  # Run a podman command in a takelship container
-  # rubocop:disable Metrics/MethodLength
-  # rubocop:disable Metrics/AbcSize
-  def _ship_container_lib_podman(command)
-    return false unless docker_check_daemon
-
-    docker_host = _ship_info_lib_get_takelshipinfo['docker_host']
-    config_docker_host = config.active['ship_docker_host']
-    docker_host = config_docker_host if
-      config_docker_host != config.active['ship_default_docker_host']
-    localhost = config.active['ship_podman_localhost']
-    cmd_docker_run_command = format(
-      config.active['cmd_ship_container_podman'],
-      docker_host: docker_host,
-      localhost: localhost,
-      command: command
-    )
-    run cmd_docker_run_command
-  end
-  # rubocop:enable Metrics/AbcSize
-  # rubocop:enable Metrics/MethodLength
-
   # Run a docker command in a takelship container
-  def _ship_container_lib_docker(command, tty = '')
+  def _ship_container_lib_docker(command, tty='--tty')
     return false unless docker_check_daemon
 
     cmd_docker_run_command = format(
