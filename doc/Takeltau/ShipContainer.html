@@ -93,7 +93,7 @@
   
   <dl>
       <dt>Includes:</dt>
-      <dd><span class='object_link'><a href="../ConfigModule.html" title="ConfigModule (module)">ConfigModule</a></span>, <span class='object_link'><a href="../DockerCheckDaemon.html" title="DockerCheckDaemon (module)">DockerCheckDaemon</a></span>, <span class='object_link'><a href="../LoggingModule.html" title="LoggingModule (module)">LoggingModule</a></span>, <span class='object_link'><a href="../ShipContainerCheckExisting.html" title="ShipContainerCheckExisting (module)">ShipContainerCheckExisting</a></span>, <span class='object_link'><a href="../ShipContainerLib.html" title="ShipContainerLib (module)">ShipContainerLib</a></span>, <span class='object_link'><a href="../ShipContainerLogin.html" title="ShipContainerLogin (module)">ShipContainerLogin</a></span>, <span class='object_link'><a href="../ShipContainerPodman.html" title="ShipContainerPodman (module)">ShipContainerPodman</a></span>, <span class='object_link'><a href="../ShipInfoLib.html" title="ShipInfoLib (module)">ShipInfoLib</a></span>, <span class='object_link'><a href="../SystemModule.html" title="SystemModule (module)">SystemModule</a></span></dd>
+      <dd><span class='object_link'><a href="../ConfigModule.html" title="ConfigModule (module)">ConfigModule</a></span>, <span class='object_link'><a href="../DockerCheckDaemon.html" title="DockerCheckDaemon (module)">DockerCheckDaemon</a></span>, <span class='object_link'><a href="../LoggingModule.html" title="LoggingModule (module)">LoggingModule</a></span>, <span class='object_link'><a href="../ShipContainerCheckExisting.html" title="ShipContainerCheckExisting (module)">ShipContainerCheckExisting</a></span>, <span class='object_link'><a href="../ShipContainerLib.html" title="ShipContainerLib (module)">ShipContainerLib</a></span>, <span class='object_link'><a href="../ShipContainerLogin.html" title="ShipContainerLogin (module)">ShipContainerLogin</a></span>, <span class='object_link'><a href="../ShipContainerPodman.html" title="ShipContainerPodman (module)">ShipContainerPodman</a></span>, <span class='object_link'><a href="../ShipContainerUpdate.html" title="ShipContainerUpdate (module)">ShipContainerUpdate</a></span>, <span class='object_link'><a href="../ShipInfoLib.html" title="ShipInfoLib (module)">ShipInfoLib</a></span>, <span class='object_link'><a href="../SystemModule.html" title="SystemModule (module)">SystemModule</a></span></dd>
   </dl>
   
   
@@ -182,9 +182,44 @@
 </li>
 
       
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#update-instance_method" title="#update (instance method)">#<strong>update</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Update takelship image.</p>
+</div></span>
+  
+</li>
+
+      
     </ul>
   
 
+
+  
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods included from <span class='object_link'><a href="../ShipContainerUpdate.html" title="ShipContainerUpdate (module)">ShipContainerUpdate</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="../ShipContainerUpdate.html#ship_container_update-instance_method" title="ShipContainerUpdate#ship_container_update (method)">#ship_container_update</a></span></p>
 
   
   
@@ -318,12 +353,12 @@
       <pre class="lines">
 
 
-27
 28
-29</pre>
+29
+30</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/takeltau/ship/container/cli.rb', line 27</span>
+      <pre class="code"><span class="info file"># File 'lib/takeltau/ship/container/cli.rb', line 28</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_login'>login</span>
   <span class='id identifier rubyid_ship_container_login'>ship_container_login</span>
@@ -359,15 +394,56 @@
       <pre class="lines">
 
 
-39
 40
-41</pre>
+41
+42</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/takeltau/ship/container/cli.rb', line 39</span>
+      <pre class="code"><span class="info file"># File 'lib/takeltau/ship/container/cli.rb', line 40</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_podman'>podman</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_say'>say</span> <span class='id identifier rubyid_ship_container_podman'>ship_container_podman</span> <span class='id identifier rubyid_args'>args</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="update-instance_method">
+  
+    #<strong>update</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Update takelship image.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+52
+53
+54</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/takeltau/ship/container/cli.rb', line 52</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_update'>update</span>
+  <span class='id identifier rubyid_ship_container_update'>ship_container_update</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
