@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-Given "the docker container {string} doesn't exist" do |container|
+Given 'the docker container {string} doesn\'t exist' do |container|
   cmd_docker_existing = 'docker ps ' \
       '--all ' \
       "--filter name=^#{container}$ "\
@@ -9,7 +9,7 @@ Given "the docker container {string} doesn't exist" do |container|
   expect(docker_existing).to be_empty
 end
 
-Then "the docker container {string} exists" do |container|
+Then 'the docker container {string} exists' do |container|
   cmd_docker_existing = 'docker ps ' \
     '--all ' \
     "--filter name=^#{container}$ "\

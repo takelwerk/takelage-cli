@@ -42,6 +42,7 @@ module ShipContainerLib
 
   # Run a podman command in a takelship container
   # rubocop:disable Metrics/MethodLength
+  # rubocop:disable Metrics/AbcSize
   def _ship_container_lib_podman(command)
     return false unless docker_check_daemon
 
@@ -58,6 +59,7 @@ module ShipContainerLib
     )
     run cmd_docker_run_command
   end
+  # rubocop:enable Metrics/AbcSize
   # rubocop:enable Metrics/MethodLength
 
   # Run a docker command in a takelship container

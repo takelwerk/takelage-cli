@@ -14,7 +14,7 @@ private
 def _stop_mock_takelship_container
   cmd_stop_mock_takelship_container_infinite =
     'ship-cli container check existing && ' \
-      'docker stop takelship_xeciz-vigoc; ' # \
-      # '>/dev/null 2>&1'
+    'docker stop takelship_xeciz-vigoc; ' \
+    '>/dev/null 2>&1'
   system cmd_stop_mock_takelship_container_infinite
 end

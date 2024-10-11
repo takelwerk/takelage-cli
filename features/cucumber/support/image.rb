@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-
 def build_mock_images
   @takelage_image_name = 'host.docker.internal:5005/takelage-mock/takelage-mock'
   @takelship_image_name = 'host.docker.internal:5005/takelage-mock/takelship-mock'
@@ -42,6 +41,7 @@ def _stop_registry
   system cmd_stop_registry
 end
 
+# rubocop:disable Metrics/MethodLength
 def _build_mock_takelage_images
   %w[0.0.3 0.1.0 prod].each do |version|
     cmd_build_mock_image = 'docker build ' \
@@ -57,10 +57,11 @@ def _build_mock_takelage_images
     '>/dev/null 2>&1'
   system cmd_tag_mock_latest
 end
+# rubocop:enable Metrics/MethodLength
 
 def _build_mock_takelship_image
   cmd_build_mock_image = 'docker build ' \
-    "--build-arg version=latest " \
+    '--build-arg version=latest ' \
     "--tag #{@takelship_image_name}:latest " \
     'features/cucumber/support/fixtures/takelship-mock ' \
     '>/dev/null 2>&1'
