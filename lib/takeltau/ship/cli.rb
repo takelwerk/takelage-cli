@@ -48,5 +48,11 @@ module Takeltau
     def stop
       Takeltau::ShipProject.new.stop
     end
+
+    desc 'update', 'Alias for tau ship container update'
+    # tau update: {Takeltau::ShipContainer#update}
+    def update
+      Takeltau::ShipContainer.new.update
+    end
   end
 end

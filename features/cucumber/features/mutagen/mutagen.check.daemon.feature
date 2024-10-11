@@ -36,7 +36,7 @@ Feature: I can check if mutagene host connection available
       mutagen_socket_path_mutagen_container: .
       """
     And I get the active takeltau config
-    When I run `env TAKELAGE_PROJECT_BASE_DIR=. tau-cli mutagen check daemon -l debug`
+    When I run `env TAKELAGE_PROJECT_BASE_DIR=. tau-cli mutagen check daemon`
     Then the exit status should be 0
 
   Scenario: Check non-existing mutagen host connection in a container
