@@ -6,6 +6,8 @@ module ShipProjectStart
   def ship_project_start(project)
     return false if ship_container_check_existing
 
+    return false if _docker_container_lib_check_matrjoschka
+
     takelship = _ship_info_lib_get_takelshipinfo
     project = config.active['ship_default_project'] if project == 'default'
     project = takelship['default_project'] if project == 'default'

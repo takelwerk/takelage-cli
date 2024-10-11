@@ -7,6 +7,7 @@ module Takeltau
     include SystemModule
     include ConfigModule
     include DockerCheckDaemon
+    include DockerContainerLib
     include ShipContainerCheckExisting
     include ShipContainerLib
     include ShipInfoLib

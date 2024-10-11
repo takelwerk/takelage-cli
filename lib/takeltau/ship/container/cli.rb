@@ -37,12 +37,7 @@ module Takeltau
     LONGDESC
     # Run podman command.
     def podman(*args)
-      result = ship_container_podman args
-      unless result
-        say 'No connection to takelship'
-        exit 1
-      end
-      say result
+      say ship_container_podman args
     end
   end
 end
