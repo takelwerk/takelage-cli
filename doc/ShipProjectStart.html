@@ -187,15 +187,19 @@
 17
 18
 19
-20</pre>
+20
+21
+22</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/takeltau/ship/project/start.rb', line 6</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_ship_project_start'>ship_project_start</span><span class='lparen'>(</span><span class='id identifier rubyid_project'>project</span><span class='rparen'>)</span>
-  <span class='kw'>return</span> <span class='kw'>false</span> <span class='kw'>if</span> <span class='id identifier rubyid_ship_container_check_existing'>ship_container_check_existing</span>
+  <span class='kw'>return</span> <span class='kw'>false</span> <span class='kw'>unless</span> <span class='id identifier rubyid_docker_check_daemon'>docker_check_daemon</span>
 
   <span class='kw'>return</span> <span class='kw'>false</span> <span class='kw'>if</span> <span class='id identifier rubyid__docker_container_lib_check_matrjoschka'>_docker_container_lib_check_matrjoschka</span>
+
+  <span class='kw'>return</span> <span class='kw'>false</span> <span class='kw'>if</span> <span class='id identifier rubyid_ship_container_check_existing'>ship_container_check_existing</span>
 
   <span class='id identifier rubyid_takelship'>takelship</span> <span class='op'>=</span> <span class='id identifier rubyid__ship_info_lib_get_takelshipinfo'>_ship_info_lib_get_takelshipinfo</span>
   <span class='id identifier rubyid_project'>project</span> <span class='op'>=</span> <span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_active'>active</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>ship_default_project</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span> <span class='kw'>if</span> <span class='id identifier rubyid_project'>project</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>default</span><span class='tstring_end'>&#39;</span></span>
