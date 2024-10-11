@@ -10,4 +10,3 @@ module ShipProjectList
     end
   end
 end
-

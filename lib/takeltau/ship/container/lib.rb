@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# tau ship container lib
 module ShipContainerLib
   private
 
@@ -10,50 +11,65 @@ module ShipContainerLib
     cmd_docker_run_command = format(
       config.active['cmd_ship_project_start_docker_run_nonprivileged'],
       image: _ship_container_lib_image,
-      command: command)
+      command: command
+    )
     run cmd_docker_run_command
   end
 
   # Run privileged docker command
+  # rubocop:disable Metrics/AbcSize
+  # rubocop:disable Metrics/MethodLength
   def _ship_container_lib_docker_privileged(ports, command)
     return false unless docker_check_daemon
 
     ship_data_dir = config.active['ship_data_dir']
     ship_env = config.active['ship_env']
+    ports = _ship_container_lib_publish(ports)
+    ports = config.active['ports'] unless config.active['ship_ports'].empty?
     cmd_docker_run_command = format(
       config.active['cmd_ship_project_start_docker_run_privileged'],
       ship_hostname: _ship_container_lib_ship_hostname,
       ship_env: ship_env,
-      ports: _ship_container_lib_publish(ports),
+      ports: ports,
       ship_data_dir: ship_data_dir,
       image: _ship_container_lib_image,
-      command: command)
+      command: command
+    )
     run cmd_docker_run_command
   end
+  # rubocop:enable Metrics/MethodLength
+  # rubocop:enable Metrics/AbcSize
 
   # Run a podman command in a takelship container
+  # rubocop:disable Metrics/MethodLength
   def _ship_container_lib_podman(command)
     return false unless docker_check_daemon
 
     docker_host = _ship_info_lib_get_takelshipinfo['docker_host']
     config_docker_host = config.active['ship_docker_host']
-    docker_host = config_docker_host if config_docker_host != '32375'
+    docker_host = config_docker_host if
+      config_docker_host != config.active['ship_default_docker_host']
+    localhost = config.active['ship_podman_localhost']
     cmd_docker_run_command = format(
       config.active['cmd_ship_container_podman'],
       docker_host: docker_host,
-      command: command)
+      localhost: localhost,
+      command: command
+    )
     run cmd_docker_run_command
   end
+  # rubocop:enable Metrics/MethodLength
 
   # Run a docker command in a takelship container
-  def _ship_container_lib_docker(command, tty='')
+  def _ship_container_lib_docker(command, tty = '')
     return false unless docker_check_daemon
 
     cmd_docker_run_command = format(
       config.active['cmd_ship_container_docker'],
       ship_hostname: _ship_container_lib_ship_hostname,
       tty: tty,
-      command: command)
+      command: command
+    )
     run_and_exit cmd_docker_run_command
   end
 
@@ -65,7 +81,8 @@ module ShipContainerLib
 
     cmd_docker_stop_command = format(
       config.active['cmd_ship_project_start_docker_stop'],
-      ship_hostname: _ship_container_lib_ship_hostname)
+      ship_hostname: _ship_container_lib_ship_hostname
+    )
     run cmd_docker_stop_command
   end
 
@@ -87,7 +104,8 @@ module ShipContainerLib
     format(
       config.active['ship_hostname'],
       ship_name: ship_name,
-      unique: unique)
+      unique: unique
+    )
   end
 
   # Create publish ports string

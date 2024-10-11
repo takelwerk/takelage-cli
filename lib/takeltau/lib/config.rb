@@ -8,13 +8,14 @@ module ConfigModule
     include LoggingModule
     include SystemModule
 
-    attr_accessor :active, :default, :home, :project
+    attr_accessor :active, :default, :home, :project, :envvars
 
     def initialize
       @active = {}
       @default = {}
       @home = {}
       @project = {}
+      @envvars = {}
     end
   end
 
@@ -30,6 +31,7 @@ module ConfigModule
     TakeltauConfig.instance.default = _config_read_default project_root_dir
     TakeltauConfig.instance.home = _config_read_home
     TakeltauConfig.instance.project = _config_read_project project_root_dir
+    TakeltauConfig.instance.envvars = _config_read_envvars
     TakeltauConfig.instance.active = _config_merge_active
   end
   # rubocop:enable Metrics/AbcSize
@@ -105,34 +107,63 @@ module ConfigModule
     (read_yaml_file(project_file) || {}).sort.to_h
   end
 
+  # Read default config file in lib.
+  def _config_read_envvars
+    envvars_yaml = {}
+    TakeltauConfig.instance.default.each_key do |key|
+      envvar = "TAKELAGE_TAU_CONFIG_#{key}".upcase
+      envvars_yaml[key] = ENV[envvar] if ENV.key? envvar
+    end
+    envvars_yaml.sort.to_h
+  end
+
   # Merge active config.
+  # rubocop:disable Metrics/AbcSize
   def _config_merge_active
     # make a clone or else we'll change the original hash
     default = TakeltauConfig.instance.default.clone
     home = TakeltauConfig.instance.home.clone
     project = TakeltauConfig.instance.project.clone
+    envvars = TakeltauConfig.instance.envvars.clone
 
-    # merge default and home and project to active
-    # project wins against home wins against default
-    project_over_home = home.merge!(project)
+    # merge default and home and project and envvars to active
+    # merge envvars over project over home over default
+    envvars_over_project = project.merge!(envvars)
+    project_over_home = home.merge!(envvars_over_project)
     default.merge!(project_over_home).sort.to_h
   end
+  # rubocop:enable Metrics/AbcSize
 
   # Get project root directory.
   # @return [String] project root directory
   def _get_project_root_dir
-    _rakefile, path_rakefile = Rake.application.find_rakefile_location
-    return path_rakefile unless path_rakefile.nil?
+    return ENV['TAKELAGE_TAU_DIR'] if ENV.key? 'TAKELAGE_TAU_DIR'
+
+    log.debug 'Environment variable TAKELTAU_TAU_DIR not set.'
+
+    tau_takelage_root_dir = _get_takelage_root_dir
+    return tau_takelage_root_dir unless tau_takelage_root_dir.nil?
 
     log.debug 'No "Rakefile" found. Cannot determine takelage project root directory.'
 
-    unless ENV['TAKELAGE_TAU_SHIP'].empty?
-      path_takelship = Dir.pwd
-      log.debug 'Invoked in takelship mode. Using current working directory as root directory.'
-      return path_takelship
-    end
+    takelship_root_dir = _get_takelship_root_dir
+    return takelship_root_dir unless takelship_root_dir.nil?
 
-    log.debug "Not in takelship mode. Cannot determine root directory."
+    log.debug 'Not in takelship mode. Unable to determine root directory.'
     ''
+  end
+
+  # Return a takelage root dir
+  def _get_takelage_root_dir
+    _rakefile, path_rakefile = Rake.application.find_rakefile_location
+    path_rakefile
+  end
+
+  # Return a takelship root dir
+  def _get_takelship_root_dir
+    return nil if ENV['TAKELAGE_TAU_SHIP'].nil?
+
+    log.debug 'Invoked in takelship mode. Using current working directory as root directory.'
+    Dir.pwd
   end
 end

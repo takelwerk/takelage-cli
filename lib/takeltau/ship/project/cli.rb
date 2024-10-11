@@ -14,18 +14,6 @@ module Takeltau
     include ShipProjectStart
 
     #
-    # ship project default
-    #
-    desc 'default', 'Start the default takelship container'
-    long_desc <<-LONGDESC.gsub("\n", "\x5")
-      Start the default takelship container
-    LONGDESC
-    # Start the default takelship container.
-    def default
-      ship_project_start 'default'
-    end
-
-    #
     # ship container list
     #
     desc 'list', 'List projects'
@@ -45,7 +33,7 @@ module Takeltau
       Start project [PROJECT] in a takelship container
     LONGDESC
     # Run command in docker container.
-    def start(project)
+    def start(project = 'default')
       ship_project_start project
     end
 

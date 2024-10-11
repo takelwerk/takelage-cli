@@ -18,6 +18,10 @@ After '@after_stop_mock_container' do
   stop_mock_container
 end
 
+After '@after_stop_mock_takelship_container' do
+  stop_mock_takelship_container
+end
+
 private
 
 def _copy_home_config

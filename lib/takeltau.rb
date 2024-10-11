@@ -82,9 +82,11 @@ require_relative 'takeltau/info/cli'
 require_relative 'takeltau/self/config/cli'
 require_relative 'takeltau/self/commands'
 require_relative 'takeltau/self/cli'
+require_relative 'takeltau/ship/completion/bash'
+require_relative 'takeltau/ship/completion/cli'
+require_relative 'takeltau/ship/container/lib'
 require_relative 'takeltau/ship/container/check/existing'
 require_relative 'takeltau/ship/container/check/cli'
-require_relative 'takeltau/ship/container/lib'
 require_relative 'takeltau/ship/info/lib'
 require_relative 'takeltau/ship/container/login'
 require_relative 'takeltau/ship/container/podman'
@@ -99,6 +101,11 @@ require_relative 'takeltau/ship/cli'
 module Takeltau
   # takeltau
   class CLI < Thor
+    def self.extended(base)
+      super
+      base.check_unknown_options!
+    end
+
     include LoggingModule
     include SystemModule
     include ConfigModule

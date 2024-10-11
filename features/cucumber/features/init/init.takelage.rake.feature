@@ -2,8 +2,6 @@
 @init.takelage
 @init.takelage.rake
 
-@announce-stdout
-
 Feature: I can initialize a takelage rake project
 
   Scenario: I initialize a takelage rake project

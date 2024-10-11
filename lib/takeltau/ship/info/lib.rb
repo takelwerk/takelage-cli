@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# tau ship info lib
 module ShipInfoLib
   private
 
@@ -8,7 +9,7 @@ module ShipInfoLib
     log.debug 'Gathering takelship info'
     takelshipinfo = _ship_info_lib_get_info_from_file
     takelshipinfo = _ship_info_lib_get_info_from_docker if takelshipinfo.empty?
-    return false if takelshipinfo.empty?
+    return false if takelshipinfo.nil?
 
     takelshipinfo
   end
@@ -20,7 +21,8 @@ module ShipInfoLib
     yaml_file = format(
       config.active['ship_takelship_yml'],
       pwd: Dir.getwd,
-      ship_data_dir: ship_data_dir)
+      ship_data_dir: ship_data_dir
+    )
     read_yaml_file(yaml_file) || {}
   end
 

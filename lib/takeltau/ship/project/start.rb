@@ -20,6 +20,7 @@ module ShipProjectStart
   private
 
   # Get takelship ports
+  # rubocop:disable Metrics/MethodLength
   def _ship_project_start_ports(takelship, project)
     ports = []
     takelship['projects'].each do |takelship_project|
@@ -38,3 +39,4 @@ module ShipProjectStart
     ports
   end
 end
+# rubocop:enable Metrics/MethodLength

@@ -1,4 +1,4 @@
-2# frozen_string_literal: true
+# frozen_string_literal: true
 
 # tau ship container check existing
 module ShipContainerCheckExisting

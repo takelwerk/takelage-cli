@@ -15,4 +15,4 @@ get_script_dir () {
 
 DIR=$(get_script_dir)
 
-TAKELAGE_TAU_TAU="$0" ruby -I$DIR/../lib $DIR/tau "$@"
+ruby -I$DIR/../lib $DIR/tau "$@"

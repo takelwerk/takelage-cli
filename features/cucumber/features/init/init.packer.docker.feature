@@ -2,8 +2,6 @@
 @init.packer
 @init.packer.docker
 
-@announce-stdout
-
 Feature: I can initialize a packer project for docker images
 
   Scenario: I initialize a packer project for docker images

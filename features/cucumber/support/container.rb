@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-def container_after_all
+def takelage_container_after_all
   stop_mock_container
 end
 

@@ -3,6 +3,9 @@
 module Takeltau
   # tau ship
   class Ship < SubCommandBase
+    desc 'completion [COMMAND] ', 'Print shell completion code'
+    subcommand 'completion', ShipCompletion
+
     desc 'container [COMMAND]', 'Manage takelship containers'
     subcommand 'container', ShipContainer
 
@@ -16,31 +19,31 @@ module Takeltau
     # Top-level ship commands
     #
 
-    desc 'default', 'Start project default in a takelship container'
-    # ship default: {Takeltau::ShipProject#default}
-    def default
-      Takeltau::ShipProject.new.default
+    desc 'config', 'Alias for tau self config active'
+    # tau config: {Takeltau::SelfConfig#active}
+    def config
+      Takeltau::SelfConfig.new.active
     end
 
-    desc 'podman', 'Run login command in a takelship container'
+    desc 'login', 'Alias for tau ship container login'
     # ship login: {Takeltau::ShipContainer#login}
     def login
       Takeltau::ShipContainer.new.login
     end
 
-    desc 'podman [ARGS]', 'Run podman command in a takelship container'
+    desc 'podman [ARGS]', 'Alias for tau ship container podman'
     # ship podman: {Takeltau::ShipContainer#podman}
     def podman(*args)
       Takeltau::ShipContainer.new.podman args
     end
 
-    desc 'start [PROJECT]', 'Start project [PROJECT] in a takelship container'
+    desc 'start [PROJECT]', 'Alias for tau ship project start'
     # ship start: {Takeltau::ShipProject#start}
-    def start(project)
+    def start(project = 'default')
       Takeltau::ShipProject.new.start project
     end
 
-    desc 'stop', 'Stop a takelship container'
+    desc 'stop', 'Alias for tau ship project stop'
     # ship stop: {Takeltau::ShipProject#stop}
     def stop
       Takeltau::ShipProject.new.stop

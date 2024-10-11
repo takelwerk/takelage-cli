@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# takeltau docker container check existing
 # tau docker container check existing
 module DockerContainerCheckExisting
   # Backend method for docker container check existing.
@@ -24,10 +25,9 @@ module DockerContainerCheckExisting
 
   # Format command to check if docker container exists.
   def _docker_container_cmd_check_existing(container)
-    ship_name = config.active['ship_name']
     format(
       config.active['cmd_docker_container_check_existing_docker_ps'],
-      ship_name: ship_name
+      container: container
     )
   end
 end
