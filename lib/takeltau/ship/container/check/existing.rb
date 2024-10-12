@@ -27,7 +27,7 @@ module ShipContainerCheckExisting
   def _ship_container_cmd_check_existing(ship_hostname)
     format(
       config.active['cmd_ship_container_check_existing_docker_ps'],
-      docker: config.active['cmd_ship_docker'],
+      ship_docker: config.active['cmd_ship_docker'],
       ship_name: ship_hostname
     )
   end
