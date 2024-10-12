@@ -48,6 +48,7 @@ module DockerContainerLib
 
     cmd_create_network = format(
       config.active['cmd_docker_container_create_network'],
+      docker: config.active['cmd_docker'],
       network: network
     )
 
@@ -60,6 +61,7 @@ module DockerContainerLib
 
     cmd_remove_network = format(
       config.active['cmd_docker_container_remove_network'],
+      docker: config.active['cmd_docker'],
       network: network
     )
 
@@ -88,6 +90,7 @@ module DockerContainerLib
 
     cmd_docker_create = format(
       config.active['cmd_docker_container_create'],
+      docker: config.active['cmd_docker'],
       container: container,
       docker_run_options: config.active['docker_run_options'],
       entrypoint: entrypoint,
@@ -138,6 +141,7 @@ module DockerContainerLib
 
     cmd_get_container_name_by_id = format(
       config.active['cmd_docker_container_get_container_name'],
+      docker: config.active['cmd_docker'],
       container: container
     )
 
@@ -153,6 +157,7 @@ module DockerContainerLib
 
     cmd_docker_get = format(
       config.active['cmd_docker_container_get_containers'],
+      docker: config.active['cmd_docker'],
       docker_repo: @docker_repo
     )
 
@@ -166,6 +171,7 @@ module DockerContainerLib
 
     cmd_docker_stop = format(
       config.active['cmd_docker_container_stop_container'],
+      docker: config.active['cmd_docker'],
       container: container
     )
 

@@ -8,8 +8,11 @@ module ShipContainerUpdate
 
     cmd_docker_pull = _ship_container_update_cmd_docker_pull
 
-    cmd_docker_remove_dangling =
-      config.active['cmd_docker_image_update_docker_remove_dangling']
+    cmd_docker_remove_dangling = format(
+      config.active['cmd_docker_image_update_docker_remove_dangling'],
+      docker: config.active['cmd_docker']
+    )
+
     run_and_exit "#{cmd_docker_pull} && #{cmd_docker_remove_dangling}"
   end
 

@@ -41,6 +41,7 @@ module DockerContainerLogin
 
     format(
       config.active['cmd_docker_container_enter_container'],
+      docker: config.active['cmd_docker'],
       container: container,
       loginpoint: loginpoint,
       username: @username

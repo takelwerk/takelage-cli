@@ -10,6 +10,7 @@ module ShipContainerLib
 
     cmd_docker_run_command = format(
       config.active['cmd_ship_project_start_docker_run_nonprivileged'],
+      docker: config.active['cmd_docker'],
       image: _ship_container_lib_image,
       command: command
     )
@@ -28,6 +29,7 @@ module ShipContainerLib
     ports = config.active['ports'] unless config.active['ship_ports'].empty?
     cmd_docker_run_command = format(
       config.active['cmd_ship_project_start_docker_run_privileged'],
+      docker: config.active['cmd_docker'],
       ship_hostname: _ship_container_lib_ship_hostname,
       ship_env: ship_env,
       ports: ports,
@@ -46,6 +48,7 @@ module ShipContainerLib
 
     cmd_docker_run_command = format(
       config.active['cmd_ship_container_docker'],
+      docker: config.active['cmd_docker'],
       ship_hostname: _ship_container_lib_ship_hostname,
       tty: tty,
       command: command
@@ -61,6 +64,7 @@ module ShipContainerLib
 
     cmd_docker_stop_command = format(
       config.active['cmd_ship_project_start_docker_stop'],
+      docker: config.active['cmd_docker'],
       ship_hostname: _ship_container_lib_ship_hostname
     )
     run cmd_docker_stop_command

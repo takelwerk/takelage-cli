@@ -26,6 +26,7 @@ module DockerContainerCheckOrphaned
   def _docker_container_cmd_check_orphaned(container)
     format(
       config.active['cmd_docker_container_check_orphaned_docker_exec'],
+      docker: config.active['cmd_docker'],
       container: container
     )
   end

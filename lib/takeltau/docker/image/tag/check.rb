@@ -29,6 +29,7 @@ module DockerImageTagCheck
     cmd_docker_images =
       format(
         config.active['cmd_docker_image_tag_check_docker_images'],
+        docker: config.active['cmd_docker'],
         image: image
       )
 

@@ -26,6 +26,7 @@ module DockerContainerCheckNetwork
   def _docker_container_cmd_check_network(network)
     format(
       config.active['cmd_docker_container_check_network_docker_network'],
+      docker: config.active['cmd_docker'],
       network: network
     )
   end

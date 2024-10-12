@@ -28,6 +28,7 @@ module DockerContainerCommand
     cmd_docker_run_command =
       format(
         config.active['cmd_docker_container_docker_exec'],
+        docker: config.active['cmd_docker'],
         container: container,
         username: @username,
         command: command

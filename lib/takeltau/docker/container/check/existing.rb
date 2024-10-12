@@ -27,6 +27,7 @@ module DockerContainerCheckExisting
   def _docker_container_cmd_check_existing(container)
     format(
       config.active['cmd_docker_container_check_existing_docker_ps'],
+      docker: config.active['cmd_docker'],
       container: container
     )
   end

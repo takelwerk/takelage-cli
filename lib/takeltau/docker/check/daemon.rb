@@ -12,7 +12,11 @@ module DockerCheckDaemon
 
     log.debug 'Check if the docker daemon is running'
 
-    status = try config.active['cmd_docker_check_daemon_docker_info']
+    cmd_docker_info = format(
+      config.active['cmd_docker_check_daemon_docker_info'],
+      docker: config.active['cmd_docker']
+    )
+    status = try cmd_docker_info
 
     unless status.exitstatus.zero?
       log.error 'The docker daemon is not running'

@@ -8,6 +8,7 @@ module DockerImageTagList
     cmd_docker_tags =
       format(
         config.active['cmd_docker_image_tag_list_docker_images'],
+        docker: config.active['cmd_docker'],
         docker_user: @docker_user,
         docker_repo: @docker_repo
       )
