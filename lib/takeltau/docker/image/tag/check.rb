@@ -25,6 +25,7 @@ module DockerImageTagCheck
   private
 
   # Check if image exists.
+  # rubocop:disable Metrics/MethodLength
   def _docker_image_check_image?(image)
     cmd_docker_images =
       format(
@@ -40,4 +41,5 @@ module DockerImageTagCheck
 
     true
   end
+  # rubocop:enable Metrics/MethodLength
 end
