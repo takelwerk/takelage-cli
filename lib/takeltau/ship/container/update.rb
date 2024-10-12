@@ -4,7 +4,7 @@
 module ShipContainerUpdate
   # Update takelship image.
   def ship_container_update
-    return false unless docker_check_daemon
+    return false unless docker_check_daemon 'cmd_ship_docker'
 
     cmd_docker_pull = _ship_container_update_cmd_docker_pull
 

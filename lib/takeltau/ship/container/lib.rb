@@ -6,7 +6,7 @@ module ShipContainerLib
 
   # Run nonprivileged docker command
   def _ship_container_lib_docker_nonprivileged(command)
-    return false unless docker_check_daemon
+    return false unless docker_check_daemon 'cmd_ship_docker'
 
     cmd_docker_run_command = format(
       config.active['cmd_ship_project_start_docker_run_nonprivileged'],
@@ -21,7 +21,7 @@ module ShipContainerLib
   # rubocop:disable Metrics/AbcSize
   # rubocop:disable Metrics/MethodLength
   def _ship_container_lib_docker_privileged(ports, command)
-    return false unless docker_check_daemon
+    return false unless docker_check_daemon 'cmd_ship_docker'
 
     ship_data_dir = config.active['ship_data_dir']
     ship_env = config.active['ship_env']
@@ -44,7 +44,7 @@ module ShipContainerLib
 
   # Run a docker command in a takelship container
   def _ship_container_lib_docker(command, tty = '--tty')
-    return false unless docker_check_daemon
+    return false unless docker_check_daemon 'cmd_ship_docker'
 
     cmd_docker_run_command = format(
       config.active['cmd_ship_container_docker'],
@@ -58,7 +58,7 @@ module ShipContainerLib
 
   # Run takelship docker stop command
   def _ship_container_lib_docker_stop
-    return false unless docker_check_daemon
+    return false unless docker_check_daemon 'cmd_ship_docker'
 
     return false unless ship_container_check_existing
 

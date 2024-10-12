@@ -6,7 +6,7 @@ module DockerCheckDaemon
   # @return [Boolean] is the docker daemon running?
   # rubocop:disable Metrics/MethodLength
   # rubocop:disable Metrics/AbcSize
-  def docker_check_daemon
+  def docker_check_daemon(docker = 'cmd_docker')
     return true if @docker_daemon_running
 
     return false unless command_available_else_error? config.active['cmd_docker']
@@ -15,7 +15,7 @@ module DockerCheckDaemon
 
     cmd_docker_info = format(
       config.active['cmd_docker_check_daemon_docker_info'],
-      docker: config.active['cmd_docker']
+      docker: config.active[docker]
     )
     status = try cmd_docker_info
 

@@ -4,7 +4,7 @@
 module ShipProjectStart
   # Start a takelship
   def ship_project_start(project)
-    return false unless docker_check_daemon
+    return false unless docker_check_daemon 'cmd_ship_docker'
 
     return false if _docker_container_lib_check_matrjoschka
 

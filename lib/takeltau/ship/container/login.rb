@@ -4,7 +4,7 @@
 module ShipContainerLogin
   # Run a login command in a takelship
   def ship_container_login
-    return false unless docker_check_daemon
+    return false unless docker_check_daemon 'cmd_ship_docker'
 
     return false unless ship_container_check_existing
 

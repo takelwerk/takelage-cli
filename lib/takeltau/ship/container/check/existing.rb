@@ -8,7 +8,7 @@ module ShipContainerCheckExisting
     ship_hostname = _ship_container_lib_ship_hostname
     log.debug "Checking if takelship \"#{ship_hostname}\" is existing"
 
-    return false unless docker_check_daemon
+    return false unless docker_check_daemon 'cmd_ship_docker'
 
     stdout_str = run _ship_container_cmd_check_existing ship_hostname
 
