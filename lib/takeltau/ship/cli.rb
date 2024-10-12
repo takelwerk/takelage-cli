@@ -25,6 +25,12 @@ module Takeltau
       Takeltau::SelfConfig.new.active
     end
 
+    desc 'list', 'Alias for tau ship container list'
+    # ship list: {Takeltau::ShipContainer#list}
+    def list
+      Takeltau::ShipContainer.new.list
+    end
+
     desc 'login', 'Alias for tau ship container login'
     # ship login: {Takeltau::ShipContainer#login}
     def login

@@ -1,6 +1,6 @@
 ---
 cmd_docker: 'docker'
-cmd_docker_check_daemon_docker_info: '%{docker} info'
+cmd_docker_check_daemon_docker_version: '%{docker} --version'
 cmd_docker_container_check_existing_docker_ps: '%{docker} ps --filter name=^%{container}$ --quiet'
 cmd_docker_container_check_network_docker_network: '%{docker} network ls --quiet --filter name=^%{network}$'
 cmd_docker_container_check_orphaned_docker_exec: '%{docker} exec --interactive %{container} ps a'
@@ -94,3 +94,4 @@ cmd_ship_project_start_docker_stop: '%{ship_docker} stop %{ship_hostname}'
 cmd_ship_container_check_existing_docker_ps: '%{ship_docker} ps --filter name=^%{ship_name}$ --quiet'
 cmd_ship_container_docker: '%{ship_docker} exec --interactive %{tty} %{ship_hostname} %{command}'
 cmd_ship_container_login: 'bash'
+cmd_docker_container_get_mounted_dir: '%{ship_docker} container inspect %{ship_hostname} --format "{{ (index .Mounts 0).Source }}"'

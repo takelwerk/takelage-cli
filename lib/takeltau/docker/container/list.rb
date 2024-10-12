@@ -2,7 +2,7 @@
 
 # tau docker container list
 module DockerContainerList
-  # Backend method for docker container prune.
+  # List docker containers.
   def docker_container_list
     log.debug 'List docker containers'
 

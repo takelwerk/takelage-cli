@@ -39,6 +39,7 @@ module ShipContainerLib
     )
     run cmd_docker_run_command
   end
+
   # rubocop:enable Metrics/MethodLength
   # rubocop:enable Metrics/AbcSize
 
@@ -99,5 +100,37 @@ module ShipContainerLib
       publish << "--publish \"127.0.0.1:#{port}:#{port}\""
     end
     publish.join(' ')
+  end
+
+  # Get all takelship containers.
+  # @return [Array] list of takelship containers
+  def _ship_container_lib_get_containers
+    ship_name = config.active['ship_name']
+    log.debug "Getting all #{ship_name} containers"
+
+    cmd_docker_get = format(
+      config.active['cmd_docker_container_get_containers'],
+      docker: config.active['cmd_docker'],
+      docker_repo: ship_name
+    )
+
+    # convert stdout lines to array and return array
+    (run cmd_docker_get).split(/\n+/)
+  end
+
+  # Get the mounted takelship directory
+  def _ship_container_lib_get_mounted_dir
+    ship_hostname = _ship_container_lib_ship_hostname
+    log.debug 'Getting mounted directory from ' \
+                "takelship container \"#{ship_hostname}\""
+
+    cmd_get_mounted_dir = format(
+      config.active['cmd_docker_container_get_mounted_dir'],
+      ship_docker: config.active['cmd_ship_docker'],
+      docker: config.active['cmd_ship_docker'],
+      ship_hostname: ship_hostname
+    )
+
+    run cmd_get_mounted_dir
   end
 end

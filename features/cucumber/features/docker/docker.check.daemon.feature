@@ -8,7 +8,7 @@ Feature: I can check if the docker daemon is running
     Given a file named "~/.takelage.yml" with:
       """
       ---
-      cmd_docker_check_daemon_docker_info: $(exit 0)
+      cmd_docker_check_daemon_docker_version: $(exit 0)
       """
     And I get the active takeltau config
     When I run `tau-cli docker check daemon`
@@ -18,7 +18,7 @@ Feature: I can check if the docker daemon is running
     Given a file named "~/.takelage.yml" with:
       """
       ---
-      cmd_docker_check_daemon_docker_info: $(exit 1)
+      cmd_docker_check_daemon_docker_version: $(exit 1)
       """
     And I get the active takeltau config
     When I run `tau-cli docker check daemon`

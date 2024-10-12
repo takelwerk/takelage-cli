@@ -14,7 +14,7 @@ module DockerCheckDaemon
     log.debug 'Check if the docker daemon is running'
 
     cmd_docker_info = format(
-      config.active['cmd_docker_check_daemon_docker_info'],
+      config.active['cmd_docker_check_daemon_docker_version'],
       docker: config.active[docker]
     )
     status = try cmd_docker_info

@@ -8,6 +8,7 @@ def stop_mock_container
   _stop_mock_container_cucumber
   _stop_mock_container_finite
   _stop_mock_container_infinite
+  _stop_mock_container_takelship
 end
 
 private
@@ -40,4 +41,12 @@ def _stop_mock_container_infinite
       'docker network rm takelage-mock_infinite_xesoz-nivyr ' \
       '>/dev/null 2>&1'
   system cmd_stop_mock_container_infinite
+end
+
+def _stop_mock_container_takelship
+  cmd_stop_mock_container_takelship =
+    'ship-cli container check existing && ' \
+      'docker stop takelship_xeciz-vigoc; ' \
+      '>/dev/null 2>&1'
+  system cmd_stop_mock_container_takelship
 end

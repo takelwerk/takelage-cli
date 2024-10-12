@@ -14,6 +14,17 @@ Feature: I can get info about a takelship container
       ship_repo: takelship-mock
       """
     And I get the active takeltau config
+    And a file named "takelship/compose/projects/takelship.yml" with:
+      """
+      ---
+      name: mockship
+      docker_host: '48192'
+      default_project: forgejo
+      projects:
+      - name: forgejo
+        services:
+        - forgejo-server: {}
+      """
 
   Scenario: Get yaml info about a takelship container
     Given I successfully run `env -u TAKELAGE_PROJECT_BASE_DIR unbuffer ship-cli project start`
