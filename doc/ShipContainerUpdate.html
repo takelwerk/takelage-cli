@@ -190,7 +190,7 @@
       <pre class="code"><span class="info file"># File 'lib/takeltau/ship/container/update.rb', line 6</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_ship_container_update'>ship_container_update</span>
-  <span class='kw'>return</span> <span class='kw'>false</span> <span class='kw'>unless</span> <span class='id identifier rubyid_docker_check_daemon'>docker_check_daemon</span>
+  <span class='kw'>return</span> <span class='kw'>false</span> <span class='kw'>unless</span> <span class='id identifier rubyid_docker_check_daemon'>docker_check_daemon</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>cmd_ship_docker</span><span class='tstring_end'>&#39;</span></span>
 
   <span class='id identifier rubyid_cmd_docker_pull'>cmd_docker_pull</span> <span class='op'>=</span> <span class='id identifier rubyid__ship_container_update_cmd_docker_pull'>_ship_container_update_cmd_docker_pull</span>
 
