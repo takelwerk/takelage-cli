@@ -25,6 +25,7 @@ module ShipContainerUpdate
     ship_tag = config.active['ship_tag']
     format(
       config.active['cmd_docker_image_update_docker_pull'],
+      docker: config.active['cmd_docker'],
       docker_user: ship_user,
       docker_repo: ship_repo,
       docker_tag: ship_tag
