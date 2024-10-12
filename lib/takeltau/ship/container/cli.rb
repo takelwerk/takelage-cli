@@ -7,9 +7,11 @@ module Takeltau
     include SystemModule
     include ConfigModule
     include DockerCheckDaemon
+    include DockerContainerLib
     include ShipInfoLib
     include ShipContainerCheckExisting
     include ShipContainerLib
+    include ShipContainerList
     include ShipContainerLogin
     include ShipContainerPodman
     include ShipContainerUpdate
@@ -18,13 +20,25 @@ module Takeltau
     subcommand 'check', ShipContainerCheck
 
     #
+    # ship container list
+    #
+    desc 'list', 'list command'
+    long_desc <<-LONGDESC.gsub("\n", "\x5")
+      Run list command
+    LONGDESC
+    # Run list command.
+    def list
+      say ship_container_list
+    end
+
+    #
     # ship container login
     #
-    desc 'login', 'Run login command'
+    desc 'login', 'Log in to a takelship'
     long_desc <<-LONGDESC.gsub("\n", "\x5")
-      Run login command
+      Log in to a takelship
     LONGDESC
-    # Run login command.
+    # Log in to a takelship.
     def login
       ship_container_login
     end
