@@ -70,5 +70,5 @@ Feature: I can check if mutagen is available
     Then the exit status should be 1
     And the output should contain:
       """
-      [ERROR] The command "banana" is not available
+      No such file or directory
       """
