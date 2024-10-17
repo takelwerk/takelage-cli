@@ -181,17 +181,13 @@
 11
 12
 13
-14
-15
-16</pre>
+14</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/takeltau/docker/container/daemon.rb', line 6</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_docker_container_daemon'>docker_container_daemon</span>
   <span class='id identifier rubyid_log'>log</span><span class='period'>.</span><span class='id identifier rubyid_debug'>debug</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Starting docker container as daemon</span><span class='tstring_end'>&#39;</span></span>
-
-  <span class='kw'>return</span> <span class='kw'>false</span> <span class='kw'>unless</span> <span class='id identifier rubyid_docker_check_daemon'>docker_check_daemon</span>
 
   <span class='id identifier rubyid_result'>result</span> <span class='op'>=</span> <span class='id identifier rubyid__docker_container_lib_create_net_and_ctr'>_docker_container_lib_create_net_and_ctr</span> <span class='ivar'>@hostname</span>
 

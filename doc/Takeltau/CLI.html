@@ -546,7 +546,7 @@
   
   
   <h3 class="inherited">Methods included from <span class='object_link'><a href="../SystemModule.html" title="SystemModule (module)">SystemModule</a></span></h3>
-  <p class="inherited"><span class='object_link'><a href="../SystemModule.html#command_available_else_error%3F-instance_method" title="SystemModule#command_available_else_error? (method)">#command_available_else_error?</a></span>, <span class='object_link'><a href="../SystemModule.html#command_available_else_warn%3F-instance_method" title="SystemModule#command_available_else_warn? (method)">#command_available_else_warn?</a></span>, <span class='object_link'><a href="../SystemModule.html#hash_to_yaml-instance_method" title="SystemModule#hash_to_yaml (method)">#hash_to_yaml</a></span>, <span class='object_link'><a href="../SystemModule.html#read_yaml_erb_file-instance_method" title="SystemModule#read_yaml_erb_file (method)">#read_yaml_erb_file</a></span>, <span class='object_link'><a href="../SystemModule.html#read_yaml_file-instance_method" title="SystemModule#read_yaml_file (method)">#read_yaml_file</a></span>, <span class='object_link'><a href="../SystemModule.html#rm_fr-instance_method" title="SystemModule#rm_fr (method)">#rm_fr</a></span>, <span class='object_link'><a href="../SystemModule.html#run-instance_method" title="SystemModule#run (method)">#run</a></span>, <span class='object_link'><a href="../SystemModule.html#run_and_capture-instance_method" title="SystemModule#run_and_capture (method)">#run_and_capture</a></span>, <span class='object_link'><a href="../SystemModule.html#run_and_exit-instance_method" title="SystemModule#run_and_exit (method)">#run_and_exit</a></span>, <span class='object_link'><a href="../SystemModule.html#run_and_fork-instance_method" title="SystemModule#run_and_fork (method)">#run_and_fork</a></span>, <span class='object_link'><a href="../SystemModule.html#try-instance_method" title="SystemModule#try (method)">#try</a></span></p>
+  <p class="inherited"><span class='object_link'><a href="../SystemModule.html#command_available_else_error%3F-instance_method" title="SystemModule#command_available_else_error? (method)">#command_available_else_error?</a></span>, <span class='object_link'><a href="../SystemModule.html#hash_to_yaml-instance_method" title="SystemModule#hash_to_yaml (method)">#hash_to_yaml</a></span>, <span class='object_link'><a href="../SystemModule.html#read_yaml_erb_file-instance_method" title="SystemModule#read_yaml_erb_file (method)">#read_yaml_erb_file</a></span>, <span class='object_link'><a href="../SystemModule.html#read_yaml_file-instance_method" title="SystemModule#read_yaml_file (method)">#read_yaml_file</a></span>, <span class='object_link'><a href="../SystemModule.html#rm_fr-instance_method" title="SystemModule#rm_fr (method)">#rm_fr</a></span>, <span class='object_link'><a href="../SystemModule.html#run-instance_method" title="SystemModule#run (method)">#run</a></span>, <span class='object_link'><a href="../SystemModule.html#run_and_capture-instance_method" title="SystemModule#run_and_capture (method)">#run_and_capture</a></span>, <span class='object_link'><a href="../SystemModule.html#run_and_exit-instance_method" title="SystemModule#run_and_exit (method)">#run_and_exit</a></span>, <span class='object_link'><a href="../SystemModule.html#run_and_fork-instance_method" title="SystemModule#run_and_fork (method)">#run_and_fork</a></span>, <span class='object_link'><a href="../SystemModule.html#try-instance_method" title="SystemModule#try (method)">#try</a></span></p>
 
   
   
@@ -588,8 +588,6 @@
       <pre class="lines">
 
 
-126
-127
 128
 129
 130
@@ -605,14 +603,10 @@
 140
 141
 142
-143
-144
-145
-146
-147</pre>
+143</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/takeltau.rb', line 126</span>
+      <pre class="code"><span class="info file"># File 'lib/takeltau.rb', line 128</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_args'>args</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='id identifier rubyid_local_options'>local_options</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='id identifier rubyid_configuration'>configuration</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='comment'># Initialize thor parent class
@@ -626,12 +620,6 @@
 
   <span class='comment'># Initialize global singleton project
 </span>  <span class='id identifier rubyid_initialize_project'>initialize_project</span>
-
-  <span class='comment'># Set defaults
-</span>  <span class='ivar'>@docker_daemon_running</span> <span class='op'>=</span> <span class='kw'>false</span>
-  <span class='ivar'>@command_available_docker</span> <span class='op'>=</span> <span class='kw'>false</span>
-  <span class='ivar'>@mutagen_daemon_available</span> <span class='op'>=</span> <span class='kw'>false</span>
-  <span class='ivar'>@command_available_mutagen</span> <span class='op'>=</span> <span class='kw'>false</span>
 
   <span class='comment'># fylla bash completion code
 </span>  <span class='ivar'>@bash_fylla</span> <span class='op'>=</span> <span class='const'>Fylla</span><span class='period'>.</span><span class='id identifier rubyid_bash_completion'>bash_completion</span> <span class='kw'>self</span>
@@ -692,12 +680,12 @@
       <pre class="lines">
 
 
-119
-120
-121</pre>
+121
+122
+123</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/takeltau.rb', line 119</span>
+      <pre class="code"><span class="info file"># File 'lib/takeltau.rb', line 121</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_bash_fylla'>bash_fylla</span>
   <span class='ivar'>@bash_fylla</span>
@@ -753,12 +741,12 @@
       <pre class="lines">
 
 
-256
-257
-258</pre>
+252
+253
+254</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/takeltau.rb', line 256</span>
+      <pre class="code"><span class="info file"># File 'lib/takeltau.rb', line 252</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_exit_on_failure?'>exit_on_failure?</span>
   <span class='kw'>true</span>
@@ -783,13 +771,13 @@
       <pre class="lines">
 
 
-106
-107
 108
-109</pre>
+109
+110
+111</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/takeltau.rb', line 106</span>
+      <pre class="code"><span class="info file"># File 'lib/takeltau.rb', line 108</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_extended'>extended</span><span class='lparen'>(</span><span class='id identifier rubyid_base'>base</span><span class='rparen'>)</span>
   <span class='kw'>super</span>
@@ -832,12 +820,12 @@
       <pre class="lines">
 
 
-186
-187
-188</pre>
+182
+183
+184</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/takeltau.rb', line 186</span>
+      <pre class="code"><span class="info file"># File 'lib/takeltau.rb', line 182</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_clean'>clean</span>
   <span class='const'><span class='object_link'><a href="../Takeltau.html" title="Takeltau (module)">Takeltau</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="DockerContainer.html" title="Takeltau::DockerContainer (class)">DockerContainer</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="DockerContainer.html#initialize-instance_method" title="Takeltau::DockerContainer#initialize (method)">new</a></span></span><span class='period'>.</span><span class='id identifier rubyid_clean'><span class='object_link'><a href="DockerContainer.html#clean-instance_method" title="Takeltau::DockerContainer#clean (method)">clean</a></span></span>
@@ -873,12 +861,12 @@
       <pre class="lines">
 
 
-204
-205
-206</pre>
+200
+201
+202</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/takeltau.rb', line 204</span>
+      <pre class="code"><span class="info file"># File 'lib/takeltau.rb', line 200</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_commands'>commands</span>
   <span class='const'><span class='object_link'><a href="../Takeltau.html" title="Takeltau (module)">Takeltau</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Self.html" title="Takeltau::Self (class)">Self</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='period'>.</span><span class='id identifier rubyid_commands'><span class='object_link'><a href="Self.html#commands-instance_method" title="Takeltau::Self#commands (method)">commands</a></span></span>
@@ -914,12 +902,12 @@
       <pre class="lines">
 
 
-192
-193
-194</pre>
+188
+189
+190</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/takeltau.rb', line 192</span>
+      <pre class="code"><span class="info file"># File 'lib/takeltau.rb', line 188</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_config'>config</span>
   <span class='const'><span class='object_link'><a href="../Takeltau.html" title="Takeltau (module)">Takeltau</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="SelfConfig.html" title="Takeltau::SelfConfig (class)">SelfConfig</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='period'>.</span><span class='id identifier rubyid_active'><span class='object_link'><a href="SelfConfig.html#active-instance_method" title="Takeltau::SelfConfig#active (method)">active</a></span></span>
@@ -955,12 +943,12 @@
       <pre class="lines">
 
 
-210
-211
-212</pre>
+206
+207
+208</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/takeltau.rb', line 210</span>
+      <pre class="code"><span class="info file"># File 'lib/takeltau.rb', line 206</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list'>list</span>
   <span class='const'><span class='object_link'><a href="../Takeltau.html" title="Takeltau (module)">Takeltau</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="DockerContainer.html" title="Takeltau::DockerContainer (class)">DockerContainer</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="DockerContainer.html#initialize-instance_method" title="Takeltau::DockerContainer#initialize (method)">new</a></span></span><span class='period'>.</span><span class='id identifier rubyid_list'><span class='object_link'><a href="DockerContainer.html#list-instance_method" title="Takeltau::DockerContainer#list (method)">list</a></span></span>
@@ -996,12 +984,12 @@
       <pre class="lines">
 
 
-198
-199
-200</pre>
+194
+195
+196</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/takeltau.rb', line 198</span>
+      <pre class="code"><span class="info file"># File 'lib/takeltau.rb', line 194</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_login'>login</span>
   <span class='const'><span class='object_link'><a href="../Takeltau.html" title="Takeltau (module)">Takeltau</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="DockerContainer.html" title="Takeltau::DockerContainer (class)">DockerContainer</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="DockerContainer.html#initialize-instance_method" title="Takeltau::DockerContainer#initialize (method)">new</a></span></span><span class='period'>.</span><span class='id identifier rubyid_login'><span class='object_link'><a href="DockerContainer.html#login-instance_method" title="Takeltau::DockerContainer#login (method)">login</a></span></span>
@@ -1037,12 +1025,12 @@
       <pre class="lines">
 
 
-216
-217
-218</pre>
+212
+213
+214</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/takeltau.rb', line 216</span>
+      <pre class="code"><span class="info file"># File 'lib/takeltau.rb', line 212</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_ls'>ls</span>
   <span class='const'><span class='object_link'><a href="../Takeltau.html" title="Takeltau (module)">Takeltau</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="DockerContainer.html" title="Takeltau::DockerContainer (class)">DockerContainer</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="DockerContainer.html#initialize-instance_method" title="Takeltau::DockerContainer#initialize (method)">new</a></span></span><span class='period'>.</span><span class='id identifier rubyid_list'><span class='object_link'><a href="DockerContainer.html#list-instance_method" title="Takeltau::DockerContainer#list (method)">list</a></span></span>
@@ -1078,12 +1066,12 @@
       <pre class="lines">
 
 
-222
-223
-224</pre>
+218
+219
+220</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/takeltau.rb', line 222</span>
+      <pre class="code"><span class="info file"># File 'lib/takeltau.rb', line 218</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_project'>project</span>
   <span class='const'><span class='object_link'><a href="../Takeltau.html" title="Takeltau (module)">Takeltau</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="InfoProject.html" title="Takeltau::InfoProject (class)">InfoProject</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='period'>.</span><span class='id identifier rubyid_active'><span class='object_link'><a href="InfoProject.html#active-instance_method" title="Takeltau::InfoProject#active (method)">active</a></span></span>
@@ -1119,12 +1107,12 @@
       <pre class="lines">
 
 
-228
-229
-230</pre>
+224
+225
+226</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/takeltau.rb', line 228</span>
+      <pre class="code"><span class="info file"># File 'lib/takeltau.rb', line 224</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_prune'>prune</span>
   <span class='const'><span class='object_link'><a href="../Takeltau.html" title="Takeltau (module)">Takeltau</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="DockerContainer.html" title="Takeltau::DockerContainer (class)">DockerContainer</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="DockerContainer.html#initialize-instance_method" title="Takeltau::DockerContainer#initialize (method)">new</a></span></span><span class='period'>.</span><span class='id identifier rubyid_prune'><span class='object_link'><a href="DockerContainer.html#prune-instance_method" title="Takeltau::DockerContainer#prune (method)">prune</a></span></span>
@@ -1160,12 +1148,12 @@
       <pre class="lines">
 
 
-234
-235
-236</pre>
+230
+231
+232</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/takeltau.rb', line 234</span>
+      <pre class="code"><span class="info file"># File 'lib/takeltau.rb', line 230</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_status'>status</span>
   <span class='const'><span class='object_link'><a href="../Takeltau.html" title="Takeltau (module)">Takeltau</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="InfoStatus.html" title="Takeltau::InfoStatus (class)">InfoStatus</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="InfoStatus.html#initialize-instance_method" title="Takeltau::InfoStatus#initialize (method)">new</a></span></span><span class='period'>.</span><span class='id identifier rubyid_bar'><span class='object_link'><a href="InfoStatus.html#bar-instance_method" title="Takeltau::InfoStatus#bar (method)">bar</a></span></span>
@@ -1201,12 +1189,12 @@
       <pre class="lines">
 
 
-240
-241
-242</pre>
+236
+237
+238</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/takeltau.rb', line 240</span>
+      <pre class="code"><span class="info file"># File 'lib/takeltau.rb', line 236</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_update'>update</span>
   <span class='const'><span class='object_link'><a href="../Takeltau.html" title="Takeltau (module)">Takeltau</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="DockerImage.html" title="Takeltau::DockerImage (class)">DockerImage</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="DockerImage.html#initialize-instance_method" title="Takeltau::DockerImage#initialize (method)">new</a></span></span><span class='period'>.</span><span class='id identifier rubyid_update'><span class='object_link'><a href="DockerImage.html#update-instance_method" title="Takeltau::DockerImage#update (method)">update</a></span></span>
@@ -1242,12 +1230,12 @@
       <pre class="lines">
 
 
-246
-247
-248</pre>
+242
+243
+244</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/takeltau.rb', line 246</span>
+      <pre class="code"><span class="info file"># File 'lib/takeltau.rb', line 242</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_version'>version</span>
   <span class='const'><span class='object_link'><a href="../Takeltau.html" title="Takeltau (module)">Takeltau</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Self.html" title="Takeltau::Self (class)">Self</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='period'>.</span><span class='id identifier rubyid_version'><span class='object_link'><a href="Self.html#version-instance_method" title="Takeltau::Self#version (method)">version</a></span></span>

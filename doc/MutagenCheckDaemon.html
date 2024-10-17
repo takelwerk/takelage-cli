@@ -76,7 +76,7 @@
   
   <dl>
     <dt>Included in:</dt>
-    <dd><span class='object_link'><a href="Takeltau/DockerContainer.html" title="Takeltau::DockerContainer (class)">Takeltau::DockerContainer</a></span>, <span class='object_link'><a href="Takeltau/InfoStatus.html" title="Takeltau::InfoStatus (class)">Takeltau::InfoStatus</a></span>, <span class='object_link'><a href="Takeltau/MutagenCheck.html" title="Takeltau::MutagenCheck (class)">Takeltau::MutagenCheck</a></span>, <span class='object_link'><a href="Takeltau/MutagenSocket.html" title="Takeltau::MutagenSocket (class)">Takeltau::MutagenSocket</a></span></dd>
+    <dd><span class='object_link'><a href="Takeltau/DockerContainer.html" title="Takeltau::DockerContainer (class)">Takeltau::DockerContainer</a></span>, <span class='object_link'><a href="Takeltau/InfoStatus.html" title="Takeltau::InfoStatus (class)">Takeltau::InfoStatus</a></span>, <span class='object_link'><a href="Takeltau/Mutagen.html" title="Takeltau::Mutagen (class)">Takeltau::Mutagen</a></span>, <span class='object_link'><a href="Takeltau/MutagenCheck.html" title="Takeltau::MutagenCheck (class)">Takeltau::MutagenCheck</a></span>, <span class='object_link'><a href="Takeltau/MutagenSocket.html" title="Takeltau::MutagenSocket (class)">Takeltau::MutagenSocket</a></span></dd>
   </dl>
   
 
@@ -219,23 +219,17 @@
 34
 35
 36
-37
-38
-39
-40
-41</pre>
+37</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/takeltau/mutagen/check/daemon.rb', line 9</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_mutagen_check_daemon'>mutagen_check_daemon</span>
-  <span class='kw'>return</span> <span class='kw'>true</span> <span class='kw'>if</span> <span class='ivar'>@mutagen_daemon_available</span>
-
   <span class='id identifier rubyid_log'>log</span><span class='period'>.</span><span class='id identifier rubyid_debug'>debug</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Check mutagen status</span><span class='tstring_end'>&#39;</span></span>
 
-  <span class='kw'>return</span> <span class='kw'>false</span> <span class='kw'>unless</span> <span class='id identifier rubyid_command_available_else_error?'>command_available_else_error?</span> <span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_active'>active</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>cmd_mutagen</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
+  <span class='kw'>return</span> <span class='kw'>false</span> <span class='kw'>unless</span> <span class='id identifier rubyid_command_available_else_error?'>command_available_else_error?</span> <span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_active'>active</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>cmd_mutagen_check</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
 
-  <span class='comment'># are we inside a takelage container?
+  <span class='comment'># Are we inside a takelage container?
 </span>  <span class='kw'>unless</span> <span class='id identifier rubyid__docker_container_lib_check_matrjoschka'>_docker_container_lib_check_matrjoschka</span>
     <span class='kw'>unless</span> <span class='id identifier rubyid__file_exists?'>_file_exists?</span> <span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_active'>active</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>mutagen_socket_path_mutagen_host</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
       <span class='id identifier rubyid_log'>log</span><span class='period'>.</span><span class='id identifier rubyid_error'>error</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>The mutagen socket path on the host is not available</span><span class='tstring_end'>&#39;</span></span>
@@ -243,7 +237,6 @@
     <span class='kw'>end</span>
 
     <span class='id identifier rubyid_log'>log</span><span class='period'>.</span><span class='id identifier rubyid_debug'>debug</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>The mutagen daemon is available</span><span class='tstring_end'>&#39;</span></span>
-    <span class='ivar'>@mutagen_daemon_available</span> <span class='op'>=</span> <span class='kw'>true</span>
     <span class='kw'>return</span> <span class='kw'>true</span>
   <span class='kw'>end</span>
 
@@ -258,7 +251,6 @@
   <span class='kw'>end</span>
 
   <span class='id identifier rubyid_log'>log</span><span class='period'>.</span><span class='id identifier rubyid_debug'>debug</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>The mutagen daemon is available</span><span class='tstring_end'>&#39;</span></span>
-  <span class='ivar'>@mutagen_daemon_available</span> <span class='op'>=</span> <span class='kw'>true</span>
   <span class='kw'>true</span>
 <span class='kw'>end</span></pre>
     </td>

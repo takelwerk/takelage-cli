@@ -185,6 +185,30 @@
         <li class="public ">
   <span class="summary_signature">
     
+      <a href="#envvars-instance_method" title="#envvars (instance method)">#<strong>envvars</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Print envvars takeltau configuration.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#home-instance_method" title="#home (instance method)">#<strong>home</strong>  &#x21d2; Object </a>
     
 
@@ -254,7 +278,7 @@
   
   
   <h3 class="inherited">Methods included from <span class='object_link'><a href="../SystemModule.html" title="SystemModule (module)">SystemModule</a></span></h3>
-  <p class="inherited"><span class='object_link'><a href="../SystemModule.html#command_available_else_error%3F-instance_method" title="SystemModule#command_available_else_error? (method)">#command_available_else_error?</a></span>, <span class='object_link'><a href="../SystemModule.html#command_available_else_warn%3F-instance_method" title="SystemModule#command_available_else_warn? (method)">#command_available_else_warn?</a></span>, <span class='object_link'><a href="../SystemModule.html#hash_to_yaml-instance_method" title="SystemModule#hash_to_yaml (method)">#hash_to_yaml</a></span>, <span class='object_link'><a href="../SystemModule.html#read_yaml_erb_file-instance_method" title="SystemModule#read_yaml_erb_file (method)">#read_yaml_erb_file</a></span>, <span class='object_link'><a href="../SystemModule.html#read_yaml_file-instance_method" title="SystemModule#read_yaml_file (method)">#read_yaml_file</a></span>, <span class='object_link'><a href="../SystemModule.html#rm_fr-instance_method" title="SystemModule#rm_fr (method)">#rm_fr</a></span>, <span class='object_link'><a href="../SystemModule.html#run-instance_method" title="SystemModule#run (method)">#run</a></span>, <span class='object_link'><a href="../SystemModule.html#run_and_capture-instance_method" title="SystemModule#run_and_capture (method)">#run_and_capture</a></span>, <span class='object_link'><a href="../SystemModule.html#run_and_exit-instance_method" title="SystemModule#run_and_exit (method)">#run_and_exit</a></span>, <span class='object_link'><a href="../SystemModule.html#run_and_fork-instance_method" title="SystemModule#run_and_fork (method)">#run_and_fork</a></span>, <span class='object_link'><a href="../SystemModule.html#try-instance_method" title="SystemModule#try (method)">#try</a></span></p>
+  <p class="inherited"><span class='object_link'><a href="../SystemModule.html#command_available_else_error%3F-instance_method" title="SystemModule#command_available_else_error? (method)">#command_available_else_error?</a></span>, <span class='object_link'><a href="../SystemModule.html#hash_to_yaml-instance_method" title="SystemModule#hash_to_yaml (method)">#hash_to_yaml</a></span>, <span class='object_link'><a href="../SystemModule.html#read_yaml_erb_file-instance_method" title="SystemModule#read_yaml_erb_file (method)">#read_yaml_erb_file</a></span>, <span class='object_link'><a href="../SystemModule.html#read_yaml_file-instance_method" title="SystemModule#read_yaml_file (method)">#read_yaml_file</a></span>, <span class='object_link'><a href="../SystemModule.html#rm_fr-instance_method" title="SystemModule#rm_fr (method)">#rm_fr</a></span>, <span class='object_link'><a href="../SystemModule.html#run-instance_method" title="SystemModule#run (method)">#run</a></span>, <span class='object_link'><a href="../SystemModule.html#run_and_capture-instance_method" title="SystemModule#run_and_capture (method)">#run_and_capture</a></span>, <span class='object_link'><a href="../SystemModule.html#run_and_exit-instance_method" title="SystemModule#run_and_exit (method)">#run_and_exit</a></span>, <span class='object_link'><a href="../SystemModule.html#run_and_fork-instance_method" title="SystemModule#run_and_fork (method)">#run_and_fork</a></span>, <span class='object_link'><a href="../SystemModule.html#try-instance_method" title="SystemModule#try (method)">#try</a></span></p>
 
   
   
@@ -310,15 +334,15 @@
       <pre class="lines">
 
 
-75
-76
-77
-78
-79
-80</pre>
+92
+93
+94
+95
+96
+97</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/takeltau/self/config/cli.rb', line 75</span>
+      <pre class="code"><span class="info file"># File 'lib/takeltau/self/config/cli.rb', line 92</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_active'>active</span>
   <span class='id identifier rubyid_config_active_yaml'>config_active_yaml</span> <span class='op'>=</span> <span class='id identifier rubyid_hash_to_yaml'>hash_to_yaml</span><span class='lparen'>(</span><span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_active'>active</span><span class='rparen'>)</span>
@@ -371,6 +395,53 @@
   <span class='id identifier rubyid_config_default_yaml'>config_default_yaml</span> <span class='op'>=</span> <span class='id identifier rubyid_hash_to_yaml'>hash_to_yaml</span><span class='lparen'>(</span><span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_default'>default</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_exit'>exit</span> <span class='kw'>false</span> <span class='kw'>if</span> <span class='id identifier rubyid_config_default_yaml'>config_default_yaml</span> <span class='op'>==</span> <span class='kw'>false</span>
   <span class='id identifier rubyid_say'>say</span> <span class='id identifier rubyid_config_default_yaml'>config_default_yaml</span>
+  <span class='kw'>true</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="envvars-instance_method">
+  
+    #<strong>envvars</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Print envvars takeltau configuration.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+75
+76
+77
+78
+79
+80</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/takeltau/self/config/cli.rb', line 75</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_envvars'>envvars</span>
+  <span class='id identifier rubyid_config_envvars_yaml'>config_envvars_yaml</span> <span class='op'>=</span> <span class='id identifier rubyid_hash_to_yaml'>hash_to_yaml</span><span class='lparen'>(</span><span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_envvars'>envvars</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_exit'>exit</span> <span class='kw'>false</span> <span class='kw'>if</span> <span class='id identifier rubyid_config_envvars_yaml'>config_envvars_yaml</span> <span class='op'>==</span> <span class='kw'>false</span>
+  <span class='id identifier rubyid_say'>say</span> <span class='id identifier rubyid_config_envvars_yaml'>config_envvars_yaml</span>
   <span class='kw'>true</span>
 <span class='kw'>end</span></pre>
     </td>

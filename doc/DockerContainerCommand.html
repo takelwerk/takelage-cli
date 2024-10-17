@@ -185,17 +185,13 @@
 15
 16
 17
-18
-19
-20</pre>
+18</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/takeltau/docker/container/command.rb', line 6</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_docker_container_command'>docker_container_command</span><span class='lparen'>(</span><span class='id identifier rubyid_command'>command</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_log'>log</span><span class='period'>.</span><span class='id identifier rubyid_debug'>debug</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Running command in container</span><span class='tstring_end'>&#39;</span></span>
-
-  <span class='kw'>return</span> <span class='kw'>false</span> <span class='kw'>unless</span> <span class='id identifier rubyid_docker_check_daemon'>docker_check_daemon</span>
 
   <span class='comment'># no matrjoschka test here
 </span>
