@@ -14,6 +14,8 @@ module Takeltau
     include ShipContainerList
     include ShipContainerLogin
     include ShipContainerPodman
+    include ShipContainerCommand
+    include ShipContainerSudo
     include ShipContainerStop
     include ShipContainerUpdate
 
@@ -25,7 +27,7 @@ module Takeltau
     #
     desc 'clean', 'Stop all takelship containers'
     long_desc <<-LONGDESC.gsub("\n", "\x5")
-      Stop all takelship containers
+    Stop all takelship containers
     LONGDESC
     # Stop all takelship containers.
     def clean
@@ -33,11 +35,23 @@ module Takeltau
     end
 
     #
+    # ship container command
+    #
+    desc 'command', 'Run a command in a takelship container'
+    long_desc <<-LONGDESC.gsub("\n", "\x5")
+    Run a command in a takelship container
+    LONGDESC
+    # Run a command in a takelship container.
+    def command(*args)
+      say ship_container_command args
+    end
+
+    #
     # ship container list
     #
     desc 'list', 'List takelship containers'
     long_desc <<-LONGDESC.gsub("\n", "\x5")
-      List takelage containers
+    List takelage containers
     LONGDESC
     # List takelage containers.
     def list
@@ -49,7 +63,7 @@ module Takeltau
     #
     desc 'login', 'Log in to a takelship'
     long_desc <<-LONGDESC.gsub("\n", "\x5")
-      Log in to a takelship
+    Log in to a takelship
     LONGDESC
     # Log in to a takelship.
     def login
@@ -61,7 +75,7 @@ module Takeltau
     #
     desc 'podman', 'Run podman command'
     long_desc <<-LONGDESC.gsub("\n", "\x5")
-      Run podman command
+    Run podman command
     LONGDESC
     # Run podman command.
     def podman(*args)
@@ -69,11 +83,23 @@ module Takeltau
     end
 
     #
+    # ship container sudo
+    #
+    desc 'sudo', 'Run a sudo command in a takelship container'
+    long_desc <<-LONGDESC.gsub("\n", "\x5")
+    Run a sudo command in a takelship container
+    LONGDESC
+    # Run a sudo command in a takelship container.
+    def sudo(*args)
+      say ship_container_sudo args
+    end
+
+    #
     # ship container stop
     #
     desc 'stop', 'Stop takelship container'
     long_desc <<-LONGDESC.gsub("\n", "\x5")
-      Stop takelship container
+    Stop takelship container
     LONGDESC
     # Stop takelship container.
     def stop
@@ -85,7 +111,7 @@ module Takeltau
     #
     desc 'update', 'Update takelship image'
     long_desc <<-LONGDESC.gsub("\n", "\x5")
-      Update takelship image
+    Update takelship image
     LONGDESC
     # Update takelship image.
     def update
