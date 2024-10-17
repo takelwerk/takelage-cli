@@ -62,6 +62,18 @@ module Takeltau
       Takeltau::ShipContainer.new.podman args
     end
 
+    desc 'command [ARGS]', 'Alias for tau ship container command'
+    # ship command: {Takeltau::ShipContainer#command}
+    def command(*args)
+      Takeltau::ShipContainer.new.command args
+    end
+
+    desc 'sudo [ARGS]', 'Alias for tau ship container sudo'
+    # ship sudo: {Takeltau::ShipContainer#sudo}
+    def sudo(*args)
+      Takeltau::ShipContainer.new.sudo args
+    end
+
     desc 'start [PROJECT]', 'Alias for tau ship project start'
     # ship start: {Takeltau::ShipProject#start}
     def start(project = 'default')
