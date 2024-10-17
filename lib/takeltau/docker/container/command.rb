@@ -6,8 +6,6 @@ module DockerContainerCommand
   def docker_container_command(command)
     log.debug 'Running command in container'
 
-    return false unless docker_check_daemon
-
     # no matrjoschka test here
 
     unless docker_container_check_existing @hostname

@@ -12,6 +12,7 @@ Feature: I can check if a takelship container is existing
     Given a file named "~/.takelage.yml" with:
       """
       ---
+      ship_container_check_matrjoschka: false
       ship_user: host.docker.internal:5005/takelage-mock
       ship_repo: takelship-mock
       """
@@ -29,7 +30,7 @@ Feature: I can check if a takelship container is existing
       """
 
   Scenario: Check that an existing takelship container is existing
-    Given I successfully run `env -u TAKELAGE_PROJECT_BASE_DIR unbuffer ship-cli project start`
+    Given I successfully run `unbuffer ship-cli project start`
     When I run `ship-cli container check existing`
     Then the exit status should be 0
     And I run `ship-cli project stop`

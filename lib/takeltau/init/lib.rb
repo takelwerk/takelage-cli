@@ -6,7 +6,7 @@ module InitLib
 
   # Check git.
   def _init_lib_git_check
-    return false unless command_available_else_error? config.active['cmd_git']
+    return false unless command_available_else_error? config.active['cmd_git_check']
     return true unless git_check_workspace
 
     log.error 'git is already initialized!'

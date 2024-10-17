@@ -89,8 +89,10 @@ require_relative 'takeltau/ship/container/check/existing'
 require_relative 'takeltau/ship/container/check/cli'
 require_relative 'takeltau/ship/info/lib'
 require_relative 'takeltau/ship/container/list'
+require_relative 'takeltau/ship/container/clean'
 require_relative 'takeltau/ship/container/login'
 require_relative 'takeltau/ship/container/podman'
+require_relative 'takeltau/ship/container/stop'
 require_relative 'takeltau/ship/container/update'
 require_relative 'takeltau/ship/container/cli'
 require_relative 'takeltau/ship/info/cli'
@@ -135,12 +137,6 @@ module Takeltau
 
       # Initialize global singleton project
       initialize_project
-
-      # Set defaults
-      @docker_daemon_running = false
-      @command_available_docker = false
-      @mutagen_daemon_available = false
-      @command_available_mutagen = false
 
       # fylla bash completion code
       @bash_fylla = Fylla.bash_completion self

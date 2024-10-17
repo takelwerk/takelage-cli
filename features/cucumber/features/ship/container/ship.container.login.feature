@@ -11,6 +11,7 @@ Feature: I can log in to a takelship container
     Given a file named "~/.takelage.yml" with:
       """
       ---
+      ship_container_check_matrjoschka: false
       ship_user: host.docker.internal:5005/takelage-mock
       ship_repo: takelship-mock
       cmd_ship_container_login: whoami
@@ -29,6 +30,6 @@ Feature: I can log in to a takelship container
       """
 
   Scenario: Log in to a takelship container
-    Given I successfully run `env -u TAKELAGE_PROJECT_BASE_DIR unbuffer ship-cli project start`
-    When I successfully run `env -u TAKELAGE_PROJECT_BASE_DIR unbuffer ship-cli container login`
+    Given I successfully run `unbuffer ship-cli project start`
+    When I successfully run `unbuffer ship-cli container login`
     Then the output should contain "root"

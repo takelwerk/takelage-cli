@@ -19,14 +19,15 @@ Feature: I can remove mutagen daemon files
     Given a file named "~/.takelage.yml" with:
       """
       ---
+      cmd_mutagen_check_daemon_host_connection: 'echo Status: Forwarding'
       cmd_docker_container_check_existing_docker_ps: $(exit 1)
       """
     And I get the active takeltau config
-    When I run `tau-cli mutagen socket tidy -l debug`
+    When I run `tau-cli mutagen socket tidy --loglevel debug`
     Then the exit status should be 1
     And the output should contain:
       """
-      [DEBUG] Container
+      [DEBUG] Using loglevel DEBUG
       """
     And the output should contain:
       """

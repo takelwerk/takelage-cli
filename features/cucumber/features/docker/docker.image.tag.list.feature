@@ -4,6 +4,7 @@
 @docker.image.tag.list
 
 @before_build_mock_images
+@after_stop_mock_container
 
 Feature: I can list the tags of docker images
 

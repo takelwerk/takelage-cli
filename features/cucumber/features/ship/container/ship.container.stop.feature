@@ -1,11 +1,11 @@
 @ship
-@ship.project
-@ship.project.start
+@ship.container
+@ship.container.stop
 
 @before_build_mock_images
 @after_stop_mock_container
 
-Feature: I can start a takelship project
+Feature: I can stop a takelship container
 
   Background:
     Given a file named "~/.takelage.yml" with:
@@ -29,7 +29,7 @@ Feature: I can start a takelship project
       """
 
   Scenario: Start the default project
-    Given I successfully run `unbuffer ship-cli container clean`
-    And the docker container "takelship_xeciz-vigoc" doesn't exist
-    When I successfully run `unbuffer ship-cli project start`
-    Then the docker container "takelship_xeciz-vigoc" exists
+    Given I successfully run `unbuffer ship-cli project start`
+    And the docker container "takelship_xeciz-vigoc" exists
+    When I successfully run `unbuffer ship-cli container stop`
+    Then the docker container "takelship_xeciz-vigoc" doesn't exist

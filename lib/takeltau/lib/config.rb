@@ -19,7 +19,7 @@ module ConfigModule
     end
   end
 
-  # Initialze config
+  # Initialize config
   # rubocop:disable Metrics/AbcSize
   def initialize_config
     project_root_dir = _get_project_root_dir
@@ -136,34 +136,27 @@ module ConfigModule
 
   # Get project root directory.
   # @return [String] project root directory
+  # rubocop:disable Metrics/MethodLength
   def _get_project_root_dir
-    return ENV['TAKELAGE_TAU_DIR'] if ENV.key? 'TAKELAGE_TAU_DIR'
-
-    log.debug 'Environment variable TAKELTAU_TAU_DIR not set.'
+    if ENV.key? 'TAKELAGE_TAU_DIR'
+      log.debug "TAKELTAU_TAU_DIR is set to \"#{ENV['TAKELAGE_TAU_DIR']}\""
+      return ENV['TAKELAGE_TAU_DIR']
+    end
 
     tau_takelage_root_dir = _get_takelage_root_dir
-    return tau_takelage_root_dir unless tau_takelage_root_dir.nil?
+    unless tau_takelage_root_dir.nil?
+      log.debug "Rakefile found in \"#{tau_takelage_root_dir}\""
+      return tau_takelage_root_dir
+    end
 
-    log.debug 'No "Rakefile" found. Cannot determine takelage project root directory.'
-
-    takelship_root_dir = _get_takelship_root_dir
-    return takelship_root_dir unless takelship_root_dir.nil?
-
-    log.debug 'Not in takelship mode. Unable to determine root directory.'
-    ''
+    log.debug "Setting root dir to current working dir \"#{Dir.pwd}\""
+    Dir.pwd
   end
+  # rubocop:enable Metrics/MethodLength
 
   # Return a takelage root dir
   def _get_takelage_root_dir
     _rakefile, path_rakefile = Rake.application.find_rakefile_location
     path_rakefile
-  end
-
-  # Return a takelship root dir
-  def _get_takelship_root_dir
-    return nil if ENV['TAKELAGE_TAU_SHIP'].nil?
-
-    log.debug 'Invoked in takelship mode. Using current working directory as root directory.'
-    Dir.pwd
   end
 end

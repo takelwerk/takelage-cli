@@ -4,6 +4,7 @@
 @docker.container.check.existing
 
 @before_build_mock_images
+@after_stop_mock_container
 
 Feature: I can check if a docker container is existing
 
@@ -11,13 +12,14 @@ Feature: I can check if a docker container is existing
     Given a file named "~/.takelage.yml" with:
       """
       ---
+      docker_container_check_matrjoschka: false
       docker_user: host.docker.internal:5005/takelage-mock
       docker_repo: takelage-mock
       """
     And I get the active takeltau config
 
   Scenario: Check that an existing docker container is existing
-    Given I successfully run `env -u TAKELAGE_PROJECT_BASE_DIR unbuffer tau-cli docker container login`
+    Given I successfully run `unbuffer tau-cli docker container login`
     When I run `tau-cli docker container check existing takelage-mock_cucumber_xinot-syzof`
     Then the exit status should be 0
 

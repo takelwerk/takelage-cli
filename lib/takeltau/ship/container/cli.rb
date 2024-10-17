@@ -6,27 +6,40 @@ module Takeltau
     include LoggingModule
     include SystemModule
     include ConfigModule
-    include DockerCheckDaemon
     include DockerContainerLib
     include ShipInfoLib
     include ShipContainerCheckExisting
     include ShipContainerLib
+    include ShipContainerClean
     include ShipContainerList
     include ShipContainerLogin
     include ShipContainerPodman
+    include ShipContainerStop
     include ShipContainerUpdate
 
     desc 'check [COMMAND]', 'Check takelship container'
     subcommand 'check', ShipContainerCheck
 
     #
+    # ship container clean
+    #
+    desc 'clean', 'Stop all takelship containers'
+    long_desc <<-LONGDESC.gsub("\n", "\x5")
+      Stop all takelship containers
+    LONGDESC
+    # Stop all takelship containers.
+    def clean
+      ship_container_clean
+    end
+
+    #
     # ship container list
     #
-    desc 'list', 'list command'
+    desc 'list', 'List takelship containers'
     long_desc <<-LONGDESC.gsub("\n", "\x5")
-      Run list command
+      List takelage containers
     LONGDESC
-    # Run list command.
+    # List takelage containers.
     def list
       say ship_container_list
     end
@@ -53,6 +66,18 @@ module Takeltau
     # Run podman command.
     def podman(*args)
       say ship_container_podman args
+    end
+
+    #
+    # ship container stop
+    #
+    desc 'stop', 'Stop takelship container'
+    long_desc <<-LONGDESC.gsub("\n", "\x5")
+      Stop takelship container
+    LONGDESC
+    # Stop takelship container.
+    def stop
+      ship_container_stop
     end
 
     #

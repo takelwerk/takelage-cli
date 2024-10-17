@@ -8,7 +8,7 @@ Feature: I can check if the docker daemon is running
     Given a file named "~/.takelage.yml" with:
       """
       ---
-      cmd_docker_check_daemon_docker_version: $(exit 0)
+      cmd_docker_check_daemon_info: $(exit 0)
       """
     And I get the active takeltau config
     When I run `tau-cli docker check daemon`
@@ -18,7 +18,7 @@ Feature: I can check if the docker daemon is running
     Given a file named "~/.takelage.yml" with:
       """
       ---
-      cmd_docker_check_daemon_docker_version: $(exit 1)
+      cmd_docker_check_daemon_info: $(exit 1)
       """
     And I get the active takeltau config
     When I run `tau-cli docker check daemon`
@@ -29,7 +29,8 @@ Feature: I can check if the docker daemon is running
       """
       ---
       cmd_docker: 'banana'
+      docker_container_check_matrjoschka: false
       """
     And I get the active takeltau config
-    When I run `env -u TAKELAGE_PROJECT_BASE_DIR tau-cli docker check daemon`
+    When I run `tau-cli docker check daemon`
     Then the exit status should be 1

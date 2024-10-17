@@ -115,8 +115,11 @@ module DockerContainerLib
 
   # Check if we are already inside a takelage container
   def _docker_container_lib_check_matrjoschka
-    log.debug 'Checking if we are already inside a takelage container'
+    return false unless config.active['docker_container_check_matrjoschka']
 
+    return false unless config.active['ship_container_check_matrjoschka']
+
+    log.debug 'Checking if we are already inside a takelage container'
     unless ENV.keys.include? 'TAKELAGE_PROJECT_BASE_DIR'
       log.debug 'We are not inside a takelage container'
       return false
@@ -176,6 +179,21 @@ module DockerContainerLib
     )
 
     run cmd_docker_stop
+  end
+
+  # Get the mounted takelage directory
+  def _docker_container_lib_get_mounted_dir(name, destination, docker)
+    log.debug 'Getting mounted directory from ' \
+                "container \"#{name}\""
+
+    cmd_get_mounted_dir = format(
+      config.active['cmd_docker_container_get_mounted_dir'],
+      docker: docker,
+      name: name,
+      dest_dir: "\"#{destination}\""
+    )
+
+    (run cmd_get_mounted_dir).strip
   end
 end
 # rubocop:enable Style/IfUnlessModifier

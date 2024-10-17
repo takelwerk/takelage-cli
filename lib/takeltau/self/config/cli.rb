@@ -63,6 +63,23 @@ module Takeltau
     end
 
     #
+    # config envvars
+    #
+    desc 'envvars', 'Print envvars takeltau configuration'
+    long_desc <<-LONGDESC.gsub("\n", "\x5")
+    Print envvars takeltau configuration
+    This command will print the configuration
+    read from environment variables
+    LONGDESC
+    # Print envvars takeltau configuration.
+    def envvars
+      config_envvars_yaml = hash_to_yaml(config.envvars)
+      exit false if config_envvars_yaml == false
+      say config_envvars_yaml
+      true
+    end
+
+    #
     # config active
     #
     desc 'active', 'Print active takeltau configuration'

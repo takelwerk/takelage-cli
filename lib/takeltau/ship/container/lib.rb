@@ -6,8 +6,6 @@ module ShipContainerLib
 
   # Run nonprivileged docker command
   def _ship_container_lib_docker_nonprivileged(command)
-    return false unless docker_check_daemon 'cmd_ship_docker'
-
     cmd_docker_run_command = format(
       config.active['cmd_ship_project_start_docker_run_nonprivileged'],
       ship_docker: config.active['cmd_ship_docker'],
@@ -21,8 +19,6 @@ module ShipContainerLib
   # rubocop:disable Metrics/AbcSize
   # rubocop:disable Metrics/MethodLength
   def _ship_container_lib_docker_privileged(ports, command)
-    return false unless docker_check_daemon 'cmd_ship_docker'
-
     ship_data_dir = config.active['ship_data_dir']
     ship_env = config.active['ship_env']
     ports = _ship_container_lib_publish(ports)
@@ -45,8 +41,6 @@ module ShipContainerLib
 
   # Run a docker command in a takelship container
   def _ship_container_lib_docker(command, tty = '--tty')
-    return false unless docker_check_daemon 'cmd_ship_docker'
-
     cmd_docker_run_command = format(
       config.active['cmd_ship_container_docker'],
       ship_docker: config.active['cmd_ship_docker'],
@@ -55,20 +49,6 @@ module ShipContainerLib
       command: command
     )
     run_and_exit cmd_docker_run_command
-  end
-
-  # Run takelship docker stop command
-  def _ship_container_lib_docker_stop
-    return false unless docker_check_daemon 'cmd_ship_docker'
-
-    return false unless ship_container_check_existing
-
-    cmd_docker_stop_command = format(
-      config.active['cmd_ship_project_start_docker_stop'],
-      ship_docker: config.active['cmd_ship_docker'],
-      ship_hostname: _ship_container_lib_ship_hostname
-    )
-    run cmd_docker_stop_command
   end
 
   # Return takelship image
@@ -132,5 +112,16 @@ module ShipContainerLib
     )
 
     run cmd_get_mounted_dir
+  end
+
+  # Remove takelship container
+  def _ship_container_lib_remove_container(container)
+    cmd_docker_remove_container = format(
+      config.active['cmd_docker_container_stop_container'],
+      docker: config.active['cmd_docker'],
+      container: container
+    )
+
+    run cmd_docker_remove_container
   end
 end

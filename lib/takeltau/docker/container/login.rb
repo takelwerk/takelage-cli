@@ -6,8 +6,6 @@ module DockerContainerLogin
   def docker_container_login
     log.debug 'Logging in to docker container'
 
-    return false unless docker_check_daemon
-
     if _docker_container_lib_check_matrjoschka
       log.error 'You cannot log in to takelage from within takelage'
       return false
