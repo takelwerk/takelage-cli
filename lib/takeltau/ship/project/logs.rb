@@ -17,7 +17,7 @@ module ShipProjectLogs
 
   private
 
-  def _ship_project_logs_follow_logs project
+  def _ship_project_logs_follow_logs(project)
     cmd_follow_logs = format(
       config.active['cmd_ship_project_follow_logs'],
       project: project
