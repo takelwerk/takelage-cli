@@ -9,11 +9,7 @@ module ShipProjectStart
     return false if ship_container_check_existing
 
     takelship = _ship_info_lib_get_takelshipinfo
-
-    return false unless takelship.key? 'default_project'
-
-    project = config.active['ship_default_project'] if project == 'default'
-    project = takelship['default_project'] if project == 'default'
+    project = _ship_info_lib_get_project(project, takelship)
 
     return false unless _ship_info_lib_valid_project? takelship, project
 

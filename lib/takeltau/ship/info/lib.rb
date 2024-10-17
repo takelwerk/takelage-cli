@@ -33,6 +33,14 @@ module ShipInfoLib
     _parse_yaml _ship_container_lib_docker_nonprivileged(command) || {}
   end
 
+  def _ship_info_lib_get_project(project, takelship)
+    return '' unless takelship.key? 'default_project'
+
+    project = config.active['ship_default_project'] if project == 'default'
+    project = takelship['default_project'] if project == 'default'
+    project
+  end
+
   def _ship_info_lib_valid_project?(takelship, project)
     valid_project = false
     takelship_projects = takelship['projects']

@@ -38,6 +38,12 @@ module Takeltau
       Takeltau::ShipContainer.new.list
     end
 
+    desc 'logs [PROJECT]', 'Alias for tau ship project logs'
+    # ship logs: {Takeltau::ShipProject#logs}
+    def logs(project = 'default')
+      Takeltau::ShipProject.new.logs(project)
+    end
+
     desc 'ls', 'Alias for tau ship container list'
     # ship list: {Takeltau::ShipContainer#list}
     def ls

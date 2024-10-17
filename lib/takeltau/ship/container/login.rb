@@ -7,6 +7,6 @@ module ShipContainerLogin
     return false unless ship_container_check_existing
 
     command_after_login = config.active['cmd_ship_container_login']
-    _ship_container_lib_docker command_after_login, '--tty'
+    _ship_container_lib_docker_exec command_after_login, '--tty'
   end
 end

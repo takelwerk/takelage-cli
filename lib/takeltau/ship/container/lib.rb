@@ -40,7 +40,7 @@ module ShipContainerLib
   # rubocop:enable Metrics/AbcSize
 
   # Run a docker command in a takelship container
-  def _ship_container_lib_docker(command, tty = '--tty')
+  def _ship_container_lib_docker_exec(command, tty = '--tty')
     cmd_docker_run_command = format(
       config.active['cmd_ship_container_docker'],
       ship_docker: config.active['cmd_ship_docker'],
