@@ -112,22 +112,31 @@ module SystemModule
   private
 
   # Check if command is available
+  # rubocop:disable Metrics/MethodLength
   def _command_available?(command)
-    digest = Digest::SHA256.bubblebabble command
-    command_hash = digest[0..4]
-    return true if instance_variable_get("@command_available_#{command_hash}")
+    return true if _command already_checked command
 
     log.debug "Check if the command \"#{command}\" is available"
     begin
       status = try command
       return false unless status.exitstatus.zero?
-    rescue Errno::ENOENT => error
-      log.debug "The command failed with an error."
-      log.debug "Class of error: #{error.class}"
-      log.debug "Error message: #{error.message}"
+    rescue Errno::ENOENT => e
+      log.debug 'The command failed with an error.'
+      log.debug "Class of error: #{e.class}"
+      log.debug "Error message: #{e.message}"
       return false
     end
     true
+  end
+  # rubocop:enable Metrics/MethodLength
+
+  # Check if command has already been checked
+  def _command_already_checked(command)
+    digest = Digest::SHA256.bubblebabble command
+    command_hash = digest[0..4]
+    return true if instance_variable_get("@command_available_#{command_hash}")
+
+    false
   end
 
   # Command is available
