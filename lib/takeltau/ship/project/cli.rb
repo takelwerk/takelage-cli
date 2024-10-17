@@ -13,6 +13,7 @@ module Takeltau
     include ShipContainerStop
     include ShipInfoLib
     include ShipProjectList
+    include ShipProjectLogs
     include ShipProjectStart
 
     #
@@ -20,7 +21,7 @@ module Takeltau
     #
     desc 'list', 'List projects'
     long_desc <<-LONGDESC.gsub("\n", "\x5")
-      List projects
+    List projects
     LONGDESC
     # List projects.
     def list
@@ -28,11 +29,23 @@ module Takeltau
     end
 
     #
+    # ship container logs
+    #
+    desc 'logs [PROJECT]', 'Follow logs of project [PROJECT]'
+    long_desc <<-LONGDESC.gsub("\n", "\x5")
+    Follow logs of project [PROJECT]
+    LONGDESC
+    # logs projects.
+    def logs(project = 'default')
+      ship_project_logs project
+    end
+
+    #
     # ship container start
     #
     desc 'start [PROJECT]', 'Start project [PROJECT] in a takelship container'
     long_desc <<-LONGDESC.gsub("\n", "\x5")
-      Start project [PROJECT] in a takelship container
+    Start project [PROJECT] in a takelship container
     LONGDESC
     # Run command in docker container.
     def start(project = 'default')
@@ -44,7 +57,7 @@ module Takeltau
     #
     desc 'stop', 'Stop a takelship container'
     long_desc <<-LONGDESC.gsub("\n", "\x5")
-      Stop a takelship container
+    Stop a takelship container
     LONGDESC
     # Stop a takelship container.
     def stop
