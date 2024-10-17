@@ -114,7 +114,7 @@ module SystemModule
   # Check if command is available
   # rubocop:disable Metrics/MethodLength
   def _command_available?(command)
-    return true if _command already_checked command
+    return true if _command_already_checked command
 
     log.debug "Check if the command \"#{command}\" is available"
     begin
