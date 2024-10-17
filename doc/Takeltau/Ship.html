@@ -137,6 +137,30 @@
         <li class="public ">
   <span class="summary_signature">
     
+      <a href="#command-instance_method" title="#command (instance method)">#<strong>command</strong>(*args)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>ship command: <span class='object_link'><a href="ShipContainer.html#command-instance_method" title="Takeltau::ShipContainer#command (method)">Takeltau::ShipContainer#command</a></span>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#initialize-instance_method" title="#initialize (instance method)">#<strong>initialize</strong>(args = [], local_options = {}, configuration = {})  &#x21d2; Ship </a>
     
 
@@ -331,6 +355,30 @@
         <li class="public ">
   <span class="summary_signature">
     
+      <a href="#sudo-instance_method" title="#sudo (instance method)">#<strong>sudo</strong>(*args)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>ship sudo: <span class='object_link'><a href="ShipContainer.html#sudo-instance_method" title="Takeltau::ShipContainer#sudo (method)">Takeltau::ShipContainer#sudo</a></span>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#update-instance_method" title="#update (instance method)">#<strong>update</strong>  &#x21d2; Object </a>
     
 
@@ -471,7 +519,48 @@
 
     
       <div class="method_details first">
-  <h3 class="signature first" id="list-instance_method">
+  <h3 class="signature first" id="command-instance_method">
+  
+    #<strong>command</strong>(*args)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>ship command: <span class='object_link'><a href="ShipContainer.html#command-instance_method" title="Takeltau::ShipContainer#command (method)">Takeltau::ShipContainer#command</a></span></p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+67
+68
+69</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/takeltau/ship/cli.rb', line 67</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_command'>command</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
+  <span class='const'><span class='object_link'><a href="../Takeltau.html" title="Takeltau (module)">Takeltau</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="ShipContainer.html" title="Takeltau::ShipContainer (class)">ShipContainer</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='period'>.</span><span class='id identifier rubyid_command'><span class='object_link'><a href="ShipContainer.html#command-instance_method" title="Takeltau::ShipContainer#command (method)">command</a></span></span> <span class='id identifier rubyid_args'>args</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="list-instance_method">
   
     #<strong>list</strong>  &#x21d2; <tt>Object</tt> 
   
@@ -701,12 +790,12 @@
       <pre class="lines">
 
 
-67
-68
-69</pre>
+79
+80
+81</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/takeltau/ship/cli.rb', line 67</span>
+      <pre class="code"><span class="info file"># File 'lib/takeltau/ship/cli.rb', line 79</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_start'>start</span><span class='lparen'>(</span><span class='id identifier rubyid_project'>project</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>default</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
   <span class='const'><span class='object_link'><a href="../Takeltau.html" title="Takeltau (module)">Takeltau</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="ShipProject.html" title="Takeltau::ShipProject (class)">ShipProject</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='period'>.</span><span class='id identifier rubyid_start'><span class='object_link'><a href="ShipProject.html#start-instance_method" title="Takeltau::ShipProject#start (method)">start</a></span></span> <span class='id identifier rubyid_project'>project</span>
@@ -742,6 +831,47 @@
       <pre class="lines">
 
 
+85
+86
+87</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/takeltau/ship/cli.rb', line 85</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_stop'>stop</span>
+  <span class='const'><span class='object_link'><a href="../Takeltau.html" title="Takeltau (module)">Takeltau</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="ShipProject.html" title="Takeltau::ShipProject (class)">ShipProject</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='period'>.</span><span class='id identifier rubyid_stop'><span class='object_link'><a href="ShipProject.html#stop-instance_method" title="Takeltau::ShipProject#stop (method)">stop</a></span></span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="sudo-instance_method">
+  
+    #<strong>sudo</strong>(*args)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>ship sudo: <span class='object_link'><a href="ShipContainer.html#sudo-instance_method" title="Takeltau::ShipContainer#sudo (method)">Takeltau::ShipContainer#sudo</a></span></p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
 73
 74
 75</pre>
@@ -749,8 +879,8 @@
     <td>
       <pre class="code"><span class="info file"># File 'lib/takeltau/ship/cli.rb', line 73</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_stop'>stop</span>
-  <span class='const'><span class='object_link'><a href="../Takeltau.html" title="Takeltau (module)">Takeltau</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="ShipProject.html" title="Takeltau::ShipProject (class)">ShipProject</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='period'>.</span><span class='id identifier rubyid_stop'><span class='object_link'><a href="ShipProject.html#stop-instance_method" title="Takeltau::ShipProject#stop (method)">stop</a></span></span>
+<span class='kw'>def</span> <span class='id identifier rubyid_sudo'>sudo</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
+  <span class='const'><span class='object_link'><a href="../Takeltau.html" title="Takeltau (module)">Takeltau</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="ShipContainer.html" title="Takeltau::ShipContainer (class)">ShipContainer</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='period'>.</span><span class='id identifier rubyid_sudo'><span class='object_link'><a href="ShipContainer.html#sudo-instance_method" title="Takeltau::ShipContainer#sudo (method)">sudo</a></span></span> <span class='id identifier rubyid_args'>args</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -783,12 +913,12 @@
       <pre class="lines">
 
 
-79
-80
-81</pre>
+91
+92
+93</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/takeltau/ship/cli.rb', line 79</span>
+      <pre class="code"><span class="info file"># File 'lib/takeltau/ship/cli.rb', line 91</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_update'>update</span>
   <span class='const'><span class='object_link'><a href="../Takeltau.html" title="Takeltau (module)">Takeltau</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="ShipContainer.html" title="Takeltau::ShipContainer (class)">ShipContainer</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='period'>.</span><span class='id identifier rubyid_update'><span class='object_link'><a href="ShipContainer.html#update-instance_method" title="Takeltau::ShipContainer#update (method)">update</a></span></span>
