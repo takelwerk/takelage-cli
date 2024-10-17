@@ -11,6 +11,7 @@ Feature: I can run a podman command in a takelship container
     Given a file named "~/.takelage.yml" with:
       """
       ---
+      ship_container_check_matrjoschka: false
       ship_user: host.docker.internal:5005/takelage-mock
       ship_repo: takelship-mock
       cmd_ship_container_docker: echo banana
@@ -29,6 +30,6 @@ Feature: I can run a podman command in a takelship container
       """
 
   Scenario: Run a podman command in a takelship container
-    Given I successfully run `env -u TAKELAGE_PROJECT_BASE_DIR unbuffer ship-cli project start`
-    When I successfully run `env -u TAKELAGE_PROJECT_BASE_DIR unbuffer ship-cli container podman ps`
+    Given I successfully run `unbuffer ship-cli project start`
+    When I successfully run `unbuffer ship-cli container podman ps`
     Then the output should contain "banana"

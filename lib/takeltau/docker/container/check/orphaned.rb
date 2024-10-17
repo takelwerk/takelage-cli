@@ -7,8 +7,6 @@ module DockerContainerCheckOrphaned
   def docker_container_check_orphaned(container)
     log.debug "Check if container \"#{container}\" is orphaned"
 
-    return false unless docker_check_daemon
-
     stdout_str = run _docker_container_cmd_check_orphaned container
 
     if stdout_str.include? '/loginpoint.py'

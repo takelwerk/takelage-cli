@@ -10,6 +10,7 @@ module Takeltau
     include DockerContainerLib
     include ShipContainerCheckExisting
     include ShipContainerLib
+    include ShipContainerStop
     include ShipInfoLib
     include ShipProjectList
     include ShipProjectStart
@@ -47,7 +48,7 @@ module Takeltau
     LONGDESC
     # Stop a takelship container.
     def stop
-      say _ship_container_lib_docker_stop
+      say ship_container_stop
     end
   end
 end

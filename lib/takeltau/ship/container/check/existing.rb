@@ -8,8 +8,6 @@ module ShipContainerCheckExisting
     ship_hostname = _ship_container_lib_ship_hostname
     log.debug "Checking if takelship \"#{ship_hostname}\" is existing"
 
-    return false unless docker_check_daemon 'cmd_ship_docker'
-
     stdout_str = run _ship_container_cmd_check_existing ship_hostname
 
     if stdout_str.to_s.chomp.empty?
@@ -26,9 +24,9 @@ module ShipContainerCheckExisting
   # Format command to check if ship container exists.
   def _ship_container_cmd_check_existing(ship_hostname)
     format(
-      config.active['cmd_ship_container_check_existing_docker_ps'],
-      ship_docker: config.active['cmd_ship_docker'],
-      ship_name: ship_hostname
+      config.active['cmd_docker_container_check_existing_docker_ps'],
+      docker: config.active['cmd_ship_docker'],
+      container: ship_hostname
     )
   end
 end

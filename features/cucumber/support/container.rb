@@ -14,39 +14,37 @@ end
 private
 
 def _stop_mock_container_cucumber
-  cmd_stop_mock_container_cucumber =
-    'tau-cli docker container check existing takelage-mock_cucumber_xinot-syzof && ' \
-      'docker stop takelage-mock_cucumber_xinot-syzof; ' \
-      'tau-cli docker container check network takelage-mock_cucumber_xinot-syzof && ' \
-      'docker network rm takelage-mock_cucumber_xinot-syzof ' \
-      '>/dev/null 2>&1'
-  system cmd_stop_mock_container_cucumber
+  _stop_container 'takelage-mock_cucumber_xinot-syzof'
+  _stop_network 'takelage-mock_cucumber_xinot-syzof'
 end
 
 def _stop_mock_container_finite
-  cmd_stop_mock_container_finite =
-    'tau-cli docker container check existing takelage-mock_finite_xucih-zavis && ' \
-      'docker stop takelage-mock_finite_xucih-zavis; ' \
-      'tau-cli docker container check network takelage-mock_finite_xucih-zavis && ' \
-      'docker network rm takelage-mock_finite_xucih-zavis ' \
-      '>/dev/null 2>&1'
-  system cmd_stop_mock_container_finite
+  _stop_container 'takelage-mock_finite_xucih-zavis'
+  _stop_network 'takelage-mock_finite_xucih-zavis'
 end
 
 def _stop_mock_container_infinite
-  cmd_stop_mock_container_infinite =
-    'tau-cli docker container check existing takelage-mock_infinite_xesoz-nivyr && ' \
-      'docker stop takelage-mock_infinite_xesoz-nivyr; ' \
-      'tau-cli docker container check network takelage-mock_infinite_xesoz-nivyr && ' \
-      'docker network rm takelage-mock_infinite_xesoz-nivyr ' \
-      '>/dev/null 2>&1'
-  system cmd_stop_mock_container_infinite
+  _stop_container 'takelage-mock_infinite_xesoz-nivyr'
+  _stop_network 'takelage-mock_infinite_xesoz-nivyr'
 end
 
 def _stop_mock_container_takelship
-  cmd_stop_mock_container_takelship =
-    'ship-cli container check existing && ' \
-      'docker stop takelship_xeciz-vigoc; ' \
-      '>/dev/null 2>&1'
-  system cmd_stop_mock_container_takelship
+  _stop_container 'takelship_xeciz-vigoc'
+  _stop_container 'takelship_xepeb-niruc'
+end
+
+def _stop_container(container)
+  cmd_stop_container = \
+    "docker ps --filter name=^#{container}$ " \
+      '--quiet >/dev/null 2>&1 && ' \
+      "docker stop #{container} >/dev/null 2>&1"
+  system cmd_stop_container
+end
+
+def _stop_network(network)
+  cmd_stop_network = \
+    "docker network ls --filter name=^#{network}$ " \
+      '--quiet >/dev/null 2>&1 && ' \
+      "docker network rm #{network} >/dev/null 2>&1"
+  system cmd_stop_network
 end

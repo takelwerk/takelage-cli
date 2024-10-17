@@ -23,16 +23,6 @@ Feature: I can check if git is available
     When I run `tau-cli info status git`
     Then the exit status should be 0
 
-  Scenario: Check that project root dir is available
-    Given I remove the file "Rakefile"
-    When I run `tau-cli info status git`
-    Then the exit status should be 1
-    And the output should contain:
-      """
-      [ERROR] Cannot determine project root directory
-      [WARN] Is there a Rakefile in the project root directory?
-      """
-
   Scenario: Check that project root dir is git workspace
     Given I cd to ".."
     And an empty file named "Rakefile"

@@ -3,6 +3,19 @@
 module Takeltau
   # tau ship
   class Ship < SubCommandBase
+    include LoggingModule
+    include SystemModule
+    include ConfigModule
+    include DockerCheckDaemon
+
+    def initialize(args = [], local_options = {}, configuration = {})
+      # initialize thor parent class
+      super args, local_options, configuration
+
+      log.debug 'Check docker dameon for ship subcommand'
+      exit false unless docker_check_daemon 'cmd_ship_docker', 'cmd_ship_docker_check'
+    end
+
     desc 'completion [COMMAND] ', 'Print shell completion code'
     subcommand 'completion', ShipCompletion
 
@@ -18,12 +31,6 @@ module Takeltau
     #
     # Top-level ship commands
     #
-
-    desc 'config', 'Alias for tau self config active'
-    # tau config: {Takeltau::SelfConfig#active}
-    def config
-      Takeltau::SelfConfig.new.active
-    end
 
     desc 'list', 'Alias for tau ship container list'
     # ship list: {Takeltau::ShipContainer#list}

@@ -7,13 +7,11 @@ module MutagenCheckDaemon
   # rubocop:disable Metrics/MethodLength
   # rubocop:disable Metrics/AbcSize
   def mutagen_check_daemon
-    return true if @mutagen_daemon_available
-
     log.debug 'Check mutagen status'
 
-    return false unless command_available_else_error? config.active['cmd_mutagen']
+    return false unless command_available_else_error? config.active['cmd_mutagen_check']
 
-    # are we inside a takelage container?
+    # Are we inside a takelage container?
     unless _docker_container_lib_check_matrjoschka
       unless _file_exists? config.active['mutagen_socket_path_mutagen_host']
         log.error 'The mutagen socket path on the host is not available'
@@ -21,7 +19,6 @@ module MutagenCheckDaemon
       end
 
       log.debug 'The mutagen daemon is available'
-      @mutagen_daemon_available = true
       return true
     end
 
@@ -36,7 +33,6 @@ module MutagenCheckDaemon
     end
 
     log.debug 'The mutagen daemon is available'
-    @mutagen_daemon_available = true
     true
   end
   # rubocop:enable Metrics/AbcSize

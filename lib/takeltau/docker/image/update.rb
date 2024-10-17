@@ -4,8 +4,6 @@
 module DockerImageUpdate
   # Backend method for docker image update.
   def docker_image_update
-    return false unless docker_check_daemon
-
     cmd_docker_pull = _docker_image_update_cmd_docker_pull
 
     cmd_docker_remove_dangling = format(

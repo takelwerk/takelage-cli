@@ -2,7 +2,7 @@
 
 # tau project module
 module ProjectModule
-  # tau config class.
+  # tau project class.
   class TakeltauProject
     include Singleton
     include LoggingModule

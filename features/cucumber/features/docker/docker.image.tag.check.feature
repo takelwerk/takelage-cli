@@ -4,6 +4,7 @@
 @docker.image.tag.check
 
 @before_build_mock_images
+@after_stop_mock_container
 
 Feature: I can check a docker tag
 

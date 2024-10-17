@@ -13,7 +13,7 @@ Feature: I can initialize a packer project for docker images
     And I get the active takeltau config
     And a directory named "project"
     And I cd to "project"
-    When I run `tau-cli init packer docker banana`
+    When I successfully run `tau-cli init packer docker banana`
     Then the exit status should be 0
     And the output should contain:
       """

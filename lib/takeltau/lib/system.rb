@@ -18,17 +18,6 @@ module SystemModule
     command_available command
   end
 
-  # Check if a command is available else log warning message
-  # @return [Boolean] is the command available?
-  def command_available_else_warn?(command)
-    unless _command_available? command
-      log.warn "The command \"#{command}\" is not available"
-      return false
-    end
-
-    command_available command
-  end
-
   # Convert hash to yaml.
   # @return [String] yaml of hash
   def hash_to_yaml(hash)
@@ -86,7 +75,7 @@ module SystemModule
   # @return [[String, String, Integer]] array of
   # stdout, stderr, exitstatus of command
   def run_and_capture(command)
-    log.debug "Running amd capturing command \"#{command}\""
+    log.debug "Running and capturing command \"#{command}\""
     stdout_str, stderr_str, status = Open3.capture3 command
     log.debug "Command \"#{command}\" has stdout:\n\"\"\"\n#{stdout_str}\"\"\""
     log.debug "Command \"#{command}\" has stderr:\n\"\"\"\n#{stderr_str}\"\"\""
@@ -124,19 +113,29 @@ module SystemModule
 
   # Check if command is available
   def _command_available?(command)
-    return true if instance_variable_get("@command_available_#{command}")
+    digest = Digest::SHA256.bubblebabble command
+    command_hash = digest[0..4]
+    return true if instance_variable_get("@command_available_#{command_hash}")
 
     log.debug "Check if the command \"#{command}\" is available"
-    status = try "#{command} version"
-    return false unless status.exitstatus.zero?
-
+    begin
+      status = try command
+      return false unless status.exitstatus.zero?
+    rescue Errno::ENOENT => error
+      log.debug "The command failed with an error."
+      log.debug "Class of error: #{error.class}"
+      log.debug "Error message: #{error.message}"
+      return false
+    end
     true
   end
 
   # Command is available
   def command_available(command)
     log.debug "The command \"#{command}\" is available"
-    instance_variable_set("@command_available_#{command}", true)
+    digest = Digest::SHA256.bubblebabble command
+    command_hash = digest[0..4]
+    instance_variable_set("@command_available_#{command_hash}", true)
   end
 
   # Check if file exists.

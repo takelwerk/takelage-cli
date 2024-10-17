@@ -4,6 +4,7 @@
 @docker.container.check.network
 
 @before_build_mock_images
+@after_stop_mock_container
 
 Feature: I can check if a docker network is existing
 

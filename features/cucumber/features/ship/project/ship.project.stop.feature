@@ -11,6 +11,7 @@ Feature: I can stop a takelship project
     Given a file named "~/.takelage.yml" with:
       """
       ---
+      ship_container_check_matrjoschka: false
       ship_user: host.docker.internal:5005/takelage-mock
       ship_repo: takelship-mock
       """
@@ -28,7 +29,7 @@ Feature: I can stop a takelship project
       """
 
   Scenario: Start the default project
-    Given I successfully run `env -u TAKELAGE_PROJECT_BASE_DIR unbuffer ship-cli project start`
+    Given I successfully run `unbuffer ship-cli project start`
     And the docker container "takelship_xeciz-vigoc" exists
-    When I successfully run `env -u TAKELAGE_PROJECT_BASE_DIR unbuffer ship-cli project stop`
+    When I successfully run `unbuffer ship-cli project stop`
     Then the docker container "takelship_xeciz-vigoc" doesn't exist
