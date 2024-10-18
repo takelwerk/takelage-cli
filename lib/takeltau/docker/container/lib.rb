@@ -182,7 +182,7 @@ module DockerContainerLib
   end
 
   def _docker_container_lib_homify_dir(dir)
-    dir.strip.sub! Dir.home, '~'
+    dir.strip.sub Dir.home, '~'
   end
 
   # Get the mounted takelage directory
