@@ -168,7 +168,6 @@ module ConfigModule
   def _get_workdir_root_dir(workdir)
     return '' unless Dir.exist? File.expand_path workdir
 
-    p '************'
     workdir
   end
 
