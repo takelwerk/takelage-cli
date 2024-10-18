@@ -14,7 +14,7 @@ module InitTakelageRake
     exit_code = _init_takelage_rake_create_project files
 
     # reinitialize config with newly created files
-    initialize_config
+    initialize_config ''
 
     return false unless _init_lib_hg_clone
 
