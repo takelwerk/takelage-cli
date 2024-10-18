@@ -165,19 +165,22 @@ which can be inspected with
 *tau [self config active](features/cucumber/features/self/self.config.active.feature)*
 or *tau config*.
 
-| Filename | Precedence | Description                                                                                                            |
-| -------- | ---------- |------------------------------------------------------------------------------------------------------------------------|
-| *default.yml* | lowest | Shipped with *takelage-cli*. Sets defaults where applicable.                                                           |
-| *~/.takelage.yml* | normal | User-wide configuration file in your home directory. This is your normal custom configuration file.                    |
-| *takelage.yml* | highest | Project-specific configuration file next to your main Rakefile. Some projects need special configuration.              |
+| Filename | Precedence | Description |
+|-|-|-|
+| *default.yml* | lowest | Shipped with *takelage-cli*. Sets defaults where applicable.                                                          |
+| *~/.takelage.yml* | normal | User-wide configuration file in your home directory. This is your normal custom configuration file.                   |
+| *takelage.yml* | highest | Project-specific configuration file next to your main Rakefile. Some projects need special configuration.             |
 | TAKELAGE_TAU_CONFIG_* | ultimate | Fileless configuration through TAKELAGE_TAU_CONFIG environment variables. |
 
 The tau command line tool is directory-aware so it is important that you can set the working directory of the tau command.
 The project directory is identified by the first match:
-1. The --workdir/-w command line option.
-2. The TAKELAGE_WORKDIR environment variable.
-3. The main [Rakefile](Rakefile).
-4. The current working directory.
+
+| Method | Precedence | Description |
+|-|-|-|
+| `--workdir`/`-w` command line option | ultimate |
+| `TAKELAGE_WORKDIR` environment variable | highest |
+| Main [`Rakefile`](Rakefile) | normal |
+| Current working directory | lowest |
 
 ### Configuration Examples
 
