@@ -32,7 +32,7 @@ module Takeltau
     # Top-level ship commands
     #
 
-    desc 'command [ARGS]', 'Run a command in a takelship'
+    desc 'command [COMMAND]', 'Run a [COMMAND] in a takelship'
     long_desc <<-LONGDESC.gsub("\n", "\x5")
     Run a command in a takelship container as user podman.
     Alias for ship container command.
@@ -52,7 +52,7 @@ module Takeltau
       Takeltau::ShipContainer.new.list
     end
 
-    desc 'logs [PROJECT]', 'Follow logs of takelship project [PROJECT]'
+    desc 'logs [PROJECT]', 'Follow logs of takelship [PROJECT]'
     long_desc <<-LONGDESC.gsub("\n", "\x5")
     Follow logs of project [PROJECT] in a takelship project.
     Alias for ship project logs.
@@ -82,7 +82,7 @@ module Takeltau
       Takeltau::ShipContainer.new.login
     end
 
-    desc 'podman [ARGS]', 'Run a podman command in a takelship'
+    desc 'podman [COMMAND]', 'Run a podman [COMMAND] in a takelship'
     long_desc <<-LONGDESC.gsub("\n", "\x5")
     Run a podman command as user podman in a takelship container.
     Alias for ship container podman.
@@ -92,7 +92,7 @@ module Takeltau
       Takeltau::ShipContainer.new.podman args
     end
 
-    desc 'sudo [ARGS]', 'Run a sudo command in a takelship'
+    desc 'sudo [COMMAND]', 'Run a sudo [COMMAND] in a takelship'
     long_desc <<-LONGDESC.gsub("\n", "\x5")
     Run a command as root in a takelship container.
     Alias for ship container sudo.
@@ -102,7 +102,7 @@ module Takeltau
       Takeltau::ShipContainer.new.sudo args
     end
 
-    desc 'start [PROJECT]', 'Start takelship project [PROJECT]'
+    desc 'start [PROJECT]', 'Start takelship [PROJECT]'
     long_desc <<-LONGDESC.gsub("\n", "\x5")
     Start a takelship and run project [PROJECT] in it.
     Alias for ship project start.

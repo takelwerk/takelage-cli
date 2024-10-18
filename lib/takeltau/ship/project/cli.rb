@@ -30,7 +30,7 @@ module Takeltau
     #
     # ship container logs
     #
-    desc 'logs [PROJECT]', 'Follow logs of project [PROJECT]'
+    desc 'logs [PROJECT]', 'Follow logs of [PROJECT]'
     long_desc <<-LONGDESC.gsub("\n", "\x5")
     Follow logs of project [PROJECT] in a takelship project.
     LONGDESC
@@ -41,7 +41,7 @@ module Takeltau
     #
     # ship container start
     #
-    desc 'start [PROJECT]', 'Start takelship project [PROJECT]'
+    desc 'start [PROJECT]', 'Start takelship [PROJECT]'
     long_desc <<-LONGDESC.gsub("\n", "\x5")
     Start a takelship and run project [PROJECT] in it.
     LONGDESC
