@@ -19,11 +19,10 @@ module Takeltau
     #
     # ship container list
     #
-    desc 'list', 'List projects'
+    desc 'list', 'List takelship projects'
     long_desc <<-LONGDESC.gsub("\n", "\x5")
-    List projects
+    List all available takelship projects.
     LONGDESC
-    # List projects.
     def list
       ship_project_list
     end
@@ -33,9 +32,8 @@ module Takeltau
     #
     desc 'logs [PROJECT]', 'Follow logs of project [PROJECT]'
     long_desc <<-LONGDESC.gsub("\n", "\x5")
-    Follow logs of project [PROJECT]
+    Follow logs of project [PROJECT] in a takelship project.
     LONGDESC
-    # logs projects.
     def logs(project = 'default')
       ship_project_logs project
     end
@@ -43,11 +41,10 @@ module Takeltau
     #
     # ship container start
     #
-    desc 'start [PROJECT]', 'Start project [PROJECT] in a takelship container'
+    desc 'start [PROJECT]', 'Start takelship project [PROJECT]'
     long_desc <<-LONGDESC.gsub("\n", "\x5")
-    Start project [PROJECT] in a takelship container
+    Start a takelship and run project [PROJECT] in it.
     LONGDESC
-    # Run command in docker container.
     def start(project = 'default')
       ship_project_start project
     end
@@ -55,11 +52,10 @@ module Takeltau
     #
     # ship project stop
     #
-    desc 'stop', 'Stop a takelship container'
+    desc 'stop', 'Stop a takelship project'
     long_desc <<-LONGDESC.gsub("\n", "\x5")
-    Stop a takelship container
+    Stop a takelship container running a project.
     LONGDESC
-    # Stop a takelship container.
     def stop
       say ship_container_stop
     end

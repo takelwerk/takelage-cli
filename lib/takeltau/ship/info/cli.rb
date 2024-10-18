@@ -10,27 +10,30 @@ module Takeltau
     include ShipContainerLib
     include ShipInfoLib
 
-    #
-    # ship info json
-    #
-    desc 'json', 'Print json takelship info'
+    desc 'takelconfig', 'Print takelage config'
     long_desc <<-LONGDESC.gsub("\n", "\x5")
-      Print json takelship info
+    Print takelage config.
+    The configuration values can be overwritten by a
+    1. ~/.takelage.yml in your home directory
+    2. takelage.yml next to a takelship directory
+    3. environment variables like TAKELAGE_TAU_CONFIG_SHIP_NAME
+    Alias for tau self config.
     LONGDESC
-    # Print json takelship info.
-    def json
-      say _ship_info_lib_get_takelshipinfo.to_json
+    # ship takelconfig: {Takeltau::SelfConfig#active}
+    def takelconfig
+      Takeltau::SelfConfig.new.active
     end
 
     #
-    # ship info yaml
+    # ship info takelship
     #
-    desc 'yaml', 'Print yaml takelship info'
+    desc 'takelship', 'Print takelship info'
     long_desc <<-LONGDESC.gsub("\n", "\x5")
-      Print yaml takelship info
+    Print takelship info.
+    This info is read from a takelship.yml file in a takelship directory.
+    If no such file exists the info is gathered from a takelship.
     LONGDESC
-    # Print yaml takelship info.
-    def yaml
+    def takelship
       say _ship_info_lib_get_takelshipinfo.to_yaml
     end
   end

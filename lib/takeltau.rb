@@ -127,6 +127,10 @@ module Takeltau
            aliases: 'l',
            default: 'INFO',
            desc: 'One of: FATAL, ERROR, WARN, INFO, DEBUG'
+    option :workdir,
+           aliases: 'w',
+           default: '',
+           desc: 'Working directory'
     # Initialize takelage cli.
     def initialize(args = [], local_options = {}, configuration = {})
       # Initialize thor parent class
@@ -136,7 +140,7 @@ module Takeltau
       initialize_logging options[:loglevel].to_s.upcase
 
       # Initialize global singleton config
-      initialize_config
+      initialize_config options[:workdir]
 
       # Initialize global singleton project
       initialize_project

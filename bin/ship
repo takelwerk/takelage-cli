@@ -1,4 +1,4 @@
 #!/usr/bin/env ruby
 # frozen_string_literal: true
 
-system "TAKELAGE_TAU_SHIP=#{$PROGRAM_NAME} tau ship #{ARGV.join(' ')}"
+system "TAKELAGE_TAU_TAU=#{$PROGRAM_NAME} TAKELAGE_TAU_SHIP=true tau ship #{ARGV.join(' ')}"

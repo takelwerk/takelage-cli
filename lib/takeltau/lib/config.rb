@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 # tau config module
+# rubocop:disable Metrics/ModuleLength
 module ConfigModule
   # tau config class.
   class TakeltauConfig
@@ -21,8 +22,8 @@ module ConfigModule
 
   # Initialize config
   # rubocop:disable Metrics/AbcSize
-  def initialize_config
-    project_root_dir = _get_project_root_dir
+  def initialize_config(workdir)
+    project_root_dir = _get_project_root_dir workdir
 
     log.debug "takelage version: #{Takeltau::VERSION}"
     log.debug "Current working directory: #{Dir.pwd}"
@@ -137,10 +138,18 @@ module ConfigModule
   # Get project root directory.
   # @return [String] project root directory
   # rubocop:disable Metrics/MethodLength
-  def _get_project_root_dir
-    if ENV.key? 'TAKELAGE_TAU_DIR'
-      log.debug "TAKELTAU_TAU_DIR is set to \"#{ENV['TAKELAGE_TAU_DIR']}\""
-      return ENV['TAKELAGE_TAU_DIR']
+  # rubocop:disable Metrics/AbcSize
+  def _get_project_root_dir(workdir)
+    tau_workdir_root_dir = _get_workdir_root_dir workdir
+    unless tau_workdir_root_dir.empty?
+      log.debug "CLI option workdir is set to #{tau_workdir_root_dir}"
+      return tau_workdir_root_dir
+    end
+
+    if ENV.key? 'TAKELAGE_WORKDIR'
+      tau_envvar_root_dir = ENV['TAKELAGE_WORKDIR']
+      log.debug "TAKELAGE_WORKDIR is set to \"#{tau_envvar_root_dir}\""
+      return File.expand_path tau_envvar_root_dir
     end
 
     tau_takelage_root_dir = _get_takelage_root_dir
@@ -152,7 +161,16 @@ module ConfigModule
     log.debug "Setting root dir to current working dir \"#{Dir.pwd}\""
     Dir.pwd
   end
+  # rubocop:enable Metrics/AbcSize
   # rubocop:enable Metrics/MethodLength
+
+  # Return a command line workdir
+  def _get_workdir_root_dir(workdir)
+    return '' unless Dir.exist? File.expand_path workdir
+
+    p '************'
+    workdir
+  end
 
   # Return a takelage root dir
   def _get_takelage_root_dir
@@ -160,3 +178,4 @@ module ConfigModule
     path_rakefile
   end
 end
+# rubocop:enable Metrics/ModuleLength

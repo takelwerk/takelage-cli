@@ -181,6 +181,10 @@ module DockerContainerLib
     run cmd_docker_stop
   end
 
+  def _docker_container_lib_homify_dir(dir)
+    dir.strip.sub! Dir.home, '~'
+  end
+
   # Get the mounted takelage directory
   def _docker_container_lib_get_mounted_dir(name, destination, docker)
     log.debug 'Getting mounted directory from ' \
@@ -193,7 +197,7 @@ module DockerContainerLib
       dest_dir: "\"#{destination}\""
     )
 
-    (run cmd_get_mounted_dir).strip
+    _docker_container_lib_homify_dir run cmd_get_mounted_dir
   end
 end
 # rubocop:enable Style/IfUnlessModifier

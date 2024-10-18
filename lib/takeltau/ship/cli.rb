@@ -32,61 +32,101 @@ module Takeltau
     # Top-level ship commands
     #
 
-    desc 'list', 'Alias for tau ship container list'
-    # ship list: {Takeltau::ShipContainer#list}
-    def list
-      Takeltau::ShipContainer.new.list
-    end
-
-    desc 'logs [PROJECT]', 'Alias for tau ship project logs'
-    # ship logs: {Takeltau::ShipProject#logs}
-    def logs(project = 'default')
-      Takeltau::ShipProject.new.logs(project)
-    end
-
-    desc 'ls', 'Alias for tau ship container list'
-    # ship list: {Takeltau::ShipContainer#list}
-    def ls
-      Takeltau::ShipContainer.new.list
-    end
-
-    desc 'login', 'Alias for tau ship container login'
-    # ship login: {Takeltau::ShipContainer#login}
-    def login
-      Takeltau::ShipContainer.new.login
-    end
-
-    desc 'podman [ARGS]', 'Alias for tau ship container podman'
-    # ship podman: {Takeltau::ShipContainer#podman}
-    def podman(*args)
-      Takeltau::ShipContainer.new.podman args
-    end
-
-    desc 'command [ARGS]', 'Alias for tau ship container command'
+    desc 'command [ARGS]', 'Run a command in a takelship'
+    long_desc <<-LONGDESC.gsub("\n", "\x5")
+    Run a command in a takelship container as user podman.
+    Alias for ship container command.
+    LONGDESC
     # ship command: {Takeltau::ShipContainer#command}
     def command(*args)
       Takeltau::ShipContainer.new.command args
     end
 
-    desc 'sudo [ARGS]', 'Alias for tau ship container sudo'
+    desc 'list', 'List takelships'
+    long_desc <<-LONGDESC.gsub("\n", "\x5")
+    List takelship containers.
+    Alias for ship container list.
+    LONGDESC
+    # ship list: {Takeltau::ShipContainer#list}
+    def list
+      Takeltau::ShipContainer.new.list
+    end
+
+    desc 'logs [PROJECT]', 'Follow logs of takelship project [PROJECT]'
+    long_desc <<-LONGDESC.gsub("\n", "\x5")
+    Follow logs of project [PROJECT] in a takelship project.
+    Alias for ship project logs.
+    LONGDESC
+    # ship logs: {Takeltau::ShipProject#logs}
+    def logs(project = 'default')
+      Takeltau::ShipProject.new.logs(project)
+    end
+
+    desc 'ls', 'List takelships'
+    long_desc <<-LONGDESC.gsub("\n", "\x5")
+    List takelship containers.
+    Alias for ship container list.
+    LONGDESC
+    # ship list: {Takeltau::ShipContainer#list}
+    def ls
+      Takeltau::ShipContainer.new.list
+    end
+
+    desc 'login', 'Log in to a takelship'
+    long_desc <<-LONGDESC.gsub("\n", "\x5")
+    Log in to a takelship as root.
+    Alias for ship container login.
+    LONGDESC
+    # ship login: {Takeltau::ShipContainer#login}
+    def login
+      Takeltau::ShipContainer.new.login
+    end
+
+    desc 'podman [ARGS]', 'Run a podman command in a takelship'
+    long_desc <<-LONGDESC.gsub("\n", "\x5")
+    Run a podman command as user podman in a takelship container.
+    Alias for ship container podman.
+    LONGDESC
+    # ship podman: {Takeltau::ShipContainer#podman}
+    def podman(*args)
+      Takeltau::ShipContainer.new.podman args
+    end
+
+    desc 'sudo [ARGS]', 'Run a sudo command in a takelship'
+    long_desc <<-LONGDESC.gsub("\n", "\x5")
+    Run a command as root in a takelship container.
+    Alias for ship container sudo.
+    LONGDESC
     # ship sudo: {Takeltau::ShipContainer#sudo}
     def sudo(*args)
       Takeltau::ShipContainer.new.sudo args
     end
 
-    desc 'start [PROJECT]', 'Alias for tau ship project start'
+    desc 'start [PROJECT]', 'Start takelship project [PROJECT]'
+    long_desc <<-LONGDESC.gsub("\n", "\x5")
+    Start a takelship and run project [PROJECT] in it.
+    Alias for ship project start.
+    LONGDESC
     # ship start: {Takeltau::ShipProject#start}
     def start(project = 'default')
       Takeltau::ShipProject.new.start project
     end
 
-    desc 'stop', 'Alias for tau ship project stop'
+    desc 'stop', 'Stop a takelship'
+    long_desc <<-LONGDESC.gsub("\n", "\x5")
+    Stop a takelship container.
+    Alias for ship container stop.
+    LONGDESC
     # ship stop: {Takeltau::ShipProject#stop}
     def stop
       Takeltau::ShipProject.new.stop
     end
 
-    desc 'update', 'Alias for tau ship container update'
+    desc 'update', 'Update takelship image'
+    long_desc <<-LONGDESC.gsub("\n", "\x5")
+    Update the takelship docker image.
+    Alias for ship container update.
+    LONGDESC
     # tau update: {Takeltau::ShipContainer#update}
     def update
       Takeltau::ShipContainer.new.update

@@ -19,10 +19,6 @@ module ShipCompletionBash
     completion =
       tau_completion
       .strip.split("\n")
-      .reject { |line|
-        line.include? 'options+=("--help")' or
-          line.include? 'options+=("-h")'
-      }
     completion.pop
     completion.join("\n")
   end

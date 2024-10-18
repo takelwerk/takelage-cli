@@ -19,17 +19,16 @@ module Takeltau
     include ShipContainerStop
     include ShipContainerUpdate
 
-    desc 'check [COMMAND]', 'Check takelship container'
+    desc 'check [COMMAND]', 'Check takelship containers'
     subcommand 'check', ShipContainerCheck
 
     #
     # ship container clean
     #
-    desc 'clean', 'Stop all takelship containers'
+    desc 'clean', 'Stop all takelships'
     long_desc <<-LONGDESC.gsub("\n", "\x5")
-    Stop all takelship containers
+    Stop all takelship containers.
     LONGDESC
-    # Stop all takelship containers.
     def clean
       ship_container_clean
     end
@@ -39,9 +38,8 @@ module Takeltau
     #
     desc 'command', 'Run a command in a takelship container'
     long_desc <<-LONGDESC.gsub("\n", "\x5")
-    Run a command in a takelship container
+    Run a command in a takelship container as user podman.
     LONGDESC
-    # Run a command in a takelship container.
     def command(*args)
       say ship_container_command args
     end
@@ -49,11 +47,10 @@ module Takeltau
     #
     # ship container list
     #
-    desc 'list', 'List takelship containers'
+    desc 'list', 'List takelships'
     long_desc <<-LONGDESC.gsub("\n", "\x5")
-    List takelage containers
+    List takelship containers.
     LONGDESC
-    # List takelage containers.
     def list
       say ship_container_list
     end
@@ -63,9 +60,8 @@ module Takeltau
     #
     desc 'login', 'Log in to a takelship'
     long_desc <<-LONGDESC.gsub("\n", "\x5")
-    Log in to a takelship
+    Log in to a takelship as root.
     LONGDESC
-    # Log in to a takelship.
     def login
       ship_container_login
     end
@@ -73,11 +69,10 @@ module Takeltau
     #
     # ship container podman
     #
-    desc 'podman', 'Run podman command'
+    desc 'podman', 'Run a podman command in a takelship'
     long_desc <<-LONGDESC.gsub("\n", "\x5")
-    Run podman command
+    Run a podman command as user podman in a takelship container.
     LONGDESC
-    # Run podman command.
     def podman(*args)
       say ship_container_podman args
     end
@@ -85,11 +80,10 @@ module Takeltau
     #
     # ship container sudo
     #
-    desc 'sudo', 'Run a sudo command in a takelship container'
+    desc 'sudo', 'Run a sudo command in a takelship'
     long_desc <<-LONGDESC.gsub("\n", "\x5")
-    Run a sudo command in a takelship container
+    Run a command as root in a takelship container.
     LONGDESC
-    # Run a sudo command in a takelship container.
     def sudo(*args)
       say ship_container_sudo args
     end
@@ -97,11 +91,10 @@ module Takeltau
     #
     # ship container stop
     #
-    desc 'stop', 'Stop takelship container'
+    desc 'stop', 'Stop a takelship'
     long_desc <<-LONGDESC.gsub("\n", "\x5")
-    Stop takelship container
+    Stop a takelship container.
     LONGDESC
-    # Stop takelship container.
     def stop
       ship_container_stop
     end
@@ -111,9 +104,8 @@ module Takeltau
     #
     desc 'update', 'Update takelship image'
     long_desc <<-LONGDESC.gsub("\n", "\x5")
-    Update takelship image
+    Update the takelship docker image.
     LONGDESC
-    # Update takelship image.
     def update
       ship_container_update
     end
