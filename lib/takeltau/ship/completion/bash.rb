@@ -14,7 +14,6 @@ module ShipCompletionBash
   private
 
   # Remove bash completion lines
-  # rubocop:disable Style/BlockDelimiters
   def _ship_completion_bash_remove_lines(tau_completion)
     completion =
       tau_completion
@@ -22,7 +21,6 @@ module ShipCompletionBash
     completion.pop
     completion.join("\n")
   end
-  # rubocop:enable Style/BlockDelimiters
 
   # Remove bash completion functions
   def _ship_completion_bash_remove_functions(completion)
