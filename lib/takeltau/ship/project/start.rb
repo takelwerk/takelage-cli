@@ -3,16 +3,13 @@
 # tau ship project start
 module ShipProjectStart
   # Start a takelship
-  # rubocop:disable Metrics/MethodLength
   def ship_project_start(project)
-    return false if _docker_container_lib_check_matrjoschka
-
-    return false if ship_container_check_existing
+    return false unless _ship_project_start_prerequisites_fulfilled?
 
     takelship = _ship_info_lib_get_takelshipinfo
-    project = _ship_info_lib_get_project(project, takelship)
+    project = _ship_info_lib_get_project project, takelship
 
-    return false unless _ship_info_lib_valid_project? takelship, project
+    return false unless _ship_project_start_valid_project? takelship, project
 
     ports = _ship_ports_lib_get_ports(takelship, project)
 
@@ -24,9 +21,31 @@ module ShipProjectStart
 
     _ship_project_start_print_ports project, ports
   end
-  # rubocop:enable Metrics/MethodLength
 
   private
+
+  # check prerequisistes
+  def _ship_project_start_prerequisites_fulfilled?
+    if _docker_container_lib_check_matrjoschka
+      say 'Cannot start a takelship from within a takelage container!'
+      return false
+    end
+
+    if ship_container_check_existing
+      say "Container \"#{_ship_container_lib_ship_hostname}\" is already started!"
+      return false
+    end
+
+    true
+  end
+
+  # check if the project is a valid takelship project
+  def _ship_project_start_valid_project?(takelship, project)
+    return true if _ship_info_lib_valid_project? takelship, project
+
+    say 'No valid project found!'
+    false
+  end
 
   # print ports after starting a takelship
   def _ship_project_start_print_ports(project, ports)

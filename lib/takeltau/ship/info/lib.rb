@@ -9,6 +9,7 @@ module ShipInfoLib
     log.debug 'Gathering takelship info'
     takelshipinfo = _ship_info_lib_get_info_from_file
     takelshipinfo = _ship_info_lib_get_info_from_docker if takelshipinfo.empty?
+
     return false if takelshipinfo.nil?
 
     takelshipinfo
@@ -44,6 +45,8 @@ module ShipInfoLib
   def _ship_info_lib_valid_project?(takelship, project)
     valid_project = false
     takelship_projects = takelship['projects']
+    return false if takelship_projects.nil? || takelship_projects.empty?
+
     takelship_projects.each do |takelship_project|
       valid_project = true if project == takelship_project['name']
     end

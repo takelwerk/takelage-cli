@@ -22,7 +22,7 @@ module ShipContainerLib
     ship_data_dir = config.active['ship_data_dir']
     ship_env = [config.active['ship_env']]
     ports.each do |key, port|
-      envvar = "TAKELSHIP_#{key}".upcase
+      envvar = "TAKELSHIP_CONFIG_#{key}".upcase
       envstr = "--env #{envvar}=#{port['localhost']}"
       ship_env << envstr
     end
