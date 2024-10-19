@@ -132,7 +132,7 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Start a takelship.</p>
+<p>Start a takelship rubocop:disable Metrics/MethodLength.</p>
 </div></span>
   
 </li>
@@ -159,7 +159,7 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Start a takelship</p>
+<p>Start a takelship rubocop:disable Metrics/MethodLength</p>
 
 
   </div>
@@ -173,7 +173,6 @@
       <pre class="lines">
 
 
-6
 7
 8
 9
@@ -190,13 +189,16 @@
 20
 21
 22
-23</pre>
+23
+24
+25
+26</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/takeltau/ship/project/start.rb', line 6</span>
+      <pre class="code"><span class="info file"># File 'lib/takeltau/ship/project/start.rb', line 7</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_ship_project_start'>ship_project_start</span><span class='lparen'>(</span><span class='id identifier rubyid_project'>project</span><span class='rparen'>)</span>
-  <span class='kw'>return</span> <span class='kw'>false</span> <span class='kw'>unless</span> <span class='id identifier rubyid__ship_project_start_prerequisites_fulfilled?'>_ship_project_start_prerequisites_fulfilled?</span>
+  <span class='kw'>return</span> <span class='kw'>false</span> <span class='kw'>unless</span> <span class='id identifier rubyid__ship_project_start_matrjoschka?'>_ship_project_start_matrjoschka?</span>
 
   <span class='id identifier rubyid_takelship'>takelship</span> <span class='op'>=</span> <span class='id identifier rubyid__ship_info_lib_get_takelshipinfo'>_ship_info_lib_get_takelshipinfo</span>
   <span class='id identifier rubyid_project'>project</span> <span class='op'>=</span> <span class='id identifier rubyid__ship_info_lib_get_project'>_ship_info_lib_get_project</span> <span class='id identifier rubyid_project'>project</span><span class='comma'>,</span> <span class='id identifier rubyid_takelship'>takelship</span>
@@ -205,13 +207,15 @@
 
   <span class='id identifier rubyid_ports'>ports</span> <span class='op'>=</span> <span class='id identifier rubyid__ship_ports_lib_get_ports'>_ship_ports_lib_get_ports</span><span class='lparen'>(</span><span class='id identifier rubyid_takelship'>takelship</span><span class='comma'>,</span> <span class='id identifier rubyid_project'>project</span><span class='rparen'>)</span>
 
+  <span class='kw'>return</span> <span class='kw'>false</span> <span class='kw'>unless</span> <span class='id identifier rubyid__ship_project_start_sailing?'>_ship_project_start_sailing?</span> <span class='id identifier rubyid_project'>project</span><span class='comma'>,</span> <span class='id identifier rubyid_ports'>ports</span>
+
   <span class='id identifier rubyid_log'>log</span><span class='period'>.</span><span class='id identifier rubyid_debug'>debug</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Writing port configuration to takelage.yml</span><span class='tstring_end'>&#39;</span></span>
   <span class='id identifier rubyid__ship_ports_lib_write_ports'>_ship_ports_lib_write_ports</span><span class='lparen'>(</span><span class='id identifier rubyid_ports'>ports</span><span class='comma'>,</span> <span class='id identifier rubyid_project'>project</span><span class='rparen'>)</span>
 
   <span class='id identifier rubyid_log'>log</span><span class='period'>.</span><span class='id identifier rubyid_debug'>debug</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Starting takelship project \&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_project'>project</span><span class='embexpr_end'>}</span><span class='tstring_content'>\&quot;</span><span class='tstring_end'>&quot;</span></span>
   <span class='id identifier rubyid__ship_container_lib_docker_privileged'>_ship_container_lib_docker_privileged</span> <span class='id identifier rubyid_ports'>ports</span><span class='comma'>,</span> <span class='id identifier rubyid_project'>project</span>
-
-  <span class='id identifier rubyid__ship_project_start_print_ports'>_ship_project_start_print_ports</span> <span class='id identifier rubyid_project'>project</span><span class='comma'>,</span> <span class='id identifier rubyid_ports'>ports</span>
+  <span class='id identifier rubyid_say'>say</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Started project \&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_project'>project</span><span class='embexpr_end'>}</span><span class='tstring_content'>\&quot; on takelship \&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid__ship_container_lib_ship_hostname'>_ship_container_lib_ship_hostname</span><span class='embexpr_end'>}</span><span class='tstring_content'>\&quot;.\n\n</span><span class='tstring_end'>&quot;</span></span>
+  <span class='id identifier rubyid__ship_project_start_print_ports'>_ship_project_start_print_ports</span> <span class='id identifier rubyid_ports'>ports</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
