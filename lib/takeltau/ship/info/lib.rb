@@ -43,8 +43,6 @@ module ShipInfoLib
   end
 
   def _ship_info_lib_valid_project?(takelship, project)
-    return true if project == 'dump'
-
     valid_project = false
     takelship_projects = takelship['projects']
     return false if takelship_projects.nil? || takelship_projects.empty?
