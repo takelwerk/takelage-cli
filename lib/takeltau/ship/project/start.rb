@@ -3,6 +3,7 @@
 # tau ship project start
 module ShipProjectStart
   # Start a takelship
+  # rubocop:disable Metrics/MethodLength
   def ship_project_start(project)
     return false if _docker_container_lib_check_matrjoschka
 
@@ -23,6 +24,7 @@ module ShipProjectStart
 
     _ship_project_start_print_ports project, ports
   end
+  # rubocop:enable Metrics/MethodLength
 
   private
 
@@ -33,11 +35,9 @@ module ShipProjectStart
     max_length = _ship_project_start_get_maxlength ports
 
     ports.each_value do |port|
-      localport = port['localhost']
+      next unless port['localhost'].to_i.between? 1, 65_535
 
-      next unless localport.to_i.between? 1, 65535
-
-      left = "localhost:#{localport}"
+      left = "localhost:#{port['localhost']}"
       right = "(#{port['service']} #{port['protocol']})"
       output << "#{left.ljust(max_length)} #{right}"
     end
@@ -49,7 +49,7 @@ module ShipProjectStart
     max_length = 0
     ports.each_value do |port|
       localport = port['localhost']
-      next unless localport.to_i.between? 1, 65535
+      next unless localport.to_i.between? 1, 65_535
 
       left_string = "localhost:#{localport}"
       max_length = left_string.length if max_length < left_string.length

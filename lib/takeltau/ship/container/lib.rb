@@ -83,7 +83,7 @@ module ShipContainerLib
     ports.each do |port|
       shipport = port[1]['takelship'].to_s
       localport = port[1]['localhost'].to_s
-      next unless localport.to_i.between? 1, 65535
+      next unless localport.to_i.between? 1, 65_535
 
       publish << "--publish \"127.0.0.1:#{localport}:#{shipport}\""
     end
