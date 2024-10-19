@@ -16,37 +16,20 @@ Feature: I can remove all takelship containers
       ship_repo: takelship-mock
       """
     And I get the active takeltau config
-    And a file named "takelship/compose/projects/takelship.yml" with:
+    And a file named "takelship/compose/takelship.yml" with:
       """
       ---
-      name: mockship
-      docker_host: '48192'
-      default_project: forgejo
-      projects:
-      - name: forgejo
-        services:
-        - forgejo-server: {}
       """
     And a file named "second/takelship/compose/projects/takelship.yml" with:
       """
       ---
-      name: mockship
-      docker_host: '48193'
-      default_project: forgejo
-      projects:
-      - name: forgejo
-        services:
-        - forgejo-server: {}
       """
     And I run `docker ps`
     And I successfully run `unbuffer ship-cli project start`
-    And I run `docker ps`
     And I successfully run `ship-cli container check existing`
     And a directory "second"
     And I cd to "second"
-    And I run `docker ps`
     And I successfully run `unbuffer ship-cli project start`
-    And I run `docker ps`
     And I successfully run `ship-cli container check existing`
     When I successfully run `ship-cli container clean`
     Then I run `ship-cli container check existing`

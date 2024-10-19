@@ -17,16 +17,9 @@ Feature: I can print the logs of a takelship container
       ship_repo: takelship-mock
       """
     And I get the active takeltau config
-    And a file named "takelship/compose/projects/takelship.yml" with:
+    And a file named "takelship/compose/takelship.yml" with:
       """
       ---
-      name: mockship
-      docker_host: '48192'
-      default_project: forgejo
-      projects:
-      - name: forgejo
-        services:
-        - forgejo-server: {}
       """
 
   Scenario: Print logs of a takelship container

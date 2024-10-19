@@ -13,35 +13,12 @@ module ShipProjectStart
 
     return false unless _ship_info_lib_valid_project? takelship, project
 
+    ports = _ship_ports_lib_get_ports(takelship, project)
+
+    log.debug 'Writing port configuration to takelage.yml'
+    _ship_ports_lib_write_ports(ports, project)
+
     log.debug "Starting takelship project \"#{project}\""
-    ports = _ship_project_start_ports takelship, project
     say _ship_container_lib_docker_privileged ports, project
   end
-
-  private
-
-  # Get takelship ports
-  # rubocop:disable Metrics/MethodLength
-  # rubocop:disable Metrics/AbcSize
-  def _ship_project_start_ports(takelship, project)
-    ports = []
-    takelship['projects'].each do |takelship_project|
-      next unless project == takelship_project['name']
-
-      takelship_project['services'].each do |service|
-        next unless service.key?('ports')
-
-        service['ports'].each do |port|
-          ports << port['port']
-        end
-      end
-    end
-    if config.active['ship_port_expose_podman_socket'] == 'true'
-      log.debug "Add DOCKER_HOST port #{config.active['ship_docker_host']}"
-      ports << config.active['ship_docker_host']
-    end
-    ports
-  end
 end
-# rubocop:enable Metrics/AbcSize
-# rubocop:enable Metrics/MethodLength

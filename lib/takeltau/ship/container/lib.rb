@@ -75,9 +75,12 @@ module ShipContainerLib
 
   # Create publish ports string
   def _ship_container_lib_publish(ports)
+    say ports.to_yaml
     publish = []
     ports.each do |port|
-      publish << "--publish \"127.0.0.1:#{port}:#{port}\""
+      localport = port[1]['localhost'].to_s
+      shipport = port[1]['takelship'].to_s
+      publish << "--publish \"127.0.0.1:#{localport}:#{shipport}\""
     end
     publish.join(' ')
   end
