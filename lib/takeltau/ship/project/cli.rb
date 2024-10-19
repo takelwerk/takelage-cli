@@ -12,6 +12,7 @@ module Takeltau
     include ShipContainerLib
     include ShipContainerStop
     include ShipInfoLib
+    include ShipPortsLib
     include ShipProjectList
     include ShipProjectLogs
     include ShipProjectStart

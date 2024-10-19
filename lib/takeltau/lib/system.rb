@@ -49,6 +49,13 @@ module SystemModule
     @content
   end
 
+  # Write content to file
+  def write_file(file, content)
+    log.debug "Writing content to file \"#{file}\":"
+    log.debug "\"#{content}\""
+    File.write(file, content)
+  end
+
   # Remove directory tree.
   def rm_fr(directory)
     unless File.directory? directory

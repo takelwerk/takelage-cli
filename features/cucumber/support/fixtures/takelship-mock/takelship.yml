@@ -1,6 +1,6 @@
 ---
 name: mockship
-docker_host: '48192'
+docker_host: '28192'
 default_project: forgejo
 projects:
   - name: forgejo
