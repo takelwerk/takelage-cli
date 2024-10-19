@@ -50,7 +50,7 @@ module ShipProjectStart
   # print ports after starting a takelship
   def _ship_project_start_print_ports(project, ports)
     output = []
-    output << "Started takelship project \"#{project}\" with these services:\n"
+    output << "Started takelship project \"#{project}\"\n"
     max_length = _ship_project_start_get_maxlength ports
 
     ports.each_value do |port|
