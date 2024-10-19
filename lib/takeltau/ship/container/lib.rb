@@ -20,14 +20,18 @@ module ShipContainerLib
   # rubocop:disable Metrics/MethodLength
   def _ship_container_lib_docker_privileged(ports, command)
     ship_data_dir = config.active['ship_data_dir']
-    ship_env = config.active['ship_env']
+    ship_env = [config.active['ship_env']]
+    ports.each do |key, port|
+      envvar = "TAKELAGE_TAU_CONFIG_#{key}".upcase
+      envstr = "--env #{envvar}=#{port['localhost']}"
+      ship_env << envstr
+    end
     ports = _ship_container_lib_publish(ports)
-    ports = config.active['ports'] unless config.active['ship_ports'].empty?
     cmd_docker_run_command = format(
       config.active['cmd_ship_project_start_docker_run_privileged'],
       ship_docker: config.active['cmd_ship_docker'],
       ship_hostname: _ship_container_lib_ship_hostname,
-      ship_env: ship_env,
+      ship_env: ship_env.join(' '),
       ports: ports,
       ship_data_dir: ship_data_dir,
       image: _ship_container_lib_image,
@@ -75,11 +79,12 @@ module ShipContainerLib
 
   # Create publish ports string
   def _ship_container_lib_publish(ports)
-    say ports.to_yaml
     publish = []
     ports.each do |port|
-      localport = port[1]['localhost'].to_s
       shipport = port[1]['takelship'].to_s
+      localport = port[1]['localhost'].to_s
+      next unless localport.to_i.between? 1, 65535
+
       publish << "--publish \"127.0.0.1:#{localport}:#{shipport}\""
     end
     publish.join(' ')

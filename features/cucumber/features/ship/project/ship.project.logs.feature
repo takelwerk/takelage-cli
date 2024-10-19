@@ -15,6 +15,7 @@ Feature: I can print the logs of a takelship container
       ship_container_check_matrjoschka: false
       ship_user: host.docker.internal:5005/takelage-mock
       ship_repo: takelship-mock
+      ship_tag: latest
       """
     And I get the active takeltau config
     And a file named "takelship/compose/takelship.yml" with:

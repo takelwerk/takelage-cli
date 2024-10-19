@@ -8,12 +8,13 @@
 Feature: I can start a takelship project
 
   Background:
-    Given a file named "~/.takelage.yml" with:
+    Given a file named "takelage.yml" with:
       """
       ---
       ship_container_check_matrjoschka: false
       ship_user: host.docker.internal:5005/takelage-mock
       ship_repo: takelship-mock
+      ship_tag: latest
       ship_ports_forgejo_server_http_33000: 54321
       """
     And I get the active takeltau config
@@ -38,6 +39,10 @@ Feature: I can start a takelship project
     When I successfully run `unbuffer ship-cli project start`
     Then the docker container "takelship_xeciz-vigoc" exists
     And a file named "takelage.yml" should contain:
-       """
-       ship_ports_forgejo_server_http_33000: 54321
-       """
+      """
+      ship_ports_forgejo_server_http_33000: 54321
+      """
+    And the output should contain:
+      """
+      localhost:54321 (forgejo-server http)
+      """

@@ -12,6 +12,7 @@ Feature: I can update to the latest remote takelship image
       ---
       ship_user: host.docker.internal:5005/takelage-mock
       ship_repo: takelship-mock
+      ship_tag: latest
       docker_registry: http://host.docker.internal:5005
       """
     And I get the active takeltau config

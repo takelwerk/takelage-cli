@@ -14,6 +14,7 @@ Feature: I can run a podman command in a takelship container
       ship_container_check_matrjoschka: false
       ship_user: host.docker.internal:5005/takelage-mock
       ship_repo: takelship-mock
+      ship_tag: latest
       cmd_ship_container_docker: echo banana
       """
     And I get the active takeltau config

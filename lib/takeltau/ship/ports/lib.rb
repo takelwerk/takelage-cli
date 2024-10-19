@@ -113,9 +113,11 @@ module ShipPortsLib
 
   # check if a port on the host is open
   def _ship_ports_lib_port_open?(port)
-    Socket.tcp('127.0.0.1', port, connect_timeout: 5) do
+    log.debug "Checking if port #{port} is open"
+    begin
+      Socket.tcp('127.0.0.1', port, connect_timeout: 5)
       true
-    rescue SocketError
+    rescue Errno::ECONNREFUSED
       false
     end
   end

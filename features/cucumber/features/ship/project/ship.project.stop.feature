@@ -14,6 +14,7 @@ Feature: I can stop a takelship project
       ship_container_check_matrjoschka: false
       ship_user: host.docker.internal:5005/takelage-mock
       ship_repo: takelship-mock
+      ship_tag: latest
       """
     And I get the active takeltau config
     And a file named "takelship/compose/takelship.yml" with:
@@ -21,8 +22,13 @@ Feature: I can stop a takelship project
       ---
       """
 
+  @announce-output
   Scenario: Start the default project
-    Given I successfully run `unbuffer ship-cli project start`
+    Given I successfully run `unbuffer ship-cli project`
     And the docker container "takelship_xeciz-vigoc" exists
     When I successfully run `unbuffer ship-cli project stop`
     Then the docker container "takelship_xeciz-vigoc" doesn't exist
+    And the output should contain:
+      """
+      Stopped takelship "takelship_xeciz-vigoc"
+      """

@@ -47,7 +47,7 @@ module Takeltau
     Start a takelship and run project [PROJECT] in it.
     LONGDESC
     def start(project = 'default')
-      ship_project_start project
+      say ship_project_start project
     end
 
     #
