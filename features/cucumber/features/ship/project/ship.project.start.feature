@@ -44,5 +44,5 @@ Feature: I can start a takelship project
       """
     And the output should contain:
       """
-      localhost:54321 (forgejo-server http)
+      localhost:54321 [forgejo-server http]
       """
