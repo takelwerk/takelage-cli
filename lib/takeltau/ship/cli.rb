@@ -2,6 +2,7 @@
 
 module Takeltau
   # tau ship
+  # rubocop:disable Metrics/ClassLength
   class Ship < SubCommandBase
     include LoggingModule
     include SystemModule
@@ -34,6 +35,16 @@ module Takeltau
     #
     # Top-level ship commands
     #
+
+    desc 'board', 'Log in to a takelship'
+    long_desc <<-LONGDESC.gsub("\n", "\x5")
+    Log in to a takelship as root.
+    Alias for ship container login.
+    LONGDESC
+    # ship board: {Takeltau::ShipContainer#login}
+    def board
+      Takeltau::ShipContainer.new.login
+    end
 
     desc 'command [COMMAND]', 'Run a [COMMAND] in a takelship'
     long_desc <<-LONGDESC.gsub("\n", "\x5")
@@ -115,6 +126,16 @@ module Takeltau
       Takeltau::ShipProject.new.start project
     end
 
+    desc 'sail [PROJECT]', 'Start takelship [PROJECT]'
+    long_desc <<-LONGDESC.gsub("\n", "\x5")
+    Start a takelship and run project [PROJECT] in it.
+    Alias for ship project start.
+    LONGDESC
+    # ship sail: {Takeltau::ShipProject#start}
+    def sail(project = 'default')
+      Takeltau::ShipProject.new.start project
+    end
+
     desc 'stop', 'Stop a takelship'
     long_desc <<-LONGDESC.gsub("\n", "\x5")
     Stop a takelship container.
@@ -122,6 +143,16 @@ module Takeltau
     LONGDESC
     # ship stop: {Takeltau::ShipProject#stop}
     def stop
+      Takeltau::ShipProject.new.stop
+    end
+
+    desc 'wreck', 'Stop a takelship'
+    long_desc <<-LONGDESC.gsub("\n", "\x5")
+    Stop a takelship container.
+    Alias for ship container stop.
+    LONGDESC
+    # ship wreck: {Takeltau::ShipProject#stop}
+    def wreck
       Takeltau::ShipProject.new.stop
     end
 
@@ -135,4 +166,5 @@ module Takeltau
       Takeltau::ShipContainer.new.update
     end
   end
+  # rubocop:enable Metrics/ClassLength
 end

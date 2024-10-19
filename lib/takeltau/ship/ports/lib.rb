@@ -53,27 +53,41 @@ module ShipPortsLib
     takel_docker = takelship['docker_host']
     docker_key = "ship_ports_dind_docker_#{takel_docker}"
     local_docker = _ship_ports_lib_get_localhost_port docker_key, takel_docker
+    docker_host = "DOCKER_HOST=tcp://localhost:#{local_docker}"
     {
       docker_key => {
         'service' => 'dind',
         'protocol' => 'docker',
         'takelship' => takel_docker.to_i,
-        'localhost' => local_docker
+        'localhost' => local_docker,
+        'description' => docker_host
       }
     }
   end
   # rubocop:enable Metrics/MethodLength
 
   # map a takelship port
+  # rubocop:disable Metrics/MethodLength
   def _ship_ports_lib_get_port(key, port, service)
     localhost = _ship_ports_lib_get_localhost_port key, port['port']
+    unless port.key?('description')
+      return {
+        'service' => service['name'],
+        'protocol' => port['protocol'],
+        'takelship' => port['port'],
+        'localhost' => localhost
+      }
+    end
+
     {
       'service' => service['name'],
       'protocol' => port['protocol'],
       'takelship' => port['port'],
-      'localhost' => localhost
+      'localhost' => localhost,
+      'description' => port['description']
     }
   end
+  # rubocop:enable Metrics/MethodLength
 
   # get new port on localhost for takelport
   def _ship_ports_lib_get_localhost_port(key, port)

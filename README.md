@@ -131,15 +131,18 @@ tau [ship project list](features/cucumber/features/ship/project/ship.project.lis
 tau [ship project logs](features/cucumber/features/ship/project/ship.project.logs.feature) [PROJECT] | Follow logs of a takelship [PROJECT]
 tau [ship project start](features/cucumber/features/ship/project/ship.project.start.feature) [PROJECT] | Start a takelship [PROJECT]
 tau [ship project stop](features/cucumber/features/ship/project/ship.project.stop.feature) | Stop a takelship project
+tau ship board | Alias for tau [ship container login](features/cucumber/features/ship/container/ship.container.login.feature)
 tau ship command [COMMAND] | Alias for tau [ship container command](features/cucumber/features/ship/container/ship.container.command.feature)
 tau ship list | Alias for tau [ship container list](features/cucumber/features/ship/container/ship.container.list.feature)
 tau ship login | Alias for tau [ship container login](features/cucumber/features/ship/container/ship.container.login.feature)
 tau ship logs [PROJECT] | Alias for tau [ship project logs](features/cucumber/features/ship/project/ship.project.logs.feature)
 tau ship ls | Alias for tau [ship container list](features/cucumber/features/ship/container/ship.container.list.feature)
 tau ship podman [COMMAND] | Alias for tau [ship container podman](features/cucumber/features/ship/container/ship.container.podman.feature)
+tau ship sail [PROJECT] | Alias for tau [ship project start](features/cucumber/features/ship/project/ship.project.start.feature)
 tau ship start [PROJECT] | Alias for tau [ship project start](features/cucumber/features/ship/project/ship.project.start.feature)
 tau ship stop | Alias for tau [ship project stop](features/cucumber/features/ship/project/ship.project.stop.feature)
 tau ship sudo [COMMAND] | Alias for tau [ship container sudo](features/cucumber/features/ship/container/ship.container.sudo.feature)
+tau ship wreck | Alias for tau [ship project stop](features/cucumber/features/ship/project/ship.project.stop.feature)
 tau ship update | Alias for tau [ship container update](features/cucumber/features/ship/container/ship.container.update.feature)
 tau clean | Alias for tau [docker container clean](features/cucumber/features/docker/docker.container.clean.feature)
 tau commands | Alias for tau [self commands](features/cucumber/features/self/self.commands.feature)
