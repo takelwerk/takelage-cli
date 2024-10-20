@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 # tau config module
-# rubocop:disable Metrics/ModuleLength
 module ConfigModule
   # tau config class.
   class TakeltauConfig
@@ -23,7 +22,7 @@ module ConfigModule
   # Initialize config
   # rubocop:disable Metrics/AbcSize
   def initialize_config(workdir)
-    project_root_dir = _get_project_root_dir workdir
+    project_root_dir = File.expand_path _get_project_root_dir workdir
 
     log.debug "takelage version: #{Takeltau::VERSION}"
     log.debug "Current working directory: #{Dir.pwd}"
@@ -119,7 +118,6 @@ module ConfigModule
   end
 
   # Merge active config.
-  # rubocop:disable Metrics/AbcSize
   def _config_merge_active
     # make a clone or else we'll change the original hash
     default = TakeltauConfig.instance.default.clone
@@ -133,12 +131,9 @@ module ConfigModule
     project_over_home = home.merge!(envvars_over_project)
     default.merge!(project_over_home).sort.to_h
   end
-  # rubocop:enable Metrics/AbcSize
 
   # Get project root directory.
   # @return [String] project root directory
-  # rubocop:disable Metrics/MethodLength
-  # rubocop:disable Metrics/AbcSize
   def _get_project_root_dir(workdir)
     tau_workdir_root_dir = _get_workdir_root_dir workdir
     unless tau_workdir_root_dir.empty?
@@ -161,8 +156,6 @@ module ConfigModule
     log.debug "Setting root dir to current working dir \"#{Dir.pwd}\""
     Dir.pwd
   end
-  # rubocop:enable Metrics/AbcSize
-  # rubocop:enable Metrics/MethodLength
 
   # Return a command line workdir
   def _get_workdir_root_dir(workdir)
@@ -177,4 +170,3 @@ module ConfigModule
     path_rakefile
   end
 end
-# rubocop:enable Metrics/ModuleLength

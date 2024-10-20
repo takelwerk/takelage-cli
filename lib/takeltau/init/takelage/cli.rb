@@ -16,7 +16,6 @@ module Takeltau
     argument :name
 
     # Define templates
-    # rubocop:disable Metrics/MethodLength
     def initialize(args = [], local_options = {}, configuration = {})
       # initialize thor parent class
       super args, local_options, configuration
@@ -38,7 +37,6 @@ module Takeltau
         template: '../templates/Rakefile.tt'
       }
     end
-    # rubocop:enable Metrics/MethodLength
 
     # Provide template path for Thor:Actions
     def self.source_root

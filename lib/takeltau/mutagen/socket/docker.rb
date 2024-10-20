@@ -3,7 +3,6 @@
 # tau mutagen socket docker
 module MutagenSocketDocker
   # Backend method for mutagen socket docker.
-  # rubocop:disable Metrics/MethodLength
   def mutagen_socket_docker(hostsock)
     # See DockerContainerLib::_docker_container_lib_hostname
     socketname = "#{@hostname[-11..]}-docker"
@@ -22,7 +21,6 @@ module MutagenSocketDocker
     log.debug "Created the mutagen docker socket \"#{socketname}\""
     true
   end
-  # rubocop:enable Metrics/MethodLength
 
   private
 

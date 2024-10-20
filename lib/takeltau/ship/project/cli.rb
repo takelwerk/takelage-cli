@@ -13,12 +13,25 @@ module Takeltau
     include ShipContainerStop
     include ShipInfoLib
     include ShipPortsLib
+    include ShipProjectCreate
     include ShipProjectList
-    include ShipProjectLogs
     include ShipProjectStart
 
     #
-    # ship container list
+    # ship project dump
+    #
+    desc 'create [PROJECT]', 'Create a takelship [PROJECT]'
+    long_desc <<-LONGDESC.gsub("\n", "\x5")
+    Create a takelship [PROJECT].
+    This command will create the configuration files of a takelship [PROJECT].
+    It will neither run the [PROJECT] in a takelship nor create service data.
+    LONGDESC
+    def create(project = 'default')
+      say ship_project_create project
+    end
+
+    #
+    # ship project list
     #
     desc 'list', 'List takelship projects'
     long_desc <<-LONGDESC.gsub("\n", "\x5")
@@ -29,18 +42,7 @@ module Takeltau
     end
 
     #
-    # ship container logs
-    #
-    desc 'logs [PROJECT]', 'Follow logs of [PROJECT]'
-    long_desc <<-LONGDESC.gsub("\n", "\x5")
-    Follow logs of project [PROJECT] in a takelship project.
-    LONGDESC
-    def logs(project = 'default')
-      ship_project_logs project
-    end
-
-    #
-    # ship container start
+    # ship project start
     #
     desc 'start [PROJECT]', 'Start takelship [PROJECT]'
     long_desc <<-LONGDESC.gsub("\n", "\x5")
@@ -60,6 +62,19 @@ module Takeltau
     LONGDESC
     def stop
       say ship_container_stop
+    end
+
+    #
+    # ship project update
+    #
+    desc 'update [PROJECT]', 'Update a takelship [PROJECT]'
+    long_desc <<-LONGDESC.gsub("\n", "\x5")
+    Update a takelship [PROJECT].
+    This command will update the configuration files of a takelship [PROJECT].
+    It will neither run the [PROJECT] in a takelship nor touch the service data.
+    LONGDESC
+    def update(project = 'default')
+      say ship_project_create project, 'Updated'
     end
   end
 end

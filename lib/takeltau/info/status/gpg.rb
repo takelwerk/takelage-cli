@@ -4,7 +4,6 @@
 module InfoStatusGPG
   # Backend method for info status gpg.
   # @return [Boolean] is GPG available?
-  # rubocop:disable Metrics/MethodLength
   def info_status_gpg
     log.debug 'Check gpg status'
 
@@ -21,7 +20,6 @@ module InfoStatusGPG
     log.debug 'gpg is available'
     true
   end
-  # rubocop:enable Metrics/MethodLength
 
   private
 

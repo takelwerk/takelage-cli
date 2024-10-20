@@ -12,8 +12,6 @@ module DockerContainerList
   private
 
   # Get the current inventory
-  # rubocop:disable Metrics/AbcSize
-  # rubocop:disable Metrics/MethodLength
   def _docker_container_list_get_inventory
     destination = '/project'
     docker = config.active['cmd_docker']
@@ -29,8 +27,6 @@ module DockerContainerList
     end
     inventory
   end
-  # rubocop:enable Metrics/MethodLength
-  # rubocop:enable Metrics/AbcSize
 
   # Create a new inventory
   def _docker_container_list_new_inventory

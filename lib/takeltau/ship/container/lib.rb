@@ -5,10 +5,13 @@ module ShipContainerLib
   private
 
   # Run nonprivileged docker command
-  def _ship_container_lib_docker_nonprivileged(command)
+  def _ship_container_lib_docker_nonprivileged(command, args = '')
+    args_nonprivileged = config.active['ship_run_args_nonprivileged']
+    args = "#{args} #{args_nonprivileged}" if config.active['ship_run_args_nonprivileged']
     cmd_docker_run_command = format(
       config.active['cmd_ship_project_start_docker_run_nonprivileged'],
       ship_docker: config.active['cmd_ship_docker'],
+      ship_run_args_nonprivileged: args,
       image: _ship_container_lib_image,
       command: command
     )
@@ -18,7 +21,9 @@ module ShipContainerLib
   # Run privileged docker command
   # rubocop:disable Metrics/AbcSize
   # rubocop:disable Metrics/MethodLength
-  def _ship_container_lib_docker_privileged(ports, command)
+  def _ship_container_lib_docker_privileged(ports, command, args = '')
+    args_privileged = config.active['ship_run_args_privileged']
+    args = "#{args} #{args_privileged}" if config.active['ship_run_args_privileged']
     ship_data_dir = config.active['ship_data_dir']
     ship_env = [config.active['ship_env']]
     ports.each do |key, port|
@@ -33,7 +38,9 @@ module ShipContainerLib
       ship_hostname: _ship_container_lib_ship_hostname,
       ship_env: ship_env.join(' '),
       ports: ports,
+      project_root_dir: config.active['project_root_dir'],
       ship_data_dir: ship_data_dir,
+      ship_run_args_privileged: args,
       image: _ship_container_lib_image,
       command: command
     )
@@ -66,7 +73,7 @@ module ShipContainerLib
   # Create unique docker hostname
   def _ship_container_lib_ship_hostname
     ship_name = config.active['ship_name']
-    workdir = Dir.getwd
+    workdir = config.active['project_root_dir']
     unique_name = "#{ship_name}_#{workdir}"
     digest = Digest::SHA256.bubblebabble unique_name
     unique = digest[0..10]

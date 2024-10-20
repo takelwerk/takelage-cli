@@ -5,7 +5,6 @@ module ShipPortsLib
   private
 
   # get the ports of a takelship
-  # rubocop:disable Metrics/MethodLength
   def _ship_ports_lib_get_ports(takelship, takelproject)
     ports = _ship_ports_lib_get_ports_docker(takelship)
     takelship['projects'].each do |project|
@@ -22,7 +21,6 @@ module ShipPortsLib
     end
     ports
   end
-  # rubocop:enable Metrics/MethodLength
 
   # write ports to project takelage.yml
   def _ship_ports_lib_write_ports(ports, project)
@@ -48,7 +46,6 @@ module ShipPortsLib
 
   # map the podman socket port (aka "DOCKER_HOST")
   # returns a hash unlike the get_port method
-  # rubocop:disable Metrics/MethodLength
   def _ship_ports_lib_get_ports_docker(takelship)
     takel_docker = takelship['docker_host']
     docker_key = "ship_ports_docker_host_docker_#{takel_docker}"
@@ -64,10 +61,8 @@ module ShipPortsLib
       }
     }
   end
-  # rubocop:enable Metrics/MethodLength
 
   # map a takelship port
-  # rubocop:disable Metrics/MethodLength
   def _ship_ports_lib_get_port(key, port, service)
     localhost = _ship_ports_lib_get_localhost_port key, port['port']
     unless port.key?('description')
@@ -87,7 +82,6 @@ module ShipPortsLib
       'description' => port['description']
     }
   end
-  # rubocop:enable Metrics/MethodLength
 
   # get new port on localhost for takelport
   def _ship_ports_lib_get_localhost_port(key, port)

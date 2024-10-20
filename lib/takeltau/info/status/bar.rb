@@ -4,7 +4,6 @@
 module InfoStatusBar
   # Backend method for info status bar.
   # @return [String] status info bar
-  # rubocop:disable Metrics/MethodLength
   def info_status_bar
     log.debug 'Get status info bar'
 
@@ -24,7 +23,6 @@ module InfoStatusBar
     say @bar_list.join(' | ')
     @bar_status
   end
-  # rubocop:enable Metrics/MethodLength
 
   private
 

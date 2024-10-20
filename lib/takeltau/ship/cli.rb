@@ -53,7 +53,7 @@ module Takeltau
     LONGDESC
     # ship command: {Takeltau::ShipContainer#command}
     def command(*args)
-      Takeltau::ShipContainer.new.command args
+      Takeltau::ShipContainer.new.command(*args)
     end
 
     desc 'list', 'List takelships'
@@ -63,26 +63,6 @@ module Takeltau
     LONGDESC
     # ship list: {Takeltau::ShipContainer#list}
     def list
-      Takeltau::ShipContainer.new.list
-    end
-
-    desc 'logs [PROJECT]', 'Follow logs of takelship [PROJECT]'
-    long_desc <<-LONGDESC.gsub("\n", "\x5")
-    Follow logs of project [PROJECT] in a takelship project.
-    Alias for ship project logs.
-    LONGDESC
-    # ship logs: {Takeltau::ShipProject#logs}
-    def logs(project = 'default')
-      Takeltau::ShipProject.new.logs(project)
-    end
-
-    desc 'ls', 'List takelships'
-    long_desc <<-LONGDESC.gsub("\n", "\x5")
-    List takelship containers.
-    Alias for ship container list.
-    LONGDESC
-    # ship list: {Takeltau::ShipContainer#list}
-    def ls
       Takeltau::ShipContainer.new.list
     end
 
@@ -96,6 +76,26 @@ module Takeltau
       Takeltau::ShipContainer.new.login
     end
 
+    desc 'logs [OPTIONS]', 'Print the takelship logs'
+    long_desc <<-LONGDESC.gsub("\n", "\x5")
+    Print the takelship logs.
+    Alias for ship container logs.
+    LONGDESC
+    # ship logs: {Takeltau::ShipContainer#logs}
+    def logs(*args)
+      Takeltau::ShipContainer.new.logs(*args)
+    end
+
+    desc 'ls', 'List takelships'
+    long_desc <<-LONGDESC.gsub("\n", "\x5")
+    List takelship containers.
+    Alias for ship container list.
+    LONGDESC
+    # ship list: {Takeltau::ShipContainer#list}
+    def ls
+      Takeltau::ShipContainer.new.list
+    end
+
     desc 'podman [COMMAND]', 'Run a podman [COMMAND] in a takelship'
     long_desc <<-LONGDESC.gsub("\n", "\x5")
     Run a podman command as user podman in a takelship container.
@@ -103,7 +103,7 @@ module Takeltau
     LONGDESC
     # ship podman: {Takeltau::ShipContainer#podman}
     def podman(*args)
-      Takeltau::ShipContainer.new.podman args
+      Takeltau::ShipContainer.new.podman(*args)
     end
 
     desc 'sudo [COMMAND]', 'Run a sudo [COMMAND] in a takelship'
@@ -113,7 +113,7 @@ module Takeltau
     LONGDESC
     # ship sudo: {Takeltau::ShipContainer#sudo}
     def sudo(*args)
-      Takeltau::ShipContainer.new.sudo args
+      Takeltau::ShipContainer.new.sudo(*args)
     end
 
     desc 'start [PROJECT]', 'Start takelship [PROJECT]'

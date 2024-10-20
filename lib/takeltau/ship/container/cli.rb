@@ -13,6 +13,7 @@ module Takeltau
     include ShipContainerClean
     include ShipContainerList
     include ShipContainerLogin
+    include ShipContainerLogs
     include ShipContainerPodman
     include ShipContainerCommand
     include ShipContainerSudo
@@ -64,6 +65,19 @@ module Takeltau
     LONGDESC
     def login
       ship_container_login
+    end
+
+    #
+    # ship container logs
+    #
+    desc 'logs [OPTIONS]', 'Print the takelship logs'
+    long_desc <<-LONGDESC.gsub("\n", "\x5")
+    Print the takelship logs.
+    Accepts docker logs options.
+    See: docker help logs
+    LONGDESC
+    def logs(*args)
+      ship_container_logs args
     end
 
     #

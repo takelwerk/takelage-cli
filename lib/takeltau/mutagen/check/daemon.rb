@@ -4,7 +4,6 @@
 module MutagenCheckDaemon
   # Backend method for mutagen check daemon.
   # @return [Boolean] is mutagen available?
-  # rubocop:disable Metrics/MethodLength
   # rubocop:disable Metrics/AbcSize
   def mutagen_check_daemon
     log.debug 'Check mutagen status'
@@ -36,12 +35,10 @@ module MutagenCheckDaemon
     true
   end
   # rubocop:enable Metrics/AbcSize
-  # rubocop:enable Metrics/MethodLength
 
   private
 
   # Check mutagen host connection
-  # rubocop:disable Metrics/MethodLength
   def _mutagen_check_daemon_host_connection
     check_host_connection = format(
       config.active['cmd_mutagen_check_daemon_host_connection'],
@@ -62,5 +59,4 @@ module MutagenCheckDaemon
 
     true
   end
-  # rubocop:enable Metrics/MethodLength
 end

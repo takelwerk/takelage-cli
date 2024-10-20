@@ -3,17 +3,14 @@
 # tau ship project start
 module ShipProjectStart
   # Start a takelship
-  # rubocop:disable Metrics/MethodLength
   def ship_project_start(project)
     return false unless _ship_project_start_matrjoschka?
 
     takelship = _ship_info_lib_get_takelshipinfo
     project = _ship_info_lib_get_project project, takelship
-
     return false unless _ship_project_start_valid_project? takelship, project
 
     ports = _ship_ports_lib_get_ports(takelship, project)
-
     return false unless _ship_project_start_sailing? project, ports
 
     log.debug 'Writing port configuration to takelage.yml'
@@ -24,7 +21,6 @@ module ShipProjectStart
     say "Started project \"#{project}\" on takelship \"#{_ship_container_lib_ship_hostname}\".\n\n"
     _ship_project_start_print_ports ports
   end
-  # rubocop:enable Metrics/MethodLength
 
   private
 
@@ -55,8 +51,6 @@ module ShipProjectStart
   end
 
   # print ports after starting a takelship
-  # rubocop:disable Metrics/MethodLength
-  # rubocop:disable Metrics/AbcSize
   def _ship_project_start_print_ports(ports)
     output = []
     max_length = _ship_project_start_get_maxlength ports
@@ -71,12 +65,8 @@ module ShipProjectStart
     end
     output.join("\n")
   end
-  # rubocop:enable Metrics/AbcSize
-  # rubocop:enable Metrics/MethodLength
 
   # get max length of left column
-  # rubocop:disable Metrics/MethodLength
-  # rubocop:disable Metrics/AbcSize
   def _ship_project_start_get_maxlength(ports)
     max_length = {}
     max_length['url'] = 0
@@ -93,6 +83,4 @@ module ShipProjectStart
     end
     max_length
   end
-  # rubocop:enable Metrics/AbcSize
-  # rubocop:enable Metrics/MethodLength
 end

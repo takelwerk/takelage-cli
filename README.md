@@ -67,14 +67,14 @@ You can list the *tau* commands by running
 or *tau commands*:
 
 Command	| Description
-------- | -----------
+- |-
 tau [completion bash](features/cucumber/features/completion/completion.bash.feature) | Print bash completion code
 tau [docker check daemon](features/cucumber/features/docker/docker.check.daemon.feature) | Check if docker daemon is running
 tau [docker container check existing](features/cucumber/features/docker/docker.container.check.existing.feature) [CONTAINER] | Check if docker [CONTAINER] is existing
 tau [docker container check network](features/cucumber/features/docker/docker.container.check.network.feature) [NETWORK] | Check if docker [NETWORK] is existing
 tau [docker container check orphaned](features/cucumber/features/docker/docker.container.check.orphaned.feature) [CONTAINER] | Check if docker [CONTAINER] is orphaned
 tau [docker container clean](features/cucumber/features/docker/docker.container.clean.feature) | Remove all docker containers
-tau [docker container command](features/cucumber/features/docker/docker.container.command.feature) [CMD] | Run [CMD] in a docker container
+tau [docker container command](features/cucumber/features/docker/docker.container.command.feature) [CMD] | Run [CMD] in a docker container 
 tau [docker container daemon](features/cucumber/features/docker/docker.container.daemon.feature) | Run docker container in daemon mode
 tau [docker container list](features/cucumber/features/docker/docker.container.list.feature) | List docker containers
 tau [docker container login](features/cucumber/features/docker/docker.container.login.feature) | Log in to latest local docker container
@@ -82,23 +82,23 @@ tau [docker container prune](features/cucumber/features/docker/docker.container.
 tau [docker image tag check](features/cucumber/features/docker/docker.image.tag.check.feature) [TAG] | Check if local docker image [TAG] exists
 tau [docker image tag latest](features/cucumber/features/docker/docker.image.tag.latest.feature) | Print latest local docker image tag
 tau [docker image tag list](features/cucumber/features/docker/docker.image.tag.list.feature) | Print local docker image tags
-tau [docker image update](features/cucumber/features/docker/docker.image.update.feature) | Get latest remote docker container
+tau [docker image update](features/cucumber/features/docker/docker.image.update.feature) | Get latest remote docker container 
 tau [git check clean](features/cucumber/features/git/git.check.clean.feature) | Check if the git workspace is clean
 tau [git check hg](features/cucumber/features/git/git.check.hg.feature) | Check if we are on the git hg branch
-tau [git check workspace](features/cucumber/features/git/git.check.workspace.feature) | Check if a git workspace exists
+tau [git check workspace](features/cucumber/features/git/git.check.workspace.feature) | Check if a git workspace exists 
 tau [hg list](features/cucumber/features/hg/hg.list.feature) | List hg repos
 tau [hg pull](features/cucumber/features/hg/hg.pull.feature) | Pull hg repos
 tau [hg push](features/cucumber/features/hg/hg.push.feature) | Push hg repos
 tau [info project active](features/cucumber/features/info/info.project.active.feature) | Print active project info
 tau [info project dir](features/cucumber/features/info/info.project.dir.feature) | Print project root directory
-tau [info project main](features/cucumber/features/info/info.project.main.feature) | Print main project info
+tau [info project main](features/cucumber/features/info/info.project.main.feature) | Print main project info 
 tau [info project private](features/cucumber/features/info/info.project.private.feature) | Print private project info
 tau [info status bar](features/cucumber/features/info/info.status.bar.feature) | Print status bar
 tau [info status arch](features/cucumber/features/info/info.status.arch.feature) | Check arch status
 tau [info status git](features/cucumber/features/info/info.status.git.feature) | Check git status
 tau [info status gopass](features/cucumber/features/info/info.status.gopass.feature) | Check gopass status
 tau [info status gpg](features/cucumber/features/info/info.status.gpg.feature) | Check gpg status
-tau [info status hg](features/cucumber/features/info/info.status.hg.feature) | Check hg status
+tau [info status hg](features/cucumber/features/info/info.status.hg.feature) | Check hg status 
 tau [info status mutagen](features/cucumber/features/info/info.status.mutagen.feature) | Check mutagen status
 tau [info status ssh](features/cucumber/features/info/info.status.ssh.feature) | Check ssh status
 tau [init packer docker](features/cucumber/features/init/init.packer.docker.feature) | Initialize packer project for docker images
@@ -108,34 +108,36 @@ tau [mutagen socket check](features/cucumber/features/mutagen/mutagen.socket.che
 tau [mutagen socket create](features/cucumber/features/mutagen/mutagen.socket.create.feature) [NAME] [IN] [OUT] | Create a mutagen socket [NAME] from [IN] to [OUT] of the container
 tau [mutagen socket list](features/cucumber/features/mutagen/mutagen.socket.list.feature) | List mutagen sockets
 tau [mutagen socket terminate](features/cucumber/features/mutagen/mutagen.socket.terminate.feature) [SOCKET] | Terminate a mutagen [SOCKET]
-tau [mutagen socket tidy](features/cucumber/features/mutagen/mutagen.socket.tidy.feature) | Remove mutagen daemon files
+tau [mutagen socket tidy](features/cucumber/features/mutagen/mutagen.socket.tidy.feature) | Remove mutagen daemon files 
 tau [self commands](features/cucumber/features/self/self.commands.feature) | List all commands
 tau [self config active](features/cucumber/features/self/self.config.active.feature) | Print active takelage configuration
 tau [self config default](features/cucumber/features/self/self.config.default.feature) | Print takelage default configuration
 tau [self config home](features/cucumber/features/self/self.config.home.feature) | Print takelage home config file configuration
 tau [self config project](features/cucumber/features/self/self.config.project.feature) | Print takelage project config file configuration
 tau [self version](features/cucumber/features/self/self.version.feature) | Print tau semantic version number
-tau [ship completion bash](features/cucumber/features/ship/completion/completion.bash.feature) | Print bash completion code for ship subcommand
+tau [ship completion bash](features/cucumber/features/ship/completion/completion.bash.feature) | Print bash completion code for ship subcommand 
 tau [ship container check existing](features/cucumber/features/ship/container/ship.container.check.existing.feature) | Check if a takelship is existing
 tau [ship container clean](features/cucumber/features/ship/container/ship.container.clean.feature) | Stop all takelships
 tau [ship container command](features/cucumber/features/ship/container/ship.container.command.feature) [COMMAND] | Run a [COMMAND] in a takelship container
-tau [ship container list](features/cucumber/features/ship/container/ship.container.list.feature) | List takelships
+tau [ship container list](features/cucumber/features/ship/container/ship.container.list.feature) | List takelships 
 tau [ship container login](features/cucumber/features/ship/container/ship.container.login.feature) | Log in to a takelship
+tau [ship container logs](features/cucumber/features/ship/container/ship.container.logs.feature) | Print the takelship logs
 tau [ship container podman](features/cucumber/features/ship/container/ship.container.podman.feature) [COMMAND] | Run a podman [COMMAND] in a takelship
 tau [ship container stop](features/cucumber/features/ship/container/ship.container.stop.feature) | Stop a takelship
 tau [ship container sudo](features/cucumber/features/ship/container/ship.container.sudo.feature) [COMMAND] | Run a sudo [COMMAND] in a takelship
 tau [ship container update](features/cucumber/features/ship/container/ship.container.update.feature) | Update takelship image
 tau [ship info takelconfig](features/cucumber/features/ship/info/ship.info.takelconfig.feature) | Print takelage config
 tau [ship info takelship](features/cucumber/features/ship/info/ship.info.takelship.feature) | Print takelship info
-tau [ship project list](features/cucumber/features/ship/project/ship.project.list.feature) | List takelship projects
-tau [ship project logs](features/cucumber/features/ship/project/ship.project.logs.feature) [PROJECT] | Follow logs of a takelship [PROJECT]
-tau [ship project start](features/cucumber/features/ship/project/ship.project.start.feature) [PROJECT] | Start a takelship [PROJECT]
+tau [ship project create](features/cucumber/features/ship/project/ship.project.create.feature) [PROJECT] | Create a takelship [PROJECT]
+tau [ship project list](features/cucumber/features/ship/project/ship.project.list.feature) | List takelship projects 
+tau [ship project start](features/cucumber/features/ship/project/ship.project.start.feature) [PROJECT] | Start a takelship [PROJECT] 
 tau [ship project stop](features/cucumber/features/ship/project/ship.project.stop.feature) | Stop a takelship project
-tau ship board | Alias for tau [ship container login](features/cucumber/features/ship/container/ship.container.login.feature)
+tau [ship project update](features/cucumber/features/ship/project/ship.project.create.feature) [PROJECT] | Update a takelship [PROJECT]
+tau ship board | Alias for tau [ship container login](features/cucumber/features/ship/container/ship.container.login.feature) 
 tau ship command [COMMAND] | Alias for tau [ship container command](features/cucumber/features/ship/container/ship.container.command.feature)
 tau ship list | Alias for tau [ship container list](features/cucumber/features/ship/container/ship.container.list.feature)
-tau ship login | Alias for tau [ship container login](features/cucumber/features/ship/container/ship.container.login.feature)
-tau ship logs [PROJECT] | Alias for tau [ship project logs](features/cucumber/features/ship/project/ship.project.logs.feature)
+tau ship login | Alias for tau [ship container login](features/cucumber/features/ship/container/ship.container.login.feature) 
+tau ship logs | Alias for [tau ship container logs](features/cucumber/features/ship/container/ship.container.logs.feature) 
 tau ship ls | Alias for tau [ship container list](features/cucumber/features/ship/container/ship.container.list.feature)
 tau ship podman [COMMAND] | Alias for tau [ship container podman](features/cucumber/features/ship/container/ship.container.podman.feature)
 tau ship sail [PROJECT] | Alias for tau [ship project start](features/cucumber/features/ship/project/ship.project.start.feature)
@@ -144,17 +146,17 @@ tau ship stop | Alias for tau [ship project stop](features/cucumber/features/shi
 tau ship sudo [COMMAND] | Alias for tau [ship container sudo](features/cucumber/features/ship/container/ship.container.sudo.feature)
 tau ship wreck | Alias for tau [ship project stop](features/cucumber/features/ship/project/ship.project.stop.feature)
 tau ship update | Alias for tau [ship container update](features/cucumber/features/ship/container/ship.container.update.feature)
-tau clean | Alias for tau [docker container clean](features/cucumber/features/docker/docker.container.clean.feature)
+tau clean | Alias for tau [docker container clean](features/cucumber/features/docker/docker.container.clean.feature) 
 tau commands | Alias for tau [self commands](features/cucumber/features/self/self.commands.feature)
 tau config | Alias for tau [self config active](features/cucumber/features/self/self.config.active.feature)
 tau list | Alias for tau [docker container list](features/cucumber/features/docker/docker.container.list.feature)
 tau ls | Alias for tau [docker container list](features/cucumber/features/docker/docker.container.list.feature)
-tau login | Alias for tau [docker container login](features/cucumber/features/docker/docker.container.login.feature)
+tau login | Alias for tau [docker container login](features/cucumber/features/docker/docker.container.login.feature) 
 tau project | Alias for tau [info project active](features/cucumber/features/info/info.project.active.feature)
-tau prune | Alias for tau [docker container prune](features/cucumber/features/docker/docker.container.prune.feature)
+tau prune | Alias for tau [docker container prune](features/cucumber/features/docker/docker.container.prune.feature) 
 tau status | Alias for tau [docker info status bar](features/cucumber/features/info/info.status.bar.feature)
 tau update | Alias for tau [docker image update](features/cucumber/features/docker/docker.image.update.feature)
-tau version | Alias for tau [self version](features/cucumber/features/self/self.version.feature)
+tau version | Alias for tau [self version](features/cucumber/features/self/self.version.feature) 
 
 **Warning: *tau update* will call *docker image prune* and remove all dangling images!**
 
@@ -170,9 +172,9 @@ or *tau config*.
 
 | Filename | Precedence | Description |
 |-|-|-|
-| *default.yml* | lowest | Shipped with *takelage-cli*. Sets defaults where applicable.                                                          |
-| *~/.takelage.yml* | normal | User-wide configuration file in your home directory. This is your normal custom configuration file.                   |
-| *takelage.yml* | highest | Project-specific configuration file next to your main Rakefile. Some projects need special configuration.             |
+| *default.yml* | lowest | Shipped with *takelage-cli*. Sets defaults where applicable.|
+| *~/.takelage.yml* | normal | User-wide configuration file in your home directory. This is your normal custom configuration file.|
+| *takelage.yml* | highest | Project-specific configuration file next to your main Rakefile. Some projects need special configuration.|
 | TAKELAGE_TAU_CONFIG_* | ultimate | Fileless configuration through TAKELAGE_TAU_CONFIG environment variables. |
 
 The tau command line tool is directory-aware so it is important that you can set the working directory of the tau command.
@@ -238,7 +240,7 @@ or *tau project*.
 
 | Default filename | Config key | Precedence | Description |
 | -------- | ---------- | ---------- | ----------- |
-| *project.yml* | info_project_main | normal | Main project file.  |
+| *project.yml* | info_project_main | normal | Main project file.|
 | *private/project.yml* | info_project_private | highest | Private project file. Should be in *.gitignore*. |
 
 ### Bash Completion
@@ -270,8 +272,8 @@ You need to whitelist it in your host's docker engine configuration:
 
 ```json
 {
-  "insecure-registries": [
-    "host.docker.internal:5005"
-  ]
+"insecure-registries": [
+"host.docker.internal:5005"
+]
 }
 ```

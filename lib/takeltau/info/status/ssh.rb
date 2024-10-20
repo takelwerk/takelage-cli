@@ -4,7 +4,6 @@
 module InfoStatusSSH
   # Backend method for info status ssh.
   # @return [Boolean] is ssh available?
-  # rubocop:disable Metrics/MethodLength
   def info_status_ssh
     log.debug 'Check ssh status'
 
@@ -29,7 +28,6 @@ module InfoStatusSSH
     log.debug 'ssh is available'
     true
   end
-  # rubocop:enable Metrics/MethodLength
 
   private
 

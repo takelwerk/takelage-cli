@@ -28,7 +28,6 @@ module Takeltau
 
     # Initialize docker container
     # rubocop:disable Metrics/AbcSize
-    # rubocop:disable Metrics/MethodLength
     def initialize(args = [], local_options = {}, configuration = {})
       # initialize thor parent class
       super args, local_options, configuration
@@ -50,7 +49,6 @@ module Takeltau
       @sshsock_container = config.active['mutagen_socket_path_ssh_container']
       @sshsock_host = config.active['mutagen_socket_path_ssh_host']
     end
-    # rubocop:enable Metrics/MethodLength
     # rubocop:enable Metrics/AbcSize
 
     desc 'check [COMMAND]', 'Check docker container'

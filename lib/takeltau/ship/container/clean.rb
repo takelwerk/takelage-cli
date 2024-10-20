@@ -10,7 +10,6 @@ module ShipContainerClean
   private
 
   # Remove all takelship containers
-  # rubocop:disable Metrics/MethodLength
   def _ship_container_clean_remove_containers
     ship_name = config.active['ship_name']
     log.debug "Getting all #{ship_name} containers"
@@ -26,5 +25,4 @@ module ShipContainerClean
       _ship_container_lib_remove_container container
     end
   end
-  # rubocop:enable Metrics/MethodLength
 end

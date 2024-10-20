@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 # tau docker container lib
-# rubocop:disable Metrics/ModuleLength
 # rubocop:disable Style/IfUnlessModifier
 module DockerContainerLib
   private
@@ -201,4 +200,3 @@ module DockerContainerLib
   end
 end
 # rubocop:enable Style/IfUnlessModifier
-# rubocop:enable Metrics/ModuleLength

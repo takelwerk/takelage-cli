@@ -69,12 +69,14 @@ module SystemModule
   # Run a command and return the standard output.
   # @return [String] stdout of command
   def run(command)
-    log.debug "Running command \"#{command}\""
-    stdout_str, stderr_str, status = Open3.capture3 command
-    log.debug "Command \"#{command}\" has stdout:\n\"\"\"\n#{stdout_str}\"\"\""
-    log.debug "Command \"#{command}\" has stderr:\n\"\"\"\n#{stderr_str}\"\"\""
-    log.debug "Command \"#{command}\" has exit status: \"#{status.exitstatus}\""
-    stdout_str
+    Dir.chdir(config.active['project_root_dir']) do
+      log.debug "Running command \"#{command}\""
+      stdout_str, stderr_str, status = Open3.capture3 command
+      log.debug "Command \"#{command}\" has stdout:\n\"\"\"\n#{stdout_str}\"\"\""
+      log.debug "Command \"#{command}\" has stderr:\n\"\"\"\n#{stderr_str}\"\"\""
+      log.debug "Command \"#{command}\" has exit status: \"#{status.exitstatus}\""
+      stdout_str
+    end
   end
 
   # Run a command and return the standard output
@@ -82,25 +84,31 @@ module SystemModule
   # @return [[String, String, Integer]] array of
   # stdout, stderr, exitstatus of command
   def run_and_capture(command)
-    log.debug "Running and capturing command \"#{command}\""
-    stdout_str, stderr_str, status = Open3.capture3 command
-    log.debug "Command \"#{command}\" has stdout:\n\"\"\"\n#{stdout_str}\"\"\""
-    log.debug "Command \"#{command}\" has stderr:\n\"\"\"\n#{stderr_str}\"\"\""
-    log.debug "Command \"#{command}\" has exit status: \"#{status.exitstatus}\""
-    [stdout_str, stderr_str, status.exitstatus]
+    Dir.chdir(config.active['project_root_dir']) do
+      log.debug "Running and capturing command \"#{command}\""
+      stdout_str, stderr_str, status = Open3.capture3 command
+      log.debug "Command \"#{command}\" has stdout:\n\"\"\"\n#{stdout_str}\"\"\""
+      log.debug "Command \"#{command}\" has stderr:\n\"\"\"\n#{stderr_str}\"\"\""
+      log.debug "Command \"#{command}\" has exit status: \"#{status.exitstatus}\""
+      [stdout_str, stderr_str, status.exitstatus]
+    end
   end
 
   # Use Kernel#exec to replace the ruby process with a command.
   def run_and_exit(command)
-    log.debug "Running command \"#{command}\" and exiting afterwards"
-    exec command
+    Dir.chdir(config.active['project_root_dir']) do
+      log.debug "Running command \"#{command}\" and exiting afterwards"
+      exec command
+    end
   end
 
   # Use Kernel#fork and Kernel#exec to run a command as a background process.
   def run_and_fork(command)
     log.debug "Running command \"#{command}\" as a background process"
     job = fork do
-      exec command
+      Dir.chdir(config.active['project_root_dir']) do
+        exec command
+      end
     end
     Process.detach(job)
   end
@@ -108,25 +116,28 @@ module SystemModule
   # Run a command and return the result.
   # @return [Boolean] success of command run
   def try(command)
-    log.debug "Running command \"#{command}\""
-    stdout_str, stderr_str, status = Open3.capture3 command
-    log.debug "Command \"#{command}\" has stdout:\n\"\"\"\n#{stdout_str}\"\"\""
-    log.debug "Command \"#{command}\" has stderr:\n\"\"\"\n#{stderr_str}\"\"\""
-    log.debug "Command \"#{command}\" has exit status: \"#{status.exitstatus}\""
-    status
+    Dir.chdir(config.active['project_root_dir']) do
+      log.debug "Running command \"#{command}\""
+      stdout_str, stderr_str, status = Open3.capture3 command
+      log.debug "Command \"#{command}\" has stdout:\n\"\"\"\n#{stdout_str}\"\"\""
+      log.debug "Command \"#{command}\" has stderr:\n\"\"\"\n#{stderr_str}\"\"\""
+      log.debug "Command \"#{command}\" has exit status: \"#{status.exitstatus}\""
+      status
+    end
   end
 
   private
 
   # Check if command is available
-  # rubocop:disable Metrics/MethodLength
   def _command_available?(command)
     return true if _command_already_checked command
 
     log.debug "Check if the command \"#{command}\" is available"
     begin
-      status = try command
-      return false unless status.exitstatus.zero?
+      Dir.chdir(config.active['project_root_dir']) do
+        status = try command
+        return false unless status.exitstatus.zero?
+      end
     rescue Errno::ENOENT => e
       log.debug 'The command failed with an error.'
       log.debug "Class of error: #{e.class}"
@@ -135,7 +146,6 @@ module SystemModule
     end
     true
   end
-  # rubocop:enable Metrics/MethodLength
 
   # Check if command has already been checked
   def _command_already_checked(command)

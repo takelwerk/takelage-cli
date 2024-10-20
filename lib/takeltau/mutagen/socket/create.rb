@@ -3,7 +3,6 @@
 # tau mutagen socket create
 module MutagenSocketCreate
   # Backend method for mutagen socket create.
-  # rubocop:disable Metrics/MethodLength
   def mutagen_socket_create(name, containersock, hostsock)
     # See DockerContainerLib::_docker_container_lib_hostname
     socketname = "#{@hostname[-11..]}-#{name}"
@@ -22,12 +21,10 @@ module MutagenSocketCreate
     log.debug "Created the mutagen socket \"#{socketname}\""
     true
   end
-  # rubocop:enable Metrics/MethodLength
 
   private
 
   # Get git branch.
-  # rubocop:disable Metrics/MethodLength
   def _mutagen_socket_create_socket(socketname, containersock, hostsock)
     cmd_create_socket = format(
       config.active['cmd_mutagen_forward_socket_create'],
@@ -41,5 +38,4 @@ module MutagenSocketCreate
     )
     run cmd_create_socket
   end
-  # rubocop:enable Metrics/MethodLength
 end
