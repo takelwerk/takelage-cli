@@ -5,10 +5,15 @@ to facilitate the takelage devops workflow.
 The takelage devops workflow helps devops engineers
 build, test and deploy os images.
 
-The *takelage-cli* executable *tau* is a 
+The *takelage-cli* executable `tau` is a 
 [ruby](https://www.ruby-lang.org/) 
 command line script using the 
 [thor](http://whatisthor.com/) toolkit.
+
+*takelage-cli* is also the remote control for the
+[takelship](https://github.com/takelwerk/takelship).
+
+The *takelage-cli* executable `ship` is a wrapper for `tau ship`.
 
 ## Framework Versions
 
