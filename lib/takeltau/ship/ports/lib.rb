@@ -51,7 +51,7 @@ module ShipPortsLib
   # rubocop:disable Metrics/MethodLength
   def _ship_ports_lib_get_ports_docker(takelship)
     takel_docker = takelship['docker_host']
-    docker_key = "ship_ports_dind_docker_#{takel_docker}"
+    docker_key = "ship_ports_docker_host_docker_#{takel_docker}"
     local_docker = _ship_ports_lib_get_localhost_port docker_key, takel_docker
     docker_host = "DOCKER_HOST=tcp://localhost:#{local_docker}"
     {
