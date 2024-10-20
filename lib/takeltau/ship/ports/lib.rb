@@ -56,7 +56,7 @@ module ShipPortsLib
     docker_host = "DOCKER_HOST=tcp://localhost:#{local_docker}"
     {
       docker_key => {
-        'service' => 'dind',
+        'service' => 'docker-host',
         'protocol' => 'docker',
         'takelship' => takel_docker.to_i,
         'localhost' => local_docker,
