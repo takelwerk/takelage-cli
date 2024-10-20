@@ -41,7 +41,7 @@ Feature: I can list the ports of a takelship container
   Scenario: Get info about a takelship container
     Given I successfully run `unbuffer ship-cli project start`
     When I successfully run `env TAKELAGE_TAU_CONFIG_SHIP_PORTS_FORGEJO_SERVER_HTTP_33000=33099 unbuffer ship-cli ports list`
-    Then the output should contain "ship_ports_dind_docker_28192"
+    Then the output should contain "ship_ports_docker_host_docker_28192"
     And the output should contain:
       """
       ship_ports_forgejo_server_http_33000:

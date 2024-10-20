@@ -22,7 +22,6 @@ Feature: I can stop a takelship project
       ---
       """
 
-  @announce-output
   Scenario: Start the default project
     Given I successfully run `unbuffer ship-cli project start`
     And the docker container "takelship_xeciz-vigoc" exists
