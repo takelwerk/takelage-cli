@@ -191,7 +191,7 @@ module SystemModule
     rescue StandardError => e
       log.debug e.class
       log.debug "Invalid ERB in YAML file \"#{file}\". " \
-        "#{e.class}: \"#{e.message}\""
+                "#{e.class}: \"#{e.message}\""
       return false
     end
     true

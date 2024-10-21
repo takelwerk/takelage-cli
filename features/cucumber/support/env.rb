@@ -4,7 +4,7 @@ require 'aruba/cucumber'
 require 'json'
 require_relative 'container'
 require_relative 'image'
-ENV['PATH'] = "/project/bin#{File::PATH_SEPARATOR}#{ENV['PATH']}"
+ENV['PATH'] = "/project/bin#{File::PATH_SEPARATOR}#{ENV.fetch('PATH', nil)}"
 
 # BeforeAll hook
 image_before_all

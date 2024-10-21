@@ -40,8 +40,8 @@ module LoggingModule
     if %w[FATAL ERROR WARN INFO DEBUG].include? loglevel
       loglevel
     else
-      TakeltauLogger.instance.logger.error 'The parameter "loglevel"' \
-          ' must be one of FATAL, ERROR, WARN, INFO, DEBUG'
+      TakeltauLogger.instance.logger.error 'The parameter "loglevel" ' \
+                                           'must be one of FATAL, ERROR, WARN, INFO, DEBUG'
       TakeltauLogger.instance.logger.info 'Using loglevel INFO'
       Logger::INFO
     end

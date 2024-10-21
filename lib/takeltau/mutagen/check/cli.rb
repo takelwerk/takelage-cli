@@ -16,12 +16,12 @@ module Takeltau
     # Initialize mutagen check
     def initialize(args = [], local_options = {}, configuration = {})
       # initialize thor parent class
-      super args, local_options, configuration
+      super
 
       @workdir = Dir.getwd
 
       inside = _docker_container_lib_check_matrjoschka
-      @hostname = inside ? ENV['HOSTNAME'] : _docker_container_lib_hostname
+      @hostname = inside ? ENV.fetch('HOSTNAME', nil) : _docker_container_lib_hostname
       @hostlabel = "hostname=#{@hostname}"
     end
 

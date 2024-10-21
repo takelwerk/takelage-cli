@@ -18,7 +18,7 @@ module Takeltau
     # Define templates
     def initialize(args = [], local_options = {}, configuration = {})
       # initialize thor parent class
-      super args, local_options, configuration
+      super
 
       @gitignore = {
         name: '.gitignore',

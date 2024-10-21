@@ -33,7 +33,7 @@ def _get_agent_socket_path
   cmd_agent_socket_path =
     @config['cmd_docker_socket_config_agent_socket_path']
   cmd_get_agent_socket_path = "HOME=#{aruba.config.home_directory} " \
-    "#{cmd_agent_socket_path}"
+                              "#{cmd_agent_socket_path}"
   `#{cmd_get_agent_socket_path}`
 end
 
@@ -41,7 +41,7 @@ def _get_agent_ssh_socket_path
   cmd_agent_ssh_socket_path =
     @config['cmd_docker_socket_config_agent_ssh_socket_path']
   cmd_get_agent_ssh_socket_path = "HOME=#{aruba.config.home_directory} " \
-    "#{cmd_agent_ssh_socket_path}"
+                                  "#{cmd_agent_ssh_socket_path}"
   `#{cmd_get_agent_ssh_socket_path}`
 end
 

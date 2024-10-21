@@ -7,7 +7,7 @@ module MutagenSocketDocker
     # See DockerContainerLib::_docker_container_lib_hostname
     socketname = "#{@hostname[-11..]}-docker"
     log.debug "Create the mutagen docker socket \"#{socketname}\" in the container " \
-      "pointing to the host at \"#{hostsock}\""
+              "pointing to the host at \"#{hostsock}\""
 
     return false if mutagen_socket_check socketname
 

@@ -27,9 +27,8 @@ module ShipCompletionBash
     functions =
       completion
       .split(/_tau[^_]*/)
-      .select { |f| f =~ /_ship/ }
-      .reject { |f| f =~ /_ship\n/ }
-      .reject { |f| f.include? 'help ()' }
-    functions.join('')
+      .grep(/_ship/)
+      .grep_v(/_ship\n/)
+    functions.join
   end
 end

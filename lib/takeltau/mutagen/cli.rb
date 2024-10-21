@@ -12,7 +12,7 @@ module Takeltau
 
     def initialize(args = [], local_options = {}, configuration = {})
       # initialize thor parent class
-      super args, local_options, configuration
+      super
 
       log.debug 'Check docker dameon for mutagen subcommand'
       exit false unless docker_check_daemon

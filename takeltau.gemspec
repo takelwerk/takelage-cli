@@ -14,7 +14,7 @@ Gem::Specification.new do |spec|
   spec.authors = ['Takelwerk']
   spec.email = ['takeltau@takelwerk.net']
   spec.summary = 'takelage devops workflow cli'
-  spec.description = \
+  spec.description =
     'tau is a thor command line script ' \
     'to tame the takelage devops workflow'
   spec.homepage = 'https://github.com/takelwerk/takelage-cli'
@@ -29,17 +29,18 @@ Gem::Specification.new do |spec|
   spec.executables << 'ship'
   spec.required_ruby_version = '>= 2.7'
   spec.metadata['yard.run'] = 'yard'
-  spec.add_runtime_dependency 'docker_registry2', '~> 1.9'
-  spec.add_runtime_dependency 'fylla', '~> 0.5'
-  spec.add_runtime_dependency 'json', '~> 2.1'
-  spec.add_runtime_dependency 'logger', '~> 1.4'
-  spec.add_runtime_dependency 'rake', '~> 12.3'
-  spec.add_runtime_dependency 'thor', '~> 1.0'
-  spec.add_runtime_dependency 'version_sorter', '~> 2.2'
+  spec.add_dependency 'docker_registry2', '~> 1.9'
+  spec.add_dependency 'fylla', '~> 0.5'
+  spec.add_dependency 'json', '~> 2.1'
+  spec.add_dependency 'logger', '~> 1.4'
+  spec.add_dependency 'rake', '~> 12.3'
+  spec.add_dependency 'thor', '~> 1.0'
+  spec.add_dependency 'version_sorter', '~> 2.2'
   spec.add_development_dependency 'aruba', '~> 1.0'
   spec.add_development_dependency 'bundler', '~> 2.2'
   spec.add_development_dependency 'cucumber', '~> 3.1'
   spec.add_development_dependency 'rake', '~> 13.0'
   spec.add_development_dependency 'rspec', '~> 3.9'
   spec.add_development_dependency 'yard', '~> 0.9'
+  spec.metadata['rubygems_mfa_required'] = 'true'
 end

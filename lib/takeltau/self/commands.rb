@@ -16,9 +16,9 @@ module SelfCommands
 
     # use thor list to get the list of commands and subcommands
     cmd_thor_list = "bash -c '" \
-        "cd #{thorfile_dir} && " \
-        'thor list' \
-        "'"
+                    "cd #{thorfile_dir} && " \
+                    'thor list' \
+                    "'"
 
     # call thor list command
     `#{cmd_thor_list}`

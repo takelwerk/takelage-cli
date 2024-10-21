@@ -138,7 +138,7 @@ module Takeltau
     # Initialize takelage cli.
     def initialize(args = [], local_options = {}, configuration = {})
       # Initialize thor parent class
-      super args, local_options, configuration
+      super
 
       # Initialize global singleton log
       initialize_logging options[:loglevel].to_s.upcase

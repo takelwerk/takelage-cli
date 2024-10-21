@@ -15,7 +15,7 @@ module Takeltau
     # Initialize takelage docker image tag check
     def initialize(args = [], local_options = {}, configuration = {})
       # initialize thor parent class
-      super args, local_options, configuration
+      super
 
       @docker_user = config.active['docker_user']
       @docker_repo = config.active['docker_repo']

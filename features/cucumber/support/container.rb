@@ -34,17 +34,17 @@ def _stop_mock_container_takelship
 end
 
 def _stop_container(container)
-  cmd_stop_container = \
+  cmd_stop_container =
     "docker ps --filter name=^#{container}$ " \
-      '--quiet >/dev/null 2>&1 && ' \
-      "docker stop #{container} >/dev/null 2>&1"
+    '--quiet >/dev/null 2>&1 && ' \
+    "docker stop #{container} >/dev/null 2>&1"
   system cmd_stop_container
 end
 
 def _stop_network(network)
-  cmd_stop_network = \
+  cmd_stop_network =
     "docker network ls --filter name=^#{network}$ " \
-      '--quiet >/dev/null 2>&1 && ' \
-      "docker network rm #{network} >/dev/null 2>&1"
+    '--quiet >/dev/null 2>&1 && ' \
+    "docker network rm #{network} >/dev/null 2>&1"
   system cmd_stop_network
 end

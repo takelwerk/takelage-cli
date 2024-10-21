@@ -11,7 +11,7 @@ module Takeltau
 
     def initialize(args = [], local_options = {}, configuration = {})
       # initialize thor parent class
-      super args, local_options, configuration
+      super
 
       log.debug 'Check docker dameon for ship subcommand'
       exit false unless docker_check_daemon 'cmd_ship_docker', 'cmd_ship_docker_check'
@@ -104,6 +104,17 @@ module Takeltau
     # ship podman: {Takeltau::ShipContainer#podman}
     def podman(*args)
       Takeltau::ShipContainer.new.podman(*args)
+    end
+
+    desc 'restart [PROJECT]', 'Restart takelship [PROJECT]'
+    long_desc <<-LONGDESC.gsub("\n", "\x5")
+    Restart a takelship and run project [PROJECT] in it.
+    Alias for ship project restart which is an
+    alias for ship project stop and then ship project start.
+    LONGDESC
+    # ship restart: {Takeltau::ShipProject#restart}
+    def restart(project = 'default')
+      Takeltau::ShipProject.new.restart project
     end
 
     desc 'sudo [COMMAND]', 'Run a sudo [COMMAND] in a takelship'

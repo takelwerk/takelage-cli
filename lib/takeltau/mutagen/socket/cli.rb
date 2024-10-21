@@ -25,14 +25,14 @@ module Takeltau
     # Initialize mutagen socket
     def initialize(args = [], local_options = {}, configuration = {})
       # initialize thor parent class
-      super args, local_options, configuration
+      super
 
       @docker_repo = config.active['docker_repo']
       @username = ENV['USER'] || 'noname'
       @workdir = Dir.getwd
 
       inside = _docker_container_lib_check_matrjoschka
-      @hostname = inside ? ENV['HOSTNAME'] : _docker_container_lib_hostname
+      @hostname = inside ? ENV.fetch('HOSTNAME', nil) : _docker_container_lib_hostname
 
       @hostlabel = "hostname=#{@hostname}"
       @takellabel = config.active['mutagen_socket_takelage_label']

@@ -96,7 +96,7 @@ module DockerContainerLib
       entrypoint_options: config.active['docker_entrypoint_options'],
       extra: config.active['docker_entrypoint_extra'],
       gid: Etc.getpwnam(@username).gid,
-      homedir: ENV['HOME'] || '/tmp',
+      homedir: Dir.home || '/tmp',
       image: image,
       shmsize: config.active['docker_shm_size'],
       timezone: 'Europe/Berlin',
@@ -187,7 +187,7 @@ module DockerContainerLib
   # Get the mounted takelage directory
   def _docker_container_lib_get_mounted_dir(name, destination, docker)
     log.debug 'Getting mounted directory from ' \
-                "container \"#{name}\""
+              "container \"#{name}\""
 
     cmd_get_mounted_dir = format(
       config.active['cmd_docker_container_get_mounted_dir'],

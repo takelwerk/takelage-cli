@@ -19,7 +19,7 @@ module Takeltau
     # rubocop:disable Metrics/MethodLength
     def initialize(args = [], local_options = {}, configuration = {})
       # initialize thor parent class
-      super args, local_options, configuration
+      super
 
       @gitignore = {
         name: '.gitignore',

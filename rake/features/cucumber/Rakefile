@@ -5,8 +5,8 @@ require 'cucumber/rake/task'
 require 'rake'
 
 cmd_features_cucumber = 'cucumber features/cucumber ' \
-    '--require features ' \
-    '--format pretty'
+                        '--require features ' \
+                        '--format pretty'
 
 namespace :features do
   desc 'Run cucumber behavior tests'

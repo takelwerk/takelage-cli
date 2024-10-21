@@ -4,6 +4,7 @@
 class SubCommandBase < Thor
   # Set the subcommand banner.
   # rubocop:disable Style/OptionalBooleanParameter
+  # rubocop:disable Lint/EmptyBlock
   def self.banner(command, _namespace = nil, _subcommand = false)
     subcommand = subcommand_prefix
     name = $PROGRAM_NAME
@@ -12,6 +13,7 @@ class SubCommandBase < Thor
     name = File.basename(name)
     [name, subcommand, command.usage].reject(&:empty?).join(' ')
   end
+  # rubocop:enable Lint/EmptyBlock
   # rubocop:enable Style/OptionalBooleanParameter
 
   # Set the subcommand prefix.
