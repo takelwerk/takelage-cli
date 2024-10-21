@@ -143,7 +143,7 @@ or *tau commands*:
 | tau ship command [COMMAND] | Alias for tau [ship container command](features/cucumber/features/ship/container/ship.container.command.feature) |
 | tau ship list | Alias for tau [ship container list](features/cucumber/features/ship/container/ship.container.list.feature) |
 | tau ship login | Alias for tau [ship container login](features/cucumber/features/ship/container/ship.container.login.feature) |
-| tau ship logs | Alias for [tau ship container logs](features/cucumber/features/ship/container/ship.container.logs.feature) |
+| tau ship logs | Alias for tau [ship container logs](features/cucumber/features/ship/container/ship.container.logs.feature) |
 | tau ship ls | Alias for tau [ship container list](features/cucumber/features/ship/container/ship.container.list.feature) |
 | tau ship podman [COMMAND] | Alias for tau [ship container podman](features/cucumber/features/ship/container/ship.container.podman.feature) |
 | tau ship sail [PROJECT] | Alias for tau [ship project start](features/cucumber/features/ship/project/ship.project.start.feature) |
