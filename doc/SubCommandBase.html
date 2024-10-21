@@ -201,7 +201,7 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Set the subcommand banner. rubocop:disable Style/OptionalBooleanParameter</p>
+<p>Set the subcommand banner. rubocop:disable Style/OptionalBooleanParameter rubocop:disable Lint/EmptyBlock</p>
 
 
   </div>
@@ -215,17 +215,17 @@
       <pre class="lines">
 
 
-7
 8
 9
 10
 11
 12
 13
-14</pre>
+14
+15</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/takeltau/lib/subcmd.rb', line 7</span>
+      <pre class="code"><span class="info file"># File 'lib/takeltau/lib/subcmd.rb', line 8</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_banner'>banner</span><span class='lparen'>(</span><span class='id identifier rubyid_command'>command</span><span class='comma'>,</span> <span class='id identifier rubyid__namespace'>_namespace</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='id identifier rubyid__subcommand'>_subcommand</span> <span class='op'>=</span> <span class='kw'>false</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_subcommand'>subcommand</span> <span class='op'>=</span> <span class='id identifier rubyid_subcommand_prefix'>subcommand_prefix</span>
@@ -266,14 +266,14 @@
       <pre class="lines">
 
 
-18
-19
 20
 21
-22</pre>
+22
+23
+24</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/takeltau/lib/subcmd.rb', line 18</span>
+      <pre class="code"><span class="info file"># File 'lib/takeltau/lib/subcmd.rb', line 20</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_subcommand_prefix'>subcommand_prefix</span>
   <span class='id identifier rubyid_name'>name</span><span class='period'>.</span><span class='id identifier rubyid_gsub'>gsub</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>.*::</span><span class='regexp_end'>/</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
