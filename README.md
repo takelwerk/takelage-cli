@@ -135,6 +135,7 @@ or *tau commands*:
 | tau [ship info takelship](features/cucumber/features/ship/info/ship.info.takelship.feature) | Print takelship info |
 | tau [ship project create](features/cucumber/features/ship/project/ship.project.create.feature) [PROJECT] | Create a takelship [PROJECT] |
 | tau [ship project list](features/cucumber/features/ship/project/ship.project.list.feature) | List takelship projects |
+| tau [ship project restart](features/cucumber/features/ship/project/ship.project.restart.feature) [PROJECT] | Restart a takelship [PROJECT] |
 | tau [ship project start](features/cucumber/features/ship/project/ship.project.start.feature) [PROJECT] | Start a takelship [PROJECT] |
 | tau [ship project stop](features/cucumber/features/ship/project/ship.project.stop.feature) | Stop a takelship project |
 | tau [ship project update](features/cucumber/features/ship/project/ship.project.create.feature) [PROJECT] | Update a takelship [PROJECT] |
@@ -146,6 +147,7 @@ or *tau commands*:
 | tau ship ls | Alias for tau [ship container list](features/cucumber/features/ship/container/ship.container.list.feature) |
 | tau ship podman [COMMAND] | Alias for tau [ship container podman](features/cucumber/features/ship/container/ship.container.podman.feature) |
 | tau ship sail [PROJECT] | Alias for tau [ship project start](features/cucumber/features/ship/project/ship.project.start.feature) |
+| tau ship restart [PROJECT] | Alias for tau [ship project restart](features/cucumber/features/ship/project/ship.project.restart.feature) |
 | tau ship start [PROJECT] | Alias for tau [ship project start](features/cucumber/features/ship/project/ship.project.start.feature) |
 | tau ship stop | Alias for tau [ship project stop](features/cucumber/features/ship/project/ship.project.stop.feature) |
 | tau ship sudo [COMMAND] | Alias for tau [ship container sudo](features/cucumber/features/ship/container/ship.container.sudo.feature) |
