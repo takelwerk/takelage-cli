@@ -20,6 +20,17 @@ Feature: I can stop a takelship project
     And a file named "takelship/compose/takelship.yml" with:
       """
       ---
+      name: mockship
+      docker_host: '28192'
+      default_project: forgejo
+      projects:
+      - name: forgejo
+        services:
+        - name: forgejo-server
+          ports:
+          - port: 33000
+            protocol: http
+            description: my_description
       """
 
   Scenario: Start the default project
@@ -29,5 +40,5 @@ Feature: I can stop a takelship project
     Then the docker container "takelship_xeciz-vigoc" doesn't exist
     And the output should contain:
       """
-      Stopped takelship "takelship_xeciz-vigoc"
+      Stopped takelship takelship_xeciz-vigoc
       """

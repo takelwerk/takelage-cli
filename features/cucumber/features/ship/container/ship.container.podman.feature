@@ -21,9 +21,30 @@ Feature: I can run a podman command in a takelship container
     And a file named "takelship/compose/takelship.yml" with:
       """
       ---
+      name: mockship
+      docker_host: '28192'
+      default_project: forgejo
+      projects:
+      - name: forgejo
+        services:
+        - name: forgejo-server
+          ports:
+          - port: 33000
+            protocol: http
+            description: my_description
       """
 
   Scenario: Run a podman command in a takelship container
     Given I successfully run `unbuffer ship-cli project start`
     When I successfully run `unbuffer ship-cli container podman ps`
+    Then the output should contain "banana"
+
+  Scenario: Run a podman command in a takelship container
+    Given I successfully run `unbuffer ship-cli project start`
+    When I successfully run `unbuffer ship-cli podman ps`
+    Then the output should contain "banana"
+
+  Scenario: Run a podman command in a takelship container
+    Given I successfully run `unbuffer ship-cli project start`
+    When I successfully run `unbuffer ship-cli docker ps`
     Then the output should contain "banana"

@@ -46,6 +46,19 @@ module Takeltau
     end
 
     #
+    # ship container hostname
+    #
+    desc 'hostname', 'Print the takelship hostname'
+    long_desc <<-LONGDESC.gsub("\n", "\x5")
+    Print the hostname of the takelship container.
+    LONGDESC
+    def hostname
+      say _ship_container_lib_ship_hostname
+      exit false unless ship_container_check_existing
+      true
+    end
+
+    #
     # ship container list
     #
     desc 'list', 'List takelships'
@@ -89,6 +102,19 @@ module Takeltau
     LONGDESC
     def podman(*args)
       say ship_container_podman args
+    end
+
+    #
+    # ship container shipdir
+    #
+    desc 'shipdir', 'Print the takelship project root dir'
+    long_desc <<-LONGDESC.gsub("\n", "\x5")
+    Print the project root directory of the takelship container.
+    LONGDESC
+    def shipdir
+      say config.active['project_root_dir']
+      exit false unless ship_container_check_existing
+      true
     end
 
     #

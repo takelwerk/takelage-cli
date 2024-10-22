@@ -5,7 +5,7 @@ module ShipContainerStop
   # Stop a takelship container
   def ship_container_stop
     _ship_container_stop_docker_stop
-    "Stopped takelship \"#{_ship_container_lib_ship_hostname}\""
+    "Stopped takelship #{_ship_container_lib_ship_hostname}"
   end
 
   private

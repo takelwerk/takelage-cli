@@ -56,6 +56,16 @@ module Takeltau
       Takeltau::ShipContainer.new.command(*args)
     end
 
+    desc 'docker [COMMAND]', 'Run a podman [COMMAND] in a takelship'
+    long_desc <<-LONGDESC.gsub("\n", "\x5")
+    Run a podman command as user podman in a takelship container.
+    Alias for ship container podman.
+    LONGDESC
+    # ship docker: {Takeltau::ShipContainer#podman}
+    def docker(*args)
+      Takeltau::ShipContainer.new.podman(*args)
+    end
+
     desc 'list', 'List takelships'
     long_desc <<-LONGDESC.gsub("\n", "\x5")
     List takelship containers.

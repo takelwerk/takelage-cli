@@ -1,11 +1,11 @@
 @ship
-@ship.project
-@ship.project.restart
+@ship.container
+@ship.container.hostname
 
 @before_build_mock_images
 @after_stop_mock_container
 
-Feature: I can restart a takelship project
+Feature: I can print the hostname of a takelship container
 
   Background:
     Given a file named "takelage.yml" with:
@@ -34,37 +34,23 @@ Feature: I can restart a takelship project
             description: my_description
       """
 
-  Scenario: Restart the default project
+  Scenario: Print a takelship hostname if a takelship linked to the project root dir exists
     Given I successfully run `unbuffer ship-cli container clean`
     And the docker container "takelship_xeciz-vigoc" doesn't exist
     And I successfully run `unbuffer ship-cli project start`
-    And the output should contain:
-      """
-      localhost:54321 [forgejo-server http] (my_description)
-      """
     And the docker container "takelship_xeciz-vigoc" exists
-    Given a file named "takelage.yml" with:
-      """
-      ---
-      ship_container_check_matrjoschka: false
-      ship_user: host.docker.internal:5005/takelage-mock
-      ship_repo: takelship-mock
-      ship_tag: latest
-      ship_ports_forgejo_server_http_33000: 12345
-      """
-    When I successfully run `unbuffer ship-cli project restart`
-    Then the output should contain:
-      """
-      Stopped takelship takelship_xeciz-vigoc
-      """
+    When I run `unbuffer ship-cli container hostname`
+    Then the exit status should be 0
     And the output should contain:
       """
-      The takelship takelship_xeciz-vigoc
-      departed from /tmp/cucumber
-      ships project forgejo
+      takelship_xeciz-vigoc
       """
+
+  Scenario: Do not print a takelship hostname if no takelship linked to the project root dir exists
+    Given I successfully run `unbuffer ship-cli container clean`
+    When I run `unbuffer ship-cli container hostname`
+    Then the exit status should be 1
     And the output should contain:
       """
-      localhost:12345 [forgejo-server http] (my_description)
+      takelship_xeciz-vigoc
       """
-    And the docker container "takelship_xeciz-vigoc" exists

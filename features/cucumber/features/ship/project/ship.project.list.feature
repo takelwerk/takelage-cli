@@ -20,8 +20,17 @@ Feature: I can list takelship projects
     And a file named "takelship/compose/takelship.yml" with:
       """
       ---
+      name: mockship
+      docker_host: '28192'
+      default_project: forgejo
       projects:
       - name: forgejo
+        services:
+        - name: forgejo-server
+          ports:
+          - port: 33000
+            protocol: http
+            description: my_description
       """
 
   Scenario: List takelship projects

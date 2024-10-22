@@ -11,15 +11,16 @@ module ShipProjectStart
     return false unless _ship_project_start_valid_project? takelship, project
 
     ports = _ship_ports_lib_get_ports(takelship, project)
-    return false unless _ship_project_start_sailing? project, ports
+    return false if _ship_project_start_already_sailing? project, ports
 
     log.debug 'Writing port configuration to takelage.yml'
     _ship_ports_lib_write_ports(ports, project)
 
     log.debug "Starting takelship project \"#{project}\""
     _ship_container_lib_docker_privileged ports, project
-    say "Started project \"#{project}\" on takelship \"#{_ship_container_lib_ship_hostname}\".\n\n"
+    _ship_project_start_print_banner project
     _ship_project_start_print_ports ports
+    true
   end
 
   private
@@ -33,12 +34,12 @@ module ShipProjectStart
   end
 
   # check if the takelship is already existng
-  def _ship_project_start_sailing?(project, ports)
-    return true unless ship_container_check_existing
+  def _ship_project_start_already_sailing?(project, ports)
+    return false unless ship_container_check_existing
 
-    say "The takelship \"#{_ship_container_lib_ship_hostname}\" is sailing with project \"#{project}\".\n\n"
-    say _ship_project_start_print_ports ports
-    false
+    _ship_project_start_print_banner project
+    _ship_project_start_print_ports ports
+    true
   end
 
   # check if the project is a valid takelship project
@@ -46,8 +47,18 @@ module ShipProjectStart
     return true if _ship_info_lib_valid_project? takelship, project
 
     say 'No valid project found!'
-    say 'Hint: ship project list'
+    say 'Try: ship project list'
     false
+  end
+
+  # print banner with status information
+  def _ship_project_start_print_banner(project)
+    ship_hostname = _ship_container_lib_ship_hostname
+    ship_dir =_docker_container_lib_homify_dir config.active['project_root_dir']
+    say "The takelship #{ship_hostname}"
+    say "departed from #{ship_dir}"
+    say "ships project #{project}"
+    say
   end
 
   # print ports after starting a takelship
@@ -63,7 +74,7 @@ module ShipProjectStart
       description = " (#{description})" if port.key? 'description'
       output << "#{url.ljust(max_length['url'])} #{service.ljust(max_length['service'])}#{description}"
     end
-    output.join("\n")
+    say output.join("\n")
   end
 
   # get max length of left column

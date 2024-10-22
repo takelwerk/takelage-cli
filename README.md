@@ -1,13 +1,13 @@
 # takelage-cli
 
-*takelage-cli* is a command line interface 
+*takelage-cli* is a command line interface
 to facilitate the takelage devops workflow.
 The takelage devops workflow helps devops engineers
 build, test and deploy os images.
 
-The *takelage-cli* executable `tau` is a 
-[ruby](https://www.ruby-lang.org/) 
-command line script using the 
+The *takelage-cli* executable `tau` is a
+[ruby](https://www.ruby-lang.org/)
+command line script using the
 [thor](http://whatisthor.com/) toolkit.
 
 *takelage-cli* is also the remote control for the
@@ -50,9 +50,9 @@ The *takelage-cli* executable `ship` is a wrapper for `tau ship`.
 
 ## Installation
 
-*tau* is part of *takelage-dev*'s docker image 
+*tau* is part of *takelage-dev*'s docker image
 but you typically want to install it on the host system as well.
-Install the takelage gem and its dependencies 
+Install the takelage gem and its dependencies
 through the [gem](https://github.com/rubygems/rubygems)
 command line tool:
 
@@ -125,9 +125,12 @@ or *tau commands*:
 | tau [ship container clean](features/cucumber/features/ship/container/ship.container.clean.feature) | Stop all takelships |
 | tau [ship container command](features/cucumber/features/ship/container/ship.container.command.feature) [COMMAND] | Run a [COMMAND] in a takelship container |
 | tau [ship container list](features/cucumber/features/ship/container/ship.container.list.feature) | List takelships |
+| tau [ship container hostname](features/cucumber/features/ship/container/ship.container.hostname.feature) | Print takelship hostname |
 | tau [ship container login](features/cucumber/features/ship/container/ship.container.login.feature) | Log in to a takelship |
 | tau [ship container logs](features/cucumber/features/ship/container/ship.container.logs.feature) | Print the takelship logs |
+| tau [ship container name](features/cucumber/features/ship/container/ship.container.name.feature) | Print the takelship name |
 | tau [ship container podman](features/cucumber/features/ship/container/ship.container.podman.feature) [COMMAND] | Run a podman [COMMAND] in a takelship |
+| tau [ship container shipdir](features/cucumber/features/ship/container/ship.container.shipdir.feature) | Print takelship shipdir |
 | tau [ship container stop](features/cucumber/features/ship/container/ship.container.stop.feature) | Stop a takelship |
 | tau [ship container sudo](features/cucumber/features/ship/container/ship.container.sudo.feature) [COMMAND] | Run a sudo [COMMAND] in a takelship |
 | tau [ship container update](features/cucumber/features/ship/container/ship.container.update.feature) | Update takelship image |
@@ -141,10 +144,12 @@ or *tau commands*:
 | tau [ship project update](features/cucumber/features/ship/project/ship.project.create.feature) [PROJECT] | Update a takelship [PROJECT] |
 | tau ship board | Alias for tau [ship container login](features/cucumber/features/ship/container/ship.container.login.feature) |
 | tau ship command [COMMAND] | Alias for tau [ship container command](features/cucumber/features/ship/container/ship.container.command.feature) |
+| tau ship docker [COMMAND] | Alias for tau [ship container podman](features/cucumber/features/ship/container/ship.container.podman.feature) |
 | tau ship list | Alias for tau [ship container list](features/cucumber/features/ship/container/ship.container.list.feature) |
 | tau ship login | Alias for tau [ship container login](features/cucumber/features/ship/container/ship.container.login.feature) |
 | tau ship logs | Alias for tau [ship container logs](features/cucumber/features/ship/container/ship.container.logs.feature) |
 | tau ship ls | Alias for tau [ship container list](features/cucumber/features/ship/container/ship.container.list.feature) |
+| tau ship name | Alias for tau [ship container list](features/cucumber/features/ship/container/ship.container.name.feature) |
 | tau ship podman [COMMAND] | Alias for tau [ship container podman](features/cucumber/features/ship/container/ship.container.podman.feature) |
 | tau ship sail [PROJECT] | Alias for tau [ship project start](features/cucumber/features/ship/project/ship.project.start.feature) |
 | tau ship restart [PROJECT] | Alias for tau [ship project restart](features/cucumber/features/ship/project/ship.project.restart.feature) |
@@ -173,7 +178,7 @@ or *tau commands*:
 
 *takelage-cli* uses three different YAML configuration files and environment variables which have different precedences.
 They are merged to an active configuration during runtime
-which can be inspected with 
+which can be inspected with
 *tau [self config active](features/cucumber/features/self/self.config.active.feature)*
 or *tau config*.
 
@@ -197,7 +202,7 @@ The project directory is identified by the first match:
 ### Configuration Examples
 
 - You should add the following configuration items in your *~/.takelage.yml*
-if you want to use the *takelbeta* docker image channel:
+  if you want to use the *takelbeta* docker image channel:
 
 ```yaml
 ---
@@ -205,7 +210,7 @@ docker_repo: takelbeta
 ```
 
 - If you want to pin a specific docker tag for one of your projects
-then create an *takelage.yml* file with:
+  then create an *takelage.yml* file with:
 
 ```yaml
 ---
@@ -213,18 +218,18 @@ docker_tag: '1.2.3'
 ```
 
 - The cucumber tests make use of an *~/.takelage.yml*
-to overwrite defaults like:
+  to overwrite defaults like:
 
 ```yaml
 ---
 docker_repo: takelage-mock
 ```
 
-- You may prefer to interact with 
-[mercurial](https://github.com/takelwerk/takelage-doc/blob/main/doc/tau/hg.md)
-through `tau hg`
-in a different branch than `main` in one project so you may add
-to your *takelage.yml*:
+- You may prefer to interact with
+  [mercurial](https://github.com/takelwerk/takelage-doc/blob/main/doc/tau/hg.md)
+  through `tau hg`
+  in a different branch than `main` in one project so you may add
+  to your *takelage.yml*:
 
 
 ```yaml
@@ -232,7 +237,7 @@ to your *takelage.yml*:
 git_hg_repo: my_git_hg_branch
 ```
 
-Furthermore, 
+Furthermore,
 [every external command](https://github.com/takelwerk/takelage-cli/blob/main/lib/takeltau/default.yml)
 can be reconfigured.
 
@@ -241,7 +246,7 @@ can be reconfigured.
 *tau* reads two different YAML project files
 which have different precedences.
 They are merged to an active configuration during runtime
-which can be inspected with 
+which can be inspected with
 *tau [info project active](features/cucumber/features/info/info.project.active.feature)*
 or *tau project*.
 
@@ -263,19 +268,19 @@ source <(tau completion bash)
 *takelage-cli* uses
 [minitest](https://github.com/seattlerb/minitest) unit tests.
 
-*takelage-cli* ships with 
+*takelage-cli* ships with
 [cucumber](https://github.com/cucumber/cucumber) ruby system tests.
-It uses cucumber's 
+It uses cucumber's
 [aruba](https://github.com/cucumber/aruba) extension and especially its
 [filesystem](https://relishapp.com/cucumber/aruba/v/0-11-0/docs/filesystem)
 library.
 
 *takelage-cli* [deploys](https://docs.docker.com/registry/deploying/)
-a private docker 
+a private docker
 [registry](https://hub.docker.com/_/registry)
 to conduct end-to-end tests of *tau docker* commands.
-The registry exposes port 5005. 
-You need to whitelist it in your host's docker engine configuration: 
+The registry exposes port 5005.
+You need to whitelist it in your host's docker engine configuration:
 
 ```json
 {
