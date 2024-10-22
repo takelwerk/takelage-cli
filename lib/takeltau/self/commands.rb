@@ -4,7 +4,7 @@
 module SelfCommands
   # Backend method for config self commands.
   def self_commands
-    _manipulate_output_(_get_thor_list_)
+    _manipulate_output_ _get_thor_list_
   end
 
   private

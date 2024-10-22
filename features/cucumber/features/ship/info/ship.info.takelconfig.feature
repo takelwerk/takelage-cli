@@ -15,10 +15,10 @@ Feature: I can print the takelage config
       """
     And I get the active takeltau config
 
-  Scenario: Get can read the takelage config
+  Scenario: I can read the takelage config
     When I successfully run `unbuffer ship-cli info takelconfig`
     Then the output should contain "ship_name: takelship-mock"
 
-  Scenario: Get can overwrite a takelage config value with an environment variable
+  Scenario: I can overwrite a takelage config value with an environment variable
     When I successfully run `env TAKELAGE_TAU_CONFIG_SHIP_NAME=mockship unbuffer ship-cli info takelconfig`
     Then the output should contain "ship_name: mockship"

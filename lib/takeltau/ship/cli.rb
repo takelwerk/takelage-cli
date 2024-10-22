@@ -25,7 +25,7 @@ module Takeltau
     desc 'info [COMMAND]', 'Get info about takelship containers'
     subcommand 'info', ShipInfo
 
-    desc 'ports [COMMAND]', 'Manage takelship portss'
+    desc 'ports [COMMAND]', 'Manage takelship ports'
     subcommand 'ports', ShipPorts
 
     desc 'project [COMMAND]', 'Manage takelship projects'
