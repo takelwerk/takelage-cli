@@ -127,6 +127,11 @@ module Takeltau
     # @return [String] bash completion code
     attr_reader :bash_fylla
 
+    option :debug,
+           aliases: 'd',
+           type: :boolean,
+           default: false,
+           desc: 'Alias for --loglevel=debug'
     option :loglevel,
            aliases: 'l',
            default: 'INFO',
@@ -141,7 +146,7 @@ module Takeltau
       super
 
       # Initialize global singleton log
-      initialize_logging options[:loglevel].to_s.upcase
+      initialize_logging options[:loglevel].to_s.upcase, options[:debug]
 
       # Initialize global singleton config
       initialize_config options[:workdir]

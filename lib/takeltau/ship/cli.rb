@@ -2,7 +2,6 @@
 
 module Takeltau
   # tau ship
-  # rubocop:disable Metrics/ClassLength
   class Ship < SubCommandBase
     include LoggingModule
     include SystemModule
@@ -187,5 +186,4 @@ module Takeltau
       Takeltau::ShipContainer.new.update
     end
   end
-  # rubocop:enable Metrics/ClassLength
 end

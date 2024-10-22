@@ -14,8 +14,9 @@ module LoggingModule
   end
 
   # Initialize logger with loglevel.
-  def initialize_logging(loglevel)
+  def initialize_logging(loglevel, debug)
     TakeltauLogger.instance.logger.formatter = _logging_get_log_format
+    loglevel = 'DEBUG' if debug
     log_level_in_use = _logging_get_log_level loglevel
     TakeltauLogger.instance.logger.level = log_level_in_use
     TakeltauLogger.instance.logger.debug "Using loglevel #{log_level_in_use}"

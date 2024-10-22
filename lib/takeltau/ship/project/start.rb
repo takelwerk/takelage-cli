@@ -54,7 +54,7 @@ module ShipProjectStart
   # print banner with status information
   def _ship_project_start_print_banner(project)
     ship_hostname = _ship_container_lib_ship_hostname
-    ship_dir =_docker_container_lib_homify_dir config.active['project_root_dir']
+    ship_dir = _docker_container_lib_homify_dir config.active['project_root_dir']
     say "The takelship #{ship_hostname}"
     say "departed from #{ship_dir}"
     say "ships project #{project}"
