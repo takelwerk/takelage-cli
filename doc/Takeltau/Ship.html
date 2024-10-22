@@ -111,7 +111,7 @@
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
     
-<p>tau ship rubocop:disable Metrics/ClassLength</p>
+<p>tau ship</p>
 
 
   </div>
@@ -177,6 +177,30 @@
   
     <span class="summary_desc"><div class='inline'>
 <p>ship command: <span class='object_link'><a href="ShipContainer.html#command-instance_method" title="Takeltau::ShipContainer#command (method)">Takeltau::ShipContainer#command</a></span>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#docker-instance_method" title="#docker (instance method)">#<strong>docker</strong>(*args)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>ship docker: <span class='object_link'><a href="ShipContainer.html#podman-instance_method" title="Takeltau::ShipContainer#podman (method)">Takeltau::ShipContainer#podman</a></span>.</p>
 </div></span>
   
 </li>
@@ -584,16 +608,16 @@
       <pre class="lines">
 
 
+11
 12
 13
 14
 15
 16
-17
-18</pre>
+17</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/takeltau/ship/cli.rb', line 12</span>
+      <pre class="code"><span class="info file"># File 'lib/takeltau/ship/cli.rb', line 11</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_args'>args</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='id identifier rubyid_local_options'>local_options</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='id identifier rubyid_configuration'>configuration</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='comment'># initialize thor parent class
@@ -640,12 +664,12 @@
       <pre class="lines">
 
 
+44
 45
-46
-47</pre>
+46</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/takeltau/ship/cli.rb', line 45</span>
+      <pre class="code"><span class="info file"># File 'lib/takeltau/ship/cli.rb', line 44</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_board'>board</span>
   <span class='const'><span class='object_link'><a href="../Takeltau.html" title="Takeltau (module)">Takeltau</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="ShipContainer.html" title="Takeltau::ShipContainer (class)">ShipContainer</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='period'>.</span><span class='id identifier rubyid_login'><span class='object_link'><a href="ShipContainer.html#login-instance_method" title="Takeltau::ShipContainer#login (method)">login</a></span></span>
@@ -681,15 +705,56 @@
       <pre class="lines">
 
 
+54
 55
-56
-57</pre>
+56</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/takeltau/ship/cli.rb', line 55</span>
+      <pre class="code"><span class="info file"># File 'lib/takeltau/ship/cli.rb', line 54</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_command'>command</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
   <span class='const'><span class='object_link'><a href="../Takeltau.html" title="Takeltau (module)">Takeltau</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="ShipContainer.html" title="Takeltau::ShipContainer (class)">ShipContainer</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='period'>.</span><span class='id identifier rubyid_command'><span class='object_link'><a href="ShipContainer.html#command-instance_method" title="Takeltau::ShipContainer#command (method)">command</a></span></span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="docker-instance_method">
+  
+    #<strong>docker</strong>(*args)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>ship docker: <span class='object_link'><a href="ShipContainer.html#podman-instance_method" title="Takeltau::ShipContainer#podman (method)">Takeltau::ShipContainer#podman</a></span></p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+64
+65
+66</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/takeltau/ship/cli.rb', line 64</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_docker'>docker</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
+  <span class='const'><span class='object_link'><a href="../Takeltau.html" title="Takeltau (module)">Takeltau</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="ShipContainer.html" title="Takeltau::ShipContainer (class)">ShipContainer</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='period'>.</span><span class='id identifier rubyid_podman'><span class='object_link'><a href="ShipContainer.html#podman-instance_method" title="Takeltau::ShipContainer#podman (method)">podman</a></span></span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -722,12 +787,12 @@
       <pre class="lines">
 
 
-65
-66
-67</pre>
+74
+75
+76</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/takeltau/ship/cli.rb', line 65</span>
+      <pre class="code"><span class="info file"># File 'lib/takeltau/ship/cli.rb', line 74</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_list'>list</span>
   <span class='const'><span class='object_link'><a href="../Takeltau.html" title="Takeltau (module)">Takeltau</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="ShipContainer.html" title="Takeltau::ShipContainer (class)">ShipContainer</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='period'>.</span><span class='id identifier rubyid_list'><span class='object_link'><a href="ShipContainer.html#list-instance_method" title="Takeltau::ShipContainer#list (method)">list</a></span></span>
@@ -763,12 +828,12 @@
       <pre class="lines">
 
 
-75
-76
-77</pre>
+84
+85
+86</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/takeltau/ship/cli.rb', line 75</span>
+      <pre class="code"><span class="info file"># File 'lib/takeltau/ship/cli.rb', line 84</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_login'>login</span>
   <span class='const'><span class='object_link'><a href="../Takeltau.html" title="Takeltau (module)">Takeltau</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="ShipContainer.html" title="Takeltau::ShipContainer (class)">ShipContainer</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='period'>.</span><span class='id identifier rubyid_login'><span class='object_link'><a href="ShipContainer.html#login-instance_method" title="Takeltau::ShipContainer#login (method)">login</a></span></span>
@@ -804,12 +869,12 @@
       <pre class="lines">
 
 
-85
-86
-87</pre>
+94
+95
+96</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/takeltau/ship/cli.rb', line 85</span>
+      <pre class="code"><span class="info file"># File 'lib/takeltau/ship/cli.rb', line 94</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_logs'>logs</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
   <span class='const'><span class='object_link'><a href="../Takeltau.html" title="Takeltau (module)">Takeltau</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="ShipContainer.html" title="Takeltau::ShipContainer (class)">ShipContainer</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='period'>.</span><span class='id identifier rubyid_logs'><span class='object_link'><a href="ShipContainer.html#logs-instance_method" title="Takeltau::ShipContainer#logs (method)">logs</a></span></span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
@@ -845,12 +910,12 @@
       <pre class="lines">
 
 
-95
-96
-97</pre>
+104
+105
+106</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/takeltau/ship/cli.rb', line 95</span>
+      <pre class="code"><span class="info file"># File 'lib/takeltau/ship/cli.rb', line 104</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_ls'>ls</span>
   <span class='const'><span class='object_link'><a href="../Takeltau.html" title="Takeltau (module)">Takeltau</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="ShipContainer.html" title="Takeltau::ShipContainer (class)">ShipContainer</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='period'>.</span><span class='id identifier rubyid_list'><span class='object_link'><a href="ShipContainer.html#list-instance_method" title="Takeltau::ShipContainer#list (method)">list</a></span></span>
@@ -886,12 +951,12 @@
       <pre class="lines">
 
 
-105
-106
-107</pre>
+114
+115
+116</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/takeltau/ship/cli.rb', line 105</span>
+      <pre class="code"><span class="info file"># File 'lib/takeltau/ship/cli.rb', line 114</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_podman'>podman</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
   <span class='const'><span class='object_link'><a href="../Takeltau.html" title="Takeltau (module)">Takeltau</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="ShipContainer.html" title="Takeltau::ShipContainer (class)">ShipContainer</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='period'>.</span><span class='id identifier rubyid_podman'><span class='object_link'><a href="ShipContainer.html#podman-instance_method" title="Takeltau::ShipContainer#podman (method)">podman</a></span></span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
@@ -927,12 +992,12 @@
       <pre class="lines">
 
 
-116
-117
-118</pre>
+125
+126
+127</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/takeltau/ship/cli.rb', line 116</span>
+      <pre class="code"><span class="info file"># File 'lib/takeltau/ship/cli.rb', line 125</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_restart'>restart</span><span class='lparen'>(</span><span class='id identifier rubyid_project'>project</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>default</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
   <span class='const'><span class='object_link'><a href="../Takeltau.html" title="Takeltau (module)">Takeltau</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="ShipProject.html" title="Takeltau::ShipProject (class)">ShipProject</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='period'>.</span><span class='id identifier rubyid_restart'><span class='object_link'><a href="ShipProject.html#restart-instance_method" title="Takeltau::ShipProject#restart (method)">restart</a></span></span> <span class='id identifier rubyid_project'>project</span>
@@ -968,12 +1033,12 @@
       <pre class="lines">
 
 
-146
-147
-148</pre>
+155
+156
+157</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/takeltau/ship/cli.rb', line 146</span>
+      <pre class="code"><span class="info file"># File 'lib/takeltau/ship/cli.rb', line 155</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_sail'>sail</span><span class='lparen'>(</span><span class='id identifier rubyid_project'>project</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>default</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
   <span class='const'><span class='object_link'><a href="../Takeltau.html" title="Takeltau (module)">Takeltau</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="ShipProject.html" title="Takeltau::ShipProject (class)">ShipProject</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='period'>.</span><span class='id identifier rubyid_start'><span class='object_link'><a href="ShipProject.html#start-instance_method" title="Takeltau::ShipProject#start (method)">start</a></span></span> <span class='id identifier rubyid_project'>project</span>
@@ -1009,12 +1074,12 @@
       <pre class="lines">
 
 
-136
-137
-138</pre>
+145
+146
+147</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/takeltau/ship/cli.rb', line 136</span>
+      <pre class="code"><span class="info file"># File 'lib/takeltau/ship/cli.rb', line 145</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_start'>start</span><span class='lparen'>(</span><span class='id identifier rubyid_project'>project</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>default</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
   <span class='const'><span class='object_link'><a href="../Takeltau.html" title="Takeltau (module)">Takeltau</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="ShipProject.html" title="Takeltau::ShipProject (class)">ShipProject</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='period'>.</span><span class='id identifier rubyid_start'><span class='object_link'><a href="ShipProject.html#start-instance_method" title="Takeltau::ShipProject#start (method)">start</a></span></span> <span class='id identifier rubyid_project'>project</span>
@@ -1050,12 +1115,12 @@
       <pre class="lines">
 
 
-156
-157
-158</pre>
+165
+166
+167</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/takeltau/ship/cli.rb', line 156</span>
+      <pre class="code"><span class="info file"># File 'lib/takeltau/ship/cli.rb', line 165</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_stop'>stop</span>
   <span class='const'><span class='object_link'><a href="../Takeltau.html" title="Takeltau (module)">Takeltau</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="ShipProject.html" title="Takeltau::ShipProject (class)">ShipProject</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='period'>.</span><span class='id identifier rubyid_stop'><span class='object_link'><a href="ShipProject.html#stop-instance_method" title="Takeltau::ShipProject#stop (method)">stop</a></span></span>
@@ -1091,12 +1156,12 @@
       <pre class="lines">
 
 
-126
-127
-128</pre>
+135
+136
+137</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/takeltau/ship/cli.rb', line 126</span>
+      <pre class="code"><span class="info file"># File 'lib/takeltau/ship/cli.rb', line 135</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_sudo'>sudo</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
   <span class='const'><span class='object_link'><a href="../Takeltau.html" title="Takeltau (module)">Takeltau</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="ShipContainer.html" title="Takeltau::ShipContainer (class)">ShipContainer</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='period'>.</span><span class='id identifier rubyid_sudo'><span class='object_link'><a href="ShipContainer.html#sudo-instance_method" title="Takeltau::ShipContainer#sudo (method)">sudo</a></span></span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
@@ -1132,12 +1197,12 @@
       <pre class="lines">
 
 
-176
-177
-178</pre>
+185
+186
+187</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/takeltau/ship/cli.rb', line 176</span>
+      <pre class="code"><span class="info file"># File 'lib/takeltau/ship/cli.rb', line 185</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_update'>update</span>
   <span class='const'><span class='object_link'><a href="../Takeltau.html" title="Takeltau (module)">Takeltau</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="ShipContainer.html" title="Takeltau::ShipContainer (class)">ShipContainer</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='period'>.</span><span class='id identifier rubyid_update'><span class='object_link'><a href="ShipContainer.html#update-instance_method" title="Takeltau::ShipContainer#update (method)">update</a></span></span>
@@ -1173,12 +1238,12 @@
       <pre class="lines">
 
 
-166
-167
-168</pre>
+175
+176
+177</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/takeltau/ship/cli.rb', line 166</span>
+      <pre class="code"><span class="info file"># File 'lib/takeltau/ship/cli.rb', line 175</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_wreck'>wreck</span>
   <span class='const'><span class='object_link'><a href="../Takeltau.html" title="Takeltau (module)">Takeltau</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="ShipProject.html" title="Takeltau::ShipProject (class)">ShipProject</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='period'>.</span><span class='id identifier rubyid_stop'><span class='object_link'><a href="ShipProject.html#stop-instance_method" title="Takeltau::ShipProject#stop (method)">stop</a></span></span>
