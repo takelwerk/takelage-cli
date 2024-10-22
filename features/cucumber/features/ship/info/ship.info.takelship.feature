@@ -4,7 +4,7 @@
 
 @before_build_mock_images
 @after_stop_mock_container
-@announce-output
+
 Feature: I can get info about a takelship container
 
   Background:
@@ -35,6 +35,6 @@ Feature: I can get info about a takelship container
       """
 
   Scenario: Get info about a takelship container
-    Given I successfully run `unbuffer ship-cli project start -l debug`
+    Given I successfully run `unbuffer ship-cli project start`
     When I successfully run `unbuffer ship-cli info takelship`
     Then the output should contain "name: mockship"
