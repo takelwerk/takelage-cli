@@ -45,7 +45,17 @@ module Takeltau
       Takeltau::ShipContainer.new.login
     end
 
-    desc 'command [COMMAND]', 'Run a [COMMAND] in a takelship'
+    desc 'clean', 'Stop all takelships'
+    long_desc <<-LONGDESC.gsub("\n", "\x5")
+    Stop all takelship containers.
+    Alias for ship container clean.
+    LONGDESC
+    # ship clean: {Takeltau::ShipProject#clean}
+    def clean
+      Takeltau::ShipProject.new.clean
+    end
+
+    desc 'command [CMD]', 'Run a bash command in a takelship'
     long_desc <<-LONGDESC.gsub("\n", "\x5")
     Run a command in a takelship container as user podman.
     Alias for ship container command.
@@ -55,7 +65,7 @@ module Takeltau
       Takeltau::ShipContainer.new.command(*args)
     end
 
-    desc 'docker [COMMAND]', 'Run a podman [COMMAND] in a takelship'
+    desc 'docker [CMD]', 'Run a podman command in a takelship'
     long_desc <<-LONGDESC.gsub("\n", "\x5")
     Run a podman command as user podman in a takelship container.
     Alias for ship container podman.
@@ -105,7 +115,7 @@ module Takeltau
       Takeltau::ShipContainer.new.list
     end
 
-    desc 'podman [COMMAND]', 'Run a podman [COMMAND] in a takelship'
+    desc 'podman [CMD]', 'Run a podman command in a takelship'
     long_desc <<-LONGDESC.gsub("\n", "\x5")
     Run a podman command as user podman in a takelship container.
     Alias for ship container podman.
@@ -126,7 +136,7 @@ module Takeltau
       Takeltau::ShipProject.new.restart project
     end
 
-    desc 'sudo [COMMAND]', 'Run a sudo [COMMAND] in a takelship'
+    desc 'sudo [CMD]', 'Run a sudo command in a takelship'
     long_desc <<-LONGDESC.gsub("\n", "\x5")
     Run a command as root in a takelship container.
     Alias for ship container sudo.
