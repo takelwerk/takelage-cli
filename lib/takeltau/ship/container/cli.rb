@@ -37,7 +37,7 @@ module Takeltau
     #
     # ship container command
     #
-    desc 'command [COMMAND]', 'Run a [COMMAND] in a takelship container'
+    desc 'command [CMD]', 'Run a bash command in a takelship container'
     long_desc <<-LONGDESC.gsub("\n", "\x5")
     Run a command in a takelship container as user podman.
     LONGDESC
@@ -96,7 +96,7 @@ module Takeltau
     #
     # ship container podman
     #
-    desc 'podman [COMMAND]', 'Run a podman [COMMAND] in a takelship'
+    desc 'podman [CMD]', 'Run a podman command in a takelship'
     long_desc <<-LONGDESC.gsub("\n", "\x5")
     Run a podman command as user podman in a takelship container.
     LONGDESC
@@ -120,7 +120,7 @@ module Takeltau
     #
     # ship container sudo
     #
-    desc 'sudo [COMMAND]', 'Run a sudo [COMMAND] in a takelship'
+    desc 'sudo [CMD]', 'Run a sudo command in a takelship'
     long_desc <<-LONGDESC.gsub("\n", "\x5")
     Run a command as root in a takelship container.
     LONGDESC
