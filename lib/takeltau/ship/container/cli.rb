@@ -83,7 +83,7 @@ module Takeltau
     #
     # ship container logs
     #
-    desc 'logs [OPTIONS]', 'Print the takelship logs'
+    desc 'logs [ARGS]', 'Print the takelship logs'
     long_desc <<-LONGDESC.gsub("\n", "\x5")
     Print the takelship logs.
     Accepts docker logs options.

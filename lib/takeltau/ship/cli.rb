@@ -52,7 +52,7 @@ module Takeltau
     LONGDESC
     # ship clean: {Takeltau::ShipProject#clean}
     def clean
-      Takeltau::ShipProject.new.clean
+      Takeltau::ShipContainer.new.clean
     end
 
     desc 'command [CMD]', 'Run a bash command in a takelship'
@@ -95,7 +95,7 @@ module Takeltau
       Takeltau::ShipContainer.new.login
     end
 
-    desc 'logs [OPTIONS]', 'Print the takelship logs'
+    desc 'logs [ARGS]', 'Print the takelship logs'
     long_desc <<-LONGDESC.gsub("\n", "\x5")
     Print the takelship logs.
     Alias for ship container logs.

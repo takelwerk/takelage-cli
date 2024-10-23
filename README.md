@@ -127,7 +127,7 @@ or *tau commands*:
 | tau [ship container list](features/cucumber/features/ship/container/ship.container.list.feature) | List takelships |
 | tau [ship container hostname](features/cucumber/features/ship/container/ship.container.hostname.feature) | Print takelship hostname |
 | tau [ship container login](features/cucumber/features/ship/container/ship.container.login.feature) | Log in to a takelship |
-| tau [ship container logs](features/cucumber/features/ship/container/ship.container.logs.feature) | Print the takelship logs |
+| tau [ship container logs](features/cucumber/features/ship/container/ship.container.logs.feature) [ARGS] | Print the takelship logs |
 | tau [ship container name](features/cucumber/features/ship/container/ship.container.name.feature) | Print the takelship name |
 | tau [ship container podman](features/cucumber/features/ship/container/ship.container.podman.feature) [CMD] | Run a podman command in a takelship |
 | tau [ship container shipdir](features/cucumber/features/ship/container/ship.container.shipdir.feature) | Print takelship shipdir |
@@ -148,7 +148,7 @@ or *tau commands*:
 | tau ship docker [CMD] | Alias for tau [ship container podman](features/cucumber/features/ship/container/ship.container.podman.feature) |
 | tau ship list | Alias for tau [ship container list](features/cucumber/features/ship/container/ship.container.list.feature) |
 | tau ship login | Alias for tau [ship container login](features/cucumber/features/ship/container/ship.container.login.feature) |
-| tau ship logs | Alias for tau [ship container logs](features/cucumber/features/ship/container/ship.container.logs.feature) |
+| tau ship logs [ARGS] | Alias for tau [ship container logs](features/cucumber/features/ship/container/ship.container.logs.feature) |
 | tau ship ls | Alias for tau [ship container list](features/cucumber/features/ship/container/ship.container.list.feature) |
 | tau ship name | Alias for tau [ship container list](features/cucumber/features/ship/container/ship.container.name.feature) |
 | tau ship podman [CMD] | Alias for tau [ship container podman](features/cucumber/features/ship/container/ship.container.podman.feature) |

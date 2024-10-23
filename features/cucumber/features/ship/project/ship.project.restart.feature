@@ -40,7 +40,7 @@ Feature: I can restart a takelship project
     And I successfully run `unbuffer ship-cli project start`
     And the output should contain:
       """
-      localhost:54321 [forgejo-server http] (my_description)
+      localhost:54321 [forgejo-server http]     (my_description)
       """
     And the docker container "takelship_xeciz-vigoc" exists
     Given a file named "takelage.yml" with:
@@ -65,6 +65,6 @@ Feature: I can restart a takelship project
       """
     And the output should contain:
       """
-      localhost:12345 [forgejo-server http] (my_description)
+      localhost:54321 [forgejo-server http]     (my_description)
       """
     And the docker container "takelship_xeciz-vigoc" exists

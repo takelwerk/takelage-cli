@@ -6,7 +6,8 @@ module ShipPortsLib
 
   # get the ports of a takelship
   def _ship_ports_lib_get_ports(takelship, takelproject)
-    ports = _ship_ports_lib_get_ports_docker(takelship)
+    ports = _ship_ports_lib_get_port_docker(takelship)
+    ports = ports.merge _ship_ports_lib_get_port_takelship_registry
     takelship['projects'].each do |project|
       next unless project['name'] == takelproject
 
@@ -15,7 +16,8 @@ module ShipPortsLib
 
         service['ports'].each do |port|
           key = _ship_ports_lib_generate_key port, service
-          ports[key] = _ship_ports_lib_get_port key, port, service
+          port = _ship_ports_lib_get_port key, port, service
+          ports = ports.merge port
         end
       end
     end
@@ -45,19 +47,32 @@ module ShipPortsLib
   end
 
   # map the podman socket port (aka "DOCKER_HOST")
-  # returns a hash unlike the get_port method
-  def _ship_ports_lib_get_ports_docker(takelship)
+  def _ship_ports_lib_get_port_docker(takelship)
     takel_docker = takelship['docker_host']
-    docker_key = "ship_ports_docker_takelship_registry_docker_#{takel_docker}"
+    docker_key = "ship_ports_docker_host_docker_#{takel_docker}"
     local_docker = _ship_ports_lib_get_localhost_port docker_key, takel_docker
     docker_host = "DOCKER_HOST=tcp://localhost:#{local_docker}"
     {
       docker_key => {
-        'service' => 'takelship-registry',
+        'service' => 'docker-host',
         'protocol' => 'docker',
         'takelship' => takel_docker.to_i,
         'localhost' => local_docker,
         'description' => docker_host
+      }
+    }
+  end
+
+  # map the internal registry port
+  def _ship_ports_lib_get_port_takelship_registry
+    registry_key = "ship_ports_takelship_registry_http_5555"
+    registry_port = _ship_ports_lib_get_localhost_port(registry_key, 35_555)
+    {
+      registry_key => {
+        'service' => 'takelship-registry',
+        'protocol' => 'http',
+        'takelship' => 5555,
+        'localhost' => registry_port.to_i
       }
     }
   end
@@ -67,19 +82,23 @@ module ShipPortsLib
     localhost = _ship_ports_lib_get_localhost_port key, port['port']
     unless port.key?('description')
       return {
-        'service' => service['name'],
-        'protocol' => port['protocol'],
-        'takelship' => port['port'],
-        'localhost' => localhost
+        key => {
+          'service' => service['name'],
+          'protocol' => port['protocol'],
+          'takelship' => port['port'],
+          'localhost' => localhost
+        }
       }
     end
 
     {
-      'service' => service['name'],
-      'protocol' => port['protocol'],
-      'takelship' => port['port'],
-      'localhost' => localhost,
-      'description' => port['description']
+      key => {
+        'service' => service['name'],
+        'protocol' => port['protocol'],
+        'takelship' => port['port'],
+        'localhost' => localhost,
+        'description' => port['description']
+      }
     }
   end
 
