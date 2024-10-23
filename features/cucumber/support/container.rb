@@ -31,6 +31,7 @@ end
 def _stop_mock_container_takelship
   _stop_container 'takelship_xeciz-vigoc'
   _stop_container 'takelship_xepeb-niruc'
+  _stop_container 'takelship-mock_xerof-nezym'
 end
 
 def _stop_container(container)
