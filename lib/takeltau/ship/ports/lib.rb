@@ -65,7 +65,7 @@ module ShipPortsLib
 
   # map the internal registry port
   def _ship_ports_lib_get_port_takelship_registry
-    registry_key = "ship_ports_takelship_registry_http_5555"
+    registry_key = 'ship_ports_takelship_registry_http_5555'
     registry_port = _ship_ports_lib_get_localhost_port(registry_key, 35_555)
     {
       registry_key => {
