@@ -11,7 +11,7 @@ cmd_features_cucumber = 'cucumber features/cucumber ' \
 namespace :features do
   desc 'Run cucumber behavior tests'
   task :cucumber, :tags do |_, args|
-    tags = args[:tags] ? "--tags #{args[:tags]}" : ''
+    tags = args[:tags] ? "--tags '#{args[:tags]}'" : ''
     @commands << "#{cmd_features_cucumber} #{tags}"
   end
 end
