@@ -123,16 +123,16 @@ or *tau commands*:
 | tau [ship completion bash](features/cucumber/features/ship/completion/completion.bash.feature) | Print bash completion code for ship subcommand |
 | tau [ship container check existing](features/cucumber/features/ship/container/ship.container.check.existing.feature) | Check if a takelship is existing |
 | tau [ship container clean](features/cucumber/features/ship/container/ship.container.clean.feature) | Stop all takelships |
-| tau [ship container command](features/cucumber/features/ship/container/ship.container.command.feature) [COMMAND] | Run a [COMMAND] in a takelship container |
+| tau [ship container command](features/cucumber/features/ship/container/ship.container.command.feature) [CMD] | Run a bash command in a takelship container |
 | tau [ship container list](features/cucumber/features/ship/container/ship.container.list.feature) | List takelships |
 | tau [ship container hostname](features/cucumber/features/ship/container/ship.container.hostname.feature) | Print takelship hostname |
 | tau [ship container login](features/cucumber/features/ship/container/ship.container.login.feature) | Log in to a takelship |
 | tau [ship container logs](features/cucumber/features/ship/container/ship.container.logs.feature) | Print the takelship logs |
 | tau [ship container name](features/cucumber/features/ship/container/ship.container.name.feature) | Print the takelship name |
-| tau [ship container podman](features/cucumber/features/ship/container/ship.container.podman.feature) [COMMAND] | Run a podman [COMMAND] in a takelship |
+| tau [ship container podman](features/cucumber/features/ship/container/ship.container.podman.feature) [CMD] | Run a podman command in a takelship |
 | tau [ship container shipdir](features/cucumber/features/ship/container/ship.container.shipdir.feature) | Print takelship shipdir |
 | tau [ship container stop](features/cucumber/features/ship/container/ship.container.stop.feature) | Stop a takelship |
-| tau [ship container sudo](features/cucumber/features/ship/container/ship.container.sudo.feature) [COMMAND] | Run a sudo [COMMAND] in a takelship |
+| tau [ship container sudo](features/cucumber/features/ship/container/ship.container.sudo.feature) [CMD] | Run a sudo command in a takelship |
 | tau [ship container update](features/cucumber/features/ship/container/ship.container.update.feature) | Update takelship image |
 | tau [ship info takelconfig](features/cucumber/features/ship/info/ship.info.takelconfig.feature) | Print takelage config |
 | tau [ship info takelship](features/cucumber/features/ship/info/ship.info.takelship.feature) | Print takelship info |
@@ -143,19 +143,20 @@ or *tau commands*:
 | tau [ship project stop](features/cucumber/features/ship/project/ship.project.stop.feature) | Stop a takelship project |
 | tau [ship project update](features/cucumber/features/ship/project/ship.project.create.feature) [PROJECT] | Update a takelship [PROJECT] |
 | tau ship board | Alias for tau [ship container login](features/cucumber/features/ship/container/ship.container.login.feature) |
-| tau ship command [COMMAND] | Alias for tau [ship container command](features/cucumber/features/ship/container/ship.container.command.feature) |
-| tau ship docker [COMMAND] | Alias for tau [ship container podman](features/cucumber/features/ship/container/ship.container.podman.feature) |
+| tau ship clean | Alias for tau [ship container clean](features/cucumber/features/ship/container/ship.container.clean.feature) |
+| tau ship command [CMD] | Alias for tau [ship container command](features/cucumber/features/ship/container/ship.container.command.feature) |
+| tau ship docker [CMD] | Alias for tau [ship container podman](features/cucumber/features/ship/container/ship.container.podman.feature) |
 | tau ship list | Alias for tau [ship container list](features/cucumber/features/ship/container/ship.container.list.feature) |
 | tau ship login | Alias for tau [ship container login](features/cucumber/features/ship/container/ship.container.login.feature) |
 | tau ship logs | Alias for tau [ship container logs](features/cucumber/features/ship/container/ship.container.logs.feature) |
 | tau ship ls | Alias for tau [ship container list](features/cucumber/features/ship/container/ship.container.list.feature) |
 | tau ship name | Alias for tau [ship container list](features/cucumber/features/ship/container/ship.container.name.feature) |
-| tau ship podman [COMMAND] | Alias for tau [ship container podman](features/cucumber/features/ship/container/ship.container.podman.feature) |
+| tau ship podman [CMD] | Alias for tau [ship container podman](features/cucumber/features/ship/container/ship.container.podman.feature) |
 | tau ship sail [PROJECT] | Alias for tau [ship project start](features/cucumber/features/ship/project/ship.project.start.feature) |
 | tau ship restart [PROJECT] | Alias for tau [ship project restart](features/cucumber/features/ship/project/ship.project.restart.feature) |
 | tau ship start [PROJECT] | Alias for tau [ship project start](features/cucumber/features/ship/project/ship.project.start.feature) |
 | tau ship stop | Alias for tau [ship project stop](features/cucumber/features/ship/project/ship.project.stop.feature) |
-| tau ship sudo [COMMAND] | Alias for tau [ship container sudo](features/cucumber/features/ship/container/ship.container.sudo.feature) |
+| tau ship sudo [CMD] | Alias for tau [ship container sudo](features/cucumber/features/ship/container/ship.container.sudo.feature) |
 | tau ship wreck | Alias for tau [ship project stop](features/cucumber/features/ship/project/ship.project.stop.feature) |
 | tau ship update | Alias for tau [ship container update](features/cucumber/features/ship/container/ship.container.update.feature) |
 | tau clean | Alias for tau [docker container clean](features/cucumber/features/docker/docker.container.clean.feature) |
@@ -284,8 +285,8 @@ You need to whitelist it in your host's docker engine configuration:
 
 ```json
 {
-"insecure-registries": [
-"host.docker.internal:5005"
-]
+  "insecure-registries": [
+    "host.docker.internal:5005"
+  ]
 }
 ```
