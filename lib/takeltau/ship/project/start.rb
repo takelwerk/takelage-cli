@@ -54,7 +54,7 @@ module ShipProjectStart
   end
 
   # check if the ship started successfully
-  def _ship_container_lib_started? ship_status
+  def _ship_container_lib_started?(ship_status)
     return true if ship_status[2].zero?
 
     say 'Unable to start the takelship. The error message was:'
