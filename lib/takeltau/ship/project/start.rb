@@ -21,6 +21,7 @@ module ShipProjectStart
     return false unless _ship_container_lib_started? ship_status
 
     _ship_project_start_print_banner project
+    say
     _ship_project_start_print_ports ports
     true
   end
@@ -40,6 +41,8 @@ module ShipProjectStart
     return false unless ship_container_check_existing
 
     _ship_project_start_print_banner project
+    say 'and is already sailing'
+    say
     _ship_project_start_print_ports ports
     true
   end
@@ -69,7 +72,6 @@ module ShipProjectStart
     say "The takelship #{ship_hostname}"
     say "departed from #{ship_dir}"
     say "ships project #{project}"
-    say
   end
 
   # print ports after starting a takelship

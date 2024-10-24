@@ -21,7 +21,7 @@ module ShipContainerLib
   # Run privileged docker command
   # rubocop:disable Metrics/AbcSize
   def _ship_container_lib_docker_privileged(ports, command, args: '', ship_hostname_suffix: nil, publish_ports: true)
-    suffix = "-#{ship_hostname_suffix}" unless ship_hostname_suffix.nil?
+    suffix = "_#{ship_hostname_suffix}" unless ship_hostname_suffix.nil?
     ship_hostname = "#{_ship_container_lib_ship_hostname}#{suffix}"
     args_privileged = config.active['ship_run_args_privileged']
     args = "#{args} #{args_privileged}" if args_privileged
