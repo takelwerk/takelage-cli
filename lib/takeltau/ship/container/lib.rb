@@ -31,6 +31,10 @@ module ShipContainerLib
       envstr = "--env #{envvar}=#{port['localhost']}"
       ship_env << envstr
     end
+    p ENV['TAKELSHIP_UPDATE']
+    update = '--env TAKELSHIP_UPDATE=true'
+    update = "--env TAKELSHIP_UPDATE=#{ENV['TAKELSHIP_UPDATE']}" if ENV.key?('TAKELSHIP_UPDATE')
+    ship_env << update
     ports = _ship_container_lib_publish(ports)
     cmd_docker_run_command = format(
       config.active['cmd_ship_project_start_docker_run_privileged'],

@@ -27,7 +27,7 @@ module Takeltau
     It will neither run the [PROJECT] in a takelship nor create service data.
     LONGDESC
     def create(project = 'default')
-      say ship_project_create project
+      exit ship_project_create project
     end
 
     #
@@ -87,7 +87,7 @@ module Takeltau
     It will neither run the [PROJECT] in a takelship nor touch the service data.
     LONGDESC
     def update(project = 'default')
-      say ship_project_create project, 'Updated'
+      exit ship_project_create project, 'Updated'
     end
   end
 end

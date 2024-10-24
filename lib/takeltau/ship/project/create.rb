@@ -15,7 +15,11 @@ module ShipProjectCreate
     args = []
     args << "--volume #{project_root_dir}/#{ship_data_dir}:/home/podman/takelship"
     args << '--env TAKELSHIP_DUMP=true'
-    _ship_container_lib_docker_privileged ports, project, args.join(' ')
-    "#{verb} takelship project \"#{project}\"."
+
+    ship_status = _ship_container_lib_docker_privileged ports, project, args.join(' ')
+    return false unless _ship_container_lib_started? ship_status
+
+    say "#{verb} takelship project \"#{project}\"."
+    true
   end
 end
