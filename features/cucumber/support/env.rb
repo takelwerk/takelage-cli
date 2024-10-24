@@ -12,6 +12,6 @@ image_before_all
 # AfterAll hook
 at_exit do
   image_after_all
-  takelage_container_after_all
-  takelship_container_after_all
+  stop_mock_container
+  stop_mock_takelship_container
 end

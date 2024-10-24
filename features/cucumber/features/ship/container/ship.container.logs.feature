@@ -3,7 +3,7 @@
 @ship.container.logs
 
 @before_build_mock_images
-@after_stop_mock_container
+@after_stop_mock_takelship_container
 
 Feature: I can print the logs of a takelship container
 

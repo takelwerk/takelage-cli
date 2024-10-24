@@ -3,7 +3,7 @@
 @ship.container.stop
 
 @before_build_mock_images
-@after_stop_mock_container
+@after_stop_mock_takelship_container
 
 Feature: I can stop a takelship container
 

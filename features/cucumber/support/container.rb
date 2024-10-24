@@ -1,13 +1,13 @@
 # frozen_string_literal: true
 
-def takelage_container_after_all
-  stop_mock_container
-end
-
 def stop_mock_container
   _stop_mock_container_cucumber
   _stop_mock_container_finite
   _stop_mock_container_infinite
+end
+
+def stop_mock_takelship_container
+  _stop_mock_container_cucumber
   _stop_mock_container_takelship
 end
 
@@ -30,6 +30,7 @@ end
 
 def _stop_mock_container_takelship
   _stop_container 'takelship_xeciz-vigoc'
+  _stop_container 'takelship_xeciz-vigoc-dump'
   _stop_container 'takelship_xepeb-niruc'
   _stop_container 'takelship-mock_xerof-nezym'
 end
