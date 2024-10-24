@@ -26,43 +26,43 @@ private
 
 def _copy_home_config
   cmd_copy_home_config = "bash -c '" \
-    "mkdir -p #{aruba.config.home_directory} && " \
-    'test -f /hostdir/.takelage.yml && ' \
-    'cp /hostdir/.takelage.yml ' \
-    "#{aruba.config.home_directory}/.takelage.yml" \
-    "'"
+                         "mkdir -p #{aruba.config.home_directory} && " \
+                         'test -f /hostdir/.takelage.yml && ' \
+                         'cp /hostdir/.takelage.yml ' \
+                         "#{aruba.config.home_directory}/.takelage.yml" \
+                         "'"
   system cmd_copy_home_config
 end
 
 def _copy_gopass_gpg_tar_gz
   cmd_copy_gopass_gpg_tar_gz = "bash -c '" \
-    'cp features/cucumber/support/fixtures/gopass-gpg/gopass-gpg.tar.gz ' \
-    "#{aruba.config.home_directory}" \
-    "'"
+                               'cp features/cucumber/support/fixtures/gopass-gpg/gopass-gpg.tar.gz ' \
+                               "#{aruba.config.home_directory}" \
+                               "'"
   system cmd_copy_gopass_gpg_tar_gz
 end
 
 def _tar_extract_gopass_gpg_tar_gz
   cmd_tar_extract_gopass_gpg_tar_gz = "bash -c '" \
-    "cd #{aruba.config.home_directory} && " \
-    'tar xvfz gopass-gpg.tar.gz ' \
-    '&> /dev/null' \
-    "'"
+                                      "cd #{aruba.config.home_directory} && " \
+                                      'tar xvfz gopass-gpg.tar.gz ' \
+                                      '&> /dev/null' \
+                                      "'"
   system cmd_tar_extract_gopass_gpg_tar_gz
 end
 
 def _create_git_config
   cmd_create_git_config = "bash -c '" \
-    'echo -e "[user]\n	name = Cucumber\n	email = cucumber@example.net" > ' \
-    "#{aruba.config.home_directory}/.gitconfig " \
-    "'"
+                          'echo -e "[user]\n	name = Cucumber\n	email = cucumber@example.net" > ' \
+                          "#{aruba.config.home_directory}/.gitconfig " \
+                          "'"
   system cmd_create_git_config
 end
 
 def _create_hg_config
   cmd_create_hg_config = "bash -c '" \
-    'echo -e "[ui]\nusername = Cucumber <cucumber@example.com>" > ' \
-    "#{aruba.config.home_directory}/.hgrc " \
-    "'"
+                         'echo -e "[ui]\nusername = Cucumber <cucumber@example.com>" > ' \
+                         "#{aruba.config.home_directory}/.hgrc " \
+                         "'"
   system cmd_create_hg_config
 end
