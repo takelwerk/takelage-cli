@@ -17,7 +17,9 @@ module ShipProjectStart
     _ship_ports_lib_write_ports(ports, project)
 
     log.debug "Starting takelship project \"#{project}\""
-    _ship_container_lib_docker_privileged ports, project
+    ship_status = _ship_container_lib_docker_privileged ports, project
+    return false unless _ship_container_lib_started? ship_status
+
     _ship_project_start_print_banner project
     _ship_project_start_print_ports ports
     true
@@ -48,6 +50,15 @@ module ShipProjectStart
 
     say 'No valid project found!'
     say 'Try: ship project list'
+    false
+  end
+
+  # check if the ship started successfully
+  def _ship_container_lib_started? ship_status
+    return true if ship_status[2].zero?
+
+    say 'Unable to start the takelship. The error message was:'
+    say ship_status[1].to_s.strip.delete_prefix('"').delete_suffix('"')
     false
   end
 

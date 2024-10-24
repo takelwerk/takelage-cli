@@ -44,7 +44,7 @@ module ShipContainerLib
       image: _ship_container_lib_image,
       command: command
     )
-    run cmd_docker_run_command
+    run_and_capture cmd_docker_run_command
   end
 
   # rubocop:enable Metrics/MethodLength
