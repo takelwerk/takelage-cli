@@ -35,11 +35,12 @@ Feature: I can create takelship projects
       """
 
   Scenario: Create a takelship project
-    Given I successfully run `unbuffer ship-cli project start`
+    Given I successfully run `unbuffer ship-cli clean`
     When I successfully run `unbuffer ship-cli project create`
     Then the output should contain "Created takelship project \"forgejo\"."
 
   Scenario: Update a takelship project
-    Given I successfully run `unbuffer ship-cli project start`
+    Given I successfully run `unbuffer ship-cli clean`
+    When I successfully run `unbuffer ship-cli project start`
     When I successfully run `unbuffer ship-cli project update`
     Then the output should contain "Updated takelship project \"forgejo\"."

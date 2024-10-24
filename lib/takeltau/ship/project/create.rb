@@ -10,13 +10,13 @@ module ShipProjectCreate
 
     log.debug "Dumping takelship project \"#{project}\""
     ports = _ship_ports_lib_get_ports(takelship, project)
-    project_root_dir = config.active['project_root_dir']
-    ship_data_dir = config.active['ship_data_dir']
-    args = []
-    args << "--volume #{project_root_dir}/#{ship_data_dir}:/home/podman/takelship"
-    args << '--env TAKELSHIP_DUMP=true'
 
-    ship_status = _ship_container_lib_docker_privileged ports, project, args.join(' ')
+    ship_status = _ship_container_lib_docker_privileged(
+      ports,
+      project,
+      ship_hostname_suffix: 'dump',
+      publish_ports: false
+    )
     return false unless _ship_container_lib_started? ship_status
 
     say "#{verb} takelship project \"#{project}\"."

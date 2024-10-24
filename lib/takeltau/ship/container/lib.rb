@@ -21,25 +21,19 @@ module ShipContainerLib
   # Run privileged docker command
   # rubocop:disable Metrics/AbcSize
   # rubocop:disable Metrics/MethodLength
-  def _ship_container_lib_docker_privileged(ports, command, args = '')
+  def _ship_container_lib_docker_privileged(ports, command, args: '', ship_hostname_suffix: nil, publish_ports: true)
+    suffix = "-#{ship_hostname_suffix}" unless ship_hostname_suffix.nil?
+    ship_hostname = "#{_ship_container_lib_ship_hostname}#{suffix}"
     args_privileged = config.active['ship_run_args_privileged']
-    args = "#{args} #{args_privileged}" if config.active['ship_run_args_privileged']
+    args = "#{args} #{args_privileged}" if args_privileged
+    ship_env = _ship_container_lib_ship_env ports
+    ports = _ship_container_lib_publish(ports, publish_ports)
     ship_data_dir = config.active['ship_data_dir']
-    ship_env = [config.active['ship_env']]
-    ports.each do |key, port|
-      envvar = "TAKELSHIP_#{key}".upcase
-      envstr = "--env #{envvar}=#{port['localhost']}"
-      ship_env << envstr
-    end
-    update = '--env TAKELSHIP_UPDATE=true'
-    update = "--env TAKELSHIP_UPDATE=#{ENV['TAKELSHIP_UPDATE']}" if ENV.key?('TAKELSHIP_UPDATE')
-    ship_env << update
-    ports = _ship_container_lib_publish(ports)
     cmd_docker_run_command = format(
       config.active['cmd_ship_project_start_docker_run_privileged'],
       ship_docker: config.active['cmd_ship_docker'],
-      ship_hostname: _ship_container_lib_ship_hostname,
-      ship_env: ship_env.join(' '),
+      ship_hostname: ship_hostname,
+      ship_env: ship_env,
       ports: ports,
       project_root_dir: config.active['project_root_dir'],
       ship_data_dir: ship_data_dir,
@@ -87,8 +81,24 @@ module ShipContainerLib
     )
   end
 
+  # Create ship environment string
+  def _ship_container_lib_ship_env(ports)
+    ship_env = [config.active['ship_env']]
+    ports.each do |key, port|
+      envvar = "TAKELSHIP_#{key}".upcase
+      envstr = "--env #{envvar}=#{port['localhost']}"
+      ship_env << envstr
+    end
+    update = '--env TAKELSHIP_UPDATE=true'
+    update = "--env TAKELSHIP_UPDATE=#{ENV['TAKELSHIP_UPDATE']}" if ENV.key?('TAKELSHIP_UPDATE')
+    ship_env << update
+    ship_env.join(' ')
+  end
+
   # Create publish ports string
-  def _ship_container_lib_publish(ports)
+  def _ship_container_lib_publish(ports, publish_ports)
+    return '' unless publish_ports
+
     publish = []
     ports.each do |port|
       shipport = port[1]['takelship'].to_s
