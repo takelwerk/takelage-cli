@@ -52,6 +52,13 @@ module Takeltau
     # ship restart: {Takeltau::ShipProject#restart}
     def restart(project = 'default')
       Takeltau::ShipProject.new.stop
+      begin
+        seconds = Integer(config.active['ship_restart_sleep_seconds'])
+      rescue ArgumentError
+        seconds = 2
+      end
+      log.debug "Sleeping for #{seconds} seconds"
+      sleep seconds
       Takeltau::ShipProject.new.start project
     end
 
