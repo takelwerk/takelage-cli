@@ -88,6 +88,7 @@ module ShipContainerLib
       ship_env << envstr
     end
     update = '--env TAKELSHIP_UPDATE=true'
+    update = '--env TAKELSHIP_UPDATE=false' if config.active['ship_update'] == 'false'
     update = "--env TAKELSHIP_UPDATE=#{ENV['TAKELSHIP_UPDATE']}" if ENV.key?('TAKELSHIP_UPDATE')
     ship_env << update
     ship_env.join(' ')
