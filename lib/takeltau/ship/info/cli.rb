@@ -36,5 +36,18 @@ module Takeltau
     def takelship
       say _ship_info_lib_get_takelshipinfo.to_yaml
     end
+
+    #
+    # ship info version
+    #
+    desc 'version', 'Print ship version'
+    long_desc <<-LONGDESC.gsub("\n", "\x5")
+    Print ship semantic version number.
+    LONGDESC
+    def version
+      say VERSION
+      true
+    end
+
   end
 end

@@ -119,6 +119,7 @@ or *tau commands*:
 | tau [self config default](features/cucumber/features/self/self.config.default.feature) | Print takelage default configuration |
 | tau [self config home](features/cucumber/features/self/self.config.home.feature) | Print takelage home config file configuration |
 | tau [self config project](features/cucumber/features/self/self.config.project.feature) | Print takelage project config file configuration |
+| tau [self config envvars](features/cucumber/features/self/self.config.envvars.feature) | Print env vars takeltau configuration |
 | tau [self version](features/cucumber/features/self/self.version.feature) | Print tau semantic version number |
 | tau [ship completion bash](features/cucumber/features/ship/completion/completion.bash.feature) | Print bash completion code for ship subcommand |
 | tau [ship container check existing](features/cucumber/features/ship/container/ship.container.check.existing.feature) | Check if a takelship is existing |
@@ -136,6 +137,7 @@ or *tau commands*:
 | tau [ship container update](features/cucumber/features/ship/container/ship.container.update.feature) | Update takelship image |
 | tau [ship info takelconfig](features/cucumber/features/ship/info/ship.info.takelconfig.feature) | Print takelage config |
 | tau [ship info takelship](features/cucumber/features/ship/info/ship.info.takelship.feature) | Print takelship info |
+| tau [ship info version](features/cucumber/features/ship/info/ship.info.version.feature) | Print ship version |
 | tau [ship project create](features/cucumber/features/ship/project/ship.project.create.feature) [PROJECT] | Create a takelship [PROJECT] |
 | tau [ship project list](features/cucumber/features/ship/project/ship.project.list.feature) | List takelship projects |
 | tau [ship project restart](features/cucumber/features/ship/project/ship.project.restart.feature) [PROJECT] | Restart a takelship [PROJECT] |
@@ -159,6 +161,7 @@ or *tau commands*:
 | tau ship sudo [CMD] | Alias for tau [ship container sudo](features/cucumber/features/ship/container/ship.container.sudo.feature) |
 | tau ship wreck | Alias for tau [ship project stop](features/cucumber/features/ship/project/ship.project.stop.feature) |
 | tau ship update | Alias for tau [ship container update](features/cucumber/features/ship/container/ship.container.update.feature) |
+| tau ship version | Alias for tau [ship info version](features/cucumber/features/ship/container/ship.info.version.feature) |
 | tau clean | Alias for tau [docker container clean](features/cucumber/features/docker/docker.container.clean.feature) |
 | tau commands | Alias for tau [self commands](features/cucumber/features/self/self.commands.feature) |
 | tau config | Alias for tau [self config active](features/cucumber/features/self/self.config.active.feature) |
@@ -195,10 +198,10 @@ The project directory is identified by the first match:
 
 | Method | Precedence | Description |
 |-|-|-|
-| `--workdir`/`-w` command line option | ultimate |
-| `TAKELAGE_WORKDIR` environment variable | highest |
-| Main [`Rakefile`](Rakefile) | normal |
 | Current working directory | lowest |
+| Main [`Rakefile`](Rakefile) | normal |
+| `TAKELAGE_WORKDIR` environment variable | highest |
+| `--workdir`/`-w` command line option | ultimate |
 
 ### Configuration Examples
 

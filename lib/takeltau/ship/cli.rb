@@ -176,6 +176,15 @@ module Takeltau
       Takeltau::ShipProject.new.stop
     end
 
+    desc 'version', 'Print ship version'
+    long_desc <<-LONGDESC.gsub("\n", "\x5")
+    Print ship semantic version number.
+    Alias for ship info version.
+    LONGDESC
+    def version
+      Takeltau::ShipInfo.new.version
+    end
+
     desc 'wreck', 'Stop a takelship'
     long_desc <<-LONGDESC.gsub("\n", "\x5")
     Stop a takelship container.

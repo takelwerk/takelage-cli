@@ -20,11 +20,27 @@ module Takeltau
 
     tau self config defaults > ~/.takelage.yml
     LONGDESC
-    # Print takeltau default configuration.
     def default
       config_default_yaml = hash_to_yaml(config.default)
       exit false if config_default_yaml == false
       say config_default_yaml
+      true
+    end
+
+    #
+    # config active
+    #
+    desc 'active', 'Print active takeltau configuration'
+    long_desc <<-LONGDESC.gsub("\n", "\x5")
+    Print active takeltau configuration
+    This command will print the configuration read from the takeltau
+    configuration file (which is by default ~/.takeltau.yml).
+    LONGDESC
+    # Print active takeltau configuration.
+    def active
+      config_active_yaml = hash_to_yaml(config.active)
+      exit false if config_active_yaml == false
+      say config_active_yaml
       true
     end
 
@@ -76,23 +92,6 @@ module Takeltau
       config_envvars_yaml = hash_to_yaml(config.envvars)
       exit false if config_envvars_yaml == false
       say config_envvars_yaml
-      true
-    end
-
-    #
-    # config active
-    #
-    desc 'active', 'Print active takeltau configuration'
-    long_desc <<-LONGDESC.gsub("\n", "\x5")
-    Print active takeltau configuration
-    This command will print the configuration read from the takeltau
-    configuration file (which is by default ~/.takeltau.yml).
-    LONGDESC
-    # Print active takeltau configuration.
-    def active
-      config_active_yaml = hash_to_yaml(config.active)
-      exit false if config_active_yaml == false
-      say config_active_yaml
       true
     end
   end
