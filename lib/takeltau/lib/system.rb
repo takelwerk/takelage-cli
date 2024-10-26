@@ -5,7 +5,6 @@ require 'open3'
 require 'yaml'
 
 # Interaction with the operating system
-# rubocop:disable Metrics/ModuleLength
 module SystemModule
   # Check if a command is available else log error message
   # @return [Boolean] is the command available?
@@ -228,4 +227,3 @@ module SystemModule
     plural
   end
 end
-# rubocop:enable Metrics/ModuleLength

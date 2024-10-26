@@ -48,6 +48,5 @@ module Takeltau
       say VERSION
       true
     end
-
   end
 end
