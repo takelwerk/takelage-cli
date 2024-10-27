@@ -87,11 +87,30 @@ module ShipContainerLib
       envstr = "--env #{envvar}=#{port['localhost']}"
       ship_env << envstr
     end
-    update = '--env TAKELSHIP_UPDATE=true'
-    update = '--env TAKELSHIP_UPDATE=false' if config.active['ship_update'] == 'false'
-    update = "--env TAKELSHIP_UPDATE=#{ENV['TAKELSHIP_UPDATE']}" if ENV.key?('TAKELSHIP_UPDATE')
-    ship_env << update
+    ship_env << _ship_container_lib_takelship_update
     ship_env.join(' ')
+  end
+
+  # add env parameter with update configuration
+  def _ship_container_lib_takelship_update
+    update_true = '--env TAKELSHIP_UPDATE=true'
+    update_false = '--env TAKELSHIP_UPDATE=false'
+    log.debug 'Will update by default'
+    update = update_true
+    unless config.active['ship_update']
+      log.debug "Won't update as config key 'ship_update' is 'false'"
+      update = update_false
+    end
+    if ENV.key?('TAKELSHIP_UPDATE')
+      if ENV['TAKELSHIP_UPDATE']
+        log.debug "Will update as env var 'TAKELSHIP_UPDATE' is 'true'"
+        update = update_true
+      else
+        log.debug "Won't update as env var 'TAKELSHIP_UPDATE' is 'false'"
+        update = update_false
+      end
+    end
+    update
   end
 
   # Create publish ports string
