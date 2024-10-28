@@ -95,9 +95,6 @@ module SystemModule
 
   # Use Kernel#exec to replace the ruby process with a command.
   def run_and_exit(command)
-    trap 'SIGINT' do
-      exit
-    end
     Dir.chdir(config.active['project_root_dir']) do
       log.debug "Running command \"#{command}\" and exiting afterwards"
       exec command
