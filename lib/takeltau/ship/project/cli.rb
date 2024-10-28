@@ -44,7 +44,7 @@ module Takeltau
     #
     # ship project restart
     #
-    desc 'restart [PROJECT]', 'Restart takelship [PROJECT]'
+    desc 'restart [PROJECT]', 'Restart a takelship [PROJECT]'
     long_desc <<-LONGDESC.gsub("\n", "\x5")
     Restart a takelship and run the project [PROJECT] in it.
     Alias for ship project stop and ship project start.

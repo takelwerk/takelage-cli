@@ -125,7 +125,7 @@ module Takeltau
       Takeltau::ShipContainer.new.podman(*args)
     end
 
-    desc 'restart [PROJECT]', 'Restart takelship [PROJECT]'
+    desc 'restart [PROJECT]', 'Restart a takelship [PROJECT]'
     long_desc <<-LONGDESC.gsub("\n", "\x5")
     Restart a takelship and run project [PROJECT] in it.
     Alias for ship project restart which is an
@@ -146,7 +146,7 @@ module Takeltau
       Takeltau::ShipContainer.new.sudo(*args)
     end
 
-    desc 'start [PROJECT]', 'Start takelship [PROJECT]'
+    desc 'start [PROJECT]', 'Start a takelship [PROJECT]'
     long_desc <<-LONGDESC.gsub("\n", "\x5")
     Start a takelship and run project [PROJECT] in it.
     Alias for ship project start.
@@ -156,7 +156,7 @@ module Takeltau
       Takeltau::ShipProject.new.start project
     end
 
-    desc 'sail [PROJECT]', 'Start takelship [PROJECT]'
+    desc 'sail [PROJECT]', 'Start a takelship [PROJECT]'
     long_desc <<-LONGDESC.gsub("\n", "\x5")
     Start a takelship and run project [PROJECT] in it.
     Alias for ship project start.
