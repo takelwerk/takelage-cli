@@ -65,7 +65,7 @@ module Takeltau
     #
     # ship project start
     #
-    desc 'start [PROJECT]', 'Start takelship [PROJECT]'
+    desc 'start [PROJECT]', 'Start a takelship [PROJECT]'
     long_desc <<-LONGDESC.gsub("\n", "\x5")
     Start a takelship and run project [PROJECT] in it.
     LONGDESC
