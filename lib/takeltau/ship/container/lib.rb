@@ -6,8 +6,7 @@ module ShipContainerLib
 
   # Run nonprivileged docker command
   def _ship_container_lib_docker_nonprivileged(command, args = '')
-    args_nonprivileged = config.active['ship_run_args_nonprivileged']
-    args = "#{args} #{args_nonprivileged}" if config.active['ship_run_args_nonprivileged']
+    args = _ship_container_lib_ship_args args, config.active['ship_run_args_nonprivileged']
     cmd_docker_run_command = format(
       config.active['cmd_ship_project_start_docker_run_nonprivileged'],
       ship_docker: config.active['cmd_ship_docker'],
@@ -23,8 +22,7 @@ module ShipContainerLib
   def _ship_container_lib_docker_privileged(ports, command, args: '', ship_hostname_suffix: nil, publish_ports: true)
     suffix = "_#{ship_hostname_suffix}" unless ship_hostname_suffix.nil?
     ship_hostname = "#{_ship_container_lib_ship_hostname}#{suffix}"
-    args_privileged = config.active['ship_run_args_privileged']
-    args = "#{args} #{args_privileged}" if args_privileged
+    args = _ship_container_lib_ship_args args, config.active['ship_run_args_privileged']
     ship_env = _ship_container_lib_ship_env ports
     ports = _ship_container_lib_publish(ports, publish_ports)
     ship_data_dir = config.active['ship_data_dir']
@@ -55,6 +53,14 @@ module ShipContainerLib
       command: command
     )
     run_and_exit cmd_docker_run_command
+  end
+
+  # Return privileged args
+  def _ship_container_lib_ship_args(args, config_args)
+    args = "#{args} #{config_args}" if config_args
+    args_debug = '--env TAKELSHIP_DEBUG=true'
+    args = "#{args} #{args_debug}" if log.level == Logger::DEBUG
+    args
   end
 
   # Return takelship image
@@ -148,7 +154,7 @@ module ShipContainerLib
   def _ship_container_lib_get_mounted_dir
     ship_hostname = _ship_container_lib_ship_hostname
     log.debug 'Getting mounted directory from ' \
-              "takelship container \"#{ship_hostname}\""
+                "takelship container \"#{ship_hostname}\""
 
     cmd_get_mounted_dir = format(
       config.active['cmd_docker_container_get_mounted_dir'],
