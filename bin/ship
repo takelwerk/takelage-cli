@@ -1,4 +1,9 @@
 #!/usr/bin/env ruby
 # frozen_string_literal: true
 
+# Catch Ctrl-c
+trap('INT') do
+  exit
+end
+
 system "TAKELAGE_TAU_TAU=#{$PROGRAM_NAME} TAKELAGE_TAU_SHIP=true tau ship #{ARGV.join(' ')}"
