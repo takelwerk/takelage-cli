@@ -172,7 +172,7 @@ module SystemModule
     true
   end
 
-  # Read yaml file.
+  # Read file.
   def _file_read(file)
     begin
       @content_file = File.read File.expand_path(file)
@@ -213,8 +213,7 @@ module SystemModule
     begin
       content = YAML.safe_load content_yaml
     rescue Psych::SyntaxError
-      log.debug "Invalid YAML file \"#{file}\""
-      log.debug "Try: yamllint #{file}"
+      log.debug "Invalid YAML"
       return false
     end
     content
