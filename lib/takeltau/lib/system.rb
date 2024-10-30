@@ -213,7 +213,7 @@ module SystemModule
     begin
       content = YAML.safe_load content_yaml
     rescue Psych::SyntaxError
-      log.debug "Invalid YAML"
+      log.debug 'Invalid YAML'
       return false
     end
     content
