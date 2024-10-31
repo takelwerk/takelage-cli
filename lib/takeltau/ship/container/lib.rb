@@ -60,6 +60,8 @@ module ShipContainerLib
     args = "#{args} #{config_args}" if config_args
     args_debug = '--env TAKELSHIP_DEBUG=true'
     args = "#{args} #{args_debug}" if log.level == Logger::DEBUG
+    args_sync = '--env TAKELSHIP_IMAGES_SYNC=false'
+    args = "#{args} #{args_sync}" unless config.active['ship_images_sync']
     args
   end
 

@@ -76,8 +76,15 @@ module ShipProjectStart
 
   # print ports after starting a takelship
   def _ship_project_start_print_ports(ports)
-    output = []
     max_length = _ship_project_start_get_maxlength ports
+    ports_list = _ship_project_start_get_ports_list ports, max_length
+    ports_list.sort_by! { |port| port[:port] }
+    say ports_list.map { |port| port[:string] }.join("\n")
+  end
+
+  # get a sortable list of port numbers and strings describing the ports
+  def _ship_project_start_get_ports_list(ports, max_length)
+    ports_list = []
     ports.each_value do |port|
       next unless port['localhost'].to_i.between? 1, 65_535
 
@@ -85,9 +92,12 @@ module ShipProjectStart
       service = "[#{port['service']} #{port['protocol']}]"
       description = port['description']
       description = " (#{description})" if port.key? 'description'
-      output << "#{url.ljust(max_length['url'])} #{service.ljust(max_length['service'])}#{description}"
+      ports_list << {
+        port: port['localhost'].to_i,
+        string: "#{url.ljust(max_length['url'])} #{service.ljust(max_length['service'])}#{description}"
+      }
     end
-    say output.join("\n")
+    ports_list
   end
 
   # get max length of left column
