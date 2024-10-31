@@ -41,7 +41,7 @@ module ShipProjectStart
     return false unless ship_container_check_existing
 
     _ship_project_start_print_banner project
-    say 'and is already sailing'
+    say 'is already sailing'
     say
     _ship_project_start_print_ports ports
     true
