@@ -80,6 +80,7 @@ module ShipProjectStart
     ports_list = _ship_project_start_get_ports_list ports, max_length
     ports_list.sort_by! { |port| port[:port] }
     say ports_list.map { |port| port[:string] }.join("\n")
+    say
   end
 
   # get a sortable list of port numbers and strings describing the ports
