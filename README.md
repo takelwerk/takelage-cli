@@ -267,6 +267,12 @@ Add this to your [bash startup files](https://www.gnu.org/software/bash/manual/h
 source <(tau completion bash)
 ```
 
+and/or
+
+```bash
+source <(ship completion bash)
+```
+
 ### Software Tests
 
 *takelage-cli* uses
