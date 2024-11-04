@@ -175,14 +175,13 @@
 </tbody>
 </table>
 
-<p>The tau command line tool is directory-aware so it is important that you can set the working directory of the tau command. The project directory is identified by the first match:</p>
+<p>The tau command line tool is directory-aware so it is important that you can set the working directory of the tau command. The project directory is identified by precedence:</p>
 
 <table role="table">
 <thead>
 <tr>
 <th>Method</th>
 <th>Precedence</th>
-<th>Description</th>
 </tr>
 </thead>
 <tbody>
@@ -248,6 +247,11 @@ git_hg_repo: my_git_hg_branch
 <p>Add this to your <a href="https://www.gnu.org/software/bash/manual/html_node/Bash-Startup-Files.html">bash startup files</a>:</p>
 
 <pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_source'>source</span> <span class='op'>&lt;</span><span class='lparen'>(</span><span class='id identifier rubyid_tau'>tau</span> <span class='id identifier rubyid_completion'>completion</span> <span class='id identifier rubyid_bash'>bash</span><span class='rparen'>)</span>
+</code></pre>
+
+<p>and/or</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_source'>source</span> <span class='op'>&lt;</span><span class='lparen'>(</span><span class='id identifier rubyid_ship'>ship</span> <span class='id identifier rubyid_completion'>completion</span> <span class='id identifier rubyid_bash'>bash</span><span class='rparen'>)</span>
 </code></pre>
 
 <h3 id="label-Software+Tests">Software Tests</h3>
