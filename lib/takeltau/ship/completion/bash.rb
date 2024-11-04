@@ -29,6 +29,8 @@ module ShipCompletionBash
       .split(/_tau[^_]*/)
       .grep(/_ship/)
       .grep_v(/_ship\n/)
+      .grep_v(/"--help"/)
+      .grep_v(/"-h"/)
     functions.join
   end
 end

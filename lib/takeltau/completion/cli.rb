@@ -17,7 +17,7 @@ module Takeltau
     def bash
       completion_bash = Takeltau::CLI.new.bash_fylla
       exit false if completion_bash == false
-      say completion_bash
+      say completion_bash.strip.split("\n").grep_v(/"--help"/).grep_v(/"-h"/).join("\n")
       true
     end
   end
