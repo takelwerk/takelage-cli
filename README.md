@@ -194,10 +194,10 @@ or *tau config*.
 | TAKELAGE_TAU_CONFIG_* | ultimate | Fileless configuration through TAKELAGE_TAU_CONFIG environment variables. |
 
 The tau command line tool is directory-aware so it is important that you can set the working directory of the tau command.
-The project directory is identified by the first match:
+The project directory is identified by precedence:
 
-| Method | Precedence | Description |
-|-|-|-|
+| Method | Precedence |
+|-|-|
 | Current working directory | lowest |
 | Main [`Rakefile`](Rakefile) | normal |
 | `TAKELAGE_WORKDIR` environment variable | highest |
