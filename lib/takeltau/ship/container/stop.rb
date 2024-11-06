@@ -15,7 +15,7 @@ module ShipContainerStop
     return false unless ship_container_check_existing
 
     cmd_docker_stop_command = format(
-      config.active['cmd_ship_project_start_docker_stop'],
+      config.active['cmd_ship_docker_stop'],
       ship_docker: config.active['cmd_ship_docker'],
       ship_hostname: _ship_container_lib_ship_hostname
     )
