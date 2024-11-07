@@ -184,8 +184,8 @@
 
 <span class='kw'>def</span> <span class='id identifier rubyid_ship_project_restart'>ship_project_restart</span><span class='lparen'>(</span><span class='id identifier rubyid_project'>project</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_say'>say</span> <span class='id identifier rubyid_ship_container_stop'>ship_container_stop</span>
-  <span class='id identifier rubyid__ship_project_restart_wait'>_ship_project_restart_wait</span>
-  <span class='id identifier rubyid_ship_project_start'>ship_project_start</span> <span class='id identifier rubyid_project'>project</span>
+  <span class='id identifier rubyid_sleep'>sleep</span> <span class='int'>1</span> <span class='kw'>until</span> <span class='id identifier rubyid_ship_project_start'>ship_project_start</span> <span class='id identifier rubyid_project'>project</span><span class='comma'>,</span> <span class='label'>mute:</span> <span class='kw'>true</span>
+  <span class='kw'>true</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
