@@ -15,6 +15,7 @@ module Takeltau
     include ShipPortsLib
     include ShipProjectCreate
     include ShipProjectList
+    include ShipProjectRestart
     include ShipProjectStart
 
     #
@@ -51,8 +52,7 @@ module Takeltau
     LONGDESC
     # ship restart: {Takeltau::ShipProject#restart}
     def restart(project = 'default')
-      Takeltau::ShipProject.new.stop
-      Takeltau::ShipProject.new.start project
+      exit ship_project_restart project
     end
 
     #
