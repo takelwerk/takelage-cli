@@ -17,7 +17,7 @@ module ShipProjectCreate
       ship_hostname_suffix: 'dump',
       publish_ports: false
     )
-    return false unless _ship_container_lib_started? ship_status
+    return false unless _ship_container_lib_started?(ship_status, false)
 
     say "#{verb} takelship project \"#{project}\"."
     true
