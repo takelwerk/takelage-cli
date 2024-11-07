@@ -3,7 +3,7 @@
 # tau ship project start
 module ShipProjectStart
   # Start a takelship
-  def ship_project_start(project)
+  def ship_project_start(project, mute: false)
     return false unless _ship_project_start_matrjoschka?
 
     takelship = _ship_info_lib_get_takelshipinfo
@@ -23,7 +23,7 @@ module ShipProjectStart
 
     log.debug "Starting takelship project \"#{project}\""
     ship_status = _ship_container_lib_docker_privileged ports, project
-    return false unless _ship_container_lib_started? ship_status
+    return false unless _ship_container_lib_started? ship_status, mute
 
     _ship_project_start_print_banner project
     say
@@ -62,11 +62,11 @@ module ShipProjectStart
   end
 
   # check if the ship started successfully
-  def _ship_container_lib_started?(ship_status)
+  def _ship_container_lib_started?(ship_status, mute)
     return true if ship_status[2].zero?
 
-    say 'Unable to start the takelship. The error message was:'
-    say ship_status[1].to_s.strip.delete_prefix('"').delete_suffix('"')
+    say 'Unable to start the takelship. The error message was:' unless mute
+    say ship_status[1].to_s.strip.delete_prefix('"').delete_suffix('"') unless mute
     false
   end
 
