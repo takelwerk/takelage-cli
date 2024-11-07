@@ -7,6 +7,11 @@ module ShipProjectStart
     return false unless _ship_project_start_matrjoschka?
 
     takelship = _ship_info_lib_get_takelshipinfo
+    unless takelship
+      log.debug 'Unable to gather takelship info'
+      return false
+    end
+
     project = _ship_info_lib_get_project project, takelship
     return false unless _ship_project_start_valid_project? takelship, project
 

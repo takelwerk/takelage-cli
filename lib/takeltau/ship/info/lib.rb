@@ -7,8 +7,7 @@ module ShipInfoLib
   # Gather takelship information
   def _ship_info_lib_get_takelshipinfo
     log.debug 'Gathering takelship info'
-    takelshipinfo = _ship_info_lib_get_info_from_docker if takelshipinfo.nil?
-
+    takelshipinfo = _ship_info_lib_get_info_from_docker
     return false if takelshipinfo.nil?
 
     takelshipinfo

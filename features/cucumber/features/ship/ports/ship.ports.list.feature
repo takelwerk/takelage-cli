@@ -17,8 +17,8 @@ Feature: I can list the ports of a takelship container
       ship_tag: latest
       ship_name: takelship-mock
       ship_ports_portainer_http_39000: 33333
+      cmd_ship_project_start_docker_run_nonprivileged: cat takelship/compose/takelship.yml
       """
-    And I get the active takeltau config
     And a file named "takelship/compose/takelship.yml" with:
       """
       ---
@@ -37,6 +37,7 @@ Feature: I can list the ports of a takelship container
           - port: 33000
             protocol: http
       """
+    And I get the active takeltau config
 
   Scenario: Get info about a takelship container
     Given I successfully run `unbuffer ship-cli container clean`

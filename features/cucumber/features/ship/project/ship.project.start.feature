@@ -16,8 +16,8 @@ Feature: I can start a takelship project
       ship_repo: takelship-mock
       ship_tag: latest
       ship_ports_forgejo_server_http_33000: 54321
+      cmd_ship_project_start_docker_run_nonprivileged: cat takelship/compose/takelship.yml
       """
-    And I get the active takeltau config
     And a file named "takelship/compose/takelship.yml" with:
       """
       ---
@@ -33,6 +33,7 @@ Feature: I can start a takelship project
             protocol: http
             description: my_description
       """
+    And I get the active takeltau config
 
   Scenario: Start the default project
     Given I successfully run `unbuffer ship-cli container clean`
