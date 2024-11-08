@@ -21,8 +21,6 @@ module ShipInfoLib
   end
 
   def _ship_info_lib_get_project(project, takelship)
-    return '' if takelship.nil?
-
     return '' unless takelship.instance_of?(Hash)
 
     return '' unless takelship.key? 'default_project'
