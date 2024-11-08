@@ -32,9 +32,11 @@ module ShipInfoLib
 
   def _ship_info_lib_valid_project?(takelship, project)
     valid_project = false
-    takelship_projects = takelship['projects']
-    return false if takelship_projects.nil? || takelship_projects.empty?
+    return false unless takelship.instance_of?(Hash)
 
+    return false unless takelship.key? 'projects'
+
+    takelship_projects = takelship['projects']
     takelship_projects.each do |takelship_project|
       valid_project = true if project == takelship_project['name']
     end
