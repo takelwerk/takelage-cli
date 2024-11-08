@@ -8,12 +8,14 @@ module ShipProjectList
     takelship = _ship_info_lib_get_takelshipinfo
     unless takelship.instance_of?(Hash)
       say 'Could not get takelship info'
+      say 'Try: ship update'
       say 'Try: ship list --debug'
       return false
     end
 
     unless takelship.key?('projects')
       say 'Could not get takelship projects'
+      say 'Try: ship update'
       say 'Try: ship list --debug'
       return false
     end
