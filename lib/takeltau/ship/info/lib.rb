@@ -23,6 +23,8 @@ module ShipInfoLib
   def _ship_info_lib_get_project(project, takelship)
     return '' if takelship.nil?
 
+    return '' unless takelship.class == Hash
+
     return '' unless takelship.key? 'default_project'
 
     project = config.active['ship_default_project'] if project == 'default'
