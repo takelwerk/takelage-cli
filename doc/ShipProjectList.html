@@ -178,14 +178,40 @@
 8
 9
 10
-11</pre>
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/takeltau/ship/project/list.rb', line 6</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_ship_project_list'>ship_project_list</span>
   <span class='id identifier rubyid_log'>log</span><span class='period'>.</span><span class='id identifier rubyid_debug'>debug</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>List takelship projects</span><span class='tstring_end'>&#39;</span></span>
-  <span class='id identifier rubyid__ship_info_lib_get_takelshipinfo'>_ship_info_lib_get_takelshipinfo</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>projects</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_project'>project</span><span class='op'>|</span>
+  <span class='id identifier rubyid_takelship'>takelship</span> <span class='op'>=</span> <span class='id identifier rubyid__ship_info_lib_get_takelshipinfo'>_ship_info_lib_get_takelshipinfo</span>
+  <span class='kw'>unless</span> <span class='id identifier rubyid_takelship'>takelship</span><span class='period'>.</span><span class='id identifier rubyid_instance_of?'>instance_of?</span><span class='lparen'>(</span><span class='const'>Hash</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_say'>say</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Could not get takelship info</span><span class='tstring_end'>&#39;</span></span>
+    <span class='id identifier rubyid_say'>say</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Try: ship list --debug</span><span class='tstring_end'>&#39;</span></span>
+    <span class='kw'>return</span> <span class='kw'>false</span>
+  <span class='kw'>end</span>
+
+  <span class='kw'>unless</span> <span class='id identifier rubyid_takelship'>takelship</span><span class='period'>.</span><span class='id identifier rubyid_key?'>key?</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>projects</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_say'>say</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Could not get takelship projects</span><span class='tstring_end'>&#39;</span></span>
+    <span class='id identifier rubyid_say'>say</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Try: ship list --debug</span><span class='tstring_end'>&#39;</span></span>
+    <span class='kw'>return</span> <span class='kw'>false</span>
+  <span class='kw'>end</span>
+
+  <span class='id identifier rubyid_takelship'>takelship</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>projects</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_project'>project</span><span class='op'>|</span>
     <span class='id identifier rubyid_say'>say</span> <span class='id identifier rubyid_project'>project</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>name</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
   <span class='kw'>end</span>
 <span class='kw'>end</span></pre>
