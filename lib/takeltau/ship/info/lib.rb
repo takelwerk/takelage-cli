@@ -7,10 +7,23 @@ module ShipInfoLib
   # Gather takelship information
   def _ship_info_lib_get_takelshipinfo
     log.debug 'Gathering takelship info'
-    takelshipinfo = _ship_info_lib_get_info_from_docker
-    return false if takelshipinfo.nil?
+    takelshipinfo = _ship_info_lib_get_info_from_file
+    takelshipinfo = _ship_info_lib_get_info_from_docker if takelshipinfo.empty?
+    return false unless takelshipinfo
 
     takelshipinfo
+  end
+
+  # Read takelship info from file
+  def _ship_info_lib_get_info_from_file
+    log.debug 'Reading takelship info from file'
+    ship_data_dir = config.active['ship_data_dir']
+    yaml_file = format(
+      config.active['ship_takelship_yml'],
+      pwd: Dir.getwd,
+      ship_data_dir: ship_data_dir
+    )
+    read_yaml_file(yaml_file) || {}
   end
 
   # Read takelship info from docker run
