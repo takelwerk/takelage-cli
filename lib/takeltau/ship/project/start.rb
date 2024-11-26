@@ -22,7 +22,9 @@ module ShipProjectStart
     _ship_ports_lib_write_ports(ports, project)
 
     log.debug "Starting takelship project \"#{project}\""
-    ship_status = _ship_container_lib_docker_privileged ports, project
+    args = ''
+    args = '--volume /opt/buildagent:/opt/buildagent' if project == 'teamcity'
+    ship_status = _ship_container_lib_docker_privileged ports, project, args
     return false unless _ship_container_lib_started?(ship_status, mute)
 
     _ship_project_start_print_banner project
