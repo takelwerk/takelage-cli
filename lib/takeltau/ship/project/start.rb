@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 # tau ship project start
+# rubocop:disable Metrics/AbcSize
 module ShipProjectStart
   # Start a takelship
   def ship_project_start(project, mute: false)
@@ -22,7 +23,7 @@ module ShipProjectStart
     _ship_ports_lib_write_ports(ports, project)
 
     log.debug "Starting takelship project \"#{project}\""
-    args = project == 'teamcity' ? config.active['ship_run_args_teamcity'] : ''
+    args = _ship_project_start_get_args project
     ship_status = _ship_container_lib_docker_privileged ports, project, args: args
     return false unless _ship_container_lib_started?(ship_status, mute)
 
@@ -31,6 +32,7 @@ module ShipProjectStart
     _ship_project_start_print_ports ports
     true
   end
+  # rubocop:enable Metrics/AbcSize
 
   private
 
@@ -87,6 +89,13 @@ module ShipProjectStart
     ports_list.sort_by! { |port| port[:port] }
     say ports_list.map { |port| port[:string] }.join("\n")
     say
+  end
+
+  # get additional volume arguments for the teamcity project
+  def _ship_project_start_get_args(project)
+    retrun '' if project == teamcity
+
+    config.active['ship_run_args_teamcity']
   end
 
   # get a sortable list of port numbers and strings describing the ports
