@@ -93,7 +93,7 @@ module ShipProjectStart
 
   # get additional volume arguments for the teamcity project
   def _ship_project_start_get_args(project)
-    return '' unless project == 'teamcity'
+    return '' unless %w[teamcity all].include? project
 
     config.active['ship_run_args_teamcity']
   end
