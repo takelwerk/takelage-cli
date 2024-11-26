@@ -23,7 +23,7 @@ module ShipProjectStart
 
     log.debug "Starting takelship project \"#{project}\""
     args = project == 'teamcity' ? '--volume /opt/buildagent:/opt/buildagent' : ''
-    ship_status = _ship_container_lib_docker_privileged ports, project, args
+    ship_status = _ship_container_lib_docker_privileged ports, project, args: args
     return false unless _ship_container_lib_started?(ship_status, mute)
 
     _ship_project_start_print_banner project
