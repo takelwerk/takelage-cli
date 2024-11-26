@@ -100,6 +100,7 @@ ship_podman_localhost: '127.0.0.1'
 ship_repo: 'takelship'
 ship_run_args_nonprivileged: ''
 ship_run_args_privileged: ''
+ship_run_args_teamcity: '--volume /opt/buildagent/plugins:/opt/buildagent/plugins --volume /opt/buildagent/system:/opt/buildagent/system --volume /opt/buildagent/work:/opt/buildagent/work --volume /opt/buildagent/temp:/opt/buildagent/temp --volume /opt/buildagent/tools:/opt/buildagent/tools'
 ship_tag: 'latest'
 ship_takelship_yml: '%{pwd}/%{ship_data_dir}/compose/takelship.yml'
 ship_update: true
