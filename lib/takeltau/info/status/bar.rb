@@ -57,14 +57,14 @@ module InfoStatusBar
   def _info_status_bar_git
     @status_git = info_status_git
     @bar_status &&= @status_git
-    @bar_list << ("git: #{@status_git ? 'ok'.green : 'no'.red}")
+    @bar_list << "git: #{@status_git ? 'ok'.green : 'no'.red}"
   end
 
   # Add gopass status info to bar.
   def _info_status_bar_gopass
     @status_gopass = info_status_gopass
     @bar_status &&= @status_gopass
-    @bar_list << ("gopass: #{@status_gopass ? 'ok'.green : 'no'.red}")
+    @bar_list << "gopass: #{@status_gopass ? 'ok'.green : 'no'.red}"
   end
 
   # Add gpg status info to bar.
@@ -76,28 +76,28 @@ module InfoStatusBar
 
     status_gpg = info_status_gpg
     @bar_status &&= status_gpg
-    @bar_list << ("gpg: #{status_gpg ? 'ok'.green : 'no'.red}")
+    @bar_list << "gpg: #{status_gpg ? 'ok'.green : 'no'.red}"
   end
 
   # Add git status info to bar.
   def _info_status_bar_hg
     @status_hg = info_status_hg
     @bar_status &&= @status_hg
-    @bar_list << ("hg: #{@status_hg ? 'ok'.green : 'no'.red}")
+    @bar_list << "hg: #{@status_hg ? 'ok'.green : 'no'.red}"
   end
 
   # Add mutagen status info to bar.
   def _info_status_bar_mutagen
     status_mutagen = mutagen_check_daemon
     @bar_status &&= status_mutagen
-    @bar_list << ("mutagen: #{status_mutagen ? 'ok'.green : 'no'.red}")
+    @bar_list << "mutagen: #{status_mutagen ? 'ok'.green : 'no'.red}"
   end
 
   # Add ssh status info to bar.
   def _info_status_bar_ssh
     status_ssh = info_status_ssh
     @bar_status &&= status_ssh
-    @bar_list << ("ssh: #{status_ssh ? 'ok'.green : 'no'.red}")
+    @bar_list << "ssh: #{status_ssh ? 'ok'.green : 'no'.red}"
   end
 end
 
