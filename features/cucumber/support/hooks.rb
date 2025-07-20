@@ -22,8 +22,6 @@ After '@after_stop_mock_takelship_container' do
   stop_mock_takelship_container
 end
 
-private
-
 def _copy_home_config
   cmd_copy_home_config = "bash -c '" \
                          "mkdir -p #{aruba.config.home_directory} && " \

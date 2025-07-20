@@ -11,8 +11,6 @@ def stop_mock_takelship_container
   _stop_mock_container_takelship
 end
 
-private
-
 def _stop_mock_container_cucumber
   _stop_container 'takelage-mock_cucumber_xinot-syzof'
   _stop_network 'takelage-mock_cucumber_xinot-syzof'

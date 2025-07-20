@@ -21,8 +21,6 @@ def image_after_all
   _remove_mock_takelship_image
 end
 
-private
-
 def _start_registry
   cmd_start_registry = 'docker run ' \
                        '--detach ' \

@@ -10,3 +10,5 @@ Metrics/ClassLength:
   Max: 200
 Metrics/ModuleLength:
   Max: 200
+Naming/PredicateMethod:
+  Enabled: false

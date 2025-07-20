@@ -27,8 +27,6 @@ Then 'the gpg sockets are started' do
   end
 end
 
-private
-
 def _get_agent_socket_path
   cmd_agent_socket_path =
     @config['cmd_docker_socket_config_agent_socket_path']
